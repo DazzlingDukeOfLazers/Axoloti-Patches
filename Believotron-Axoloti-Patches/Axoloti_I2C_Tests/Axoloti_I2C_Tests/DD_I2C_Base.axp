@@ -1,0 +1,226 @@
+<patch-1.0>
+   <obj type="gpio/i2c/config" sha="1ea9db31ce7ec2874d2a8315213c733a6b3c2dcf" uuid="b095a33e56de5fcd23740a7d983bc0bafb315d81" name="i2c.begin_1" x="266" y="14">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="lfo/square" sha="b4420b58ca2ae5ece53d53540bc91bc9ed7a4b83" uuid="de6909eb64db13af5b43f979a4c130024b3a4793" name="square_1" x="98" y="28">
+      <params>
+         <frac32.s.map name="pitch" value="32.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <comment type="patch/comment" x="224" y="56" text="very simple script example"/>
+   <obj type="script/script2" sha="362a4413ceaefbe716480bf8f9c62eb3587fe6c0" uuid="d39e743cf47c9221f4e99c133430148cf74c68c5" name="script2_1" x="238" y="70">
+      <params/>
+      <attribs>
+         <text attributeName="script">
+            <sText><![CDATA[int cnt = 1;
+bool gate = 1;
+uint8_t *rxbuf;
+uint8_t *txbuf;
+systime_t tmo = MS2ST(4);
+
+#define CAP1188_I2CADDR    0x29
+#define CAP1188_PRODID     0xFD
+#define CAP1188_MANUID     0xFE
+#define CAP1188_REV        0xFF
+#define CAP1188_MTBLK      0x2A
+#define CAP1188_LEDLINK    0x72
+#define CAP1188_STANDBYCFG 0x41
+#define CAP1188_SENINPUTSTATUS 0x3
+#define CAP1188_MAIN 0x00
+#define CAP1188_MAIN_INT 0x01
+#define CAP1188_LEDPOL 0x73
+
+
+void LinkTxRxBuffers(void)
+{
+	static uint8_t _txbuf[8] __attribute__ ((section (".sram2")));
+	static uint8_t _rxbuf[8] __attribute__ ((section (".sram2")));
+	txbuf = _txbuf;
+	rxbuf = _rxbuf;
+}
+
+uint8_t ReadCap1188Reg(uint8_t ui8Register)
+{
+	msg_t status = RDY_OK;
+	txbuf[0] = ui8Register;
+	status = i2cMasterTransmitTimeout(&I2CD1, CAP1188_I2CADDR, txbuf, 1, rxbuf, 1, tmo); // TBD add status checking
+	return rxbuf[0];
+}
+
+void WriteCap1188Reg(uint8_t ui8Register, uint8_t ui8Val)
+{
+	msg_t status = RDY_OK;
+	txbuf[0] = ui8Register;
+	txbuf[1] = ui8Val;
+	status = i2cMasterTransmitTimeout(&I2CD1, CAP1188_I2CADDR, txbuf, 2, rxbuf, 0, tmo); // TBD add status checking
+}
+
+uint32_t Cap1188Touched()
+{
+	uint8_t  t = ReadCap1188Reg(CAP1188_SENINPUTSTATUS);
+	uint32_t ui32KeyVal = 0;//0x55555555; 
+	if (t)
+	{
+		uint8_t ui8MainReg = ReadCap1188Reg(CAP1188_MAIN);
+		WriteCap1188Reg(CAP1188_MAIN, ui8MainReg & ~CAP1188_MAIN_INT); // I think this resets the trigger alert
+		
+	}
+
+	// t is the raw encoded value, one bit for each pin
+	// I'm not sure what the final scheme is, so I'm kludging this:
+	if      (0x01 & t) { ui32KeyVal = 0x00000000; }
+	else if (0x02 & t) { ui32KeyVal = 0x00200000; }
+	else if (0x04 & t) { ui32KeyVal = 0x00400000; }
+	else if (0x08 & t) { ui32KeyVal = 0x00600000; }
+	else if (0x10 & t) { ui32KeyVal = 0x00800000; }
+	else if (0x20 & t) { ui32KeyVal = 0x00A00000; }
+	else if (0x40 & t) { ui32KeyVal = 0x00C00000; }
+	else if (0x80 & t) { ui32KeyVal = 0x00E00000; }
+	
+	return (ui32KeyVal);
+	//return(t);
+}
+
+void setup(void) {
+	LinkTxRxBuffers();
+	
+	rxbuf[0] =0;	
+	txbuf[0] = CAP1188_PRODID;
+
+	uint8_t ui8ProdID = 0;
+	uint8_t ui8ManuID = 0;
+	uint8_t ui8Rev    = 0;
+	bool bCorrectBoard = false;
+
+	// Verify that you're talking to the correct device
+	// Read Product ID
+	ui8ProdID = ReadCap1188Reg( CAP1188_PRODID );
+	
+	// Read Manual ID
+	ui8ManuID = ReadCap1188Reg( CAP1188_MANUID );
+	
+	// Read Revision
+	ui8Rev    = ReadCap1188Reg( CAP1188_REV );
+
+	if ( (ui8ProdID == 0x50) &&
+	     (ui8ManuID == 0x5D) &&
+	     (ui8Rev    == 0x83) )
+
+	{
+		bCorrectBoard = true;
+	}
+	else 
+	{ 
+		bCorrectBoard = false;
+	}
+
+	if (bCorrectBoard)
+	{
+		// Allow Multiple touches
+		WriteCap1188Reg(CAP1188_MTBLK, 9);
+
+		// Enable LED to illuminate on touching
+		WriteCap1188Reg(CAP1188_LEDLINK, 0xFF);
+
+		// Speed up a bit (IDK)
+		WriteCap1188Reg(CAP1188_STANDBYCFG, 0x30);
+		
+	}
+
+	out2 = 4;
+
+	
+
+}
+void loop(void)
+{
+	out2 = Cap1188Touched();
+	
+	// Ramping counter
+	if (in1 && gate){
+		out1 = cnt; //send current value of counter to output 1
+		cnt += 1<<21; //increment counter
+		if (cnt > in2){ //reset to 0 when limit reached (in2 gets value from ctrl/dial p)
+			cnt=0;
+			}
+		gate = 0; //gate mechanism to trigger only on rising edge
+	}
+	if (!(in1 || gate)){
+		gate = 1;
+	}
+}]]></sText>
+         </text>
+      </attribs>
+   </obj>
+   <obj type="disp/hex" sha="e21d1bcdfadc4f2009b547d002484bede0762978" uuid="87617898f70d90033f8add921438bf0d11721fdd" name="hex_1" x="350" y="70">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/chart p" sha="d8cf970a568c1d1bd09e7b952f862b6c8d658358" uuid="58f42040a894006a5f73ed8cb8d0bd45481b28cd" name="chart_1" x="434" y="70">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/hex" sha="e21d1bcdfadc4f2009b547d002484bede0762978" uuid="87617898f70d90033f8add921438bf0d11721fdd" name="hex_2" x="350" y="126">
+      <params/>
+      <attribs/>
+   </obj>
+   <comment type="patch/comment" x="224" y="196" text="input 1 rising edge triggers counter"/>
+   <comment type="patch/comment" x="224" y="210" text="input 2 sets upper limit of counter (resets to 0 when limit reached)"/>
+   <obj type="osc/sine" sha="edec4a9d5f533ea748cd564ce8c69673dd78742f" uuid="6e094045cca76a9dbf7ebfa72e44e4700d2b3ba" name="sine_1" x="168" y="238">
+      <params>
+         <frac32.s.map name="pitch" value="0.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="math/*c" sha="a73a2cafcf92eb4b6524655dcee98a569d5ddc28" uuid="7a66f52a9594e7e9eb31328ea725cb3641a80b55" name="*c_1" x="266" y="238">
+      <params>
+         <frac32.u.map name="amp" value="12.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="audio/out left" sha="63a81542ba731f54cb620e2404adb2dd7b742c1e" uuid="b11a3c09b2fdd575ea8212f2ce7743d5269253b1" name="out_1" x="364" y="238">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="audio/out right" sha="dbc48d941904b6914bc54f7b80fcd592eaad4853" uuid="e58a4cbbb087052c5480366e3f5d3a04aa319777" name="out_2" x="364" y="294">
+      <params/>
+      <attribs/>
+   </obj>
+   <nets>
+      <net>
+         <source obj="square_1" outlet="wave"/>
+         <dest obj="script2_1" inlet="in1_"/>
+      </net>
+      <net>
+         <source obj="script2_1" outlet="out1_"/>
+         <dest obj="hex_1" inlet="in"/>
+         <dest obj="chart_1" inlet="in"/>
+      </net>
+      <net>
+         <source obj="sine_1" outlet="wave"/>
+         <dest obj="*c_1" inlet="in"/>
+      </net>
+      <net>
+         <source obj="*c_1" outlet="out"/>
+         <dest obj="out_1" inlet="wave"/>
+         <dest obj="out_2" inlet="wave"/>
+      </net>
+      <net>
+         <source obj="script2_1" outlet="out2_"/>
+         <dest obj="hex_2" inlet="in"/>
+         <dest obj="sine_1" inlet="pitch"/>
+      </net>
+   </nets>
+   <settings>
+      <subpatchmode>no</subpatchmode>
+   </settings>
+   <notes><![CDATA[]]></notes>
+   <windowPos>
+      <x>567</x>
+      <y>8</y>
+      <width>626</width>
+      <height>607</height>
+   </windowPos>
+</patch-1.0>

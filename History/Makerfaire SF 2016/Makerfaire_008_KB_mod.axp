@@ -1,0 +1,591 @@
+<patch-1.0 appVersion="1.0.10">
+   <obj type="gpio/i2c/config" sha="1ea9db31ce7ec2874d2a8315213c733a6b3c2dcf" uuid="b095a33e56de5fcd23740a7d983bc0bafb315d81" name="i2c.begin_1" x="56" y="28">
+      <params/>
+      <attribs/>
+   </obj>
+   <comment type="patch/comment" x="168" y="28" text="very simple script example"/>
+   <obj type="gpio/spi/config" sha="62af644b09e7f654b36d66533da8ea5971ddb351" uuid="d3e75d8a02e2ccabbbc2af3bc2fcdb8ea65a6133" name="config_1" x="546" y="28">
+      <params/>
+      <attribs>
+         <combo attributeName="clock_polarity" selection="CPOL=0"/>
+         <combo attributeName="clock_phase" selection="CPHA=0"/>
+         <combo attributeName="baudrate" selection="FPCLK/64"/>
+         <combo attributeName="format" selection="LSB first"/>
+      </attribs>
+   </obj>
+   <obj type="disp/hex" sha="e21d1bcdfadc4f2009b547d002484bede0762978" uuid="87617898f70d90033f8add921438bf0d11721fdd" name="hex_1" x="308" y="42">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="script/script2" sha="362a4413ceaefbe716480bf8f9c62eb3587fe6c0" uuid="d39e743cf47c9221f4e99c133430148cf74c68c5" name="script2_2" x="756" y="56">
+      <params/>
+      <attribs>
+         <text attributeName="script">
+            <sText><![CDATA[
+/*
+MCP3208 script2 code
+by paul
+ 
+Connect the MCP3208 CS pin to the NSS(PA4) or any other digital out pin of axoloti.
+In this example, the MCP3208 CS pin is connected to axoloti B0(GPIOB,0) pin.
+ 
+If you use more then one spi device, it's importent to disable every other spi device by switching their cs pin.
+*/
+ 
+uint8_t *txbuf;
+uint8_t *rxbuf;
+ 
+void setup(void){
+        static uint8_t _txbuf[8] __attribute__ ((section (".sram2")));
+        static uint8_t _rxbuf[8] __attribute__ ((section (".sram2")));
+        txbuf = _txbuf;
+        rxbuf = _rxbuf;
+ 
+        //palSetPadMode(GPIOA,0,PAL_MODE_OUTPUT_PUSHPULL);        // MCP3208
+        //palWritePad(GPIOA,0,1);                                           
+
+	   // Turn off other devices
+	   palSetPadMode(GPIOB,7,PAL_MODE_OUTPUT_PUSHPULL);        // MCP3208
+        palWritePad(GPIOB,7,1);                                                         // pull high to disable first MCP3208
+		palSetPadMode(GPIOC,5,PAL_MODE_OUTPUT_PUSHPULL);        // MCP3208
+		palWritePad(GPIOC,5,1);                                                         // pull high to disable first MCP3208
+		
+        
+        palSetPadMode(GPIOA,4,PAL_MODE_OUTPUT_PUSHPULL);        // MCP3208
+        palWritePad(GPIOA,4,1);                                                         // pull high to disable first MCP3208
+}
+ 
+void loop(void){
+	
+        // txtbuf[0] = txtbuf[1] = txtbuf[2] = 0b00000000;
+        txbuf[2] = 0b00000000;
+       
+        for(int pin=0; pin<8; pin++){
+ 
+                txbuf[0] = pin < 4 ? 0b01100000 : 0b11100000;
+         
+                if (pin % 4 == 0) { // pin == 0 || pin == 4
+                    txbuf[1] = 0b00000000;
+                } else if (pin % 4 == 1) { // pin == 1 || pin == 5
+                   txbuf[1] = 0b00000010;
+                } else if (pin % 4 == 2) { // pin == 2 || pin == 6
+                    txbuf[1] = 0b00000001;
+                } else {
+                    txbuf[1] = 0b00000011;
+                }
+			
+                       
+ 
+                //palWritePad(GPIOA,0,0);         // enable MCP3208
+                palWritePad(GPIOA,4,0);         // enable MCP3208
+                spiSelect(&SPID1);                      // START SPI
+                spiSend(&SPID1,3,txbuf);        // send SPI data txbuf[]
+                spiReceive(&SPID1,3,rxbuf);     // receive SPI data from MCP3208
+                spiUnselect(&SPID1);            // STOP SPI
+                palWritePad(GPIOA,4,1);         // disable MCP3208
+                               
+                //int z = ( (rxbuf[1] << 8| rxbuf[0]) << 16);
+                // I don't know why I'm only getting 8 bits. Probably a difference btwn the 3208 and the 3008. I only need 8 bits for demo
+                uint32_t z = ( (0x0000007F & rxbuf[0]) << 1) | ( (rxbuf[0] & 0x00000080) > 6);
+                z = 0x00FF ^ z;
+                z = z<<19;
+                //int z = (0x00FF ^ rxbuf[0]);
+                //int z = (!rxbuf[0]);
+ 
+                if (pin == 0){
+                        PExParameterChange(&parent->PExch[PARAM_INDEX_c0_value],z,0xFFFD);
+                }
+                else if (pin == 1){
+                        PExParameterChange(&parent->PExch[PARAM_INDEX_c1_value],z,0xFFFD);
+                }
+                else if (pin == 2){
+                        PExParameterChange(&parent->PExch[PARAM_INDEX_c2_value],z,0xFFFD);
+                }
+                else if (pin == 3){
+                        PExParameterChange(&parent->PExch[PARAM_INDEX_c3_value],z,0xFFFD);
+                }
+                else if (pin == 4){
+                        PExParameterChange(&parent->PExch[PARAM_INDEX_c4_value],z,0xFFFD);
+                }
+                else if (pin == 5){
+                        PExParameterChange(&parent->PExch[PARAM_INDEX_c5_value],z,0xFFFD);
+                }
+                else if (pin == 6){
+                        PExParameterChange(&parent->PExch[PARAM_INDEX_c6_value],z,0xFFFD);
+                }
+                else if (pin == 7){
+                        PExParameterChange(&parent->PExch[PARAM_INDEX_c7_value],z,0xFFFD);
+                }      
+        }
+        chThdSleepMilliseconds(1);
+        
+}
+              
+
+]]></sText>
+         </text>
+      </attribs>
+   </obj>
+   <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="dial_3" x="966" y="56">
+      <params>
+         <frac32.u.map name="value" value="64.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="disp/hex" sha="e21d1bcdfadc4f2009b547d002484bede0762978" uuid="87617898f70d90033f8add921438bf0d11721fdd" name="hex_3" x="1092" y="56">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="lfo/square" sha="b4420b58ca2ae5ece53d53540bc91bc9ed7a4b83" uuid="de6909eb64db13af5b43f979a4c130024b3a4793" name="square_1" x="56" y="70">
+      <params>
+         <frac32.s.map name="pitch" value="32.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="script/script2" sha="362a4413ceaefbe716480bf8f9c62eb3587fe6c0" uuid="d39e743cf47c9221f4e99c133430148cf74c68c5" name="script2_1" x="168" y="84">
+      <params/>
+      <attribs>
+         <text attributeName="script">
+            <sText><![CDATA[int cnt = 1;
+bool gate = 1;
+uint8_t *rxbuf;
+uint8_t *txbuf;
+systime_t tmo = MS2ST(4);
+
+// The default I2C address
+#define MPR121_I2CADDR_DEFAULT 0x5A
+
+#define MPR121_TOUCHSTATUS_L 0x00
+#define MPR121_TOUCHSTATUS_H 0x01
+#define MPR121_FILTDATA_0L  0x04
+#define MPR121_FILTDATA_0H  0x05
+#define MPR121_BASELINE_0   0x1E
+#define MPR121_MHDR         0x2B
+#define MPR121_NHDR         0x2C
+#define MPR121_NCLR         0x2D
+#define MPR121_FDLR         0x2E
+#define MPR121_MHDF         0x2F
+#define MPR121_NHDF         0x30
+#define MPR121_NCLF         0x31
+#define MPR121_FDLF         0x32
+#define MPR121_NHDT         0x33
+#define MPR121_NCLT         0x34
+#define MPR121_FDLT         0x35
+
+#define MPR121_TOUCHTH_0    0x41
+#define MPR121_RELEASETH_0    0x42
+#define MPR121_DEBOUNCE 0x5B
+#define MPR121_CONFIG1 0x5C
+#define MPR121_CONFIG2 0x5D
+#define MPR121_CHARGECURR_0 0x5F
+#define MPR121_CHARGETIME_1 0x6C
+#define MPR121_ECR 0x5E
+#define MPR121_AUTOCONFIG0 0x7B
+#define MPR121_AUTOCONFIG1 0x7C
+#define MPR121_UPLIMIT   0x7D
+#define MPR121_LOWLIMIT  0x7E
+#define MPR121_TARGETLIMIT  0x7F
+
+#define MPR121_GPIODIR  0x76
+#define MPR121_GPIOEN  0x77
+#define MPR121_GPIOSET  0x78
+#define MPR121_GPIOCLR  0x79
+#define MPR121_GPIOTOGGLE  0x7A
+#define MPR121_SOFTRESET 0x80
+
+
+void LinkTxRxBuffers(void)
+{
+	static uint8_t _txbuf[8] __attribute__ ((section (".sram2")));
+	static uint8_t _rxbuf[8] __attribute__ ((section (".sram2")));
+	txbuf = _txbuf;
+	rxbuf = _rxbuf;
+}
+
+/*
+uint8_t ReadCap1188Reg(uint8_t ui8Register)
+{
+	msg_t status = RDY_OK;
+	txbuf[0] = ui8Register;
+	status = i2cMasterTransmitTimeout(&I2CD1, CAP1188_I2CADDR, txbuf, 1, rxbuf, 1, tmo); // TBD add status checking
+	return rxbuf[0];
+}
+
+
+void WriteCap1188Reg(uint8_t ui8Register, uint8_t ui8Val)
+{
+	msg_t status = RDY_OK;
+	txbuf[0] = ui8Register;
+	txbuf[1] = ui8Val;
+	status = i2cMasterTransmitTimeout(&I2CD1, CAP1188_I2CADDR, txbuf, 2, rxbuf, 0, tmo); // TBD add status checking
+}
+*/
+
+void WriteMPR121Register(uint8_t ui8Register, uint8_t ui8Val)
+{
+	msg_t status = RDY_OK;
+	txbuf[0] = ui8Register;
+	txbuf[1] = ui8Val;
+	status = i2cMasterTransmitTimeout(&I2CD1, MPR121_I2CADDR_DEFAULT, txbuf, 2, rxbuf, 0, tmo); // TBD add status checking
+}
+
+uint8_t ReadMPR121Register8(uint8_t ui8Register)
+{
+	msg_t status = RDY_OK;
+	txbuf[0] = ui8Register;
+	status = i2cMasterTransmitTimeout(&I2CD1, MPR121_I2CADDR_DEFAULT, txbuf, 1, rxbuf, 1, tmo); // TBD add status checking
+	return rxbuf[0];
+}
+
+uint16_t ReadMPR121Register16(uint8_t ui8Register)
+{
+	uint16_t output;
+	msg_t status = RDY_OK;
+	txbuf[0] = ui8Register;
+	status = i2cMasterTransmitTimeout(&I2CD1, MPR121_I2CADDR_DEFAULT, txbuf, 1, rxbuf, 2, tmo); // TBD add status checking
+	return ( rxbuf[0] | ( rxbuf[1] << 8 ) );
+	//return 0x0008;
+}
+
+void SetMPR121Threshold(uint8_t touch, uint8_t release)
+{
+	for (uint8_t i=0; i<12; i++) 
+	{
+		WriteMPR121Register(MPR121_TOUCHTH_0 + 2*i, touch);
+		WriteMPR121Register(MPR121_RELEASETH_0 + 2*i, release);
+	}
+}
+
+/*
+uint32_t Cap1188Touched()
+{
+	uint8_t  t = ReadCap1188Reg(CAP1188_SENINPUTSTATUS);
+	uint32_t ui32KeyVal = 0;//0x55555555; 
+	if (t)
+	{
+		uint8_t ui8MainReg = ReadCap1188Reg(CAP1188_MAIN);
+		WriteCap1188Reg(CAP1188_MAIN, ui8MainReg & ~CAP1188_MAIN_INT); // I think this resets the trigger alert
+		
+	}
+
+	// t is the raw encoded value, one bit for each pin
+	// I'm not sure what the final scheme is, so I'm kludging this:
+	if      (0x01 & t) { ui32KeyVal = 0x00200000; }
+	else if (0x02 & t) { ui32KeyVal = 0x00400000; }
+	else if (0x04 & t) { ui32KeyVal = 0x00600000; }
+	else if (0x08 & t) { ui32KeyVal = 0x00800000; }
+	else if (0x10 & t) { ui32KeyVal = 0x00A00000; }
+	else if (0x20 & t) { ui32KeyVal = 0x00C00000; }
+	else if (0x40 & t) { ui32KeyVal = 0x00E00000; }
+	else if (0x80 & t) { ui32KeyVal = 0x02000000; }
+	else                 ui32KeyVal = 0x00000000;
+	
+	return (ui32KeyVal);
+	//return(t);
+}
+*/
+
+uint32_t MPR121Touched()
+{
+	//uint16_t capstatus = ReadMPR121Register16(MPR121_TOUCHSTATUS_L);
+	//return ( capstatus & 0x0FFF );
+	//return ReadMPR121Register8(MPR121_TOUCHSTATUS_L);
+
+	uint32_t ui32NoteVal = 0;
+	
+	uint16_t u16capstatus = ReadMPR121Register16(MPR121_TOUCHSTATUS_L);
+	// Monophonic. single scale, lazycode for proof
+	if      ( (u16capstatus & 0x0001) == 0x0001) ui32NoteVal = 0xFF800000;
+	else if ( (u16capstatus & 0x0002) == 0x0002) ui32NoteVal = 0xFFA00000;
+	else if ( (u16capstatus & 0x0004) == 0x0004) ui32NoteVal = 0xFFC00000;
+	else if ( (u16capstatus & 0x0008) == 0x0008) ui32NoteVal = 0xFFE00000;
+	else if ( (u16capstatus & 0x0010) == 0x0010) ui32NoteVal = 0x00000000;
+	else if ( (u16capstatus & 0x0020) == 0x0020) ui32NoteVal = 0x00200000;
+	else if ( (u16capstatus & 0x0040) == 0x0040) ui32NoteVal = 0x00400000;
+	else if ( (u16capstatus & 0x0080) == 0x0080) ui32NoteVal = 0x00600000;
+	else if ( (u16capstatus & 0x0100) == 0x0100) ui32NoteVal = 0x00800000;
+	else if ( (u16capstatus & 0x0200) == 0x0200) ui32NoteVal = 0x00A00000;
+	else if ( (u16capstatus & 0x0400) == 0x0400) ui32NoteVal = 0x00C00000;
+	else if ( (u16capstatus & 0x0800) == 0x0800) ui32NoteVal = 0x00E00000;
+	else if ( (u16capstatus         ) == 0     ) ui32NoteVal = 0xDEAD;
+	else                                    ui32NoteVal = u16capstatus;
+	
+	return ui32NoteVal;
+}
+
+void setup(void) {
+	LinkTxRxBuffers();
+	out1 = 0xABBA;
+	
+	rxbuf[0] = 0;	
+	txbuf[0] = 0; // CAP1188_PRODID;
+
+	uint8_t ui8ProdID = 0;
+	uint8_t ui8ManuID = 0;
+	uint8_t ui8Rev    = 0;
+	bool bCorrectBoard = false;
+
+	WriteMPR121Register(MPR121_SOFTRESET, 0x63);
+	WriteMPR121Register(MPR121_ECR, 0x0);
+
+	uint8_t c = ReadMPR121Register8(MPR121_CONFIG2);
+	if (c != 0x24)  out1 = 0x4444;
+		
+	//SetMPR121Threshold(12, 6);
+	
+	SetMPR121Threshold(12, 6);
+
+
+	WriteMPR121Register(MPR121_MHDR, 0x01);
+	WriteMPR121Register(MPR121_NHDR, 0x01);
+	WriteMPR121Register(MPR121_NCLR, 0x0E);
+	WriteMPR121Register(MPR121_FDLR, 0x00);
+
+	WriteMPR121Register(MPR121_MHDF, 0x01);
+	WriteMPR121Register(MPR121_NHDF, 0x05);
+	WriteMPR121Register(MPR121_NCLF, 0x01);
+	WriteMPR121Register(MPR121_FDLF, 0x00);
+	
+	WriteMPR121Register(MPR121_NHDT, 0x00);
+	WriteMPR121Register(MPR121_NCLT, 0x00);
+	WriteMPR121Register(MPR121_FDLT, 0x00);
+	
+	WriteMPR121Register(MPR121_DEBOUNCE, 0);
+	WriteMPR121Register(MPR121_CONFIG1, 0x10); // default, 16uA charge current
+	WriteMPR121Register(MPR121_CONFIG2, 0x20); // 0.5uS encoding, 1ms period
+	
+	WriteMPR121Register(MPR121_ECR, 0x8F);  // start with first 5 bits of baseline tracking
+
+	//out2 = ReadMPR121Register8(MPR121_CONFIG2); // Remove this. I'm using it for shitty debugging
+	//return true;
+
+	//out1 = 0xBEEF;
+	out2 = 4;
+
+	
+
+}
+void loop(void)
+{
+	//out1 = 0xAA55;
+	//out2 = ReadMPR121Register8(MPR121_CONFIG2);
+	//out1 = out1;
+	out2 = MPR121Touched();
+	if (out2 == 0xDEAD) out1 = 0; else out1 = 0x2000000;;
+	//out2 = ReadMPR121Register16(MPR121_TOUCHSTATUS_L);
+	//out2 = ReadMPR121Register8(MPR121_TOUCHSTATUS_L);//MPR121Touched();//Cap1188Touched();
+	//out1 = 0xBBBB;
+	/*
+	
+	
+	
+	if (out2 != 0)
+	{
+		out1 = 0x00200000;
+	}
+	else
+	{
+		out1 = 0;
+	}
+	*/
+}]]></sText>
+         </text>
+      </attribs>
+   </obj>
+   <obj type="disp/dial b" sha="5d4fe09e04ac9d02b2f3224e493c9536fe25fa66" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_2" x="448" y="98">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="c0" x="0" y="126">
+      <params>
+         <frac32.u.map name="value" value="5.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="disp/hex" sha="e21d1bcdfadc4f2009b547d002484bede0762978" uuid="87617898f70d90033f8add921438bf0d11721fdd" name="hex_2" x="294" y="126">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/note" sha="47a060e4a7fa766d1de9cf03c8aa236d79be3440" uuid="ce3190ad98b73b468f22221f555b01feee03226a" name="note_1" x="378" y="126">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/hex" sha="e21d1bcdfadc4f2009b547d002484bede0762978" uuid="87617898f70d90033f8add921438bf0d11721fdd" name="hex_4" x="644" y="140">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/ibar 16" sha="6998eafb11a17e8569492b9ac4fa9710eb907cb8" uuid="302bfed4cde8894229679ce81f6b8a5c5212dd98" name="ibar_1" x="756" y="140">
+      <params/>
+      <attribs/>
+   </obj>
+   <comment type="patch/comment" x="70" y="182" text="frequency modulation, sine wave carrier, sine wave modulator"/>
+   <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="c2" x="798" y="196">
+      <params>
+         <frac32.u.map name="value" value="30.5"/>
+      </params>
+      <attribs/>
+   </obj>
+   <comment type="patch/comment" x="182" y="210" text="evelope to control modulation depth"/>
+   <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="c3" x="868" y="210">
+      <params>
+         <frac32.u.map name="value" value="26.5"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="c4" x="966" y="210">
+      <params>
+         <frac32.u.map name="value" value="17.5"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="c5" x="1078" y="210">
+      <params>
+         <frac32.u.map name="value" value="25.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="c6" x="1176" y="210">
+      <params>
+         <frac32.u.map name="value" value="28.5"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="c7" x="1288" y="210">
+      <params>
+         <frac32.u.map name="value" value="25.75"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="midi/in/keyb" sha="b8deb97637e54be31fcb62e849e4fa406e72256e" name="keyb1" x="14" y="224">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="env/d" sha="d9f7cfe1295d7bcc550714a18126d4f73c7c8411" name="envd1" x="182" y="224">
+      <params>
+         <frac32.s.map name="d" value="29.5"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="c1" x="364" y="224">
+      <params>
+         <frac32.u.map name="value" value="10.5"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="mix/mix 1" sha="75de53c9e6783829b405b702a6e7feb5ccaa8b00" name="mix11" x="476" y="224">
+      <params>
+         <frac32.u.map name="gain1" value="21.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <comment type="patch/comment" x="14" y="350" text="modulator oscillator"/>
+   <comment type="patch/comment" x="182" y="350" text="modulation intensity"/>
+   <comment type="patch/comment" x="336" y="350" text="carrier oscillator"/>
+   <obj type="osc/sine" sha="edec4a9d5f533ea748cd564ce8c69673dd78742f" name="osc_1" x="14" y="364">
+      <params>
+         <frac32.s.map name="pitch" value="12.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="gain/vca" sha="6bbeaeb94e74091879965461ad0cb043f2e7f6cf" name="vca_2" x="182" y="364">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="osc/sine" sha="edec4a9d5f533ea748cd564ce8c69673dd78742f" name="osc_2" x="336" y="364">
+      <params>
+         <frac32.s.map name="pitch" value="0.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="gain/vca" sha="6bbeaeb94e74091879965461ad0cb043f2e7f6cf" name="vca_1" x="462" y="364">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="math/*c" uuid="7a66f52a9594e7e9eb31328ea725cb3641a80b55" name="*c_1" x="560" y="364">
+      <params>
+         <frac32.u.map name="amp" value="4.5"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="audio/out stereo" sha="b933bb91801a126126313c11f773158b5ca2face" name="dac_1" x="686" y="364">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/scope 128 b trig" sha="91c015bbaaedb3ccbea0d5e0f78dbee6588e0a39" name="scope_1" x="546" y="476">
+      <params/>
+      <attribs/>
+   </obj>
+   <nets>
+      <net>
+         <source obj="*c_1" outlet="out"/>
+         <dest obj="dac_1" inlet="left"/>
+         <dest obj="dac_1" inlet="right"/>
+      </net>
+      <net>
+         <source obj="osc_2" outlet="wave"/>
+         <dest obj="vca_1" inlet="a"/>
+      </net>
+      <net>
+         <source obj="envd1" outlet="env"/>
+         <dest obj="mix11" inlet="in1"/>
+      </net>
+      <net>
+         <source obj="osc_1" outlet="wave"/>
+         <dest obj="vca_2" inlet="a"/>
+      </net>
+      <net>
+         <source obj="vca_2" outlet="o"/>
+         <dest obj="osc_2" inlet="freq"/>
+      </net>
+      <net>
+         <source obj="mix11" outlet="out"/>
+         <dest obj="vca_2" inlet="v"/>
+      </net>
+      <net>
+         <source obj="vca_1" outlet="o"/>
+         <dest obj="scope_1" inlet="in"/>
+         <dest obj="*c_1" inlet="in"/>
+      </net>
+      <net>
+         <source obj="square_1" outlet="wave"/>
+         <dest obj="script2_1" inlet="in1_"/>
+         <dest obj="envd1" inlet="trig"/>
+         <dest obj="vca_1" inlet="v"/>
+      </net>
+      <net>
+         <source obj="script2_1" outlet="out1_"/>
+         <dest obj="hex_1" inlet="in"/>
+      </net>
+      <net>
+         <source obj="script2_1" outlet="out2_"/>
+         <dest obj="hex_2" inlet="in"/>
+         <dest obj="note_1" inlet="in"/>
+         <dest obj="dial_2" inlet="in"/>
+         <dest obj="osc_2" inlet="pitch"/>
+         <dest obj="osc_1" inlet="pitch"/>
+      </net>
+      <net>
+         <source obj="dial_3" outlet="out"/>
+         <dest obj="hex_3" inlet="in"/>
+      </net>
+      <net>
+         <source obj="c0" outlet="out"/>
+         <dest obj="square_1" inlet="pitch"/>
+      </net>
+      <net>
+         <source obj="c1" outlet="out"/>
+         <dest obj="mix11" inlet="bus_in"/>
+      </net>
+   </nets>
+   <settings>
+      <subpatchmode>no</subpatchmode>
+      <MidiChannel>1</MidiChannel>
+   </settings>
+   <notes><![CDATA[]]></notes>
+   <windowPos>
+      <x>104</x>
+      <y>68</y>
+      <width>1003</width>
+      <height>738</height>
+   </windowPos>
+</patch-1.0>

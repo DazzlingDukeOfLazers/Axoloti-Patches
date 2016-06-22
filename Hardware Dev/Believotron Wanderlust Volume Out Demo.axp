@@ -1,0 +1,45 @@
+<patch-1.0 appVersion="1.0.10">
+   <obj type="osc/sine lin" uuid="6a4458d598c9b8634b469d1a6e7f87971b5932f" name="sine_1" x="28" y="84">
+      <params>
+         <frac32.u.map name="freq" value="0.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="./foo" uuid="4b0c3dd8-15c7-4f23-8dee-bfe136d0de67" name="foo_1" x="154" y="84">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="./Believotron Wanderlust Volume Out" uuid="492663ef-cfce-4cd4-9e75-dc3756fd605a" name="Believotron_1" x="252" y="84">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="./Believotron Wanderlust Volume Out" uuid="492663ef-cfce-4cd4-9e75-dc3756fd605a" name="Believotron_2" x="196" y="196">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="./Believotron Wanderlust Volume Out" uuid="492663ef-cfce-4cd4-9e75-dc3756fd605a" name="Believotron_4" x="84" y="280">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="./Believotron Wanderlust Volume Out" uuid="492663ef-cfce-4cd4-9e75-dc3756fd605a" name="Believotron_3" x="182" y="350">
+      <params/>
+      <attribs/>
+   </obj>
+   <nets>
+      <net>
+         <source obj="sine_1" outlet="wave"/>
+         <dest obj="foo_1" inlet="left"/>
+         <dest obj="foo_1" inlet="right"/>
+      </net>
+   </nets>
+   <settings>
+      <subpatchmode>no</subpatchmode>
+   </settings>
+   <notes><![CDATA[]]></notes>
+   <windowPos>
+      <x>-2846</x>
+      <y>114</y>
+      <width>773</width>
+      <height>554</height>
+   </windowPos>
+</patch-1.0>

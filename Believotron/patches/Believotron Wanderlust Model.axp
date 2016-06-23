@@ -1,5 +1,5 @@
 <patch-1.0 appVersion="1.0.10">
-   <obj type="Wanderlust/Knobs Bottom" uuid="b1061eac-032c-4e6a-856a-e469e0d8634e" name="obj_2" x="42" y="154">
+   <obj type="Wanderlust/Knobs" uuid="ef429855-895c-4d5c-a48c-7237ab8e8c8c" name="obj_3" x="70" y="154">
       <params/>
       <attribs/>
    </obj>
@@ -27,7 +27,7 @@
    </obj>
    <obj type="lfo/sine" uuid="75f7330c26a13953215dccc3b7b9008545c9daa9" name="sine_4" x="266" y="308">
       <params>
-         <frac32.s.map name="pitch" value="-64.0"/>
+         <frac32.s.map name="pitch" value="-54.0"/>
       </params>
       <attribs/>
    </obj>
@@ -41,10 +41,6 @@
          <dest obj="obj_1" inlet="right"/>
       </net>
       <net>
-         <source obj="obj_2" outlet="knob_bot_1"/>
-         <dest obj="sine_4" inlet="pitch"/>
-      </net>
-      <net>
          <source obj="sine_3" outlet="wave"/>
          <dest obj="sine_1" inlet="pitch"/>
       </net>
@@ -53,7 +49,11 @@
          <dest obj="sine_2" inlet="pitch"/>
       </net>
       <net>
-         <source obj="obj_2" outlet="knob_bot_0"/>
+         <source obj="obj_3" outlet="_knob_bot_0"/>
+         <dest obj="sine_4" inlet="pitch"/>
+      </net>
+      <net>
+         <source obj="obj_3" outlet="_knob_top_0"/>
          <dest obj="sine_3" inlet="pitch"/>
       </net>
    </nets>
@@ -62,8 +62,8 @@
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>-2856</x>
-      <y>-173</y>
+      <x>-2419</x>
+      <y>-351</y>
       <width>970</width>
       <height>691</height>
    </windowPos>

@@ -1,0 +1,50 @@
+<objdefs appVersion="1.0.10">
+   <obj.normal id="Keyboard" uuid="ec1ac6c0-f9d8-4116-82b0-711e0023a830">
+      <sDescription>script with 2 inputs and 2 outputs, running in a separate thread, you must define &quot;void setup(void){}&quot; and &quot;void loop(void)&quot;</sDescription>
+      <author>Johannes Taelman</author>
+      <license>BSD</license>
+      <helpPatch>script.axh</helpPatch>
+      <inlets>
+         <frac32 name="in1_" description="in1"/>
+         <frac32 name="in2_" description="in2"/>
+      </inlets>
+      <outlets>
+         <frac32 name="out1_" description="out1"/>
+         <int32.positive name="out2_" description="out2"/>
+      </outlets>
+      <displays/>
+      <params/>
+      <attribs>
+         <text name="script"/>
+      </attribs>
+      <code.declaration><![CDATA[int32_t in1,in2;
+int32_t out1,out2;
+attr_script
+msg_t ThreadX2(){
+  setup();
+  while(!chThdShouldTerminate()){
+     loop();
+     chThdSleepMilliseconds(1);
+  }
+  chThdExit((msg_t)0);
+}
+static msg_t ThreadX(void *arg) {
+((attr_parent *)arg)->ThreadX2();
+}
+WORKING_AREA(waThreadX, 1024);
+Thread *Thd;
+]]></code.declaration>
+      <code.init><![CDATA[in1=0;in2=0;out1=0;out2=0;
+  Thd = chThdCreateStatic(waThreadX, sizeof(waThreadX),
+                    NORMALPRIO, ThreadX, (void *)this);
+]]></code.init>
+      <code.dispose><![CDATA[chThdTerminate(Thd);
+chThdWait(Thd);
+]]></code.dispose>
+      <code.krate><![CDATA[outlet_out1__ = this->out1;
+outlet_out2__ = this->out2;
+this->in1 = inlet_in1__;
+this->in2 = inlet_in2__;
+]]></code.krate>
+   </obj.normal>
+</objdefs>

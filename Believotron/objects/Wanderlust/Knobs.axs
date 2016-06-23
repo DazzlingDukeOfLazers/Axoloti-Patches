@@ -13,15 +13,15 @@
       <params/>
       <attribs>
          <text attributeName="script">
-            <sText><![CDATA[
-/*
-MCP3208 script2 code
-by paul
- 
-Connect the MCP3208 CS pin to the NSS(PA4) or any other digital out pin of axoloti.
-In this example, the MCP3208 CS pin is connected to axoloti B0(GPIOB,0) pin.
- 
-If you use more then one spi device, it's importent to disable every other spi device by switching their cs pin.
+            <sText><![CDATA[/*
+	Believotron Wanderlust Knob / Potentiometer Interface
+
+	Two parallel SPI MCP3008 ADCs, read, and output to knobBot0-7, and knobTop0-7
+
+	Herstory:
+	2016-06-22	Dazzling Duke of Lazers
+				Cleaned up file for release
+				Initial Release
 */
  
 uint8_t *txbuf;
@@ -37,19 +37,15 @@ void SPI_CS_ALL_OFF()
 	palWritePad(GPIOA,4,1);	// Knob, Bottom Row
 	
 }
-
-
-
  
 void setup(void){
+
+	// Bind the SRAM to the local variables
 	static uint8_t _txbuf[8] __attribute__ ((section (".sram2")));
 	static uint8_t _rxbuf[8] __attribute__ ((section (".sram2")));
 	txbuf = _txbuf;
 	rxbuf = _rxbuf;
  
-     //palSetPadMode(GPIOA,0,PAL_MODE_OUTPUT_PUSHPULL);        // MCP3208
-     //palWritePad(GPIOA,0,1);                                           
-
 	// Setup Knob Top
 	palSetPadMode(GPIOB,7,PAL_MODE_OUTPUT_PUSHPULL);        // MCP3208
 
@@ -62,9 +58,8 @@ void setup(void){
 	SPI_CS_ALL_OFF();	
 }
  
-void loop(void){
+void loop(void){	
 	
-	// txtbuf[0] = txtbuf[1] = txtbuf[2] = 0b00000000;
 	txbuf[2] = 0b00000000;
 
 	for(int iDevice=0; iDevice<2; iDevice++)
@@ -95,9 +90,7 @@ void loop(void){
 			uint32_t z = ( (0x0000007F & rxbuf[0]) << 1) | ( (rxbuf[0] & 0x00000080) > 6);
 			z = 0x00FF ^ z;
 			z = z<<19;
-			//int z = (0x00FF ^ rxbuf[0]);
-			//int z = (!rxbuf[0]);		
-	
+				
 			if (iDevice == 0)
 			{
 				if      (pin == 0)	{	PExParameterChange(	&parent->PExch[PARAM_INDEX_knobBot0_value],	z,	0xFFFD	);	}
@@ -123,19 +116,15 @@ void loop(void){
 		
 		} // For each Pin
 	} // For each row
-       
-	
-
-	
-	chThdSleepMilliseconds(1);
-        
+       	
+	chThdSleepMilliseconds(1);        
 }]]></sText>
          </text>
       </attribs>
    </obj>
    <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobTop0" x="364" y="84">
       <params>
-         <frac32.u.map name="value" value="0.0"/>
+         <frac32.u.map name="value" value="32.75"/>
       </params>
       <attribs/>
    </obj>
@@ -155,7 +144,7 @@ void loop(void){
    </obj>
    <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobTop2" x="658" y="84">
       <params>
-         <frac32.u.map name="value" value="0.0"/>
+         <frac32.u.map name="value" value="63.75"/>
       </params>
       <attribs/>
    </obj>
@@ -175,7 +164,7 @@ void loop(void){
    </obj>
    <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobTop4" x="952" y="84">
       <params>
-         <frac32.u.map name="value" value="51.75"/>
+         <frac32.u.map name="value" value="63.75"/>
       </params>
       <attribs/>
    </obj>
@@ -185,7 +174,7 @@ void loop(void){
    </obj>
    <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobTop5" x="1106" y="84">
       <params>
-         <frac32.u.map name="value" value="51.75"/>
+         <frac32.u.map name="value" value="5.25"/>
       </params>
       <attribs/>
    </obj>
@@ -195,7 +184,7 @@ void loop(void){
    </obj>
    <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobTop6" x="1260" y="84">
       <params>
-         <frac32.u.map name="value" value="17.25"/>
+         <frac32.u.map name="value" value="60.75"/>
       </params>
       <attribs/>
    </obj>
@@ -205,7 +194,7 @@ void loop(void){
    </obj>
    <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobTop7" x="1414" y="84">
       <params>
-         <frac32.u.map name="value" value="48.5"/>
+         <frac32.u.map name="value" value="63.75"/>
       </params>
       <attribs/>
    </obj>
@@ -239,7 +228,7 @@ void loop(void){
    </obj>
    <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobBot2" x="658" y="224">
       <params>
-         <frac32.u.map name="value" value="63.75"/>
+         <frac32.u.map name="value" value="0.0"/>
       </params>
       <attribs/>
    </obj>
@@ -249,7 +238,7 @@ void loop(void){
    </obj>
    <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobBot3" x="812" y="224">
       <params>
-         <frac32.u.map name="value" value="51.75"/>
+         <frac32.u.map name="value" value="1.25"/>
       </params>
       <attribs/>
    </obj>
@@ -259,7 +248,7 @@ void loop(void){
    </obj>
    <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobBot4" x="966" y="224">
       <params>
-         <frac32.u.map name="value" value="51.75"/>
+         <frac32.u.map name="value" value="0.0"/>
       </params>
       <attribs/>
    </obj>
@@ -269,7 +258,7 @@ void loop(void){
    </obj>
    <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobBot5" x="1120" y="224">
       <params>
-         <frac32.u.map name="value" value="17.25"/>
+         <frac32.u.map name="value" value="63.75"/>
       </params>
       <attribs/>
    </obj>
@@ -279,7 +268,7 @@ void loop(void){
    </obj>
    <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobBot6" x="1274" y="224">
       <params>
-         <frac32.u.map name="value" value="48.5"/>
+         <frac32.u.map name="value" value="59.25"/>
       </params>
       <attribs/>
    </obj>
@@ -289,7 +278,7 @@ void loop(void){
    </obj>
    <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobBot7" x="1428" y="224">
       <params>
-         <frac32.u.map name="value" value="63.75"/>
+         <frac32.u.map name="value" value="0.0"/>
       </params>
       <attribs/>
    </obj>

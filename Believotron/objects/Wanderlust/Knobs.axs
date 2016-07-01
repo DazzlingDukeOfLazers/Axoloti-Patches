@@ -1,6 +1,6 @@
 <patch-1.0 appVersion="1.0.10">
    <comment type="patch/comment" x="14" y="28" text="Believotron Wanderlust Knob Bottom Row Object."/>
-   <obj type="gpio/spi/config" sha="62af644b09e7f654b36d66533da8ea5971ddb351" uuid="d3e75d8a02e2ccabbbc2af3bc2fcdb8ea65a6133" name="config_1" x="112" y="70">
+   <obj type="gpio/spi/config" sha="62af644b09e7f654b36d66533da8ea5971ddb351" uuid="d3e75d8a02e2ccabbbc2af3bc2fcdb8ea65a6133" name="config_1" x="28" y="70">
       <params/>
       <attribs>
          <combo attributeName="clock_polarity" selection="CPOL=0"/>
@@ -9,7 +9,7 @@
          <combo attributeName="format" selection="LSB first"/>
       </attribs>
    </obj>
-   <obj type="script/script2" sha="362a4413ceaefbe716480bf8f9c62eb3587fe6c0" uuid="d39e743cf47c9221f4e99c133430148cf74c68c5" name="script2_2" x="238" y="70">
+   <obj type="script/script2" sha="362a4413ceaefbe716480bf8f9c62eb3587fe6c0" uuid="d39e743cf47c9221f4e99c133430148cf74c68c5" name="script2_2" x="140" y="70">
       <params/>
       <attribs>
          <text attributeName="script">
@@ -122,171 +122,171 @@ void loop(void){
          </text>
       </attribs>
    </obj>
-   <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobTop0" x="364" y="84">
+   <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobTop0" x="28" y="210">
       <params>
          <frac32.u.map name="value" value="32.75"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="_knob_top_0" x="420" y="84">
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_top_0" x="98" y="210">
       <params/>
       <attribs/>
    </obj>
-   <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobTop1" x="504" y="84">
+   <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobTop1" x="182" y="210">
       <params>
          <frac32.u.map name="value" value="63.75"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="_knob_top_1" x="574" y="84">
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_top_1" x="252" y="210">
       <params/>
       <attribs/>
    </obj>
-   <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobTop2" x="658" y="84">
+   <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobTop2" x="336" y="210">
       <params>
          <frac32.u.map name="value" value="63.75"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="_knob_top_2" x="714" y="84">
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_top_2" x="406" y="210">
       <params/>
       <attribs/>
    </obj>
-   <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobTop3" x="798" y="84">
+   <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobTop3" x="490" y="210">
       <params>
          <frac32.u.map name="value" value="63.75"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="_knob_top_3" x="868" y="84">
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_top_3" x="560" y="210">
       <params/>
       <attribs/>
    </obj>
-   <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobTop4" x="952" y="84">
+   <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobTop4" x="644" y="210">
       <params>
          <frac32.u.map name="value" value="63.75"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="_knob_top_4" x="1022" y="84">
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_top_4" x="714" y="210">
       <params/>
       <attribs/>
    </obj>
-   <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobTop5" x="1106" y="84">
+   <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobTop5" x="798" y="210">
       <params>
          <frac32.u.map name="value" value="5.25"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="_knob_top_5" x="1176" y="84">
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_top_5" x="868" y="210">
       <params/>
       <attribs/>
    </obj>
-   <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobTop6" x="1260" y="84">
+   <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobTop6" x="952" y="210">
       <params>
          <frac32.u.map name="value" value="60.75"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="_knob_top_6" x="1330" y="84">
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_top_6" x="1022" y="210">
       <params/>
       <attribs/>
    </obj>
-   <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobTop7" x="1414" y="84">
+   <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobTop7" x="1106" y="210">
       <params>
          <frac32.u.map name="value" value="63.75"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="_knob_top_7" x="1484" y="84">
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_top_7" x="1176" y="210">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_2" x="420" y="126">
+   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_2" x="98" y="252">
       <params/>
       <attribs/>
    </obj>
-   <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobBot0" x="364" y="224">
+   <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobBot0" x="28" y="350">
       <params>
          <frac32.u.map name="value" value="0.0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="_knob_bot_0" x="420" y="224">
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_bot_0" x="98" y="350">
       <params/>
       <attribs/>
    </obj>
-   <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobBot1" x="518" y="224">
+   <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobBot1" x="182" y="350">
       <params>
          <frac32.u.map name="value" value="0.0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="_knob_bot_1" x="574" y="224">
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_bot_1" x="252" y="350">
       <params/>
       <attribs/>
    </obj>
-   <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobBot2" x="658" y="224">
+   <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobBot2" x="336" y="350">
       <params>
          <frac32.u.map name="value" value="0.0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="_knob_bot_2" x="714" y="224">
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_bot_2" x="406" y="350">
       <params/>
       <attribs/>
    </obj>
-   <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobBot3" x="812" y="224">
+   <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobBot3" x="490" y="350">
       <params>
          <frac32.u.map name="value" value="1.25"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="_knob_bot_3" x="868" y="224">
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_bot_3" x="560" y="350">
       <params/>
       <attribs/>
    </obj>
-   <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobBot4" x="966" y="224">
+   <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobBot4" x="644" y="350">
       <params>
          <frac32.u.map name="value" value="0.0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="_knob_bot_4" x="1022" y="224">
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_bot_4" x="714" y="350">
       <params/>
       <attribs/>
    </obj>
-   <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobBot5" x="1120" y="224">
+   <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobBot5" x="798" y="350">
       <params>
          <frac32.u.map name="value" value="63.75"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="_knob_bot_5" x="1176" y="224">
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_bot_5" x="868" y="350">
       <params/>
       <attribs/>
    </obj>
-   <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobBot6" x="1274" y="224">
+   <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobBot6" x="952" y="350">
       <params>
          <frac32.u.map name="value" value="59.25"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="_knob_bot_6" x="1330" y="224">
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_bot_6" x="1022" y="350">
       <params/>
       <attribs/>
    </obj>
-   <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobBot7" x="1428" y="224">
+   <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobBot7" x="1106" y="350">
       <params>
          <frac32.u.map name="value" value="0.0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="_knob_bot_7" x="1484" y="224">
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_bot_7" x="1176" y="350">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_1" x="420" y="266">
+   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_1" x="98" y="392">
       <params/>
       <attribs/>
    </obj>
@@ -294,68 +294,68 @@ void loop(void){
       <net>
          <source obj="knobBot0" outlet="out"/>
          <dest obj="dial_1" inlet="in"/>
-         <dest obj="_knob_bot_0" inlet="outlet"/>
+         <dest obj="knob_bot_0" inlet="outlet"/>
       </net>
       <net>
          <source obj="knobBot1" outlet="out"/>
-         <dest obj="_knob_bot_1" inlet="outlet"/>
+         <dest obj="knob_bot_1" inlet="outlet"/>
       </net>
       <net>
          <source obj="knobBot2" outlet="out"/>
-         <dest obj="_knob_bot_2" inlet="outlet"/>
+         <dest obj="knob_bot_2" inlet="outlet"/>
       </net>
       <net>
          <source obj="knobBot3" outlet="out"/>
-         <dest obj="_knob_bot_3" inlet="outlet"/>
+         <dest obj="knob_bot_3" inlet="outlet"/>
       </net>
       <net>
          <source obj="knobBot4" outlet="out"/>
-         <dest obj="_knob_bot_4" inlet="outlet"/>
+         <dest obj="knob_bot_4" inlet="outlet"/>
       </net>
       <net>
          <source obj="knobBot5" outlet="out"/>
-         <dest obj="_knob_bot_5" inlet="outlet"/>
+         <dest obj="knob_bot_5" inlet="outlet"/>
       </net>
       <net>
          <source obj="knobBot6" outlet="out"/>
-         <dest obj="_knob_bot_6" inlet="outlet"/>
+         <dest obj="knob_bot_6" inlet="outlet"/>
       </net>
       <net>
          <source obj="knobBot7" outlet="out"/>
-         <dest obj="_knob_bot_7" inlet="outlet"/>
+         <dest obj="knob_bot_7" inlet="outlet"/>
       </net>
       <net>
          <source obj="knobTop0" outlet="out"/>
          <dest obj="dial_2" inlet="in"/>
-         <dest obj="_knob_top_0" inlet="outlet"/>
+         <dest obj="knob_top_0" inlet="outlet"/>
       </net>
       <net>
          <source obj="knobTop2" outlet="out"/>
-         <dest obj="_knob_top_2" inlet="outlet"/>
+         <dest obj="knob_top_2" inlet="outlet"/>
       </net>
       <net>
          <source obj="knobTop3" outlet="out"/>
-         <dest obj="_knob_top_3" inlet="outlet"/>
+         <dest obj="knob_top_3" inlet="outlet"/>
       </net>
       <net>
          <source obj="knobTop4" outlet="out"/>
-         <dest obj="_knob_top_4" inlet="outlet"/>
+         <dest obj="knob_top_4" inlet="outlet"/>
       </net>
       <net>
          <source obj="knobTop5" outlet="out"/>
-         <dest obj="_knob_top_5" inlet="outlet"/>
+         <dest obj="knob_top_5" inlet="outlet"/>
       </net>
       <net>
          <source obj="knobTop6" outlet="out"/>
-         <dest obj="_knob_top_6" inlet="outlet"/>
+         <dest obj="knob_top_6" inlet="outlet"/>
       </net>
       <net>
          <source obj="knobTop7" outlet="out"/>
-         <dest obj="_knob_top_7" inlet="outlet"/>
+         <dest obj="knob_top_7" inlet="outlet"/>
       </net>
       <net>
          <source obj="knobTop1" outlet="out"/>
-         <dest obj="_knob_top_1" inlet="outlet"/>
+         <dest obj="knob_top_1" inlet="outlet"/>
       </net>
    </nets>
    <settings>
@@ -363,9 +363,9 @@ void loop(void){
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>-2115</x>
-      <y>-14</y>
-      <width>1660</width>
-      <height>1209</height>
+      <x>-1919</x>
+      <y>431</y>
+      <width>1323</width>
+      <height>625</height>
    </windowPos>
 </patch-1.0>

@@ -3,31 +3,31 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="lfo/sine" uuid="75f7330c26a13953215dccc3b7b9008545c9daa9" name="sine_3" x="266" y="154">
+   <obj type="lfo/sine" uuid="75f7330c26a13953215dccc3b7b9008545c9daa9" name="sine_3" x="238" y="154">
       <params>
          <frac32.s.map name="pitch" value="-2.0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="osc/sine" uuid="6e094045cca76a9dbf7ebfa72e44e4700d2b3ba" name="sine_1" x="406" y="154">
+   <obj type="osc/sine" uuid="6e094045cca76a9dbf7ebfa72e44e4700d2b3ba" name="sine_1" x="350" y="154">
       <params>
          <frac32.s.map name="pitch" value="2.0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="Wanderlust/Volume Out" uuid="0c406742-fff6-427e-a7cf-c979cd52f883" name="obj_1" x="532" y="154">
+   <obj type="Wanderlust/Volume Out" uuid="0c406742-fff6-427e-a7cf-c979cd52f883" name="obj_1" x="462" y="154">
       <params/>
       <attribs/>
    </obj>
-   <obj type="osc/sine" uuid="6e094045cca76a9dbf7ebfa72e44e4700d2b3ba" name="sine_2" x="406" y="294">
+   <obj type="lfo/sine" uuid="75f7330c26a13953215dccc3b7b9008545c9daa9" name="sine_4" x="238" y="308">
       <params>
-         <frac32.s.map name="pitch" value="0.0"/>
+         <frac32.s.map name="pitch" value="-54.0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="lfo/sine" uuid="75f7330c26a13953215dccc3b7b9008545c9daa9" name="sine_4" x="266" y="308">
+   <obj type="osc/sine" uuid="6e094045cca76a9dbf7ebfa72e44e4700d2b3ba" name="sine_2" x="350" y="308">
       <params>
-         <frac32.s.map name="pitch" value="-54.0"/>
+         <frac32.s.map name="pitch" value="0.0"/>
       </params>
       <attribs/>
    </obj>

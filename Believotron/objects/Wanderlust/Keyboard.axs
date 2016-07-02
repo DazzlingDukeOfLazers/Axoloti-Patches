@@ -225,7 +225,7 @@ void setup(void) {
 		
 	//SetMPR121Threshold(12, 6);
 	
-	SetMPR121Threshold(12, 6);
+	SetMPR121Threshold(24, 12);
 
 
 	WriteMPR121Register(MPR121_MHDR, 0x01);
@@ -315,23 +315,11 @@ void loop(void)
       <attribs/>
    </obj>
    <comment type="patch/comment" x="406" y="168" text="very simple script example"/>
-   <obj type="disp/dial b" sha="5d4fe09e04ac9d02b2f3224e493c9536fe25fa66" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_2" x="658" y="168">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/hex" uuid="87617898f70d90033f8add921438bf0d11721fdd" name="hex_1" x="252" y="182">
-      <params/>
-      <attribs/>
-   </obj>
    <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_4" x="1148" y="196">
       <params/>
       <attribs/>
    </obj>
    <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_12" x="1428" y="196">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/note" sha="47a060e4a7fa766d1de9cf03c8aa236d79be3440" uuid="ce3190ad98b73b468f22221f555b01feee03226a" name="note_1" x="364" y="238">
       <params/>
       <attribs/>
    </obj>
@@ -347,16 +335,21 @@ void loop(void)
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/hex" uuid="87617898f70d90033f8add921438bf0d11721fdd" name="hex_2" x="266" y="294">
-      <params/>
-      <attribs/>
-   </obj>
    <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_4" x="924" y="308">
       <params/>
       <attribs/>
    </obj>
    <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_6" x="1148" y="308">
       <params/>
+      <attribs/>
+   </obj>
+   <obj type="env/adsr" sha="2c4b16047d03b574d8a72b651f130895749eb670" name="adsr1" x="1288" y="308">
+      <params>
+         <frac32.s.map name="a" value="-11.0"/>
+         <frac32.s.map name="d" value="9.5"/>
+         <frac32.u.map name="s" value="27.5"/>
+         <frac32.s.map name="r" value="24.5"/>
+      </params>
       <attribs/>
    </obj>
    <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_14" x="1428" y="308">
@@ -366,13 +359,7 @@ void loop(void)
    <comment type="patch/comment" x="476" y="350" text="evelope to control modulation depth"/>
    <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="c1" x="658" y="364">
       <params>
-         <frac32.u.map name="value" value="0.0"/>
-      </params>
-      <attribs/>
-   </obj>
-   <obj type="mix/mix 1" uuid="26fb1fe4ed25d8bc2ac4a3f91ab6b80ed6d9d4fa" name="mix_1" x="770" y="364">
-      <params>
-         <frac32.u.map name="gain1" value="21.0"/>
+         <frac32.u.map name="value" value="8.0"/>
       </params>
       <attribs/>
    </obj>
@@ -392,31 +379,7 @@ void loop(void)
       <params/>
       <attribs/>
    </obj>
-   <obj type="lfo/square" sha="b4420b58ca2ae5ece53d53540bc91bc9ed7a4b83" uuid="de6909eb64db13af5b43f979a4c130024b3a4793" name="square_1" x="196" y="476">
-      <params>
-         <frac32.s.map name="pitch" value="32.0"/>
-      </params>
-      <attribs/>
-   </obj>
-   <obj type="env/d" sha="d9f7cfe1295d7bcc550714a18126d4f73c7c8411" name="envd1" x="630" y="504">
-      <params>
-         <frac32.s.map name="d" value="29.5"/>
-      </params>
-      <attribs/>
-   </obj>
-   <comment type="patch/comment" x="966" y="504" text="modulator oscillator"/>
-   <comment type="patch/comment" x="1134" y="504" text="modulation intensity"/>
    <comment type="patch/comment" x="1288" y="504" text="carrier oscillator"/>
-   <obj type="osc/sine" sha="edec4a9d5f533ea748cd564ce8c69673dd78742f" name="osc_1" x="966" y="518">
-      <params>
-         <frac32.s.map name="pitch" value="12.0"/>
-      </params>
-      <attribs/>
-   </obj>
-   <obj type="gain/vca" sha="6bbeaeb94e74091879965461ad0cb043f2e7f6cf" name="vca_2" x="1134" y="518">
-      <params/>
-      <attribs/>
-   </obj>
    <obj type="osc/sine" sha="edec4a9d5f533ea748cd564ce8c69673dd78742f" name="osc_2" x="1288" y="518">
       <params>
          <frac32.s.map name="pitch" value="0.0"/>
@@ -462,41 +425,9 @@ void loop(void)
          <dest obj="vca_1" inlet="a"/>
       </net>
       <net>
-         <source obj="envd1" outlet="env"/>
-         <dest obj="mix_1" inlet="in1"/>
-      </net>
-      <net>
-         <source obj="osc_1" outlet="wave"/>
-         <dest obj="vca_2" inlet="a"/>
-      </net>
-      <net>
-         <source obj="vca_2" outlet="o"/>
-         <dest obj="osc_2" inlet="freq"/>
-      </net>
-      <net>
-         <source obj="mix_1" outlet="out"/>
-         <dest obj="vca_2" inlet="v"/>
-      </net>
-      <net>
          <source obj="vca_1" outlet="o"/>
          <dest obj="scope_1" inlet="in"/>
          <dest obj="*c_1" inlet="in"/>
-      </net>
-      <net>
-         <source obj="square_1" outlet="wave"/>
-         <dest obj="envd1" inlet="trig"/>
-         <dest obj="vca_1" inlet="v"/>
-      </net>
-      <net>
-         <dest obj="note_1" inlet="in"/>
-         <dest obj="dial_2" inlet="in"/>
-         <dest obj="osc_2" inlet="pitch"/>
-         <dest obj="osc_1" inlet="pitch"/>
-         <dest obj="hex_2" inlet="in"/>
-      </net>
-      <net>
-         <source obj="c1" outlet="out"/>
-         <dest obj="mix_1" inlet="bus_in"/>
       </net>
       <net>
          <source obj="i_1" outlet="out"/>
@@ -543,6 +474,7 @@ void loop(void)
       <net>
          <source obj="bin_1" outlet="o0"/>
          <dest obj="bool_1" inlet="in"/>
+         <dest obj="adsr1" inlet="gate"/>
       </net>
       <net>
          <source obj="bin_1" outlet="o1"/>
@@ -581,15 +513,19 @@ void loop(void)
          <dest obj="hex_5" inlet="in"/>
          <dest obj="bin_1" inlet="i1"/>
       </net>
+      <net>
+         <source obj="adsr1" outlet="env"/>
+         <dest obj="vca_1" inlet="v"/>
+      </net>
    </nets>
    <settings>
       <subpatchmode>no</subpatchmode>
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>-3072</x>
-      <y>-172</y>
-      <width>1810</width>
-      <height>1062</height>
+      <x>-2103</x>
+      <y>-9</y>
+      <width>1827</width>
+      <height>1163</height>
    </windowPos>
 </patch-1.0>

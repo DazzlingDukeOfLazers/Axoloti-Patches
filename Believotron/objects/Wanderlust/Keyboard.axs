@@ -259,439 +259,98 @@ void loop(void)
          </text>
       </attribs>
    </obj>
-   <comment type="patch/comment" x="280" y="28" text="Keyboard Keys, Decoded to binary"/>
    <obj type="disp/hex" uuid="3ce415f2f0e09f5b3cf10e5d355274847fd063b2" name="hex_5" x="98" y="42">
       <params/>
       <attribs/>
    </obj>
-   <obj type="logic/decode/bin 8" uuid="dfc0a6e9d7e817cec64fd01f6972f64d897863a4" name="bin_1" x="168" y="42">
+   <obj type="logic/decode/bin 8" uuid="dfc0a6e9d7e817cec64fd01f6972f64d897863a4" name="bin_1" x="182" y="42">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_1" x="280" y="42">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_0" x="322" y="42">
       <params/>
       <attribs/>
    </obj>
-   <obj type="env/adsr" sha="2c4b16047d03b574d8a72b651f130895749eb670" name="adsr1" x="378" y="42">
-      <params>
-         <frac32.s.map name="a" value="-12.0"/>
-         <frac32.s.map name="d" value="9.5"/>
-         <frac32.u.map name="s" value="27.5"/>
-         <frac32.s.map name="r" value="24.5"/>
-      </params>
-      <attribs/>
-   </obj>
-   <obj type="env/adsr" sha="2c4b16047d03b574d8a72b651f130895749eb670" name="adsr1_" x="644" y="42">
-      <params>
-         <frac32.s.map name="a" value="-11.0"/>
-         <frac32.s.map name="d" value="9.5"/>
-         <frac32.u.map name="s" value="27.5"/>
-         <frac32.s.map name="r" value="24.5"/>
-      </params>
-      <attribs/>
-   </obj>
-   <obj type="env/adsr" sha="2c4b16047d03b574d8a72b651f130895749eb670" name="adsr1__" x="910" y="42">
-      <params>
-         <frac32.s.map name="a" value="-11.0"/>
-         <frac32.s.map name="d" value="9.5"/>
-         <frac32.u.map name="s" value="27.5"/>
-         <frac32.s.map name="r" value="24.5"/>
-      </params>
-      <attribs/>
-   </obj>
-   <obj type="env/adsr" sha="2c4b16047d03b574d8a72b651f130895749eb670" name="adsr1___" x="1176" y="42">
-      <params>
-         <frac32.s.map name="a" value="-11.0"/>
-         <frac32.s.map name="d" value="9.5"/>
-         <frac32.u.map name="s" value="27.5"/>
-         <frac32.s.map name="r" value="24.5"/>
-      </params>
-      <attribs/>
-   </obj>
-   <obj type="mix/mix 8" uuid="f12e13a7920b67f4e286369e0e2c573e5af08f9c" name="mix_1" x="1498" y="56">
-      <params>
-         <frac32.u.map name="gain1" value="32.0"/>
-         <frac32.u.map name="gain2" value="32.0"/>
-         <frac32.u.map name="gain3" value="32.0"/>
-         <frac32.u.map name="gain4" value="32.0"/>
-         <frac32.u.map name="gain5" value="32.0"/>
-         <frac32.u.map name="gain6" value="32.0"/>
-         <frac32.u.map name="gain7" value="32.0"/>
-         <frac32.u.map name="gain8" value="32.0"/>
-      </params>
-      <attribs/>
-   </obj>
-   <obj type="mix/mix 8" uuid="f12e13a7920b67f4e286369e0e2c573e5af08f9c" name="mix_2" x="1624" y="56">
-      <params>
-         <frac32.u.map name="gain1" value="32.0"/>
-         <frac32.u.map name="gain2" value="32.0"/>
-         <frac32.u.map name="gain3" value="32.0"/>
-         <frac32.u.map name="gain4" value="32.0"/>
-         <frac32.u.map name="gain5" value="32.0"/>
-         <frac32.u.map name="gain6" value="32.0"/>
-         <frac32.u.map name="gain7" value="32.0"/>
-         <frac32.u.map name="gain8" value="32.0"/>
-      </params>
-      <attribs/>
-   </obj>
-   <obj type="Wanderlust/Volume Out" uuid="e44c081a-9bc0-4227-8a8c-20a39a2a1ee3" name="obj_1" x="1736" y="56">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_1" x="322" y="98">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_2" x="280" y="98">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_2" x="322" y="154">
       <params/>
       <attribs/>
    </obj>
-   <comment type="patch/comment" x="476" y="98" text="carrier oscillator"/>
-   <obj type="gain/vca" sha="6bbeaeb94e74091879965461ad0cb043f2e7f6cf" name="vca_1" x="574" y="98">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_3" x="322" y="210">
       <params/>
       <attribs/>
    </obj>
-   <comment type="patch/comment" x="742" y="98" text="carrier oscillator"/>
-   <obj type="gain/vca" sha="6bbeaeb94e74091879965461ad0cb043f2e7f6cf" name="vca_2" x="840" y="98">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_4" x="322" y="266">
       <params/>
       <attribs/>
    </obj>
-   <comment type="patch/comment" x="1008" y="98" text="carrier oscillator"/>
-   <obj type="gain/vca" sha="6bbeaeb94e74091879965461ad0cb043f2e7f6cf" name="vca_3" x="1106" y="98">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_5" x="322" y="322">
       <params/>
       <attribs/>
    </obj>
-   <comment type="patch/comment" x="1274" y="98" text="carrier oscillator"/>
-   <obj type="gain/vca" sha="6bbeaeb94e74091879965461ad0cb043f2e7f6cf" name="vca_4" x="1372" y="98">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_6" x="322" y="378">
       <params/>
       <attribs/>
    </obj>
-   <obj type="osc/sine" sha="edec4a9d5f533ea748cd564ce8c69673dd78742f" name="osc_2" x="476" y="112">
-      <params>
-         <frac32.s.map name="pitch" value="5.0"/>
-      </params>
-      <attribs/>
-   </obj>
-   <obj type="osc/sine" sha="edec4a9d5f533ea748cd564ce8c69673dd78742f" name="osc_3" x="742" y="112">
-      <params>
-         <frac32.s.map name="pitch" value="6.0"/>
-      </params>
-      <attribs/>
-   </obj>
-   <obj type="osc/sine" sha="edec4a9d5f533ea748cd564ce8c69673dd78742f" name="osc_4" x="1008" y="112">
-      <params>
-         <frac32.s.map name="pitch" value="7.0"/>
-      </params>
-      <attribs/>
-   </obj>
-   <obj type="osc/sine" sha="edec4a9d5f533ea748cd564ce8c69673dd78742f" name="osc_5" x="1274" y="112">
-      <params>
-         <frac32.s.map name="pitch" value="8.0"/>
-      </params>
-      <attribs/>
-   </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_3" x="280" y="154">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_7" x="322" y="434">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_4" x="280" y="210">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_5" x="280" y="266">
-      <params/>
-      <attribs/>
-   </obj>
-   <comment type="patch/comment" x="280" y="266" text="Keyboard Keys, Decoded to binary"/>
-   <obj type="env/adsr" sha="2c4b16047d03b574d8a72b651f130895749eb670" name="adsr1____" x="378" y="280">
-      <params>
-         <frac32.s.map name="a" value="-11.0"/>
-         <frac32.s.map name="d" value="9.5"/>
-         <frac32.u.map name="s" value="27.5"/>
-         <frac32.s.map name="r" value="24.5"/>
-      </params>
-      <attribs/>
-   </obj>
-   <obj type="env/adsr" sha="2c4b16047d03b574d8a72b651f130895749eb670" name="adsr1_____" x="644" y="280">
-      <params>
-         <frac32.s.map name="a" value="-11.0"/>
-         <frac32.s.map name="d" value="9.5"/>
-         <frac32.u.map name="s" value="27.5"/>
-         <frac32.s.map name="r" value="24.5"/>
-      </params>
-      <attribs/>
-   </obj>
-   <obj type="env/adsr" sha="2c4b16047d03b574d8a72b651f130895749eb670" name="adsr1______" x="910" y="280">
-      <params>
-         <frac32.s.map name="a" value="-11.0"/>
-         <frac32.s.map name="d" value="9.5"/>
-         <frac32.u.map name="s" value="27.5"/>
-         <frac32.s.map name="r" value="24.5"/>
-      </params>
-      <attribs/>
-   </obj>
-   <obj type="env/adsr" sha="2c4b16047d03b574d8a72b651f130895749eb670" name="adsr1_______" x="1176" y="280">
-      <params>
-         <frac32.s.map name="a" value="-11.0"/>
-         <frac32.s.map name="d" value="9.5"/>
-         <frac32.u.map name="s" value="27.5"/>
-         <frac32.s.map name="r" value="24.5"/>
-      </params>
-      <attribs/>
-   </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_6" x="280" y="322">
-      <params/>
-      <attribs/>
-   </obj>
-   <comment type="patch/comment" x="476" y="336" text="carrier oscillator"/>
-   <obj type="gain/vca" sha="6bbeaeb94e74091879965461ad0cb043f2e7f6cf" name="vca_5" x="574" y="336">
-      <params/>
-      <attribs/>
-   </obj>
-   <comment type="patch/comment" x="742" y="336" text="carrier oscillator"/>
-   <obj type="gain/vca" sha="6bbeaeb94e74091879965461ad0cb043f2e7f6cf" name="vca_6" x="840" y="336">
-      <params/>
-      <attribs/>
-   </obj>
-   <comment type="patch/comment" x="1008" y="336" text="carrier oscillator"/>
-   <obj type="gain/vca" sha="6bbeaeb94e74091879965461ad0cb043f2e7f6cf" name="vca_7" x="1106" y="336">
-      <params/>
-      <attribs/>
-   </obj>
-   <comment type="patch/comment" x="1274" y="336" text="carrier oscillator"/>
-   <obj type="gain/vca" sha="6bbeaeb94e74091879965461ad0cb043f2e7f6cf" name="vca_8" x="1372" y="336">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="osc/sine" sha="edec4a9d5f533ea748cd564ce8c69673dd78742f" name="osc_6" x="476" y="350">
-      <params>
-         <frac32.s.map name="pitch" value="9.0"/>
-      </params>
-      <attribs/>
-   </obj>
-   <obj type="osc/sine" sha="edec4a9d5f533ea748cd564ce8c69673dd78742f" name="osc_7" x="742" y="350">
-      <params>
-         <frac32.s.map name="pitch" value="10.0"/>
-      </params>
-      <attribs/>
-   </obj>
-   <obj type="osc/sine" sha="edec4a9d5f533ea748cd564ce8c69673dd78742f" name="osc_8" x="1008" y="350">
-      <params>
-         <frac32.s.map name="pitch" value="11.0"/>
-      </params>
-      <attribs/>
-   </obj>
-   <obj type="osc/sine" sha="edec4a9d5f533ea748cd564ce8c69673dd78742f" name="osc_9" x="1274" y="350">
-      <params>
-         <frac32.s.map name="pitch" value="12.0"/>
-      </params>
-      <attribs/>
-   </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_7" x="280" y="378">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_8" x="280" y="434">
-      <params/>
-      <attribs/>
-   </obj>
-   <comment type="patch/comment" x="280" y="560" text="Keyboard Keys, Decoded to binary"/>
    <obj type="logic/decode/bin 8" uuid="dfc0a6e9d7e817cec64fd01f6972f64d897863a4" name="bin_2" x="168" y="574">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_9" x="280" y="574">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_8" x="322" y="574">
       <params/>
       <attribs/>
    </obj>
-   <obj type="env/adsr" sha="2c4b16047d03b574d8a72b651f130895749eb670" name="adsr1________" x="378" y="574">
-      <params>
-         <frac32.s.map name="a" value="-11.0"/>
-         <frac32.s.map name="d" value="9.5"/>
-         <frac32.u.map name="s" value="27.5"/>
-         <frac32.s.map name="r" value="24.5"/>
-      </params>
-      <attribs/>
-   </obj>
-   <obj type="env/adsr" sha="2c4b16047d03b574d8a72b651f130895749eb670" name="adsr1_________" x="644" y="574">
-      <params>
-         <frac32.s.map name="a" value="-11.0"/>
-         <frac32.s.map name="d" value="9.5"/>
-         <frac32.u.map name="s" value="27.5"/>
-         <frac32.s.map name="r" value="24.5"/>
-      </params>
-      <attribs/>
-   </obj>
-   <obj type="env/adsr" sha="2c4b16047d03b574d8a72b651f130895749eb670" name="adsr1__________" x="910" y="574">
-      <params>
-         <frac32.s.map name="a" value="-11.0"/>
-         <frac32.s.map name="d" value="9.5"/>
-         <frac32.u.map name="s" value="27.5"/>
-         <frac32.s.map name="r" value="24.5"/>
-      </params>
-      <attribs/>
-   </obj>
-   <obj type="env/adsr" sha="2c4b16047d03b574d8a72b651f130895749eb670" name="adsr1___________" x="1176" y="574">
-      <params>
-         <frac32.s.map name="a" value="-11.0"/>
-         <frac32.s.map name="d" value="9.5"/>
-         <frac32.u.map name="s" value="27.5"/>
-         <frac32.s.map name="r" value="24.5"/>
-      </params>
-      <attribs/>
-   </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_10" x="280" y="630">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_9" x="322" y="630">
       <params/>
       <attribs/>
    </obj>
-   <comment type="patch/comment" x="476" y="630" text="carrier oscillator"/>
-   <obj type="gain/vca" sha="6bbeaeb94e74091879965461ad0cb043f2e7f6cf" name="vca_9" x="574" y="630">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_10" x="322" y="686">
       <params/>
       <attribs/>
    </obj>
-   <comment type="patch/comment" x="742" y="630" text="carrier oscillator"/>
-   <obj type="gain/vca" sha="6bbeaeb94e74091879965461ad0cb043f2e7f6cf" name="vca_10" x="840" y="630">
-      <params/>
-      <attribs/>
-   </obj>
-   <comment type="patch/comment" x="1008" y="630" text="carrier oscillator"/>
-   <obj type="gain/vca" sha="6bbeaeb94e74091879965461ad0cb043f2e7f6cf" name="vca_11" x="1106" y="630">
-      <params/>
-      <attribs/>
-   </obj>
-   <comment type="patch/comment" x="1274" y="630" text="carrier oscillator"/>
-   <obj type="gain/vca" sha="6bbeaeb94e74091879965461ad0cb043f2e7f6cf" name="vca_12" x="1372" y="630">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="osc/sine" sha="edec4a9d5f533ea748cd564ce8c69673dd78742f" name="osc_10" x="476" y="644">
-      <params>
-         <frac32.s.map name="pitch" value="13.0"/>
-      </params>
-      <attribs/>
-   </obj>
-   <obj type="osc/sine" sha="edec4a9d5f533ea748cd564ce8c69673dd78742f" name="osc_11" x="742" y="644">
-      <params>
-         <frac32.s.map name="pitch" value="14.0"/>
-      </params>
-      <attribs/>
-   </obj>
-   <obj type="osc/sine" sha="edec4a9d5f533ea748cd564ce8c69673dd78742f" name="osc_12" x="1008" y="644">
-      <params>
-         <frac32.s.map name="pitch" value="15.0"/>
-      </params>
-      <attribs/>
-   </obj>
-   <obj type="osc/sine" sha="edec4a9d5f533ea748cd564ce8c69673dd78742f" name="osc_13" x="1274" y="644">
-      <params>
-         <frac32.s.map name="pitch" value="16.0"/>
-      </params>
-      <attribs/>
-   </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_11" x="280" y="686">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_12" x="280" y="742">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_13" x="280" y="798">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_14" x="280" y="854">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_15" x="280" y="910">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_16" x="280" y="966">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_11" x="322" y="742">
       <params/>
       <attribs/>
    </obj>
    <nets>
       <net>
-         <source obj="osc_2" outlet="wave"/>
-         <dest obj="vca_1" inlet="a"/>
-      </net>
-      <net>
-         <source obj="vca_1" outlet="o"/>
-         <dest obj="mix_1" inlet="in1"/>
-      </net>
-      <net>
-         <source obj="bin_2" outlet="o0"/>
-         <dest obj="bool_9" inlet="in"/>
-         <dest obj="adsr1________" inlet="gate"/>
-      </net>
-      <net>
-         <source obj="bin_2" outlet="o1"/>
-         <dest obj="bool_10" inlet="in"/>
-         <dest obj="adsr1_________" inlet="gate"/>
-      </net>
-      <net>
-         <source obj="bin_2" outlet="o2"/>
-         <dest obj="bool_11" inlet="in"/>
-         <dest obj="adsr1__________" inlet="gate"/>
-      </net>
-      <net>
-         <source obj="bin_2" outlet="o3"/>
-         <dest obj="bool_12" inlet="in"/>
-         <dest obj="adsr1___________" inlet="gate"/>
-      </net>
-      <net>
-         <source obj="bin_2" outlet="o4"/>
-         <dest obj="bool_13" inlet="in"/>
-      </net>
-      <net>
-         <source obj="bin_2" outlet="o5"/>
-         <dest obj="bool_14" inlet="in"/>
-      </net>
-      <net>
-         <source obj="bin_2" outlet="o6"/>
-         <dest obj="bool_15" inlet="in"/>
-      </net>
-      <net>
-         <source obj="bin_2" outlet="o7"/>
-         <dest obj="bool_16" inlet="in"/>
-      </net>
-      <net>
          <source obj="bin_1" outlet="o0"/>
-         <dest obj="bool_1" inlet="in"/>
-         <dest obj="adsr1" inlet="gate"/>
+         <dest obj="kb_0" inlet="outlet"/>
       </net>
       <net>
          <source obj="bin_1" outlet="o1"/>
-         <dest obj="bool_2" inlet="in"/>
-         <dest obj="adsr1_" inlet="gate"/>
+         <dest obj="kb_1" inlet="outlet"/>
       </net>
       <net>
          <source obj="bin_1" outlet="o2"/>
-         <dest obj="bool_3" inlet="in"/>
-         <dest obj="adsr1__" inlet="gate"/>
+         <dest obj="kb_2" inlet="outlet"/>
       </net>
       <net>
          <source obj="bin_1" outlet="o3"/>
-         <dest obj="bool_4" inlet="in"/>
-         <dest obj="adsr1___" inlet="gate"/>
+         <dest obj="kb_3" inlet="outlet"/>
       </net>
       <net>
          <source obj="bin_1" outlet="o4"/>
-         <dest obj="bool_5" inlet="in"/>
-         <dest obj="adsr1____" inlet="gate"/>
+         <dest obj="kb_4" inlet="outlet"/>
       </net>
       <net>
          <source obj="bin_1" outlet="o5"/>
-         <dest obj="bool_6" inlet="in"/>
-         <dest obj="adsr1_____" inlet="gate"/>
+         <dest obj="kb_5" inlet="outlet"/>
       </net>
       <net>
          <source obj="bin_1" outlet="o6"/>
-         <dest obj="bool_7" inlet="in"/>
-         <dest obj="adsr1______" inlet="gate"/>
+         <dest obj="kb_6" inlet="outlet"/>
       </net>
       <net>
          <source obj="bin_1" outlet="o7"/>
-         <dest obj="bool_8" inlet="in"/>
-         <dest obj="adsr1_______" inlet="gate"/>
+         <dest obj="kb_7" inlet="outlet"/>
       </net>
       <net>
          <source obj="bin_1" outlet="chain"/>
@@ -701,151 +360,6 @@ void loop(void)
          <source obj="Keyboard_1" outlet="out2_"/>
          <dest obj="hex_5" inlet="in"/>
          <dest obj="bin_1" inlet="i1"/>
-      </net>
-      <net>
-         <source obj="adsr1" outlet="env"/>
-         <dest obj="vca_1" inlet="v"/>
-      </net>
-      <net>
-         <source obj="osc_3" outlet="wave"/>
-         <dest obj="vca_2" inlet="a"/>
-      </net>
-      <net>
-         <source obj="adsr1_" outlet="env"/>
-         <dest obj="vca_2" inlet="v"/>
-      </net>
-      <net>
-         <source obj="mix_1" outlet="out"/>
-         <dest obj="mix_2" inlet="bus_in"/>
-      </net>
-      <net>
-         <source obj="vca_2" outlet="o"/>
-         <dest obj="mix_1" inlet="in2"/>
-      </net>
-      <net>
-         <source obj="osc_4" outlet="wave"/>
-         <dest obj="vca_3" inlet="a"/>
-      </net>
-      <net>
-         <source obj="adsr1__" outlet="env"/>
-         <dest obj="vca_3" inlet="v"/>
-      </net>
-      <net>
-         <source obj="vca_3" outlet="o"/>
-         <dest obj="mix_1" inlet="in3"/>
-      </net>
-      <net>
-         <source obj="osc_5" outlet="wave"/>
-         <dest obj="vca_4" inlet="a"/>
-      </net>
-      <net>
-         <source obj="adsr1___" outlet="env"/>
-         <dest obj="vca_4" inlet="v"/>
-      </net>
-      <net>
-         <source obj="vca_4" outlet="o"/>
-         <dest obj="mix_1" inlet="in4"/>
-      </net>
-      <net>
-         <source obj="osc_6" outlet="wave"/>
-         <dest obj="vca_5" inlet="a"/>
-      </net>
-      <net>
-         <source obj="adsr1____" outlet="env"/>
-         <dest obj="vca_5" inlet="v"/>
-      </net>
-      <net>
-         <source obj="osc_7" outlet="wave"/>
-         <dest obj="vca_6" inlet="a"/>
-      </net>
-      <net>
-         <source obj="adsr1_____" outlet="env"/>
-         <dest obj="vca_6" inlet="v"/>
-      </net>
-      <net>
-         <source obj="osc_8" outlet="wave"/>
-         <dest obj="vca_7" inlet="a"/>
-      </net>
-      <net>
-         <source obj="adsr1______" outlet="env"/>
-         <dest obj="vca_7" inlet="v"/>
-      </net>
-      <net>
-         <source obj="osc_9" outlet="wave"/>
-         <dest obj="vca_8" inlet="a"/>
-      </net>
-      <net>
-         <source obj="adsr1_______" outlet="env"/>
-         <dest obj="vca_8" inlet="v"/>
-      </net>
-      <net>
-         <source obj="vca_5" outlet="o"/>
-         <dest obj="mix_1" inlet="in5"/>
-      </net>
-      <net>
-         <source obj="vca_6" outlet="o"/>
-         <dest obj="mix_1" inlet="in6"/>
-      </net>
-      <net>
-         <source obj="vca_7" outlet="o"/>
-         <dest obj="mix_1" inlet="in7"/>
-      </net>
-      <net>
-         <source obj="vca_8" outlet="o"/>
-         <dest obj="mix_1" inlet="in8"/>
-      </net>
-      <net>
-         <source obj="osc_10" outlet="wave"/>
-         <dest obj="vca_9" inlet="a"/>
-      </net>
-      <net>
-         <source obj="adsr1________" outlet="env"/>
-         <dest obj="vca_9" inlet="v"/>
-      </net>
-      <net>
-         <source obj="osc_11" outlet="wave"/>
-         <dest obj="vca_10" inlet="a"/>
-      </net>
-      <net>
-         <source obj="adsr1_________" outlet="env"/>
-         <dest obj="vca_10" inlet="v"/>
-      </net>
-      <net>
-         <source obj="osc_12" outlet="wave"/>
-         <dest obj="vca_11" inlet="a"/>
-      </net>
-      <net>
-         <source obj="adsr1__________" outlet="env"/>
-         <dest obj="vca_11" inlet="v"/>
-      </net>
-      <net>
-         <source obj="osc_13" outlet="wave"/>
-         <dest obj="vca_12" inlet="a"/>
-      </net>
-      <net>
-         <source obj="adsr1___________" outlet="env"/>
-         <dest obj="vca_12" inlet="v"/>
-      </net>
-      <net>
-         <source obj="mix_2" outlet="out"/>
-         <dest obj="obj_1" inlet="left"/>
-         <dest obj="obj_1" inlet="right"/>
-      </net>
-      <net>
-         <source obj="vca_9" outlet="o"/>
-         <dest obj="mix_2" inlet="in1"/>
-      </net>
-      <net>
-         <source obj="vca_10" outlet="o"/>
-         <dest obj="mix_2" inlet="in2"/>
-      </net>
-      <net>
-         <source obj="vca_11" outlet="o"/>
-         <dest obj="mix_2" inlet="in3"/>
-      </net>
-      <net>
-         <source obj="vca_12" outlet="o"/>
-         <dest obj="mix_2" inlet="in4"/>
       </net>
    </nets>
    <settings>

@@ -361,6 +361,22 @@ void loop(void)
          <dest obj="hex_5" inlet="in"/>
          <dest obj="bin_1" inlet="i1"/>
       </net>
+      <net>
+         <source obj="bin_2" outlet="o0"/>
+         <dest obj="kb_8" inlet="outlet"/>
+      </net>
+      <net>
+         <source obj="bin_2" outlet="o1"/>
+         <dest obj="kb_9" inlet="outlet"/>
+      </net>
+      <net>
+         <source obj="bin_2" outlet="o2"/>
+         <dest obj="kb_10" inlet="outlet"/>
+      </net>
+      <net>
+         <source obj="bin_2" outlet="o3"/>
+         <dest obj="kb_11" inlet="outlet"/>
+      </net>
    </nets>
    <settings>
       <subpatchmode>no</subpatchmode>

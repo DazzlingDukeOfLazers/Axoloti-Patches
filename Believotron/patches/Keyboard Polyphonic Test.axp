@@ -15,7 +15,7 @@
          <objref attributeName="sender" obj="attack"/>
       </attribs>
    </obj>
-   <obj type="Wanderlust/ADSR OSC" uuid="40b0c482-fa5e-4a7d-8490-7ea7a35bd639" name="obj_21" x="602" y="42">
+   <obj type="Wanderlust/ADSR OSC" uuid="40b0c482-fa5e-4a7d-8490-7ea7a35bd639" name="obj_21" x="616" y="42">
       <params>
          <frac32.s.map name="noteMod" value="0.0"/>
       </params>
@@ -75,7 +75,15 @@
          <objref attributeName="sender" obj="release"/>
       </attribs>
    </obj>
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_1" x="168" y="168">
+      <params/>
+      <attribs/>
+   </obj>
    <obj type="Wanderlust/Volume Out" uuid="e44c081a-9bc0-4227-8a8c-20a39a2a1ee3" name="obj_1" x="1792" y="168">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/send f" uuid="8a7799ea1c3b8582991e669a4f70e2f663841f2d" name="s_note_base" x="252" y="210">
       <params/>
       <attribs/>
    </obj>
@@ -115,17 +123,17 @@
       </params>
       <attribs/>
    </obj>
-   <obj type="ctrl/dial b" uuid="862e7d7f29093cb1ce4aed72244d118ad4d46692" name="dial_2" x="28" y="238">
-      <params>
-         <frac32.s.map name="value" value="0.0"/>
-      </params>
-      <attribs/>
-   </obj>
-   <obj type="patch/send f" uuid="8a7799ea1c3b8582991e669a4f70e2f663841f2d" name="s_note_base" x="98" y="238">
+   <obj type="disp/scope 128 b" uuid="2b69f51a714fc276503ef10c349d6d253d1ae5e2" name="scope_1" x="1792" y="252">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/scope 128 b" uuid="2b69f51a714fc276503ef10c349d6d253d1ae5e2" name="scope_1" x="1792" y="252">
+   <obj type="ctrl/dial b" uuid="862e7d7f29093cb1ce4aed72244d118ad4d46692" name="dial_3" x="28" y="266">
+      <params>
+         <frac32.s.map name="value" value="-3.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="math/*" uuid="13882852b58661ad012ffbe246470b5df4b6c5d1" name="*_1" x="112" y="266">
       <params/>
       <attribs/>
    </obj>
@@ -165,15 +173,11 @@
          <objref attributeName="sender" obj="release"/>
       </attribs>
    </obj>
-   <obj type="ctrl/dial b" uuid="862e7d7f29093cb1ce4aed72244d118ad4d46692" name="dial_3" x="28" y="336">
-      <params>
-         <frac32.s.map name="value" value="8.0"/>
-      </params>
-      <attribs/>
-   </obj>
-   <obj type="patch/send f" uuid="8a7799ea1c3b8582991e669a4f70e2f663841f2d" name="attack" x="112" y="336">
+   <obj type="const/i" uuid="e202f44b2df17ae0b3e663b98ea6b14c8ff00408" name="i_1" x="28" y="350">
       <params/>
-      <attribs/>
+      <attribs>
+         <spinner attributeName="value" value="12"/>
+      </attribs>
    </obj>
    <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_33" x="364" y="364">
       <params/>
@@ -217,10 +221,6 @@
       </params>
       <attribs/>
    </obj>
-   <obj type="patch/send f" uuid="8a7799ea1c3b8582991e669a4f70e2f663841f2d" name="decay" x="112" y="420">
-      <params/>
-      <attribs/>
-   </obj>
    <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_6" x="238" y="434">
       <params/>
       <attribs>
@@ -257,27 +257,10 @@
          <objref attributeName="sender" obj="release"/>
       </attribs>
    </obj>
-   <obj type="mix/mix 8" uuid="f12e13a7920b67f4e286369e0e2c573e5af08f9c" name="mix_1" x="1008" y="476">
-      <params>
-         <frac32.u.map name="gain1" value="32.0"/>
-         <frac32.u.map name="gain2" value="32.0"/>
-         <frac32.u.map name="gain3" value="32.0"/>
-         <frac32.u.map name="gain4" value="32.0"/>
-         <frac32.u.map name="gain5" value="32.0"/>
-         <frac32.u.map name="gain6" value="32.0"/>
-         <frac32.u.map name="gain7" value="32.0"/>
-         <frac32.u.map name="gain8" value="32.0"/>
-      </params>
-      <attribs/>
-   </obj>
    <obj type="ctrl/dial b" uuid="862e7d7f29093cb1ce4aed72244d118ad4d46692" name="dial_5" x="28" y="504">
       <params>
          <frac32.s.map name="value" value="-13.0"/>
       </params>
-      <attribs/>
-   </obj>
-   <obj type="patch/send f" uuid="8a7799ea1c3b8582991e669a4f70e2f663841f2d" name="sustain" x="112" y="504">
-      <params/>
       <attribs/>
    </obj>
    <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_37" x="364" y="518">
@@ -316,14 +299,23 @@
       </params>
       <attribs/>
    </obj>
+   <obj type="mix/mix 8" uuid="f12e13a7920b67f4e286369e0e2c573e5af08f9c" name="mix_1" x="1022" y="574">
+      <params>
+         <frac32.u.map name="gain1" value="32.0"/>
+         <frac32.u.map name="gain2" value="32.0"/>
+         <frac32.u.map name="gain3" value="32.0"/>
+         <frac32.u.map name="gain4" value="32.0"/>
+         <frac32.u.map name="gain5" value="32.0"/>
+         <frac32.u.map name="gain6" value="32.0"/>
+         <frac32.u.map name="gain7" value="32.0"/>
+         <frac32.u.map name="gain8" value="32.0"/>
+      </params>
+      <attribs/>
+   </obj>
    <obj type="ctrl/dial b" uuid="862e7d7f29093cb1ce4aed72244d118ad4d46692" name="dial_6" x="28" y="588">
       <params>
          <frac32.s.map name="value" value="3.0"/>
       </params>
-      <attribs/>
-   </obj>
-   <obj type="patch/send f" uuid="8a7799ea1c3b8582991e669a4f70e2f663841f2d" name="release" x="112" y="588">
-      <params/>
       <attribs/>
    </obj>
    <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_7" x="238" y="588">
@@ -393,6 +385,10 @@
       </params>
       <attribs/>
    </obj>
+   <obj type="Wanderlust/Knobs" uuid="b620a6a3-0ff5-4c43-bf34-73e80c536079" name="obj_3" x="0" y="700">
+      <params/>
+      <attribs/>
+   </obj>
    <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_8" x="238" y="742">
       <params/>
       <attribs>
@@ -410,6 +406,10 @@
       <attribs>
          <objref attributeName="sender" obj="release"/>
       </attribs>
+   </obj>
+   <obj type="patch/send f" uuid="8a7799ea1c3b8582991e669a4f70e2f663841f2d" name="attack" x="140" y="826">
+      <params/>
+      <attribs/>
    </obj>
    <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_45" x="364" y="826">
       <params/>
@@ -447,6 +447,10 @@
          <objref attributeName="sender" obj="release"/>
       </attribs>
    </obj>
+   <obj type="patch/send f" uuid="8a7799ea1c3b8582991e669a4f70e2f663841f2d" name="decay" x="140" y="910">
+      <params/>
+      <attribs/>
+   </obj>
    <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_49" x="364" y="980">
       <params/>
       <attribs>
@@ -463,6 +467,10 @@
       <params>
          <frac32.s.map name="noteMod" value="6.0"/>
       </params>
+      <attribs/>
+   </obj>
+   <obj type="patch/send f" uuid="8a7799ea1c3b8582991e669a4f70e2f663841f2d" name="sustain" x="140" y="994">
+      <params/>
       <attribs/>
    </obj>
    <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_10" x="238" y="1050">
@@ -482,6 +490,10 @@
       <attribs>
          <objref attributeName="sender" obj="release"/>
       </attribs>
+   </obj>
+   <obj type="patch/send f" uuid="8a7799ea1c3b8582991e669a4f70e2f663841f2d" name="release" x="140" y="1078">
+      <params/>
+      <attribs/>
    </obj>
    <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_53" x="364" y="1134">
       <params/>
@@ -528,26 +540,6 @@
          <source obj="mix_2" outlet="out"/>
          <dest obj="obj_1" inlet="left"/>
          <dest obj="obj_1" inlet="right"/>
-      </net>
-      <net>
-         <source obj="dial_2" outlet="out"/>
-         <dest obj="s_note_base" inlet="v"/>
-      </net>
-      <net>
-         <source obj="dial_3" outlet="out"/>
-         <dest obj="attack" inlet="v"/>
-      </net>
-      <net>
-         <source obj="dial_4" outlet="out"/>
-         <dest obj="decay" inlet="v"/>
-      </net>
-      <net>
-         <source obj="dial_5" outlet="out"/>
-         <dest obj="sustain" inlet="v"/>
-      </net>
-      <net>
-         <source obj="dial_6" outlet="out"/>
-         <dest obj="release" inlet="v"/>
       </net>
       <net>
          <source obj="recv_4" outlet="v"/>
@@ -885,6 +877,35 @@
          <source obj="obj_2" outlet="kb_3"/>
          <dest obj="obj_24" inlet="trigger"/>
       </net>
+      <net>
+         <source obj="obj_3" outlet="knob_bot_0"/>
+         <dest obj="attack" inlet="v"/>
+      </net>
+      <net>
+         <source obj="obj_3" outlet="knob_bot_1"/>
+         <dest obj="decay" inlet="v"/>
+      </net>
+      <net>
+         <source obj="obj_3" outlet="knob_bot_2"/>
+         <dest obj="sustain" inlet="v"/>
+      </net>
+      <net>
+         <source obj="obj_3" outlet="knob_bot_3"/>
+         <dest obj="release" inlet="v"/>
+      </net>
+      <net>
+         <source obj="*_1" outlet="result"/>
+         <dest obj="s_note_base" inlet="v"/>
+         <dest obj="dial_1" inlet="in"/>
+      </net>
+      <net>
+         <source obj="i_1" outlet="out"/>
+         <dest obj="*_1" inlet="b"/>
+      </net>
+      <net>
+         <source obj="dial_3" outlet="out"/>
+         <dest obj="*_1" inlet="a"/>
+      </net>
    </nets>
    <settings>
       <subpatchmode>no</subpatchmode>
@@ -896,8 +917,8 @@
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>-2285</x>
-      <y>-111</y>
+      <x>-2290</x>
+      <y>-26</y>
       <width>2045</width>
       <height>1447</height>
    </windowPos>

@@ -335,6 +335,24 @@ void loop(void)
 		pc0A = 0x400 & ( ui32CapTouched );
 		pc0B = 0x800 & ( ui32CapTouched );		
 	}
+
+	ui32CapTouched = PadcapTouched(WANDERLUST_PADCAP_UPPER);
+	{
+		out3 = ui32CapTouched;
+		pc10 = 0x080 & ( ui32CapTouched );
+		pc11 = 0x040 & ( ui32CapTouched );
+		pc12 = 0x020 & ( ui32CapTouched );
+		pc13 = 0x010 & ( ui32CapTouched );
+		pc14 = 0x008 & ( ui32CapTouched );
+		pc15 = 0x004 & ( ui32CapTouched );
+		pc16 = 0x002 & ( ui32CapTouched );
+		pc17 = 0x001 & ( ui32CapTouched );
+		pc18 = 0x100 & ( ui32CapTouched );
+		pc19 = 0x200 & ( ui32CapTouched );
+		pc1A = 0x400 & ( ui32CapTouched );
+		pc1B = 0x800 & ( ui32CapTouched );		
+	}
+	
 	
 	
 	
@@ -344,7 +362,7 @@ void loop(void)
          </text>
       </attribs>
    </obj>
-   <obj type="disp/hex" uuid="3ce415f2f0e09f5b3cf10e5d355274847fd063b2" name="hex_6" x="252" y="994">
+   <obj type="disp/hex" uuid="3ce415f2f0e09f5b3cf10e5d355274847fd063b2" name="hex_6" x="252" y="1008">
       <params/>
       <attribs/>
    </obj>
@@ -444,14 +462,106 @@ void loop(void)
       <params/>
       <attribs/>
    </obj>
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_24" x="672" y="1820">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_25" x="756" y="1820">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_25" x="672" y="1876">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_26" x="756" y="1876">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_26" x="672" y="1932">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_27" x="756" y="1932">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_27" x="672" y="1988">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_28" x="756" y="1988">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_28" x="672" y="2044">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_29" x="756" y="2044">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_29" x="672" y="2100">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_30" x="756" y="2100">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_30" x="672" y="2156">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_31" x="756" y="2156">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_31" x="672" y="2212">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_32" x="756" y="2212">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_32" x="672" y="2268">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_33" x="756" y="2268">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_33" x="672" y="2324">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_34" x="756" y="2324">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_34" x="672" y="2380">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_35" x="756" y="2380">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_35" x="672" y="2436">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_36" x="756" y="2436">
+      <params/>
+      <attribs/>
+   </obj>
    <nets>
       <net>
          <source obj="Keyboard_1" outlet="out2_"/>
          <dest obj="hex_5" inlet="in"/>
-      </net>
-      <net>
-         <source obj="Keyboard_1" outlet="out3_"/>
-         <dest obj="hex_6" inlet="in"/>
       </net>
       <net>
          <source obj="Keyboard_1" outlet="kb0_"/>
@@ -572,6 +682,70 @@ void loop(void)
          <source obj="Keyboard_1" outlet="pc0B_"/>
          <dest obj="bool_24" inlet="in"/>
          <dest obj="kb_23" inlet="outlet"/>
+      </net>
+      <net>
+         <source obj="Keyboard_1" outlet="out3_"/>
+         <dest obj="hex_6" inlet="in"/>
+      </net>
+      <net>
+         <source obj="Keyboard_1" outlet="pc10_"/>
+         <dest obj="bool_25" inlet="in"/>
+         <dest obj="kb_24" inlet="outlet"/>
+      </net>
+      <net>
+         <source obj="Keyboard_1" outlet="pc11_"/>
+         <dest obj="bool_26" inlet="in"/>
+         <dest obj="kb_25" inlet="outlet"/>
+      </net>
+      <net>
+         <source obj="Keyboard_1" outlet="pc12_"/>
+         <dest obj="bool_27" inlet="in"/>
+         <dest obj="kb_26" inlet="outlet"/>
+      </net>
+      <net>
+         <source obj="Keyboard_1" outlet="pc13_"/>
+         <dest obj="bool_28" inlet="in"/>
+         <dest obj="kb_27" inlet="outlet"/>
+      </net>
+      <net>
+         <source obj="Keyboard_1" outlet="pc14_"/>
+         <dest obj="bool_29" inlet="in"/>
+         <dest obj="kb_28" inlet="outlet"/>
+      </net>
+      <net>
+         <source obj="Keyboard_1" outlet="pc15_"/>
+         <dest obj="bool_30" inlet="in"/>
+         <dest obj="kb_29" inlet="outlet"/>
+      </net>
+      <net>
+         <source obj="Keyboard_1" outlet="pc16_"/>
+         <dest obj="bool_31" inlet="in"/>
+         <dest obj="kb_30" inlet="outlet"/>
+      </net>
+      <net>
+         <source obj="Keyboard_1" outlet="pc17_"/>
+         <dest obj="bool_32" inlet="in"/>
+         <dest obj="kb_31" inlet="outlet"/>
+      </net>
+      <net>
+         <source obj="Keyboard_1" outlet="pc18_"/>
+         <dest obj="bool_33" inlet="in"/>
+         <dest obj="kb_32" inlet="outlet"/>
+      </net>
+      <net>
+         <source obj="Keyboard_1" outlet="pc19_"/>
+         <dest obj="bool_34" inlet="in"/>
+         <dest obj="kb_33" inlet="outlet"/>
+      </net>
+      <net>
+         <source obj="Keyboard_1" outlet="pc1A_"/>
+         <dest obj="bool_35" inlet="in"/>
+         <dest obj="kb_34" inlet="outlet"/>
+      </net>
+      <net>
+         <source obj="Keyboard_1" outlet="pc1B_"/>
+         <dest obj="bool_36" inlet="in"/>
+         <dest obj="kb_35" inlet="outlet"/>
       </net>
    </nets>
    <settings>

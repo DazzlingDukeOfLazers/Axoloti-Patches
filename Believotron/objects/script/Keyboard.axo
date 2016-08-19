@@ -12,7 +12,18 @@
          <frac32 name="out1_" description="out1"/>
          <int32.positive name="out2_" description="out2"/>
          <int32.positive name="out3_" description="out3"/>
-         <bool32 name="out4_" description="out4"/>
+         <bool32 name="kb0_" description="kb0"/>
+         <bool32 name="kb1_" description="kb1"/>
+         <bool32 name="kb2_" description="kb2"/>
+         <bool32 name="kb3_" description="kb3"/>
+         <bool32 name="kb4_" description="kb4"/>
+         <bool32 name="kb5_" description="kb5"/>
+         <bool32 name="kb6_" description="kb6"/>
+         <bool32 name="kb7_" description="kb7"/>
+         <bool32 name="kb8_" description="kb8"/>
+         <bool32 name="kb9_" description="kb9"/>
+         <bool32 name="kb10_" description="kb10"/>
+         <bool32 name="kb11_" description="kb11"/>
       </outlets>
       <displays/>
       <params/>
@@ -21,7 +32,7 @@
       </attribs>
       <code.declaration><![CDATA[int32_t in1,in2;
 int32_t out1,out2,out3;
-int32_t out4;
+int32_t kb0,kb1,kb2,kb3,kb4,kb5,kb6,kb7,kb8,kb9,kb10,kb11;
 attr_script
 msg_t ThreadX2(){
   setup();
@@ -37,7 +48,7 @@ static msg_t ThreadX(void *arg) {
 WORKING_AREA(waThreadX, 1024);
 Thread *Thd;
 ]]></code.declaration>
-      <code.init><![CDATA[in1=0;in2=0;out1=0;out2=0;out3=0;out4=0;
+      <code.init><![CDATA[in1=0;in2=0;out1=0;out2=0;out3=0;kb0=0;kb1=0;kb2=0;kb3=0;kb4=0;kb5=0;kb6=0;kb7=0;kb8=0;kb9=0;kb10=0;kb11=0;
   Thd = chThdCreateStatic(waThreadX, sizeof(waThreadX),
                     NORMALPRIO, ThreadX, (void *)this);
 ]]></code.init>
@@ -47,7 +58,18 @@ chThdWait(Thd);
       <code.krate><![CDATA[outlet_out1__ = this->out1;
 outlet_out2__ = this->out2;
 outlet_out3__ = this->out3;
-outlet_out4__ = this->out4;
+outlet_kb0__ = this->kb0;
+outlet_kb1__ = this->kb1;
+outlet_kb2__ = this->kb2;
+outlet_kb3__ = this->kb3;
+outlet_kb4__ = this->kb4;
+outlet_kb5__ = this->kb5;
+outlet_kb6__ = this->kb6;
+outlet_kb7__ = this->kb7;
+outlet_kb8__ = this->kb8;
+outlet_kb9__ = this->kb9;
+outlet_kb10__ = this->kb10;
+outlet_kb11__ = this->kb11;
 this->in1 = inlet_in1__;
 this->in2 = inlet_in2__;
 ]]></code.krate>

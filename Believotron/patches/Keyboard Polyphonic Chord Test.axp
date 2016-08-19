@@ -1,4 +1,29 @@
 <patch-1.0 appVersion="1.0.10">
+   <obj type="lfo/square" uuid="de6909eb64db13af5b43f979a4c130024b3a4793" name="square_1" x="182" y="14">
+      <params>
+         <frac32.s.map name="pitch" value="13.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/dial b" uuid="862e7d7f29093cb1ce4aed72244d118ad4d46692" name="dial_2" x="742" y="14">
+      <params>
+         <frac32.s.map name="value" value="0.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="sptnk/sequencer/chorder" uuid="76fec870-ba5f-418f-8aec-f21a5ddcc904" name="chorder_2" x="868" y="14">
+      <params>
+         <bin16 name="chord1" value="169"/>
+         <bin16 name="chord2" value="73"/>
+         <bin16 name="chord3" value="41"/>
+         <bin16 name="chord4" value="73"/>
+         <bin16 name="chord5" value="9"/>
+         <bin16 name="chord6" value="393"/>
+         <bin16 name="chord7" value="201"/>
+         <bin16 name="chord8" value="73"/>
+      </params>
+      <attribs/>
+   </obj>
    <obj type="Wanderlust/Keyboard" uuid="420fd000-a252-4984-911f-44fd016a3d61" name="obj_2" x="14" y="28">
       <params/>
       <attribs/>
@@ -21,6 +46,19 @@
       </params>
       <attribs/>
    </obj>
+   <obj type="sptnk/sequencer/chorder" uuid="76fec870-ba5f-418f-8aec-f21a5ddcc904" name="chorder_1" x="1120" y="70">
+      <params>
+         <bin16 name="chord1" value="0"/>
+         <bin16 name="chord2" value="0"/>
+         <bin16 name="chord3" value="0"/>
+         <bin16 name="chord4" value="0"/>
+         <bin16 name="chord5" value="0"/>
+         <bin16 name="chord6" value="0"/>
+         <bin16 name="chord7" value="0"/>
+         <bin16 name="chord8" value="0"/>
+      </params>
+      <attribs/>
+   </obj>
    <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_57" x="1274" y="70">
       <params/>
       <attribs>
@@ -36,6 +74,12 @@
    <obj type="Wanderlust/ADSR OSC" uuid="40b0c482-fa5e-4a7d-8490-7ea7a35bd639" name="obj_29" x="1526" y="70">
       <params>
          <frac32.s.map name="noteMod" value="8.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/dial p" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="dial_7" x="742" y="98">
+      <params>
+         <frac32.u.map name="value" value="0.0"/>
       </params>
       <attribs/>
    </obj>
@@ -83,6 +127,12 @@
       <params/>
       <attribs/>
    </obj>
+   <obj type="logic/counter" uuid="7a141ba82230e54e5f5cd12da5dbe5a74ba854a5" name="counter_1" x="770" y="196">
+      <params>
+         <int32 name="maximum" value="8"/>
+      </params>
+      <attribs/>
+   </obj>
    <obj type="patch/send f" uuid="8a7799ea1c3b8582991e669a4f70e2f663841f2d" name="s_note_base" x="252" y="210">
       <params/>
       <attribs/>
@@ -101,7 +151,7 @@
    </obj>
    <obj type="Wanderlust/ADSR OSC" uuid="40b0c482-fa5e-4a7d-8490-7ea7a35bd639" name="obj_22" x="616" y="210">
       <params>
-         <frac32.s.map name="noteMod" value="1.0"/>
+         <frac32.s.map name="noteMod" value="0.0"/>
       </params>
       <attribs/>
    </obj>
@@ -193,7 +243,7 @@
    </obj>
    <obj type="Wanderlust/ADSR OSC" uuid="40b0c482-fa5e-4a7d-8490-7ea7a35bd639" name="obj_23" x="616" y="364">
       <params>
-         <frac32.s.map name="noteMod" value="2.0"/>
+         <frac32.s.map name="noteMod" value="0.0"/>
       </params>
       <attribs/>
    </obj>
@@ -277,7 +327,7 @@
    </obj>
    <obj type="Wanderlust/ADSR OSC" uuid="40b0c482-fa5e-4a7d-8490-7ea7a35bd639" name="obj_24" x="616" y="518">
       <params>
-         <frac32.s.map name="noteMod" value="3.0"/>
+         <frac32.s.map name="noteMod" value="0.0"/>
       </params>
       <attribs/>
    </obj>
@@ -542,10 +592,6 @@
          <dest obj="obj_1" inlet="right"/>
       </net>
       <net>
-         <source obj="recv_4" outlet="v"/>
-         <dest obj="obj_21" inlet="Base Note"/>
-      </net>
-      <net>
          <source obj="recv_25" outlet="v"/>
          <dest obj="obj_21" inlet="release"/>
       </net>
@@ -562,16 +608,8 @@
          <dest obj="obj_21" inlet="attack"/>
       </net>
       <net>
-         <source obj="obj_2" outlet="kb_0"/>
-         <dest obj="obj_21" inlet="trigger"/>
-      </net>
-      <net>
          <source obj="obj_21" outlet="out"/>
          <dest obj="mix_1" inlet="in1"/>
-      </net>
-      <net>
-         <source obj="recv_5" outlet="v"/>
-         <dest obj="obj_22" inlet="Base Note"/>
       </net>
       <net>
          <source obj="recv_32" outlet="v"/>
@@ -588,10 +626,6 @@
       <net>
          <source obj="recv_30" outlet="v"/>
          <dest obj="obj_22" inlet="attack"/>
-      </net>
-      <net>
-         <source obj="recv_6" outlet="v"/>
-         <dest obj="obj_23" inlet="Base Note"/>
       </net>
       <net>
          <source obj="recv_36" outlet="v"/>
@@ -616,10 +650,6 @@
       <net>
          <source obj="obj_23" outlet="out"/>
          <dest obj="mix_1" inlet="in3"/>
-      </net>
-      <net>
-         <source obj="recv_7" outlet="v"/>
-         <dest obj="obj_24" inlet="Base Note"/>
       </net>
       <net>
          <source obj="recv_40" outlet="v"/>
@@ -834,14 +864,6 @@
          <dest obj="mix_2" inlet="in4"/>
       </net>
       <net>
-         <source obj="obj_2" outlet="kb_1"/>
-         <dest obj="obj_22" inlet="trigger"/>
-      </net>
-      <net>
-         <source obj="obj_2" outlet="kb_2"/>
-         <dest obj="obj_23" inlet="trigger"/>
-      </net>
-      <net>
          <source obj="obj_2" outlet="kb_4"/>
          <dest obj="obj_25" inlet="trigger"/>
       </net>
@@ -874,10 +896,6 @@
          <dest obj="obj_32" inlet="trigger"/>
       </net>
       <net>
-         <source obj="obj_2" outlet="kb_3"/>
-         <dest obj="obj_24" inlet="trigger"/>
-      </net>
-      <net>
          <source obj="obj_3" outlet="knob_bot_0"/>
          <dest obj="attack" inlet="v"/>
       </net>
@@ -906,6 +924,51 @@
          <source obj="dial_3" outlet="out"/>
          <dest obj="*_1" inlet="a"/>
       </net>
+      <net>
+         <source obj="dial_2" outlet="out"/>
+         <dest obj="chorder_2" inlet="pitch"/>
+      </net>
+      <net>
+         <source obj="chorder_2" outlet="p1"/>
+         <dest obj="obj_21" inlet="Base Note"/>
+      </net>
+      <net>
+         <source obj="chorder_2" outlet="t1"/>
+         <dest obj="obj_21" inlet="trigger"/>
+      </net>
+      <net>
+         <source obj="chorder_2" outlet="p2"/>
+         <dest obj="obj_22" inlet="Base Note"/>
+      </net>
+      <net>
+         <source obj="chorder_2" outlet="t2"/>
+         <dest obj="obj_22" inlet="trigger"/>
+      </net>
+      <net>
+         <source obj="chorder_2" outlet="p3"/>
+         <dest obj="obj_23" inlet="Base Note"/>
+      </net>
+      <net>
+         <source obj="chorder_2" outlet="t3"/>
+         <dest obj="obj_23" inlet="trigger"/>
+      </net>
+      <net>
+         <source obj="chorder_2" outlet="p4"/>
+         <dest obj="obj_24" inlet="Base Note"/>
+      </net>
+      <net>
+         <source obj="chorder_2" outlet="t4"/>
+         <dest obj="obj_24" inlet="trigger"/>
+      </net>
+      <net>
+         <source obj="counter_1" outlet="o"/>
+         <dest obj="chorder_2" inlet="sel"/>
+      </net>
+      <net>
+         <source obj="square_1" outlet="wave"/>
+         <dest obj="counter_1" inlet="trig"/>
+         <dest obj="chorder_2" inlet="enable"/>
+      </net>
    </nets>
    <settings>
       <subpatchmode>no</subpatchmode>
@@ -917,8 +980,8 @@
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>-2192</x>
-      <y>-72</y>
+      <x>-2318</x>
+      <y>-81</y>
       <width>2045</width>
       <height>1447</height>
    </windowPos>

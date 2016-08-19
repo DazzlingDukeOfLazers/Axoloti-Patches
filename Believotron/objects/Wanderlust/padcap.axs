@@ -223,10 +223,8 @@ void PadcapSetThreshold(uint8_t ui8Channel, uint8_t touch, uint8_t release)
 	}
 }
 
-uint32_t PadcapTouched()
-{
-	uint8_t ui8Channel = MPR121_I2CADDR_DEFAULT; // TEMP, replace with index loop
-
+uint32_t PadcapTouched(uint8_t ui8Channel)
+{	
 	int32_t i32NoteVal = 0;
 	
 	uint16_t u16capstatus = PadcapReadReg16(ui8Channel, MPR121_TOUCHSTATUS_L);
@@ -237,33 +235,16 @@ uint32_t PadcapTouched()
 	return i32NoteVal;
 }
 
-
-void setup(void) {
-	LinkTxRxBuffers();
-	out1 = 0xABBA;
-	
-	rxbuf[0] = 0;	
-	txbuf[0] = 0; // CAP1188_PRODID;
-
-	uint8_t ui8ProdID = 0;
-	uint8_t ui8ManuID = 0;
-	uint8_t ui8Rev    = 0;
-	bool bCorrectBoard = false;
-
-	uint8_t ui8tPadcapChannel = WANDERLUST_KEYBOARD;
-
-	// WriteMPR121Register(MPR121_SOFTRESET, 0x63); // <del on verification>
-	PadcapWriteReg(	ui8tPadcapChannel,	MPR121_SOFTRESET,	0x63);
-	
-	// WriteMPR121Register(MPR121_ECR, 0x0);	
-	PadcapWriteReg(	ui8tPadcapChannel,	MPR121_ECR, 	0x0);
+void PadcapSetup(uint8_t ui8tPadcapChannel)
+{
+	PadcapWriteReg(	ui8tPadcapChannel,	MPR121_SOFTRESET,   0x63);		
+	PadcapWriteReg(	ui8tPadcapChannel,	MPR121_ECR,         0x0);
 
 	uint8_t c = PadcapWriteReg8(ui8tPadcapChannel, MPR121_CONFIG2);
-	if (c != 0x24)  out1 = 0x4444; // Device ID is incorrect <TBD add to class flag>
+	if (c != 0x24)  out1 &= 0xF000; // Device ID is incorrect <TBD add to class flag>
 		
-	//SetMPR121Threshold(12, 6); // <reference Device sensetivity default	>
+	//PadcapSetThreshold(12, 6); // <reference Device sensetivity default	>
 	PadcapSetThreshold(ui8tPadcapChannel, 24, 12);
-
 
 	PadcapWriteReg(ui8tPadcapChannel, MPR121_MHDR, 0x01);
 	PadcapWriteReg(ui8tPadcapChannel, MPR121_NHDR, 0x01);
@@ -284,16 +265,35 @@ void setup(void) {
 	PadcapWriteReg(ui8tPadcapChannel, MPR121_CONFIG2, 0x20); // 0.5uS encoding, 1ms period
 	
 	PadcapWriteReg(ui8tPadcapChannel, MPR121_ECR, 0x8F);  // start with first 5 bits of baseline tracking
+}
 
-	//out2 = ReadMPR121Register8(MPR121_CONFIG2); // Remove this. I'm using it for shitty debugging
-	//return true;
 
-	//out1 = 0xBEEF;
+void setup(void) {
+	LinkTxRxBuffers();
+	out1 = 0xABBA;
+	
+	rxbuf[0] = 0;	
+	txbuf[0] = 0; // CAP1188_PRODID;
+
+	PadcapSetup(WANDERLUST_KEYBOARD);
+	PadcapSetup(WANDERLUST_PADCAP_LOWER);
+	PadcapSetup(WANDERLUST_PADCAP_UPPER);	
+
 	out2 = 0xBEEF;
-
 	out3 = 0xABBA;
-
 	kb0 = false;
+	kb1 = false;
+	kb2 = false;
+	kb3 = false;
+	kb4 = false;
+	kb5 = false;
+	kb6 = false;
+	kb7 = false;
+	kb8 = false;
+	kb9 = false;
+	kb10 = false;
+	kb11 = false;
+
 
 }
 void loop(void)
@@ -302,21 +302,29 @@ void loop(void)
 
 	uint32_t ui32CapTouched;
 
-	ui32CapTouched = PadcapTouched();
+	ui32CapTouched = PadcapTouched(WANDERLUST_KEYBOARD);
+	{
+		out2 = ui32CapTouched;
+		kb0  = 0x01 & (ui32CapTouched     );
+		kb1  = 0x01 & (ui32CapTouched >> 1);
+		kb2  = 0x01 & (ui32CapTouched >> 2);
+		kb3  = 0x01 & (ui32CapTouched >> 3);
+		kb4  = 0x01 & (ui32CapTouched >> 4);
+		kb5  = 0x01 & (ui32CapTouched >> 5);
+		kb6  = 0x01 & (ui32CapTouched >> 6);
+		kb7  = 0x01 & (ui32CapTouched >> 7);
+		kb8  = 0x01 & (ui32CapTouched >> 8);
+		kb9  = 0x01 & (ui32CapTouched >> 9);
+		kb10 = 0x01 & (ui32CapTouched >> 10);
+		kb11 = 0x01 & (ui32CapTouched >> 11);
+	}
 
-	out2 = ui32CapTouched;
-	kb0  = 0x01 & (ui32CapTouched     );
-	kb1  = 0x01 & (ui32CapTouched >> 1);
-	kb2  = 0x01 & (ui32CapTouched >> 2);
-	kb3  = 0x01 & (ui32CapTouched >> 3);
-	kb4  = 0x01 & (ui32CapTouched >> 4);
-	kb5  = 0x01 & (ui32CapTouched >> 5);
-	kb6  = 0x01 & (ui32CapTouched >> 6);
-	kb7  = 0x01 & (ui32CapTouched >> 7);
-	kb8  = 0x01 & (ui32CapTouched >> 8);
-	kb9  = 0x01 & (ui32CapTouched >> 9);
-	kb10 = 0x01 & (ui32CapTouched >> 10);
-	kb11 = 0x01 & (ui32CapTouched >> 11);
+	ui32CapTouched = PadcapTouched(WANDERLUST_PADCAP_LOWER);
+	{
+		out3 = ui32CapTouched;
+	}
+	
+	
 	
 	
 }

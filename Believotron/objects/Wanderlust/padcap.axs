@@ -318,6 +318,8 @@ void setup(void) {
 
 	out3 = 0xABBA;
 
+	out4 = false;
+
 }
 void loop(void)
 {
@@ -422,11 +424,19 @@ void loop(void)
       <params/>
       <attribs/>
    </obj>
+   <obj type="audio/in stereo" uuid="99848ad6d90a8e615e83b2e619cfc806f28e7281" name="in_1" x="1036" y="98">
+      <params/>
+      <attribs/>
+   </obj>
    <obj type="logic/decode/bin 8" uuid="dfc0a6e9d7e817cec64fd01f6972f64d897863a4" name="bin_1" x="602" y="112">
       <params/>
       <attribs/>
    </obj>
    <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_1" x="728" y="112">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_1" x="308" y="126">
       <params/>
       <attribs/>
    </obj>
@@ -442,8 +452,18 @@ void loop(void)
       <params/>
       <attribs/>
    </obj>
+   <obj type="logic/and 2" uuid="c67031682f552aa0a80b23377495c51ea28a8c9c" name="and_1" x="952" y="252">
+      <params/>
+      <attribs/>
+   </obj>
    <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_4" x="728" y="280">
       <params/>
+      <attribs/>
+   </obj>
+   <obj type="logic/change speedlim" uuid="1a2d0a5375110127dc7da70fc0916f3022b5ca3d" name="change_1" x="1148" y="322">
+      <params>
+         <frac32.u.map name="d" value="0.0"/>
+      </params>
       <attribs/>
    </obj>
    <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_5" x="728" y="336">
@@ -540,14 +560,18 @@ void loop(void)
          <source obj="Keyboard_1" outlet="out3_"/>
          <dest obj="hex_6" inlet="in"/>
       </net>
+      <net>
+         <source obj="Keyboard_1" outlet="out4_"/>
+         <dest obj="bool_1" inlet="in"/>
+      </net>
    </nets>
    <settings>
       <subpatchmode>no</subpatchmode>
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>-2018</x>
-      <y>-48</y>
+      <x>-2024</x>
+      <y>66</y>
       <width>1860</width>
       <height>1331</height>
    </windowPos>

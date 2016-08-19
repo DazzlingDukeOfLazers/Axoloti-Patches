@@ -12,6 +12,7 @@
          <frac32 name="out1_" description="out1"/>
          <int32.positive name="out2_" description="out2"/>
          <int32.positive name="out3_" description="out3"/>
+         <bool32 name="out4_" description="out4"/>
       </outlets>
       <displays/>
       <params/>
@@ -20,6 +21,7 @@
       </attribs>
       <code.declaration><![CDATA[int32_t in1,in2;
 int32_t out1,out2,out3;
+int32_t out4;
 attr_script
 msg_t ThreadX2(){
   setup();
@@ -35,7 +37,7 @@ static msg_t ThreadX(void *arg) {
 WORKING_AREA(waThreadX, 1024);
 Thread *Thd;
 ]]></code.declaration>
-      <code.init><![CDATA[in1=0;in2=0;out1=0;out2=0;out3=0;
+      <code.init><![CDATA[in1=0;in2=0;out1=0;out2=0;out3=0;out4=0;
   Thd = chThdCreateStatic(waThreadX, sizeof(waThreadX),
                     NORMALPRIO, ThreadX, (void *)this);
 ]]></code.init>
@@ -45,6 +47,7 @@ chThdWait(Thd);
       <code.krate><![CDATA[outlet_out1__ = this->out1;
 outlet_out2__ = this->out2;
 outlet_out3__ = this->out3;
+outlet_out4__ = this->out4;
 this->in1 = inlet_in1__;
 this->in2 = inlet_in2__;
 ]]></code.krate>

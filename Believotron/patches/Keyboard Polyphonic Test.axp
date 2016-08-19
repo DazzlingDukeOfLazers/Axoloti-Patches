@@ -1,21 +1,21 @@
 <patch-1.0 appVersion="1.0.10">
-   <obj type="Wanderlust/Keyboard" uuid="420fd000-a252-4984-911f-44fd016a3d61" name="obj_2" x="14" y="28">
+   <obj type="Wanderlust/padcap" uuid="c74e0233-1ffa-45bd-b31b-8038bdfaf348" name="obj_4" x="14" y="28">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_27" x="350" y="42">
+   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_27" x="462" y="56">
       <params/>
       <attribs>
          <objref attributeName="sender" obj="decay"/>
       </attribs>
    </obj>
-   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_28" x="476" y="42">
+   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_28" x="588" y="56">
       <params/>
       <attribs>
          <objref attributeName="sender" obj="attack"/>
       </attribs>
    </obj>
-   <obj type="Wanderlust/ADSR OSC" uuid="40b0c482-fa5e-4a7d-8490-7ea7a35bd639" name="obj_21" x="616" y="42">
+   <obj type="Wanderlust/ADSR OSC" uuid="40b0c482-fa5e-4a7d-8490-7ea7a35bd639" name="obj_21" x="728" y="56">
       <params>
          <frac32.s.map name="noteMod" value="0.0"/>
       </params>
@@ -39,19 +39,19 @@
       </params>
       <attribs/>
    </obj>
-   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_4" x="224" y="112">
+   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_4" x="336" y="126">
       <params/>
       <attribs>
          <objref attributeName="sender" obj="s_note_base"/>
       </attribs>
    </obj>
-   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_26" x="350" y="112">
+   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_26" x="462" y="126">
       <params/>
       <attribs>
          <objref attributeName="sender" obj="sustain"/>
       </attribs>
    </obj>
-   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_25" x="476" y="112">
+   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_25" x="588" y="126">
       <params/>
       <attribs>
          <objref attributeName="sender" obj="release"/>
@@ -75,31 +75,31 @@
          <objref attributeName="sender" obj="release"/>
       </attribs>
    </obj>
-   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_1" x="168" y="168">
-      <params/>
-      <attribs/>
-   </obj>
    <obj type="Wanderlust/Volume Out" uuid="e44c081a-9bc0-4227-8a8c-20a39a2a1ee3" name="obj_1" x="1792" y="168">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/send f" uuid="8a7799ea1c3b8582991e669a4f70e2f663841f2d" name="s_note_base" x="252" y="210">
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_1" x="280" y="182">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_29" x="364" y="210">
+   <obj type="patch/send f" uuid="8a7799ea1c3b8582991e669a4f70e2f663841f2d" name="s_note_base" x="364" y="224">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_29" x="476" y="224">
       <params/>
       <attribs>
          <objref attributeName="sender" obj="decay"/>
       </attribs>
    </obj>
-   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_30" x="490" y="210">
+   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_30" x="602" y="224">
       <params/>
       <attribs>
          <objref attributeName="sender" obj="attack"/>
       </attribs>
    </obj>
-   <obj type="Wanderlust/ADSR OSC" uuid="40b0c482-fa5e-4a7d-8490-7ea7a35bd639" name="obj_22" x="616" y="210">
+   <obj type="Wanderlust/ADSR OSC" uuid="40b0c482-fa5e-4a7d-8490-7ea7a35bd639" name="obj_22" x="728" y="224">
       <params>
          <frac32.s.map name="noteMod" value="1.0"/>
       </params>
@@ -127,29 +127,29 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="ctrl/dial b" uuid="862e7d7f29093cb1ce4aed72244d118ad4d46692" name="dial_3" x="28" y="266">
+   <obj type="ctrl/dial b" uuid="862e7d7f29093cb1ce4aed72244d118ad4d46692" name="dial_3" x="140" y="280">
       <params>
          <frac32.s.map name="value" value="0.0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="math/*" uuid="13882852b58661ad012ffbe246470b5df4b6c5d1" name="*_1" x="112" y="266">
+   <obj type="math/*" uuid="13882852b58661ad012ffbe246470b5df4b6c5d1" name="*_1" x="224" y="280">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_5" x="238" y="280">
+   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_5" x="350" y="294">
       <params/>
       <attribs>
          <objref attributeName="sender" obj="s_note_base"/>
       </attribs>
    </obj>
-   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_31" x="364" y="280">
+   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_31" x="476" y="294">
       <params/>
       <attribs>
          <objref attributeName="sender" obj="sustain"/>
       </attribs>
    </obj>
-   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_32" x="490" y="280">
+   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_32" x="602" y="294">
       <params/>
       <attribs>
          <objref attributeName="sender" obj="release"/>
@@ -173,25 +173,25 @@
          <objref attributeName="sender" obj="release"/>
       </attribs>
    </obj>
-   <obj type="const/i" uuid="e202f44b2df17ae0b3e663b98ea6b14c8ff00408" name="i_1" x="28" y="350">
+   <obj type="const/i" uuid="e202f44b2df17ae0b3e663b98ea6b14c8ff00408" name="i_1" x="140" y="364">
       <params/>
       <attribs>
          <spinner attributeName="value" value="12"/>
       </attribs>
    </obj>
-   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_33" x="364" y="364">
+   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_33" x="476" y="378">
       <params/>
       <attribs>
          <objref attributeName="sender" obj="decay"/>
       </attribs>
    </obj>
-   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_34" x="490" y="364">
+   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_34" x="602" y="378">
       <params/>
       <attribs>
          <objref attributeName="sender" obj="attack"/>
       </attribs>
    </obj>
-   <obj type="Wanderlust/ADSR OSC" uuid="40b0c482-fa5e-4a7d-8490-7ea7a35bd639" name="obj_23" x="616" y="364">
+   <obj type="Wanderlust/ADSR OSC" uuid="40b0c482-fa5e-4a7d-8490-7ea7a35bd639" name="obj_23" x="728" y="378">
       <params>
          <frac32.s.map name="noteMod" value="2.0"/>
       </params>
@@ -215,25 +215,25 @@
       </params>
       <attribs/>
    </obj>
-   <obj type="ctrl/dial b" uuid="862e7d7f29093cb1ce4aed72244d118ad4d46692" name="dial_4" x="28" y="420">
+   <obj type="ctrl/dial b" uuid="862e7d7f29093cb1ce4aed72244d118ad4d46692" name="dial_4" x="140" y="434">
       <params>
          <frac32.s.map name="value" value="62.0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_6" x="238" y="434">
+   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_6" x="350" y="448">
       <params/>
       <attribs>
          <objref attributeName="sender" obj="s_note_base"/>
       </attribs>
    </obj>
-   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_35" x="364" y="434">
+   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_35" x="476" y="448">
       <params/>
       <attribs>
          <objref attributeName="sender" obj="sustain"/>
       </attribs>
    </obj>
-   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_36" x="490" y="434">
+   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_36" x="602" y="448">
       <params/>
       <attribs>
          <objref attributeName="sender" obj="release"/>
@@ -257,25 +257,25 @@
          <objref attributeName="sender" obj="release"/>
       </attribs>
    </obj>
-   <obj type="ctrl/dial b" uuid="862e7d7f29093cb1ce4aed72244d118ad4d46692" name="dial_5" x="28" y="504">
+   <obj type="ctrl/dial b" uuid="862e7d7f29093cb1ce4aed72244d118ad4d46692" name="dial_5" x="140" y="518">
       <params>
          <frac32.s.map name="value" value="-13.0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_37" x="364" y="518">
+   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_37" x="476" y="532">
       <params/>
       <attribs>
          <objref attributeName="sender" obj="decay"/>
       </attribs>
    </obj>
-   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_38" x="490" y="518">
+   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_38" x="602" y="532">
       <params/>
       <attribs>
          <objref attributeName="sender" obj="attack"/>
       </attribs>
    </obj>
-   <obj type="Wanderlust/ADSR OSC" uuid="40b0c482-fa5e-4a7d-8490-7ea7a35bd639" name="obj_24" x="616" y="518">
+   <obj type="Wanderlust/ADSR OSC" uuid="40b0c482-fa5e-4a7d-8490-7ea7a35bd639" name="obj_24" x="728" y="532">
       <params>
          <frac32.s.map name="noteMod" value="3.0"/>
       </params>
@@ -312,25 +312,25 @@
       </params>
       <attribs/>
    </obj>
-   <obj type="ctrl/dial b" uuid="862e7d7f29093cb1ce4aed72244d118ad4d46692" name="dial_6" x="28" y="588">
+   <obj type="ctrl/dial b" uuid="862e7d7f29093cb1ce4aed72244d118ad4d46692" name="dial_6" x="140" y="602">
       <params>
          <frac32.s.map name="value" value="3.0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_7" x="238" y="588">
+   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_7" x="350" y="602">
       <params/>
       <attribs>
          <objref attributeName="sender" obj="s_note_base"/>
       </attribs>
    </obj>
-   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_39" x="364" y="588">
+   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_39" x="476" y="602">
       <params/>
       <attribs>
          <objref attributeName="sender" obj="sustain"/>
       </attribs>
    </obj>
-   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_40" x="490" y="588">
+   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_40" x="602" y="602">
       <params/>
       <attribs>
          <objref attributeName="sender" obj="release"/>
@@ -367,165 +367,165 @@
       </params>
       <attribs/>
    </obj>
-   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_41" x="364" y="672">
+   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_41" x="476" y="686">
       <params/>
       <attribs>
          <objref attributeName="sender" obj="decay"/>
       </attribs>
    </obj>
-   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_42" x="490" y="672">
+   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_42" x="602" y="686">
       <params/>
       <attribs>
          <objref attributeName="sender" obj="attack"/>
       </attribs>
    </obj>
-   <obj type="Wanderlust/ADSR OSC" uuid="40b0c482-fa5e-4a7d-8490-7ea7a35bd639" name="obj_25" x="616" y="672">
+   <obj type="Wanderlust/ADSR OSC" uuid="40b0c482-fa5e-4a7d-8490-7ea7a35bd639" name="obj_25" x="728" y="686">
       <params>
          <frac32.s.map name="noteMod" value="4.0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="Wanderlust/Knobs" uuid="b620a6a3-0ff5-4c43-bf34-73e80c536079" name="obj_3" x="0" y="700">
+   <obj type="Wanderlust/Knobs" uuid="b620a6a3-0ff5-4c43-bf34-73e80c536079" name="obj_3" x="112" y="714">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_8" x="238" y="742">
+   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_8" x="350" y="756">
       <params/>
       <attribs>
          <objref attributeName="sender" obj="s_note_base"/>
       </attribs>
    </obj>
-   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_43" x="364" y="742">
+   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_43" x="476" y="756">
       <params/>
       <attribs>
          <objref attributeName="sender" obj="sustain"/>
       </attribs>
    </obj>
-   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_44" x="490" y="742">
+   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_44" x="602" y="756">
       <params/>
       <attribs>
          <objref attributeName="sender" obj="release"/>
       </attribs>
    </obj>
-   <obj type="patch/send f" uuid="8a7799ea1c3b8582991e669a4f70e2f663841f2d" name="attack" x="140" y="826">
+   <obj type="patch/send f" uuid="8a7799ea1c3b8582991e669a4f70e2f663841f2d" name="attack" x="252" y="840">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_45" x="364" y="826">
+   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_45" x="476" y="840">
       <params/>
       <attribs>
          <objref attributeName="sender" obj="decay"/>
       </attribs>
    </obj>
-   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_46" x="490" y="826">
+   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_46" x="602" y="840">
       <params/>
       <attribs>
          <objref attributeName="sender" obj="attack"/>
       </attribs>
    </obj>
-   <obj type="Wanderlust/ADSR OSC" uuid="40b0c482-fa5e-4a7d-8490-7ea7a35bd639" name="obj_26" x="616" y="826">
+   <obj type="Wanderlust/ADSR OSC" uuid="40b0c482-fa5e-4a7d-8490-7ea7a35bd639" name="obj_26" x="728" y="840">
       <params>
          <frac32.s.map name="noteMod" value="5.0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_9" x="238" y="896">
+   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_9" x="350" y="910">
       <params/>
       <attribs>
          <objref attributeName="sender" obj="s_note_base"/>
       </attribs>
    </obj>
-   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_47" x="364" y="896">
+   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_47" x="476" y="910">
       <params/>
       <attribs>
          <objref attributeName="sender" obj="sustain"/>
       </attribs>
    </obj>
-   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_48" x="490" y="896">
+   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_48" x="602" y="910">
       <params/>
       <attribs>
          <objref attributeName="sender" obj="release"/>
       </attribs>
    </obj>
-   <obj type="patch/send f" uuid="8a7799ea1c3b8582991e669a4f70e2f663841f2d" name="decay" x="140" y="910">
+   <obj type="patch/send f" uuid="8a7799ea1c3b8582991e669a4f70e2f663841f2d" name="decay" x="252" y="924">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_49" x="364" y="980">
+   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_49" x="476" y="994">
       <params/>
       <attribs>
          <objref attributeName="sender" obj="decay"/>
       </attribs>
    </obj>
-   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_50" x="490" y="980">
+   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_50" x="602" y="994">
       <params/>
       <attribs>
          <objref attributeName="sender" obj="attack"/>
       </attribs>
    </obj>
-   <obj type="Wanderlust/ADSR OSC" uuid="40b0c482-fa5e-4a7d-8490-7ea7a35bd639" name="obj_27" x="616" y="980">
+   <obj type="Wanderlust/ADSR OSC" uuid="40b0c482-fa5e-4a7d-8490-7ea7a35bd639" name="obj_27" x="728" y="994">
       <params>
          <frac32.s.map name="noteMod" value="6.0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="patch/send f" uuid="8a7799ea1c3b8582991e669a4f70e2f663841f2d" name="sustain" x="140" y="994">
+   <obj type="patch/send f" uuid="8a7799ea1c3b8582991e669a4f70e2f663841f2d" name="sustain" x="252" y="1008">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_10" x="238" y="1050">
+   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_10" x="350" y="1064">
       <params/>
       <attribs>
          <objref attributeName="sender" obj="s_note_base"/>
       </attribs>
    </obj>
-   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_51" x="364" y="1050">
+   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_51" x="476" y="1064">
       <params/>
       <attribs>
          <objref attributeName="sender" obj="sustain"/>
       </attribs>
    </obj>
-   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_52" x="490" y="1050">
+   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_52" x="602" y="1064">
       <params/>
       <attribs>
          <objref attributeName="sender" obj="release"/>
       </attribs>
    </obj>
-   <obj type="patch/send f" uuid="8a7799ea1c3b8582991e669a4f70e2f663841f2d" name="release" x="140" y="1078">
+   <obj type="patch/send f" uuid="8a7799ea1c3b8582991e669a4f70e2f663841f2d" name="release" x="252" y="1092">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_53" x="364" y="1134">
+   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_53" x="476" y="1148">
       <params/>
       <attribs>
          <objref attributeName="sender" obj="decay"/>
       </attribs>
    </obj>
-   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_54" x="490" y="1134">
+   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_54" x="602" y="1148">
       <params/>
       <attribs>
          <objref attributeName="sender" obj="attack"/>
       </attribs>
    </obj>
-   <obj type="Wanderlust/ADSR OSC" uuid="40b0c482-fa5e-4a7d-8490-7ea7a35bd639" name="obj_28" x="616" y="1134">
+   <obj type="Wanderlust/ADSR OSC" uuid="40b0c482-fa5e-4a7d-8490-7ea7a35bd639" name="obj_28" x="728" y="1148">
       <params>
          <frac32.s.map name="noteMod" value="7.0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_11" x="238" y="1204">
+   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_11" x="350" y="1218">
       <params/>
       <attribs>
          <objref attributeName="sender" obj="s_note_base"/>
       </attribs>
    </obj>
-   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_55" x="364" y="1204">
+   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_55" x="476" y="1218">
       <params/>
       <attribs>
          <objref attributeName="sender" obj="sustain"/>
       </attribs>
    </obj>
-   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_56" x="490" y="1204">
+   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_56" x="602" y="1218">
       <params/>
       <attribs>
          <objref attributeName="sender" obj="release"/>
@@ -560,10 +560,6 @@
       <net>
          <source obj="recv_28" outlet="v"/>
          <dest obj="obj_21" inlet="attack"/>
-      </net>
-      <net>
-         <source obj="obj_2" outlet="kb_0"/>
-         <dest obj="obj_21" inlet="trigger"/>
       </net>
       <net>
          <source obj="obj_21" outlet="out"/>
@@ -834,50 +830,6 @@
          <dest obj="mix_2" inlet="in4"/>
       </net>
       <net>
-         <source obj="obj_2" outlet="kb_1"/>
-         <dest obj="obj_22" inlet="trigger"/>
-      </net>
-      <net>
-         <source obj="obj_2" outlet="kb_2"/>
-         <dest obj="obj_23" inlet="trigger"/>
-      </net>
-      <net>
-         <source obj="obj_2" outlet="kb_4"/>
-         <dest obj="obj_25" inlet="trigger"/>
-      </net>
-      <net>
-         <source obj="obj_2" outlet="kb_5"/>
-         <dest obj="obj_26" inlet="trigger"/>
-      </net>
-      <net>
-         <source obj="obj_2" outlet="kb_6"/>
-         <dest obj="obj_27" inlet="trigger"/>
-      </net>
-      <net>
-         <source obj="obj_2" outlet="kb_7"/>
-         <dest obj="obj_28" inlet="trigger"/>
-      </net>
-      <net>
-         <source obj="obj_2" outlet="kb_8"/>
-         <dest obj="obj_29" inlet="trigger"/>
-      </net>
-      <net>
-         <source obj="obj_2" outlet="kb_9"/>
-         <dest obj="obj_30" inlet="trigger"/>
-      </net>
-      <net>
-         <source obj="obj_2" outlet="kb_10"/>
-         <dest obj="obj_31" inlet="trigger"/>
-      </net>
-      <net>
-         <source obj="obj_2" outlet="kb_11"/>
-         <dest obj="obj_32" inlet="trigger"/>
-      </net>
-      <net>
-         <source obj="obj_2" outlet="kb_3"/>
-         <dest obj="obj_24" inlet="trigger"/>
-      </net>
-      <net>
          <source obj="obj_3" outlet="knob_bot_0"/>
          <dest obj="attack" inlet="v"/>
       </net>
@@ -905,6 +857,54 @@
       <net>
          <source obj="dial_3" outlet="out"/>
          <dest obj="*_1" inlet="a"/>
+      </net>
+      <net>
+         <source obj="obj_4" outlet="kb_0"/>
+         <dest obj="obj_21" inlet="trigger"/>
+      </net>
+      <net>
+         <source obj="obj_4" outlet="kb_1"/>
+         <dest obj="obj_22" inlet="trigger"/>
+      </net>
+      <net>
+         <source obj="obj_4" outlet="kb_2"/>
+         <dest obj="obj_23" inlet="trigger"/>
+      </net>
+      <net>
+         <source obj="obj_4" outlet="kb_3"/>
+         <dest obj="obj_24" inlet="trigger"/>
+      </net>
+      <net>
+         <source obj="obj_4" outlet="kb_4"/>
+         <dest obj="obj_25" inlet="trigger"/>
+      </net>
+      <net>
+         <source obj="obj_4" outlet="kb_5"/>
+         <dest obj="obj_26" inlet="trigger"/>
+      </net>
+      <net>
+         <source obj="obj_4" outlet="kb_6"/>
+         <dest obj="obj_27" inlet="trigger"/>
+      </net>
+      <net>
+         <source obj="obj_4" outlet="kb_7"/>
+         <dest obj="obj_28" inlet="trigger"/>
+      </net>
+      <net>
+         <source obj="obj_4" outlet="kb_8"/>
+         <dest obj="obj_29" inlet="trigger"/>
+      </net>
+      <net>
+         <source obj="obj_4" outlet="kb_9"/>
+         <dest obj="obj_30" inlet="trigger"/>
+      </net>
+      <net>
+         <source obj="obj_4" outlet="kb_10"/>
+         <dest obj="obj_31" inlet="trigger"/>
+      </net>
+      <net>
+         <source obj="obj_4" outlet="kb_11"/>
+         <dest obj="obj_32" inlet="trigger"/>
       </net>
    </nets>
    <settings>

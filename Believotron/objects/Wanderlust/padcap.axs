@@ -339,14 +339,14 @@ void loop(void)
 	ui32CapTouched = PadcapTouched(WANDERLUST_PADCAP_UPPER);
 	{
 		out3 = ui32CapTouched;
-		pc10 = 0x080 & ( ui32CapTouched );
-		pc11 = 0x040 & ( ui32CapTouched );
-		pc12 = 0x020 & ( ui32CapTouched );
-		pc13 = 0x010 & ( ui32CapTouched );
-		pc14 = 0x008 & ( ui32CapTouched );
-		pc15 = 0x004 & ( ui32CapTouched );
-		pc16 = 0x002 & ( ui32CapTouched );
-		pc17 = 0x001 & ( ui32CapTouched );
+		pc10 = 0x001 & ( ui32CapTouched );
+		pc11 = 0x002 & ( ui32CapTouched );
+		pc12 = 0x004 & ( ui32CapTouched );
+		pc13 = 0x008 & ( ui32CapTouched );
+		pc14 = 0x010 & ( ui32CapTouched );
+		pc15 = 0x020 & ( ui32CapTouched );
+		pc16 = 0x040 & ( ui32CapTouched );
+		pc17 = 0x080 & ( ui32CapTouched );
 		pc18 = 0x100 & ( ui32CapTouched );
 		pc19 = 0x200 & ( ui32CapTouched );
 		pc1A = 0x400 & ( ui32CapTouched );
@@ -366,7 +366,7 @@ void loop(void)
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_12" x="672" y="1106">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="ski_down" x="672" y="1106">
       <params/>
       <attribs/>
    </obj>
@@ -374,7 +374,7 @@ void loop(void)
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_13" x="672" y="1162">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="ski_cross" x="672" y="1162">
       <params/>
       <attribs/>
    </obj>
@@ -382,7 +382,7 @@ void loop(void)
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_14" x="672" y="1218">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="skating" x="672" y="1218">
       <params/>
       <attribs/>
    </obj>
@@ -390,7 +390,7 @@ void loop(void)
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_15" x="672" y="1274">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="tram" x="672" y="1274">
       <params/>
       <attribs/>
    </obj>
@@ -398,7 +398,7 @@ void loop(void)
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_16" x="672" y="1330">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="sledding" x="672" y="1330">
       <params/>
       <attribs/>
    </obj>
@@ -406,7 +406,7 @@ void loop(void)
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_17" x="672" y="1386">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="snowmowbiling" x="672" y="1386">
       <params/>
       <attribs/>
    </obj>
@@ -414,7 +414,7 @@ void loop(void)
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_18" x="672" y="1442">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="hiking" x="672" y="1442">
       <params/>
       <attribs/>
    </obj>
@@ -422,7 +422,7 @@ void loop(void)
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_19" x="672" y="1498">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="horsebackriding" x="672" y="1498">
       <params/>
       <attribs/>
    </obj>
@@ -430,7 +430,7 @@ void loop(void)
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_20" x="672" y="1554">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="camper" x="672" y="1554">
       <params/>
       <attribs/>
    </obj>
@@ -438,7 +438,7 @@ void loop(void)
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_21" x="672" y="1610">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="trash" x="672" y="1610">
       <params/>
       <attribs/>
    </obj>
@@ -446,7 +446,7 @@ void loop(void)
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_22" x="672" y="1666">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="picnic" x="672" y="1666">
       <params/>
       <attribs/>
    </obj>
@@ -454,7 +454,7 @@ void loop(void)
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_23" x="672" y="1722">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="campfire" x="672" y="1722">
       <params/>
       <attribs/>
    </obj>
@@ -462,7 +462,7 @@ void loop(void)
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_24" x="672" y="1820">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="parasailing" x="672" y="1820">
       <params/>
       <attribs/>
    </obj>
@@ -470,7 +470,7 @@ void loop(void)
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_25" x="672" y="1876">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="diving" x="672" y="1876">
       <params/>
       <attribs/>
    </obj>
@@ -478,7 +478,7 @@ void loop(void)
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_26" x="672" y="1932">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="canoing" x="672" y="1932">
       <params/>
       <attribs/>
    </obj>
@@ -486,7 +486,7 @@ void loop(void)
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_27" x="672" y="1988">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="swimming" x="672" y="1988">
       <params/>
       <attribs/>
    </obj>
@@ -494,7 +494,7 @@ void loop(void)
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_28" x="672" y="2044">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="sailing" x="672" y="2044">
       <params/>
       <attribs/>
    </obj>
@@ -502,7 +502,7 @@ void loop(void)
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_29" x="672" y="2100">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="fishing" x="672" y="2100">
       <params/>
       <attribs/>
    </obj>
@@ -510,7 +510,7 @@ void loop(void)
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_30" x="672" y="2156">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="anchor" x="672" y="2156">
       <params/>
       <attribs/>
    </obj>
@@ -518,7 +518,7 @@ void loop(void)
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_31" x="672" y="2212">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="showers" x="672" y="2212">
       <params/>
       <attribs/>
    </obj>
@@ -526,7 +526,7 @@ void loop(void)
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_32" x="672" y="2268">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="bicycle" x="672" y="2268">
       <params/>
       <attribs/>
    </obj>
@@ -534,7 +534,7 @@ void loop(void)
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_33" x="672" y="2324">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="motorcycle" x="672" y="2324">
       <params/>
       <attribs/>
    </obj>
@@ -626,62 +626,62 @@ void loop(void)
       <net>
          <source obj="Keyboard_1" outlet="pc00_"/>
          <dest obj="bool_13" inlet="in"/>
-         <dest obj="kb_12" inlet="outlet"/>
+         <dest obj="ski_down" inlet="outlet"/>
       </net>
       <net>
          <source obj="Keyboard_1" outlet="pc01_"/>
          <dest obj="bool_14" inlet="in"/>
-         <dest obj="kb_13" inlet="outlet"/>
+         <dest obj="ski_cross" inlet="outlet"/>
       </net>
       <net>
          <source obj="Keyboard_1" outlet="pc02_"/>
          <dest obj="bool_15" inlet="in"/>
-         <dest obj="kb_14" inlet="outlet"/>
+         <dest obj="skating" inlet="outlet"/>
       </net>
       <net>
          <source obj="Keyboard_1" outlet="pc03_"/>
          <dest obj="bool_16" inlet="in"/>
-         <dest obj="kb_15" inlet="outlet"/>
+         <dest obj="tram" inlet="outlet"/>
       </net>
       <net>
          <source obj="Keyboard_1" outlet="pc04_"/>
          <dest obj="bool_17" inlet="in"/>
-         <dest obj="kb_16" inlet="outlet"/>
+         <dest obj="sledding" inlet="outlet"/>
       </net>
       <net>
          <source obj="Keyboard_1" outlet="pc05_"/>
          <dest obj="bool_18" inlet="in"/>
-         <dest obj="kb_17" inlet="outlet"/>
+         <dest obj="snowmowbiling" inlet="outlet"/>
       </net>
       <net>
          <source obj="Keyboard_1" outlet="pc06_"/>
          <dest obj="bool_19" inlet="in"/>
-         <dest obj="kb_18" inlet="outlet"/>
+         <dest obj="hiking" inlet="outlet"/>
       </net>
       <net>
          <source obj="Keyboard_1" outlet="pc07_"/>
          <dest obj="bool_20" inlet="in"/>
-         <dest obj="kb_19" inlet="outlet"/>
+         <dest obj="horsebackriding" inlet="outlet"/>
       </net>
       <net>
          <source obj="Keyboard_1" outlet="pc08_"/>
          <dest obj="bool_21" inlet="in"/>
-         <dest obj="kb_20" inlet="outlet"/>
+         <dest obj="camper" inlet="outlet"/>
       </net>
       <net>
          <source obj="Keyboard_1" outlet="pc09_"/>
          <dest obj="bool_22" inlet="in"/>
-         <dest obj="kb_21" inlet="outlet"/>
+         <dest obj="trash" inlet="outlet"/>
       </net>
       <net>
          <source obj="Keyboard_1" outlet="pc0A_"/>
          <dest obj="bool_23" inlet="in"/>
-         <dest obj="kb_22" inlet="outlet"/>
+         <dest obj="picnic" inlet="outlet"/>
       </net>
       <net>
          <source obj="Keyboard_1" outlet="pc0B_"/>
          <dest obj="bool_24" inlet="in"/>
-         <dest obj="kb_23" inlet="outlet"/>
+         <dest obj="campfire" inlet="outlet"/>
       </net>
       <net>
          <source obj="Keyboard_1" outlet="out3_"/>
@@ -690,52 +690,52 @@ void loop(void)
       <net>
          <source obj="Keyboard_1" outlet="pc10_"/>
          <dest obj="bool_25" inlet="in"/>
-         <dest obj="kb_24" inlet="outlet"/>
+         <dest obj="parasailing" inlet="outlet"/>
       </net>
       <net>
          <source obj="Keyboard_1" outlet="pc11_"/>
          <dest obj="bool_26" inlet="in"/>
-         <dest obj="kb_25" inlet="outlet"/>
+         <dest obj="diving" inlet="outlet"/>
       </net>
       <net>
          <source obj="Keyboard_1" outlet="pc12_"/>
          <dest obj="bool_27" inlet="in"/>
-         <dest obj="kb_26" inlet="outlet"/>
+         <dest obj="canoing" inlet="outlet"/>
       </net>
       <net>
          <source obj="Keyboard_1" outlet="pc13_"/>
          <dest obj="bool_28" inlet="in"/>
-         <dest obj="kb_27" inlet="outlet"/>
+         <dest obj="swimming" inlet="outlet"/>
       </net>
       <net>
          <source obj="Keyboard_1" outlet="pc14_"/>
          <dest obj="bool_29" inlet="in"/>
-         <dest obj="kb_28" inlet="outlet"/>
+         <dest obj="sailing" inlet="outlet"/>
       </net>
       <net>
          <source obj="Keyboard_1" outlet="pc15_"/>
          <dest obj="bool_30" inlet="in"/>
-         <dest obj="kb_29" inlet="outlet"/>
+         <dest obj="fishing" inlet="outlet"/>
       </net>
       <net>
          <source obj="Keyboard_1" outlet="pc16_"/>
          <dest obj="bool_31" inlet="in"/>
-         <dest obj="kb_30" inlet="outlet"/>
+         <dest obj="anchor" inlet="outlet"/>
       </net>
       <net>
          <source obj="Keyboard_1" outlet="pc17_"/>
          <dest obj="bool_32" inlet="in"/>
-         <dest obj="kb_31" inlet="outlet"/>
+         <dest obj="showers" inlet="outlet"/>
       </net>
       <net>
          <source obj="Keyboard_1" outlet="pc18_"/>
          <dest obj="bool_33" inlet="in"/>
-         <dest obj="kb_32" inlet="outlet"/>
+         <dest obj="bicycle" inlet="outlet"/>
       </net>
       <net>
          <source obj="Keyboard_1" outlet="pc19_"/>
          <dest obj="bool_34" inlet="in"/>
-         <dest obj="kb_33" inlet="outlet"/>
+         <dest obj="motorcycle" inlet="outlet"/>
       </net>
       <net>
          <source obj="Keyboard_1" outlet="pc1A_"/>

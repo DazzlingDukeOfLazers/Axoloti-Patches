@@ -1,10 +1,110 @@
 <patch-1.0 appVersion="1.0.10">
    <comment type="patch/comment" x="168" y="70" text="Believotron Wanderlust Capacitive touch keyboard output decoder. Place this in your patch to access the keys! You can rename it with a &lt;tbd python script&gt;"/>
-   <obj type="gpio/i2c/config" sha="1ea9db31ce7ec2874d2a8315213c733a6b3c2dcf" uuid="b095a33e56de5fcd23740a7d983bc0bafb315d81" name="i2c.begin_1" x="168" y="98">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_0" x="672" y="168">
       <params/>
       <attribs/>
    </obj>
-   <obj type="script/Keyboard" uuid="ec1ac6c0-f9d8-4116-82b0-711e0023a830" name="Keyboard_1" x="168" y="126">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_1" x="756" y="168">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_1" x="672" y="224">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_2" x="756" y="224">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_2" x="672" y="280">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_3" x="756" y="280">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_3" x="672" y="336">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_4" x="756" y="336">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_4" x="672" y="392">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_5" x="756" y="392">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_5" x="672" y="448">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_6" x="756" y="448">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_6" x="672" y="504">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_7" x="756" y="504">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_7" x="672" y="560">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_8" x="756" y="560">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_8" x="672" y="616">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_9" x="756" y="616">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_9" x="672" y="672">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_10" x="756" y="672">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_10" x="672" y="728">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_11" x="756" y="728">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_11" x="672" y="784">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_12" x="756" y="784">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="gpio/i2c/config" sha="1ea9db31ce7ec2874d2a8315213c733a6b3c2dcf" uuid="b095a33e56de5fcd23740a7d983bc0bafb315d81" name="i2c.begin_1" x="126" y="938">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/hex" uuid="3ce415f2f0e09f5b3cf10e5d355274847fd063b2" name="hex_5" x="252" y="938">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="script/Keyboard" uuid="ec1ac6c0-f9d8-4116-82b0-711e0023a830" name="Keyboard_1" x="126" y="966">
       <params/>
       <attribs>
          <text attributeName="script">
@@ -87,7 +187,7 @@ void LinkTxRxBuffers(void)
 	rxbuf = _rxbuf;
 }
 
-//<new> ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 uint16_t PadcapReadReg16(uint8_t ui8Channel, uint8_t ui8Register)
 {
 	uint16_t output;
@@ -137,132 +237,6 @@ uint32_t PadcapTouched()
 	return i32NoteVal;
 }
 
-//</new> ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-
-
-
-//<original>-------------------------------------------------------------------------------------------------------------------------
-/*
-uint8_t ReadCap1188Reg(uint8_t ui8Register)
-{
-	msg_t status = RDY_OK;
-	txbuf[0] = ui8Register;
-	status = i2cMasterTransmitTimeout(&I2CD1, CAP1188_I2CADDR, txbuf, 1, rxbuf, 1, tmo); // TBD add status checking
-	return rxbuf[0];
-}
-
-
-void WriteCap1188Reg(uint8_t ui8Register, uint8_t ui8Val)
-{
-	msg_t status = RDY_OK;
-	txbuf[0] = ui8Register;
-	txbuf[1] = ui8Val;
-	status = i2cMasterTransmitTimeout(&I2CD1, CAP1188_I2CADDR, txbuf, 2, rxbuf, 0, tmo); // TBD add status checking
-}
-*/
-
-
-void WriteMPR121Register(uint8_t ui8Register, uint8_t ui8Val)
-{
-	msg_t status = RDY_OK;
-	txbuf[0] = ui8Register;
-	txbuf[1] = ui8Val;
-	status = i2cMasterTransmitTimeout(&I2CD1, MPR121_I2CADDR_DEFAULT, txbuf, 2, rxbuf, 0, tmo); // TBD add status checking
-}
-
-uint8_t ReadMPR121Register8(uint8_t ui8Register)
-{
-	msg_t status = RDY_OK;
-	txbuf[0] = ui8Register;
-	status = i2cMasterTransmitTimeout(&I2CD1, MPR121_I2CADDR_DEFAULT, txbuf, 1, rxbuf, 1, tmo); // TBD add status checking
-	return rxbuf[0];
-}
-
-uint16_t ReadMPR121Register16(uint8_t ui8Register)
-{
-	uint16_t output;
-	msg_t status = RDY_OK;
-	txbuf[0] = ui8Register;
-	status = i2cMasterTransmitTimeout(&I2CD1, MPR121_I2CADDR_DEFAULT, txbuf, 1, rxbuf, 2, tmo); // TBD add status checking
-	return ( rxbuf[0] | ( rxbuf[1] << 8 ) );
-	//return 0x0008;
-}
-
-void SetMPR121Threshold(uint8_t touch, uint8_t release)
-{
-	for (uint8_t i=0; i<12; i++) 
-	{
-		WriteMPR121Register(MPR121_TOUCHTH_0 + 2*i, touch);
-		WriteMPR121Register(MPR121_RELEASETH_0 + 2*i, release);
-	}
-}
-
-/*
-uint32_t Cap1188Touched()
-{
-	uint8_t  t = ReadCap1188Reg(CAP1188_SENINPUTSTATUS);
-	uint32_t ui32KeyVal = 0;//0x55555555; 
-	if (t)
-	{
-		uint8_t ui8MainReg = ReadCap1188Reg(CAP1188_MAIN);
-		WriteCap1188Reg(CAP1188_MAIN, ui8MainReg & ~CAP1188_MAIN_INT); // I think this resets the trigger alert
-		
-	}
-
-	// t is the raw encoded value, one bit for each pin
-	// I'm not sure what the final scheme is, so I'm kludging this:
-	if      (0x01 & t) { ui32KeyVal = 0x00200000; }
-	else if (0x02 & t) { ui32KeyVal = 0x00400000; }
-	else if (0x04 & t) { ui32KeyVal = 0x00600000; }
-	else if (0x08 & t) { ui32KeyVal = 0x00800000; }
-	else if (0x10 & t) { ui32KeyVal = 0x00A00000; }
-	else if (0x20 & t) { ui32KeyVal = 0x00C00000; }
-	else if (0x40 & t) { ui32KeyVal = 0x00E00000; }
-	else if (0x80 & t) { ui32KeyVal = 0x02000000; }
-	else                 ui32KeyVal = 0x00000000;
-	
-	return (ui32KeyVal);
-	//return(t);
-}
-*/
-
-uint32_t MPR121Touched()
-{
-	//uint16_t capstatus = ReadMPR121Register16(MPR121_TOUCHSTATUS_L);
-	//return ( capstatus & 0x0FFF );
-	//return ReadMPR121Register8(MPR121_TOUCHSTATUS_L);
-
-	int32_t i32NoteVal = 0;
-	
-	uint16_t u16capstatus = ReadMPR121Register16(MPR121_TOUCHSTATUS_L);
-
-	i32NoteVal = u16capstatus;
-	/*
-	// Monophonic. single scale, lazycode for proof
-	if      ( (u16capstatus & 0x0001) == 0x0001) i32NoteVal |= 1;
-	else if ( (u16capstatus & 0x0002) == 0x0002) i32NoteVal = 0x00400000;
-	else if ( (u16capstatus & 0x0004) == 0x0004) i32NoteVal = 0x00600000;
-	else if ( (u16capstatus & 0x0008) == 0x0008) i32NoteVal = 0x00800000;
-	else if ( (u16capstatus & 0x0010) == 0x0010) i32NoteVal = 0x00A00000;
-	else if ( (u16capstatus & 0x0020) == 0x0020) i32NoteVal = 0x00C00000;
-	else if ( (u16capstatus & 0x0040) == 0x0040) i32NoteVal = 0x00E00000;
-	else if ( (u16capstatus & 0x0080) == 0x0080) i32NoteVal = 0x01000000;
-	else if ( (u16capstatus & 0x0100) == 0x0100) i32NoteVal = 0x01200000;
-	else if ( (u16capstatus & 0x0200) == 0x0200) i32NoteVal = 0x01400000;
-	else if ( (u16capstatus & 0x0400) == 0x0400) i32NoteVal = 0x00C00000;
-	else if ( (u16capstatus & 0x0800) == 0x0800) i32NoteVal = 0x00E00000;
-	else if ( (u16capstatus         ) == 0     ) i32NoteVal = 0xDEAD;
-	else                                    i32NoteVal = u16capstatus;
-*/
-	out2 = i32NoteVal;
-	
-	return i32NoteVal;
-}
-//</original>-------------------------------------------------------------------------------------------------------------------------
-
-
 
 void setup(void) {
 	LinkTxRxBuffers();
@@ -288,7 +262,7 @@ void setup(void) {
 	if (c != 0x24)  out1 = 0x4444; // Device ID is incorrect <TBD add to class flag>
 		
 	//SetMPR121Threshold(12, 6); // <reference Device sensetivity default	>
-	SetMPR121Threshold(24, 12);
+	PadcapSetThreshold(ui8tPadcapChannel, 24, 12);
 
 
 	PadcapWriteReg(ui8tPadcapChannel, MPR121_MHDR, 0x01);
@@ -346,196 +320,11 @@ void loop(void)
 	
 	
 }
-
-
-
-// <old loop and setup> ------------------------------------------------------------------------------------------------
-/*
- void setup(void) {
-	LinkTxRxBuffers();
-	out1 = 0xABBA;
-	
-	rxbuf[0] = 0;	
-	txbuf[0] = 0; // CAP1188_PRODID;
-
-	uint8_t ui8ProdID = 0;
-	uint8_t ui8ManuID = 0;
-	uint8_t ui8Rev    = 0;
-	bool bCorrectBoard = false;
-
-	WriteMPR121Register(MPR121_SOFTRESET, 0x63);
-	WriteMPR121Register(MPR121_ECR, 0x0);
-
-	uint8_t c = ReadMPR121Register8(MPR121_CONFIG2);
-	if (c != 0x24)  out1 = 0x4444;
-		
-	//SetMPR121Threshold(12, 6);
-	
-	SetMPR121Threshold(24, 12);
-
-
-	WriteMPR121Register(MPR121_MHDR, 0x01);
-	WriteMPR121Register(MPR121_NHDR, 0x01);
-	WriteMPR121Register(MPR121_NCLR, 0x0E);
-	WriteMPR121Register(MPR121_FDLR, 0x00);
-
-	WriteMPR121Register(MPR121_MHDF, 0x01);
-	WriteMPR121Register(MPR121_NHDF, 0x05);
-	WriteMPR121Register(MPR121_NCLF, 0x01);
-	WriteMPR121Register(MPR121_FDLF, 0x00);
-	
-	WriteMPR121Register(MPR121_NHDT, 0x00);
-	WriteMPR121Register(MPR121_NCLT, 0x00);
-	WriteMPR121Register(MPR121_FDLT, 0x00);
-	
-	WriteMPR121Register(MPR121_DEBOUNCE, 0);
-	WriteMPR121Register(MPR121_CONFIG1, 0x10); // default, 16uA charge current
-	WriteMPR121Register(MPR121_CONFIG2, 0x20); // 0.5uS encoding, 1ms period
-	
-	WriteMPR121Register(MPR121_ECR, 0x8F);  // start with first 5 bits of baseline tracking
-
-	//out2 = ReadMPR121Register8(MPR121_CONFIG2); // Remove this. I'm using it for shitty debugging
-	//return true;
-
-	//out1 = 0xBEEF;
-	out2 = 4;
-
-	
-
-}
-void loop(void)
-{
-	static int32_t iSameCount=0;
-	//out1 = 0xAA55;
-	//out2 = ReadMPR121Register8(MPR121_CONFIG2);
-	//out1 = out1;
-	out2 = MPR121Touched();
-	if (out2 == 0xDEAD) out1 = 0; else out1 = 0x2000000;;
-	//out2 = ReadMPR121Register16(MPR121_TOUCHSTATUS_L);
-	//out2 = ReadMPR121Register8(MPR121_TOUCHSTATUS_L);//MPR121Touched();//Cap1188Touched();
-	//out1 = 0xBBBB;
-	
-	
-	
-	
-	//if (out2 != 0)
-	//{
-	//	out1 = 0x00200000;
-	//}
-	//else
-	//{
-	//	out1 = 0;
-	//}
-	
-}
- 
- */
-// </old loop and setup> ------------------------------------------------------------------------------------------------
 ]]></sText>
          </text>
       </attribs>
    </obj>
-   <obj type="disp/hex" uuid="3ce415f2f0e09f5b3cf10e5d355274847fd063b2" name="hex_5" x="560" y="126">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_0" x="756" y="154">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_1" x="840" y="154">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/hex" uuid="3ce415f2f0e09f5b3cf10e5d355274847fd063b2" name="hex_6" x="560" y="182">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_1" x="756" y="210">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_2" x="840" y="210">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_2" x="756" y="266">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_3" x="840" y="266">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_3" x="756" y="322">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_4" x="840" y="322">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_4" x="756" y="378">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_5" x="840" y="378">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_5" x="756" y="434">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_6" x="840" y="434">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_6" x="756" y="490">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_7" x="840" y="490">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_7" x="756" y="546">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_8" x="840" y="546">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_8" x="756" y="686">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_9" x="840" y="686">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_9" x="756" y="742">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_10" x="840" y="742">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_10" x="756" y="798">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_11" x="840" y="798">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_11" x="756" y="854">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_12" x="840" y="854">
+   <obj type="disp/hex" uuid="3ce415f2f0e09f5b3cf10e5d355274847fd063b2" name="hex_6" x="252" y="994">
       <params/>
       <attribs/>
    </obj>
@@ -614,8 +403,8 @@ void loop(void)
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>-2024</x>
-      <y>66</y>
+      <x>-2079</x>
+      <y>-50</y>
       <width>1860</width>
       <height>1331</height>
    </windowPos>

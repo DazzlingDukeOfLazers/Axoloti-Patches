@@ -1,10 +1,13 @@
 <patch-1.0 appVersion="1.0.10">
    <comment type="patch/comment" x="14" y="14" text="IMPORTANT: needs samples on sdcard!"/>
-   <obj type="env/ad" uuid="255cb0cd67470c7498f9c33b820facd26aa629ce" name="ad_1" x="756" y="14">
+   <obj type="ctrl/dial b" uuid="862e7d7f29093cb1ce4aed72244d118ad4d46692" name="dial_1" x="770" y="42">
       <params>
-         <frac32.s.map name="a" value="25.0"/>
-         <frac32.s.map name="d" value="19.0"/>
+         <frac32.s.map name="value" value="9.999275207519531E-4"/>
       </params>
+      <attribs/>
+   </obj>
+   <obj type="wave/play stereo" uuid="843bbc92c4a45c5ba551de32538934e186dc4a41" name="play_3" x="868" y="42">
+      <params/>
       <attribs/>
    </obj>
    <obj type="lfo/square" sha="b4420b58ca2ae5ece53d53540bc91bc9ed7a4b83" name="square_1" x="14" y="56">
@@ -23,15 +26,7 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="wave/play stereo" uuid="843bbc92c4a45c5ba551de32538934e186dc4a41" name="play_3" x="616" y="56">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="math/*" uuid="3ac307b9f782049739ed62504081b96d580ea336" name="*_1" x="910" y="56">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_1" x="434" y="84">
+   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_1" x="616" y="56">
       <params/>
       <attribs>
          <table attributeName="str" table="003.wav"/>
@@ -104,109 +99,32 @@
       </params>
       <attribs/>
    </obj>
-   <obj type="script/SDFiles" uuid="BELIEVOT-RON8-4116-82b0-711e0023a830" name="SDFiles_1" x="70" y="168">
-      <params/>
-      <attribs>
-         <text attributeName="script">
-            <sText><![CDATA[void setup(void) {
-	LogTextMessage("Foobar");
-	LogTextMessage("This%s","That");
-
-	//memp = (uint8_t *)&fbuff[0];
-	FRESULT res;
-
-	FILINFO fno;
-	DIR dir;
-	
-	int index = 0;
-	char *fn;
-//#if 1//#if _USE_LFN
-//	static char lfn[_MAX_LFN + 1]
-//	fno.lfname = lfn;
-//	fno.lfsize = sizeof(lfn);
-//#endif
-	LogTextMessage("f_opendir()");	
-	res = f_opendir(&dir, "..");
-	LogTextMessage("result >%0x0X<[%0x0X]",FR_OK, res);	
-	if (res == FR_OK) 
-	{
-		for (;;) 
-		{			
-			//LogTextMessage("f_readdir()");	
-			res = f_readdir(&dir, &fno);
-			//LogTextMessage("result >%0x0X<[%0x0X]",FR_OK, res);	
-			if (res != FR_OK || fno.fname[0] == 0)
-			{
-				if (fno.fname[0] == 0) LogTextMessage("Empty filename");
-				else	
-					LogTextMessage("setup.opendir.readdir.notok [%s]", fno.fname);	
-				break;
-			}
-			if (fno.fname[0] == '.')
-			{
-				LogTextMessage("setup.opendir.readdir.IFoundADotf [%s]", fno.fname);	
-				
-				//res = f_opendir(&dir, "");
-				//LogTextMessage("result >%0x0X<[%0x0X]",FR_OK, res);	
-				//if (res==FR_OK)
-				//{
-				//	LogTextMessage("f_readdir()");	
-				//	res = f_readdir(&dir, &fno);
-				//	LogTextMessage("result >%0x0X<[%0x0X]",FR_OK, res);
-				//	LogTextMessage("Filename[%s]",fn);						
-				//}
-				continue;
-			}
-			//fn = fno.fname;
-			fn = *fno.lfname ? fno.lfname : fno.fname;
-			//LogTextMessage("fno.fattrib>0x%8X<[0x%8X]",AM_DIR, fno.fattrib);	
-			if (fno.fattrib & AM_DIR) 
-			{ 
-				LogTextMessage("Dir name[%s]",fn);	
-			}  // ignore subdirectories for now
-			else 
-			{
-				LogTextMessage("Filename[%s]",fn);	
-				/*
-				int l = strlen(fn);
-				if ((fn[l - 4] == '.') && (fn[l - 3] == 'B') && (fn[l - 2] == 'I')
-				  && (fn[l - 1] == 'N')) {
-				char *s;
-				s = (char *)memp;
-				strcpy(s, fn);
-				memp += l + 1;
-				SetKVP_FNCTN(&TmpMenuKvps[index], NULL, s, &EnterMenuLoadFile);
-				index++;
-				*/
-			}
-			
-		 }
-		 
-	}
-	//SetKVP_AVP(&LoadMenu, &KvpsHead, "Load SD", index, &TmpMenuKvps[0]);
-	//KvpsDisplay = &LoadMenu;
-	
- 
-
-}
-
-void loop(void)
-{
-	
-}]]></sText>
-         </text>
-      </attribs>
+   <obj type="ctrl/dial b" uuid="862e7d7f29093cb1ce4aed72244d118ad4d46692" name="dial_2" x="770" y="154">
+      <params>
+         <frac32.s.map name="value" value="9.999275207519531E-4"/>
+      </params>
+      <attribs/>
    </obj>
-   <obj type="audio/out stereo" sha="b933bb91801a126126313c11f773158b5ca2face" name="out_1" x="1022" y="210">
+   <obj type="wave/play stereo" uuid="843bbc92c4a45c5ba551de32538934e186dc4a41" name="play_4" x="868" y="154">
       <params/>
       <attribs/>
    </obj>
-   <obj type="mix/mix 6 g" uuid="2dd642dee5072357722740c850699b79b8da3008" name="mix_1" x="728" y="224">
+   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_2" x="616" y="168">
+      <params/>
+      <attribs>
+         <table attributeName="str" table="004.wav"/>
+      </attribs>
+   </obj>
+   <obj type="Wanderlust/padcap" uuid="64d60dda-e187-4ef8-af8b-e46d8df6b3b1" name="obj_1" x="42" y="196">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="mix/mix 6 g" uuid="2dd642dee5072357722740c850699b79b8da3008" name="mix_1" x="1106" y="224">
       <params>
          <frac32.u.map name="gain1" value="64.0">
             <presets/>
          </frac32.u.map>
-         <frac32.u.map name="gain2" value="30.0">
+         <frac32.u.map name="gain2" value="64.0">
             <presets/>
          </frac32.u.map>
          <frac32.u.map name="gain3" value="63.5"/>
@@ -220,12 +138,32 @@ void loop(void)
       </params>
       <attribs/>
    </obj>
-   <obj type="mix/mix 6 g" uuid="2dd642dee5072357722740c850699b79b8da3008" name="mix_2" x="868" y="308">
+   <obj type="audio/out stereo" sha="b933bb91801a126126313c11f773158b5ca2face" name="out_1" x="1400" y="224">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/dial b" uuid="862e7d7f29093cb1ce4aed72244d118ad4d46692" name="dial_3" x="770" y="266">
       <params>
-         <frac32.u.map name="gain1" value="0.5">
+         <frac32.s.map name="value" value="9.999275207519531E-4"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="wave/play stereo" uuid="843bbc92c4a45c5ba551de32538934e186dc4a41" name="play_5" x="868" y="266">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_3" x="616" y="294">
+      <params/>
+      <attribs>
+         <table attributeName="str" table="001.wav"/>
+      </attribs>
+   </obj>
+   <obj type="mix/mix 6 g" uuid="2dd642dee5072357722740c850699b79b8da3008" name="mix_2" x="1218" y="336">
+      <params>
+         <frac32.u.map name="gain1" value="64.0">
             <presets/>
          </frac32.u.map>
-         <frac32.u.map name="gain2" value="30.0">
+         <frac32.u.map name="gain2" value="64.0">
             <presets/>
          </frac32.u.map>
          <frac32.u.map name="gain3" value="63.5"/>
@@ -239,7 +177,24 @@ void loop(void)
       </params>
       <attribs/>
    </obj>
-   <obj type="script/script2" uuid="d39e743cf47c9221f4e99c133430148cf74c68c5" name="script2_1" x="574" y="322">
+   <obj type="ctrl/dial b" uuid="862e7d7f29093cb1ce4aed72244d118ad4d46692" name="dial_4" x="770" y="378">
+      <params>
+         <frac32.s.map name="value" value="9.999275207519531E-4"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="wave/play stereo" uuid="843bbc92c4a45c5ba551de32538934e186dc4a41" name="play_6" x="868" y="378">
+      <params/>
+      <attribs/>
+   </obj>
+   <comment type="patch/comment" x="406" y="392" text="Hey! HH exclusion!"/>
+   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_4" x="616" y="392">
+      <params/>
+      <attribs>
+         <table attributeName="str" table="002.wav"/>
+      </attribs>
+   </obj>
+   <obj type="script/SDFiles" uuid="BELIEVOT-RON8-4116-82b0-711e0023a830" name="SDFiles_1" x="280" y="462">
       <params/>
       <attribs>
          <text attributeName="script">
@@ -332,7 +287,99 @@ void loop(void)
          </text>
       </attribs>
    </obj>
-   <comment type="patch/comment" x="406" y="392" text="Hey! HH exclusion!"/>
+   <obj type="script/script2" uuid="d39e743cf47c9221f4e99c133430148cf74c68c5" name="script2_1" x="476" y="504">
+      <params/>
+      <attribs>
+         <text attributeName="script">
+            <sText><![CDATA[void setup(void) {
+	LogTextMessage("Foobar");
+	LogTextMessage("This%s","That");
+
+	//memp = (uint8_t *)&fbuff[0];
+	FRESULT res;
+
+	FILINFO fno;
+	DIR dir;
+	
+	int index = 0;
+	char *fn;
+//#if 1//#if _USE_LFN
+//	static char lfn[_MAX_LFN + 1]
+//	fno.lfname = lfn;
+//	fno.lfsize = sizeof(lfn);
+//#endif
+	LogTextMessage("f_opendir()");	
+	res = f_opendir(&dir, "..");
+	LogTextMessage("result >%0x0X<[%0x0X]",FR_OK, res);	
+	if (res == FR_OK) 
+	{
+		for (;;) 
+		{			
+			//LogTextMessage("f_readdir()");	
+			res = f_readdir(&dir, &fno);
+			//LogTextMessage("result >%0x0X<[%0x0X]",FR_OK, res);	
+			if (res != FR_OK || fno.fname[0] == 0)
+			{
+				if (fno.fname[0] == 0) LogTextMessage("Empty filename");
+				else	
+					LogTextMessage("setup.opendir.readdir.notok [%s]", fno.fname);	
+				break;
+			}
+			if (fno.fname[0] == '.')
+			{
+				LogTextMessage("setup.opendir.readdir.IFoundADotf [%s]", fno.fname);	
+				
+				//res = f_opendir(&dir, "");
+				//LogTextMessage("result >%0x0X<[%0x0X]",FR_OK, res);	
+				//if (res==FR_OK)
+				//{
+				//	LogTextMessage("f_readdir()");	
+				//	res = f_readdir(&dir, &fno);
+				//	LogTextMessage("result >%0x0X<[%0x0X]",FR_OK, res);
+				//	LogTextMessage("Filename[%s]",fn);						
+				//}
+				continue;
+			}
+			//fn = fno.fname;
+			fn = *fno.lfname ? fno.lfname : fno.fname;
+			//LogTextMessage("fno.fattrib>0x%8X<[0x%8X]",AM_DIR, fno.fattrib);	
+			if (fno.fattrib & AM_DIR) 
+			{ 
+				LogTextMessage("Dir name[%s]",fn);	
+			}  // ignore subdirectories for now
+			else 
+			{
+				LogTextMessage("Filename[%s]",fn);	
+				/*
+				int l = strlen(fn);
+				if ((fn[l - 4] == '.') && (fn[l - 3] == 'B') && (fn[l - 2] == 'I')
+				  && (fn[l - 1] == 'N')) {
+				char *s;
+				s = (char *)memp;
+				strcpy(s, fn);
+				memp += l + 1;
+				SetKVP_FNCTN(&TmpMenuKvps[index], NULL, s, &EnterMenuLoadFile);
+				index++;
+				*/
+			}
+			
+		 }
+		 
+	}
+	//SetKVP_AVP(&LoadMenu, &KvpsHead, "Load SD", index, &TmpMenuKvps[0]);
+	//KvpsDisplay = &LoadMenu;
+	
+ 
+
+}
+
+void loop(void)
+{
+	
+}]]></sText>
+         </text>
+      </attribs>
+   </obj>
    <nets>
       <net>
          <source obj="counter_1" outlet="o"/>
@@ -344,37 +391,92 @@ void loop(void)
          <dest obj="counter_1" inlet="trig"/>
       </net>
       <net>
-         <source obj="sel_1" outlet="o1"/>
-         <dest obj="play_3" inlet="start"/>
-         <dest obj="ad_1" inlet="trig"/>
-      </net>
-      <net>
          <source obj="c_1" outlet="out"/>
          <dest obj="play_3" inlet="filename"/>
       </net>
       <net>
          <source obj="play_3" outlet="outl"/>
-         <dest obj="*_1" inlet="b"/>
+         <dest obj="mix_1" inlet="in1"/>
       </net>
       <net>
          <source obj="play_3" outlet="outr"/>
          <dest obj="mix_2" inlet="in1"/>
       </net>
       <net>
-         <source obj="mix_1" outlet="out"/>
-         <dest obj="out_1" inlet="left"/>
-      </net>
-      <net>
          <source obj="mix_2" outlet="out"/>
          <dest obj="out_1" inlet="right"/>
       </net>
       <net>
-         <source obj="ad_1" outlet="env"/>
-         <dest obj="*_1" inlet="a"/>
+         <source obj="obj_1" outlet="ski_down"/>
+         <dest obj="play_3" inlet="start"/>
       </net>
       <net>
-         <source obj="*_1" outlet="result"/>
-         <dest obj="mix_1" inlet="in1"/>
+         <source obj="mix_1" outlet="out"/>
+         <dest obj="out_1" inlet="left"/>
+      </net>
+      <net>
+         <source obj="dial_1" outlet="out"/>
+         <dest obj="play_3" inlet="pos"/>
+      </net>
+      <net>
+         <source obj="c_2" outlet="out"/>
+         <dest obj="play_4" inlet="filename"/>
+      </net>
+      <net>
+         <source obj="dial_2" outlet="out"/>
+         <dest obj="play_4" inlet="pos"/>
+      </net>
+      <net>
+         <source obj="play_4" outlet="outl"/>
+         <dest obj="mix_1" inlet="in2"/>
+      </net>
+      <net>
+         <source obj="play_4" outlet="outr"/>
+         <dest obj="mix_2" inlet="in2"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="ski_cross"/>
+         <dest obj="play_4" inlet="start"/>
+      </net>
+      <net>
+         <source obj="c_3" outlet="out"/>
+         <dest obj="play_5" inlet="filename"/>
+      </net>
+      <net>
+         <source obj="dial_3" outlet="out"/>
+         <dest obj="play_5" inlet="pos"/>
+      </net>
+      <net>
+         <source obj="c_4" outlet="out"/>
+         <dest obj="play_6" inlet="filename"/>
+      </net>
+      <net>
+         <source obj="dial_4" outlet="out"/>
+         <dest obj="play_6" inlet="pos"/>
+      </net>
+      <net>
+         <source obj="play_5" outlet="outl"/>
+         <dest obj="mix_1" inlet="in3"/>
+      </net>
+      <net>
+         <source obj="play_5" outlet="outr"/>
+         <dest obj="mix_2" inlet="in3"/>
+      </net>
+      <net>
+         <source obj="play_6" outlet="outl"/>
+         <dest obj="mix_1" inlet="in4"/>
+      </net>
+      <net>
+         <source obj="play_6" outlet="outr"/>
+         <dest obj="mix_2" inlet="in4"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="skating"/>
+         <dest obj="play_5" inlet="start"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="tram"/>
+         <dest obj="play_6" inlet="start"/>
       </net>
    </nets>
    <settings>
@@ -382,9 +484,9 @@ void loop(void)
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>-2040</x>
-      <y>58</y>
-      <width>1220</width>
+      <x>-1877</x>
+      <y>233</y>
+      <width>1669</width>
       <height>912</height>
    </windowPos>
 </patch-1.0>

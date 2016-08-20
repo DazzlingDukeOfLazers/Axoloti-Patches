@@ -162,13 +162,13 @@
 	
 	int index = 0;
 	char *fn;
-#if 1//#if _USE_LFN
-	static char lfn[_MAX_LFN + 1]
-	fno.lfname = lfn;
-	fno.lfsize = sizeof(lfn);
-#endif
+//#if 1//#if _USE_LFN
+//	static char lfn[_MAX_LFN + 1]
+//	fno.lfname = lfn;
+//	fno.lfsize = sizeof(lfn);
+//#endif
 	LogTextMessage("f_opendir()");	
-	res = f_opendir(&dir, "");
+	res = f_opendir(&dir, "..");
 	LogTextMessage("result >%0x0X<[%0x0X]",FR_OK, res);	
 	if (res == FR_OK) 
 	{

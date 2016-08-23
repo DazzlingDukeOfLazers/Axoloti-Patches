@@ -11,7 +11,7 @@
          <frac32.s.map name="pitch" value="0.0"/>
       </params>
       <attribs>
-         <objref attributeName="table" obj="tableA"/>
+         <objref attributeName="table" obj="table1"/>
       </attribs>
    </obj>
    <obj type="math/+" uuid="b94a9b8e9adcb7d18868c0ee808a9b211b65578d" name="+_1" x="840" y="42">
@@ -25,7 +25,7 @@
          <table attributeName="suffix" table=".raw"/>
       </attribs>
    </obj>
-   <obj type="script/BTWavLoadFn" uuid="3529e74f-e1ca-4e5f-8603-086e8c2dca14" name="tableA" x="1078" y="42">
+   <obj type="script/BTWavLoadFn" uuid="3529e74f-e1ca-4e5f-8603-086e8c2dca14" name="table1" x="1078" y="42">
       <params/>
       <attribs>
          <combo attributeName="waves" selection="512"/>
@@ -145,6 +145,10 @@
       </params>
       <attribs/>
    </obj>
+   <obj type="logic/latch" uuid="2a50e4657301542464c6a97931847b5e8e0e6d2b" name="latch_1" x="1260" y="126">
+      <params/>
+      <attribs/>
+   </obj>
    <obj type="math/+" uuid="b94a9b8e9adcb7d18868c0ee808a9b211b65578d" name="+_2" x="840" y="140">
       <params/>
       <attribs/>
@@ -156,12 +160,16 @@
          <table attributeName="suffix" table=".raw"/>
       </attribs>
    </obj>
-   <obj type="tb/wave/wavetable load fn" uuid="0dffb4b4-fd43-42de-8718-2abe6c653a9a" name="tableB" x="1078" y="140">
+   <obj type="script/BTWavLoadFn" uuid="3529e74f-e1ca-4e5f-8603-086e8c2dca14" name="table2" x="1078" y="140">
       <params/>
       <attribs>
          <combo attributeName="waves" selection="512"/>
          <combo attributeName="size" selection="512"/>
       </attribs>
+   </obj>
+   <obj type="disp/i" uuid="5e35fd0c62d81e70017289250cf28edd26e19e4a" name="i_11" x="1344" y="140">
+      <params/>
+      <attribs/>
    </obj>
    <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_2" x="784" y="154">
       <params>
@@ -174,8 +182,18 @@
          <frac32.s.map name="pitch" value="0.0"/>
       </params>
       <attribs>
-         <objref attributeName="table" obj="tableB"/>
+         <objref attributeName="table" obj="table2"/>
       </attribs>
+   </obj>
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_4" x="686" y="196">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_10" x="1260" y="210">
+      <params>
+         <int32 name="value" value="20"/>
+      </params>
+      <attribs/>
    </obj>
    <obj type="mix/mix 6 g" uuid="2dd642dee5072357722740c850699b79b8da3008" name="mix_1" x="1638" y="224">
       <params>
@@ -186,10 +204,10 @@
             <presets/>
          </frac32.u.map>
          <frac32.u.map name="gain3" value="63.5"/>
-         <frac32.u.map name="gain4" value="50.5">
+         <frac32.u.map name="gain4" value="64.0">
             <presets/>
          </frac32.u.map>
-         <frac32.u.map name="gain5" value="52.5">
+         <frac32.u.map name="gain5" value="64.0">
             <presets/>
          </frac32.u.map>
          <frac32.u.map name="gain6" value="63.5"/>
@@ -207,20 +225,27 @@
          <table attributeName="suffix" table=".raw"/>
       </attribs>
    </obj>
-   <obj type="tb/wave/wavetable load fn" uuid="0dffb4b4-fd43-42de-8718-2abe6c653a9a" name="tableC" x="1078" y="238">
+   <obj type="tb/wave/wavetable load fn" uuid="0dffb4b4-fd43-42de-8718-2abe6c653a9a" name="table3" x="1078" y="238">
       <params/>
       <attribs>
          <combo attributeName="waves" selection="512"/>
          <combo attributeName="size" selection="512"/>
       </attribs>
    </obj>
-   <obj type="audio/out stereo" sha="b933bb91801a126126313c11f773158b5ca2face" name="out_1" x="1764" y="238">
-      <params/>
-      <attribs/>
-   </obj>
    <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_3" x="784" y="252">
       <params>
          <int32 name="value" value="3"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="audio/out stereo" sha="b933bb91801a126126313c11f773158b5ca2face" name="out_1" x="1946" y="266">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="mix/mix 2" uuid="30c04239c88e09d3fa5c333b784ecf54f1b0e268" name="mix_3" x="1806" y="294">
+      <params>
+         <frac32.u.map name="gain1" value="32.0"/>
+         <frac32.u.map name="gain2" value="32.0"/>
       </params>
       <attribs/>
    </obj>
@@ -235,7 +260,7 @@
          <table attributeName="suffix" table=".raw"/>
       </attribs>
    </obj>
-   <obj type="tb/wave/wavetable load fn" uuid="0dffb4b4-fd43-42de-8718-2abe6c653a9a" name="tableD" x="1078" y="336">
+   <obj type="tb/wave/wavetable load fn" uuid="0dffb4b4-fd43-42de-8718-2abe6c653a9a" name="table4" x="1078" y="336">
       <params/>
       <attribs>
          <combo attributeName="waves" selection="512"/>
@@ -247,7 +272,7 @@
          <frac32.s.map name="pitch" value="0.0"/>
       </params>
       <attribs>
-         <objref attributeName="table" obj="tableC"/>
+         <objref attributeName="table" obj="table3"/>
       </attribs>
    </obj>
    <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_4" x="784" y="350">
@@ -257,17 +282,292 @@
       <attribs/>
    </obj>
    <comment type="patch/comment" x="406" y="392" text="Hey! HH exclusion!"/>
+   <obj type="math/+" uuid="b94a9b8e9adcb7d18868c0ee808a9b211b65578d" name="+_5" x="840" y="434">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="string/indexed" uuid="a28740deef67c39ffc65bd0f341a47c9b196f46" name="indexed_5" x="910" y="434">
+      <params/>
+      <attribs>
+         <table attributeName="prefix" table="../oboe/"/>
+         <table attributeName="suffix" table=".raw"/>
+      </attribs>
+   </obj>
+   <obj type="script/BTWavLoadFn" uuid="3529e74f-e1ca-4e5f-8603-086e8c2dca14" name="table5" x="1078" y="434">
+      <params/>
+      <attribs>
+         <combo attributeName="waves" selection="512"/>
+         <combo attributeName="size" selection="512"/>
+      </attribs>
+   </obj>
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_5" x="784" y="448">
+      <params>
+         <int32 name="value" value="5"/>
+      </params>
+      <attribs/>
+   </obj>
    <obj type="table/play pitch" uuid="5632a54926261833bbb9fff049e71322c360e57e" name="play_4" x="1470" y="490">
       <params>
          <frac32.s.map name="pitch" value="0.0"/>
       </params>
       <attribs>
-         <objref attributeName="table" obj="tableD"/>
+         <objref attributeName="table" obj="table4"/>
       </attribs>
+   </obj>
+   <obj type="math/+" uuid="b94a9b8e9adcb7d18868c0ee808a9b211b65578d" name="+_6" x="840" y="532">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="string/indexed" uuid="a28740deef67c39ffc65bd0f341a47c9b196f46" name="indexed_6" x="910" y="532">
+      <params/>
+      <attribs>
+         <table attributeName="prefix" table="../oboe/"/>
+         <table attributeName="suffix" table=".raw"/>
+      </attribs>
+   </obj>
+   <obj type="tb/wave/wavetable load fn" uuid="0dffb4b4-fd43-42de-8718-2abe6c653a9a" name="table6" x="1078" y="532">
+      <params/>
+      <attribs>
+         <combo attributeName="waves" selection="512"/>
+         <combo attributeName="size" selection="512"/>
+      </attribs>
+   </obj>
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_6" x="784" y="546">
+      <params>
+         <int32 name="value" value="6"/>
+      </params>
+      <attribs/>
    </obj>
    <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_2" x="588" y="602">
       <params/>
       <attribs/>
+   </obj>
+   <obj type="mix/mix 6 g" uuid="2dd642dee5072357722740c850699b79b8da3008" name="mix_2" x="1638" y="602">
+      <params>
+         <frac32.u.map name="gain1" value="64.0">
+            <presets/>
+         </frac32.u.map>
+         <frac32.u.map name="gain2" value="64.0">
+            <presets/>
+         </frac32.u.map>
+         <frac32.u.map name="gain3" value="64.0"/>
+         <frac32.u.map name="gain4" value="64.0">
+            <presets/>
+         </frac32.u.map>
+         <frac32.u.map name="gain5" value="64.0">
+            <presets/>
+         </frac32.u.map>
+         <frac32.u.map name="gain6" value="64.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="math/+" uuid="b94a9b8e9adcb7d18868c0ee808a9b211b65578d" name="+_7" x="840" y="630">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="string/indexed" uuid="a28740deef67c39ffc65bd0f341a47c9b196f46" name="indexed_7" x="910" y="630">
+      <params/>
+      <attribs>
+         <table attributeName="prefix" table="../oboe/"/>
+         <table attributeName="suffix" table=".raw"/>
+      </attribs>
+   </obj>
+   <obj type="tb/wave/wavetable load fn" uuid="0dffb4b4-fd43-42de-8718-2abe6c653a9a" name="table7" x="1078" y="630">
+      <params/>
+      <attribs>
+         <combo attributeName="waves" selection="512"/>
+         <combo attributeName="size" selection="512"/>
+      </attribs>
+   </obj>
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_7" x="784" y="644">
+      <params>
+         <int32 name="value" value="7"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="table/play pitch" uuid="5632a54926261833bbb9fff049e71322c360e57e" name="play_5" x="1470" y="644">
+      <params>
+         <frac32.s.map name="pitch" value="0.0"/>
+      </params>
+      <attribs>
+         <objref attributeName="table" obj="table5"/>
+      </attribs>
+   </obj>
+   <obj type="math/+" uuid="b94a9b8e9adcb7d18868c0ee808a9b211b65578d" name="+_8" x="840" y="728">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="string/indexed" uuid="a28740deef67c39ffc65bd0f341a47c9b196f46" name="indexed_8" x="910" y="728">
+      <params/>
+      <attribs>
+         <table attributeName="prefix" table="../oboe/"/>
+         <table attributeName="suffix" table=".raw"/>
+      </attribs>
+   </obj>
+   <obj type="tb/wave/wavetable load fn" uuid="0dffb4b4-fd43-42de-8718-2abe6c653a9a" name="table8" x="1078" y="728">
+      <params/>
+      <attribs>
+         <combo attributeName="waves" selection="512"/>
+         <combo attributeName="size" selection="512"/>
+      </attribs>
+   </obj>
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_8" x="784" y="742">
+      <params>
+         <int32 name="value" value="8"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="table/play pitch" uuid="5632a54926261833bbb9fff049e71322c360e57e" name="play_6" x="1470" y="798">
+      <params>
+         <frac32.s.map name="pitch" value="0.0"/>
+      </params>
+      <attribs>
+         <objref attributeName="table" obj="table6"/>
+      </attribs>
+   </obj>
+   <obj type="math/+" uuid="b94a9b8e9adcb7d18868c0ee808a9b211b65578d" name="+_9" x="840" y="812">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="string/indexed" uuid="a28740deef67c39ffc65bd0f341a47c9b196f46" name="indexed_9" x="910" y="812">
+      <params/>
+      <attribs>
+         <table attributeName="prefix" table="../oboe/"/>
+         <table attributeName="suffix" table=".raw"/>
+      </attribs>
+   </obj>
+   <obj type="script/BTWavLoadFn" uuid="3529e74f-e1ca-4e5f-8603-086e8c2dca14" name="table9" x="1078" y="812">
+      <params/>
+      <attribs>
+         <combo attributeName="waves" selection="512"/>
+         <combo attributeName="size" selection="512"/>
+      </attribs>
+   </obj>
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_9" x="784" y="826">
+      <params>
+         <int32 name="value" value="9"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="math/+" uuid="b94a9b8e9adcb7d18868c0ee808a9b211b65578d" name="+_10" x="840" y="896">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="string/indexed" uuid="a28740deef67c39ffc65bd0f341a47c9b196f46" name="indexed_10" x="910" y="896">
+      <params/>
+      <attribs>
+         <table attributeName="prefix" table="../oboe/"/>
+         <table attributeName="suffix" table=".raw"/>
+      </attribs>
+   </obj>
+   <obj type="tb/wave/wavetable load fn" uuid="0dffb4b4-fd43-42de-8718-2abe6c653a9a" name="table10" x="1078" y="896">
+      <params/>
+      <attribs>
+         <combo attributeName="waves" selection="512"/>
+         <combo attributeName="size" selection="512"/>
+      </attribs>
+   </obj>
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_12" x="784" y="910">
+      <params>
+         <int32 name="value" value="10"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="table/play pitch" uuid="5632a54926261833bbb9fff049e71322c360e57e" name="play_7" x="1470" y="952">
+      <params>
+         <frac32.s.map name="pitch" value="0.0"/>
+      </params>
+      <attribs>
+         <objref attributeName="table" obj="table7"/>
+      </attribs>
+   </obj>
+   <obj type="math/+" uuid="b94a9b8e9adcb7d18868c0ee808a9b211b65578d" name="+_11" x="840" y="994">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="string/indexed" uuid="a28740deef67c39ffc65bd0f341a47c9b196f46" name="indexed_11" x="910" y="994">
+      <params/>
+      <attribs>
+         <table attributeName="prefix" table="../oboe/"/>
+         <table attributeName="suffix" table=".raw"/>
+      </attribs>
+   </obj>
+   <obj type="tb/wave/wavetable load fn" uuid="0dffb4b4-fd43-42de-8718-2abe6c653a9a" name="table11" x="1078" y="994">
+      <params/>
+      <attribs>
+         <combo attributeName="waves" selection="512"/>
+         <combo attributeName="size" selection="512"/>
+      </attribs>
+   </obj>
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_13" x="784" y="1008">
+      <params>
+         <int32 name="value" value="11"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="math/+" uuid="b94a9b8e9adcb7d18868c0ee808a9b211b65578d" name="+_12" x="840" y="1092">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="string/indexed" uuid="a28740deef67c39ffc65bd0f341a47c9b196f46" name="indexed_12" x="910" y="1092">
+      <params/>
+      <attribs>
+         <table attributeName="prefix" table="../oboe/"/>
+         <table attributeName="suffix" table=".raw"/>
+      </attribs>
+   </obj>
+   <obj type="tb/wave/wavetable load fn" uuid="0dffb4b4-fd43-42de-8718-2abe6c653a9a" name="table12" x="1078" y="1092">
+      <params/>
+      <attribs>
+         <combo attributeName="waves" selection="512"/>
+         <combo attributeName="size" selection="512"/>
+      </attribs>
+   </obj>
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_14" x="784" y="1106">
+      <params>
+         <int32 name="value" value="12"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="table/play pitch" uuid="5632a54926261833bbb9fff049e71322c360e57e" name="play_8" x="1470" y="1106">
+      <params>
+         <frac32.s.map name="pitch" value="0.0"/>
+      </params>
+      <attribs>
+         <objref attributeName="table" obj="table8"/>
+      </attribs>
+   </obj>
+   <obj type="table/play pitch" uuid="5632a54926261833bbb9fff049e71322c360e57e" name="play_9" x="1470" y="1260">
+      <params>
+         <frac32.s.map name="pitch" value="0.0"/>
+      </params>
+      <attribs>
+         <objref attributeName="table" obj="table9"/>
+      </attribs>
+   </obj>
+   <obj type="table/play pitch" uuid="5632a54926261833bbb9fff049e71322c360e57e" name="play_10" x="1470" y="1414">
+      <params>
+         <frac32.s.map name="pitch" value="0.0"/>
+      </params>
+      <attribs>
+         <objref attributeName="table" obj="table10"/>
+      </attribs>
+   </obj>
+   <obj type="table/play pitch" uuid="5632a54926261833bbb9fff049e71322c360e57e" name="play_11" x="1470" y="1568">
+      <params>
+         <frac32.s.map name="pitch" value="0.0"/>
+      </params>
+      <attribs>
+         <objref attributeName="table" obj="table11"/>
+      </attribs>
+   </obj>
+   <obj type="table/play pitch" uuid="5632a54926261833bbb9fff049e71322c360e57e" name="play_12" x="1470" y="1708">
+      <params>
+         <frac32.s.map name="pitch" value="0.0"/>
+      </params>
+      <attribs>
+         <objref attributeName="table" obj="table12"/>
+      </attribs>
    </obj>
    <nets>
       <net>
@@ -280,13 +580,10 @@
          <dest obj="counter_1" inlet="trig"/>
       </net>
       <net>
-         <source obj="mix_1" outlet="out"/>
-         <dest obj="out_1" inlet="left"/>
-      </net>
-      <net>
          <source obj="obj_1" outlet="kb_0"/>
          <dest obj="bool_3" inlet="in"/>
          <dest obj="play_1" inlet="start"/>
+         <dest obj="latch_1" inlet="trig"/>
       </net>
       <net>
          <source obj="dial_2" outlet="out"/>
@@ -294,6 +591,15 @@
          <dest obj="play_2" inlet="pitch"/>
          <dest obj="play_3" inlet="pitch"/>
          <dest obj="play_4" inlet="pitch"/>
+         <dest obj="play_5" inlet="pitch"/>
+         <dest obj="play_6" inlet="pitch"/>
+         <dest obj="play_7" inlet="stop"/>
+         <dest obj="play_8" inlet="pitch"/>
+         <dest obj="play_7" inlet="pitch"/>
+         <dest obj="play_9" inlet="pitch"/>
+         <dest obj="play_10" inlet="pitch"/>
+         <dest obj="play_11" inlet="stop"/>
+         <dest obj="play_12" inlet="pitch"/>
       </net>
       <net>
          <source obj="dial_1" outlet="out"/>
@@ -301,6 +607,14 @@
          <dest obj="play_2" inlet="pos"/>
          <dest obj="play_3" inlet="pos"/>
          <dest obj="play_4" inlet="pos"/>
+         <dest obj="play_5" inlet="pos"/>
+         <dest obj="play_6" inlet="pos"/>
+         <dest obj="play_7" inlet="pos"/>
+         <dest obj="play_8" inlet="pos"/>
+         <dest obj="play_12" inlet="pos"/>
+         <dest obj="play_11" inlet="pos"/>
+         <dest obj="play_10" inlet="pos"/>
+         <dest obj="play_9" inlet="pos"/>
       </net>
       <net>
          <source obj="play_1" outlet="wave"/>
@@ -317,13 +631,21 @@
       <net>
          <source obj="obj_1" outlet="picnic"/>
          <dest obj="bool_2" inlet="in"/>
-         <dest obj="tableB" inlet="trig"/>
-         <dest obj="tableA" inlet="trig"/>
-         <dest obj="tableD" inlet="trig"/>
-         <dest obj="tableC" inlet="trig"/>
+         <dest obj="table1" inlet="trig"/>
+         <dest obj="table4" inlet="trig"/>
+         <dest obj="table3" inlet="trig"/>
+         <dest obj="table5" inlet="trig"/>
+         <dest obj="table6" inlet="trig"/>
+         <dest obj="table7" inlet="trig"/>
+         <dest obj="table8" inlet="trig"/>
+         <dest obj="table2" inlet="trig"/>
+         <dest obj="table9" inlet="trig"/>
+         <dest obj="table10" inlet="trig"/>
+         <dest obj="table11" inlet="trig"/>
+         <dest obj="table12" inlet="trig"/>
       </net>
       <net>
-         <source obj="tableA" outlet="loaded"/>
+         <source obj="table1" outlet="loaded"/>
          <dest obj="bool_1" inlet="in"/>
       </net>
       <net>
@@ -344,7 +666,7 @@
       </net>
       <net>
          <source obj="indexed_1" outlet="out"/>
-         <dest obj="tableA" inlet="filename"/>
+         <dest obj="table1" inlet="filename"/>
       </net>
       <net>
          <source obj="i_1" outlet="out"/>
@@ -360,6 +682,14 @@
          <dest obj="+_2" inlet="in1"/>
          <dest obj="+_3" inlet="in1"/>
          <dest obj="+_4" inlet="in1"/>
+         <dest obj="+_5" inlet="in1"/>
+         <dest obj="+_6" inlet="in1"/>
+         <dest obj="+_7" inlet="in1"/>
+         <dest obj="+_8" inlet="in1"/>
+         <dest obj="+_9" inlet="in1"/>
+         <dest obj="+_10" inlet="in1"/>
+         <dest obj="+_11" inlet="in1"/>
+         <dest obj="+_12" inlet="in1"/>
       </net>
       <net>
          <source obj="i_2" outlet="out"/>
@@ -368,10 +698,6 @@
       <net>
          <source obj="+_2" outlet="out"/>
          <dest obj="indexed_2" inlet="index"/>
-      </net>
-      <net>
-         <source obj="indexed_2" outlet="out"/>
-         <dest obj="tableB" inlet="filename"/>
       </net>
       <net>
          <source obj="i_3" outlet="out"/>
@@ -391,11 +717,197 @@
       </net>
       <net>
          <source obj="indexed_4" outlet="out"/>
-         <dest obj="tableD" inlet="filename"/>
+         <dest obj="table4" inlet="filename"/>
       </net>
       <net>
          <source obj="indexed_3" outlet="out"/>
-         <dest obj="tableC" inlet="filename"/>
+         <dest obj="table3" inlet="filename"/>
+      </net>
+      <net>
+         <source obj="indexed_5" outlet="out"/>
+         <dest obj="table5" inlet="filename"/>
+      </net>
+      <net>
+         <source obj="i_5" outlet="out"/>
+         <dest obj="+_5" inlet="in2"/>
+      </net>
+      <net>
+         <source obj="+_5" outlet="out"/>
+         <dest obj="indexed_5" inlet="index"/>
+      </net>
+      <net>
+         <source obj="i_6" outlet="out"/>
+         <dest obj="+_6" inlet="in2"/>
+      </net>
+      <net>
+         <source obj="+_6" outlet="out"/>
+         <dest obj="indexed_6" inlet="index"/>
+      </net>
+      <net>
+         <source obj="indexed_6" outlet="out"/>
+         <dest obj="table6" inlet="filename"/>
+      </net>
+      <net>
+         <source obj="i_7" outlet="out"/>
+         <dest obj="+_7" inlet="in2"/>
+      </net>
+      <net>
+         <source obj="+_7" outlet="out"/>
+         <dest obj="indexed_7" inlet="index"/>
+      </net>
+      <net>
+         <source obj="i_8" outlet="out"/>
+         <dest obj="+_8" inlet="in2"/>
+      </net>
+      <net>
+         <source obj="+_8" outlet="out"/>
+         <dest obj="indexed_8" inlet="index"/>
+      </net>
+      <net>
+         <source obj="indexed_8" outlet="out"/>
+         <dest obj="table8" inlet="filename"/>
+      </net>
+      <net>
+         <source obj="indexed_7" outlet="out"/>
+         <dest obj="table7" inlet="filename"/>
+      </net>
+      <net>
+         <source obj="play_5" outlet="wave"/>
+         <dest obj="mix_1" inlet="in5"/>
+      </net>
+      <net>
+         <source obj="play_6" outlet="wave"/>
+         <dest obj="mix_1" inlet="in6"/>
+      </net>
+      <net>
+         <source obj="play_7" outlet="wave"/>
+         <dest obj="mix_2" inlet="in1"/>
+      </net>
+      <net>
+         <source obj="play_8" outlet="wave"/>
+         <dest obj="mix_2" inlet="in2"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="kb_4"/>
+         <dest obj="play_5" inlet="start"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="kb_5"/>
+         <dest obj="play_6" inlet="start"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="kb_6"/>
+         <dest obj="play_7" inlet="start"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="kb_7"/>
+         <dest obj="play_8" inlet="start"/>
+      </net>
+      <net>
+         <source obj="i_10" outlet="out"/>
+         <dest obj="latch_1" inlet="i"/>
+      </net>
+      <net>
+         <source obj="latch_1" outlet="o"/>
+         <dest obj="i_11" inlet="in"/>
+      </net>
+      <net>
+         <source obj="indexed_2" outlet="out"/>
+         <dest obj="table2" inlet="filename"/>
+      </net>
+      <net>
+         <source obj="indexed_9" outlet="out"/>
+         <dest obj="table9" inlet="filename"/>
+      </net>
+      <net>
+         <source obj="i_9" outlet="out"/>
+         <dest obj="+_9" inlet="in2"/>
+      </net>
+      <net>
+         <source obj="+_9" outlet="out"/>
+         <dest obj="indexed_9" inlet="index"/>
+      </net>
+      <net>
+         <source obj="i_12" outlet="out"/>
+         <dest obj="+_10" inlet="in2"/>
+      </net>
+      <net>
+         <source obj="+_10" outlet="out"/>
+         <dest obj="indexed_10" inlet="index"/>
+      </net>
+      <net>
+         <source obj="indexed_10" outlet="out"/>
+         <dest obj="table10" inlet="filename"/>
+      </net>
+      <net>
+         <source obj="i_13" outlet="out"/>
+         <dest obj="+_11" inlet="in2"/>
+      </net>
+      <net>
+         <source obj="+_11" outlet="out"/>
+         <dest obj="indexed_11" inlet="index"/>
+      </net>
+      <net>
+         <source obj="i_14" outlet="out"/>
+         <dest obj="+_12" inlet="in2"/>
+      </net>
+      <net>
+         <source obj="+_12" outlet="out"/>
+         <dest obj="indexed_12" inlet="index"/>
+      </net>
+      <net>
+         <source obj="indexed_12" outlet="out"/>
+         <dest obj="table12" inlet="filename"/>
+      </net>
+      <net>
+         <source obj="indexed_11" outlet="out"/>
+         <dest obj="table11" inlet="filename"/>
+      </net>
+      <net>
+         <source obj="play_9" outlet="wave"/>
+         <dest obj="mix_2" inlet="in3"/>
+      </net>
+      <net>
+         <source obj="play_10" outlet="wave"/>
+         <dest obj="mix_2" inlet="in4"/>
+      </net>
+      <net>
+         <source obj="play_11" outlet="wave"/>
+         <dest obj="mix_2" inlet="in5"/>
+      </net>
+      <net>
+         <source obj="play_12" outlet="wave"/>
+         <dest obj="mix_2" inlet="in6"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="kb_11"/>
+         <dest obj="play_12" inlet="start"/>
+         <dest obj="bool_4" inlet="in"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="kb_10"/>
+         <dest obj="play_11" inlet="start"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="kb_9"/>
+         <dest obj="play_10" inlet="start"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="kb_8"/>
+         <dest obj="play_9" inlet="start"/>
+      </net>
+      <net>
+         <source obj="mix_3" outlet="out"/>
+         <dest obj="out_1" inlet="right"/>
+         <dest obj="out_1" inlet="left"/>
+      </net>
+      <net>
+         <source obj="mix_1" outlet="out"/>
+         <dest obj="mix_3" inlet="in1"/>
+      </net>
+      <net>
+         <source obj="mix_2" outlet="out"/>
+         <dest obj="mix_3" inlet="in2"/>
       </net>
    </nets>
    <settings>
@@ -403,9 +915,9 @@
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>-2266</x>
-      <y>-1</y>
-      <width>2188</width>
-      <height>812</height>
+      <x>-2568</x>
+      <y>-119</y>
+      <width>2575</width>
+      <height>1456</height>
    </windowPos>
 </patch-1.0>

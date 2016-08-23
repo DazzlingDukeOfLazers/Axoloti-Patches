@@ -244,7 +244,7 @@ void PadcapSetup(uint8_t ui8tPadcapChannel)
 	if (c != 0x24)  out1 &= 0xF000; // Device ID is incorrect <TBD add to class flag>
 		
 	//PadcapSetThreshold(12, 6); // <reference Device sensetivity default	>
-	PadcapSetThreshold(ui8tPadcapChannel, 24, 12);
+	PadcapSetThreshold(ui8tPadcapChannel,36,24);
 
 	PadcapWriteReg(ui8tPadcapChannel, MPR121_MHDR, 0x01);
 	PadcapWriteReg(ui8tPadcapChannel, MPR121_NHDR, 0x01);

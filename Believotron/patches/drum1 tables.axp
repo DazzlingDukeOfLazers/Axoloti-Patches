@@ -49,18 +49,24 @@
          <table attributeName="suffix" table=".raw"/>
       </attribs>
    </obj>
-   <obj type="tb/wave/wavetable load fn" uuid="0dffb4b4-fd43-42de-8718-2abe6c653a9a" name="table1" x="1274" y="28">
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_1" x="980" y="42">
+      <params>
+         <int32 name="value" value="1"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="tb/wave/wavetable load fn" uuid="0dffb4b4-fd43-42de-8718-2abe6c653a9a" name="table1" x="1400" y="42">
       <params/>
       <attribs>
          <combo attributeName="waves" selection="512"/>
          <combo attributeName="size" selection="512"/>
       </attribs>
    </obj>
-   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_1" x="980" y="42">
-      <params>
-         <int32 name="value" value="1"/>
-      </params>
-      <attribs/>
+   <obj type="patch/recv b" uuid="6ce86e0c667a0168b53a910eb891366e96b944d1" name="recv_13" x="1274" y="56">
+      <params/>
+      <attribs>
+         <objref attributeName="sender" obj="sampleReload"/>
+      </attribs>
    </obj>
    <obj type="lfo/square" sha="b4420b58ca2ae5ece53d53540bc91bc9ed7a4b83" name="square_1" x="14" y="70">
       <params>
@@ -198,16 +204,46 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/recv b" uuid="6ce86e0c667a0168b53a910eb891366e96b944d1" name="recv_13" x="1148" y="126">
+   <obj type="patch/recv i" uuid="c57c3fb0d08bcb566403f4fb43426338bd37ce1f" name="recv_40" x="854" y="140">
       <params/>
       <attribs>
-         <objref attributeName="sender" obj="sampleReload"/>
+         <objref attributeName="sender" obj="fileOffset"/>
+      </attribs>
+   </obj>
+   <obj type="math/+" uuid="b94a9b8e9adcb7d18868c0ee808a9b211b65578d" name="+_2" x="1036" y="140">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="string/PlayFolder" uuid="a883eeb5-f4ef-470e-898d-8fb54eb57f45" name="PlayFolder_2" x="1106" y="140">
+      <params/>
+      <attribs>
+         <table attributeName="prefix" table=""/>
+         <table attributeName="suffix" table=".raw"/>
+      </attribs>
+   </obj>
+   <obj type="tb/wave/wavetable load fn" uuid="0dffb4b4-fd43-42de-8718-2abe6c653a9a" name="table2" x="1400" y="140">
+      <params/>
+      <attribs>
+         <combo attributeName="waves" selection="512"/>
+         <combo attributeName="size" selection="512"/>
       </attribs>
    </obj>
    <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_2" x="1750" y="140">
       <params/>
       <attribs>
          <objref attributeName="sender" obj="samplePos"/>
+      </attribs>
+   </obj>
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_2" x="980" y="154">
+      <params>
+         <int32 name="value" value="2"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="patch/recv b" uuid="6ce86e0c667a0168b53a910eb891366e96b944d1" name="recv_39" x="1274" y="154">
+      <params/>
+      <attribs>
+         <objref attributeName="sender" obj="sampleReload"/>
       </attribs>
    </obj>
    <obj type="audio/out stereo" sha="b933bb91801a126126313c11f773158b5ca2face" name="out_1" x="2464" y="154">
@@ -251,6 +287,42 @@
       <params/>
       <attribs/>
    </obj>
+   <obj type="patch/recv i" uuid="c57c3fb0d08bcb566403f4fb43426338bd37ce1f" name="recv_41" x="854" y="252">
+      <params/>
+      <attribs>
+         <objref attributeName="sender" obj="fileOffset"/>
+      </attribs>
+   </obj>
+   <obj type="math/+" uuid="b94a9b8e9adcb7d18868c0ee808a9b211b65578d" name="+_3" x="1036" y="252">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="string/PlayFolder" uuid="a883eeb5-f4ef-470e-898d-8fb54eb57f45" name="PlayFolder_3" x="1106" y="252">
+      <params/>
+      <attribs>
+         <table attributeName="prefix" table=""/>
+         <table attributeName="suffix" table=".raw"/>
+      </attribs>
+   </obj>
+   <obj type="tb/wave/wavetable load fn" uuid="0dffb4b4-fd43-42de-8718-2abe6c653a9a" name="table3" x="1400" y="252">
+      <params/>
+      <attribs>
+         <combo attributeName="waves" selection="512"/>
+         <combo attributeName="size" selection="512"/>
+      </attribs>
+   </obj>
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_3" x="980" y="266">
+      <params>
+         <int32 name="value" value="3"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="patch/recv b" uuid="6ce86e0c667a0168b53a910eb891366e96b944d1" name="recv_43" x="1274" y="266">
+      <params/>
+      <attribs>
+         <objref attributeName="sender" obj="sampleReload"/>
+      </attribs>
+   </obj>
    <obj type="patch/send b" uuid="b428934ee3ee80efb18736216fd871d264e9b695" name="kb10" x="588" y="294">
       <params/>
       <attribs/>
@@ -273,16 +345,29 @@
          <objref attributeName="table" obj="table2"/>
       </attribs>
    </obj>
-   <obj type="disp/hex" uuid="3ce415f2f0e09f5b3cf10e5d355274847fd063b2" name="hex_2" x="1204" y="336">
+   <obj type="patch/recv i" uuid="c57c3fb0d08bcb566403f4fb43426338bd37ce1f" name="recv_42" x="854" y="364">
+      <params/>
+      <attribs>
+         <objref attributeName="sender" obj="fileOffset"/>
+      </attribs>
+   </obj>
+   <obj type="math/+" uuid="b94a9b8e9adcb7d18868c0ee808a9b211b65578d" name="+_4" x="1036" y="364">
       <params/>
       <attribs/>
    </obj>
-   <obj type="djrm/logic/counter2_init_start" uuid="d5936f238ab92e53ac93d5927c3b43ceef998dc1" name="counter2_init_start_1" x="994" y="364">
-      <params>
-         <int32 name="maximum" value="11"/>
-         <int32 name="init" value="0"/>
-      </params>
-      <attribs/>
+   <obj type="string/PlayFolder" uuid="a883eeb5-f4ef-470e-898d-8fb54eb57f45" name="PlayFolder_4" x="1106" y="364">
+      <params/>
+      <attribs>
+         <table attributeName="prefix" table=""/>
+         <table attributeName="suffix" table=".raw"/>
+      </attribs>
+   </obj>
+   <obj type="tb/wave/wavetable load fn" uuid="0dffb4b4-fd43-42de-8718-2abe6c653a9a" name="table4" x="1400" y="364">
+      <params/>
+      <attribs>
+         <combo attributeName="waves" selection="512"/>
+         <combo attributeName="size" selection="512"/>
+      </attribs>
    </obj>
    <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_5" x="1750" y="364">
       <params/>
@@ -290,16 +375,20 @@
          <objref attributeName="sender" obj="samplePos"/>
       </attribs>
    </obj>
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_4" x="980" y="378">
+      <params>
+         <int32 name="value" value="4"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="patch/recv b" uuid="6ce86e0c667a0168b53a910eb891366e96b944d1" name="recv_44" x="1274" y="379">
+      <params/>
+      <attribs>
+         <objref attributeName="sender" obj="sampleReload"/>
+      </attribs>
+   </obj>
    <comment type="patch/comment" x="406" y="392" text="Hey! HH exclusion!"/>
    <obj type="patch/send b" uuid="b428934ee3ee80efb18736216fd871d264e9b695" name="sampleReload" x="644" y="392">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_6" x="1204" y="392">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_1" x="826" y="406">
       <params/>
       <attribs/>
    </obj>
@@ -309,9 +398,33 @@
          <objref attributeName="sender" obj="kb2"/>
       </attribs>
    </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_3" x="840" y="462">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_1" x="658" y="462">
       <params/>
       <attribs/>
+   </obj>
+   <obj type="patch/recv i" uuid="c57c3fb0d08bcb566403f4fb43426338bd37ce1f" name="recv_53" x="854" y="476">
+      <params/>
+      <attribs>
+         <objref attributeName="sender" obj="fileOffset"/>
+      </attribs>
+   </obj>
+   <obj type="math/+" uuid="b94a9b8e9adcb7d18868c0ee808a9b211b65578d" name="+_5" x="1036" y="476">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="string/PlayFolder" uuid="a883eeb5-f4ef-470e-898d-8fb54eb57f45" name="PlayFolder_5" x="1106" y="476">
+      <params/>
+      <attribs>
+         <table attributeName="prefix" table=""/>
+         <table attributeName="suffix" table=".raw"/>
+      </attribs>
+   </obj>
+   <obj type="script/BTWavLoadFn" uuid="3529e74f-e1ca-4e5f-8603-086e8c2dca14" name="table5" x="1400" y="476">
+      <params/>
+      <attribs>
+         <combo attributeName="waves" selection="512"/>
+         <combo attributeName="size" selection="512"/>
+      </attribs>
    </obj>
    <obj type="mix/mix 6 g" uuid="2dd642dee5072357722740c850699b79b8da3008" name="mix_2" x="2156" y="476">
       <params>
@@ -332,6 +445,22 @@
       </params>
       <attribs/>
    </obj>
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_5" x="980" y="490">
+      <params>
+         <int32 name="value" value="5"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="patch/recv b" uuid="6ce86e0c667a0168b53a910eb891366e96b944d1" name="recv_45" x="1274" y="490">
+      <params/>
+      <attribs>
+         <objref attributeName="sender" obj="sampleReload"/>
+      </attribs>
+   </obj>
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_3" x="672" y="518">
+      <params/>
+      <attribs/>
+   </obj>
    <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_7" x="1750" y="518">
       <params/>
       <attribs>
@@ -346,23 +475,33 @@
          <objref attributeName="table" obj="table3"/>
       </attribs>
    </obj>
-   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="offset" x="938" y="560">
-      <params>
-         <int32 name="value" value="0"/>
-      </params>
-      <attribs/>
-   </obj>
-   <obj type="math/+" uuid="b94a9b8e9adcb7d18868c0ee808a9b211b65578d" name="+_13" x="1036" y="560">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_4" x="686" y="574">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_4" x="756" y="574">
+   <obj type="patch/recv i" uuid="c57c3fb0d08bcb566403f4fb43426338bd37ce1f" name="recv_54" x="854" y="588">
+      <params/>
+      <attribs>
+         <objref attributeName="sender" obj="fileOffset"/>
+      </attribs>
+   </obj>
+   <obj type="math/+" uuid="b94a9b8e9adcb7d18868c0ee808a9b211b65578d" name="+_6" x="1036" y="588">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/send i" uuid="452e1d7a88de691f954015e6fec2f6994e1b35fc" name="fileOffset" x="1148" y="574">
+   <obj type="string/PlayFolder" uuid="a883eeb5-f4ef-470e-898d-8fb54eb57f45" name="PlayFolder_6" x="1106" y="588">
       <params/>
-      <attribs/>
+      <attribs>
+         <table attributeName="prefix" table=""/>
+         <table attributeName="suffix" table=".raw"/>
+      </attribs>
+   </obj>
+   <obj type="tb/wave/wavetable load fn" uuid="0dffb4b4-fd43-42de-8718-2abe6c653a9a" name="table6" x="1400" y="588">
+      <params/>
+      <attribs>
+         <combo attributeName="waves" selection="512"/>
+         <combo attributeName="size" selection="512"/>
+      </attribs>
    </obj>
    <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_8" x="1750" y="588">
       <params/>
@@ -374,8 +513,31 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_5" x="826" y="616">
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_6" x="980" y="602">
+      <params>
+         <int32 name="value" value="6"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="patch/recv b" uuid="6ce86e0c667a0168b53a910eb891366e96b944d1" name="recv_46" x="1274" y="602">
       <params/>
+      <attribs>
+         <objref attributeName="sender" obj="sampleReload"/>
+      </attribs>
+   </obj>
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_5" x="686" y="630">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/hex" uuid="3ce415f2f0e09f5b3cf10e5d355274847fd063b2" name="hex_2" x="350" y="644">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="djrm/logic/counter2_init_start" uuid="d5936f238ab92e53ac93d5927c3b43ceef998dc1" name="counter2_init_start_1" x="140" y="672">
+      <params>
+         <int32 name="maximum" value="11"/>
+         <int32 name="init" value="0"/>
+      </params>
       <attribs/>
    </obj>
    <obj type="patch/recv b" uuid="6ce86e0c667a0168b53a910eb891366e96b944d1" name="recv_12" x="1750" y="672">
@@ -384,9 +546,45 @@
          <objref attributeName="sender" obj="kb3"/>
       </attribs>
    </obj>
-   <obj type="disp/hex" uuid="3ce415f2f0e09f5b3cf10e5d355274847fd063b2" name="hex_1" x="770" y="686">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_6" x="350" y="700">
       <params/>
       <attribs/>
+   </obj>
+   <obj type="patch/recv i" uuid="c57c3fb0d08bcb566403f4fb43426338bd37ce1f" name="recv_55" x="854" y="700">
+      <params/>
+      <attribs>
+         <objref attributeName="sender" obj="fileOffset"/>
+      </attribs>
+   </obj>
+   <obj type="math/+" uuid="b94a9b8e9adcb7d18868c0ee808a9b211b65578d" name="+_7" x="1036" y="700">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="string/PlayFolder" uuid="a883eeb5-f4ef-470e-898d-8fb54eb57f45" name="PlayFolder_7" x="1106" y="700">
+      <params/>
+      <attribs>
+         <table attributeName="prefix" table=""/>
+         <table attributeName="suffix" table=".raw"/>
+      </attribs>
+   </obj>
+   <obj type="tb/wave/wavetable load fn" uuid="0dffb4b4-fd43-42de-8718-2abe6c653a9a" name="table7" x="1400" y="700">
+      <params/>
+      <attribs>
+         <combo attributeName="waves" selection="512"/>
+         <combo attributeName="size" selection="512"/>
+      </attribs>
+   </obj>
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_7" x="980" y="714">
+      <params>
+         <int32 name="value" value="7"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="patch/recv b" uuid="6ce86e0c667a0168b53a910eb891366e96b944d1" name="recv_47" x="1274" y="714">
+      <params/>
+      <attribs>
+         <objref attributeName="sender" obj="sampleReload"/>
+      </attribs>
    </obj>
    <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_10" x="1750" y="728">
       <params/>
@@ -408,35 +606,101 @@
          <objref attributeName="sender" obj="samplePos"/>
       </attribs>
    </obj>
-   <obj type="patch/recv b" uuid="6ce86e0c667a0168b53a910eb891366e96b944d1" name="recv_16" x="1750" y="882">
+   <obj type="patch/recv i" uuid="c57c3fb0d08bcb566403f4fb43426338bd37ce1f" name="recv_56" x="854" y="812">
       <params/>
       <attribs>
-         <objref attributeName="sender" obj="kb4"/>
+         <objref attributeName="sender" obj="fileOffset"/>
       </attribs>
    </obj>
-   <obj type="math/+" uuid="b94a9b8e9adcb7d18868c0ee808a9b211b65578d" name="+_2" x="1008" y="896">
+   <obj type="math/+" uuid="b94a9b8e9adcb7d18868c0ee808a9b211b65578d" name="+_8" x="1036" y="812">
       <params/>
       <attribs/>
    </obj>
-   <obj type="string/indexed" uuid="a28740deef67c39ffc65bd0f341a47c9b196f46" name="indexed_2" x="1078" y="896">
+   <obj type="string/PlayFolder" uuid="a883eeb5-f4ef-470e-898d-8fb54eb57f45" name="PlayFolder_8" x="1106" y="812">
       <params/>
       <attribs>
-         <table attributeName="prefix" table="../oboe/"/>
+         <table attributeName="prefix" table=""/>
          <table attributeName="suffix" table=".raw"/>
       </attribs>
    </obj>
-   <obj type="tb/wave/wavetable load fn" uuid="0dffb4b4-fd43-42de-8718-2abe6c653a9a" name="table2" x="1246" y="896">
+   <obj type="tb/wave/wavetable load fn" uuid="0dffb4b4-fd43-42de-8718-2abe6c653a9a" name="table8" x="1400" y="812">
       <params/>
       <attribs>
          <combo attributeName="waves" selection="512"/>
          <combo attributeName="size" selection="512"/>
       </attribs>
    </obj>
-   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_2" x="952" y="910">
+   <obj type="disp/hex" uuid="3ce415f2f0e09f5b3cf10e5d355274847fd063b2" name="hex_1" x="308" y="826">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_8" x="980" y="826">
       <params>
-         <int32 name="value" value="2"/>
+         <int32 name="value" value="8"/>
       </params>
       <attribs/>
+   </obj>
+   <obj type="patch/recv b" uuid="6ce86e0c667a0168b53a910eb891366e96b944d1" name="recv_48" x="1274" y="826">
+      <params/>
+      <attribs>
+         <objref attributeName="sender" obj="sampleReload"/>
+      </attribs>
+   </obj>
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="offset" x="84" y="868">
+      <params>
+         <int32 name="value" value="0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="math/+" uuid="b94a9b8e9adcb7d18868c0ee808a9b211b65578d" name="+_13" x="182" y="868">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/send i" uuid="452e1d7a88de691f954015e6fec2f6994e1b35fc" name="fileOffset" x="294" y="882">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/recv b" uuid="6ce86e0c667a0168b53a910eb891366e96b944d1" name="recv_16" x="1750" y="882">
+      <params/>
+      <attribs>
+         <objref attributeName="sender" obj="kb4"/>
+      </attribs>
+   </obj>
+   <obj type="patch/recv i" uuid="c57c3fb0d08bcb566403f4fb43426338bd37ce1f" name="recv_57" x="854" y="924">
+      <params/>
+      <attribs>
+         <objref attributeName="sender" obj="fileOffset"/>
+      </attribs>
+   </obj>
+   <obj type="math/+" uuid="b94a9b8e9adcb7d18868c0ee808a9b211b65578d" name="+_9" x="1036" y="924">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="string/PlayFolder" uuid="a883eeb5-f4ef-470e-898d-8fb54eb57f45" name="PlayFolder_9" x="1106" y="924">
+      <params/>
+      <attribs>
+         <table attributeName="prefix" table=""/>
+         <table attributeName="suffix" table=".raw"/>
+      </attribs>
+   </obj>
+   <obj type="script/BTWavLoadFn" uuid="3529e74f-e1ca-4e5f-8603-086e8c2dca14" name="table9" x="1400" y="924">
+      <params/>
+      <attribs>
+         <combo attributeName="waves" selection="512"/>
+         <combo attributeName="size" selection="512"/>
+      </attribs>
+   </obj>
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_9" x="980" y="938">
+      <params>
+         <int32 name="value" value="9"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="patch/recv b" uuid="6ce86e0c667a0168b53a910eb891366e96b944d1" name="recv_49" x="1274" y="938">
+      <params/>
+      <attribs>
+         <objref attributeName="sender" obj="sampleReload"/>
+      </attribs>
    </obj>
    <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_14" x="1750" y="952">
       <params/>
@@ -452,64 +716,88 @@
          <objref attributeName="table" obj="table5"/>
       </attribs>
    </obj>
-   <obj type="math/+" uuid="b94a9b8e9adcb7d18868c0ee808a9b211b65578d" name="+_3" x="1008" y="994">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="string/indexed" uuid="a28740deef67c39ffc65bd0f341a47c9b196f46" name="indexed_3" x="1078" y="994">
-      <params/>
-      <attribs>
-         <table attributeName="prefix" table="../oboe/"/>
-         <table attributeName="suffix" table=".raw"/>
-      </attribs>
-   </obj>
-   <obj type="tb/wave/wavetable load fn" uuid="0dffb4b4-fd43-42de-8718-2abe6c653a9a" name="table3" x="1246" y="994">
-      <params/>
-      <attribs>
-         <combo attributeName="waves" selection="512"/>
-         <combo attributeName="size" selection="512"/>
-      </attribs>
-   </obj>
-   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_3" x="952" y="1008">
-      <params>
-         <int32 name="value" value="3"/>
-      </params>
-      <attribs/>
-   </obj>
    <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_15" x="1750" y="1022">
       <params/>
       <attribs>
          <objref attributeName="sender" obj="samplePos"/>
       </attribs>
    </obj>
-   <obj type="math/+" uuid="b94a9b8e9adcb7d18868c0ee808a9b211b65578d" name="+_4" x="1008" y="1092">
+   <obj type="patch/recv i" uuid="c57c3fb0d08bcb566403f4fb43426338bd37ce1f" name="recv_58" x="854" y="1036">
+      <params/>
+      <attribs>
+         <objref attributeName="sender" obj="fileOffset"/>
+      </attribs>
+   </obj>
+   <obj type="math/+" uuid="b94a9b8e9adcb7d18868c0ee808a9b211b65578d" name="+_10" x="1036" y="1036">
       <params/>
       <attribs/>
    </obj>
-   <obj type="string/indexed" uuid="a28740deef67c39ffc65bd0f341a47c9b196f46" name="indexed_4" x="1078" y="1092">
+   <obj type="string/PlayFolder" uuid="a883eeb5-f4ef-470e-898d-8fb54eb57f45" name="PlayFolder_10" x="1106" y="1036">
       <params/>
       <attribs>
-         <table attributeName="prefix" table="../oboe/"/>
+         <table attributeName="prefix" table=""/>
          <table attributeName="suffix" table=".raw"/>
       </attribs>
    </obj>
-   <obj type="tb/wave/wavetable load fn" uuid="0dffb4b4-fd43-42de-8718-2abe6c653a9a" name="table4" x="1246" y="1092">
+   <obj type="tb/wave/wavetable load fn" uuid="0dffb4b4-fd43-42de-8718-2abe6c653a9a" name="table10" x="1400" y="1036">
       <params/>
       <attribs>
          <combo attributeName="waves" selection="512"/>
          <combo attributeName="size" selection="512"/>
       </attribs>
    </obj>
-   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_4" x="952" y="1106">
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_12" x="980" y="1050">
       <params>
-         <int32 name="value" value="4"/>
+         <int32 name="value" value="10"/>
       </params>
       <attribs/>
+   </obj>
+   <obj type="patch/recv b" uuid="6ce86e0c667a0168b53a910eb891366e96b944d1" name="recv_50" x="1274" y="1050">
+      <params/>
+      <attribs>
+         <objref attributeName="sender" obj="sampleReload"/>
+      </attribs>
    </obj>
    <obj type="patch/recv b" uuid="6ce86e0c667a0168b53a910eb891366e96b944d1" name="recv_19" x="1750" y="1120">
       <params/>
       <attribs>
          <objref attributeName="sender" obj="kb5"/>
+      </attribs>
+   </obj>
+   <obj type="patch/recv i" uuid="c57c3fb0d08bcb566403f4fb43426338bd37ce1f" name="recv_59" x="854" y="1148">
+      <params/>
+      <attribs>
+         <objref attributeName="sender" obj="fileOffset"/>
+      </attribs>
+   </obj>
+   <obj type="math/+" uuid="b94a9b8e9adcb7d18868c0ee808a9b211b65578d" name="+_11" x="1036" y="1148">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="string/PlayFolder" uuid="a883eeb5-f4ef-470e-898d-8fb54eb57f45" name="PlayFolder_11" x="1106" y="1148">
+      <params/>
+      <attribs>
+         <table attributeName="prefix" table=""/>
+         <table attributeName="suffix" table=".raw"/>
+      </attribs>
+   </obj>
+   <obj type="tb/wave/wavetable load fn" uuid="0dffb4b4-fd43-42de-8718-2abe6c653a9a" name="table11" x="1400" y="1148">
+      <params/>
+      <attribs>
+         <combo attributeName="waves" selection="512"/>
+         <combo attributeName="size" selection="512"/>
+      </attribs>
+   </obj>
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_13" x="980" y="1162">
+      <params>
+         <int32 name="value" value="11"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="patch/recv b" uuid="6ce86e0c667a0168b53a910eb891366e96b944d1" name="recv_51" x="1274" y="1162">
+      <params/>
+      <attribs>
+         <objref attributeName="sender" obj="sampleReload"/>
       </attribs>
    </obj>
    <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_17" x="1750" y="1176">
@@ -526,89 +814,53 @@
          <objref attributeName="table" obj="table6"/>
       </attribs>
    </obj>
-   <obj type="math/+" uuid="b94a9b8e9adcb7d18868c0ee808a9b211b65578d" name="+_5" x="1008" y="1190">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="string/indexed" uuid="a28740deef67c39ffc65bd0f341a47c9b196f46" name="indexed_5" x="1078" y="1190">
-      <params/>
-      <attribs>
-         <table attributeName="prefix" table="../oboe/"/>
-         <table attributeName="suffix" table=".raw"/>
-      </attribs>
-   </obj>
-   <obj type="script/BTWavLoadFn" uuid="3529e74f-e1ca-4e5f-8603-086e8c2dca14" name="table5" x="1246" y="1190">
-      <params/>
-      <attribs>
-         <combo attributeName="waves" selection="512"/>
-         <combo attributeName="size" selection="512"/>
-      </attribs>
-   </obj>
-   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_5" x="952" y="1204">
-      <params>
-         <int32 name="value" value="5"/>
-      </params>
-      <attribs/>
-   </obj>
    <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_18" x="1750" y="1246">
       <params/>
       <attribs>
          <objref attributeName="sender" obj="samplePos"/>
       </attribs>
    </obj>
-   <obj type="math/+" uuid="b94a9b8e9adcb7d18868c0ee808a9b211b65578d" name="+_6" x="1008" y="1288">
+   <obj type="patch/recv i" uuid="c57c3fb0d08bcb566403f4fb43426338bd37ce1f" name="recv_60" x="854" y="1260">
+      <params/>
+      <attribs>
+         <objref attributeName="sender" obj="fileOffset"/>
+      </attribs>
+   </obj>
+   <obj type="math/+" uuid="b94a9b8e9adcb7d18868c0ee808a9b211b65578d" name="+_12" x="1036" y="1260">
       <params/>
       <attribs/>
    </obj>
-   <obj type="string/indexed" uuid="a28740deef67c39ffc65bd0f341a47c9b196f46" name="indexed_6" x="1078" y="1288">
+   <obj type="string/PlayFolder" uuid="a883eeb5-f4ef-470e-898d-8fb54eb57f45" name="PlayFolder_12" x="1106" y="1260">
       <params/>
       <attribs>
-         <table attributeName="prefix" table="../oboe/"/>
+         <table attributeName="prefix" table=""/>
          <table attributeName="suffix" table=".raw"/>
       </attribs>
    </obj>
-   <obj type="tb/wave/wavetable load fn" uuid="0dffb4b4-fd43-42de-8718-2abe6c653a9a" name="table6" x="1246" y="1288">
+   <obj type="tb/wave/wavetable load fn" uuid="0dffb4b4-fd43-42de-8718-2abe6c653a9a" name="table12" x="1400" y="1260">
       <params/>
       <attribs>
          <combo attributeName="waves" selection="512"/>
          <combo attributeName="size" selection="512"/>
       </attribs>
    </obj>
-   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_6" x="952" y="1302">
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_14" x="980" y="1274">
       <params>
-         <int32 name="value" value="6"/>
+         <int32 name="value" value="12"/>
       </params>
       <attribs/>
+   </obj>
+   <obj type="patch/recv b" uuid="6ce86e0c667a0168b53a910eb891366e96b944d1" name="recv_52" x="1274" y="1274">
+      <params/>
+      <attribs>
+         <objref attributeName="sender" obj="sampleReload"/>
+      </attribs>
    </obj>
    <obj type="patch/recv b" uuid="6ce86e0c667a0168b53a910eb891366e96b944d1" name="recv_22" x="1750" y="1344">
       <params/>
       <attribs>
          <objref attributeName="sender" obj="kb6"/>
       </attribs>
-   </obj>
-   <obj type="math/+" uuid="b94a9b8e9adcb7d18868c0ee808a9b211b65578d" name="+_7" x="1008" y="1386">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="string/indexed" uuid="a28740deef67c39ffc65bd0f341a47c9b196f46" name="indexed_7" x="1078" y="1386">
-      <params/>
-      <attribs>
-         <table attributeName="prefix" table="../oboe/"/>
-         <table attributeName="suffix" table=".raw"/>
-      </attribs>
-   </obj>
-   <obj type="tb/wave/wavetable load fn" uuid="0dffb4b4-fd43-42de-8718-2abe6c653a9a" name="table7" x="1246" y="1386">
-      <params/>
-      <attribs>
-         <combo attributeName="waves" selection="512"/>
-         <combo attributeName="size" selection="512"/>
-      </attribs>
-   </obj>
-   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_7" x="952" y="1400">
-      <params>
-         <int32 name="value" value="7"/>
-      </params>
-      <attribs/>
    </obj>
    <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_20" x="1750" y="1400">
       <params/>
@@ -630,59 +882,11 @@
          <objref attributeName="sender" obj="samplePos"/>
       </attribs>
    </obj>
-   <obj type="math/+" uuid="b94a9b8e9adcb7d18868c0ee808a9b211b65578d" name="+_8" x="1008" y="1484">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="string/indexed" uuid="a28740deef67c39ffc65bd0f341a47c9b196f46" name="indexed_8" x="1078" y="1484">
-      <params/>
-      <attribs>
-         <table attributeName="prefix" table="../oboe/"/>
-         <table attributeName="suffix" table=".raw"/>
-      </attribs>
-   </obj>
-   <obj type="tb/wave/wavetable load fn" uuid="0dffb4b4-fd43-42de-8718-2abe6c653a9a" name="table8" x="1246" y="1484">
-      <params/>
-      <attribs>
-         <combo attributeName="waves" selection="512"/>
-         <combo attributeName="size" selection="512"/>
-      </attribs>
-   </obj>
-   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_8" x="952" y="1498">
-      <params>
-         <int32 name="value" value="8"/>
-      </params>
-      <attribs/>
-   </obj>
-   <obj type="math/+" uuid="b94a9b8e9adcb7d18868c0ee808a9b211b65578d" name="+_9" x="1008" y="1568">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="string/indexed" uuid="a28740deef67c39ffc65bd0f341a47c9b196f46" name="indexed_9" x="1078" y="1568">
-      <params/>
-      <attribs>
-         <table attributeName="prefix" table="../oboe/"/>
-         <table attributeName="suffix" table=".raw"/>
-      </attribs>
-   </obj>
-   <obj type="script/BTWavLoadFn" uuid="3529e74f-e1ca-4e5f-8603-086e8c2dca14" name="table9" x="1246" y="1568">
-      <params/>
-      <attribs>
-         <combo attributeName="waves" selection="512"/>
-         <combo attributeName="size" selection="512"/>
-      </attribs>
-   </obj>
    <obj type="patch/recv b" uuid="6ce86e0c667a0168b53a910eb891366e96b944d1" name="recv_25" x="1750" y="1568">
       <params/>
       <attribs>
          <objref attributeName="sender" obj="kb7"/>
       </attribs>
-   </obj>
-   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_9" x="952" y="1582">
-      <params>
-         <int32 name="value" value="9"/>
-      </params>
-      <attribs/>
    </obj>
    <obj type="table/play pitch" uuid="5632a54926261833bbb9fff049e71322c360e57e" name="play_8" x="1890" y="1624">
       <params>
@@ -698,82 +902,16 @@
          <objref attributeName="sender" obj="samplePitch"/>
       </attribs>
    </obj>
-   <obj type="math/+" uuid="b94a9b8e9adcb7d18868c0ee808a9b211b65578d" name="+_10" x="1008" y="1652">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="string/indexed" uuid="a28740deef67c39ffc65bd0f341a47c9b196f46" name="indexed_10" x="1078" y="1652">
-      <params/>
-      <attribs>
-         <table attributeName="prefix" table="../oboe/"/>
-         <table attributeName="suffix" table=".raw"/>
-      </attribs>
-   </obj>
-   <obj type="tb/wave/wavetable load fn" uuid="0dffb4b4-fd43-42de-8718-2abe6c653a9a" name="table10" x="1246" y="1652">
-      <params/>
-      <attribs>
-         <combo attributeName="waves" selection="512"/>
-         <combo attributeName="size" selection="512"/>
-      </attribs>
-   </obj>
-   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_12" x="952" y="1666">
-      <params>
-         <int32 name="value" value="10"/>
-      </params>
-      <attribs/>
-   </obj>
    <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_24" x="1750" y="1694">
       <params/>
       <attribs>
          <objref attributeName="sender" obj="samplePos"/>
       </attribs>
    </obj>
-   <obj type="math/+" uuid="b94a9b8e9adcb7d18868c0ee808a9b211b65578d" name="+_11" x="1008" y="1750">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="string/indexed" uuid="a28740deef67c39ffc65bd0f341a47c9b196f46" name="indexed_11" x="1078" y="1750">
-      <params/>
-      <attribs>
-         <table attributeName="prefix" table="../oboe/"/>
-         <table attributeName="suffix" table=".raw"/>
-      </attribs>
-   </obj>
-   <obj type="tb/wave/wavetable load fn" uuid="0dffb4b4-fd43-42de-8718-2abe6c653a9a" name="table11" x="1246" y="1750">
-      <params/>
-      <attribs>
-         <combo attributeName="waves" selection="512"/>
-         <combo attributeName="size" selection="512"/>
-      </attribs>
-   </obj>
-   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_13" x="952" y="1764">
-      <params>
-         <int32 name="value" value="11"/>
-      </params>
-      <attribs/>
-   </obj>
    <obj type="patch/recv b" uuid="6ce86e0c667a0168b53a910eb891366e96b944d1" name="recv_28" x="1750" y="1792">
       <params/>
       <attribs>
          <objref attributeName="sender" obj="kb8"/>
-      </attribs>
-   </obj>
-   <obj type="math/+" uuid="b94a9b8e9adcb7d18868c0ee808a9b211b65578d" name="+_12" x="1008" y="1848">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="string/indexed" uuid="a28740deef67c39ffc65bd0f341a47c9b196f46" name="indexed_12" x="1078" y="1848">
-      <params/>
-      <attribs>
-         <table attributeName="prefix" table="../oboe/"/>
-         <table attributeName="suffix" table=".raw"/>
-      </attribs>
-   </obj>
-   <obj type="tb/wave/wavetable load fn" uuid="0dffb4b4-fd43-42de-8718-2abe6c653a9a" name="table12" x="1246" y="1848">
-      <params/>
-      <attribs>
-         <combo attributeName="waves" selection="512"/>
-         <combo attributeName="size" selection="512"/>
       </attribs>
    </obj>
    <obj type="table/play pitch" uuid="5632a54926261833bbb9fff049e71322c360e57e" name="play_9" x="1890" y="1848">
@@ -783,12 +921,6 @@
       <attribs>
          <objref attributeName="table" obj="table9"/>
       </attribs>
-   </obj>
-   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_14" x="952" y="1862">
-      <params>
-         <int32 name="value" value="12"/>
-      </params>
-      <attribs/>
    </obj>
    <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_26" x="1750" y="1862">
       <params/>
@@ -909,17 +1041,6 @@
       <net>
          <source obj="obj_1" outlet="picnic"/>
          <dest obj="bool_2" inlet="in"/>
-         <dest obj="table4" inlet="trig"/>
-         <dest obj="table3" inlet="trig"/>
-         <dest obj="table5" inlet="trig"/>
-         <dest obj="table6" inlet="trig"/>
-         <dest obj="table7" inlet="trig"/>
-         <dest obj="table8" inlet="trig"/>
-         <dest obj="table9" inlet="trig"/>
-         <dest obj="table10" inlet="trig"/>
-         <dest obj="table11" inlet="trig"/>
-         <dest obj="table12" inlet="trig"/>
-         <dest obj="table2" inlet="trig"/>
          <dest obj="sampleReload" inlet="v"/>
       </net>
       <net>
@@ -936,17 +1057,6 @@
       </net>
       <net>
          <source obj="+_13" outlet="out"/>
-         <dest obj="+_2" inlet="in1"/>
-         <dest obj="+_3" inlet="in1"/>
-         <dest obj="+_4" inlet="in1"/>
-         <dest obj="+_5" inlet="in1"/>
-         <dest obj="+_6" inlet="in1"/>
-         <dest obj="+_7" inlet="in1"/>
-         <dest obj="+_8" inlet="in1"/>
-         <dest obj="+_9" inlet="in1"/>
-         <dest obj="+_10" inlet="in1"/>
-         <dest obj="+_11" inlet="in1"/>
-         <dest obj="+_12" inlet="in1"/>
          <dest obj="fileOffset" inlet="v"/>
          <dest obj="hex_1" inlet="in"/>
       </net>
@@ -955,80 +1065,28 @@
          <dest obj="+_2" inlet="in2"/>
       </net>
       <net>
-         <source obj="+_2" outlet="out"/>
-         <dest obj="indexed_2" inlet="index"/>
-      </net>
-      <net>
          <source obj="i_3" outlet="out"/>
          <dest obj="+_3" inlet="in2"/>
-      </net>
-      <net>
-         <source obj="+_3" outlet="out"/>
-         <dest obj="indexed_3" inlet="index"/>
       </net>
       <net>
          <source obj="i_4" outlet="out"/>
          <dest obj="+_4" inlet="in2"/>
       </net>
       <net>
-         <source obj="+_4" outlet="out"/>
-         <dest obj="indexed_4" inlet="index"/>
-      </net>
-      <net>
-         <source obj="indexed_4" outlet="out"/>
-         <dest obj="table4" inlet="filename"/>
-      </net>
-      <net>
-         <source obj="indexed_3" outlet="out"/>
-         <dest obj="table3" inlet="filename"/>
-      </net>
-      <net>
-         <source obj="indexed_5" outlet="out"/>
-         <dest obj="table5" inlet="filename"/>
-      </net>
-      <net>
          <source obj="i_5" outlet="out"/>
          <dest obj="+_5" inlet="in2"/>
-      </net>
-      <net>
-         <source obj="+_5" outlet="out"/>
-         <dest obj="indexed_5" inlet="index"/>
       </net>
       <net>
          <source obj="i_6" outlet="out"/>
          <dest obj="+_6" inlet="in2"/>
       </net>
       <net>
-         <source obj="+_6" outlet="out"/>
-         <dest obj="indexed_6" inlet="index"/>
-      </net>
-      <net>
-         <source obj="indexed_6" outlet="out"/>
-         <dest obj="table6" inlet="filename"/>
-      </net>
-      <net>
          <source obj="i_7" outlet="out"/>
          <dest obj="+_7" inlet="in2"/>
       </net>
       <net>
-         <source obj="+_7" outlet="out"/>
-         <dest obj="indexed_7" inlet="index"/>
-      </net>
-      <net>
          <source obj="i_8" outlet="out"/>
          <dest obj="+_8" inlet="in2"/>
-      </net>
-      <net>
-         <source obj="+_8" outlet="out"/>
-         <dest obj="indexed_8" inlet="index"/>
-      </net>
-      <net>
-         <source obj="indexed_8" outlet="out"/>
-         <dest obj="table8" inlet="filename"/>
-      </net>
-      <net>
-         <source obj="indexed_7" outlet="out"/>
-         <dest obj="table7" inlet="filename"/>
       </net>
       <net>
          <source obj="play_5" outlet="wave"/>
@@ -1047,52 +1105,20 @@
          <dest obj="mix_2" inlet="in2"/>
       </net>
       <net>
-         <source obj="indexed_9" outlet="out"/>
-         <dest obj="table9" inlet="filename"/>
-      </net>
-      <net>
          <source obj="i_9" outlet="out"/>
          <dest obj="+_9" inlet="in2"/>
-      </net>
-      <net>
-         <source obj="+_9" outlet="out"/>
-         <dest obj="indexed_9" inlet="index"/>
       </net>
       <net>
          <source obj="i_12" outlet="out"/>
          <dest obj="+_10" inlet="in2"/>
       </net>
       <net>
-         <source obj="+_10" outlet="out"/>
-         <dest obj="indexed_10" inlet="index"/>
-      </net>
-      <net>
-         <source obj="indexed_10" outlet="out"/>
-         <dest obj="table10" inlet="filename"/>
-      </net>
-      <net>
          <source obj="i_13" outlet="out"/>
          <dest obj="+_11" inlet="in2"/>
       </net>
       <net>
-         <source obj="+_11" outlet="out"/>
-         <dest obj="indexed_11" inlet="index"/>
-      </net>
-      <net>
          <source obj="i_14" outlet="out"/>
          <dest obj="+_12" inlet="in2"/>
-      </net>
-      <net>
-         <source obj="+_12" outlet="out"/>
-         <dest obj="indexed_12" inlet="index"/>
-      </net>
-      <net>
-         <source obj="indexed_12" outlet="out"/>
-         <dest obj="table12" inlet="filename"/>
-      </net>
-      <net>
-         <source obj="indexed_11" outlet="out"/>
-         <dest obj="table11" inlet="filename"/>
       </net>
       <net>
          <source obj="play_9" outlet="wave"/>
@@ -1124,10 +1150,6 @@
          <dest obj="mix_3" inlet="in2"/>
       </net>
       <net>
-         <source obj="indexed_2" outlet="out"/>
-         <dest obj="table2" inlet="filename"/>
-      </net>
-      <net>
          <source obj="PlayFolder_1" outlet="out"/>
          <dest obj="table1" inlet="filename"/>
       </net>
@@ -1138,6 +1160,17 @@
       <net>
          <source obj="c_1" outlet="out"/>
          <dest obj="PlayFolder_1" inlet="filename"/>
+         <dest obj="PlayFolder_2" inlet="filename"/>
+         <dest obj="PlayFolder_3" inlet="filename"/>
+         <dest obj="PlayFolder_4" inlet="filename"/>
+         <dest obj="PlayFolder_5" inlet="filename"/>
+         <dest obj="PlayFolder_6" inlet="filename"/>
+         <dest obj="PlayFolder_7" inlet="filename"/>
+         <dest obj="PlayFolder_8" inlet="filename"/>
+         <dest obj="PlayFolder_9" inlet="filename"/>
+         <dest obj="PlayFolder_10" inlet="filename"/>
+         <dest obj="PlayFolder_11" inlet="filename"/>
+         <dest obj="PlayFolder_12" inlet="filename"/>
       </net>
       <net>
          <source obj="recv_1" outlet="v"/>
@@ -1245,7 +1278,7 @@
       </net>
       <net>
          <source obj="recv_19" outlet="v"/>
-         <dest obj="play_6" inlet="stop"/>
+         <dest obj="play_6" inlet="start"/>
       </net>
       <net>
          <source obj="recv_15" outlet="v"/>
@@ -1369,6 +1402,182 @@
       <net>
          <source obj="counter2_init_start_1" outlet="c"/>
          <dest obj="bool_6" inlet="in"/>
+      </net>
+      <net>
+         <source obj="recv_39" outlet="v"/>
+         <dest obj="table2" inlet="trig"/>
+      </net>
+      <net>
+         <source obj="PlayFolder_2" outlet="out"/>
+         <dest obj="table2" inlet="filename"/>
+      </net>
+      <net>
+         <source obj="recv_40" outlet="v"/>
+         <dest obj="+_2" inlet="in1"/>
+      </net>
+      <net>
+         <source obj="recv_41" outlet="v"/>
+         <dest obj="+_3" inlet="in1"/>
+      </net>
+      <net>
+         <source obj="recv_42" outlet="v"/>
+         <dest obj="+_4" inlet="in1"/>
+      </net>
+      <net>
+         <source obj="PlayFolder_4" outlet="out"/>
+         <dest obj="table4" inlet="filename"/>
+      </net>
+      <net>
+         <source obj="PlayFolder_3" outlet="out"/>
+         <dest obj="table3" inlet="filename"/>
+      </net>
+      <net>
+         <source obj="recv_43" outlet="v"/>
+         <dest obj="table3" inlet="trig"/>
+      </net>
+      <net>
+         <source obj="recv_44" outlet="v"/>
+         <dest obj="table4" inlet="trig"/>
+      </net>
+      <net>
+         <source obj="recv_49" outlet="v"/>
+         <dest obj="table9" inlet="trig"/>
+      </net>
+      <net>
+         <source obj="recv_52" outlet="v"/>
+         <dest obj="table12" inlet="trig"/>
+      </net>
+      <net>
+         <source obj="recv_51" outlet="v"/>
+         <dest obj="table11" inlet="trig"/>
+      </net>
+      <net>
+         <source obj="recv_50" outlet="v"/>
+         <dest obj="table10" inlet="trig"/>
+      </net>
+      <net>
+         <source obj="recv_48" outlet="v"/>
+         <dest obj="table8" inlet="trig"/>
+      </net>
+      <net>
+         <source obj="recv_47" outlet="v"/>
+         <dest obj="table7" inlet="trig"/>
+      </net>
+      <net>
+         <source obj="recv_46" outlet="v"/>
+         <dest obj="table6" inlet="trig"/>
+      </net>
+      <net>
+         <source obj="recv_45" outlet="v"/>
+         <dest obj="table5" inlet="trig"/>
+      </net>
+      <net>
+         <source obj="PlayFolder_5" outlet="out"/>
+         <dest obj="table5" inlet="filename"/>
+      </net>
+      <net>
+         <source obj="PlayFolder_6" outlet="out"/>
+         <dest obj="table6" inlet="filename"/>
+      </net>
+      <net>
+         <source obj="PlayFolder_7" outlet="out"/>
+         <dest obj="table7" inlet="filename"/>
+      </net>
+      <net>
+         <source obj="PlayFolder_8" outlet="out"/>
+         <dest obj="table8" inlet="filename"/>
+      </net>
+      <net>
+         <source obj="PlayFolder_9" outlet="out"/>
+         <dest obj="table9" inlet="filename"/>
+      </net>
+      <net>
+         <source obj="PlayFolder_10" outlet="out"/>
+         <dest obj="table10" inlet="filename"/>
+      </net>
+      <net>
+         <source obj="PlayFolder_11" outlet="out"/>
+         <dest obj="table11" inlet="filename"/>
+      </net>
+      <net>
+         <source obj="PlayFolder_12" outlet="out"/>
+         <dest obj="table12" inlet="filename"/>
+      </net>
+      <net>
+         <source obj="+_12" outlet="out"/>
+         <dest obj="PlayFolder_12" inlet="index"/>
+      </net>
+      <net>
+         <source obj="+_11" outlet="out"/>
+         <dest obj="PlayFolder_11" inlet="index"/>
+      </net>
+      <net>
+         <source obj="+_10" outlet="out"/>
+         <dest obj="PlayFolder_10" inlet="index"/>
+      </net>
+      <net>
+         <source obj="+_9" outlet="out"/>
+         <dest obj="PlayFolder_9" inlet="index"/>
+      </net>
+      <net>
+         <source obj="+_8" outlet="out"/>
+         <dest obj="PlayFolder_8" inlet="index"/>
+      </net>
+      <net>
+         <source obj="+_7" outlet="out"/>
+         <dest obj="PlayFolder_7" inlet="index"/>
+      </net>
+      <net>
+         <source obj="+_6" outlet="out"/>
+         <dest obj="PlayFolder_6" inlet="index"/>
+      </net>
+      <net>
+         <source obj="+_5" outlet="out"/>
+         <dest obj="PlayFolder_5" inlet="index"/>
+      </net>
+      <net>
+         <source obj="+_4" outlet="out"/>
+         <dest obj="PlayFolder_4" inlet="index"/>
+      </net>
+      <net>
+         <source obj="+_3" outlet="out"/>
+         <dest obj="PlayFolder_3" inlet="index"/>
+      </net>
+      <net>
+         <source obj="+_2" outlet="out"/>
+         <dest obj="PlayFolder_2" inlet="index"/>
+      </net>
+      <net>
+         <source obj="recv_60" outlet="v"/>
+         <dest obj="+_12" inlet="in1"/>
+      </net>
+      <net>
+         <source obj="recv_59" outlet="v"/>
+         <dest obj="+_11" inlet="in1"/>
+      </net>
+      <net>
+         <source obj="recv_58" outlet="v"/>
+         <dest obj="+_10" inlet="in1"/>
+      </net>
+      <net>
+         <source obj="recv_57" outlet="v"/>
+         <dest obj="+_9" inlet="in1"/>
+      </net>
+      <net>
+         <source obj="recv_56" outlet="v"/>
+         <dest obj="+_8" inlet="in1"/>
+      </net>
+      <net>
+         <source obj="recv_55" outlet="v"/>
+         <dest obj="+_7" inlet="in1"/>
+      </net>
+      <net>
+         <source obj="recv_54" outlet="v"/>
+         <dest obj="+_6" inlet="in1"/>
+      </net>
+      <net>
+         <source obj="recv_53" outlet="v"/>
+         <dest obj="+_5" inlet="in1"/>
       </net>
    </nets>
    <settings>

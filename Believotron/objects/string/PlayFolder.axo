@@ -1,0 +1,48 @@
+<objdefs appVersion="1.0.10">
+   <obj.normal id="PlayFolder" uuid="a883eeb5-f4ef-470e-898d-8fb54eb57f45">
+      <sDescription>generates string: prefix000suffix</sDescription>
+      <author>Johannes Taelman</author>
+      <license>BSD</license>
+      <inlets>
+         <int32 name="index" description="index"/>
+         <charptr32 name="filename"/>
+      </inlets>
+      <outlets>
+         <charptr32 name="out" description="string"/>
+      </outlets>
+      <displays/>
+      <params/>
+      <attribs>
+         <table name="prefix"/>
+         <table name="suffix"/>
+      </attribs>
+      <code.declaration><![CDATA[char c[64];
+int offset;
+int pval;]]></code.declaration>
+      <code.init><![CDATA[strcpy(&c[0],"attr_prefix000attr_suffix");
+offset = strlen("attr_prefix");
+pval = 0;
+]]></code.init>
+      <code.krate><![CDATA[if (inlet_index != pval){   pval = inlet_index;
+   
+   LogTextMessage("inlet_filename[%s]",inlet_filename);
+   strcpy(c,"");
+   //strcat(c, "inlet_filename");
+   strcpy(c, inlet_filename);
+   strcat(c, "000");
+   strcat(c, "attr_suffix");
+   
+   int i = inlet_index;   int i0 = i/10;
+   offset = strlen(inlet_filename);
+   c[offset+2] = '0'+i-10*i0;
+   i = i0; i0 = i/10;
+   c[offset+1] = '0'+i-10*i0;
+   i = i0; i0 = i/10;
+   c[offset+0] = '0'+i-10*i0;
+
+   LogTextMessage("final filepath[%s]",c);
+}
+outlet_out = &c[0];
+]]></code.krate>
+   </obj.normal>
+</objdefs>

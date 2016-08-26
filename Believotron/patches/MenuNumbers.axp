@@ -1,0 +1,213 @@
+<patch-1.0 appVersion="1.0.10">
+   <comment type="patch/comment" x="14" y="14" text="IMPORTANT: needs samples on sdcard!"/>
+   <obj type="Wanderlust/padcap" uuid="64d60dda-e187-4ef8-af8b-e46d8df6b3b1" name="obj_1" x="294" y="84">
+      <params/>
+      <attribs/>
+   </obj>
+   <comment type="patch/comment" x="728" y="126" text="Move this stuff into the padcap object. 2 outputs, MenuNumCh + Toggle"/>
+   <obj type="disp/i" uuid="5e35fd0c62d81e70017289250cf28edd26e19e4a" name="i_6" x="1428" y="140">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="override" x="728" y="154">
+      <params>
+         <int32 name="value" value="0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet i" uuid="aae2176b26209e34e4fdeba5edb1ace82d178655" name="ch" x="1428" y="196">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="math/+" uuid="b94a9b8e9adcb7d18868c0ee808a9b211b65578d" name="+_1" x="1148" y="210">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="logic/BtoI16Trig" uuid="d654afea-6ee8-4166-853b-b06b86cf2b34" name="BtoI16Trig_1" x="728" y="224">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="math/+" uuid="b94a9b8e9adcb7d18868c0ee808a9b211b65578d" name="+_2" x="1064" y="252">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="logic/change" uuid="96e39ae624c3f3c952cec4a95e1986ee0104f718" name="change_1" x="1344" y="252">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="trigger" x="1428" y="252">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/i" uuid="5e35fd0c62d81e70017289250cf28edd26e19e4a" name="i_4" x="868" y="308">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="logic/toggle" uuid="f42f0d3aab552c17bc78b9e65f85dc24f977503d" name="toggle_1" x="1428" y="322">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_1" x="1512" y="322">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_2" x="1512" y="392">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="logic/toggle" uuid="f42f0d3aab552c17bc78b9e65f85dc24f977503d" name="toggle_2" x="868" y="462">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="const/i" uuid="e202f44b2df17ae0b3e663b98ea6b14c8ff00408" name="i_1" x="798" y="518">
+      <params/>
+      <attribs>
+         <spinner attributeName="value" value="16"/>
+      </attribs>
+   </obj>
+   <obj type="math/*" uuid="6a31299e3a491edd8c4df0e809a519a35cc08a3b" name="*_1" x="882" y="518">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/i" uuid="5e35fd0c62d81e70017289250cf28edd26e19e4a" name="i_7" x="938" y="518">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="djrm/logic/counter2_init_start" uuid="d5936f238ab92e53ac93d5927c3b43ceef998dc1" name="counter2_init_start_1" x="728" y="574">
+      <params>
+         <int32 name="maximum" value="33"/>
+         <int32 name="init" value="0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="disp/i" uuid="5e35fd0c62d81e70017289250cf28edd26e19e4a" name="i_5" x="882" y="574">
+      <params/>
+      <attribs/>
+   </obj>
+   <nets>
+      <net>
+         <source obj="obj_1" outlet="ski_down"/>
+         <dest obj="BtoI16Trig_1" inlet="i00"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="ski_cross"/>
+         <dest obj="BtoI16Trig_1" inlet="i01"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="skating"/>
+         <dest obj="BtoI16Trig_1" inlet="i02"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="tram"/>
+         <dest obj="BtoI16Trig_1" inlet="i03"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="sledding"/>
+         <dest obj="BtoI16Trig_1" inlet="i04"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="snowmowbiling"/>
+         <dest obj="BtoI16Trig_1" inlet="i05"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="hiking"/>
+         <dest obj="BtoI16Trig_1" inlet="i06"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="horsebackriding"/>
+         <dest obj="BtoI16Trig_1" inlet="i07"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="parasailing"/>
+         <dest obj="BtoI16Trig_1" inlet="i08"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="diving"/>
+         <dest obj="BtoI16Trig_1" inlet="i09"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="canoing"/>
+         <dest obj="BtoI16Trig_1" inlet="i10"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="swimming"/>
+         <dest obj="BtoI16Trig_1" inlet="i11"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="sailing"/>
+         <dest obj="BtoI16Trig_1" inlet="i12"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="fishing"/>
+         <dest obj="BtoI16Trig_1" inlet="i13"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="anchor"/>
+         <dest obj="BtoI16Trig_1" inlet="i14"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="showers"/>
+         <dest obj="BtoI16Trig_1" inlet="i15"/>
+      </net>
+      <net>
+         <source obj="BtoI16Trig_1" outlet="o0"/>
+         <dest obj="i_4" inlet="in"/>
+         <dest obj="+_2" inlet="in1"/>
+      </net>
+      <net>
+         <source obj="counter2_init_start_1" outlet="o"/>
+         <dest obj="i_5" inlet="in"/>
+         <dest obj="*_1" inlet="b"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="trash"/>
+         <dest obj="counter2_init_start_1" inlet="inc"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="campfire"/>
+         <dest obj="counter2_init_start_1" inlet="dec"/>
+      </net>
+      <net>
+         <source obj="i_1" outlet="out"/>
+         <dest obj="*_1" inlet="a"/>
+      </net>
+      <net>
+         <source obj="override" outlet="out"/>
+         <dest obj="+_1" inlet="in1"/>
+      </net>
+      <net>
+         <source obj="*_1" outlet="result"/>
+         <dest obj="+_2" inlet="in2"/>
+      </net>
+      <net>
+         <source obj="+_2" outlet="out"/>
+         <dest obj="+_1" inlet="in2"/>
+      </net>
+      <net>
+         <source obj="+_1" outlet="out"/>
+         <dest obj="ch" inlet="outlet"/>
+         <dest obj="change_1" inlet="in"/>
+         <dest obj="i_6" inlet="in"/>
+      </net>
+      <net>
+         <source obj="change_1" outlet="trig"/>
+         <dest obj="trigger" inlet="outlet"/>
+         <dest obj="toggle_1" inlet="trig"/>
+         <dest obj="bool_2" inlet="in"/>
+      </net>
+      <net>
+         <source obj="toggle_1" outlet="o"/>
+         <dest obj="bool_1" inlet="in"/>
+      </net>
+   </nets>
+   <settings>
+      <subpatchmode>no</subpatchmode>
+   </settings>
+   <notes><![CDATA[]]></notes>
+   <windowPos>
+      <x>-2389</x>
+      <y>131</y>
+      <width>2279</width>
+      <height>812</height>
+   </windowPos>
+</patch-1.0>

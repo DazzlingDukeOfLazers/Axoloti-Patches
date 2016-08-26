@@ -1,0 +1,97 @@
+<objdefs appVersion="1.0.10">
+   <obj.normal id="BtoI16Trig" uuid="d654afea-6ee8-4166-853b-b06b86cf2b34">
+      <sDescription>Outputs an integer between 0 and 3, depending on the last input to see a rising edge.</sDescription>
+      <author>Jeppe Rasmussen</author>
+      <license>BSD</license>
+      <helpPatch>last_rising.axh</helpPatch>
+      <inlets>
+         <bool32.rising name="i00"/>
+         <bool32.rising name="i01"/>
+         <bool32.rising name="i02"/>
+         <bool32.rising name="i03"/>
+         <bool32.rising name="i04"/>
+         <bool32.rising name="i05"/>
+         <bool32.rising name="i06"/>
+         <bool32.rising name="i07"/>
+         <bool32.rising name="i08"/>
+         <bool32.rising name="i09"/>
+         <bool32.rising name="i10"/>
+         <bool32.rising name="i11"/>
+         <bool32.rising name="i12"/>
+         <bool32.rising name="i13"/>
+         <bool32.rising name="i14"/>
+         <bool32.rising name="i15"/>
+      </inlets>
+      <outlets>
+         <int32.positive name="o0"/>
+      </outlets>
+      <displays/>
+      <params/>
+      <attribs/>
+      <code.declaration><![CDATA[   int ntrig00;   int latch;
+   int ntrig01; 
+   int ntrig02;
+   int ntrig03;
+   int ntrig04;
+   int ntrig05;
+   int ntrig06;
+   int ntrig07;
+   int ntrig08;
+   int ntrig09;
+   int ntrig10;
+   int ntrig11;
+   int ntrig12;
+   int ntrig13;
+   int ntrig14;
+   int ntrig15;]]></code.declaration>
+      <code.krate><![CDATA[if ((inlet_i00>0) && !ntrig00) {latch = 0;}
+if(!(inlet_i00>0)) ntrig00=0;
+
+if ((inlet_i01>0) && !ntrig01) {latch = 1;}
+if(!(inlet_i01>0)) ntrig01=0;
+
+if ((inlet_i02>0) && !ntrig02) {latch = 2;}
+if(!(inlet_i02>0)) ntrig02=0;
+
+if ((inlet_i03>0) && !ntrig03) {latch = 3;}
+if(!(inlet_i03>0)) ntrig03=0;
+
+if ((inlet_i04>0) && !ntrig04) {latch = 4;}
+if(!(inlet_i04>0)) ntrig04=0;
+
+if ((inlet_i05>0) && !ntrig05) {latch = 5;}
+if(!(inlet_i05>0)) ntrig05=0;
+
+if ((inlet_i06>0) && !ntrig06) {latch = 6;}
+if(!(inlet_i06>0)) ntrig06=0;
+
+if ((inlet_i07>0) && !ntrig07) {latch = 7;}
+if(!(inlet_i07>0)) ntrig07=0;
+
+if ((inlet_i08>0) && !ntrig08) {latch = 8;}
+if(!(inlet_i08>0)) ntrig08=0;
+
+if ((inlet_i09>0) && !ntrig09) {latch = 9;}
+if(!(inlet_i09>0)) ntrig09=0;
+
+if ((inlet_i10>0) && !ntrig10) {latch = 10;}
+if(!(inlet_i10>0)) ntrig07=0;
+
+if ((inlet_i11>0) && !ntrig11) {latch = 11;}
+if(!(inlet_i11>0)) ntrig11=0;
+
+if ((inlet_i12>0) && !ntrig12) {latch = 12;}
+if(!(inlet_i12>0)) ntrig12=0;
+
+if ((inlet_i13>0) && !ntrig13) {latch = 13;}
+if(!(inlet_i13>0)) ntrig13=0;
+
+if ((inlet_i14>0) && !ntrig14) {latch = 14;}
+if(!(inlet_i14>0)) ntrig14=0;
+
+if ((inlet_i15>0) && !ntrig15) {latch = 15;}
+if(!(inlet_i15>0)) ntrig15=0;
+
+outlet_o0= latch;]]></code.krate>
+   </obj.normal>
+</objdefs>

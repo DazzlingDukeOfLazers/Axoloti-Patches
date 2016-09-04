@@ -28,6 +28,23 @@
       <params/>
       <attribs/>
    </obj>
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_1" x="1162" y="196">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/button" uuid="ef3d13774349df85aa9bfecf30dbc91ab8488b3f" name="button_1" x="1050" y="252">
+      <params>
+         <bool32.mom name="b" value="0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="gpio/out/digital" uuid="320eed040f6c55bb24c56416596ac2e67d0c82bc" name="digital_1" x="1162" y="252">
+      <params/>
+      <attribs>
+         <combo attributeName="pad" selection="PC5"/>
+         <combo attributeName="mode" selection="Push pull"/>
+      </attribs>
+   </obj>
    <comment type="patch/comment" x="406" y="392" text="Hey! HH exclusion!"/>
    <nets>
       <net>
@@ -103,6 +120,11 @@
       <net>
          <source obj="obj_1" outlet="kb_11"/>
          <dest obj="obj_2" inlet="inkb11"/>
+      </net>
+      <net>
+         <source obj="button_1" outlet="o"/>
+         <dest obj="digital_1" inlet="in"/>
+         <dest obj="bool_1" inlet="in"/>
       </net>
    </nets>
    <settings>

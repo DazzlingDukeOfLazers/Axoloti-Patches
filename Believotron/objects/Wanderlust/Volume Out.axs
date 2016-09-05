@@ -5,7 +5,7 @@
    </obj>
    <obj type="math/*c" uuid="7a66f52a9594e7e9eb31328ea725cb3641a80b55" name="*c_1" x="546" y="28">
       <params>
-         <frac32.u.map name="amp" value="32.0"/>
+         <frac32.u.map name="amp" value="64.0"/>
       </params>
       <attribs/>
    </obj>
@@ -52,7 +52,7 @@
    </obj>
    <obj type="math/*c" uuid="7a66f52a9594e7e9eb31328ea725cb3641a80b55" name="*c_2" x="546" y="350">
       <params>
-         <frac32.u.map name="amp" value="32.0"/>
+         <frac32.u.map name="amp" value="64.0"/>
       </params>
       <attribs/>
    </obj>

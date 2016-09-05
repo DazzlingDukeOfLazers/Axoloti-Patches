@@ -23,6 +23,18 @@
       <params/>
       <attribs/>
    </obj>
+   <obj type="math/-" uuid="3280bb759e9fc189e134300e48dda7e903c9a110" name="-_1" x="686" y="210">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="math/*" uuid="13882852b58661ad012ffbe246470b5df4b6c5d1" name="*_1" x="770" y="210">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="CurrentChVal" x="840" y="210">
+      <params/>
+      <attribs/>
+   </obj>
    <obj type="patch/recv i" uuid="c57c3fb0d08bcb566403f4fb43426338bd37ce1f" name="recv_4" x="336" y="224">
       <params/>
       <attribs>
@@ -37,18 +49,14 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="phi/math/-+i" uuid="e5bf3953ead204874692ae5d85c0e43b027g74f1" name="output offset" x="588" y="252">
-      <params>
-         <int32 name="c" onParent="true" value="-32"/>
-      </params>
-      <attribs/>
-   </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="CurrentChVal" x="686" y="252">
-      <params/>
-      <attribs/>
-   </obj>
    <obj type="patch/inlet f" uuid="5c585d2dcd9c05631e345ac09626a22a639d7c13" name="i6" x="28" y="280">
       <params/>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_2" x="602" y="294">
+      <params>
+         <int32 name="value" value="32"/>
+      </params>
       <attribs/>
    </obj>
    <obj type="patch/inlet f" uuid="5c585d2dcd9c05631e345ac09626a22a639d7c13" name="i7" x="28" y="322">
@@ -57,6 +65,12 @@
    </obj>
    <obj type="mux/mux 8" uuid="de5167d9da39b04039376e8cc620ea2afc22e28a" name="mux_3" x="406" y="322">
       <params/>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_1" x="700" y="364">
+      <params>
+         <int32 name="value" value="2"/>
+      </params>
       <attribs/>
    </obj>
    <obj type="patch/inlet f" uuid="5c585d2dcd9c05631e345ac09626a22a639d7c13" name="i8" x="28" y="392">
@@ -158,11 +172,7 @@
       </net>
       <net>
          <source obj="mux_4" outlet="o"/>
-         <dest obj="output offset" inlet="in"/>
-      </net>
-      <net>
-         <source obj="output offset" outlet="out"/>
-         <dest obj="CurrentChVal" inlet="outlet"/>
+         <dest obj="-_1" inlet="in1"/>
       </net>
       <net>
          <source obj="inlet_1" outlet="inlet"/>
@@ -241,15 +251,31 @@
          <source obj="i15" outlet="inlet"/>
          <dest obj="mux_3" inlet="i7"/>
       </net>
+      <net>
+         <source obj="i_1" outlet="out"/>
+         <dest obj="*_1" inlet="b"/>
+      </net>
+      <net>
+         <source obj="*_1" outlet="result"/>
+         <dest obj="CurrentChVal" inlet="outlet"/>
+      </net>
+      <net>
+         <source obj="i_2" outlet="out"/>
+         <dest obj="-_1" inlet="in2"/>
+      </net>
+      <net>
+         <source obj="-_1" outlet="out"/>
+         <dest obj="*_1" inlet="a"/>
+      </net>
    </nets>
    <settings>
       <subpatchmode>no</subpatchmode>
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>-1191</x>
-      <y>200</y>
-      <width>829</width>
+      <x>-1628</x>
+      <y>316</y>
+      <width>1057</width>
       <height>814</height>
    </windowPos>
 </patch-1.0>

@@ -32,13 +32,15 @@ uint8_t *rxbuf;
 void SPI_CS_ALL_OFF()
 {
 	// Disable Chip Select
-	palWritePad(GPIOC,5,0);	// LED
+	palWritePad(GPIOC,5,1);	// LED
 	palWritePad(GPIOB,7,1);  // Knob, Top Row
 	palWritePad(GPIOA,4,1);	// Knob, Bottom Row
 	
 }
  
 void setup(void){
+
+	chThdSleepMilliseconds(3000);
 
 	// Bind the SRAM to the local variables
 	static uint8_t _txbuf[8] __attribute__ ((section (".sram2")));
@@ -57,10 +59,11 @@ void setup(void){
 
 	SPI_CS_ALL_OFF();	
 }
-
-void readADCAndOutput()
-{
+ 
+void loop(void){	
+	
 	txbuf[2] = 0b00000000;
+
 	for(int iDevice=0; iDevice<2; iDevice++)
 	{
 		for(int pin=0; pin<8; pin++){
@@ -115,49 +118,6 @@ void readADCAndOutput()
 		
 		} // For each Pin
 	} // For each row
-}
-
-#define STRAND_LENGTH 16
-void setLEDs()
-{
-	SPI_CS_ALL_OFF();	
-	
-	palWritePad(	GPIOC,	5,	1 );	// enable LEDs	
-	chThdSleepMilliseconds(5);     
-
-	// Start frame
-	txbuf[0] = 0x00; spiSend( &SPID1,	1,	txbuf);	// send SPI data txbuf[]	
-	txbuf[0] = 0x00; spiSend( &SPID1,	1,	txbuf);	// send SPI data txbuf[]	
-	txbuf[0] = 0x00; spiSend( &SPID1,	1,	txbuf);	// send SPI data txbuf[]	
-	txbuf[0] = 0x00; spiSend( &SPID1,	1,	txbuf);	// send SPI data txbuf[]	
-	
-
-	for (int iStrandPos=0; iStrandPos < STRAND_LENGTH; iStrandPos++)
-	{
-		txbuf[0] = 0xE0; spiSend( &SPID1,	1,	txbuf); // 0b111XXXXX LED Frame signal, The others are "global" maybe fade or something?
-		txbuf[0] = 0x00; spiSend( &SPID1,	1,	txbuf); // Teal?
-		txbuf[0] = 0x00; spiSend( &SPID1,	1,	txbuf); // Yellow
-		txbuf[0] = 0x00; spiSend( &SPID1,	1,	txbuf); // Red
-		
-	}
-
-	// Stop frame
-	txbuf[0] = 0xFF; spiSend( &SPID1,	1,	txbuf);
-	txbuf[0] = 0xFF; spiSend( &SPID1,	1,	txbuf);
-	txbuf[0] = 0xFF; spiSend( &SPID1,	1,	txbuf);
-	txbuf[0] = 0xFF; spiSend( &SPID1,	1,	txbuf);
-	
-	SPI_CS_ALL_OFF();
-
-	
-}
- 
-void loop(void){	
-	
-	
-
-	readADCAndOutput();	
-	//setLEDs();
        	
 	chThdSleepMilliseconds(1);        
 }]]></sText>
@@ -166,7 +126,7 @@ void loop(void){
    </obj>
    <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobTop0" x="28" y="210">
       <params>
-         <frac32.u.map name="value" value="0.0"/>
+         <frac32.u.map name="value" value="32.75"/>
       </params>
       <attribs/>
    </obj>
@@ -176,7 +136,7 @@ void loop(void){
    </obj>
    <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobTop1" x="182" y="210">
       <params>
-         <frac32.u.map name="value" value="0.0"/>
+         <frac32.u.map name="value" value="63.75"/>
       </params>
       <attribs/>
    </obj>
@@ -186,7 +146,7 @@ void loop(void){
    </obj>
    <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobTop2" x="336" y="210">
       <params>
-         <frac32.u.map name="value" value="0.0"/>
+         <frac32.u.map name="value" value="63.75"/>
       </params>
       <attribs/>
    </obj>
@@ -196,7 +156,7 @@ void loop(void){
    </obj>
    <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobTop3" x="490" y="210">
       <params>
-         <frac32.u.map name="value" value="0.0"/>
+         <frac32.u.map name="value" value="63.75"/>
       </params>
       <attribs/>
    </obj>
@@ -206,7 +166,7 @@ void loop(void){
    </obj>
    <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobTop4" x="644" y="210">
       <params>
-         <frac32.u.map name="value" value="0.0"/>
+         <frac32.u.map name="value" value="63.75"/>
       </params>
       <attribs/>
    </obj>
@@ -216,7 +176,7 @@ void loop(void){
    </obj>
    <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobTop5" x="798" y="210">
       <params>
-         <frac32.u.map name="value" value="0.0"/>
+         <frac32.u.map name="value" value="5.25"/>
       </params>
       <attribs/>
    </obj>
@@ -226,7 +186,7 @@ void loop(void){
    </obj>
    <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobTop6" x="952" y="210">
       <params>
-         <frac32.u.map name="value" value="0.0"/>
+         <frac32.u.map name="value" value="60.75"/>
       </params>
       <attribs/>
    </obj>
@@ -236,7 +196,7 @@ void loop(void){
    </obj>
    <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobTop7" x="1106" y="210">
       <params>
-         <frac32.u.map name="value" value="0.0"/>
+         <frac32.u.map name="value" value="63.75"/>
       </params>
       <attribs/>
    </obj>
@@ -280,7 +240,7 @@ void loop(void){
    </obj>
    <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobBot3" x="490" y="350">
       <params>
-         <frac32.u.map name="value" value="0.0"/>
+         <frac32.u.map name="value" value="1.25"/>
       </params>
       <attribs/>
    </obj>
@@ -300,7 +260,7 @@ void loop(void){
    </obj>
    <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobBot5" x="798" y="350">
       <params>
-         <frac32.u.map name="value" value="0.0"/>
+         <frac32.u.map name="value" value="63.75"/>
       </params>
       <attribs/>
    </obj>
@@ -310,7 +270,7 @@ void loop(void){
    </obj>
    <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobBot6" x="952" y="350">
       <params>
-         <frac32.u.map name="value" value="0.0"/>
+         <frac32.u.map name="value" value="59.25"/>
       </params>
       <attribs/>
    </obj>
@@ -405,8 +365,8 @@ void loop(void){
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>-2365</x>
-      <y>423</y>
+      <x>-1919</x>
+      <y>431</y>
       <width>1323</width>
       <height>625</height>
    </windowPos>

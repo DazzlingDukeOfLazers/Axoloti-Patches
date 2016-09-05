@@ -11,10 +11,6 @@
       </params>
       <attribs/>
    </obj>
-   <obj type="Wanderlust/padandknobs" uuid="8b420e8d-d4c6-497d-803f-d0b837c50351" name="obj_6" x="14" y="42">
-      <params/>
-      <attribs/>
-   </obj>
    <comment type="patch/comment" x="1330" y="70" text="pulse selection"/>
    <obj type="patch/recv i" uuid="c57c3fb0d08bcb566403f4fb43426338bd37ce1f" name="recv_3" x="1190" y="84">
       <params/>
@@ -29,6 +25,18 @@
       <attribs/>
    </obj>
    <obj type="mux/mux 2" uuid="e1c92bc92f4d191bfadf0efeae4503b458a4e440" name="mux_1" x="1554" y="84">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="Wanderlust/padcap" uuid="9b866c7b-e281-4939-838b-20dd95761edd" name="obj_5" x="42" y="98">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_1" x="196" y="98">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/send i" uuid="452e1d7a88de691f954015e6fec2f6994e1b35fc" name="stepPos" x="532" y="98">
       <params/>
       <attribs/>
    </obj>
@@ -47,21 +55,7 @@
       </params>
       <attribs/>
    </obj>
-   <obj type="patch/recv i" uuid="c57c3fb0d08bcb566403f4fb43426338bd37ce1f" name="recv_1" x="700" y="196">
-      <params/>
-      <attribs>
-         <objref attributeName="sender" obj="stepPos"/>
-      </attribs>
-   </obj>
-   <obj type="disp/ibar 16" sha="6998eafb11a17e8569492b9ac4fa9710eb907cb8" uuid="302bfed4cde8894229679ce81f6b8a5c5212dd98" name="ibar_2" x="840" y="196">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="patch/send i" uuid="452e1d7a88de691f954015e6fec2f6994e1b35fc" name="stepPos" x="504" y="224">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="logic/BPM_Counter" uuid="7ca517d2-663e-4360-a7e5-174e49799446" name="obj_2" x="350" y="238">
+   <obj type="logic/BPM_Counter" uuid="7ca517d2-663e-4360-a7e5-174e49799446" name="obj_2" x="350" y="112">
       <params>
          <frac32.s.map name="square_1" value="1.0"/>
          <int32 name="counter2_1" value="4"/>
@@ -70,7 +64,21 @@
       </params>
       <attribs/>
    </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_1" x="224" y="266">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_2" x="196" y="168">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_2" x="602" y="182">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/recv i" uuid="c57c3fb0d08bcb566403f4fb43426338bd37ce1f" name="recv_1" x="700" y="196">
+      <params/>
+      <attribs>
+         <objref attributeName="sender" obj="stepPos"/>
+      </attribs>
+   </obj>
+   <obj type="disp/ibar 16" sha="6998eafb11a17e8569492b9ac4fa9710eb907cb8" uuid="302bfed4cde8894229679ce81f6b8a5c5212dd98" name="ibar_2" x="840" y="196">
       <params/>
       <attribs/>
    </obj>
@@ -82,14 +90,6 @@
       <params>
          <frac32.s.map name="pitch" value="4.0"/>
       </params>
-      <attribs/>
-   </obj>
-   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_2" x="574" y="308">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_2" x="224" y="322">
-      <params/>
       <attribs/>
    </obj>
    <obj type="gain/vca" sha="9f05a910184d5ba1a2b974c295057d10160c4a10" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_1" x="1946" y="350">
@@ -125,19 +125,11 @@
          <spinner attributeName="delaylength" value="250"/>
       </attribs>
    </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_3" x="224" y="490">
-      <params/>
-      <attribs/>
-   </obj>
    <obj type="logic/mux16" uuid="66a2a4f0-3a97-4809-979c-4ffdb0897c96" name="obj_4" x="546" y="518">
       <params/>
       <attribs/>
    </obj>
    <obj type="mux/mux 8" uuid="a09f1f8ed9a5ae2334f6eaee0bf5500cdaa683ea" name="mux_2" x="1820" y="532">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_4" x="224" y="546">
       <params/>
       <attribs/>
    </obj>
@@ -153,8 +145,10 @@
       </params>
       <attribs/>
    </obj>
-   <obj type="sptnk/logic/encode 8" uuid="dfc0a6e9d7e237c2464fd01f6972f64d897863a4" name="encode_1" x="182" y="602">
-      <params/>
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_3" x="1666" y="658">
+      <params>
+         <int32 name="value" value="0"/>
+      </params>
       <attribs/>
    </obj>
    <obj type="osc/sine" uuid="6e094045cca76a9dbf7ebfa72e44e4700d2b3ba" name="sine_7" x="1288" y="700">
@@ -182,12 +176,6 @@
    <obj type="osc/sine" uuid="6e094045cca76a9dbf7ebfa72e44e4700d2b3ba" name="sine_11" x="1414" y="826">
       <params>
          <frac32.s.map name="pitch" value="0.0"/>
-      </params>
-      <attribs/>
-   </obj>
-   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_3" x="1806" y="868">
-      <params>
-         <int32 name="value" value="0"/>
       </params>
       <attribs/>
    </obj>
@@ -353,25 +341,17 @@
          <dest obj="mux_2" inlet="i7"/>
       </net>
       <net>
-         <source obj="encode_1" outlet="out"/>
+         <source obj="i_3" outlet="out"/>
          <dest obj="i_4" inlet="in"/>
          <dest obj="mux_2" inlet="s"/>
       </net>
       <net>
-         <source obj="obj_6" outlet="kb_0"/>
+         <source obj="obj_5" outlet="kb_0"/>
          <dest obj="bool_1" inlet="in"/>
       </net>
       <net>
-         <source obj="obj_6" outlet="kb_1"/>
+         <source obj="obj_5" outlet="kb_1"/>
          <dest obj="bool_2" inlet="in"/>
-      </net>
-      <net>
-         <source obj="obj_6" outlet="parasailing"/>
-         <dest obj="bool_3" inlet="in"/>
-      </net>
-      <net>
-         <source obj="obj_6" outlet="diving"/>
-         <dest obj="bool_4" inlet="in"/>
       </net>
    </nets>
    <settings>
@@ -379,8 +359,8 @@
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>-2392</x>
-      <y>-46</y>
+      <x>-2261</x>
+      <y>217</y>
       <width>2102</width>
       <height>1259</height>
    </windowPos>

@@ -3,6 +3,10 @@
       <params/>
       <attribs/>
    </obj>
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_1" x="294" y="28">
+      <params/>
+      <attribs/>
+   </obj>
    <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_27" x="462" y="56">
       <params/>
       <attribs>
@@ -861,6 +865,7 @@
       <net>
          <source obj="obj_4" outlet="kb_0"/>
          <dest obj="obj_21" inlet="trigger"/>
+         <dest obj="bool_1" inlet="in"/>
       </net>
       <net>
          <source obj="obj_4" outlet="kb_1"/>

@@ -1,110 +1,122 @@
 <patch-1.0 appVersion="1.0.10">
-   <comment type="patch/comment" x="168" y="70" text="Believotron Wanderlust Capacitive touch keyboard output decoder. Place this in your patch to access the keys! You can rename it with a &lt;tbd python script&gt;"/>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_0" x="672" y="168">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_0" x="672" y="420">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_1" x="756" y="168">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_1" x="756" y="420">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_1" x="672" y="224">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_1" x="672" y="476">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_2" x="756" y="224">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_2" x="756" y="476">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_2" x="672" y="280">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_2" x="672" y="532">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_3" x="756" y="280">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_3" x="756" y="532">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_3" x="672" y="336">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_3" x="672" y="588">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_4" x="756" y="336">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_4" x="756" y="588">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_4" x="672" y="392">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_4" x="672" y="644">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_5" x="756" y="392">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_5" x="756" y="644">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_5" x="672" y="448">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_5" x="672" y="700">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_6" x="756" y="448">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_6" x="756" y="700">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_6" x="672" y="504">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_6" x="672" y="756">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_7" x="756" y="504">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_7" x="756" y="756">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_7" x="672" y="560">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_7" x="672" y="812">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_8" x="756" y="560">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_8" x="756" y="812">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_8" x="672" y="616">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_8" x="672" y="868">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_9" x="756" y="616">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_9" x="756" y="868">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_9" x="672" y="672">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_9" x="672" y="924">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_10" x="756" y="672">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_10" x="756" y="924">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_10" x="672" y="728">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_10" x="672" y="980">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_11" x="756" y="728">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_11" x="756" y="980">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_11" x="672" y="784">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_11" x="672" y="1036">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_12" x="756" y="784">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_12" x="756" y="1036">
       <params/>
       <attribs/>
    </obj>
-   <obj type="gpio/i2c/config" sha="1ea9db31ce7ec2874d2a8315213c733a6b3c2dcf" uuid="b095a33e56de5fcd23740a7d983bc0bafb315d81" name="i2c.begin_1" x="126" y="938">
+   <obj type="gpio/spi/config" sha="62af644b09e7f654b36d66533da8ea5971ddb351" uuid="d3e75d8a02e2ccabbbc2af3bc2fcdb8ea65a6133" name="config_1" x="112" y="1078">
+      <params/>
+      <attribs>
+         <combo attributeName="clock_polarity" selection="CPOL=0"/>
+         <combo attributeName="clock_phase" selection="CPHA=0"/>
+         <combo attributeName="baudrate" selection="FPCLK/64"/>
+         <combo attributeName="format" selection="LSB first"/>
+      </attribs>
+   </obj>
+   <obj type="gpio/i2c/config" sha="1ea9db31ce7ec2874d2a8315213c733a6b3c2dcf" uuid="b095a33e56de5fcd23740a7d983bc0bafb315d81" name="i2c.begin_1" x="126" y="1190">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/hex" uuid="3ce415f2f0e09f5b3cf10e5d355274847fd063b2" name="hex_5" x="252" y="938">
+   <obj type="disp/hex" uuid="3ce415f2f0e09f5b3cf10e5d355274847fd063b2" name="hex_1" x="252" y="1190">
       <params/>
       <attribs/>
    </obj>
-   <obj type="script/Keyboard" uuid="ec1ac6c0-f9d8-4116-82b0-711e0023a830" name="Keyboard_1" x="112" y="966">
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_3" x="350" y="1204">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="script/Keyboard" uuid="ec1ac6c0-f9d8-4116-82b0-711e0023a830" name="Keyboard_1" x="112" y="1218">
       <params/>
       <attribs>
          <text attributeName="script">
@@ -173,9 +185,19 @@ systime_t tmo = MS2ST(4);
 	#define MPR121_GPIOTOGGLE    0x7A
 	#define MPR121_SOFTRESET     0x80
 	//<uncategorized>
-
-
 // </MPR121>
+
+// <SPI stuff - knobs, mostly>
+// Turns all the SPI chip selects off
+void SPI_CS_ALL_OFF()
+{
+	// Disable Chip Select
+	palWritePad(GPIOC,5,1);	// LED
+	palWritePad(GPIOB,7,1);  // Knob, Top Row
+	palWritePad(GPIOA,4,1);	// Knob, Bottom Row
+	
+}
+// </SPI stuff>
 
 
 // Default Voodoo to make serial communication working; Rabbithole of shared memory
@@ -237,66 +259,109 @@ uint32_t PadcapTouched(uint8_t ui8Channel)
 
 void PadcapSetup(uint8_t ui8tPadcapChannel)
 {
-	PadcapWriteReg(	ui8tPadcapChannel,	MPR121_SOFTRESET,   0x63);		
+	PadcapWriteReg(	ui8tPadcapChannel,	MPR121_SOFTRESET,   0x63);	
+	chThdSleepMilliseconds(1); 	
 	PadcapWriteReg(	ui8tPadcapChannel,	MPR121_ECR,         0x0);
+	chThdSleepMilliseconds(1); 
 
 	uint8_t c = PadcapWriteReg8(ui8tPadcapChannel, MPR121_CONFIG2);
+	chThdSleepMilliseconds(1); 
 	if (c != 0x24)  out1 &= 0xF000; // Device ID is incorrect <TBD add to class flag>
 		
 	//PadcapSetThreshold(12, 6); // <reference Device sensetivity default	>
-	PadcapSetThreshold(ui8tPadcapChannel,36,24);
+	//PadcapSetThreshold(ui8tPadcapChannel,36,24);
+	PadcapSetThreshold(ui8tPadcapChannel,12,6);
+	chThdSleepMilliseconds(1); 
 
-	PadcapWriteReg(ui8tPadcapChannel, MPR121_MHDR, 0x01);
-	PadcapWriteReg(ui8tPadcapChannel, MPR121_NHDR, 0x01);
-	PadcapWriteReg(ui8tPadcapChannel, MPR121_NCLR, 0x0E);
-	PadcapWriteReg(ui8tPadcapChannel, MPR121_FDLR, 0x00);
+	PadcapWriteReg(ui8tPadcapChannel, MPR121_MHDR, 0x01); chThdSleepMilliseconds(1); 
+	PadcapWriteReg(ui8tPadcapChannel, MPR121_NHDR, 0x01); chThdSleepMilliseconds(1); 
+	PadcapWriteReg(ui8tPadcapChannel, MPR121_NCLR, 0x0E); chThdSleepMilliseconds(1); 
+	PadcapWriteReg(ui8tPadcapChannel, MPR121_FDLR, 0x00); chThdSleepMilliseconds(1); 
 
-	PadcapWriteReg(ui8tPadcapChannel, MPR121_MHDF, 0x01);
-	PadcapWriteReg(ui8tPadcapChannel, MPR121_NHDF, 0x05);
-	PadcapWriteReg(ui8tPadcapChannel, MPR121_NCLF, 0x01);
-	PadcapWriteReg(ui8tPadcapChannel, MPR121_FDLF, 0x00);
+	PadcapWriteReg(ui8tPadcapChannel, MPR121_MHDF, 0x01); chThdSleepMilliseconds(1); 
+	PadcapWriteReg(ui8tPadcapChannel, MPR121_NHDF, 0x05); chThdSleepMilliseconds(1); 
+	PadcapWriteReg(ui8tPadcapChannel, MPR121_NCLF, 0x01); chThdSleepMilliseconds(1); 
+	PadcapWriteReg(ui8tPadcapChannel, MPR121_FDLF, 0x00); chThdSleepMilliseconds(1); 
 	
-	PadcapWriteReg(ui8tPadcapChannel, MPR121_NHDT, 0x00);
-	PadcapWriteReg(ui8tPadcapChannel, MPR121_NCLT, 0x00);
-	PadcapWriteReg(ui8tPadcapChannel, MPR121_FDLT, 0x00);
+	PadcapWriteReg(ui8tPadcapChannel, MPR121_NHDT, 0x00); chThdSleepMilliseconds(1); 
+	PadcapWriteReg(ui8tPadcapChannel, MPR121_NCLT, 0x00); chThdSleepMilliseconds(1); 
+	PadcapWriteReg(ui8tPadcapChannel, MPR121_FDLT, 0x00); chThdSleepMilliseconds(1); 
 	
-	PadcapWriteReg(ui8tPadcapChannel, MPR121_DEBOUNCE, 0);
-	PadcapWriteReg(ui8tPadcapChannel, MPR121_CONFIG1, 0x10); // default, 16uA charge current
+	PadcapWriteReg(ui8tPadcapChannel, MPR121_DEBOUNCE, 0); chThdSleepMilliseconds(1); 
+	PadcapWriteReg(ui8tPadcapChannel, MPR121_CONFIG1, 0x10); // default, 16uA charge current 
+	chThdSleepMilliseconds(1); 
 	PadcapWriteReg(ui8tPadcapChannel, MPR121_CONFIG2, 0x20); // 0.5uS encoding, 1ms period
+	chThdSleepMilliseconds(1); 
 	
 	PadcapWriteReg(ui8tPadcapChannel, MPR121_ECR, 0x8F);  // start with first 5 bits of baseline tracking
+	chThdSleepMilliseconds(1); 
 }
 
+void ServiceADCs()
+{
+	txbuf[0] = 0b00000000;
+	txbuf[1] = 0b00000000;
+	txbuf[2] = 0b00000000;	
 
-void setup(void) {
-	LinkTxRxBuffers();
-	out1 = 0xABBA;
+	for(int iDevice=0; iDevice<2; iDevice++)
+	{
+		for(int pin=0; pin<8; pin++){
+		
+			{ // Assemble the Command for readback
+				txbuf[0] = pin < 4 ? 0b01100000 : 0b11100000;
+			
+				if      (pin % 4 == 0)	{	txbuf[1] = 0b00000000;	} // pin == 0 || pin == 4
+				else if (pin % 4 == 1)	{	txbuf[1] = 0b00000010;	} // pin == 1 || pin == 5
+				else if (pin % 4 == 2)	{	txbuf[1] = 0b00000001;   } // pin == 2 || pin == 6
+				else                 	{	txbuf[1] = 0b00000011;   }
+				
+			}		
+			
+			SPI_CS_ALL_OFF();
 	
-	rxbuf[0] = 0;	
-	txbuf[0] = 0; // CAP1188_PRODID;
-
-	PadcapSetup(WANDERLUST_KEYBOARD);
-	PadcapSetup(WANDERLUST_PADCAP_LOWER);
-	PadcapSetup(WANDERLUST_PADCAP_UPPER);	
-
-	out2 = 0xBEEF;
-	out3 = 0xABBA;
-	kb0 = false;
-	kb1 = false;
-	kb2 = false;
-	kb3 = false;
-	kb4 = false;
-	kb5 = false;
-	kb6 = false;
-	kb7 = false;
-	kb8 = false;
-	kb9 = false;
-	kb10 = false;
-	kb11 = false;
-
-
+			if (iDevice == 0 ) palWritePad(	GPIOA,	4,	0		);	// enable ADC
+			if (iDevice == 1 ) palWritePad(	GPIOB,	7,	0		);	// enable ADC			
+			
+			spiSend(		&SPID1,	3,	txbuf	);	// send SPI data txbuf[]
+			spiReceive(	&SPID1,	3,	rxbuf	);	// receive SPI data from MCP3208
+			
+			SPI_CS_ALL_OFF();
+			           
+			// I don't know why I'm only getting 8 bits. Probably a difference btwn the 3208 and the 3008. I only need 8 bits for demo
+			uint32_t z = ( (0x0000007F & rxbuf[0]) << 1) | ( (rxbuf[0] & 0x00000080) > 6);
+			z = 0x00FF ^ z;
+			z = z<<19;
+				
+			if (iDevice == 0)
+			{
+				if      (pin == 0)	{knbB0 = z;}
+				else if (pin == 1)	{knbB1 = z;}
+				else if (pin == 2)	{knbB2 = z;}
+				else if (pin == 3)	{knbB3 = z;}
+				else if (pin == 4)	{knbB4 = z;}
+				else if (pin == 5)	{knbB5 = z;}
+				else if (pin == 6)	{knbB6 = z;}
+				else if (pin == 7)	{knbB7 = z;}
+			}
+			if (iDevice == 1)
+			{
+				if      (pin == 0)	{knbT0 = z;}
+				else if (pin == 1)	{knbT1 = z;}
+				else if (pin == 2)	{knbT2 = z;}
+				else if (pin == 3)	{knbT3 = z;}
+				else if (pin == 4)	{knbT4 = z;}
+				else if (pin == 5)	{knbT5 = z;}
+				else if (pin == 6)	{knbT6 = z;}
+				else if (pin == 7)	{knbT7 = z;}
+			}
+			
+		
+		} // For each Pin
+	} // For each row
 }
-void loop(void)
+
+
+void servicePadCaps()
 {
 	static int32_t iSameCount=0, iLoopCount;
 
@@ -362,213 +427,278 @@ void loop(void)
 		PadcapSetup(WANDERLUST_PADCAP_LOWER);
 		PadcapSetup(WANDERLUST_PADCAP_UPPER);	
 	}
+}
+
+void setup(void) {
+	chThdSleepMilliseconds(1000); 
+	LinkTxRxBuffers();
+
+	// enable and reset SPI Chip selects
+	{
+		// Setup Knob Top
+		palSetPadMode(GPIOB,7,PAL_MODE_OUTPUT_PUSHPULL);        // MCP3208
 	
+		// Setup Knob Bottom
+		palSetPadMode(GPIOA,4,PAL_MODE_OUTPUT_PUSHPULL);        // MCP3208
+		
+		// Setup LED
+		palSetPadMode(GPIOC,5,PAL_MODE_OUTPUT_PUSHPULL);        // MCP3208
+	
+		SPI_CS_ALL_OFF();	
+	}
+	
+	out1 = 0xABBA;
+	
+	rxbuf[0] = 0;	
+	txbuf[0] = 0; // CAP1188_PRODID;
+
+	PadcapSetup(WANDERLUST_KEYBOARD);
+	chThdSleepMilliseconds(1); 
+	PadcapSetup(WANDERLUST_PADCAP_LOWER);
+	chThdSleepMilliseconds(1); 
+	PadcapSetup(WANDERLUST_PADCAP_UPPER);	
+	chThdSleepMilliseconds(1); 
+
+	out2 = 0xBEEF;
+	out3 = 0xABBA;
+	kb0 = false;
+	kb1 = false;
+	kb2 = false;
+	kb3 = false;
+	kb4 = false;
+	kb5 = false;
+	kb6 = false;
+	kb7 = false;
+	kb8 = false;
+	kb9 = false;
+	kb10 = false;
+	kb11 = false;
+
+
+}
+void loop(void)
+{
+	servicePadCaps();
+	ServiceADCs();
+
+	out1 =123456789;
+	//knbB0 = 123456789;
+
+	chThdSleepMilliseconds(1); 
 	
 }
 ]]></sText>
          </text>
       </attribs>
    </obj>
-   <obj type="disp/hex" uuid="3ce415f2f0e09f5b3cf10e5d355274847fd063b2" name="hex_6" x="252" y="1008">
+   <obj type="disp/hex" uuid="3ce415f2f0e09f5b3cf10e5d355274847fd063b2" name="hex_2" x="252" y="1260">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="ski_down" x="672" y="1106">
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_1" x="448" y="1344">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_13" x="756" y="1106">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="ski_down" x="672" y="1358">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="ski_cross" x="672" y="1162">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_13" x="756" y="1358">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_14" x="756" y="1162">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="ski_cross" x="672" y="1414">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="skating" x="672" y="1218">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_14" x="756" y="1414">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_15" x="756" y="1218">
+   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_2" x="448" y="1442">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="tram" x="672" y="1274">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="skating" x="672" y="1470">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_16" x="756" y="1274">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_15" x="756" y="1470">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="sledding" x="672" y="1330">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="tram" x="672" y="1526">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_17" x="756" y="1330">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_16" x="756" y="1526">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="snowmowbiling" x="672" y="1386">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="sledding" x="672" y="1582">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_18" x="756" y="1386">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_17" x="756" y="1582">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="hiking" x="672" y="1442">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="snowmowbiling" x="672" y="1638">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_19" x="756" y="1442">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_18" x="756" y="1638">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="horsebackriding" x="672" y="1498">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="hiking" x="672" y="1694">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_20" x="756" y="1498">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_19" x="756" y="1694">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="camper" x="672" y="1554">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="horsebackriding" x="672" y="1750">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_21" x="756" y="1554">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_20" x="756" y="1750">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="trash" x="672" y="1610">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="camper" x="672" y="1806">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_22" x="756" y="1610">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_21" x="756" y="1806">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="picnic" x="672" y="1666">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="trash" x="672" y="1862">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_23" x="756" y="1666">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_22" x="756" y="1862">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="campfire" x="672" y="1722">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="picnic" x="672" y="1918">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_24" x="756" y="1722">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_23" x="756" y="1918">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="parasailing" x="672" y="1820">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="campfire" x="672" y="1974">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_25" x="756" y="1820">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_24" x="756" y="1974">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="diving" x="672" y="1876">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="parasailing" x="672" y="2072">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_26" x="756" y="1876">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_25" x="756" y="2072">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="canoing" x="672" y="1932">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="diving" x="672" y="2128">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_27" x="756" y="1932">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_26" x="756" y="2128">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="swimming" x="672" y="1988">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="canoing" x="672" y="2184">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_28" x="756" y="1988">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_27" x="756" y="2184">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="sailing" x="672" y="2044">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="swimming" x="672" y="2240">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_29" x="756" y="2044">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_28" x="756" y="2240">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="fishing" x="672" y="2100">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="sailing" x="672" y="2296">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_30" x="756" y="2100">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_29" x="756" y="2296">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="anchor" x="672" y="2156">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="fishing" x="672" y="2352">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_31" x="756" y="2156">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_30" x="756" y="2352">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="showers" x="672" y="2212">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="anchor" x="672" y="2408">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_32" x="756" y="2212">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_31" x="756" y="2408">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="bicycle" x="672" y="2268">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="showers" x="672" y="2464">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_33" x="756" y="2268">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_32" x="756" y="2464">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="motorcycle" x="672" y="2324">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="bicycle" x="672" y="2520">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_34" x="756" y="2324">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_33" x="756" y="2520">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_34" x="672" y="2380">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="motorcycle" x="672" y="2576">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_35" x="756" y="2380">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_34" x="756" y="2576">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_35" x="672" y="2436">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_34" x="672" y="2632">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_36" x="756" y="2436">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_35" x="756" y="2632">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_35" x="672" y="2688">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_36" x="756" y="2688">
       <params/>
       <attribs/>
    </obj>
    <nets>
       <net>
          <source obj="Keyboard_1" outlet="out2_"/>
-         <dest obj="hex_5" inlet="in"/>
+         <dest obj="hex_1" inlet="in"/>
       </net>
       <net>
          <source obj="Keyboard_1" outlet="kb0_"/>
@@ -692,7 +822,7 @@ void loop(void)
       </net>
       <net>
          <source obj="Keyboard_1" outlet="out3_"/>
-         <dest obj="hex_6" inlet="in"/>
+         <dest obj="hex_2" inlet="in"/>
       </net>
       <net>
          <source obj="Keyboard_1" outlet="pc10_"/>
@@ -754,14 +884,23 @@ void loop(void)
          <dest obj="bool_36" inlet="in"/>
          <dest obj="kb_35" inlet="outlet"/>
       </net>
+      <net>
+         <source obj="Keyboard_1" outlet="knbB0_"/>
+         <dest obj="dial_1" inlet="in"/>
+         <dest obj="dial_2" inlet="in"/>
+      </net>
+      <net>
+         <source obj="Keyboard_1" outlet="out1_"/>
+         <dest obj="dial_3" inlet="in"/>
+      </net>
    </nets>
    <settings>
       <subpatchmode>no</subpatchmode>
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>-2079</x>
-      <y>-50</y>
+      <x>-2190</x>
+      <y>-66</y>
       <width>1860</width>
       <height>1331</height>
    </windowPos>

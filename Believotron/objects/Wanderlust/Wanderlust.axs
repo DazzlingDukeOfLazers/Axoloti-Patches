@@ -695,6 +695,70 @@ void loop(void)
       <params/>
       <attribs/>
    </obj>
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_bot_0" x="714" y="2786">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_bot_1" x="714" y="2828">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_bot_2" x="714" y="2870">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_bot_3" x="714" y="2912">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_bot_4" x="714" y="2954">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_bot_5" x="714" y="2996">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_bot_6" x="714" y="3038">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_bot_7" x="714" y="3080">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_top_0" x="714" y="3136">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_top_1" x="714" y="3178">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_top_2" x="714" y="3220">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_top_3" x="714" y="3262">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_top_4" x="714" y="3304">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_top_5" x="714" y="3346">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_top_6" x="714" y="3388">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_top_7" x="714" y="3430">
+      <params/>
+      <attribs/>
+   </obj>
    <nets>
       <net>
          <source obj="Keyboard_1" outlet="out2_"/>
@@ -888,10 +952,71 @@ void loop(void)
          <source obj="Keyboard_1" outlet="knbB0_"/>
          <dest obj="dial_1" inlet="in"/>
          <dest obj="dial_2" inlet="in"/>
+         <dest obj="knob_bot_0" inlet="outlet"/>
       </net>
       <net>
          <source obj="Keyboard_1" outlet="out1_"/>
          <dest obj="dial_3" inlet="in"/>
+      </net>
+      <net>
+         <source obj="Keyboard_1" outlet="knbB1_"/>
+         <dest obj="knob_bot_1" inlet="outlet"/>
+      </net>
+      <net>
+         <source obj="Keyboard_1" outlet="knbB2_"/>
+         <dest obj="knob_bot_2" inlet="outlet"/>
+      </net>
+      <net>
+         <source obj="Keyboard_1" outlet="knbB3_"/>
+         <dest obj="knob_bot_3" inlet="outlet"/>
+      </net>
+      <net>
+         <source obj="Keyboard_1" outlet="knbB4_"/>
+         <dest obj="knob_bot_4" inlet="outlet"/>
+      </net>
+      <net>
+         <source obj="Keyboard_1" outlet="knbB5_"/>
+         <dest obj="knob_bot_5" inlet="outlet"/>
+      </net>
+      <net>
+         <source obj="Keyboard_1" outlet="knbB6_"/>
+         <dest obj="knob_bot_6" inlet="outlet"/>
+      </net>
+      <net>
+         <source obj="Keyboard_1" outlet="knbB7_"/>
+         <dest obj="knob_bot_7" inlet="outlet"/>
+      </net>
+      <net>
+         <source obj="Keyboard_1" outlet="knbT0_"/>
+         <dest obj="knob_top_0" inlet="outlet"/>
+      </net>
+      <net>
+         <source obj="Keyboard_1" outlet="knbT1_"/>
+         <dest obj="knob_top_1" inlet="outlet"/>
+      </net>
+      <net>
+         <source obj="Keyboard_1" outlet="knbT2_"/>
+         <dest obj="knob_top_2" inlet="outlet"/>
+      </net>
+      <net>
+         <source obj="Keyboard_1" outlet="knbT3_"/>
+         <dest obj="knob_top_3" inlet="outlet"/>
+      </net>
+      <net>
+         <source obj="Keyboard_1" outlet="knbT4_"/>
+         <dest obj="knob_top_4" inlet="outlet"/>
+      </net>
+      <net>
+         <source obj="Keyboard_1" outlet="knbT5_"/>
+         <dest obj="knob_top_5" inlet="outlet"/>
+      </net>
+      <net>
+         <source obj="Keyboard_1" outlet="knbT6_"/>
+         <dest obj="knob_top_6" inlet="outlet"/>
+      </net>
+      <net>
+         <source obj="Keyboard_1" outlet="knbT7_"/>
+         <dest obj="knob_top_7" inlet="outlet"/>
       </net>
    </nets>
    <settings>

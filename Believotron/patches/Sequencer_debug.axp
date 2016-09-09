@@ -28,10 +28,6 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="Wanderlust/padcap" uuid="9b866c7b-e281-4939-838b-20dd95761edd" name="obj_5" x="42" y="98">
-      <params/>
-      <attribs/>
-   </obj>
    <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_1" x="196" y="98">
       <params/>
       <attribs/>
@@ -64,6 +60,10 @@
       </params>
       <attribs/>
    </obj>
+   <obj type="Wanderlust/Wanderlust" uuid="8785a956-b1de-43c9-9ee3-4869f1ca3393" name="obj_1" x="28" y="126">
+      <params/>
+      <attribs/>
+   </obj>
    <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_2" x="196" y="168">
       <params/>
       <attribs/>
@@ -86,6 +86,10 @@
       <params/>
       <attribs/>
    </obj>
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_3" x="182" y="294">
+      <params/>
+      <attribs/>
+   </obj>
    <obj type="osc/sine" uuid="6e094045cca76a9dbf7ebfa72e44e4700d2b3ba" name="sine_3" x="1400" y="294">
       <params>
          <frac32.s.map name="pitch" value="4.0"/>
@@ -93,6 +97,10 @@
       <attribs/>
    </obj>
    <obj type="gain/vca" sha="9f05a910184d5ba1a2b974c295057d10160c4a10" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_1" x="1946" y="350">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_4" x="182" y="364">
       <params/>
       <attribs/>
    </obj>
@@ -110,6 +118,10 @@
       </params>
       <attribs/>
    </obj>
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_5" x="252" y="434">
+      <params/>
+      <attribs/>
+   </obj>
    <obj type="osc/sine" uuid="6e094045cca76a9dbf7ebfa72e44e4700d2b3ba" name="sine_5" x="1274" y="434">
       <params>
          <frac32.s.map name="pitch" value="0.0"/>
@@ -124,6 +136,10 @@
       <attribs>
          <spinner attributeName="delaylength" value="250"/>
       </attribs>
+   </obj>
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_6" x="252" y="504">
+      <params/>
+      <attribs/>
    </obj>
    <obj type="logic/mux16" uuid="66a2a4f0-3a97-4809-979c-4ffdb0897c96" name="obj_4" x="546" y="518">
       <params/>
@@ -145,6 +161,10 @@
       </params>
       <attribs/>
    </obj>
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_3" x="196" y="602">
+      <params/>
+      <attribs/>
+   </obj>
    <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_3" x="1666" y="658">
       <params>
          <int32 name="value" value="0"/>
@@ -164,6 +184,10 @@
       <attribs/>
    </obj>
    <obj type="disp/i" uuid="5e35fd0c62d81e70017289250cf28edd26e19e4a" name="i_4" x="1876" y="700">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_4" x="196" y="742">
       <params/>
       <attribs/>
    </obj>
@@ -346,12 +370,36 @@
          <dest obj="mux_2" inlet="s"/>
       </net>
       <net>
-         <source obj="obj_5" outlet="kb_0"/>
+         <source obj="obj_1" outlet="kb_0"/>
          <dest obj="bool_1" inlet="in"/>
       </net>
       <net>
-         <source obj="obj_5" outlet="kb_1"/>
+         <source obj="obj_1" outlet="kb_1"/>
          <dest obj="bool_2" inlet="in"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="ski_down"/>
+         <dest obj="bool_3" inlet="in"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="ski_cross"/>
+         <dest obj="bool_4" inlet="in"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="parasailing"/>
+         <dest obj="bool_5" inlet="in"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="diving"/>
+         <dest obj="bool_6" inlet="in"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="knob_bot_0"/>
+         <dest obj="dial_3" inlet="in"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="knob_top_0"/>
+         <dest obj="dial_4" inlet="in"/>
       </net>
    </nets>
    <settings>
@@ -359,8 +407,8 @@
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>-2261</x>
-      <y>217</y>
+      <x>-2313</x>
+      <y>-12</y>
       <width>2102</width>
       <height>1259</height>
    </windowPos>

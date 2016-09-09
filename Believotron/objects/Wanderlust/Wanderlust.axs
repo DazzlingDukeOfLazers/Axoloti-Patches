@@ -515,10 +515,6 @@ void loop(void)
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_2" x="448" y="1442">
-      <params/>
-      <attribs/>
-   </obj>
    <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="skating" x="672" y="1470">
       <params/>
       <attribs/>
@@ -556,6 +552,10 @@ void loop(void)
       <attribs/>
    </obj>
    <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_19" x="756" y="1694">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_2" x="476" y="1708">
       <params/>
       <attribs/>
    </obj>
@@ -951,7 +951,6 @@ void loop(void)
       <net>
          <source obj="Keyboard_1" outlet="knbB0_"/>
          <dest obj="dial_1" inlet="in"/>
-         <dest obj="dial_2" inlet="in"/>
          <dest obj="knob_bot_0" inlet="outlet"/>
       </net>
       <net>
@@ -989,6 +988,7 @@ void loop(void)
       <net>
          <source obj="Keyboard_1" outlet="knbT0_"/>
          <dest obj="knob_top_0" inlet="outlet"/>
+         <dest obj="dial_2" inlet="in"/>
       </net>
       <net>
          <source obj="Keyboard_1" outlet="knbT1_"/>

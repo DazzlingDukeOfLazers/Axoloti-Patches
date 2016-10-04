@@ -156,53 +156,22 @@ uint8_t reverse8( uint8_t straight )
 	return reverse;
 }
 
-
-#define STRAND_LENGTH 26
-void setLEDs()
+void SetupLEDs()
 {
 	SPI_CS_ALL_OFF();	
 	
 	palWritePad(	GPIOC,	5,	1 );	// enable LEDs	
 	//chThdSleepMilliseconds(5);     
-
+	
 	// Start frame
 	txbuf[0] = 0x00; spiSend( &SPID1,	1,	txbuf);	// send SPI data txbuf[]	
 	txbuf[0] = 0x00; spiSend( &SPID1,	1,	txbuf);	// send SPI data txbuf[]	
 	txbuf[0] = 0x00; spiSend( &SPID1,	1,	txbuf);	// send SPI data txbuf[]	
 	txbuf[0] = 0x00; spiSend( &SPID1,	1,	txbuf);	// send SPI data txbuf[]	
-	
+}
 
-	for (int iStrandPos=0; iStrandPos < STRAND_LENGTH; iStrandPos++)
-	{
-		if (iStrandPos >= 8 && iStrandPos <= 15)
-		{
-			txbuf[0] = 0xFF;                               spiSend( &SPID1,	1,	txbuf); // 0b111XXXXX LED Frame signal, The others are "global" maybe fade or something?
-			txbuf[0] = 0;                                  spiSend( &SPID1,	1,	txbuf); // Blue
-			txbuf[0] = reverse8(knobVal[1][iStrandPos-8]); spiSend( &SPID1,	1,	txbuf); // Green		
-			txbuf[0] = 0;                                  spiSend( &SPID1,	1,	txbuf); // Red
-		}
-		else if (iStrandPos >= 16 && iStrandPos <= 23)
-		{
-			txbuf[0] = 0xFF;                               spiSend( &SPID1,	1,	txbuf); // 0b111XXXXX LED Frame signal, The others are "global" maybe fade or something?
-			txbuf[0] = 0;                                  spiSend( &SPID1,	1,	txbuf); // Blue
-			txbuf[0] = 0;                                  spiSend( &SPID1,	1,	txbuf); // Green		
-			txbuf[0] = reverse8(knobVal[0][iStrandPos-8]); spiSend( &SPID1,	1,	txbuf); // Red
-		}
-		
-
-		else
-		{
-			txbuf[0] = 0xFF;               spiSend( &SPID1,	1,	txbuf); // 0b111XXXXX LED Frame signal, The others are "global" maybe fade or something?
-			txbuf[0] = 0;  spiSend( &SPID1,	1,	txbuf); // Blue
-			txbuf[0] = 0; spiSend( &SPID1,	1,	txbuf); // Green		
-			txbuf[0] = 0;   spiSend( &SPID1,	1,	txbuf); // Red 
-		}
-		//txbuf[0] = 0xFF; spiSend( &SPID1,	1,	txbuf); // 0b111XXXXX LED Frame signal, The others are "global" maybe fade or something?
-		//txbuf[0] = reverse8(blueVal);  spiSend( &SPID1,	1,	txbuf); // Blue
-		//txbuf[0] = reverse8(greenVal); spiSend( &SPID1,	1,	txbuf); // Green		
-		//txbuf[0] = reverse8(redVal);   spiSend( &SPID1,	1,	txbuf); // Red
-	}
-
+void EndLEDs()
+{
 	// Stop frame
 	txbuf[0] = 0xFF; spiSend( &SPID1,	1,	txbuf);
 	txbuf[0] = 0xFF; spiSend( &SPID1,	1,	txbuf);
@@ -210,16 +179,95 @@ void setLEDs()
 	txbuf[0] = 0xFF; spiSend( &SPID1,	1,	txbuf);
 	
 	SPI_CS_ALL_OFF();
-
-	
 }
+
+// Send the next LED info
+void SetNextLEDColor(uint8_t red, uint8_t green, uint8_t blue)
+{
+	txbuf[0] = 0xFF;             spiSend( &SPID1,	1,	txbuf); // 0b111XXXXX LED Frame signal, The others are "global" maybe fade or something?
+	txbuf[0] = reverse8(blue );  spiSend( &SPID1,	1,	txbuf); // Blue
+	txbuf[0] = reverse8(green);  spiSend( &SPID1,	1,	txbuf); // Green		
+	txbuf[0] = reverse8(red  );  spiSend( &SPID1,	1,	txbuf); // Red 
+}
+
+void SetNextLEDColorPercent(uint8_t red, uint8_t green, uint8_t blue, double intensity)
+{
+	
+	txbuf[0] = 0xFF;             spiSend( &SPID1,	1,	txbuf); // 0b111XXXXX LED Frame signal, The others are "global" maybe fade or something?
+	txbuf[0] = reverse8( (uint8_t) blue*intensity );  spiSend( &SPID1,	1,	txbuf); // Blue
+	txbuf[0] = reverse8(green);  spiSend( &SPID1,	1,	txbuf); // Green		
+	txbuf[0] = reverse8(red  );  spiSend( &SPID1,	1,	txbuf); // Red 
+}
+
+
+#define STRAND_LENGTH 26
+
+#define C_BLACK 0,0,0
+
+//void SetNextColor(
+/*
+if (iStrandPos >= 8 && iStrandPos <= 15)
+{
+	txbuf[0] = 0xFF;                               spiSend( &SPID1,	1,	txbuf); // 0b111XXXXX LED Frame signal, The others are "global" maybe fade or something?
+	txbuf[0] = 0;                                  spiSend( &SPID1,	1,	txbuf); // Blue
+	txbuf[0] = reverse8(knobVal[0][iStrandPos-8]); spiSend( &SPID1,	1,	txbuf); // Green		
+	txbuf[0] = 0;                                  spiSend( &SPID1,	1,	txbuf); // Red
+}
+*/
+
+void KnobColor()
+{
+	SetupLEDs();		
+
+	// Bottom Row (Padcaps)
+	for (int iStrandPos=0; iStrandPos < 8; iStrandPos++) { SetNextLEDColor(C_BLACK); }
+	
+	// Knob bottom row
+	for (int iStrandPos=8; iStrandPos < 16; iStrandPos++) { SetNextLEDColor(C_BLACK); }
+
+	// Knob Top row
+
+	// Manually Tap out a row
+	SetNextLEDColorPercent(0,0x01, knobVal[1][0], 1);		
+	SetNextLEDColorPercent(0,0x02, knobVal[1][1], 1);
+	SetNextLEDColorPercent(0,0x04, knobVal[1][2], 1);
+	SetNextLEDColorPercent(0,0x08, knobVal[1][3], 1);
+	SetNextLEDColorPercent(0,0x10, knobVal[1][4], 1);
+	SetNextLEDColorPercent(0,0x20, knobVal[1][5], 1);
+	SetNextLEDColorPercent(0,0x40, knobVal[1][6], 1);
+	SetNextLEDColorPercent(0,0x80, knobVal[1][7], 1);
+		
+	for (int iStrandPos=24; iStrandPos < 26; iStrandPos++) { SetNextLEDColor(C_BLACK); }		
+		
+				
+	
+
+	EndLEDs();
+}
+
+void setLEDs()
+{
+	SetupLEDs();		
+
+	// For All LEDs
+	for (int iStrandPos=0; iStrandPos < STRAND_LENGTH; iStrandPos++)
+	{		
+		// If top Row, adjust value		
+		if (iStrandPos >= 16 && iStrandPos <= 23) {SetNextLEDColorPercent(0,knobVal[1][iStrandPos-16], knobVal[1][iStrandPos-16], 1); }
+		else	{	SetNextLEDColor(C_BLACK);	}		
+	}
+
+	EndLEDs();
+}
+
  
 void loop(void){	
 	
 	
 
 	readADCAndOutput();	
-	setLEDs();
+	//setLEDs();
+	KnobColor();
        	
 	chThdSleepMilliseconds(1);        
 }]]></sText>
@@ -236,7 +284,7 @@ void loop(void){
    </obj>
    <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobTop0" x="28" y="210">
       <params>
-         <frac32.u.map name="value" value="27.0"/>
+         <frac32.u.map name="value" value="63.75"/>
       </params>
       <attribs/>
    </obj>
@@ -246,7 +294,7 @@ void loop(void){
    </obj>
    <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobTop1" x="182" y="210">
       <params>
-         <frac32.u.map name="value" value="23.75"/>
+         <frac32.u.map name="value" value="63.75"/>
       </params>
       <attribs/>
    </obj>
@@ -256,7 +304,7 @@ void loop(void){
    </obj>
    <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobTop2" x="336" y="210">
       <params>
-         <frac32.u.map name="value" value="0.0"/>
+         <frac32.u.map name="value" value="63.75"/>
       </params>
       <attribs/>
    </obj>
@@ -266,7 +314,7 @@ void loop(void){
    </obj>
    <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobTop3" x="490" y="210">
       <params>
-         <frac32.u.map name="value" value="16.75"/>
+         <frac32.u.map name="value" value="63.75"/>
       </params>
       <attribs/>
    </obj>
@@ -276,7 +324,7 @@ void loop(void){
    </obj>
    <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobTop4" x="644" y="210">
       <params>
-         <frac32.u.map name="value" value="0.0"/>
+         <frac32.u.map name="value" value="63.75"/>
       </params>
       <attribs/>
    </obj>
@@ -286,7 +334,7 @@ void loop(void){
    </obj>
    <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobTop5" x="798" y="210">
       <params>
-         <frac32.u.map name="value" value="0.0"/>
+         <frac32.u.map name="value" value="63.75"/>
       </params>
       <attribs/>
    </obj>
@@ -296,7 +344,7 @@ void loop(void){
    </obj>
    <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobTop6" x="952" y="210">
       <params>
-         <frac32.u.map name="value" value="0.0"/>
+         <frac32.u.map name="value" value="63.75"/>
       </params>
       <attribs/>
    </obj>
@@ -306,7 +354,7 @@ void loop(void){
    </obj>
    <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobTop7" x="1106" y="210">
       <params>
-         <frac32.u.map name="value" value="0.0"/>
+         <frac32.u.map name="value" value="63.75"/>
       </params>
       <attribs/>
    </obj>
@@ -484,8 +532,8 @@ void loop(void){
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>-2363</x>
-      <y>-62</y>
+      <x>-1825</x>
+      <y>-98</y>
       <width>1323</width>
       <height>625</height>
    </windowPos>

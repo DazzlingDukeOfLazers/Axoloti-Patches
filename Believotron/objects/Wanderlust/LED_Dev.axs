@@ -9,7 +9,7 @@
          <combo attributeName="format" selection="LSB first"/>
       </attribs>
    </obj>
-   <obj type="script/script2" sha="362a4413ceaefbe716480bf8f9c62eb3587fe6c0" uuid="d39e743cf47c9221f4e99c133430148cf74c68c5" name="script2_2" x="140" y="70">
+   <obj type="script/Knobs_and_LEDs" uuid="ebc31452-ca44-46f9-81ed-d12c11874806" name="Knobs_and_LEDs_1" x="168" y="70">
       <params/>
       <attribs>
          <text attributeName="script">
@@ -27,6 +27,7 @@
 uint8_t *txbuf;
 uint8_t *rxbuf;
 
+uint8_t greenVal;
 
 // Turns all the SPI chip selects off
 void SPI_CS_ALL_OFF()
@@ -45,6 +46,9 @@ void setup(void){
 	static uint8_t _rxbuf[8] __attribute__ ((section (".sram2")));
 	txbuf = _txbuf;
 	rxbuf = _rxbuf;
+
+	greenVal = 0xFF;
+	
  
 	// Setup Knob Top
 	palSetPadMode(GPIOB,7,PAL_MODE_OUTPUT_PUSHPULL);        // MCP3208
@@ -87,12 +91,21 @@ void readADCAndOutput()
 			           
 			// I don't know why I'm only getting 8 bits. Probably a difference btwn the 3208 and the 3008. I only need 8 bits for demo
 			uint32_t z = ( (0x0000007F & rxbuf[0]) << 1) | ( (rxbuf[0] & 0x00000080) > 6);
+			out1 = z;
+			uint8_t z8;
+			z8 = z;
 			z = 0x00FF ^ z;
 			z = z<<19;
+			//z8 = 0xA0; //(uint8_t) z;
 				
 			if (iDevice == 0)
 			{
-				if      (pin == 0)	{	PExParameterChange(	&parent->PExch[PARAM_INDEX_knobBot0_value],	z,	0xFFFD	);	}
+				if      (pin == 0)	
+				{	
+					PExParameterChange(	&parent->PExch[PARAM_INDEX_knobBot0_value],	z,	0xFFFD	);
+					
+					
+				}
 				else if (pin == 1)	{	PExParameterChange(	&parent->PExch[PARAM_INDEX_knobBot1_value],	z,	0xFFFD	);   }
 				else if (pin == 2)	{	PExParameterChange(	&parent->PExch[PARAM_INDEX_knobBot2_value],	z,	0xFFFD	);   }
 				else if (pin == 3)	{    PExParameterChange(	&parent->PExch[PARAM_INDEX_knobBot3_value],	z,	0xFFFD	);   }
@@ -103,7 +116,7 @@ void readADCAndOutput()
 			}
 			if (iDevice == 1)
 			{
-				if      (pin == 0)	{	PExParameterChange(	&parent->PExch[PARAM_INDEX_knobTop0_value],	z,	0xFFFD	);	}
+				if      (pin == 0)	{	PExParameterChange(	&parent->PExch[PARAM_INDEX_knobTop0_value],	z,	0xFFFD	); greenVal = z8;	}
 				else if (pin == 1)	{	PExParameterChange(	&parent->PExch[PARAM_INDEX_knobTop1_value],	z,	0xFFFD	);   }
 				else if (pin == 2)	{	PExParameterChange(	&parent->PExch[PARAM_INDEX_knobTop2_value],	z,	0xFFFD	);   }
 				else if (pin == 3)	{    PExParameterChange(	&parent->PExch[PARAM_INDEX_knobTop3_value],	z,	0xFFFD	);   }
@@ -135,9 +148,9 @@ void setLEDs()
 	for (int iStrandPos=0; iStrandPos < STRAND_LENGTH; iStrandPos++)
 	{
 		txbuf[0] = 0xFF; spiSend( &SPID1,	1,	txbuf); // 0b111XXXXX LED Frame signal, The others are "global" maybe fade or something?
-		txbuf[0] = 0x00; spiSend( &SPID1,	1,	txbuf); // Teal?
-		txbuf[0] = 0x00; spiSend( &SPID1,	1,	txbuf); // Yellow
-		txbuf[0] = 0xFF; spiSend( &SPID1,	1,	txbuf); // Red
+		txbuf[0] = 0x00; spiSend( &SPID1,	1,	txbuf); // Blue
+		txbuf[0] = greenVal; spiSend( &SPID1,	1,	txbuf); // Yellow
+		txbuf[0] = 0x00; spiSend( &SPID1,	1,	txbuf); // Red
 		
 	}
 
@@ -166,7 +179,7 @@ void loop(void){
    </obj>
    <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobTop0" x="28" y="210">
       <params>
-         <frac32.u.map name="value" value="48.5"/>
+         <frac32.u.map name="value" value="38.0"/>
       </params>
       <attribs/>
    </obj>
@@ -176,7 +189,7 @@ void loop(void){
    </obj>
    <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobTop1" x="182" y="210">
       <params>
-         <frac32.u.map name="value" value="0.0"/>
+         <frac32.u.map name="value" value="45.0"/>
       </params>
       <attribs/>
    </obj>
@@ -186,7 +199,7 @@ void loop(void){
    </obj>
    <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobTop2" x="336" y="210">
       <params>
-         <frac32.u.map name="value" value="0.0"/>
+         <frac32.u.map name="value" value="51.25"/>
       </params>
       <attribs/>
    </obj>
@@ -196,7 +209,7 @@ void loop(void){
    </obj>
    <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobTop3" x="490" y="210">
       <params>
-         <frac32.u.map name="value" value="0.0"/>
+         <frac32.u.map name="value" value="43.5"/>
       </params>
       <attribs/>
    </obj>
@@ -206,7 +219,7 @@ void loop(void){
    </obj>
    <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobTop4" x="644" y="210">
       <params>
-         <frac32.u.map name="value" value="0.0"/>
+         <frac32.u.map name="value" value="41.0"/>
       </params>
       <attribs/>
    </obj>
@@ -216,7 +229,7 @@ void loop(void){
    </obj>
    <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobTop5" x="798" y="210">
       <params>
-         <frac32.u.map name="value" value="0.0"/>
+         <frac32.u.map name="value" value="51.5"/>
       </params>
       <attribs/>
    </obj>
@@ -226,7 +239,7 @@ void loop(void){
    </obj>
    <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobTop6" x="952" y="210">
       <params>
-         <frac32.u.map name="value" value="0.0"/>
+         <frac32.u.map name="value" value="30.25"/>
       </params>
       <attribs/>
    </obj>
@@ -236,7 +249,7 @@ void loop(void){
    </obj>
    <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobTop7" x="1106" y="210">
       <params>
-         <frac32.u.map name="value" value="0.25"/>
+         <frac32.u.map name="value" value="60.75"/>
       </params>
       <attribs/>
    </obj>
@@ -405,8 +418,8 @@ void loop(void){
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>-2269</x>
-      <y>216</y>
+      <x>-2363</x>
+      <y>-62</y>
       <width>1323</width>
       <height>625</height>
    </windowPos>

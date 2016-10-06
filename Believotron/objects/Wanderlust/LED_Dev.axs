@@ -209,17 +209,31 @@ void SetNextLEDColorPercent(uint8_t red, uint8_t green, uint8_t blue, double int
 #define C_BLUE_ICE               0x00, 0xFD, 0xFF
 #define C_BLUE_TEAL              0x00, 0xE0, 0x80
 #define C_GREEN_EMERALD_L        0x00, 0xFE, 0xF0
+#define C_YELLOW_L               0xFF, 0xFF, 0x00
+#define C_YELLOW_MUSTARD         0xFF, 0x60, 0x00
+#define C_YELLOW_ORANGE          0xFF, 0x20, 0x00
+#define C_YELLOW_RED             0xFF, 0x10, 0x00
+#define C_PINK_BUBBLE            0xFF, 0x00, 0xFF
+#define C_PINK_NEON              0xFF, 0x00, 0x60
+#define C_PINK_HOT               0xFF, 0x00, 0x40
+#define C_PURPLE_SOFT            0x10, 0x00, 0x20
+#define C_PINK_WATERMELON        0xFF, 0x00, 0x10
+#define C_PINK_RED               0xFF, 0x00, 0x08
+#define C_PURPLE_VIOLET          0x10, 0x00, 0x08
+#define C_BLUE_SKY               0x20, 0x40, 0x80
+#define C_BLUE_L2                0x00, 0x40, 0x80
+#define C_BLUE_TEAL2             0x00, 0x80, 0x80
+#define C_BLUE_BLUE_SW           0x80, 0xFF, 0x80
+#define C_ORANGE_SOFT            0x80, 0x20, 0x00
+#define C_GREEN_LIME_SOFT        0xC0, 0xFF, 0x00
+#define C_ORANGE_2               0xC0, 0x10, 0x00
+#define C_BEIGE                  0x80, 0x40, 0x20 
+#define C_BEIGE_GREEN            0x40, 0x60, 0x10 
+#define C_RED_PEACH              0x80, 0x20, 0x10
 
-//void SetNextColor(
-/*
-if (iStrandPos >= 8 && iStrandPos <= 15)
-{
-	txbuf[0] = 0xFF;                               spiSend( &SPID1,	1,	txbuf); // 0b111XXXXX LED Frame signal, The others are "global" maybe fade or something?
-	txbuf[0] = 0;                                  spiSend( &SPID1,	1,	txbuf); // Blue
-	txbuf[0] = reverse8(knobVal[0][iStrandPos-8]); spiSend( &SPID1,	1,	txbuf); // Green		
-	txbuf[0] = 0;                                  spiSend( &SPID1,	1,	txbuf); // Red
-}
-*/
+#define C_PREV0 C_BEIGE
+#define C_PREV1 C_BEIGE_GREEN
+
 
 void KnobColor()
 {
@@ -227,15 +241,28 @@ void KnobColor()
 
 	// Bottom Row (Padcaps)
 	for (int iStrandPos =  0; iStrandPos <  8; iStrandPos++) { SetNextLEDColor(C_BLACK); }
+
+	uint8_t valR = 0xC0;
+	uint8_t valG = 0x10;
+	uint8_t valB = 0x80;
 	
 	// Knob bottom row
-	for (int iStrandPos =  8; iStrandPos < 16; iStrandPos++) { SetNextLEDColor(C_BLACK); }
+	for (int iStrandPos =  8; iStrandPos < 16; iStrandPos++) 
+	{
+		uint8_t knobR = 1.0; //256-knobVal[1][iStrandPos-16];
+		uint8_t knobG = 1.0;
+		uint8_t knobB = 1.0;
+		
+		
+		SetNextLEDColor( (uint8_t) valR ,
+		                 (uint8_t) valG ,
+		                 (uint8_t) valB );
+
+		valB = (valB >> 1) | 0x80;
+	}
 
 	
-
-	static uint8_t valR = 0xFF;
-	static uint8_t valG = 0x00;
-	static uint8_t valB = 0x00;
+	
 	for (int iStrandPos = 16; iStrandPos < 24; iStrandPos++) 
 	{ 
 		// Knob Top row
@@ -244,28 +271,36 @@ void KnobColor()
 		uint8_t knobB = 1.0;
 		
 		
-		SetNextLEDColor( (uint8_t) knobR * valR,
-		                 (uint8_t) knobG * valG,
-		                 (uint8_t) knobB * valB); 
+		SetNextLEDColor( (uint8_t) valR ,
+		                 (uint8_t) valG ,
+		                 (uint8_t) valB );
 
-		//valG = (valG << 1) | 0x01;
+		
+		valB = (valB >> 1);
+
+		//valG = (valG << 1);			// Less useful, lower colors can be achieved by intensity
+		// valG = (valG << 1) | 0x01; 	// Less useful, lower colors can be achieved by intensity
 		                 
 	}
 	
-	/*
+/*
+	
 	// Manually Tap out a row
 	double mult=1.0;
 	
-	SetNextLEDColorPercent(0,0x80, 0xFF, 1);		
-	SetNextLEDColorPercent(0,0xFD, 0xFF, 1);
-	SetNextLEDColorPercent(0,0xC0, knobVal[1][2]*0.5, 1);
-	SetNextLEDColorPercent(0,0xE0, knobVal[1][3]*0.5, 1);
-	SetNextLEDColorPercent(0,0xF0, knobVal[1][4]*0.5, 1);
-	SetNextLEDColorPercent(0,0xFF, knobVal[1][5]*0.25, 1);
-	SetNextLEDColorPercent(0,0xFE, knobVal[1][6]*0.25, 1);
-	SetNextLEDColorPercent(0,0xFD, knobVal[1][7]*0.25, 1);*/
-		
-	for (int iStrandPos=24; iStrandPos < 26; iStrandPos++) { SetNextLEDColor(C_BLACK); }		
+	SetNextLEDColorPercent(0,0x80, 0x00, 1);		
+	SetNextLEDColorPercent(0,0x40, 0x00, 1);
+	SetNextLEDColorPercent(0,0x20, knobVal[1][2]*0, 1);
+	SetNextLEDColorPercent(0,0x10, knobVal[1][3]*0, 1);
+	SetNextLEDColorPercent(0,0x08, knobVal[1][4]*0, 1);
+	SetNextLEDColorPercent(0,0x04, knobVal[1][5]*0, 1);
+	SetNextLEDColorPercent(0,0x02, knobVal[1][6]*0, 1);
+	SetNextLEDColorPercent(0,0x01, knobVal[1][7]*0, 1);
+*/	
+	
+	SetNextLEDColorPercent(C_PREV0, 1);				
+	SetNextLEDColorPercent(C_PREV1, 1);		
+	//for (int iStrandPos=24; iStrandPos < 26; iStrandPos++) { SetNextLEDColor(C_BLACK); }		
 		
 				
 	
@@ -293,12 +328,13 @@ void loop(void){
 	
 	
 
-	readADCAndOutput();	
+	//readADCAndOutput();	
 	//setLEDs();
 	KnobColor();
        	
 	chThdSleepMilliseconds(1);        
-}]]></sText>
+}
+]]></sText>
          </text>
       </attribs>
    </obj>
@@ -312,7 +348,7 @@ void loop(void){
    </obj>
    <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobTop0" x="28" y="210">
       <params>
-         <frac32.u.map name="value" value="63.75"/>
+         <frac32.u.map name="value" value="23.25"/>
       </params>
       <attribs/>
    </obj>
@@ -322,7 +358,7 @@ void loop(void){
    </obj>
    <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobTop1" x="182" y="210">
       <params>
-         <frac32.u.map name="value" value="63.75"/>
+         <frac32.u.map name="value" value="43.0"/>
       </params>
       <attribs/>
    </obj>
@@ -332,7 +368,7 @@ void loop(void){
    </obj>
    <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobTop2" x="336" y="210">
       <params>
-         <frac32.u.map name="value" value="63.75"/>
+         <frac32.u.map name="value" value="40.25"/>
       </params>
       <attribs/>
    </obj>
@@ -342,7 +378,7 @@ void loop(void){
    </obj>
    <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobTop3" x="490" y="210">
       <params>
-         <frac32.u.map name="value" value="63.75"/>
+         <frac32.u.map name="value" value="51.0"/>
       </params>
       <attribs/>
    </obj>
@@ -362,7 +398,7 @@ void loop(void){
    </obj>
    <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobTop5" x="798" y="210">
       <params>
-         <frac32.u.map name="value" value="63.75"/>
+         <frac32.u.map name="value" value="22.0"/>
       </params>
       <attribs/>
    </obj>
@@ -372,7 +408,7 @@ void loop(void){
    </obj>
    <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobTop6" x="952" y="210">
       <params>
-         <frac32.u.map name="value" value="63.75"/>
+         <frac32.u.map name="value" value="16.25"/>
       </params>
       <attribs/>
    </obj>
@@ -382,7 +418,7 @@ void loop(void){
    </obj>
    <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobTop7" x="1106" y="210">
       <params>
-         <frac32.u.map name="value" value="63.75"/>
+         <frac32.u.map name="value" value="0.0"/>
       </params>
       <attribs/>
    </obj>
@@ -560,9 +596,9 @@ void loop(void){
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>-2119</x>
+      <x>-2109</x>
       <y>229</y>
-      <width>1322</width>
+      <width>1312</width>
       <height>625</height>
    </windowPos>
 </patch-1.0>

@@ -38,6 +38,65 @@ uint8_t greenVal;
 uint8_t redVal;
 uint8_t blueVal;
 
+#define STRAND_LENGTH 26
+
+#define C_BLACK                  0x00, 0x00, 0x00
+#define C_WHITE                  0xFF, 0xFF, 0xFF
+#define C_BLUE                   0x00, 0x00, 0xFF
+#define C_BLUE_LIGHT             0x00, 0x80, 0xFF
+#define C_BLUE_ICE               0x00, 0xFD, 0xFF
+#define C_BLUE_TEAL              0x00, 0xE0, 0x80
+#define C_GREEN_EMERALD_L        0x00, 0xFE, 0xF0
+#define C_YELLOW_L               0xFF, 0xFF, 0x00
+#define C_YELLOW_MUSTARD         0xFF, 0x60, 0x00
+#define C_YELLOW_ORANGE          0xFF, 0x20, 0x00
+#define C_YELLOW_RED             0xFF, 0x10, 0x00
+#define C_PINK_BUBBLE            0xFF, 0x00, 0xFF
+#define C_PINK_NEON              0xFF, 0x00, 0x60
+#define C_PINK_HOT               0xFF, 0x00, 0x40
+#define C_PURPLE_SOFT            0x10, 0x00, 0x20
+#define C_PINK_WATERMELON        0xFF, 0x00, 0x10
+#define C_PINK_RED               0xFF, 0x00, 0x08
+#define C_PURPLE_VIOLET          0x10, 0x00, 0x08
+#define C_BLUE_SKY               0x20, 0x40, 0x80
+#define C_BLUE_L2                0x00, 0x40, 0x80
+#define C_BLUE_TEAL2             0x00, 0x80, 0x80
+#define C_BLUE_BLUE_SW           0x80, 0xFF, 0x80
+#define C_ORANGE_SOFT            0x80, 0x20, 0x00
+#define C_GREEN_LIME_SOFT        0xC0, 0xFF, 0x00
+#define C_ORANGE_2               0xC0, 0x10, 0x00
+#define C_BEIGE                  0x80, 0x40, 0x20 
+#define C_BEIGE_GREEN            0x40, 0x60, 0x10 
+#define C_RED_PEACH              0x80, 0x20, 0x10
+
+#define C_PREV0 C_BEIGE
+#define C_PREV1 C_BEIGE_GREEN
+
+struct LED{
+	uint8_t r;
+	uint8_t g;
+	uint8_t b;
+};
+
+LED COLOR_LIST[16] = { 
+	                  {0x00, 0x00, 0xFF}, 
+	                  {0x00, 0xFF, 0x00}, 
+	                  {0xFF, 0x00, 0x00}
+                     }; 
+
+struct Pixel{
+	uint8_t u8Color;
+	double dIntensity;	
+};
+
+struct {
+	Pixel RowBot[8];
+	Pixel RowMid[8];
+	Pixel RowTop[8];
+	Pixel RowMnu[2];
+} LEDS;
+
+
 // Turns all the SPI chip selects off
 void SPI_CS_ALL_OFF()
 {
@@ -48,29 +107,7 @@ void SPI_CS_ALL_OFF()
 	
 }
  
-void setup(void){
 
-	// Bind the SRAM to the local variables
-	static uint8_t _txbuf[8] __attribute__ ((section (".sram2")));
-	static uint8_t _rxbuf[8] __attribute__ ((section (".sram2")));
-	txbuf = _txbuf;
-	rxbuf = _rxbuf;
-
-	greenVal = 0x00;
-	redVal   = 0x00;
-	blueVal  = 0x00;
- 
-	// Setup Knob Top
-	palSetPadMode(GPIOB,7,PAL_MODE_OUTPUT_PUSHPULL);        // MCP3208
-
-	// Setup Knob Bottom
-	palSetPadMode(GPIOA,4,PAL_MODE_OUTPUT_PUSHPULL);        // MCP3208
-	
-	// Setup LED
-	palSetPadMode(GPIOC,5,PAL_MODE_OUTPUT_PUSHPULL);        // MCP3208
-
-	SPI_CS_ALL_OFF();	
-}
 
 void readADCAndOutput()
 {
@@ -193,46 +230,42 @@ void SetNextLEDColor(uint8_t red, uint8_t green, uint8_t blue)
 void SetNextLEDColorPercent(uint8_t red, uint8_t green, uint8_t blue, double intensity)
 {
 	
-	txbuf[0] = 0xFF;             spiSend( &SPID1,	1,	txbuf); // 0b111XXXXX LED Frame signal, The others are "global" maybe fade or something?
-	txbuf[0] = reverse8( (uint8_t) blue*intensity );  spiSend( &SPID1,	1,	txbuf); // Blue
-	txbuf[0] = reverse8(green);  spiSend( &SPID1,	1,	txbuf); // Green		
-	txbuf[0] = reverse8(red  );  spiSend( &SPID1,	1,	txbuf); // Red 
+	txbuf[0] = 0xFF;                                  spiSend( &SPID1,	1,	txbuf); // 0b111XXXXX LED Frame signal, The others are "global" maybe fade or something?
+	txbuf[0] = reverse8( (uint8_t)  blue*intensity);  spiSend( &SPID1,	1,	txbuf); // Blue
+	txbuf[0] = reverse8( (uint8_t) green*intensity);  spiSend( &SPID1,	1,	txbuf); // Green		
+	txbuf[0] = reverse8( (uint8_t)   red*intensity);  spiSend( &SPID1,	1,	txbuf); // Red 
+}
+
+void SetNextLED( Pixel thisPixel )
+{
+	LED thisLED = COLOR_LIST[ thisPixel.u8Color ];
+	
+	txbuf[0] = 0xFF;                                                   spiSend( &SPID1,	1,	txbuf); // 0b111XXXXX LED Frame signal, The others are "global" maybe fade or something?
+	txbuf[0] = reverse8( (uint8_t) thisLED.b * thisPixel.dIntensity );  spiSend( &SPID1,	1,	txbuf); // Blue
+	txbuf[0] = reverse8( (uint8_t) thisLED.g * thisPixel.dIntensity );  spiSend( &SPID1,	1,	txbuf); // Green		
+	txbuf[0] = reverse8( (uint8_t) thisLED.r * thisPixel.dIntensity );  spiSend( &SPID1,	1,	txbuf); // Red 
 }
 
 
-#define STRAND_LENGTH 26
 
-#define C_BLACK                  0x00, 0x00, 0x00
-#define C_WHITE                  0xFF, 0xFF, 0xFF
-#define C_BLUE                   0x00, 0x00, 0xFF
-#define C_BLUE_LIGHT             0x00, 0x80, 0xFF
-#define C_BLUE_ICE               0x00, 0xFD, 0xFF
-#define C_BLUE_TEAL              0x00, 0xE0, 0x80
-#define C_GREEN_EMERALD_L        0x00, 0xFE, 0xF0
-#define C_YELLOW_L               0xFF, 0xFF, 0x00
-#define C_YELLOW_MUSTARD         0xFF, 0x60, 0x00
-#define C_YELLOW_ORANGE          0xFF, 0x20, 0x00
-#define C_YELLOW_RED             0xFF, 0x10, 0x00
-#define C_PINK_BUBBLE            0xFF, 0x00, 0xFF
-#define C_PINK_NEON              0xFF, 0x00, 0x60
-#define C_PINK_HOT               0xFF, 0x00, 0x40
-#define C_PURPLE_SOFT            0x10, 0x00, 0x20
-#define C_PINK_WATERMELON        0xFF, 0x00, 0x10
-#define C_PINK_RED               0xFF, 0x00, 0x08
-#define C_PURPLE_VIOLET          0x10, 0x00, 0x08
-#define C_BLUE_SKY               0x20, 0x40, 0x80
-#define C_BLUE_L2                0x00, 0x40, 0x80
-#define C_BLUE_TEAL2             0x00, 0x80, 0x80
-#define C_BLUE_BLUE_SW           0x80, 0xFF, 0x80
-#define C_ORANGE_SOFT            0x80, 0x20, 0x00
-#define C_GREEN_LIME_SOFT        0xC0, 0xFF, 0x00
-#define C_ORANGE_2               0xC0, 0x10, 0x00
-#define C_BEIGE                  0x80, 0x40, 0x20 
-#define C_BEIGE_GREEN            0x40, 0x60, 0x10 
-#define C_RED_PEACH              0x80, 0x20, 0x10
 
-#define C_PREV0 C_BEIGE
-#define C_PREV1 C_BEIGE_GREEN
+
+
+
+
+void UpdateStrip()
+{
+	SetupLEDs();		
+	
+	for (int iPos = 0; iPos < 8; iPos++) { SetNextLED( LEDS.RowBot[iPos] ); }
+	for (int iPos = 0; iPos < 8; iPos++) { SetNextLED( LEDS.RowMid[iPos] ); }
+	for (int iPos = 0; iPos < 8; iPos++) { SetNextLED( LEDS.RowTop[iPos] ); }
+	for (int iPos = 0; iPos < 2; iPos++) { SetNextLED( LEDS.RowMnu[iPos] ); }
+
+	EndLEDs();
+}
+
+
 
 
 void KnobColor()
@@ -242,9 +275,11 @@ void KnobColor()
 	// Bottom Row (Padcaps)
 	for (int iStrandPos =  0; iStrandPos <  8; iStrandPos++) { SetNextLEDColor(C_BLACK); }
 
-	uint8_t valR = 0xC0;
-	uint8_t valG = 0x10;
-	uint8_t valB = 0x80;
+	int iColor=1;
+
+	uint8_t valR = COLOR_LIST[iColor].r;
+	uint8_t valG = COLOR_LIST[iColor].g;
+	uint8_t valB = COLOR_LIST[iColor].b;
 	
 	// Knob bottom row
 	for (int iStrandPos =  8; iStrandPos < 16; iStrandPos++) 
@@ -257,8 +292,7 @@ void KnobColor()
 		SetNextLEDColor( (uint8_t) valR ,
 		                 (uint8_t) valG ,
 		                 (uint8_t) valB );
-
-		valB = (valB >> 1) | 0x80;
+		
 	}
 
 	
@@ -274,13 +308,6 @@ void KnobColor()
 		SetNextLEDColor( (uint8_t) valR ,
 		                 (uint8_t) valG ,
 		                 (uint8_t) valB );
-
-		
-		valB = (valB >> 1);
-
-		//valG = (valG << 1);			// Less useful, lower colors can be achieved by intensity
-		// valG = (valG << 1) | 0x01; 	// Less useful, lower colors can be achieved by intensity
-		                 
 	}
 	
 /*
@@ -308,19 +335,39 @@ void KnobColor()
 	EndLEDs();
 }
 
-void setLEDs()
-{
-	SetupLEDs();		
 
-	// For All LEDs
-	for (int iStrandPos=0; iStrandPos < STRAND_LENGTH; iStrandPos++)
-	{		
-		// If top Row, adjust value		
-		if (iStrandPos >= 16 && iStrandPos <= 23) {SetNextLEDColorPercent(0,knobVal[1][iStrandPos-16], knobVal[1][iStrandPos-16], 1); }
-		else	{	SetNextLEDColor(C_BLACK);	}		
-	}
+void setup(void){
 
-	EndLEDs();
+	// Bind the SRAM to the local variables
+	static uint8_t _txbuf[8] __attribute__ ((section (".sram2")));
+	static uint8_t _rxbuf[8] __attribute__ ((section (".sram2")));
+	txbuf = _txbuf;
+	rxbuf = _rxbuf;
+
+	greenVal = 0x00;
+	redVal   = 0x00;
+	blueVal  = 0x00;
+ 
+	// Setup Knob Top
+	palSetPadMode(GPIOB,7,PAL_MODE_OUTPUT_PUSHPULL);        // MCP3208
+
+	// Setup Knob Bottom
+	palSetPadMode(GPIOA,4,PAL_MODE_OUTPUT_PUSHPULL);        // MCP3208
+	
+	// Setup LED
+	palSetPadMode(GPIOC,5,PAL_MODE_OUTPUT_PUSHPULL);        // MCP3208
+
+	SPI_CS_ALL_OFF();	
+
+	
+	uint8_t tempIndexColor = 1;
+
+	for (int iPos=0; iPos<8; iPos++)	{ LEDS.RowBot[iPos].u8Color = tempIndexColor; LEDS.RowBot[iPos].dIntensity = 1.0; }
+	for (int iPos=0; iPos<8; iPos++)	{ LEDS.RowMid[iPos].u8Color = tempIndexColor; LEDS.RowMid[iPos].dIntensity = 1.0; }
+	for (int iPos=0; iPos<8; iPos++)	{ LEDS.RowTop[iPos].u8Color = tempIndexColor; LEDS.RowTop[iPos].dIntensity = 1.0; }
+	for (int iPos=0; iPos<2; iPos++)	{ LEDS.RowMnu[iPos].u8Color = tempIndexColor; LEDS.RowMnu[iPos].dIntensity = 1.0; }
+
+	LEDS.RowBot[3].u8Color = 2;
 }
 
  
@@ -330,10 +377,11 @@ void loop(void){
 
 	//readADCAndOutput();	
 	//setLEDs();
-	KnobColor();
+	UpdateStrip();
        	
 	chThdSleepMilliseconds(1);        
 }
+
 ]]></sText>
          </text>
       </attribs>

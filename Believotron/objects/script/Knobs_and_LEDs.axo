@@ -7,6 +7,7 @@
       <inlets>
          <frac32 name="in1_" description="in1"/>
          <frac32 name="in2_" description="in2"/>
+         <int32.positive name="step_" description="step"/>
       </inlets>
       <outlets>
          <frac32 name="out1_" description="out1"/>
@@ -18,7 +19,7 @@
       <attribs>
          <text name="script"/>
       </attribs>
-      <code.declaration><![CDATA[int32_t in1,in2;
+      <code.declaration><![CDATA[int32_t in1,in2, step;
 int32_t out1,out2,out3;
 attr_script
 msg_t ThreadX2(){
@@ -35,7 +36,7 @@ static msg_t ThreadX(void *arg) {
 WORKING_AREA(waThreadX, 1024);
 Thread *Thd;
 ]]></code.declaration>
-      <code.init><![CDATA[in1=0;in2=0;out1=0;out2=0;out3=0;
+      <code.init><![CDATA[in1=0;in2=0;step=0;out1=0;out2=0;out3=0;
   Thd = chThdCreateStatic(waThreadX, sizeof(waThreadX),
                     NORMALPRIO, ThreadX, (void *)this);
 ]]></code.init>
@@ -45,8 +46,9 @@ chThdWait(Thd);
       <code.krate><![CDATA[outlet_out1__ = this->out1;
 outlet_out2__ = this->out2;
 outlet_out3__ = this->out3;
-this->in1 = inlet_in1__;
-this->in2 = inlet_in2__;
+this->in1  = inlet_in1__;
+this->in2  = inlet_in2__;
+this->step = inlet_step__;
 ]]></code.krate>
    </obj.normal>
 </objdefs>

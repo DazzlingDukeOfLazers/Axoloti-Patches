@@ -202,7 +202,13 @@ void SetNextLEDColorPercent(uint8_t red, uint8_t green, uint8_t blue, double int
 
 #define STRAND_LENGTH 26
 
-#define C_BLACK 0,0,0
+#define C_BLACK                  0x00, 0x00, 0x00
+#define C_WHITE                  0xFF, 0xFF, 0xFF
+#define C_BLUE                   0x00, 0x00, 0xFF
+#define C_BLUE_LIGHT             0x00, 0x80, 0xFF
+#define C_BLUE_ICE               0x00, 0xFD, 0xFF
+#define C_BLUE_TEAL              0x00, 0xE0, 0x80
+#define C_GREEN_EMERALD_L        0x00, 0xFE, 0xF0
 
 //void SetNextColor(
 /*
@@ -228,14 +234,14 @@ void KnobColor()
 	// Knob Top row
 
 	// Manually Tap out a row
-	SetNextLEDColorPercent(0,0x01, knobVal[1][0], 1);		
-	SetNextLEDColorPercent(0,0x02, knobVal[1][1], 1);
-	SetNextLEDColorPercent(0,0x04, knobVal[1][2], 1);
-	SetNextLEDColorPercent(0,0x08, knobVal[1][3], 1);
-	SetNextLEDColorPercent(0,0x10, knobVal[1][4], 1);
-	SetNextLEDColorPercent(0,0x20, knobVal[1][5], 1);
-	SetNextLEDColorPercent(0,0x40, knobVal[1][6], 1);
-	SetNextLEDColorPercent(0,0x80, knobVal[1][7], 1);
+	SetNextLEDColorPercent(0,0x80, 0xFF, 1);		
+	SetNextLEDColorPercent(0,0xFD, 0xFF, 1);
+	SetNextLEDColorPercent(0,0xC0, knobVal[1][2]*0.5, 1);
+	SetNextLEDColorPercent(0,0xE0, knobVal[1][3]*0.5, 1);
+	SetNextLEDColorPercent(0,0xF0, knobVal[1][4]*0.5, 1);
+	SetNextLEDColorPercent(0,0xFF, knobVal[1][5]*0.25, 1);
+	SetNextLEDColorPercent(0,0xFE, knobVal[1][6]*0.25, 1);
+	SetNextLEDColorPercent(0,0xFD, knobVal[1][7]*0.25, 1);
 		
 	for (int iStrandPos=24; iStrandPos < 26; iStrandPos++) { SetNextLEDColor(C_BLACK); }		
 		
@@ -532,8 +538,8 @@ void loop(void){
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>-1825</x>
-      <y>-98</y>
+      <x>-2120</x>
+      <y>229</y>
       <width>1323</width>
       <height>625</height>
    </windowPos>

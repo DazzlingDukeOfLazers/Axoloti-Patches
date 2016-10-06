@@ -226,14 +226,36 @@ void KnobColor()
 	SetupLEDs();		
 
 	// Bottom Row (Padcaps)
-	for (int iStrandPos=0; iStrandPos < 8; iStrandPos++) { SetNextLEDColor(C_BLACK); }
+	for (int iStrandPos =  0; iStrandPos <  8; iStrandPos++) { SetNextLEDColor(C_BLACK); }
 	
 	// Knob bottom row
-	for (int iStrandPos=8; iStrandPos < 16; iStrandPos++) { SetNextLEDColor(C_BLACK); }
+	for (int iStrandPos =  8; iStrandPos < 16; iStrandPos++) { SetNextLEDColor(C_BLACK); }
 
-	// Knob Top row
+	
 
+	static uint8_t valR = 0xFF;
+	static uint8_t valG = 0x00;
+	static uint8_t valB = 0x00;
+	for (int iStrandPos = 16; iStrandPos < 24; iStrandPos++) 
+	{ 
+		// Knob Top row
+		uint8_t knobR = 256-knobVal[1][iStrandPos-16];
+		uint8_t knobG = 1.0;
+		uint8_t knobB = 1.0;
+		
+		
+		SetNextLEDColor( (uint8_t) knobR * valR,
+		                 (uint8_t) knobG * valG,
+		                 (uint8_t) knobB * valB); 
+
+		//valG = (valG << 1) | 0x01;
+		                 
+	}
+	
+	/*
 	// Manually Tap out a row
+	double mult=1.0;
+	
 	SetNextLEDColorPercent(0,0x80, 0xFF, 1);		
 	SetNextLEDColorPercent(0,0xFD, 0xFF, 1);
 	SetNextLEDColorPercent(0,0xC0, knobVal[1][2]*0.5, 1);
@@ -241,7 +263,7 @@ void KnobColor()
 	SetNextLEDColorPercent(0,0xF0, knobVal[1][4]*0.5, 1);
 	SetNextLEDColorPercent(0,0xFF, knobVal[1][5]*0.25, 1);
 	SetNextLEDColorPercent(0,0xFE, knobVal[1][6]*0.25, 1);
-	SetNextLEDColorPercent(0,0xFD, knobVal[1][7]*0.25, 1);
+	SetNextLEDColorPercent(0,0xFD, knobVal[1][7]*0.25, 1);*/
 		
 	for (int iStrandPos=24; iStrandPos < 26; iStrandPos++) { SetNextLEDColor(C_BLACK); }		
 		
@@ -538,9 +560,9 @@ void loop(void){
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>-2120</x>
+      <x>-2119</x>
       <y>229</y>
-      <width>1323</width>
+      <width>1322</width>
       <height>625</height>
    </windowPos>
 </patch-1.0>

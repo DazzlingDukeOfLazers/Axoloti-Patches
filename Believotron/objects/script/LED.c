@@ -134,7 +134,7 @@ void SetNextLED( Pixel thisPixel )
 {
 	LED thisLED = COLOR_LIST[ thisPixel.u8Color ];
 
-	txbuf[0] = 0xFF;                                                   spiSend( &SPID1,	1,	txbuf); // 0b111XXXXX LED Frame signal, The others are "global" maybe fade or something?
+	txbuf[0] = 0xFF;                                                    spiSend( &SPID1,	1,	txbuf); // 0b111XXXXX LED Frame signal, The others are "global" maybe fade or something?
 	txbuf[0] = reverse8( (uint8_t) thisLED.b * thisPixel.dIntensity );  spiSend( &SPID1,	1,	txbuf); // Blue
 	txbuf[0] = reverse8( (uint8_t) thisLED.g * thisPixel.dIntensity );  spiSend( &SPID1,	1,	txbuf); // Green
 	txbuf[0] = reverse8( (uint8_t) thisLED.r * thisPixel.dIntensity );  spiSend( &SPID1,	1,	txbuf); // Red
@@ -161,5 +161,39 @@ void LEDInit()
 	for (int iPos=0; iPos<8; iPos++)	{ LEDS.RowTop[iPos].u8Color = tempIndexColor; LEDS.RowTop[iPos].dIntensity = 1.0; }
 	for (int iPos=0; iPos<2; iPos++)	{ LEDS.RowMnu[iPos].u8Color = tempIndexColor; LEDS.RowMnu[iPos].dIntensity = 1.0; }
 
-	LEDS.RowBot[3].u8Color = 2;
+	//LEDS.RowBot[3].u8Color = 2;
+}
+
+void StepRight(uint8_t step)
+{
+    static uint8_t prevColor=0;
+    static uint8_t prevStep=0;
+    static uint8_t first = 1;
+
+
+    if (first==1)
+    {
+        first = 0;
+        // Store current LED
+        prevColor = LEDS.RowBot[step].u8Color;
+        LEDS.RowBot[step].u8Color = 2;
+        prevStep = step;
+    }
+    else if (step != prevStep)
+    {
+
+        //if      (step > prevStep) { LEDS.RowBot[step-1].u8Color = prevColor; }
+        //else if (prevStep > step) { LEDS.RowBot[step+1].u8Color = prevColor; }
+
+        LEDS.RowBot[prevStep].u8Color = prevColor;
+
+        // Store current LED
+        prevColor = LEDS.RowBot[step].u8Color;
+
+        // New Color
+        LEDS.RowBot[step].u8Color = 2;
+        prevStep = step;
+    }
+
+
 }

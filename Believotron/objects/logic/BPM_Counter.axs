@@ -16,6 +16,10 @@
       <params/>
       <attribs/>
    </obj>
+   <obj type="logic/inv" uuid="2bd44b865d3b63ff9b80862242bf5be779e3ad5" name="inv_1" x="714" y="98">
+      <params/>
+      <attribs/>
+   </obj>
    <comment type="patch/comment" x="616" y="112" text="tempo"/>
    <comment type="patch/comment" x="868" y="112" text="end step"/>
    <obj type="lfo/square" sha="b4420b58ca2ae5ece53d53540bc91bc9ed7a4b83" uuid="fb76624a81ec92d244b83f94dedcd4c07935d848" name="square_1" x="616" y="126">
@@ -24,11 +28,11 @@
       </params>
       <attribs/>
    </obj>
-   <obj type="demux/demux 2" uuid="28788637ca4264670042a31303a9d6e100646ff0" name="demux_1" x="756" y="126">
+   <obj type="demux/demux 2" uuid="28788637ca4264670042a31303a9d6e100646ff0" name="demux_1" x="770" y="126">
       <params/>
       <attribs/>
    </obj>
-   <obj type="logic/counter2" sha="520bfefaef89b5ba4deb2a4d79b4236f0b321489" uuid="d9536f238ab92e53ac93d5927c3b43ceef998dc1" name="counter2_1" x="868" y="126">
+   <obj type="logic/counter2" sha="520bfefaef89b5ba4deb2a4d79b4236f0b321489" uuid="d9536f238ab92e53ac93d5927c3b43ceef998dc1" name="counter2_1" x="896" y="126">
       <params>
          <int32 name="maximum" onParent="true" value="16"/>
       </params>
@@ -91,7 +95,7 @@
    <nets>
       <net>
          <source obj="square_1" outlet="wave"/>
-         <dest obj="demux_1" inlet="i"/>
+         <dest obj="inv_1" inlet="i"/>
       </net>
       <net>
          <source obj="counter2_1" outlet="o"/>
@@ -101,10 +105,6 @@
       <net>
          <source obj="toggle_1" outlet="o"/>
          <dest obj="demux_1" inlet="s"/>
-      </net>
-      <net>
-         <source obj="demux_1" outlet="o0"/>
-         <dest obj="counter2_1" inlet="inc"/>
       </net>
       <net>
          <source obj="demux_1" outlet="o1"/>
@@ -151,6 +151,14 @@
       <net>
          <source obj="-+i_1" outlet="out"/>
          <dest obj="*_1" inlet="a"/>
+      </net>
+      <net>
+         <source obj="demux_1" outlet="o0"/>
+         <dest obj="counter2_1" inlet="inc"/>
+      </net>
+      <net>
+         <source obj="inv_1" outlet="o"/>
+         <dest obj="demux_1" inlet="i"/>
       </net>
    </nets>
    <settings>

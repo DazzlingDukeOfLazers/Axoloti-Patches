@@ -155,8 +155,10 @@ void HighlightLED(uint8_t step, double knobVal)
     static uint8_t first = 1;
 
     double intensity = knobVal / 13.4E7;
+    //double intensity = knobVal * 4;
 
-    //if (knobVal > 13.4E7) intensity = 1.0;
+    //double intensity;
+    //if (knobVal > 1E7) intensity = 1.0;
     //else             intensity = 0.1;
 
 

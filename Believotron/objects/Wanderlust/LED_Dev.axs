@@ -1,10 +1,4 @@
 <patch-1.0 appVersion="1.0.10">
-   <obj type="ctrl/dial p" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="dial_3" x="266" y="14">
-      <params>
-         <frac32.u.map name="value" value="0.20000000298023224"/>
-      </params>
-      <attribs/>
-   </obj>
    <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_4" x="462" y="14">
       <params/>
       <attribs/>
@@ -14,7 +8,13 @@
       <attribs/>
    </obj>
    <comment type="patch/comment" x="14" y="28" text="Believotron Wanderlust Knob Bottom Row Object."/>
-   <obj type="math/div 64" uuid="da82c8ea54e956811f1d7264d921628e3301971e" name="div_1" x="350" y="28">
+   <obj type="ctrl/dial p" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="dial_3" x="196" y="28">
+      <params>
+         <frac32.u.map name="value" value="0.5"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="math/div 64" uuid="da82c8ea54e956811f1d7264d921628e3301971e" name="div_1" x="378" y="28">
       <params/>
       <attribs/>
    </obj>
@@ -97,13 +97,17 @@ void loop(void){
          <combo attributeName="format" selection="LSB first"/>
       </attribs>
    </obj>
+   <obj type="math/div 128" uuid="7e534ce0f62b1fddbad78a797d8c10c8d1a0b812" name="div_2" x="294" y="70">
+      <params/>
+      <attribs/>
+   </obj>
    <obj type="disp/hex" uuid="3ce415f2f0e09f5b3cf10e5d355274847fd063b2" name="hex_1" x="770" y="70">
       <params/>
       <attribs/>
    </obj>
    <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_2" x="364" y="126">
       <params>
-         <int32 name="value" value="6"/>
+         <int32 name="value" value="3"/>
       </params>
       <attribs/>
    </obj>
@@ -361,12 +365,13 @@ void loop(void){
       </net>
       <net>
          <source obj="dial_3" outlet="out"/>
-         <dest obj="div_1" inlet="in"/>
+         <dest obj="div_2" inlet="in"/>
+         <dest obj="dial_4" inlet="in"/>
          <dest obj="Knobs_and_LEDs_1" inlet="in1_"/>
       </net>
       <net>
-         <source obj="div_1" outlet="out"/>
-         <dest obj="dial_4" inlet="in"/>
+         <source obj="div_2" outlet="out"/>
+         <dest obj="div_1" inlet="in"/>
       </net>
    </nets>
    <settings>

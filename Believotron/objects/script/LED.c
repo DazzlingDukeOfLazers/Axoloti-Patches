@@ -154,7 +154,12 @@ void HighlightLED(uint8_t step, double knobVal)
     static uint8_t prevStep=255; // Start value can't be in the reasonable range or the first pixel will be wonky
     static uint8_t first = 1;
 
-    double intensity = knobVal / 64.0;
+    double intensity = knobVal / 13.4E7;
+
+    //if (knobVal > 13.4E7) intensity = 1.0;
+    //else             intensity = 0.1;
+
+
 
     // First time you have to
     if (first==1)

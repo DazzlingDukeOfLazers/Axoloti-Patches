@@ -1,15 +1,6 @@
 
-uint8_t giveMeLove()
-{
-    return 0;
-}
-
 // This totally has to be refactored
 uint8_t knobVal[2][8];
-
-uint8_t greenVal;
-uint8_t redVal;
-uint8_t blueVal;
 
 #define STRAND_LENGTH 26
 
@@ -63,13 +54,8 @@ struct Pixel{
 	double dIntensity;
 };
 
-struct {
-	Pixel RowBot[8];
-	Pixel RowMid[8];
-	Pixel RowTop[8];
-	Pixel RowMnu[2];
-} LEDS;
 
+Pixel LEDS[26];
 
 uint8_t reverse8( uint8_t straight )
 {
@@ -94,9 +80,11 @@ void SetupLEDs()
 	palWritePad(	GPIOC,	5,	1 );	// enable LEDs
 	//chThdSleepMilliseconds(5);
 
+    uint8_t buffer[4];
 	// Start frame
-	txbuf[0] = 0x00; spiSend( &SPID1,	1,	txbuf);	// send SPI data txbuf[]
-	txbuf[0] = 0x00; spiSend( &SPID1,	1,	txbuf);	// send SPI data txbuf[]
+	//buffer[0] = 0x00; spiSend( &SPID1,	1,	buffer);	// send SPI data txbuf[]
+    txbuf[0] = 0x00; spiSend( &SPID1,	1,	txbuf);	// send SPI data txbuf[]
+    txbuf[0] = 0x00; spiSend( &SPID1,	1,	txbuf);	// send SPI data txbuf[]
 	txbuf[0] = 0x00; spiSend( &SPID1,	1,	txbuf);	// send SPI data txbuf[]
 	txbuf[0] = 0x00; spiSend( &SPID1,	1,	txbuf);	// send SPI data txbuf[]
 }
@@ -134,7 +122,9 @@ void SetNextLED( Pixel thisPixel )
 {
 	LED thisLED = COLOR_LIST[ thisPixel.u8Color ];
 
-	txbuf[0] = 0xFF;                                                    spiSend( &SPID1,	1,	txbuf); // 0b111XXXXX LED Frame signal, The others are "global" maybe fade or something?
+    uint8_t buff[4];
+    //buff[0] = 0xFF;                                                    spiSend( &SPID1,	1,	buff); // 0b111XXXXX LED Frame signal, The others are "global" maybe fade or something?
+    txbuf[0] = 0xFF;                                                    spiSend( &SPID1,	1,	txbuf); // 0b111XXXXX LED Frame signal, The others are "global" maybe fade or something?
 	txbuf[0] = reverse8( (uint8_t) thisLED.b * thisPixel.dIntensity );  spiSend( &SPID1,	1,	txbuf); // Blue
 	txbuf[0] = reverse8( (uint8_t) thisLED.g * thisPixel.dIntensity );  spiSend( &SPID1,	1,	txbuf); // Green
 	txbuf[0] = reverse8( (uint8_t) thisLED.r * thisPixel.dIntensity );  spiSend( &SPID1,	1,	txbuf); // Red
@@ -144,55 +134,54 @@ void UpdateStrip()
 {
 	SetupLEDs();
 
-	for (int iPos = 0; iPos < 8; iPos++) { SetNextLED( LEDS.RowBot[iPos] ); }
-	for (int iPos = 0; iPos < 8; iPos++) { SetNextLED( LEDS.RowMid[iPos] ); }
-	for (int iPos = 0; iPos < 8; iPos++) { SetNextLED( LEDS.RowTop[iPos] ); }
-	for (int iPos = 0; iPos < 2; iPos++) { SetNextLED( LEDS.RowMnu[iPos] ); }
+	for (int iPos = 0; iPos < 26; iPos++) { SetNextLED( LEDS[iPos] ); }
 
 	EndLEDs();
 }
 
 void LEDInit()
 {
-    uint8_t tempIndexColor = giveMeLove();
+    uint8_t tempIndexColor = 0;
 
-	for (int iPos=0; iPos<8; iPos++)	{ LEDS.RowBot[iPos].u8Color = tempIndexColor; LEDS.RowBot[iPos].dIntensity = 1.0; }
-	for (int iPos=0; iPos<8; iPos++)	{ LEDS.RowMid[iPos].u8Color = tempIndexColor; LEDS.RowMid[iPos].dIntensity = 1.0; }
-	for (int iPos=0; iPos<8; iPos++)	{ LEDS.RowTop[iPos].u8Color = tempIndexColor; LEDS.RowTop[iPos].dIntensity = 1.0; }
-	for (int iPos=0; iPos<2; iPos++)	{ LEDS.RowMnu[iPos].u8Color = tempIndexColor; LEDS.RowMnu[iPos].dIntensity = 1.0; }
+	for (int iPos=0; iPos<26; iPos++)	{ LEDS[iPos].u8Color = tempIndexColor; LEDS[iPos].dIntensity = 1.0; }
 
 	//LEDS.RowBot[3].u8Color = 2;
 }
 
-void StepRight(uint8_t step)
+void HighlightLED(uint8_t step, double knobVal)
 {
-    static uint8_t prevColor=0;
-    static uint8_t prevStep=0;
+    static Pixel prevPixel;
+    static uint8_t prevStep=255; // Start value can't be in the reasonable range or the first pixel will be wonky
     static uint8_t first = 1;
 
+    double intensity = knobVal / 64.0;
 
+    // First time you have to
     if (first==1)
     {
         first = 0;
-        // Store current LED
-        prevColor = LEDS.RowBot[step].u8Color;
-        LEDS.RowBot[step].u8Color = 2;
-        prevStep = step;
+        // Store current Pixel
+        prevPixel = LEDS[step];
     }
-    else if (step != prevStep)
+
+
+    if (step != prevStep)
     {
 
-        //if      (step > prevStep) { LEDS.RowBot[step-1].u8Color = prevColor; }
-        //else if (prevStep > step) { LEDS.RowBot[step+1].u8Color = prevColor; }
 
-        LEDS.RowBot[prevStep].u8Color = prevColor;
+        LEDS[prevStep]= prevPixel; // This is using an ugly trick on the structure to surpass it's own bounds.
 
         // Store current LED
-        prevColor = LEDS.RowBot[step].u8Color;
+        prevPixel = LEDS[step];
 
         // New Color
-        LEDS.RowBot[step].u8Color = 2;
+        LEDS[step].u8Color = 2;
+        LEDS[step].dIntensity = intensity;
         prevStep = step;
+    }
+    else
+    {
+         LEDS[step].dIntensity = intensity;
     }
 
 

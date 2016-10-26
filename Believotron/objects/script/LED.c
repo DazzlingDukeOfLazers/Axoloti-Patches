@@ -77,7 +77,7 @@ void SetupLEDs()
 {
 	SPI_CS_ALL_OFF();
 
-	palWritePad(	GPIOC,	5,	1 );	// enable LEDs
+	palWritePad(	GPIOC,	5,	0 );	// enable LEDs
 	//chThdSleepMilliseconds(5);
 
     uint8_t buffer[4];

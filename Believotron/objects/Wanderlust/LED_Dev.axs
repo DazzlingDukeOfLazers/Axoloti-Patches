@@ -55,7 +55,7 @@
    </obj>
    <obj type="lfo/saw r" uuid="6f79e6694e3e4b26c8732e836e54962eaf88dd1a" name="saw_1" x="602" y="364">
       <params>
-         <frac32.s.map name="pitch" value="-20.0"/>
+         <frac32.s.map name="pitch" value="-1.0"/>
       </params>
       <attribs/>
    </obj>
@@ -81,13 +81,13 @@ uint8_t *rxbuf;
 void SPI_CS_ALL_OFF()
 {
 	// Disable Chip Select
-	palWritePad(GPIOC,5,0);	// LED
+	palWritePad(GPIOC,5,1);	// LED
 	palWritePad(GPIOB,7,1);  // Knob, Top Row
 	palWritePad(GPIOA,4,1);	// Knob, Bottom Row
 	
 }
 
-#include "C:\\Users\\danie\\Documents\\WIP\\Believotron\\Believotron-Github\\Axoloti-Patches\\Believotron\\objects\\script\\knobs.c"
+//#include "C:\\Users\\danie\\Documents\\WIP\\Believotron\\Believotron-Github\\Axoloti-Patches\\Believotron\\objects\\script\\knobs.c"
 #include "C:\\Users\\danie\\Documents\\WIP\\Believotron\\Believotron-Github\\Axoloti-Patches\\Believotron\\objects\\script\\led.c"
 
 void setup(void){
@@ -189,7 +189,7 @@ void loop(void){
    </obj>
    <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobTop0" x="546" y="658">
       <params>
-         <frac32.u.map name="value" value="63.75"/>
+         <frac32.u.map name="value" value="17.0"/>
       </params>
       <attribs/>
    </obj>
@@ -199,7 +199,7 @@ void loop(void){
    </obj>
    <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobTop1" x="700" y="658">
       <params>
-         <frac32.u.map name="value" value="63.75"/>
+         <frac32.u.map name="value" value="17.0"/>
       </params>
       <attribs/>
    </obj>
@@ -209,7 +209,7 @@ void loop(void){
    </obj>
    <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobTop2" x="854" y="658">
       <params>
-         <frac32.u.map name="value" value="36.0"/>
+         <frac32.u.map name="value" value="58.75"/>
       </params>
       <attribs/>
    </obj>
@@ -219,7 +219,7 @@ void loop(void){
    </obj>
    <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobTop3" x="1008" y="658">
       <params>
-         <frac32.u.map name="value" value="38.5"/>
+         <frac32.u.map name="value" value="53.25"/>
       </params>
       <attribs/>
    </obj>
@@ -229,7 +229,7 @@ void loop(void){
    </obj>
    <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobTop4" x="1162" y="658">
       <params>
-         <frac32.u.map name="value" value="63.75"/>
+         <frac32.u.map name="value" value="52.0"/>
       </params>
       <attribs/>
    </obj>
@@ -239,7 +239,7 @@ void loop(void){
    </obj>
    <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobTop5" x="1316" y="658">
       <params>
-         <frac32.u.map name="value" value="22.0"/>
+         <frac32.u.map name="value" value="33.75"/>
       </params>
       <attribs/>
    </obj>
@@ -249,7 +249,7 @@ void loop(void){
    </obj>
    <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobTop6" x="1470" y="658">
       <params>
-         <frac32.u.map name="value" value="16.25"/>
+         <frac32.u.map name="value" value="49.0"/>
       </params>
       <attribs/>
    </obj>
@@ -259,7 +259,7 @@ void loop(void){
    </obj>
    <obj type="ctrl/dial p" sha="501c30e07dedf3d701e8d0b33c3c234908c3388e" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="knobTop7" x="1624" y="658">
       <params>
-         <frac32.u.map name="value" value="0.0"/>
+         <frac32.u.map name="value" value="28.25"/>
       </params>
       <attribs/>
    </obj>

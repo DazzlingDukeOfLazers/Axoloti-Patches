@@ -1,101 +1,5 @@
 <patch-1.0 appVersion="1.0.10">
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_0" x="672" y="420">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_1" x="756" y="420">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_1" x="672" y="476">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_2" x="756" y="476">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_2" x="672" y="532">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_3" x="756" y="532">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_3" x="672" y="588">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_4" x="756" y="588">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_4" x="672" y="644">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_5" x="756" y="644">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_5" x="672" y="700">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_6" x="756" y="700">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_6" x="672" y="756">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_7" x="756" y="756">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_7" x="672" y="812">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_8" x="756" y="812">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_8" x="672" y="868">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_9" x="756" y="868">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_9" x="672" y="924">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_10" x="756" y="924">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_10" x="672" y="980">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_11" x="756" y="980">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_11" x="672" y="1036">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_12" x="756" y="1036">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="gpio/spi/config" sha="62af644b09e7f654b36d66533da8ea5971ddb351" uuid="d3e75d8a02e2ccabbbc2af3bc2fcdb8ea65a6133" name="config_1" x="112" y="1078">
+   <obj type="gpio/spi/config" sha="62af644b09e7f654b36d66533da8ea5971ddb351" uuid="d3e75d8a02e2ccabbbc2af3bc2fcdb8ea65a6133" name="config_1" x="742" y="238">
       <params/>
       <attribs>
          <combo attributeName="clock_polarity" selection="CPOL=0"/>
@@ -104,19 +8,19 @@
          <combo attributeName="format" selection="LSB first"/>
       </attribs>
    </obj>
-   <obj type="gpio/i2c/config" sha="1ea9db31ce7ec2874d2a8315213c733a6b3c2dcf" uuid="b095a33e56de5fcd23740a7d983bc0bafb315d81" name="i2c.begin_1" x="126" y="1190">
+   <obj type="gpio/i2c/config" sha="1ea9db31ce7ec2874d2a8315213c733a6b3c2dcf" uuid="b095a33e56de5fcd23740a7d983bc0bafb315d81" name="i2c.begin_1" x="756" y="350">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/hex" uuid="3ce415f2f0e09f5b3cf10e5d355274847fd063b2" name="hex_1" x="252" y="1190">
+   <obj type="disp/hex" uuid="3ce415f2f0e09f5b3cf10e5d355274847fd063b2" name="hex_1" x="882" y="350">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_3" x="350" y="1204">
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_3" x="980" y="364">
       <params/>
       <attribs/>
    </obj>
-   <obj type="script/Keyboard" uuid="ec1ac6c0-f9d8-4116-82b0-711e0023a830" name="Keyboard_1" x="112" y="1218">
+   <obj type="script/WanderlustController" uuid="ad20e4d9-a33e-4fc8-9b21-f9bed5e2b12f" name="WanderlustController_1" x="714" y="392">
       <params/>
       <attribs>
          <text attributeName="script">
@@ -295,542 +199,638 @@ void loop(void)
          </text>
       </attribs>
    </obj>
-   <obj type="disp/hex" uuid="3ce415f2f0e09f5b3cf10e5d355274847fd063b2" name="hex_2" x="252" y="1260">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_0" x="1260" y="406">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_1" x="448" y="1344">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_1" x="1344" y="406">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="ski_down" x="672" y="1358">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="ski_down" x="1456" y="406">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_13" x="756" y="1358">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_13" x="1540" y="406">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="ski_cross" x="672" y="1414">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="parasailing" x="1652" y="406">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_14" x="756" y="1414">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_25" x="1736" y="406">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="skating" x="672" y="1470">
+   <obj type="disp/hex" uuid="3ce415f2f0e09f5b3cf10e5d355274847fd063b2" name="hex_2" x="882" y="420">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_15" x="756" y="1470">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_1" x="1260" y="462">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="tram" x="672" y="1526">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_2" x="1344" y="462">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_16" x="756" y="1526">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="ski_cross" x="1456" y="462">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="sledding" x="672" y="1582">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_14" x="1540" y="462">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_17" x="756" y="1582">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="diving" x="1652" y="462">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="snowmowbiling" x="672" y="1638">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_26" x="1736" y="462">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_18" x="756" y="1638">
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_1" x="1078" y="504">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="hiking" x="672" y="1694">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_2" x="1260" y="518">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_19" x="756" y="1694">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_3" x="1344" y="518">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_2" x="476" y="1708">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="skating" x="1456" y="518">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="horsebackriding" x="672" y="1750">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_15" x="1540" y="518">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_20" x="756" y="1750">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="canoing" x="1652" y="518">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="camper" x="672" y="1806">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_27" x="1736" y="518">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_21" x="756" y="1806">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_3" x="1260" y="574">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="trash" x="672" y="1862">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_4" x="1344" y="574">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_22" x="756" y="1862">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="tram" x="1456" y="574">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="picnic" x="672" y="1918">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_16" x="1540" y="574">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_23" x="756" y="1918">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="swimming" x="1652" y="574">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="campfire" x="672" y="1974">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_28" x="1736" y="574">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_24" x="756" y="1974">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_4" x="1260" y="630">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="parasailing" x="672" y="2072">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_5" x="1344" y="630">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_25" x="756" y="2072">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="sledding" x="1456" y="630">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="diving" x="672" y="2128">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_17" x="1540" y="630">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_26" x="756" y="2128">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="sailing" x="1652" y="630">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="canoing" x="672" y="2184">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_29" x="1736" y="630">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_27" x="756" y="2184">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_5" x="1260" y="686">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="swimming" x="672" y="2240">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_6" x="1344" y="686">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_28" x="756" y="2240">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="snowmowbiling" x="1456" y="686">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="sailing" x="672" y="2296">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_18" x="1540" y="686">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_29" x="756" y="2296">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="fishing" x="1652" y="686">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="fishing" x="672" y="2352">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_30" x="1736" y="686">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_30" x="756" y="2352">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_6" x="1260" y="742">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="anchor" x="672" y="2408">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_7" x="1344" y="742">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_31" x="756" y="2408">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="hiking" x="1456" y="742">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="showers" x="672" y="2464">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_19" x="1540" y="742">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_32" x="756" y="2464">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="anchor" x="1652" y="742">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="bicycle" x="672" y="2520">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_31" x="1736" y="742">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_33" x="756" y="2520">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_7" x="1260" y="798">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="motorcycle" x="672" y="2576">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_8" x="1344" y="798">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_34" x="756" y="2576">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="horsebackriding" x="1456" y="798">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_34" x="672" y="2632">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_20" x="1540" y="798">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_35" x="756" y="2632">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="showers" x="1652" y="798">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_35" x="672" y="2688">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_32" x="1736" y="798">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_36" x="756" y="2688">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_8" x="1260" y="854">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_bot_0" x="714" y="2786">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_9" x="1344" y="854">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_4" x="896" y="2786">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="camper" x="1456" y="854">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_bot_1" x="714" y="2828">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_21" x="1540" y="854">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_bot_2" x="714" y="2870">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="bicycle" x="1652" y="854">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_bot_3" x="714" y="2912">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_33" x="1736" y="854">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_bot_4" x="714" y="2954">
+   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_2" x="1106" y="910">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_bot_5" x="714" y="2996">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_9" x="1260" y="910">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_bot_6" x="714" y="3038">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_10" x="1344" y="910">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_bot_7" x="714" y="3080">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="trash" x="1456" y="910">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_5" x="882" y="3122">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_22" x="1540" y="910">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_top_0" x="714" y="3136">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="motorcycle" x="1652" y="910">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_top_1" x="714" y="3178">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_34" x="1736" y="910">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_top_2" x="714" y="3220">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_10" x="1260" y="966">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_top_3" x="714" y="3262">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_11" x="1344" y="966">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_top_4" x="714" y="3304">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="picnic" x="1456" y="966">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_top_5" x="714" y="3346">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_23" x="1540" y="966">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_top_6" x="714" y="3388">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_34" x="1652" y="966">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_top_7" x="714" y="3430">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_35" x="1736" y="966">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_11" x="1260" y="1022">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_12" x="1344" y="1022">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="campfire" x="1456" y="1022">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_24" x="1540" y="1022">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="kb_35" x="1652" y="1022">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_36" x="1736" y="1022">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_5" x="1764" y="1148">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_bot_0" x="1274" y="1162">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_4" x="1456" y="1162">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_top_0" x="1596" y="1162">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_bot_1" x="1274" y="1204">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_top_1" x="1596" y="1204">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_bot_2" x="1274" y="1246">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_top_2" x="1596" y="1246">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_bot_3" x="1274" y="1288">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_top_3" x="1596" y="1288">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_bot_4" x="1274" y="1330">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_top_4" x="1596" y="1330">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_bot_5" x="1274" y="1372">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_top_5" x="1596" y="1372">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_bot_6" x="1274" y="1414">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_top_6" x="1596" y="1414">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_bot_7" x="1274" y="1456">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_top_7" x="1596" y="1456">
       <params/>
       <attribs/>
    </obj>
    <nets>
       <net>
-         <source obj="Keyboard_1" outlet="out2_"/>
+         <source obj="WanderlustController_1" outlet="out2_"/>
          <dest obj="hex_1" inlet="in"/>
       </net>
       <net>
-         <source obj="Keyboard_1" outlet="kb0_"/>
+         <source obj="WanderlustController_1" outlet="kb0_"/>
          <dest obj="bool_1" inlet="in"/>
          <dest obj="kb_0" inlet="outlet"/>
       </net>
       <net>
-         <source obj="Keyboard_1" outlet="kb1_"/>
+         <source obj="WanderlustController_1" outlet="kb1_"/>
          <dest obj="bool_2" inlet="in"/>
          <dest obj="kb_1" inlet="outlet"/>
       </net>
       <net>
-         <source obj="Keyboard_1" outlet="kb2_"/>
+         <source obj="WanderlustController_1" outlet="kb2_"/>
          <dest obj="bool_3" inlet="in"/>
          <dest obj="kb_2" inlet="outlet"/>
       </net>
       <net>
-         <source obj="Keyboard_1" outlet="kb3_"/>
+         <source obj="WanderlustController_1" outlet="kb3_"/>
          <dest obj="bool_4" inlet="in"/>
          <dest obj="kb_3" inlet="outlet"/>
       </net>
       <net>
-         <source obj="Keyboard_1" outlet="kb4_"/>
+         <source obj="WanderlustController_1" outlet="kb4_"/>
          <dest obj="bool_5" inlet="in"/>
          <dest obj="kb_4" inlet="outlet"/>
       </net>
       <net>
-         <source obj="Keyboard_1" outlet="kb5_"/>
+         <source obj="WanderlustController_1" outlet="kb5_"/>
          <dest obj="bool_6" inlet="in"/>
          <dest obj="kb_5" inlet="outlet"/>
       </net>
       <net>
-         <source obj="Keyboard_1" outlet="kb6_"/>
+         <source obj="WanderlustController_1" outlet="kb6_"/>
          <dest obj="bool_7" inlet="in"/>
          <dest obj="kb_6" inlet="outlet"/>
       </net>
       <net>
-         <source obj="Keyboard_1" outlet="kb7_"/>
+         <source obj="WanderlustController_1" outlet="kb7_"/>
          <dest obj="bool_8" inlet="in"/>
          <dest obj="kb_7" inlet="outlet"/>
       </net>
       <net>
-         <source obj="Keyboard_1" outlet="kb8_"/>
+         <source obj="WanderlustController_1" outlet="kb8_"/>
          <dest obj="bool_9" inlet="in"/>
          <dest obj="kb_8" inlet="outlet"/>
       </net>
       <net>
-         <source obj="Keyboard_1" outlet="kb9_"/>
+         <source obj="WanderlustController_1" outlet="kb9_"/>
          <dest obj="bool_10" inlet="in"/>
          <dest obj="kb_9" inlet="outlet"/>
       </net>
       <net>
-         <source obj="Keyboard_1" outlet="kb10_"/>
+         <source obj="WanderlustController_1" outlet="kb10_"/>
          <dest obj="bool_11" inlet="in"/>
          <dest obj="kb_10" inlet="outlet"/>
       </net>
       <net>
-         <source obj="Keyboard_1" outlet="kb11_"/>
+         <source obj="WanderlustController_1" outlet="kb11_"/>
          <dest obj="bool_12" inlet="in"/>
          <dest obj="kb_11" inlet="outlet"/>
       </net>
       <net>
-         <source obj="Keyboard_1" outlet="pc00_"/>
-         <dest obj="bool_13" inlet="in"/>
-         <dest obj="ski_down" inlet="outlet"/>
-      </net>
-      <net>
-         <source obj="Keyboard_1" outlet="pc01_"/>
+         <source obj="WanderlustController_1" outlet="pc01_"/>
          <dest obj="bool_14" inlet="in"/>
          <dest obj="ski_cross" inlet="outlet"/>
       </net>
       <net>
-         <source obj="Keyboard_1" outlet="pc02_"/>
+         <source obj="WanderlustController_1" outlet="pc02_"/>
          <dest obj="bool_15" inlet="in"/>
          <dest obj="skating" inlet="outlet"/>
       </net>
       <net>
-         <source obj="Keyboard_1" outlet="pc03_"/>
+         <source obj="WanderlustController_1" outlet="pc03_"/>
          <dest obj="bool_16" inlet="in"/>
          <dest obj="tram" inlet="outlet"/>
       </net>
       <net>
-         <source obj="Keyboard_1" outlet="pc04_"/>
+         <source obj="WanderlustController_1" outlet="pc04_"/>
          <dest obj="bool_17" inlet="in"/>
          <dest obj="sledding" inlet="outlet"/>
       </net>
       <net>
-         <source obj="Keyboard_1" outlet="pc05_"/>
+         <source obj="WanderlustController_1" outlet="pc05_"/>
          <dest obj="bool_18" inlet="in"/>
          <dest obj="snowmowbiling" inlet="outlet"/>
       </net>
       <net>
-         <source obj="Keyboard_1" outlet="pc06_"/>
+         <source obj="WanderlustController_1" outlet="pc06_"/>
          <dest obj="bool_19" inlet="in"/>
          <dest obj="hiking" inlet="outlet"/>
       </net>
       <net>
-         <source obj="Keyboard_1" outlet="pc07_"/>
+         <source obj="WanderlustController_1" outlet="pc07_"/>
          <dest obj="bool_20" inlet="in"/>
          <dest obj="horsebackriding" inlet="outlet"/>
       </net>
       <net>
-         <source obj="Keyboard_1" outlet="pc08_"/>
+         <source obj="WanderlustController_1" outlet="pc08_"/>
          <dest obj="bool_21" inlet="in"/>
          <dest obj="camper" inlet="outlet"/>
       </net>
       <net>
-         <source obj="Keyboard_1" outlet="pc09_"/>
+         <source obj="WanderlustController_1" outlet="pc09_"/>
          <dest obj="bool_22" inlet="in"/>
          <dest obj="trash" inlet="outlet"/>
       </net>
       <net>
-         <source obj="Keyboard_1" outlet="pc0A_"/>
+         <source obj="WanderlustController_1" outlet="pc0A_"/>
          <dest obj="bool_23" inlet="in"/>
          <dest obj="picnic" inlet="outlet"/>
       </net>
       <net>
-         <source obj="Keyboard_1" outlet="pc0B_"/>
+         <source obj="WanderlustController_1" outlet="pc0B_"/>
          <dest obj="bool_24" inlet="in"/>
          <dest obj="campfire" inlet="outlet"/>
       </net>
       <net>
-         <source obj="Keyboard_1" outlet="out3_"/>
+         <source obj="WanderlustController_1" outlet="out3_"/>
          <dest obj="hex_2" inlet="in"/>
       </net>
       <net>
-         <source obj="Keyboard_1" outlet="pc10_"/>
+         <source obj="WanderlustController_1" outlet="pc10_"/>
          <dest obj="bool_25" inlet="in"/>
          <dest obj="parasailing" inlet="outlet"/>
       </net>
       <net>
-         <source obj="Keyboard_1" outlet="pc11_"/>
+         <source obj="WanderlustController_1" outlet="pc11_"/>
          <dest obj="bool_26" inlet="in"/>
          <dest obj="diving" inlet="outlet"/>
       </net>
       <net>
-         <source obj="Keyboard_1" outlet="pc12_"/>
+         <source obj="WanderlustController_1" outlet="pc12_"/>
          <dest obj="bool_27" inlet="in"/>
          <dest obj="canoing" inlet="outlet"/>
       </net>
       <net>
-         <source obj="Keyboard_1" outlet="pc13_"/>
+         <source obj="WanderlustController_1" outlet="pc13_"/>
          <dest obj="bool_28" inlet="in"/>
          <dest obj="swimming" inlet="outlet"/>
       </net>
       <net>
-         <source obj="Keyboard_1" outlet="pc14_"/>
+         <source obj="WanderlustController_1" outlet="pc14_"/>
          <dest obj="bool_29" inlet="in"/>
          <dest obj="sailing" inlet="outlet"/>
       </net>
       <net>
-         <source obj="Keyboard_1" outlet="pc15_"/>
+         <source obj="WanderlustController_1" outlet="pc15_"/>
          <dest obj="bool_30" inlet="in"/>
          <dest obj="fishing" inlet="outlet"/>
       </net>
       <net>
-         <source obj="Keyboard_1" outlet="pc16_"/>
+         <source obj="WanderlustController_1" outlet="pc16_"/>
          <dest obj="bool_31" inlet="in"/>
          <dest obj="anchor" inlet="outlet"/>
       </net>
       <net>
-         <source obj="Keyboard_1" outlet="pc17_"/>
+         <source obj="WanderlustController_1" outlet="pc17_"/>
          <dest obj="bool_32" inlet="in"/>
          <dest obj="showers" inlet="outlet"/>
       </net>
       <net>
-         <source obj="Keyboard_1" outlet="pc18_"/>
+         <source obj="WanderlustController_1" outlet="pc18_"/>
          <dest obj="bool_33" inlet="in"/>
          <dest obj="bicycle" inlet="outlet"/>
       </net>
       <net>
-         <source obj="Keyboard_1" outlet="pc19_"/>
+         <source obj="WanderlustController_1" outlet="pc19_"/>
          <dest obj="bool_34" inlet="in"/>
          <dest obj="motorcycle" inlet="outlet"/>
       </net>
       <net>
-         <source obj="Keyboard_1" outlet="pc1A_"/>
+         <source obj="WanderlustController_1" outlet="pc1A_"/>
          <dest obj="bool_35" inlet="in"/>
          <dest obj="kb_34" inlet="outlet"/>
       </net>
       <net>
-         <source obj="Keyboard_1" outlet="pc1B_"/>
+         <source obj="WanderlustController_1" outlet="pc1B_"/>
          <dest obj="bool_36" inlet="in"/>
          <dest obj="kb_35" inlet="outlet"/>
       </net>
       <net>
-         <source obj="Keyboard_1" outlet="knbB0_"/>
+         <source obj="WanderlustController_1" outlet="knbB0_"/>
          <dest obj="dial_1" inlet="in"/>
          <dest obj="knob_bot_0" inlet="outlet"/>
          <dest obj="dial_4" inlet="in"/>
       </net>
       <net>
-         <source obj="Keyboard_1" outlet="out1_"/>
+         <source obj="WanderlustController_1" outlet="out1_"/>
          <dest obj="dial_3" inlet="in"/>
       </net>
       <net>
-         <source obj="Keyboard_1" outlet="knbB1_"/>
+         <source obj="WanderlustController_1" outlet="knbB1_"/>
          <dest obj="knob_bot_1" inlet="outlet"/>
       </net>
       <net>
-         <source obj="Keyboard_1" outlet="knbB2_"/>
+         <source obj="WanderlustController_1" outlet="knbB2_"/>
          <dest obj="knob_bot_2" inlet="outlet"/>
       </net>
       <net>
-         <source obj="Keyboard_1" outlet="knbB3_"/>
+         <source obj="WanderlustController_1" outlet="knbB3_"/>
          <dest obj="knob_bot_3" inlet="outlet"/>
       </net>
       <net>
-         <source obj="Keyboard_1" outlet="knbB4_"/>
+         <source obj="WanderlustController_1" outlet="knbB4_"/>
          <dest obj="knob_bot_4" inlet="outlet"/>
       </net>
       <net>
-         <source obj="Keyboard_1" outlet="knbB5_"/>
+         <source obj="WanderlustController_1" outlet="knbB5_"/>
          <dest obj="knob_bot_5" inlet="outlet"/>
       </net>
       <net>
-         <source obj="Keyboard_1" outlet="knbB6_"/>
+         <source obj="WanderlustController_1" outlet="knbB6_"/>
          <dest obj="knob_bot_6" inlet="outlet"/>
       </net>
       <net>
-         <source obj="Keyboard_1" outlet="knbB7_"/>
+         <source obj="WanderlustController_1" outlet="knbB7_"/>
          <dest obj="knob_bot_7" inlet="outlet"/>
       </net>
       <net>
-         <source obj="Keyboard_1" outlet="knbT0_"/>
+         <source obj="WanderlustController_1" outlet="knbT0_"/>
          <dest obj="knob_top_0" inlet="outlet"/>
          <dest obj="dial_2" inlet="in"/>
          <dest obj="dial_5" inlet="in"/>
       </net>
       <net>
-         <source obj="Keyboard_1" outlet="knbT1_"/>
+         <source obj="WanderlustController_1" outlet="knbT1_"/>
          <dest obj="knob_top_1" inlet="outlet"/>
       </net>
       <net>
-         <source obj="Keyboard_1" outlet="knbT2_"/>
+         <source obj="WanderlustController_1" outlet="knbT2_"/>
          <dest obj="knob_top_2" inlet="outlet"/>
       </net>
       <net>
-         <source obj="Keyboard_1" outlet="knbT3_"/>
+         <source obj="WanderlustController_1" outlet="knbT3_"/>
          <dest obj="knob_top_3" inlet="outlet"/>
       </net>
       <net>
-         <source obj="Keyboard_1" outlet="knbT4_"/>
+         <source obj="WanderlustController_1" outlet="knbT4_"/>
          <dest obj="knob_top_4" inlet="outlet"/>
       </net>
       <net>
-         <source obj="Keyboard_1" outlet="knbT5_"/>
+         <source obj="WanderlustController_1" outlet="knbT5_"/>
          <dest obj="knob_top_5" inlet="outlet"/>
       </net>
       <net>
-         <source obj="Keyboard_1" outlet="knbT6_"/>
+         <source obj="WanderlustController_1" outlet="knbT6_"/>
          <dest obj="knob_top_6" inlet="outlet"/>
       </net>
       <net>
-         <source obj="Keyboard_1" outlet="knbT7_"/>
+         <source obj="WanderlustController_1" outlet="knbT7_"/>
          <dest obj="knob_top_7" inlet="outlet"/>
+      </net>
+      <net>
+         <source obj="WanderlustController_1" outlet="pc00_"/>
+         <dest obj="ski_down" inlet="outlet"/>
+         <dest obj="bool_13" inlet="in"/>
       </net>
    </nets>
    <settings>
@@ -838,8 +838,8 @@ void loop(void)
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>-2079</x>
-      <y>71</y>
+      <x>-1994</x>
+      <y>-84</y>
       <width>1860</width>
       <height>1331</height>
    </windowPos>

@@ -1,0 +1,163 @@
+<objdefs appVersion="1.0.10">
+   <obj.normal id="WanderlustController" uuid="ad20e4d9-a33e-4fc8-9b21-f9bed5e2b12f">
+      <sDescription>script with 2 inputs and 2 outputs, running in a separate thread, you must define &quot;void setup(void){}&quot; and &quot;void loop(void)&quot;</sDescription>
+      <author>Dazzling Duke of Lazers</author>
+      <license>MIT</license>
+      <helpPatch>script.axh</helpPatch>
+      <inlets>
+         <frac32 name="stepIntensity_" description="LED Intensity"/>
+         <frac32 name="in2_" description="in2"/>
+         <int32 name="stepNum_" description="Step Number"/>
+      </inlets>
+      <outlets>
+         <frac32 name="out1_" description="out1"/>
+         <int32.positive name="out2_" description="out2"/>
+         <int32.positive name="out3_" description="out3"/>
+         <bool32 name="kb0_" description="kb0"/>
+         <bool32 name="kb1_" description="kb1"/>
+         <bool32 name="kb2_" description="kb2"/>
+         <bool32 name="kb3_" description="kb3"/>
+         <bool32 name="kb4_" description="kb4"/>
+         <bool32 name="kb5_" description="kb5"/>
+         <bool32 name="kb6_" description="kb6"/>
+         <bool32 name="kb7_" description="kb7"/>
+         <bool32 name="kb8_" description="kb8"/>
+         <bool32 name="kb9_" description="kb9"/>
+         <bool32 name="kb10_" description="kb10"/>
+         <bool32 name="kb11_" description="kb11"/>
+         <bool32 name="pc00_" description="pc00"/>
+         <bool32 name="pc01_" description="pc01"/>
+         <bool32 name="pc02_" description="pc02"/>
+         <bool32 name="pc03_" description="pc03"/>
+         <bool32 name="pc04_" description="pc04"/>
+         <bool32 name="pc05_" description="pc05"/>
+         <bool32 name="pc06_" description="pc06"/>
+         <bool32 name="pc07_" description="pc07"/>
+         <bool32 name="pc08_" description="pc08"/>
+         <bool32 name="pc09_" description="pc09"/>
+         <bool32 name="pc0A_" description="pc0A"/>
+         <bool32 name="pc0B_" description="pc0B"/>
+         <bool32 name="pc10_" description="pc10"/>
+         <bool32 name="pc11_" description="pc11"/>
+         <bool32 name="pc12_" description="pc12"/>
+         <bool32 name="pc13_" description="pc13"/>
+         <bool32 name="pc14_" description="pc14"/>
+         <bool32 name="pc15_" description="pc15"/>
+         <bool32 name="pc16_" description="pc16"/>
+         <bool32 name="pc17_" description="pc17"/>
+         <bool32 name="pc18_" description="pc18"/>
+         <bool32 name="pc19_" description="pc19"/>
+         <bool32 name="pc1A_" description="pc1A"/>
+         <bool32 name="pc1B_" description="pc1B"/>
+         <frac32 name="knbB0_" description="knbB0"/>
+         <frac32 name="knbB1_" description="knbB1"/>
+         <frac32 name="knbB2_" description="knbB2"/>
+         <frac32 name="knbB3_" description="knbB3"/>
+         <frac32 name="knbB4_" description="knbB4"/>
+         <frac32 name="knbB5_" description="knbB5"/>
+         <frac32 name="knbB6_" description="knbB6"/>
+         <frac32 name="knbB7_" description="knbB7"/>
+         <frac32 name="knbT0_" description="knbT0"/>
+         <frac32 name="knbT1_" description="knbT1"/>
+         <frac32 name="knbT2_" description="knbT2"/>
+         <frac32 name="knbT3_" description="knbT3"/>
+         <frac32 name="knbT4_" description="knbT4"/>
+         <frac32 name="knbT5_" description="knbT5"/>
+         <frac32 name="knbT6_" description="knbT6"/>
+         <frac32 name="knbT7_" description="knbT7"/>
+      </outlets>
+      <displays/>
+      <params/>
+      <attribs>
+         <text name="script"/>
+      </attribs>
+      <code.declaration><![CDATA[int32_t stepNum;
+int32_t stepIntensity,in2;
+int32_t out1,out2,out3;
+int32_t kb0,kb1,kb2,kb3,kb4,kb5,kb6,kb7,kb8,kb9,kb10,kb11;
+int32_t pc00,pc01,pc02,pc03,pc04,pc05,pc06,pc07,pc08,pc09,pc0A,pc0B;
+int32_t pc10,pc11,pc12,pc13,pc14,pc15,pc16,pc17,pc18,pc19,pc1A,pc1B;
+int32_t knbB0,knbB1,knbB2,knbB3,knbB4,knbB5,knbB6,knbB7;
+int32_t knbT0,knbT1,knbT2,knbT3,knbT4,knbT5,knbT6,knbT7;
+attr_script
+msg_t ThreadX2(){
+  setup();
+  while(!chThdShouldTerminate()){
+     loop();
+     chThdSleepMilliseconds(1);
+  }
+  chThdExit((msg_t)0);
+}
+static msg_t ThreadX(void *arg) {
+((attr_parent *)arg)->ThreadX2();
+}
+WORKING_AREA(waThreadX, 1024);
+Thread *Thd;
+]]></code.declaration>
+      <code.init><![CDATA[stepNum=0;stepIntensity=0;in2=0;out1=0;out2=0;out3=0;kb0=0;kb1=0;kb2=0;kb3=0;kb4=0;kb5=0;kb6=0;kb7=0;kb8=0;kb9=0;kb10=0;kb11=0;pc00=0;pc01=0;pc02=0;pc03=0;pc04=0;pc05=0;pc06=0;pc07=0;pc08=0;pc09=0;pc0A=0;pc0B=0;pc10=0;pc11=0;pc12=0;pc13=0;pc14=0;pc15=0;pc16=0;pc17=0;pc18=0;pc19=0;pc1A=0;pc1B=0;knbB0=0;knbB1=0;knbB2=0;knbB3=0;knbB4=0;knbB5=0;knbB6=0;knbB7=0;knbT0=0;knbT1=0;knbT2=0;knbT3=0;knbT4=0;knbT5=0;knbT6=0;knbT7=0;
+  Thd = chThdCreateStatic(waThreadX, sizeof(waThreadX),
+                    NORMALPRIO, ThreadX, (void *)this);
+]]></code.init>
+      <code.dispose><![CDATA[chThdTerminate(Thd);
+chThdWait(Thd);
+]]></code.dispose>
+      <code.krate><![CDATA[outlet_out1__ = this->out1;
+outlet_out2__ = this->out2;
+outlet_out3__ = this->out3;
+outlet_kb0__ = this->kb0;
+outlet_kb1__ = this->kb1;
+outlet_kb2__ = this->kb2;
+outlet_kb3__ = this->kb3;
+outlet_kb4__ = this->kb4;
+outlet_kb5__ = this->kb5;
+outlet_kb6__ = this->kb6;
+outlet_kb7__ = this->kb7;
+outlet_kb8__ = this->kb8;
+outlet_kb9__ = this->kb9;
+outlet_kb10__ = this->kb10;
+outlet_kb11__ = this->kb11;
+outlet_pc00__ = this->pc00;
+outlet_pc01__ = this->pc01;
+outlet_pc02__ = this->pc02;
+outlet_pc03__ = this->pc03;
+outlet_pc04__ = this->pc04;
+outlet_pc05__ = this->pc05;
+outlet_pc06__ = this->pc06;
+outlet_pc07__ = this->pc07;
+outlet_pc08__ = this->pc08;
+outlet_pc09__ = this->pc09;
+outlet_pc0A__ = this->pc0A;
+outlet_pc0B__ = this->pc0B;
+outlet_pc10__ = this->pc10;
+outlet_pc11__ = this->pc11;
+outlet_pc12__ = this->pc12;
+outlet_pc13__ = this->pc13;
+outlet_pc14__ = this->pc14;
+outlet_pc15__ = this->pc15;
+outlet_pc16__ = this->pc16;
+outlet_pc17__ = this->pc17;
+outlet_pc18__ = this->pc18;
+outlet_pc19__ = this->pc19;
+outlet_pc1A__ = this->pc1A;
+outlet_pc1B__ = this->pc1B;
+outlet_knbB0__ = this->knbB0;
+outlet_knbB1__ = this->knbB1;
+outlet_knbB2__ = this->knbB2;
+outlet_knbB3__ = this->knbB3;
+outlet_knbB4__ = this->knbB4;
+outlet_knbB5__ = this->knbB5;
+outlet_knbB6__ = this->knbB6;
+outlet_knbB7__ = this->knbB7;
+outlet_knbT0__ = this->knbT0;
+outlet_knbT1__ = this->knbT1;
+outlet_knbT2__ = this->knbT2;
+outlet_knbT3__ = this->knbT3;
+outlet_knbT4__ = this->knbT4;
+outlet_knbT5__ = this->knbT5;
+outlet_knbT6__ = this->knbT6;
+outlet_knbT7__ = this->knbT7;
+this->stepNum       = inlet_stepNum__;
+this->stepIntensity = inlet_stepIntensity__;
+this->in2           = inlet_in2__;]]></code.krate>
+   </obj.normal>
+</objdefs>

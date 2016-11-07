@@ -171,7 +171,8 @@ void servicePadCaps()
 	ui32CapTouched = PadcapTouched(WANDERLUST_PADCAP_LOWER);
 	{
 		out3 = ui32CapTouched;
-		pc00 = 0x080 & ( ui32CapTouched );
+		//ski_down = 0x080 & ( ui32CapTouched );
+		pc00 = 0x080 & ( ui32CapTouched );		
 		pc01 = 0x040 & ( ui32CapTouched );
 		pc02 = 0x020 & ( ui32CapTouched );
 		pc03 = 0x010 & ( ui32CapTouched );

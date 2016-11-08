@@ -82,9 +82,9 @@
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>-1722</x>
-      <y>346</y>
-      <width>740</width>
-      <height>584</height>
+      <x>-1735</x>
+      <y>233</y>
+      <width>1258</width>
+      <height>934</height>
    </windowPos>
 </patch-1.0>

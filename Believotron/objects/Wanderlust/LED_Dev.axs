@@ -22,6 +22,13 @@
          <combo attributeName="device" selection="omni"/>
       </attribs>
    </obj>
+   <obj type="Wanderlust/stepLFO" uuid="2711aa2c-4058-41c4-8bec-a9474cee6628" name="obj_2" x="952" y="126">
+      <params>
+         <frac32.s.map name="saw_1" value="-9.0"/>
+         <int32 name="counter2_1" value="16"/>
+      </params>
+      <attribs/>
+   </obj>
    <obj type="ctrl/dial p" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="dial_3" x="630" y="182">
       <params>
          <frac32.u.map name="value" value="32.0"/>
@@ -129,7 +136,7 @@ void loop(void){
          </text>
       </attribs>
    </obj>
-   <obj type="math/&lt;" uuid="e1b31418165304d34c713638837722589dcacb6" name="&lt;_2" x="1078" y="378">
+   <obj type="math/&lt;" uuid="e1b31418165304d34c713638837722589dcacb6" name="&lt;_1" x="1078" y="378">
       <params/>
       <attribs/>
    </obj>
@@ -446,12 +453,11 @@ void loop(void){
       <net>
          <source obj="to_1" outlet="o"/>
          <dest obj="i_3" inlet="in"/>
+         <dest obj="&lt;_1" inlet="in1"/>
          <dest obj="&gt;_1" inlet="in1"/>
-         <dest obj="&lt;_2" inlet="in1"/>
       </net>
       <net>
          <source obj="counter2_1" outlet="o"/>
-         <dest obj="Knobs_and_LEDs_1" inlet="step_"/>
          <dest obj="i_4" inlet="in"/>
       </net>
       <net>
@@ -460,17 +466,24 @@ void loop(void){
       </net>
       <net>
          <source obj="i_6" outlet="out"/>
-         <dest obj="&lt;_2" inlet="in2"/>
+         <dest obj="&lt;_1" inlet="in2"/>
       </net>
       <net>
-         <source obj="&lt;_2" outlet="out"/>
+         <source obj="&lt;_1" outlet="out"/>
          <dest obj="counter2_1" inlet="inc"/>
       </net>
       <net>
          <source obj="saw_1" outlet="wave"/>
-         <dest obj="div_1" inlet="in"/>
          <dest obj="dial_4" inlet="in"/>
+         <dest obj="div_1" inlet="in"/>
+      </net>
+      <net>
+         <source obj="obj_2" outlet="intensity"/>
          <dest obj="Knobs_and_LEDs_1" inlet="in1_"/>
+      </net>
+      <net>
+         <source obj="obj_2" outlet="step"/>
+         <dest obj="Knobs_and_LEDs_1" inlet="step_"/>
       </net>
    </nets>
    <settings>
@@ -478,8 +491,8 @@ void loop(void){
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>-2091</x>
-      <y>20</y>
+      <x>-2039</x>
+      <y>274</y>
       <width>1839</width>
       <height>1036</height>
    </windowPos>

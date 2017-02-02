@@ -2,7 +2,7 @@
 // This totally has to be refactored
 uint8_t knobVal[2][8];
 
-#define STRAND_LENGTH 26
+#define STRAND_LENGTH 32
 
 // These are going to be copied to the struct below
 #define C_BLACK                  0x00, 0x00, 0x00
@@ -55,7 +55,7 @@ struct Pixel{
 };
 
 
-Pixel LEDS[26];
+Pixel LEDS[STRAND_LENGTH];
 
 uint8_t reverse8( uint8_t straight )
 {
@@ -134,7 +134,7 @@ void UpdateStrip()
 {
 	SetupLEDs();
 
-	for (int iPos = 0; iPos < 26; iPos++) { SetNextLED( LEDS[iPos] ); }
+	for (int iPos = 0; iPos < STRAND_LENGTH; iPos++) { SetNextLED( LEDS[iPos] ); }
 
 	EndLEDs();
 }
@@ -143,7 +143,7 @@ void LEDInit()
 {
     uint8_t tempIndexColor = 0;
 
-	for (int iPos=0; iPos<26; iPos++)	{ LEDS[iPos].u8Color = tempIndexColor; LEDS[iPos].dIntensity = 1.0; }
+	for (int iPos=0; iPos<STRAND_LENGTH; iPos++)	{ LEDS[iPos].u8Color = tempIndexColor; LEDS[iPos].dIntensity = 1.0; }
 
 	//LEDS.RowBot[3].u8Color = 2;
 }

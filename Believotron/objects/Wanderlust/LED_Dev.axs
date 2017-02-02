@@ -24,14 +24,14 @@
    </obj>
    <obj type="Wanderlust/stepLFO" uuid="2711aa2c-4058-41c4-8bec-a9474cee6628" name="obj_2" x="952" y="126">
       <params>
-         <frac32.s.map name="saw_1" value="-9.0"/>
+         <frac32.s.map name="saw_1" value="-28.0"/>
          <int32 name="counter2_1" value="16"/>
       </params>
       <attribs/>
    </obj>
    <obj type="ctrl/dial p" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="dial_3" x="630" y="182">
       <params>
-         <frac32.u.map name="value" value="32.0"/>
+         <frac32.u.map name="value" value="22.0"/>
       </params>
       <attribs/>
    </obj>
@@ -491,9 +491,9 @@ void loop(void){
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>-2039</x>
-      <y>274</y>
-      <width>1839</width>
-      <height>1036</height>
+      <x>-1928</x>
+      <y>-91</y>
+      <width>1723</width>
+      <height>976</height>
    </windowPos>
 </patch-1.0>

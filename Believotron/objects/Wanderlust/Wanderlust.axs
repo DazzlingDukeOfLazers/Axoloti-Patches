@@ -8,7 +8,7 @@
          <combo attributeName="format" selection="LSB first"/>
       </attribs>
    </obj>
-   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_2" x="1092" y="322">
+   <obj type="disp/hex" uuid="3ce415f2f0e09f5b3cf10e5d355274847fd063b2" name="hex_1" x="882" y="308">
       <params/>
       <attribs/>
    </obj>
@@ -61,10 +61,6 @@
       <attribs/>
    </obj>
    <obj type="gpio/i2c/config" sha="1ea9db31ce7ec2874d2a8315213c733a6b3c2dcf" uuid="b095a33e56de5fcd23740a7d983bc0bafb315d81" name="i2c.begin_1" x="756" y="350">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/hex" uuid="3ce415f2f0e09f5b3cf10e5d355274847fd063b2" name="hex_1" x="882" y="350">
       <params/>
       <attribs/>
    </obj>
@@ -309,10 +305,6 @@ void loop(void)
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_1" x="1092" y="420">
-      <params/>
-      <attribs/>
-   </obj>
    <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="ski_down" x="1260" y="462">
       <params/>
       <attribs/>
@@ -381,6 +373,22 @@ void loop(void)
       <params/>
       <attribs/>
    </obj>
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_1" x="980" y="518">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_13" x="1078" y="518">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_10" x="980" y="602">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_14" x="1078" y="602">
+      <params/>
+      <attribs/>
+   </obj>
    <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="camper" x="1260" y="602">
       <params/>
       <attribs/>
@@ -397,11 +405,27 @@ void loop(void)
       <params/>
       <attribs/>
    </obj>
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_11" x="980" y="672">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_15" x="1078" y="672">
+      <params/>
+      <attribs/>
+   </obj>
    <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="picnic" x="1260" y="700">
       <params/>
       <attribs/>
    </obj>
    <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="campfire" x="1344" y="700">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_12" x="980" y="742">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_16" x="1078" y="742">
       <params/>
       <attribs/>
    </obj>
@@ -509,6 +533,14 @@ void loop(void)
       <params/>
       <attribs/>
    </obj>
+   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_2" x="980" y="1064">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_20" x="1078" y="1064">
+      <params/>
+      <attribs/>
+   </obj>
    <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_5" x="1750" y="1092">
       <params/>
       <attribs/>
@@ -522,6 +554,14 @@ void loop(void)
       <attribs/>
    </obj>
    <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_top_0" x="1582" y="1106">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_17" x="980" y="1148">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_21" x="1078" y="1148">
       <params/>
       <attribs/>
    </obj>
@@ -541,6 +581,14 @@ void loop(void)
       <params/>
       <attribs/>
    </obj>
+   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_18" x="980" y="1218">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_22" x="1078" y="1218">
+      <params/>
+      <attribs/>
+   </obj>
    <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_bot_3" x="1260" y="1232">
       <params/>
       <attribs/>
@@ -554,6 +602,14 @@ void loop(void)
       <attribs/>
    </obj>
    <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_top_4" x="1582" y="1274">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_19" x="980" y="1288">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_23" x="1078" y="1288">
       <params/>
       <attribs/>
    </obj>
@@ -834,30 +890,37 @@ void loop(void)
       <net>
          <source obj="WanderlustController_1" outlet="knbB1_"/>
          <dest obj="knob_bot_1" inlet="outlet"/>
+         <dest obj="dial_10" inlet="in"/>
       </net>
       <net>
          <source obj="WanderlustController_1" outlet="knbB2_"/>
          <dest obj="knob_bot_2" inlet="outlet"/>
+         <dest obj="dial_11" inlet="in"/>
       </net>
       <net>
          <source obj="WanderlustController_1" outlet="knbB3_"/>
          <dest obj="knob_bot_3" inlet="outlet"/>
+         <dest obj="dial_12" inlet="in"/>
       </net>
       <net>
          <source obj="WanderlustController_1" outlet="knbB4_"/>
          <dest obj="knob_bot_4" inlet="outlet"/>
+         <dest obj="dial_13" inlet="in"/>
       </net>
       <net>
          <source obj="WanderlustController_1" outlet="knbB5_"/>
          <dest obj="knob_bot_5" inlet="outlet"/>
+         <dest obj="dial_14" inlet="in"/>
       </net>
       <net>
          <source obj="WanderlustController_1" outlet="knbB6_"/>
          <dest obj="knob_bot_6" inlet="outlet"/>
+         <dest obj="dial_15" inlet="in"/>
       </net>
       <net>
          <source obj="WanderlustController_1" outlet="knbB7_"/>
          <dest obj="knob_bot_7" inlet="outlet"/>
+         <dest obj="dial_16" inlet="in"/>
       </net>
       <net>
          <source obj="WanderlustController_1" outlet="knbT0_"/>
@@ -868,30 +931,27 @@ void loop(void)
       <net>
          <source obj="WanderlustController_1" outlet="knbT1_"/>
          <dest obj="knob_top_1" inlet="outlet"/>
+         <dest obj="dial_17" inlet="in"/>
       </net>
       <net>
          <source obj="WanderlustController_1" outlet="knbT2_"/>
          <dest obj="knob_top_2" inlet="outlet"/>
-      </net>
-      <net>
-         <source obj="WanderlustController_1" outlet="knbT3_"/>
-         <dest obj="knob_top_3" inlet="outlet"/>
+         <dest obj="dial_18" inlet="in"/>
       </net>
       <net>
          <source obj="WanderlustController_1" outlet="knbT4_"/>
          <dest obj="knob_top_4" inlet="outlet"/>
+         <dest obj="dial_20" inlet="in"/>
       </net>
       <net>
          <source obj="WanderlustController_1" outlet="knbT5_"/>
          <dest obj="knob_top_5" inlet="outlet"/>
+         <dest obj="dial_21" inlet="in"/>
       </net>
       <net>
          <source obj="WanderlustController_1" outlet="knbT6_"/>
          <dest obj="knob_top_6" inlet="outlet"/>
-      </net>
-      <net>
-         <source obj="WanderlustController_1" outlet="knbT7_"/>
-         <dest obj="knob_top_7" inlet="outlet"/>
+         <dest obj="dial_22" inlet="in"/>
       </net>
       <net>
          <source obj="WanderlustController_1" outlet="pc00_"/>
@@ -926,15 +986,23 @@ void loop(void)
          <source obj="Intensity" outlet="inlet"/>
          <dest obj="WanderlustController_1" inlet="stepIntensity_"/>
       </net>
+      <net>
+         <source obj="WanderlustController_1" outlet="knbT3_"/>
+         <dest obj="dial_19" inlet="in"/>
+      </net>
+      <net>
+         <source obj="WanderlustController_1" outlet="knbT7_"/>
+         <dest obj="dial_23" inlet="in"/>
+      </net>
    </nets>
    <settings>
       <subpatchmode>no</subpatchmode>
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>-2197</x>
-      <y>-92</y>
-      <width>1860</width>
-      <height>1331</height>
+      <x>-1928</x>
+      <y>-91</y>
+      <width>1723</width>
+      <height>976</height>
    </windowPos>
 </patch-1.0>

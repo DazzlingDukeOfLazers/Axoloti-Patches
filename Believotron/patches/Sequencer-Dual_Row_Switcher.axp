@@ -148,6 +148,16 @@
       </params>
       <attribs/>
    </obj>
+   <obj type="math/+" uuid="44553fdc8628c67ab535845ed1be304ad6c9553b" name="+_1" x="1554" y="462">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_12" x="1372" y="490">
+      <params/>
+      <attribs>
+         <objref attributeName="sender" obj="pitchTop"/>
+      </attribs>
+   </obj>
    <obj type="logic/selectChan" uuid="5caf0ba1-8f09-4ac1-a88e-2a643ca7d62f" name="selectChan_1" x="728" y="504">
       <params/>
       <attribs/>
@@ -156,15 +166,9 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_12" x="1778" y="532">
-      <params/>
-      <attribs>
-         <objref attributeName="sender" obj="pitchTop"/>
-      </attribs>
-   </obj>
    <obj type="osc/supersaw" uuid="ece83feb36cfaee7dc3964b75c485774ea0309cf" name="supersaw_1" x="1904" y="532">
       <params>
-         <frac32.s.map name="pitch" value="0.0"/>
+         <frac32.s.map name="pitch" value="18.0"/>
          <frac32.u.map name="detune" value="0.0"/>
       </params>
       <attribs/>
@@ -208,8 +212,8 @@
    </obj>
    <obj type="instruments/PizzacatoLazerStrings" uuid="53ad7296-bf79-444d-8504-9a5cf50903d0" name="obj_8" x="1848" y="756">
       <params>
-         <frac32.s.map name="spacetime" value="-9.0"/>
-         <frac32.s.map name="space" value="8.0"/>
+         <frac32.s.map name="spacetime" value="-21.0"/>
+         <frac32.s.map name="space" value="23.0"/>
          <frac32.u.map name="time" value="0.0"/>
       </params>
       <attribs/>
@@ -492,7 +496,7 @@
       </net>
       <net>
          <source obj="recv_12" outlet="v"/>
-         <dest obj="supersaw_1" inlet="pitch"/>
+         <dest obj="+_1" inlet="in1"/>
       </net>
       <net>
          <source obj="recv_7" outlet="v"/>
@@ -590,15 +594,27 @@
          <source obj="recv_3" outlet="v"/>
          <dest obj="obj_13" inlet="stepPos"/>
       </net>
+      <net>
+         <source obj="+_1" outlet="out"/>
+         <dest obj="supersaw_1" inlet="pitch"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="joyLX"/>
+         <dest obj="+_1" inlet="in2"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="joyRX"/>
+         <dest obj="supersaw_1" inlet="detune"/>
+      </net>
    </nets>
    <settings>
       <subpatchmode>no</subpatchmode>
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>-2229</x>
-      <y>92</y>
-      <width>1504</width>
-      <height>999</height>
+      <x>-2568</x>
+      <y>-119</y>
+      <width>2576</width>
+      <height>1456</height>
    </windowPos>
 </patch-1.0>

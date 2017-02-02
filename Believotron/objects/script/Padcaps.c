@@ -201,8 +201,8 @@ void servicePadCaps()
 
 	ui32CapTouched = PadcapReadReg24(0x70, 0);
 
-	packetCounter = (ui32CapTouched & 0x00F00000 ) >> 20;
-	eventType     = (ui32CapTouched & 0x000F0000 ) >> 16;
+	//packetCounter = (ui32CapTouched & 0x00F00000 ) >> 20;
+	eventType     = (ui32CapTouched & 0x0000000F );
 	csIndex       = (ui32CapTouched & 0x0000FF00 ) >> 8;
 
 
@@ -261,8 +261,7 @@ void servicePadCaps()
 				break;
 		}
 	}
-
-	if (eventType == 1)
+	else if (eventType !=0)
 	{
 		switch(csIndex)
 		{

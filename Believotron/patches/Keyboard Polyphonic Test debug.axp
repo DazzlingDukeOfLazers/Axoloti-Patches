@@ -361,7 +361,7 @@
    </obj>
    <obj type="Wanderlust/Volume Out" uuid="d07ec5b5-1892-4a09-8318-1fbab3b51058" name="obj_1" x="2254" y="700">
       <params>
-         <bool32.tgl name="Enable Vol Knob" value="0"/>
+         <bool32.tgl name="Disable Vol Knob" value="1"/>
       </params>
       <attribs/>
    </obj>

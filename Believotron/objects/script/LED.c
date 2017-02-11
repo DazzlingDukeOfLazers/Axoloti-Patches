@@ -193,3 +193,12 @@ void HighlightLED(uint8_t step, double knobVal)
 
 
 }
+
+void SetAllLEDs(uint8_t iColor)
+{
+	for (int iLED=0; iLED < STRAND_LENGTH; iLED++)
+	{
+		LEDS[iLED].u8Color = iColor;
+		LEDS[iLED].dIntensity = 1.0;
+	}
+}

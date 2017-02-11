@@ -5,10 +5,10 @@
    </obj>
    <obj type="env/adsr m" uuid="98bd39fb828c392b28126d259cb5175e6f6ea34b" name="adsr_1" x="266" y="42">
       <params>
-         <frac32.s.map name="a" value="0.0"/>
-         <frac32.s.map name="d" value="0.0"/>
-         <frac32.u.map name="s" value="31.5"/>
-         <frac32.s.map name="r" value="0.0"/>
+         <frac32.s.map name="a" value="-64.0"/>
+         <frac32.s.map name="d" value="-64.0"/>
+         <frac32.u.map name="s" value="0.0"/>
+         <frac32.s.map name="r" value="-64.0"/>
       </params>
       <attribs/>
    </obj>
@@ -126,8 +126,8 @@
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>-867</x>
-      <y>-63</y>
+      <x>-1018</x>
+      <y>-46</y>
       <width>709</width>
       <height>957</height>
    </windowPos>

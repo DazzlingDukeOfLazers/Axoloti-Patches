@@ -1,86 +1,4 @@
-<patch-1.0 appVersion="1.0.10">
-   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_2" x="518" y="140">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_17" x="588" y="140">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_18" x="658" y="140">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_19" x="728" y="140">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_20" x="798" y="140">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_21" x="868" y="140">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_22" x="938" y="140">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_23" x="1008" y="140">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="ctrl/dial p" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="dial_4" x="112" y="154">
-      <params>
-         <frac32.u.map name="value" value="64.0"/>
-      </params>
-      <attribs/>
-   </obj>
-   <obj type="disp/hex" uuid="87617898f70d90033f8add921438bf0d11721fdd" name="hex_4" x="196" y="154">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_1" x="518" y="224">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_10" x="588" y="224">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_11" x="658" y="224">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_12" x="728" y="224">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_13" x="798" y="224">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_14" x="868" y="224">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_15" x="938" y="224">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_16" x="1008" y="224">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/i" uuid="5e35fd0c62d81e70017289250cf28edd26e19e4a" name="i_1" x="392" y="238">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/hex" uuid="87617898f70d90033f8add921438bf0d11721fdd" name="hex_3" x="406" y="322">
-      <params/>
-      <attribs/>
-   </obj>
+<patch-1.0 appVersion="1.0.12">
    <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_top_0" x="518" y="350">
       <params/>
       <attribs/>
@@ -113,7 +31,7 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="gpio/spi/config" sha="62af644b09e7f654b36d66533da8ea5971ddb351" uuid="d3e75d8a02e2ccabbbc2af3bc2fcdb8ea65a6133" name="config_1" x="182" y="378">
+   <obj type="gpio/spi/config" uuid="d3e75d8a02e2ccabbbc2af3bc2fcdb8ea65a6133" name="config_1" x="182" y="378">
       <params/>
       <attribs>
          <combo attributeName="clock_polarity" selection="CPOL=0"/>
@@ -154,15 +72,7 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/hex" uuid="3ce415f2f0e09f5b3cf10e5d355274847fd063b2" name="hex_1" x="308" y="420">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="gpio/i2c/config" sha="1ea9db31ce7ec2874d2a8315213c733a6b3c2dcf" uuid="b095a33e56de5fcd23740a7d983bc0bafb315d81" name="i2c.begin_1" x="196" y="476">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_3" x="406" y="476">
+   <obj type="gpio/i2c/config" uuid="b095a33e56de5fcd23740a7d983bc0bafb315d81" name="i2c.begin_1" x="196" y="476">
       <params/>
       <attribs/>
    </obj>
@@ -390,43 +300,7 @@ void loop(void)
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/hex" uuid="3ce415f2f0e09f5b3cf10e5d355274847fd063b2" name="hex_2" x="308" y="532">
-      <params/>
-      <attribs/>
-   </obj>
    <obj type="patch/inlet i" uuid="f11927f00c59219df0c50f73056aa19f125540b7" name="step" x="28" y="546">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_25" x="518" y="546">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_26" x="602" y="546">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_27" x="686" y="546">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_28" x="770" y="546">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_29" x="854" y="546">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_30" x="938" y="546">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_31" x="1022" y="546">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_32" x="1106" y="546">
       <params/>
       <attribs/>
    </obj>
@@ -472,38 +346,6 @@ void loop(void)
       <params>
          <bool32.tgl name="b" onParent="true" value="0"/>
       </params>
-      <attribs/>
-   </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_13" x="518" y="686">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_14" x="602" y="686">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_15" x="686" y="686">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_16" x="770" y="686">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_17" x="854" y="686">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_18" x="938" y="686">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_19" x="1022" y="686">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_20" x="1106" y="686">
-      <params/>
       <attribs/>
    </obj>
    <obj type="ctrl/toggle" uuid="42b8134fa729d54bfc8d62d6ef3fa99498c1de99" name="Rev Padrow Bottom" x="14" y="742">
@@ -560,334 +402,202 @@ void loop(void)
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_1" x="518" y="798">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_2" x="602" y="798">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_3" x="686" y="798">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_4" x="770" y="798">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_5" x="854" y="798">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_6" x="938" y="798">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_7" x="1022" y="798">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_8" x="1106" y="798">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_9" x="1190" y="798">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_10" x="1274" y="798">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_11" x="1358" y="798">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_12" x="1442" y="798">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="gpio/in/analog" uuid="1c0c845ed2d7e06ae5f377ba13d9d09f4747ac87" name="analog_2" x="1064" y="1050">
+   <obj type="gpio/in/analog" uuid="1c0c845ed2d7e06ae5f377ba13d9d09f4747ac87" name="analog_2" x="980" y="882">
       <params/>
       <attribs>
          <combo attributeName="channel" selection="PC1 (ADC1_IN11)"/>
       </attribs>
    </obj>
-   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_6" x="1344" y="1064">
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_6" x="1260" y="896">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="joyLX" x="1442" y="1064">
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="joyLX" x="1358" y="896">
       <params/>
       <attribs/>
    </obj>
-   <obj type="gpio/in/analog" uuid="1c0c845ed2d7e06ae5f377ba13d9d09f4747ac87" name="analog_1" x="1064" y="1148">
+   <obj type="gpio/in/analog" uuid="1c0c845ed2d7e06ae5f377ba13d9d09f4747ac87" name="analog_1" x="980" y="980">
       <params/>
       <attribs>
          <combo attributeName="channel" selection="PC4 (ADC1_IN14)"/>
       </attribs>
    </obj>
-   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_7" x="1344" y="1148">
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_7" x="1260" y="980">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="joyLY" x="1442" y="1148">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="gpio/in/analog" uuid="1c0c845ed2d7e06ae5f377ba13d9d09f4747ac87" name="analog_4" x="1064" y="1232">
-      <params/>
-      <attribs>
-         <combo attributeName="channel" selection="PC2 (ADC1_IN12)"/>
-      </attribs>
-   </obj>
-   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_8" x="1344" y="1246">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="joyRX" x="1442" y="1246">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="gpio/in/analog" uuid="1c0c845ed2d7e06ae5f377ba13d9d09f4747ac87" name="analog_3" x="1064" y="1302">
-      <params/>
-      <attribs>
-         <combo attributeName="channel" selection="PC3 (ADC1_IN13)"/>
-      </attribs>
-   </obj>
-   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_9" x="1344" y="1316">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="joyRY" x="1442" y="1316">
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="joyLY" x="1358" y="980">
       <params/>
       <attribs/>
    </obj>
    <nets>
       <net>
-         <source obj="WanderlustController_1" outlet="out2_"/>
-         <dest obj="hex_1" inlet="in"/>
-      </net>
-      <net>
          <source obj="WanderlustController_1" outlet="kb0_"/>
-         <dest obj="bool_1" inlet="in"/>
          <dest obj="kb_0" inlet="outlet"/>
       </net>
       <net>
          <source obj="WanderlustController_1" outlet="kb1_"/>
-         <dest obj="bool_2" inlet="in"/>
          <dest obj="kb_1" inlet="outlet"/>
       </net>
       <net>
          <source obj="WanderlustController_1" outlet="kb2_"/>
-         <dest obj="bool_3" inlet="in"/>
          <dest obj="kb_2" inlet="outlet"/>
       </net>
       <net>
          <source obj="WanderlustController_1" outlet="kb3_"/>
-         <dest obj="bool_4" inlet="in"/>
          <dest obj="kb_3" inlet="outlet"/>
       </net>
       <net>
          <source obj="WanderlustController_1" outlet="kb4_"/>
-         <dest obj="bool_5" inlet="in"/>
          <dest obj="kb_4" inlet="outlet"/>
       </net>
       <net>
          <source obj="WanderlustController_1" outlet="kb5_"/>
-         <dest obj="bool_6" inlet="in"/>
          <dest obj="kb_5" inlet="outlet"/>
       </net>
       <net>
          <source obj="WanderlustController_1" outlet="kb6_"/>
-         <dest obj="bool_7" inlet="in"/>
          <dest obj="kb_6" inlet="outlet"/>
       </net>
       <net>
          <source obj="WanderlustController_1" outlet="kb7_"/>
-         <dest obj="bool_8" inlet="in"/>
          <dest obj="kb_7" inlet="outlet"/>
       </net>
       <net>
          <source obj="WanderlustController_1" outlet="kb8_"/>
-         <dest obj="bool_9" inlet="in"/>
          <dest obj="kb_8" inlet="outlet"/>
       </net>
       <net>
          <source obj="WanderlustController_1" outlet="kb9_"/>
-         <dest obj="bool_10" inlet="in"/>
          <dest obj="kb_9" inlet="outlet"/>
       </net>
       <net>
          <source obj="WanderlustController_1" outlet="kb10_"/>
-         <dest obj="bool_11" inlet="in"/>
          <dest obj="kb_10" inlet="outlet"/>
       </net>
       <net>
          <source obj="WanderlustController_1" outlet="kb11_"/>
-         <dest obj="bool_12" inlet="in"/>
          <dest obj="kb_11" inlet="outlet"/>
       </net>
       <net>
          <source obj="WanderlustController_1" outlet="pc01_"/>
-         <dest obj="bool_14" inlet="in"/>
          <dest obj="ski_cross" inlet="outlet"/>
       </net>
       <net>
          <source obj="WanderlustController_1" outlet="pc02_"/>
-         <dest obj="bool_15" inlet="in"/>
          <dest obj="skating" inlet="outlet"/>
       </net>
       <net>
          <source obj="WanderlustController_1" outlet="pc03_"/>
-         <dest obj="bool_16" inlet="in"/>
          <dest obj="tram" inlet="outlet"/>
       </net>
       <net>
          <source obj="WanderlustController_1" outlet="pc04_"/>
-         <dest obj="bool_17" inlet="in"/>
          <dest obj="sledding" inlet="outlet"/>
       </net>
       <net>
          <source obj="WanderlustController_1" outlet="pc05_"/>
-         <dest obj="bool_18" inlet="in"/>
          <dest obj="snowmowbiling" inlet="outlet"/>
       </net>
       <net>
          <source obj="WanderlustController_1" outlet="pc06_"/>
-         <dest obj="bool_19" inlet="in"/>
          <dest obj="hiking" inlet="outlet"/>
       </net>
       <net>
          <source obj="WanderlustController_1" outlet="pc07_"/>
-         <dest obj="bool_20" inlet="in"/>
          <dest obj="horsebackriding" inlet="outlet"/>
       </net>
       <net>
-         <source obj="WanderlustController_1" outlet="out3_"/>
-         <dest obj="hex_2" inlet="in"/>
-      </net>
-      <net>
          <source obj="WanderlustController_1" outlet="pc10_"/>
-         <dest obj="bool_25" inlet="in"/>
          <dest obj="parasailing" inlet="outlet"/>
       </net>
       <net>
          <source obj="WanderlustController_1" outlet="pc11_"/>
-         <dest obj="bool_26" inlet="in"/>
          <dest obj="diving" inlet="outlet"/>
       </net>
       <net>
          <source obj="WanderlustController_1" outlet="pc12_"/>
-         <dest obj="bool_27" inlet="in"/>
          <dest obj="canoing" inlet="outlet"/>
       </net>
       <net>
          <source obj="WanderlustController_1" outlet="pc13_"/>
-         <dest obj="bool_28" inlet="in"/>
          <dest obj="swimming" inlet="outlet"/>
       </net>
       <net>
          <source obj="WanderlustController_1" outlet="pc14_"/>
-         <dest obj="bool_29" inlet="in"/>
          <dest obj="sailing" inlet="outlet"/>
       </net>
       <net>
          <source obj="WanderlustController_1" outlet="pc15_"/>
-         <dest obj="bool_30" inlet="in"/>
          <dest obj="fishing" inlet="outlet"/>
       </net>
       <net>
          <source obj="WanderlustController_1" outlet="pc16_"/>
-         <dest obj="bool_31" inlet="in"/>
          <dest obj="anchor" inlet="outlet"/>
       </net>
       <net>
          <source obj="WanderlustController_1" outlet="pc17_"/>
-         <dest obj="bool_32" inlet="in"/>
          <dest obj="showers" inlet="outlet"/>
       </net>
       <net>
          <source obj="WanderlustController_1" outlet="knbB0_"/>
          <dest obj="knob_bot_0" inlet="outlet"/>
-         <dest obj="dial_1" inlet="in"/>
-      </net>
-      <net>
-         <source obj="WanderlustController_1" outlet="out1_"/>
-         <dest obj="dial_3" inlet="in"/>
       </net>
       <net>
          <source obj="WanderlustController_1" outlet="knbB1_"/>
          <dest obj="knob_bot_1" inlet="outlet"/>
-         <dest obj="dial_10" inlet="in"/>
       </net>
       <net>
          <source obj="WanderlustController_1" outlet="knbB2_"/>
          <dest obj="knob_bot_2" inlet="outlet"/>
-         <dest obj="dial_11" inlet="in"/>
       </net>
       <net>
          <source obj="WanderlustController_1" outlet="knbB3_"/>
          <dest obj="knob_bot_3" inlet="outlet"/>
-         <dest obj="dial_12" inlet="in"/>
       </net>
       <net>
          <source obj="WanderlustController_1" outlet="knbB4_"/>
          <dest obj="knob_bot_4" inlet="outlet"/>
-         <dest obj="dial_13" inlet="in"/>
       </net>
       <net>
          <source obj="WanderlustController_1" outlet="knbB5_"/>
          <dest obj="knob_bot_5" inlet="outlet"/>
-         <dest obj="dial_14" inlet="in"/>
       </net>
       <net>
          <source obj="WanderlustController_1" outlet="knbB6_"/>
          <dest obj="knob_bot_6" inlet="outlet"/>
-         <dest obj="dial_15" inlet="in"/>
       </net>
       <net>
          <source obj="WanderlustController_1" outlet="knbB7_"/>
          <dest obj="knob_bot_7" inlet="outlet"/>
-         <dest obj="dial_16" inlet="in"/>
       </net>
       <net>
          <source obj="WanderlustController_1" outlet="knbT0_"/>
          <dest obj="knob_top_0" inlet="outlet"/>
-         <dest obj="dial_2" inlet="in"/>
-         <dest obj="i_1" inlet="in"/>
-         <dest obj="hex_3" inlet="in"/>
       </net>
       <net>
          <source obj="WanderlustController_1" outlet="knbT1_"/>
          <dest obj="knob_top_1" inlet="outlet"/>
-         <dest obj="dial_17" inlet="in"/>
       </net>
       <net>
          <source obj="WanderlustController_1" outlet="knbT2_"/>
          <dest obj="knob_top_2" inlet="outlet"/>
-         <dest obj="dial_18" inlet="in"/>
       </net>
       <net>
          <source obj="WanderlustController_1" outlet="knbT4_"/>
          <dest obj="knob_top_4" inlet="outlet"/>
-         <dest obj="dial_20" inlet="in"/>
       </net>
       <net>
          <source obj="WanderlustController_1" outlet="knbT5_"/>
          <dest obj="knob_top_5" inlet="outlet"/>
-         <dest obj="dial_21" inlet="in"/>
       </net>
       <net>
          <source obj="WanderlustController_1" outlet="knbT6_"/>
          <dest obj="knob_top_6" inlet="outlet"/>
-         <dest obj="dial_22" inlet="in"/>
       </net>
       <net>
          <source obj="WanderlustController_1" outlet="pc00_"/>
          <dest obj="ski_down" inlet="outlet"/>
-         <dest obj="bool_13" inlet="in"/>
       </net>
       <net>
          <source obj="analog_1" outlet="out"/>
@@ -900,27 +610,15 @@ void loop(void)
          <dest obj="joyLX" inlet="outlet"/>
       </net>
       <net>
-         <source obj="analog_3" outlet="out"/>
-         <dest obj="dial_9" inlet="in"/>
-         <dest obj="joyRY" inlet="outlet"/>
-      </net>
-      <net>
-         <source obj="analog_4" outlet="out"/>
-         <dest obj="dial_8" inlet="in"/>
-         <dest obj="joyRX" inlet="outlet"/>
-      </net>
-      <net>
          <source obj="Intensity" outlet="inlet"/>
          <dest obj="WanderlustController_1" inlet="stepIntensity_"/>
       </net>
       <net>
          <source obj="WanderlustController_1" outlet="knbT3_"/>
-         <dest obj="dial_19" inlet="in"/>
          <dest obj="knob_top_3" inlet="outlet"/>
       </net>
       <net>
          <source obj="WanderlustController_1" outlet="knbT7_"/>
-         <dest obj="dial_23" inlet="in"/>
          <dest obj="knob_top_7" inlet="outlet"/>
       </net>
       <net>
@@ -930,10 +628,6 @@ void loop(void)
       <net>
          <source obj="Reverse Knobs" outlet="o"/>
          <dest obj="WanderlustController_1" inlet="reverseKnobs_"/>
-      </net>
-      <net>
-         <source obj="dial_4" outlet="out"/>
-         <dest obj="hex_4" inlet="in"/>
       </net>
       <net>
          <source obj="Rev Padrow Top" outlet="o"/>

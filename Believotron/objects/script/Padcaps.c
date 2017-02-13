@@ -10,8 +10,8 @@
 	// 0x5C	~(you can connect ADDR to) the SDA pin for 0x5C or
 	// 0x5D	~(you can connect ADDR to) SCL for address 0x5D
 	#define WANDERLUST_KEYBOARD	  0x5A
-	#define WANDERLUST_PADCAP_LOWER 0x5B
-	#define WANDERLUST_PADCAP_UPPER 0x5C
+	#define WANDERLUST_PADCAP_LOWER 0x5C
+	#define WANDERLUST_PADCAP_UPPER 0x5B
 	//#define MPR121_I2CADDR_DEFAULT 0x5A // Piano
 	#define MPR121_I2CADDR_DEFAULT  WANDERLUST_KEYBOARD
 	// </Adddress>
@@ -168,10 +168,21 @@ void servicePadCaps()
 		kb11 = 0x01 & (ui32CapTouched >> 11);
 	}
 
+
 	ui32CapTouched = PadcapTouched(WANDERLUST_PADCAP_LOWER);
+	if (reversePadrowBottom)
 	{
-		out3 = ui32CapTouched;
-		//ski_down = 0x080 & ( ui32CapTouched );
+		pc00 = 0x001 & ( ui32CapTouched );
+		pc01 = 0x002 & ( ui32CapTouched );
+		pc02 = 0x004 & ( ui32CapTouched );
+		pc03 = 0x008 & ( ui32CapTouched );
+		pc04 = 0x010 & ( ui32CapTouched );
+		pc05 = 0x020 & ( ui32CapTouched );
+		pc06 = 0x040 & ( ui32CapTouched );
+		pc07 = 0x080 & ( ui32CapTouched );
+	}
+	else
+	{
 		pc00 = 0x080 & ( ui32CapTouched );
 		pc01 = 0x040 & ( ui32CapTouched );
 		pc02 = 0x020 & ( ui32CapTouched );
@@ -183,10 +194,27 @@ void servicePadCaps()
 		pc08 = 0x100 & ( ui32CapTouched );
 		pc09 = 0x200 & ( ui32CapTouched );
 		pc0A = 0x400 & ( ui32CapTouched );
-		pc0B = 0x800 & ( ui32CapTouched );
+		pc0B = 0x800 & ( ui32CapTouched );	
 	}
 
 	ui32CapTouched = PadcapTouched(WANDERLUST_PADCAP_UPPER);
+	if (reversePadrowTop)
+	{
+		out3 = ui32CapTouched;
+		pc1B = 0x001 & ( ui32CapTouched );
+		pc1A = 0x002 & ( ui32CapTouched );
+		pc19 = 0x004 & ( ui32CapTouched );
+		pc18 = 0x008 & ( ui32CapTouched );
+		pc17 = 0x010 & ( ui32CapTouched );
+		pc16 = 0x020 & ( ui32CapTouched );
+		pc15 = 0x040 & ( ui32CapTouched );
+		pc14 = 0x080 & ( ui32CapTouched );
+		pc13 = 0x100 & ( ui32CapTouched );
+		pc12 = 0x200 & ( ui32CapTouched );
+		pc11 = 0x400 & ( ui32CapTouched );
+		pc10 = 0x800 & ( ui32CapTouched );
+	}
+	else
 	{
 		out3 = ui32CapTouched;
 		pc10 = 0x001 & ( ui32CapTouched );
@@ -213,5 +241,5 @@ void servicePadCaps()
 		PadcapSetup(WANDERLUST_PADCAP_LOWER);
 		PadcapSetup(WANDERLUST_PADCAP_UPPER);
 	}
-	
+
 }

@@ -33,12 +33,16 @@
    </obj>
    <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_1" x="28" y="84">
       <params>
-         <int32 name="value" value="3"/>
+         <int32 name="value" value="1"/>
       </params>
       <attribs/>
    </obj>
    <obj type="Wanderlust/Wanderlust_beta1" uuid="7c7aa4e7-1794-4910-8467-fe6e6a3914ad" name="obj_1" x="168" y="84">
-      <params/>
+      <params>
+         <bool32.tgl name="Reverse Knobs" value="1"/>
+         <bool32.tgl name="Rev Padrow Top" value="0"/>
+         <bool32.tgl name="Rev Padrow Bottom" value="1"/>
+      </params>
       <attribs/>
    </obj>
    <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_2" x="448" y="140">

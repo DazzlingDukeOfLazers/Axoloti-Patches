@@ -22,10 +22,10 @@
          <combo attributeName="device" selection="omni"/>
       </attribs>
    </obj>
-   <obj type="Wanderlust/stepLFO" uuid="2711aa2c-4058-41c4-8bec-a9474cee6628" name="obj_2" x="952" y="126">
+   <obj type="LFOs/stepLFO" uuid="b4ea91ab-9da1-4356-af92-6b310d4809f0" name="obj_2" x="854" y="154">
       <params>
-         <frac32.s.map name="saw_1" value="12.0"/>
-         <int32 name="counter2_1" value="64"/>
+         <frac32.s.map name="saw_1" value="-22.0"/>
+         <int32 name="counter2_1" value="0"/>
       </params>
       <attribs/>
    </obj>

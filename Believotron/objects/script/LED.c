@@ -43,10 +43,12 @@ struct LED{
 	uint8_t b;
 };
 
-LED COLOR_LIST[16] = {
+#define NUM_COLORS 5
+LED COLOR_LIST[NUM_COLORS] = { {C_BLACK},
 	                  {0x00, 0x00, 0xFF},
 	                  {0x00, 0xFF, 0x00},
-	                  {0xFF, 0x00, 0x00}
+	                  {0xFF, 0x00, 0x00},
+					  {C_WHITE}
                      };
 
 struct Pixel{
@@ -198,7 +200,10 @@ void SetAllLEDs(uint8_t iColor)
 {
 	for (int iLED=0; iLED < STRAND_LENGTH; iLED++)
 	{
+		if ( (iColor < 0) || (iColor >= NUM_COLORS) ) { iColor = 0;}
+
 		LEDS[iLED].u8Color = iColor;
 		LEDS[iLED].dIntensity = 1.0;
+
 	}
 }

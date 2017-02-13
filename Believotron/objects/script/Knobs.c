@@ -33,7 +33,17 @@ void readADCAndOutput()
 			z = 0x00FF ^ z;
 			z = z<<19;
 
-			if (iDevice == 0)
+//#define TOTAL_TICKS 0x07A12000
+//#define TOTAL_TICKS 0x07FFFFFF - 0x0007FFFF Offset in axo system
+#define TOTAL_TICKS 0x7F80000
+#define KNOB_PER_BIT 0.0000005
+// 64 / 0.000 000 5 = 128K
+			if (reverseKnobs)
+			{
+				z=TOTAL_TICKS - z;
+			}//{ z = z - 64;}
+
+			if (iDevice == 1)
 			{
 				if      (pin == 0)	{knbB0 = z;}
 				else if (pin == 1)	{knbB1 = z;}
@@ -44,7 +54,7 @@ void readADCAndOutput()
 				else if (pin == 6)	{knbB6 = z;}
 				else if (pin == 7)	{knbB7 = z;}
 			}
-			if (iDevice == 1)
+			if (iDevice == 0)
 			{
 				if      (pin == 0)	{knbT0 = z;}
 				else if (pin == 1)	{knbT1 = z;}

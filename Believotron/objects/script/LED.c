@@ -150,6 +150,14 @@ void LEDInit()
 	//LEDS.RowBot[3].u8Color = 2;
 }
 
+
+void SetLED(uint8_t position, uint8_t color, double knobVal)
+{
+    double intensity = knobVal / 13.4E7;	
+    LEDS[position].u8Color = color;
+    LEDS[position].dIntensity = intensity;
+}
+
 void HighlightLED(uint8_t step, double knobVal)
 {
     static Pixel prevPixel;
@@ -184,7 +192,7 @@ void HighlightLED(uint8_t step, double knobVal)
         prevPixel = LEDS[step];
 
         // New Color
-        LEDS[step].u8Color = 2;
+        LEDS[step].u8Color = 4;
         LEDS[step].dIntensity = intensity;
         prevStep = step;
     }

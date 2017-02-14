@@ -1,4 +1,4 @@
-<objdefs appVersion="1.0.10">
+<objdefs appVersion="1.0.12">
    <obj.normal id="WanderlustController" uuid="ad20e4d9-a33e-4fc8-9b21-f9bed5e2b12f">
       <sDescription>script with 2 inputs and 2 outputs, running in a separate thread, you must define &quot;void setup(void){}&quot; and &quot;void loop(void)&quot;</sDescription>
       <author>Dazzling Duke of Lazers</author>
@@ -11,6 +11,8 @@
          <bool32 name="reverseKnobs_" description="Reverse Knobs"/>
          <bool32 name="reversePadrowTop_" description="Reverse Pad row top"/>
          <bool32 name="reversePadrowBottom_" description="Reverse Pad row bottom"/>
+         <int32 name="LEDmode_" description="LED Mode Selector Int"/>
+         <int32 name="LEDcolor_" description="LED Color Index"/>
       </inlets>
       <outlets>
          <frac32 name="out1_" description="out1"/>
@@ -74,7 +76,9 @@
       <attribs>
          <text name="script"/>
       </attribs>
-      <code.declaration><![CDATA[int32_t stepNum;
+      <code.declaration><![CDATA[int32_t LEDcolor;
+int32_t LEDmode;
+int32_t stepNum;
 int32_t stepIntensity,in2,reverseKnobs,reversePadrowTop,reversePadrowBottom;
 int32_t out1,out2,out3;
 int32_t kb0,kb1,kb2,kb3,kb4,kb5,kb6,kb7,kb8,kb9,kb10,kb11;
@@ -95,15 +99,12 @@ static msg_t ThreadX(void *arg) {
 ((attr_parent *)arg)->ThreadX2();
 }
 WORKING_AREA(waThreadX, 1024);
-Thread *Thd;
-]]></code.declaration>
-      <code.init><![CDATA[reversePadrowTop=0;reversePadrowBottom=0;reverseKnobs=0;stepNum=0;stepIntensity=0;in2=0;out1=0;out2=0;out3=0;kb0=0;kb1=0;kb2=0;kb3=0;kb4=0;kb5=0;kb6=0;kb7=0;kb8=0;kb9=0;kb10=0;kb11=0;pc00=0;pc01=0;pc02=0;pc03=0;pc04=0;pc05=0;pc06=0;pc07=0;pc08=0;pc09=0;pc0A=0;pc0B=0;pc10=0;pc11=0;pc12=0;pc13=0;pc14=0;pc15=0;pc16=0;pc17=0;pc18=0;pc19=0;pc1A=0;pc1B=0;knbB0=0;knbB1=0;knbB2=0;knbB3=0;knbB4=0;knbB5=0;knbB6=0;knbB7=0;knbT0=0;knbT1=0;knbT2=0;knbT3=0;knbT4=0;knbT5=0;knbT6=0;knbT7=0;
+Thread *Thd;]]></code.declaration>
+      <code.init><![CDATA[LEDcolor=0;LEDmode=0;reversePadrowTop=0;reversePadrowBottom=0;reverseKnobs=0;stepNum=0;stepIntensity=0;in2=0;out1=0;out2=0;out3=0;kb0=0;kb1=0;kb2=0;kb3=0;kb4=0;kb5=0;kb6=0;kb7=0;kb8=0;kb9=0;kb10=0;kb11=0;pc00=0;pc01=0;pc02=0;pc03=0;pc04=0;pc05=0;pc06=0;pc07=0;pc08=0;pc09=0;pc0A=0;pc0B=0;pc10=0;pc11=0;pc12=0;pc13=0;pc14=0;pc15=0;pc16=0;pc17=0;pc18=0;pc19=0;pc1A=0;pc1B=0;knbB0=0;knbB1=0;knbB2=0;knbB3=0;knbB4=0;knbB5=0;knbB6=0;knbB7=0;knbT0=0;knbT1=0;knbT2=0;knbT3=0;knbT4=0;knbT5=0;knbT6=0;knbT7=0;
   Thd = chThdCreateStatic(waThreadX, sizeof(waThreadX),
-                    NORMALPRIO, ThreadX, (void *)this);
-]]></code.init>
+                    NORMALPRIO, ThreadX, (void *)this);]]></code.init>
       <code.dispose><![CDATA[chThdTerminate(Thd);
-chThdWait(Thd);
-]]></code.dispose>
+chThdWait(Thd);]]></code.dispose>
       <code.krate><![CDATA[outlet_out1__ = this->out1;
 outlet_out2__ = this->out2;
 outlet_out3__ = this->out3;
@@ -160,6 +161,8 @@ outlet_knbT5__ = this->knbT5;
 outlet_knbT6__ = this->knbT6;
 outlet_knbT7__ = this->knbT7;
 this->stepNum       = inlet_stepNum__;
+this->LEDmode       = inlet_LEDmode__;
+this->LEDcolor      = inlet_LEDcolor__;
 this->stepIntensity = inlet_stepIntensity__;
 this->in2           = inlet_in2__;
 this->reverseKnobs  = inlet_reverseKnobs__;

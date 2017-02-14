@@ -1,5 +1,9 @@
 <patch-1.0 appVersion="1.0.12">
-   <obj type="patch/inlet i" uuid="f11927f00c59219df0c50f73056aa19f125540b7" name="stepIn" x="84" y="28">
+   <obj type="patch/inlet i" uuid="f11927f00c59219df0c50f73056aa19f125540b7" name="stepIn" x="56" y="42">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/inlet i" uuid="f11927f00c59219df0c50f73056aa19f125540b7" name="stepOut" x="56" y="98">
       <params/>
       <attribs/>
    </obj>
@@ -18,13 +22,13 @@
          <objref attributeName="table" obj="tbl"/>
       </attribs>
    </obj>
-   <obj type="table/read" uuid="65eb8d0f6a3344638de94c9882999b9af15510d0" name="read_2" x="616" y="182">
+   <obj type="table/read" uuid="65eb8d0f6a3344638de94c9882999b9af15510d0" name="read_2" x="756" y="182">
       <params/>
       <attribs>
          <objref attributeName="table" obj="tbl"/>
       </attribs>
    </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="tableOut" x="756" y="182">
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="tableOut" x="896" y="182">
       <params/>
       <attribs/>
    </obj>
@@ -56,7 +60,6 @@
       </net>
       <net>
          <source obj="stepIn" outlet="inlet"/>
-         <dest obj="read_2" inlet="a"/>
          <dest obj="write_1" inlet="a"/>
          <dest obj="change_1" inlet="in"/>
       </net>
@@ -71,6 +74,10 @@
       <net>
          <source obj="inv_1" outlet="o"/>
          <dest obj="change" inlet="enable"/>
+      </net>
+      <net>
+         <source obj="stepOut" outlet="inlet"/>
+         <dest obj="read_2" inlet="a"/>
       </net>
    </nets>
    <settings>

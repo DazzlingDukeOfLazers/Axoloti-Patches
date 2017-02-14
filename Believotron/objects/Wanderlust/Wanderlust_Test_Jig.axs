@@ -1,4 +1,4 @@
-<patch-1.0 appVersion="1.0.10">
+<patch-1.0 appVersion="1.0.12">
    <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_1" x="448" y="42">
       <params/>
       <attribs/>
@@ -31,17 +31,18 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_1" x="28" y="84">
+   <obj type="ctrl/dial p" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="dial_3" x="28" y="56">
       <params>
-         <int32 name="value" value="1"/>
+         <frac32.u.map name="value" value="64.0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="Wanderlust/Wanderlust_beta1" uuid="7c7aa4e7-1794-4910-8467-fe6e6a3914ad" name="obj_1" x="168" y="84">
+   <obj type="Wanderlust/Wanderlust_beta1" uuid="781e72b0-3180-420b-b6bf-4997e1fa7652" name="obj_1" x="168" y="70">
       <params>
          <bool32.tgl name="Reverse Knobs" value="1"/>
          <bool32.tgl name="Rev Padrow Top" value="0"/>
          <bool32.tgl name="Rev Padrow Bottom" value="1"/>
+         <int32 name="LED Mode" value="0"/>
       </params>
       <attribs/>
    </obj>
@@ -75,6 +76,18 @@
    </obj>
    <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_23" x="938" y="140">
       <params/>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_1" x="28" y="168">
+      <params>
+         <int32 name="value" value="0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_2" x="28" y="224">
+      <params>
+         <int32 name="value" value="3"/>
+      </params>
       <attribs/>
    </obj>
    <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_13" x="448" y="280">
@@ -442,6 +455,14 @@
       <net>
          <source obj="obj_1" outlet="kb_11"/>
          <dest obj="bool_12" inlet="in"/>
+      </net>
+      <net>
+         <source obj="i_2" outlet="out"/>
+         <dest obj="obj_1" inlet="Color In"/>
+      </net>
+      <net>
+         <source obj="dial_3" outlet="out"/>
+         <dest obj="obj_1" inlet="Intensity"/>
       </net>
    </nets>
    <settings>

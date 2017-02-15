@@ -42,7 +42,7 @@
          <bool32.tgl name="Reverse Knobs" value="1"/>
          <bool32.tgl name="Rev Padrow Top" value="0"/>
          <bool32.tgl name="Rev Padrow Bottom" value="1"/>
-         <int32 name="LED Mode" value="0"/>
+         <int32 name="LED Mode" value="1"/>
       </params>
       <attribs/>
    </obj>
@@ -86,7 +86,7 @@
    </obj>
    <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_2" x="28" y="224">
       <params>
-         <int32 name="value" value="3"/>
+         <int32 name="value" value="0"/>
       </params>
       <attribs/>
    </obj>

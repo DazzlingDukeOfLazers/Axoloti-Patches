@@ -3,10 +3,6 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="sss/table/primes" uuid="f77764d2-dc31-498c-b3aa-7177cc7cefa4" name="primes_1" x="518" y="56">
-      <params/>
-      <attribs/>
-   </obj>
    <obj type="patch/inlet i" uuid="f11927f00c59219df0c50f73056aa19f125540b7" name="stepOut" x="56" y="98">
       <params/>
       <attribs/>
@@ -48,12 +44,6 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_1" x="588" y="336">
-      <params/>
-      <attribs>
-         <table attributeName="str" table="afile"/>
-      </attribs>
-   </obj>
    <obj type="table/save" uuid="3e4108b607d56d9e1cd10abb898b58eea11e53b2" name="save_1" x="854" y="336">
       <params/>
       <attribs>
@@ -64,7 +54,11 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/inlet b" uuid="3b0d3eacb5bb978cb05d1372aa2714d5a4790844" name="trigSave" x="42" y="434">
+   <obj type="patch/inlet string" uuid="6c562c1a7890cccf18fa7327d8baa476d0926cd8" name="filename" x="28" y="434">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/inlet b" uuid="3b0d3eacb5bb978cb05d1372aa2714d5a4790844" name="trigSave" x="42" y="490">
       <params/>
       <attribs/>
    </obj>
@@ -74,7 +68,7 @@
          <objref attributeName="table" obj="tbl"/>
       </attribs>
    </obj>
-   <obj type="patch/inlet b" uuid="3b0d3eacb5bb978cb05d1372aa2714d5a4790844" name="trigLoad" x="42" y="532">
+   <obj type="patch/inlet b" uuid="3b0d3eacb5bb978cb05d1372aa2714d5a4790844" name="trigLoad" x="42" y="546">
       <params/>
       <attribs/>
    </obj>
@@ -110,17 +104,17 @@
          <dest obj="read_1" inlet="a"/>
       </net>
       <net>
-         <source obj="c_1" outlet="out"/>
-         <dest obj="save_1" inlet="filename"/>
-         <dest obj="load_1" inlet="filename"/>
-      </net>
-      <net>
          <source obj="trigSave" outlet="inlet"/>
          <dest obj="save_1" inlet="trig"/>
       </net>
       <net>
          <source obj="trigLoad" outlet="inlet"/>
          <dest obj="load_1" inlet="trig"/>
+      </net>
+      <net>
+         <source obj="filename" outlet="inlet"/>
+         <dest obj="save_1" inlet="filename"/>
+         <dest obj="load_1" inlet="filename"/>
       </net>
    </nets>
    <settings>

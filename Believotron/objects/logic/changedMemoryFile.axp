@@ -1,31 +1,44 @@
 <patch-1.0 appVersion="1.0.12">
-   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_1" x="42" y="0">
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_1" x="98" y="0">
       <params>
          <int32 name="value" value="0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_2" x="448" y="14">
+   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_2" x="504" y="14">
       <params/>
       <attribs/>
    </obj>
-   <obj type="ctrl/dial p" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="dial_1" x="28" y="70">
+   <obj type="ctrl/dial p" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="dial_1" x="84" y="70">
       <params>
-         <frac32.u.map name="value" value="47.5"/>
+         <frac32.u.map name="value" value="13.5"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="logic/changedMemoryFile" uuid="e1bc985c-9a93-4433-9c26-9195d7ecb1e4" name="obj_1" x="196" y="84">
+   <obj type="logic/changedMemoryFile" uuid="f30cfe81-0307-49c5-af04-2eb92776346c" name="obj_1" x="294" y="70">
       <params/>
       <attribs/>
    </obj>
-   <obj type="ctrl/button" uuid="ef3d13774349df85aa9bfecf30dbc91ab8488b3f" name="button_1" x="28" y="168">
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_2" x="0" y="168">
+      <params>
+         <int32 name="value" value="0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="string/indexed" uuid="a28740deef67c39ffc65bd0f341a47c9b196f46" name="indexed_1" x="84" y="168">
+      <params/>
+      <attribs>
+         <table attributeName="prefix" table="foo"/>
+         <table attributeName="suffix" table=".step"/>
+      </attribs>
+   </obj>
+   <obj type="ctrl/button" uuid="ef3d13774349df85aa9bfecf30dbc91ab8488b3f" name="button_1" x="84" y="266">
       <params>
          <bool32.mom name="b" value="0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="ctrl/button" uuid="ef3d13774349df85aa9bfecf30dbc91ab8488b3f" name="button_2" x="28" y="238">
+   <obj type="ctrl/button" uuid="ef3d13774349df85aa9bfecf30dbc91ab8488b3f" name="button_2" x="84" y="336">
       <params>
          <bool32.mom name="b" value="0"/>
       </params>
@@ -53,15 +66,23 @@
          <dest obj="obj_1" inlet="stepIn"/>
          <dest obj="obj_1" inlet="stepOut"/>
       </net>
+      <net>
+         <source obj="indexed_1" outlet="out"/>
+         <dest obj="obj_1" inlet="filename"/>
+      </net>
+      <net>
+         <source obj="i_2" outlet="out"/>
+         <dest obj="indexed_1" inlet="index"/>
+      </net>
    </nets>
    <settings>
       <subpatchmode>no</subpatchmode>
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>-1201</x>
-      <y>103</y>
-      <width>629</width>
-      <height>495</height>
+      <x>-1282</x>
+      <y>51</y>
+      <width>887</width>
+      <height>600</height>
    </windowPos>
 </patch-1.0>

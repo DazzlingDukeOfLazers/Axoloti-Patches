@@ -1,4 +1,4 @@
-<patch-1.0 appVersion="1.0.10">
+<patch-1.0 appVersion="1.0.12">
    <obj type="patch/inlet b" uuid="3b0d3eacb5bb978cb05d1372aa2714d5a4790844" name="trigger" x="28" y="28">
       <params/>
       <attribs/>
@@ -39,7 +39,7 @@
       <attribs/>
    </obj>
    <comment type="patch/comment" x="266" y="322" text="carrier oscillator"/>
-   <obj type="gain/vca" sha="6bbeaeb94e74091879965461ad0cb043f2e7f6cf" name="vca_2" x="518" y="336">
+   <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_2" x="518" y="336">
       <params/>
       <attribs/>
    </obj>
@@ -51,9 +51,9 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="osc/sine" sha="edec4a9d5f533ea748cd564ce8c69673dd78742f" name="osc_3" x="266" y="350">
+   <obj type="osc/sine" uuid="6e094045cca76a9dbf7ebfa72e44e4700d2b3ba" name="osc_3" x="266" y="350">
       <params>
-         <frac32.s.map name="pitch" value="-4.0"/>
+         <frac32.s.map name="pitch" value="-64.0"/>
       </params>
       <attribs/>
    </obj>

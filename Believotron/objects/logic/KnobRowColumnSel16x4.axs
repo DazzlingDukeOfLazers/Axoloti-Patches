@@ -39,6 +39,14 @@
       <params/>
       <attribs/>
    </obj>
+   <obj type="logic/change" uuid="42071f8cb4cfe1f35956c0bd5a313a57e049bec4" name="change_2" x="602" y="154">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="chchchchanges" x="700" y="154">
+      <params/>
+      <attribs/>
+   </obj>
    <obj type="patch/inlet f" uuid="5c585d2dcd9c05631e345ac09626a22a639d7c13" name="Col" x="0" y="168">
       <params/>
       <attribs/>
@@ -113,6 +121,11 @@
       <net>
          <source obj="+_1" outlet="out"/>
          <dest obj="stepnum" inlet="outlet"/>
+         <dest obj="change_2" inlet="in"/>
+      </net>
+      <net>
+         <source obj="change_2" outlet="trig"/>
+         <dest obj="chchchchanges" inlet="outlet"/>
       </net>
    </nets>
    <settings>

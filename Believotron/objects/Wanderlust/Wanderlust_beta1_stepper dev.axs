@@ -5,37 +5,52 @@
       </params>
       <attribs/>
    </obj>
-   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_1" x="1540" y="0">
+   <obj type="phi/logic/or 4" uuid="5dc5a7c1fb7809522171638f755fead71cbe14ea" name="or_1" x="1008" y="14">
       <params/>
       <attribs/>
    </obj>
-   <obj type="instruments/ADSR OSC" uuid="19fbc832-a219-427f-ab69-ecdfaccb8a65" name="obj_2" x="1344" y="28">
+   <obj type="instruments/ADSR OSC" uuid="4ed53c76-2d29-4944-b35e-8652a1ae16ce" name="obj_3" x="1344" y="28">
       <params>
          <frac32.s.map name="noteMod" value="0.0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="phi/logic/or 4" uuid="5dc5a7c1fb7809522171638f755fead71cbe14ea" name="or_1" x="1036" y="42">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="frame" x="728" y="56">
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_5" x="756" y="56">
       <params>
-         <int32 name="value" value="1"/>
+         <int32 name="value" value="0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="Wanderlust/Volume Out" uuid="4c32af6c-47e2-4e74-8b97-37dfb4d76913" name="obj_4" x="1624" y="56">
+   <obj type="Wanderlust/Volume Out" uuid="4c32af6c-47e2-4e74-8b97-37dfb4d76913" name="obj_4" x="1890" y="56">
       <params>
          <bool32.tgl name="Enable Vol Knob" value="0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="Wanderlust_beta1" uuid="e6787bb0-54e4-4585-b951-8d232b0aa4e9" name="Wanderlust_beta1_1" x="140" y="112">
+   <obj type="math/*" uuid="3ac307b9f782049739ed62504081b96d580ea336" name="*_1" x="1582" y="70">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="math/*c" uuid="7a66f52a9594e7e9eb31328ea725cb3641a80b55" name="*c_1" x="1638" y="70">
+      <params>
+         <frac32.u.map name="amp" value="64.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="mix/mix 4" uuid="e6f9a0cc7aadc1b89516143cf1ccb79b3538d05a" name="mix_1" x="1764" y="70">
+      <params>
+         <frac32.u.map name="gain1" value="32.0"/>
+         <frac32.u.map name="gain2" value="32.0"/>
+         <frac32.u.map name="gain3" value="32.0"/>
+         <frac32.u.map name="gain4" value="32.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="Wanderlust/Wanderlust_beta1" uuid="dae782d6-525e-4e55-b3d3-72a8a781d293" name="obj_1" x="140" y="112">
       <params>
          <bool32.tgl name="Reverse Knobs" value="1"/>
          <bool32.tgl name="Rev Padrow Top" value="0"/>
-         <bool32.tgl name="Rev Padrow Bottom" value="0"/>
+         <bool32.tgl name="Rev Padrow Bottom" value="1"/>
          <int32 name="LED Mode" value="2"/>
       </params>
       <attribs/>
@@ -46,10 +61,8 @@
       </params>
       <attribs/>
    </obj>
-   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_4" x="14" y="154">
-      <params>
-         <int32 name="value" value="3"/>
-      </params>
+   <obj type="sequencing/16_Step_SynthModel" uuid="eb8134a3-4a0c-4538-a91a-90e0a21feed6" name="obj_2" x="966" y="112">
+      <params/>
       <attribs/>
    </obj>
    <obj type="timer/pulselength" uuid="ca68725237d8ba8407773340801660a9fd9b0dba" name="pulselength_1" x="644" y="154">
@@ -58,119 +71,107 @@
       </params>
       <attribs/>
    </obj>
-   <obj type="sequencing/16_Step_SynthModel" uuid="9b761c30-3d18-4fef-aae3-ea21d51ae104" name="obj_1" x="854" y="154">
-      <params/>
-      <attribs/>
-   </obj>
    <obj type="ctrl/button" uuid="ef3d13774349df85aa9bfecf30dbc91ab8488b3f" name="load" x="490" y="182">
       <params>
          <bool32.mom name="b" value="0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_3" x="1344" y="210">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_2" x="1442" y="210">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_4" x="1344" y="294">
-      <params/>
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_4" x="28" y="196">
+      <params>
+         <int32 name="value" value="3"/>
+      </params>
       <attribs/>
    </obj>
    <obj type="logic/KnobRowColumnSel16x4" uuid="c2bf8d4c-e2a2-460d-bcba-eeff967c6409" name="obj_6" x="364" y="308">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_5" x="1344" y="378">
+   <obj type="disp/i" uuid="5e35fd0c62d81e70017289250cf28edd26e19e4a" name="i_1" x="560" y="476">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_6" x="1344" y="462">
-      <params/>
+   <obj type="logic/counter2" uuid="d9536f238ab92e53ac93d5927c3b43ceef998dc1" name="counter2_1" x="378" y="518">
+      <params>
+         <int32 name="maximum" value="1024"/>
+      </params>
       <attribs/>
    </obj>
    <nets>
       <net>
-         <source obj="Wanderlust_beta1_1" outlet="knob_top_0"/>
-         <dest obj="obj_1" inlet="AttackIn"/>
+         <source obj="obj_1" outlet="knob_top_0"/>
+         <dest obj="obj_2" inlet="AttackIn"/>
       </net>
       <net>
-         <source obj="Wanderlust_beta1_1" outlet="knob_top_1"/>
-         <dest obj="obj_1" inlet="DecayIn"/>
+         <source obj="obj_1" outlet="knob_top_1"/>
+         <dest obj="obj_2" inlet="DecayIn"/>
       </net>
       <net>
-         <source obj="Wanderlust_beta1_1" outlet="knob_top_2"/>
-         <dest obj="obj_1" inlet="SustainIn"/>
+         <source obj="obj_1" outlet="knob_top_2"/>
+         <dest obj="obj_2" inlet="SustainIn"/>
       </net>
       <net>
-         <source obj="Wanderlust_beta1_1" outlet="knob_top_3"/>
-         <dest obj="obj_1" inlet="ReleaseIn"/>
+         <source obj="obj_1" outlet="knob_top_3"/>
+         <dest obj="obj_2" inlet="ReleaseIn"/>
       </net>
       <net>
-         <source obj="Wanderlust_beta1_1" outlet="knob_top_4"/>
-         <dest obj="obj_1" inlet="VolumeIn"/>
+         <source obj="obj_1" outlet="knob_top_4"/>
+         <dest obj="obj_2" inlet="VolumeIn"/>
       </net>
       <net>
-         <source obj="Wanderlust_beta1_1" outlet="knob_top_5"/>
-         <dest obj="obj_1" inlet="PitchIn"/>
+         <source obj="obj_1" outlet="knob_top_5"/>
+         <dest obj="obj_2" inlet="PitchIn"/>
       </net>
       <net>
-         <source obj="obj_1" outlet="VolumeOut"/>
-         <dest obj="dial_1" inlet="in"/>
+         <source obj="obj_2" outlet="VolumeOut"/>
+         <dest obj="*_1" inlet="a"/>
+         <dest obj="obj_3" inlet="volume"/>
       </net>
       <net>
-         <source obj="obj_1" outlet="PitchOut"/>
-         <dest obj="dial_2" inlet="in"/>
-         <dest obj="obj_2" inlet="Base Note"/>
+         <source obj="obj_2" outlet="PitchOut"/>
+         <dest obj="obj_3" inlet="Base Note"/>
       </net>
       <net>
-         <source obj="obj_1" outlet="AttackOut"/>
-         <dest obj="dial_3" inlet="in"/>
-         <dest obj="obj_2" inlet="attack"/>
+         <source obj="obj_2" outlet="AttackOut"/>
+         <dest obj="obj_3" inlet="attack"/>
       </net>
       <net>
-         <source obj="obj_1" outlet="DecayOut"/>
-         <dest obj="dial_4" inlet="in"/>
-         <dest obj="obj_2" inlet="decay"/>
+         <source obj="obj_2" outlet="DecayOut"/>
+         <dest obj="obj_3" inlet="decay"/>
       </net>
       <net>
-         <source obj="obj_1" outlet="SustainOut"/>
-         <dest obj="dial_5" inlet="in"/>
-         <dest obj="obj_2" inlet="sustain"/>
+         <source obj="obj_2" outlet="SustainOut"/>
+         <dest obj="obj_3" inlet="sustain"/>
       </net>
       <net>
-         <source obj="obj_1" outlet="ReleaseOut"/>
-         <dest obj="dial_6" inlet="in"/>
-         <dest obj="obj_2" inlet="release"/>
+         <source obj="obj_2" outlet="ReleaseOut"/>
+         <dest obj="obj_3" inlet="release"/>
       </net>
       <net>
          <source obj="i_4" outlet="out"/>
-         <dest obj="Wanderlust_beta1_1" inlet="Color In"/>
+         <dest obj="obj_1" inlet="Color In"/>
       </net>
       <net>
          <source obj="dial_7" outlet="out"/>
-         <dest obj="Wanderlust_beta1_1" inlet="Intensity"/>
+         <dest obj="obj_1" inlet="Intensity"/>
       </net>
       <net>
          <source obj="obj_6" outlet="stepnum"/>
-         <dest obj="obj_1" inlet="stepIn_"/>
-         <dest obj="obj_1" inlet="stepOut_"/>
-         <dest obj="Wanderlust_beta1_1" inlet="step"/>
+         <dest obj="obj_1" inlet="step"/>
+         <dest obj="obj_2" inlet="stepIn_"/>
+         <dest obj="obj_2" inlet="stepOut_"/>
       </net>
       <net>
-         <source obj="obj_2" outlet="out"/>
+         <source obj="mix_1" outlet="out"/>
          <dest obj="obj_4" inlet="left"/>
          <dest obj="obj_4" inlet="right"/>
       </net>
       <net>
-         <source obj="Wanderlust_beta1_1" outlet="knob_bot_6"/>
+         <source obj="obj_1" outlet="knob_bot_6"/>
          <dest obj="obj_6" inlet="Row"/>
       </net>
       <net>
-         <source obj="Wanderlust_beta1_1" outlet="knob_bot_7"/>
+         <source obj="obj_1" outlet="knob_bot_7"/>
          <dest obj="obj_6" inlet="Col"/>
       </net>
       <net>
@@ -179,27 +180,53 @@
       </net>
       <net>
          <source obj="save" outlet="o"/>
-         <dest obj="obj_1" inlet="saveToSD"/>
+         <dest obj="obj_2" inlet="saveToSD"/>
       </net>
       <net>
          <source obj="load" outlet="o"/>
-         <dest obj="obj_1" inlet="loadFromSD"/>
-      </net>
-      <net>
-         <source obj="frame" outlet="out"/>
-         <dest obj="obj_1" inlet="frame"/>
+         <dest obj="obj_2" inlet="loadFromSD"/>
       </net>
       <net>
          <source obj="or_1" outlet="o"/>
-         <dest obj="obj_2" inlet="trigger"/>
+         <dest obj="obj_3" inlet="trigger"/>
       </net>
       <net>
-         <source obj="Wanderlust_beta1_1" outlet="parasailing"/>
+         <source obj="obj_1" outlet="parasailing"/>
          <dest obj="or_1" inlet="i4"/>
       </net>
       <net>
          <source obj="pulselength_1" outlet="pulse"/>
          <dest obj="or_1" inlet="i3"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="hiking"/>
+         <dest obj="counter2_1" inlet="dec"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="horsebackriding"/>
+         <dest obj="counter2_1" inlet="inc"/>
+      </net>
+      <net>
+         <source obj="counter2_1" outlet="o"/>
+         <dest obj="i_1" inlet="in"/>
+         <dest obj="obj_1" inlet="page"/>
+         <dest obj="obj_2" inlet="frame"/>
+      </net>
+      <net>
+         <source obj="*_1" outlet="result"/>
+         <dest obj="*c_1" inlet="in"/>
+      </net>
+      <net>
+         <source obj="*c_1" outlet="out"/>
+         <dest obj="mix_1" inlet="in1"/>
+      </net>
+      <net>
+         <source obj="obj_3" outlet="out"/>
+         <dest obj="*_1" inlet="b"/>
+      </net>
+      <net>
+         <source obj="i_5" outlet="out"/>
+         <dest obj="obj_2" inlet="page"/>
       </net>
    </nets>
    <settings>

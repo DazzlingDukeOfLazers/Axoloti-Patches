@@ -1,0 +1,48 @@
+<objdefs appVersion="1.0.12">
+   <obj.normal id="doubleIndex" uuid="3b44eb68-01ef-4ba5-b6ee-cd6c736940da">
+      <sDescription>generates string: prefixYYXXXsuffix</sDescription>
+      <author>Johannes Taelman</author>
+      <license>BSD</license>
+      <inlets>
+         <int32 name="index" description="index"/>
+         <int32 name="page"/>
+      </inlets>
+      <outlets>
+         <charptr32 name="out" description="string"/>
+      </outlets>
+      <displays/>
+      <params/>
+      <attribs>
+         <table name="prefix"/>
+         <table name="suffix"/>
+      </attribs>
+      <code.declaration><![CDATA[char c[64];
+int offset;
+int offset2;
+int pval, pvalPage;]]></code.declaration>
+      <code.init><![CDATA[strcpy(&c[0],"attr_prefix00-000attr_suffix");
+offset = strlen("attr_prefix");
+offset2 = offset + 3; // Added extra two zeroes
+pval = 0;
+pvalPage = 0;]]></code.init>
+      <code.krate><![CDATA[if ( (inlet_index != pval) || (inlet_page != pvalPage) )
+{   
+   pval     = inlet_index;
+   pvalPage = inlet_page;
+
+   int i = inlet_page; int i0 = i/10;
+   c[offset+1] = '0'+i-10*i0;
+   i = i0; i0 = i/10;
+   c[offset] = '0'+i-10*i0;	
+   
+   
+   i = inlet_index; i0 = i/10;
+   c[offset2+2] = '0'+i-10*i0;
+   i = i0; i0 = i/10;
+   c[offset2+1] = '0'+i-10*i0;
+   i = i0; i0 = i/10;
+   c[offset2+0] = '0'+i-10*i0;
+}
+outlet_out = &c[0];]]></code.krate>
+   </obj.normal>
+</objdefs>

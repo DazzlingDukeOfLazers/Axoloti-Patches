@@ -3,6 +3,10 @@
       <params/>
       <attribs/>
    </obj>
+   <obj type="logic/and 2" uuid="c67031682f552aa0a80b23377495c51ea28a8c9c" name="and_1" x="168" y="42">
+      <params/>
+      <attribs/>
+   </obj>
    <obj type="env/adsr m" uuid="98bd39fb828c392b28126d259cb5175e6f6ea34b" name="adsr_1" x="266" y="42">
       <params>
          <frac32.s.map name="a" value="-64.0"/>
@@ -28,10 +32,20 @@
       <params/>
       <attribs/>
    </obj>
+   <obj type="math/&gt;c" uuid="99f2934d97d62b715a829979ef6c8abef35dcdb2" name="&gt;c_1" x="126" y="252">
+      <params>
+         <frac32.u.map name="c" value="1.0"/>
+      </params>
+      <attribs/>
+   </obj>
    <obj type="ctrl/dial b" uuid="862e7d7f29093cb1ce4aed72244d118ad4d46692" name="dial_1" x="350" y="252">
       <params>
          <frac32.s.map name="value" value="33.0"/>
       </params>
+      <attribs/>
+   </obj>
+   <obj type="patch/inlet f" uuid="5c585d2dcd9c05631e345ac09626a22a639d7c13" name="volume" x="28" y="266">
+      <params/>
       <attribs/>
    </obj>
    <obj type="patch/inlet f" uuid="5c585d2dcd9c05631e345ac09626a22a639d7c13" name="Base Note" x="28" y="322">
@@ -82,7 +96,7 @@
       </net>
       <net>
          <source obj="trigger" outlet="inlet"/>
-         <dest obj="adsr_1" inlet="gate"/>
+         <dest obj="and_1" inlet="i1"/>
       </net>
       <net>
          <source obj="noteMod" outlet="out"/>
@@ -109,10 +123,6 @@
          <dest obj="adsr_1" inlet="r"/>
       </net>
       <net>
-         <source obj="dial_1" outlet="out"/>
-         <dest obj="vca_1" inlet="v"/>
-      </net>
-      <net>
          <source obj="vca_1" outlet="o"/>
          <dest obj="vca_2" inlet="a"/>
       </net>
@@ -120,14 +130,27 @@
          <source obj="osc_3" outlet="wave"/>
          <dest obj="vca_1" inlet="a"/>
       </net>
+      <net>
+         <source obj="volume" outlet="inlet"/>
+         <dest obj="&gt;c_1" inlet="in"/>
+         <dest obj="vca_1" inlet="v"/>
+      </net>
+      <net>
+         <source obj="&gt;c_1" outlet="out"/>
+         <dest obj="and_1" inlet="i2"/>
+      </net>
+      <net>
+         <source obj="and_1" outlet="o"/>
+         <dest obj="adsr_1" inlet="gate"/>
+      </net>
    </nets>
    <settings>
       <subpatchmode>no</subpatchmode>
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>-1018</x>
-      <y>-46</y>
+      <x>-1798</x>
+      <y>-49</y>
       <width>709</width>
       <height>957</height>
    </windowPos>

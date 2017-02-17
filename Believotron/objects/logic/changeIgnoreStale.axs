@@ -11,7 +11,7 @@
       <attribs/>
    </obj>
    <comment type="patch/comment" x="252" y="168" text="If the in val is different from the stale value"/>
-   <obj type="pmj/math/!=" uuid="a3f5fc31-58a5-40ec-8f53-957bb989c93b" name="!=_1" x="252" y="182">
+   <obj type="pmj/math/!=" uuid="9af6e380-2b82-4449-9833-78c50befb700" name="!=_1" x="252" y="182">
       <params/>
       <attribs/>
    </obj>
@@ -34,6 +34,10 @@
       <attribs/>
    </obj>
    <obj type="patch/inlet f" uuid="5c585d2dcd9c05631e345ac09626a22a639d7c13" name="val" x="28" y="238">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="logic/changeAfterSel" uuid="080d83c3-b79f-4eaf-9609-14c34f3ffbb9" name="changeAfterSel_1" x="1092" y="252">
       <params/>
       <attribs/>
    </obj>
@@ -90,6 +94,11 @@
    </nets>
    <settings>
       <subpatchmode>no</subpatchmode>
+      <MidiChannel>1</MidiChannel>
+      <NPresets>0</NPresets>
+      <NPresetEntries>0</NPresetEntries>
+      <NModulationSources>0</NModulationSources>
+      <NModulationTargetsPerSource>0</NModulationTargetsPerSource>
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>

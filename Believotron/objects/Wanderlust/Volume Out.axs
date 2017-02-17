@@ -1,4 +1,4 @@
-<patch-1.0 appVersion="1.0.10">
+<patch-1.0 appVersion="1.0.12">
    <obj type="ctrl/dial p" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="dial_6" x="168" y="0">
       <params>
          <frac32.u.map name="value" value="64.0"/>
@@ -13,12 +13,6 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="math/*c" uuid="7a66f52a9594e7e9eb31328ea725cb3641a80b55" name="*c_1" x="546" y="42">
-      <params>
-         <frac32.u.map name="amp" value="64.0"/>
-      </params>
-      <attribs/>
-   </obj>
    <obj type="patch/inlet a" uuid="b577fe41e0a6bc7b5502ce33cb8a3129e2e28ee5" name="left" x="42" y="56">
       <params/>
       <attribs/>
@@ -30,17 +24,13 @@
       <attribs/>
    </obj>
    <comment type="patch/comment" x="42" y="126" text="Uses volume knob on Believotron Wanderlust controller to control the volume to a stereo out"/>
-   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_4" x="182" y="140">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="ctrl/dial p" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="dial_5" x="252" y="140">
+   <obj type="ctrl/dial p" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="dial_5" x="252" y="154">
       <params>
          <frac32.u.map name="value" value="64.0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="audio/out stereo" sha="b933bb91801a126126313c11f773158b5ca2face" name="dac_1" x="672" y="196">
+   <obj type="audio/out stereo" uuid="a1ca7a567f535acc21055669829101d3ee7f0189" name="dac_1" x="672" y="196">
       <params/>
       <attribs/>
    </obj>
@@ -66,25 +56,10 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="math/*c" uuid="7a66f52a9594e7e9eb31328ea725cb3641a80b55" name="*c_2" x="546" y="364">
-      <params>
-         <frac32.u.map name="amp" value="64.0"/>
-      </params>
-      <attribs/>
-   </obj>
    <nets>
       <net>
-         <source obj="*c_1" outlet="out"/>
-         <dest obj="dac_1" inlet="left"/>
-      </net>
-      <net>
          <source obj="analog_1" outlet="out"/>
-         <dest obj="dial_4" inlet="in"/>
          <dest obj="-_1" inlet="in2"/>
-      </net>
-      <net>
-         <source obj="*_1" outlet="result"/>
-         <dest obj="*c_1" inlet="in"/>
       </net>
       <net>
          <source obj="dial_5" outlet="out"/>
@@ -100,16 +75,8 @@
          <dest obj="*_1" inlet="b"/>
       </net>
       <net>
-         <source obj="*_2" outlet="result"/>
-         <dest obj="*c_2" inlet="in"/>
-      </net>
-      <net>
          <source obj="right" outlet="inlet"/>
          <dest obj="*_2" inlet="b"/>
-      </net>
-      <net>
-         <source obj="*c_2" outlet="out"/>
-         <dest obj="dac_1" inlet="right"/>
       </net>
       <net>
          <source obj="Enable Vol Knob" outlet="o"/>
@@ -124,9 +91,23 @@
          <dest obj="*_1" inlet="a"/>
          <dest obj="*_2" inlet="a"/>
       </net>
+      <net>
+         <source obj="*_1" outlet="result"/>
+         <dest obj="dac_1" inlet="left"/>
+      </net>
+      <net>
+         <source obj="*_2" outlet="result"/>
+         <dest obj="dac_1" inlet="right"/>
+      </net>
    </nets>
    <settings>
       <subpatchmode>no</subpatchmode>
+      <MidiChannel>1</MidiChannel>
+      <NPresets>0</NPresets>
+      <NPresetEntries>0</NPresetEntries>
+      <NModulationSources>0</NModulationSources>
+      <NModulationTargetsPerSource>0</NModulationTargetsPerSource>
+      <Author></Author>
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>

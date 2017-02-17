@@ -15,7 +15,7 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="changedMemoryFile" uuid="6bb04298-b22f-49bd-9fad-d4438e700ff8" name="changedMemoryFile_1" x="644" y="70">
+   <obj type="changedMemoryFile" uuid="3f057af5-5cae-4fbc-80e3-d98bf181877a" name="changedMemoryFile_1" x="644" y="70">
       <params/>
       <attribs/>
    </obj>
@@ -30,7 +30,7 @@
    <obj type="string/doubleIndex" uuid="3b44eb68-01ef-4ba5-b6ee-cd6c736940da" name="doubleIndex_1" x="448" y="112">
       <params/>
       <attribs>
-         <table attributeName="prefix" table="stepVolume"/>
+         <table attributeName="prefix" table="vol"/>
          <table attributeName="suffix" table=".step"/>
       </attribs>
    </obj>
@@ -38,7 +38,7 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="changedMemoryFile" uuid="6bb04298-b22f-49bd-9fad-d4438e700ff8" name="changedMemoryFile_2" x="644" y="196">
+   <obj type="changedMemoryFile" uuid="3f057af5-5cae-4fbc-80e3-d98bf181877a" name="changedMemoryFile_2" x="644" y="196">
       <params/>
       <attribs/>
    </obj>
@@ -53,7 +53,7 @@
    <obj type="string/doubleIndex" uuid="3b44eb68-01ef-4ba5-b6ee-cd6c736940da" name="doubleIndex_2" x="448" y="224">
       <params/>
       <attribs>
-         <table attributeName="prefix" table="stepPitch"/>
+         <table attributeName="prefix" table="pit"/>
          <table attributeName="suffix" table=".step"/>
       </attribs>
    </obj>
@@ -65,7 +65,7 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="changedMemoryFile" uuid="6bb04298-b22f-49bd-9fad-d4438e700ff8" name="changedMemoryFile_3" x="644" y="322">
+   <obj type="changedMemoryFile" uuid="3f057af5-5cae-4fbc-80e3-d98bf181877a" name="changedMemoryFile_3" x="644" y="322">
       <params/>
       <attribs/>
    </obj>
@@ -76,7 +76,7 @@
    <obj type="string/doubleIndex" uuid="3b44eb68-01ef-4ba5-b6ee-cd6c736940da" name="doubleIndex_3" x="448" y="350">
       <params/>
       <attribs>
-         <table attributeName="prefix" table="stepAttack"/>
+         <table attributeName="prefix" table="atk"/>
          <table attributeName="suffix" table=".step"/>
       </attribs>
    </obj>
@@ -84,7 +84,7 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="changedMemoryFile" uuid="6bb04298-b22f-49bd-9fad-d4438e700ff8" name="changedMemoryFile_4" x="644" y="448">
+   <obj type="changedMemoryFile" uuid="3f057af5-5cae-4fbc-80e3-d98bf181877a" name="changedMemoryFile_4" x="644" y="448">
       <params/>
       <attribs/>
    </obj>
@@ -99,7 +99,7 @@
    <obj type="string/doubleIndex" uuid="3b44eb68-01ef-4ba5-b6ee-cd6c736940da" name="doubleIndex_4" x="448" y="462">
       <params/>
       <attribs>
-         <table attributeName="prefix" table="stepDecay"/>
+         <table attributeName="prefix" table="dec"/>
          <table attributeName="suffix" table=".step"/>
       </attribs>
    </obj>
@@ -107,7 +107,7 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="changedMemoryFile" uuid="6bb04298-b22f-49bd-9fad-d4438e700ff8" name="changedMemoryFile_5" x="644" y="574">
+   <obj type="changedMemoryFile" uuid="3f057af5-5cae-4fbc-80e3-d98bf181877a" name="changedMemoryFile_5" x="644" y="574">
       <params/>
       <attribs/>
    </obj>
@@ -118,7 +118,7 @@
    <obj type="string/doubleIndex" uuid="3b44eb68-01ef-4ba5-b6ee-cd6c736940da" name="doubleIndex_5" x="448" y="588">
       <params/>
       <attribs>
-         <table attributeName="prefix" table="stepSustain"/>
+         <table attributeName="prefix" table="sus"/>
          <table attributeName="suffix" table=".step"/>
       </attribs>
    </obj>
@@ -130,7 +130,7 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="changedMemoryFile" uuid="6bb04298-b22f-49bd-9fad-d4438e700ff8" name="changedMemoryFile_6" x="644" y="700">
+   <obj type="changedMemoryFile" uuid="3f057af5-5cae-4fbc-80e3-d98bf181877a" name="changedMemoryFile_6" x="644" y="700">
       <params/>
       <attribs/>
    </obj>
@@ -141,7 +141,7 @@
    <obj type="string/doubleIndex" uuid="3b44eb68-01ef-4ba5-b6ee-cd6c736940da" name="doubleIndex_6" x="448" y="714">
       <params/>
       <attribs>
-         <table attributeName="prefix" table="stepRelease"/>
+         <table attributeName="prefix" table="rel"/>
          <table attributeName="suffix" table=".step"/>
       </attribs>
    </obj>

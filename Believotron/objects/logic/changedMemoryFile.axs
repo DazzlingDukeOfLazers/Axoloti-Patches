@@ -58,7 +58,7 @@
          <objref attributeName="table" obj="tbl"/>
       </attribs>
    </obj>
-   <obj type="logic/changeIgnoreStale" uuid="8de16ccd-6686-4a4b-b83e-baa2ff747d6b" name="change" x="294" y="364">
+   <obj type="logic/changeAfterSel" uuid="080d83c3-b79f-4eaf-9609-14c34f3ffbb9" name="changeAfterSel_1" x="336" y="392">
       <params/>
       <attribs/>
    </obj>
@@ -83,12 +83,8 @@
    <nets>
       <net>
          <source obj="in" outlet="inlet"/>
-         <dest obj="change" inlet="val"/>
          <dest obj="write_1" inlet="v"/>
-      </net>
-      <net>
-         <source obj="change" outlet="Changed"/>
-         <dest obj="and_1" inlet="i2"/>
+         <dest obj="changeAfterSel_1" inlet="in"/>
       </net>
       <net>
          <source obj="stepIn" outlet="inlet"/>
@@ -105,7 +101,7 @@
       </net>
       <net>
          <source obj="inv_1" outlet="o"/>
-         <dest obj="change" inlet="enable"/>
+         <dest obj="changeAfterSel_1" inlet="sel"/>
       </net>
       <net>
          <source obj="stepOut" outlet="inlet"/>
@@ -125,16 +121,25 @@
          <dest obj="load_1" inlet="filename"/>
       </net>
       <net>
+         <source obj="enableWR" outlet="inlet"/>
+         <dest obj="and_1" inlet="i1"/>
+      </net>
+      <net>
          <source obj="and_1" outlet="o"/>
          <dest obj="write_1" inlet="trig"/>
       </net>
       <net>
-         <source obj="enableWR" outlet="inlet"/>
-         <dest obj="and_1" inlet="i1"/>
+         <source obj="changeAfterSel_1" outlet="trig"/>
+         <dest obj="and_1" inlet="i2"/>
       </net>
    </nets>
    <settings>
       <subpatchmode>no</subpatchmode>
+      <MidiChannel>1</MidiChannel>
+      <NPresets>0</NPresets>
+      <NPresetEntries>0</NPresetEntries>
+      <NModulationSources>0</NModulationSources>
+      <NModulationTargetsPerSource>0</NModulationTargetsPerSource>
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>

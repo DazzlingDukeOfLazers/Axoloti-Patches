@@ -38,13 +38,11 @@
       </params>
       <attribs/>
    </obj>
-   <obj type="ctrl/dial b" uuid="862e7d7f29093cb1ce4aed72244d118ad4d46692" name="dial_1" x="350" y="252">
-      <params>
-         <frac32.s.map name="value" value="33.0"/>
-      </params>
+   <obj type="patch/inlet f" uuid="5c585d2dcd9c05631e345ac09626a22a639d7c13" name="volume" x="28" y="266">
+      <params/>
       <attribs/>
    </obj>
-   <obj type="patch/inlet f" uuid="5c585d2dcd9c05631e345ac09626a22a639d7c13" name="volume" x="28" y="266">
+   <obj type="math/+" uuid="44553fdc8628c67ab535845ed1be304ad6c9553b" name="+_2" x="420" y="280">
       <params/>
       <attribs/>
    </obj>
@@ -69,10 +67,6 @@
       <params>
          <frac32.s.map name="pitch" value="-48.0"/>
       </params>
-      <attribs/>
-   </obj>
-   <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_1" x="448" y="350">
-      <params/>
       <attribs/>
    </obj>
    <obj type="ctrl/dial b" uuid="862e7d7f29093cb1ce4aed72244d118ad4d46692" name="noteMod" x="28" y="378">
@@ -104,7 +98,7 @@
       </net>
       <net>
          <source obj="adsr_1" outlet="env"/>
-         <dest obj="vca_2" inlet="v"/>
+         <dest obj="+_2" inlet="in1"/>
       </net>
       <net>
          <source obj="attack" outlet="inlet"/>
@@ -123,17 +117,9 @@
          <dest obj="adsr_1" inlet="r"/>
       </net>
       <net>
-         <source obj="vca_1" outlet="o"/>
-         <dest obj="vca_2" inlet="a"/>
-      </net>
-      <net>
-         <source obj="osc_3" outlet="wave"/>
-         <dest obj="vca_1" inlet="a"/>
-      </net>
-      <net>
          <source obj="volume" outlet="inlet"/>
          <dest obj="&gt;c_1" inlet="in"/>
-         <dest obj="vca_1" inlet="v"/>
+         <dest obj="+_2" inlet="in2"/>
       </net>
       <net>
          <source obj="&gt;c_1" outlet="out"/>
@@ -142,6 +128,14 @@
       <net>
          <source obj="and_1" outlet="o"/>
          <dest obj="adsr_1" inlet="gate"/>
+      </net>
+      <net>
+         <source obj="+_2" outlet="out"/>
+         <dest obj="vca_2" inlet="v"/>
+      </net>
+      <net>
+         <source obj="osc_3" outlet="wave"/>
+         <dest obj="vca_2" inlet="a"/>
       </net>
    </nets>
    <settings>

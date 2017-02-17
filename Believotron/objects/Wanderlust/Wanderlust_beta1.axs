@@ -437,10 +437,6 @@ void loop(void)
          <combo attributeName="channel" selection="PC1 (ADC1_IN11)"/>
       </attribs>
    </obj>
-   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_6" x="1358" y="896">
-      <params/>
-      <attribs/>
-   </obj>
    <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="joyLX" x="1456" y="896">
       <params/>
       <attribs/>
@@ -450,10 +446,6 @@ void loop(void)
       <attribs>
          <combo attributeName="channel" selection="PC4 (ADC1_IN14)"/>
       </attribs>
-   </obj>
-   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_7" x="1358" y="980">
-      <params/>
-      <attribs/>
    </obj>
    <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="joyLY" x="1456" y="980">
       <params/>
@@ -630,12 +622,10 @@ void loop(void)
       </net>
       <net>
          <source obj="analog_1" outlet="out"/>
-         <dest obj="dial_7" inlet="in"/>
          <dest obj="joyLY" inlet="outlet"/>
       </net>
       <net>
          <source obj="analog_2" outlet="out"/>
-         <dest obj="dial_6" inlet="in"/>
          <dest obj="joyLX" inlet="outlet"/>
       </net>
       <net>
@@ -681,6 +671,11 @@ void loop(void)
    </nets>
    <settings>
       <subpatchmode>no</subpatchmode>
+      <MidiChannel>1</MidiChannel>
+      <NPresets>0</NPresets>
+      <NPresetEntries>0</NPresetEntries>
+      <NModulationSources>0</NModulationSources>
+      <NModulationTargetsPerSource>0</NModulationTargetsPerSource>
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>

@@ -32,10 +32,6 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="math/+" uuid="44553fdc8628c67ab535845ed1be304ad6c9553b" name="+_2" x="392" y="224">
-      <params/>
-      <attribs/>
-   </obj>
    <obj type="math/&gt;c" uuid="99f2934d97d62b715a829979ef6c8abef35dcdb2" name="&gt;c_1" x="126" y="252">
       <params>
          <frac32.u.map name="c" value="1.0"/>
@@ -51,6 +47,10 @@
       <attribs/>
    </obj>
    <comment type="patch/comment" x="266" y="322" text="carrier oscillator"/>
+   <obj type="math/+" uuid="44553fdc8628c67ab535845ed1be304ad6c9553b" name="+_2" x="420" y="336">
+      <params/>
+      <attribs/>
+   </obj>
    <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_2" x="518" y="336">
       <params/>
       <attribs/>
@@ -63,23 +63,19 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="osc/saw" uuid="739ecc36017ef3249479b8f01716b8bbfba9abc1" name="saw_1" x="266" y="364">
-      <params>
-         <frac32.s.map name="pitch" value="-48.0"/>
-      </params>
-      <attribs/>
-   </obj>
    <obj type="ctrl/dial b" uuid="862e7d7f29093cb1ce4aed72244d118ad4d46692" name="noteMod" x="28" y="378">
       <params>
          <frac32.s.map name="value" onParent="true" value="0.0"/>
       </params>
       <attribs/>
    </obj>
+   <obj type="osc/square medium" uuid="d8675e626c34278d4df80ca15ee965d647908d2f" name="square_1" x="280" y="378">
+      <params>
+         <frac32.s.map name="pitch" value="0.0"/>
+      </params>
+      <attribs/>
+   </obj>
    <nets>
-      <net>
-         <source obj="+_1" outlet="out"/>
-         <dest obj="saw_1" inlet="pitch"/>
-      </net>
       <net>
          <source obj="vca_2" outlet="o"/>
          <dest obj="out" inlet="outlet"/>
@@ -130,12 +126,16 @@
          <dest obj="adsr_1" inlet="gate"/>
       </net>
       <net>
-         <source obj="+_2" outlet="out"/>
-         <dest obj="vca_2" inlet="v"/>
+         <source obj="+_1" outlet="out"/>
+         <dest obj="square_1" inlet="pitch"/>
       </net>
       <net>
-         <source obj="saw_1" outlet="wave"/>
+         <source obj="square_1" outlet="wave"/>
          <dest obj="vca_2" inlet="a"/>
+      </net>
+      <net>
+         <source obj="+_2" outlet="out"/>
+         <dest obj="vca_2" inlet="v"/>
       </net>
    </nets>
    <settings>

@@ -7,7 +7,11 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="table/write" uuid="50b8c8807ba1fc700ed79381c9360a982e0c3fb9" name="write_1" x="476" y="182">
+   <obj type="patch/inlet b" uuid="3b0d3eacb5bb978cb05d1372aa2714d5a4790844" name="enableWR" x="56" y="154">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="table/write" uuid="50b8c8807ba1fc700ed79381c9360a982e0c3fb9" name="write_1" x="588" y="168">
       <params/>
       <attribs>
          <objref attributeName="table" obj="tbl"/>
@@ -20,6 +24,10 @@
       </attribs>
    </obj>
    <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="tableOut" x="896" y="182">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="logic/and 2" uuid="c67031682f552aa0a80b23377495c51ea28a8c9c" name="and_1" x="490" y="196">
       <params/>
       <attribs/>
    </obj>
@@ -80,7 +88,7 @@
       </net>
       <net>
          <source obj="change" outlet="Changed"/>
-         <dest obj="write_1" inlet="trig"/>
+         <dest obj="and_1" inlet="i2"/>
       </net>
       <net>
          <source obj="stepIn" outlet="inlet"/>
@@ -115,6 +123,14 @@
          <source obj="filename" outlet="inlet"/>
          <dest obj="save_1" inlet="filename"/>
          <dest obj="load_1" inlet="filename"/>
+      </net>
+      <net>
+         <source obj="and_1" outlet="o"/>
+         <dest obj="write_1" inlet="trig"/>
+      </net>
+      <net>
+         <source obj="enableWR" outlet="inlet"/>
+         <dest obj="and_1" inlet="i1"/>
       </net>
    </nets>
    <settings>

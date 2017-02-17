@@ -1,5 +1,5 @@
 <patch-1.0 appVersion="1.0.12">
-   <obj type="math/*" uuid="13882852b58661ad012ffbe246470b5df4b6c5d1" name="*_1" x="294" y="28">
+   <obj type="math/*" uuid="6a31299e3a491edd8c4df0e809a519a35cc08a3b" name="*_1" x="294" y="28">
       <params/>
       <attribs/>
    </obj>
@@ -9,23 +9,31 @@
          <spinner attributeName="value" value="16"/>
       </attribs>
    </obj>
-   <obj type="math/min" uuid="e3d20abc508a5b2245686febc1caf036edc7f501" name="min_1" x="420" y="42">
+   <obj type="math/min" uuid="e8e70895f32cf1d38f8c4ed78774c30ff352375d" name="min_1" x="420" y="42">
       <params/>
       <attribs/>
    </obj>
-   <obj type="const/i" uuid="e202f44b2df17ae0b3e663b98ea6b14c8ff00408" name="i_5" x="294" y="98">
+   <obj type="patch/outlet i" uuid="aae2176b26209e34e4fdeba5edb1ace82d178655" name="row" x="602" y="42">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="math/+" uuid="b94a9b8e9adcb7d18868c0ee808a9b211b65578d" name="+_1" x="518" y="98">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet i" uuid="aae2176b26209e34e4fdeba5edb1ace82d178655" name="stepNum" x="602" y="98">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="conv/to i" uuid="305966430ee86b5c3b8e18cde0c721657c558a87" name="to_1" x="266" y="112">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="const/i" uuid="e202f44b2df17ae0b3e663b98ea6b14c8ff00408" name="i_5" x="336" y="112">
       <params/>
       <attribs>
          <spinner attributeName="value" value="48"/>
       </attribs>
-   </obj>
-   <obj type="math/+" uuid="44553fdc8628c67ab535845ed1be304ad6c9553b" name="+_1" x="518" y="98">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="stepnum" x="602" y="98">
-      <params/>
-      <attribs/>
    </obj>
    <obj type="patch/inlet f" uuid="5c585d2dcd9c05631e345ac09626a22a639d7c13" name="Row" x="0" y="126">
       <params/>
@@ -39,7 +47,7 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="logic/change" uuid="42071f8cb4cfe1f35956c0bd5a313a57e049bec4" name="change_2" x="602" y="154">
+   <obj type="logic/change" uuid="96e39ae624c3f3c952cec4a95e1986ee0104f718" name="change_1" x="602" y="154">
       <params/>
       <attribs/>
    </obj>
@@ -63,6 +71,14 @@
       <params/>
       <attribs/>
    </obj>
+   <obj type="conv/to i" uuid="305966430ee86b5c3b8e18cde0c721657c558a87" name="to_2" x="266" y="182">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet i" uuid="aae2176b26209e34e4fdeba5edb1ace82d178655" name="col" x="602" y="210">
+      <params/>
+      <attribs/>
+   </obj>
    <obj type="const/i" uuid="e202f44b2df17ae0b3e663b98ea6b14c8ff00408" name="i_6" x="294" y="224">
       <params/>
       <attribs>
@@ -76,7 +92,7 @@
       </net>
       <net>
          <source obj="round_1" outlet="out"/>
-         <dest obj="min_2" inlet="in1"/>
+         <dest obj="to_2" inlet="i"/>
       </net>
       <net>
          <source obj="div_2" outlet="out"/>
@@ -84,7 +100,7 @@
       </net>
       <net>
          <source obj="round_2" outlet="out"/>
-         <dest obj="*_1" inlet="a"/>
+         <dest obj="to_1" inlet="i"/>
       </net>
       <net>
          <source obj="*_1" outlet="result"/>
@@ -120,12 +136,22 @@
       </net>
       <net>
          <source obj="+_1" outlet="out"/>
-         <dest obj="stepnum" inlet="outlet"/>
-         <dest obj="change_2" inlet="in"/>
+         <dest obj="change_1" inlet="in"/>
+         <dest obj="stepNum" inlet="outlet"/>
       </net>
       <net>
-         <source obj="change_2" outlet="trig"/>
+         <source obj="change_1" outlet="trig"/>
          <dest obj="chchchchanges" inlet="outlet"/>
+      </net>
+      <net>
+         <source obj="to_1" outlet="o"/>
+         <dest obj="*_1" inlet="a"/>
+         <dest obj="row" inlet="outlet"/>
+      </net>
+      <net>
+         <source obj="to_2" outlet="o"/>
+         <dest obj="min_2" inlet="in1"/>
+         <dest obj="col" inlet="outlet"/>
       </net>
    </nets>
    <settings>

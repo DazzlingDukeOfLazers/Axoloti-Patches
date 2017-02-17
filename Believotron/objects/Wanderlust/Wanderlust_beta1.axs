@@ -264,6 +264,10 @@ void loop(void)
 			SetAllLEDs(LEDcolor);
 			SetLED(stepNum,2,stepIntensity);
 			break;			
+		case 2:		
+			SetCheckerPattern(0);
+			SetLED(stepNum,1,stepIntensity);
+			break;			
 		default:	
 			SetAllLEDs(LEDcolor);		
 			break;

@@ -9,13 +9,19 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="phi/logic/or 4" uuid="5dc5a7c1fb7809522171638f755fead71cbe14ea" name="or_2" x="1120" y="28">
+   <obj type="instruments/ADSR OSC" uuid="19fbc832-a219-427f-ab69-ecdfaccb8a65" name="obj_2" x="1344" y="28">
+      <params>
+         <frac32.s.map name="noteMod" value="0.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="phi/logic/or 4" uuid="5dc5a7c1fb7809522171638f755fead71cbe14ea" name="or_1" x="1036" y="42">
       <params/>
       <attribs/>
    </obj>
-   <obj type="instruments/ADSR OSC" uuid="c5a22d8c-e6d9-4403-a1ea-8d724c0a80ec" name="obj_3" x="1344" y="28">
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="frame" x="728" y="56">
       <params>
-         <frac32.s.map name="noteMod" value="0.0"/>
+         <int32 name="value" value="1"/>
       </params>
       <attribs/>
    </obj>
@@ -25,12 +31,12 @@
       </params>
       <attribs/>
    </obj>
-   <obj type="Wanderlust/Wanderlust_beta1" uuid="4b4a7c45-923f-4809-b307-bdfb6f04094f" name="obj_1" x="140" y="112">
+   <obj type="Wanderlust_beta1" uuid="e6787bb0-54e4-4585-b951-8d232b0aa4e9" name="Wanderlust_beta1_1" x="140" y="112">
       <params>
          <bool32.tgl name="Reverse Knobs" value="1"/>
          <bool32.tgl name="Rev Padrow Top" value="0"/>
          <bool32.tgl name="Rev Padrow Bottom" value="0"/>
-         <int32 name="LED Mode" value="1"/>
+         <int32 name="LED Mode" value="2"/>
       </params>
       <attribs/>
    </obj>
@@ -42,7 +48,7 @@
    </obj>
    <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_4" x="14" y="154">
       <params>
-         <int32 name="value" value="0"/>
+         <int32 name="value" value="3"/>
       </params>
       <attribs/>
    </obj>
@@ -52,7 +58,7 @@
       </params>
       <attribs/>
    </obj>
-   <obj type="16_Step_SynthModel" uuid="a3ba2934-1b58-4f80-b807-0da04d8fffe5" name="16_Step_SynthModel_1" x="910" y="168">
+   <obj type="sequencing/16_Step_SynthModel" uuid="9b761c30-3d18-4fef-aae3-ea21d51ae104" name="obj_1" x="854" y="154">
       <params/>
       <attribs/>
    </obj>
@@ -88,95 +94,83 @@
    </obj>
    <nets>
       <net>
-         <source obj="obj_1" outlet="knob_top_0"/>
-         <dest obj="16_Step_SynthModel_1" inlet="AttackIn"/>
+         <source obj="Wanderlust_beta1_1" outlet="knob_top_0"/>
+         <dest obj="obj_1" inlet="AttackIn"/>
       </net>
       <net>
-         <source obj="obj_1" outlet="knob_top_1"/>
-         <dest obj="16_Step_SynthModel_1" inlet="DecayIn"/>
+         <source obj="Wanderlust_beta1_1" outlet="knob_top_1"/>
+         <dest obj="obj_1" inlet="DecayIn"/>
       </net>
       <net>
-         <source obj="obj_1" outlet="knob_top_2"/>
-         <dest obj="16_Step_SynthModel_1" inlet="SustainIn"/>
+         <source obj="Wanderlust_beta1_1" outlet="knob_top_2"/>
+         <dest obj="obj_1" inlet="SustainIn"/>
       </net>
       <net>
-         <source obj="obj_1" outlet="knob_top_3"/>
-         <dest obj="16_Step_SynthModel_1" inlet="ReleaseIn"/>
+         <source obj="Wanderlust_beta1_1" outlet="knob_top_3"/>
+         <dest obj="obj_1" inlet="ReleaseIn"/>
       </net>
       <net>
-         <source obj="obj_1" outlet="knob_top_4"/>
-         <dest obj="16_Step_SynthModel_1" inlet="VolumeIn"/>
+         <source obj="Wanderlust_beta1_1" outlet="knob_top_4"/>
+         <dest obj="obj_1" inlet="VolumeIn"/>
       </net>
       <net>
-         <source obj="obj_1" outlet="knob_top_5"/>
-         <dest obj="16_Step_SynthModel_1" inlet="PitchIn"/>
+         <source obj="Wanderlust_beta1_1" outlet="knob_top_5"/>
+         <dest obj="obj_1" inlet="PitchIn"/>
       </net>
       <net>
-         <source obj="16_Step_SynthModel_1" outlet="VolumeOut"/>
+         <source obj="obj_1" outlet="VolumeOut"/>
          <dest obj="dial_1" inlet="in"/>
       </net>
       <net>
-         <source obj="16_Step_SynthModel_1" outlet="PitchOut"/>
+         <source obj="obj_1" outlet="PitchOut"/>
          <dest obj="dial_2" inlet="in"/>
-         <dest obj="obj_3" inlet="Base Note"/>
+         <dest obj="obj_2" inlet="Base Note"/>
       </net>
       <net>
-         <source obj="16_Step_SynthModel_1" outlet="AttackOut"/>
+         <source obj="obj_1" outlet="AttackOut"/>
          <dest obj="dial_3" inlet="in"/>
-         <dest obj="obj_3" inlet="attack"/>
+         <dest obj="obj_2" inlet="attack"/>
       </net>
       <net>
-         <source obj="16_Step_SynthModel_1" outlet="DecayOut"/>
+         <source obj="obj_1" outlet="DecayOut"/>
          <dest obj="dial_4" inlet="in"/>
-         <dest obj="obj_3" inlet="decay"/>
+         <dest obj="obj_2" inlet="decay"/>
       </net>
       <net>
-         <source obj="16_Step_SynthModel_1" outlet="SustainOut"/>
+         <source obj="obj_1" outlet="SustainOut"/>
          <dest obj="dial_5" inlet="in"/>
-         <dest obj="obj_3" inlet="sustain"/>
+         <dest obj="obj_2" inlet="sustain"/>
       </net>
       <net>
-         <source obj="16_Step_SynthModel_1" outlet="ReleaseOut"/>
+         <source obj="obj_1" outlet="ReleaseOut"/>
          <dest obj="dial_6" inlet="in"/>
-         <dest obj="obj_3" inlet="release"/>
+         <dest obj="obj_2" inlet="release"/>
       </net>
       <net>
          <source obj="i_4" outlet="out"/>
-         <dest obj="obj_1" inlet="Color In"/>
+         <dest obj="Wanderlust_beta1_1" inlet="Color In"/>
       </net>
       <net>
          <source obj="dial_7" outlet="out"/>
-         <dest obj="obj_1" inlet="Intensity"/>
+         <dest obj="Wanderlust_beta1_1" inlet="Intensity"/>
       </net>
       <net>
          <source obj="obj_6" outlet="stepnum"/>
-         <dest obj="obj_1" inlet="step"/>
-         <dest obj="16_Step_SynthModel_1" inlet="stepIn_"/>
-         <dest obj="16_Step_SynthModel_1" inlet="stepOut_"/>
+         <dest obj="obj_1" inlet="stepIn_"/>
+         <dest obj="obj_1" inlet="stepOut_"/>
+         <dest obj="Wanderlust_beta1_1" inlet="step"/>
       </net>
       <net>
-         <source obj="obj_3" outlet="out"/>
+         <source obj="obj_2" outlet="out"/>
          <dest obj="obj_4" inlet="left"/>
          <dest obj="obj_4" inlet="right"/>
       </net>
       <net>
-         <source obj="obj_1" outlet="parasailing"/>
-         <dest obj="or_2" inlet="i2"/>
-      </net>
-      <net>
-         <source obj="or_2" outlet="o"/>
-         <dest obj="obj_3" inlet="trigger"/>
-      </net>
-      <net>
-         <source obj="pulselength_1" outlet="pulse"/>
-         <dest obj="or_2" inlet="i1"/>
-      </net>
-      <net>
-         <source obj="obj_1" outlet="knob_bot_6"/>
+         <source obj="Wanderlust_beta1_1" outlet="knob_bot_6"/>
          <dest obj="obj_6" inlet="Row"/>
       </net>
       <net>
-         <source obj="obj_1" outlet="knob_bot_7"/>
+         <source obj="Wanderlust_beta1_1" outlet="knob_bot_7"/>
          <dest obj="obj_6" inlet="Col"/>
       </net>
       <net>
@@ -185,11 +179,27 @@
       </net>
       <net>
          <source obj="save" outlet="o"/>
-         <dest obj="16_Step_SynthModel_1" inlet="saveToSD"/>
+         <dest obj="obj_1" inlet="saveToSD"/>
       </net>
       <net>
          <source obj="load" outlet="o"/>
-         <dest obj="16_Step_SynthModel_1" inlet="loadFromSD"/>
+         <dest obj="obj_1" inlet="loadFromSD"/>
+      </net>
+      <net>
+         <source obj="frame" outlet="out"/>
+         <dest obj="obj_1" inlet="frame"/>
+      </net>
+      <net>
+         <source obj="or_1" outlet="o"/>
+         <dest obj="obj_2" inlet="trigger"/>
+      </net>
+      <net>
+         <source obj="Wanderlust_beta1_1" outlet="parasailing"/>
+         <dest obj="or_1" inlet="i4"/>
+      </net>
+      <net>
+         <source obj="pulselength_1" outlet="pulse"/>
+         <dest obj="or_1" inlet="i3"/>
       </net>
    </nets>
    <settings>

@@ -43,12 +43,17 @@ struct LED{
 	uint8_t b;
 };
 
-#define NUM_COLORS 5
+#define I_GREEN_LIME_SOFT 5
+#define I_ORANGE_SOFT 6
+
+#define NUM_COLORS 7
 LED COLOR_LIST[NUM_COLORS] = { {C_BLACK},
+					  {C_WHITE},
 	                  {0x00, 0x00, 0xFF},
 	                  {0x00, 0xFF, 0x00},
 	                  {0xFF, 0x00, 0x00},
-					  {C_WHITE}
+					  {C_GREEN_LIME_SOFT},
+					  {C_ORANGE_SOFT}
                      };
 
 struct Pixel{
@@ -153,7 +158,7 @@ void LEDInit()
 
 void SetLED(uint8_t position, uint8_t color, double knobVal)
 {
-    double intensity = knobVal / 13.4E7;	
+    double intensity = knobVal / 13.4E7;
     LEDS[position].u8Color = color;
     LEDS[position].dIntensity = intensity;
 }
@@ -202,6 +207,58 @@ void HighlightLED(uint8_t step, double knobVal)
     }
 
 
+}
+
+void SetCheckerPattern(uint8_t iPattern)
+{
+	uint8_t iColor0 = I_ORANGE_SOFT;
+	uint8_t iColor1 = I_GREEN_LIME_SOFT;
+
+	int iSection=0;
+	int iRow=0;
+	for (int iLED=0; iLED < STRAND_LENGTH; iLED++)
+	{
+		if (iLED % 4 == 0)
+		{
+			if (iSection == 0) { iSection = 1; }
+			else               { iSection = 0; }
+		}
+		if (iLED % 16 == 0)
+		{
+			if (iRow == 0) { iRow = 1; }
+			else           { iRow = 0; }
+		}
+
+
+		if (iRow == 0)
+		{
+			if (iSection)
+			{
+				LEDS[iLED].u8Color = iColor0;
+				LEDS[iLED].dIntensity = 0.04;
+			}
+			else
+			{
+				LEDS[iLED].u8Color = iColor1;
+				LEDS[iLED].dIntensity = 0.04;
+			}
+		}
+		else
+		{
+			if (iSection)
+			{
+				LEDS[iLED].u8Color = iColor1;
+				LEDS[iLED].dIntensity = 0.04;
+			}
+			else
+			{
+				LEDS[iLED].u8Color = iColor0;
+				LEDS[iLED].dIntensity = 0.04;
+			}
+		}
+
+
+	}
 }
 
 void SetAllLEDs(uint8_t iColor)

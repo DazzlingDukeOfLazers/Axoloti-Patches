@@ -40,10 +40,6 @@
          <combo attributeName="format" selection="LSB first"/>
       </attribs>
    </obj>
-   <obj type="patch/inlet f" uuid="5c585d2dcd9c05631e345ac09626a22a639d7c13" name="Intensity" x="70" y="406">
-      <params/>
-      <attribs/>
-   </obj>
    <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_bot_0" x="616" y="406">
       <params/>
       <attribs/>
@@ -76,7 +72,11 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/inlet i" uuid="f11927f00c59219df0c50f73056aa19f125540b7" name="step" x="42" y="462">
+   <obj type="patch/inlet f" uuid="5c585d2dcd9c05631e345ac09626a22a639d7c13" name="Intensity" x="70" y="420">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/inlet i" uuid="f11927f00c59219df0c50f73056aa19f125540b7" name="step" x="42" y="476">
       <params/>
       <attribs/>
    </obj>
@@ -265,7 +265,7 @@ void loop(void)
 			SetLED(stepNum,2,stepIntensity);
 			break;			
 		case 2:		
-			SetCheckerPattern(0);
+			SetCheckerPattern(Page);
 			SetLED(stepNum,1,stepIntensity);
 			break;			
 		default:	
@@ -316,6 +316,10 @@ void loop(void)
       <attribs/>
    </obj>
    <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="showers" x="1204" y="504">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/inlet i" uuid="f11927f00c59219df0c50f73056aa19f125540b7" name="page" x="42" y="518">
       <params/>
       <attribs/>
    </obj>
@@ -669,6 +673,10 @@ void loop(void)
       <net>
          <source obj="Color In" outlet="inlet"/>
          <dest obj="WanderlustController_1" inlet="LEDcolor_"/>
+      </net>
+      <net>
+         <source obj="page" outlet="inlet"/>
+         <dest obj="WanderlustController_1" inlet="Page_"/>
       </net>
    </nets>
    <settings>

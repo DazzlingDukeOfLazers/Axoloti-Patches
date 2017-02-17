@@ -211,8 +211,18 @@ void HighlightLED(uint8_t step, double knobVal)
 
 void SetCheckerPattern(uint8_t iPattern)
 {
-	uint8_t iColor0 = I_ORANGE_SOFT;
-	uint8_t iColor1 = I_GREEN_LIME_SOFT;
+	uint8_t iColor0, iColor1;
+
+	if (iPattern % 2 == 0)
+	{
+		iColor0 = I_ORANGE_SOFT;
+		iColor1 = I_GREEN_LIME_SOFT;
+	}
+	else
+	{
+		iColor0 = 2;
+		iColor1 = 1;
+	}
 
 	int iSection=0;
 	int iRow=0;

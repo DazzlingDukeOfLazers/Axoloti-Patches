@@ -38,12 +38,6 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="table/saveLoad" uuid="9d733dd3-c9aa-4b7e-b413-bf84a63d8c41" name="saveLoad_1" x="560" y="532">
-      <params/>
-      <attribs>
-         <objref attributeName="table" obj="tbl"/>
-      </attribs>
-   </obj>
    <obj type="patch/inlet b" uuid="3b0d3eacb5bb978cb05d1372aa2714d5a4790844" name="trigLoad" x="42" y="546">
       <params/>
       <attribs/>
@@ -59,15 +53,11 @@
       </net>
       <net>
          <source obj="trigSave" outlet="inlet"/>
-         <dest obj="saveLoad_1" inlet="trigSave"/>
+         <dest obj="tableReadWrite_1" inlet="trigSave"/>
       </net>
       <net>
          <source obj="trigLoad" outlet="inlet"/>
-         <dest obj="saveLoad_1" inlet="trigLoad"/>
-      </net>
-      <net>
-         <source obj="filename" outlet="inlet"/>
-         <dest obj="saveLoad_1" inlet="filename"/>
+         <dest obj="tableReadWrite_1" inlet="trigLoad"/>
       </net>
       <net>
          <source obj="tableReadWrite_1" outlet="o"/>
@@ -76,6 +66,10 @@
       <net>
          <source obj="enableWR" outlet="inlet"/>
          <dest obj="tableReadWrite_1" inlet="enWr"/>
+      </net>
+      <net>
+         <source obj="filename" outlet="inlet"/>
+         <dest obj="tableReadWrite_1" inlet="filename"/>
       </net>
    </nets>
    <settings>

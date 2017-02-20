@@ -23,9 +23,9 @@
    </obj>
    <obj type="mix/mix 4" uuid="e6f9a0cc7aadc1b89516143cf1ccb79b3538d05a" name="mix_1" x="1764" y="70">
       <params>
-         <frac32.u.map name="gain1" value="32.0"/>
-         <frac32.u.map name="gain2" value="32.0"/>
-         <frac32.u.map name="gain3" value="32.0"/>
+         <frac32.u.map name="gain1" value="31.0"/>
+         <frac32.u.map name="gain2" value="32.5"/>
+         <frac32.u.map name="gain3" value="33.0"/>
          <frac32.u.map name="gain4" value="32.0"/>
       </params>
       <attribs/>
@@ -55,7 +55,7 @@
       </params>
       <attribs/>
    </obj>
-   <obj type="sequencing/16_Step_SynthModel" uuid="601f2fcb-07f3-4b8f-a7f6-e136f9cfbe2e" name="obj_7" x="966" y="112">
+   <obj type="sequencing/16_Step_SynthModel" uuid="c17d9e60-6df2-4d5f-ab9f-43c9703aceb4" name="obj_7" x="966" y="112">
       <params/>
       <attribs/>
    </obj>
@@ -91,11 +91,11 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="instruments/ADSR OSC_Saw" uuid="a9cd5f30-c411-45d2-a3ed-89fdb366b6be" name="obj_3" x="1344" y="336">
+   <obj type="instruments/ADSR OSC_Saw" uuid="0e1b38ec-97fe-4434-92bd-42f3cb75447e" name="obj_3" x="1344" y="336">
       <params/>
       <attribs/>
    </obj>
-   <obj type="sequencing/16_Step_SynthModel" uuid="601f2fcb-07f3-4b8f-a7f6-e136f9cfbe2e" name="obj_8" x="966" y="350">
+   <obj type="sequencing/16_Step_SynthModel" uuid="c17d9e60-6df2-4d5f-ab9f-43c9703aceb4" name="obj_8" x="966" y="350">
       <params/>
       <attribs/>
    </obj>
@@ -121,7 +121,7 @@
          <spinner attributeName="value" value="2"/>
       </attribs>
    </obj>
-   <obj type="sequencing/16_Step_SynthModel" uuid="601f2fcb-07f3-4b8f-a7f6-e136f9cfbe2e" name="obj_9" x="966" y="588">
+   <obj type="sequencing/16_Step_SynthModel" uuid="c17d9e60-6df2-4d5f-ab9f-43c9703aceb4" name="obj_9" x="966" y="588">
       <params/>
       <attribs/>
    </obj>
@@ -129,7 +129,7 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="instruments/ADSR OSC_Saw" uuid="a9cd5f30-c411-45d2-a3ed-89fdb366b6be" name="obj_6" x="1344" y="588">
+   <obj type="instruments/ADSR OSC_Saw" uuid="0e1b38ec-97fe-4434-92bd-42f3cb75447e" name="obj_6" x="1344" y="588">
       <params/>
       <attribs/>
    </obj>
@@ -139,10 +139,36 @@
          <spinner attributeName="value" value="2"/>
       </attribs>
    </obj>
-   <obj type="const/i" uuid="e202f44b2df17ae0b3e663b98ea6b14c8ff00408" name="i_8" x="854" y="994">
+   <obj type="const/i" uuid="e202f44b2df17ae0b3e663b98ea6b14c8ff00408" name="i_9" x="644" y="812">
       <params/>
       <attribs>
-         <spinner attributeName="value" value="2"/>
+         <spinner attributeName="value" value="3"/>
+      </attribs>
+   </obj>
+   <obj type="sequencing/16_Step_SynthModel" uuid="c17d9e60-6df2-4d5f-ab9f-43c9703aceb4" name="obj_10" x="966" y="812">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="logic/or 2" uuid="3805d3c84d30032a44fbdbe42d9a2988a1790a3e" name="or_6" x="1176" y="812">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="instruments/ADSR OSC_Noise" uuid="47e13859-ac60-4cb0-b3a1-c26c8ce41846" name="obj_11" x="1316" y="826">
+      <params>
+         <frac32.s.map name="noteMod" value="0.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="drj/math/== const i" uuid="36ae23539d64bc2fb798a1b4a65cf9dda17a1952" name="==_5" x="672" y="882">
+      <params/>
+      <attribs>
+         <spinner attributeName="value" value="3"/>
+      </attribs>
+   </obj>
+   <obj type="const/i" uuid="e202f44b2df17ae0b3e663b98ea6b14c8ff00408" name="i_8" x="644" y="1120">
+      <params/>
+      <attribs>
+         <spinner attributeName="value" value="3"/>
       </attribs>
    </obj>
    <nets>
@@ -151,36 +177,42 @@
          <dest obj="obj_7" inlet="AttackIn"/>
          <dest obj="obj_8" inlet="AttackIn"/>
          <dest obj="obj_9" inlet="AttackIn"/>
+         <dest obj="obj_10" inlet="AttackIn"/>
       </net>
       <net>
          <source obj="obj_1" outlet="knob_top_1"/>
          <dest obj="obj_7" inlet="DecayIn"/>
          <dest obj="obj_8" inlet="DecayIn"/>
          <dest obj="obj_9" inlet="DecayIn"/>
+         <dest obj="obj_10" inlet="DecayIn"/>
       </net>
       <net>
          <source obj="obj_1" outlet="knob_top_2"/>
          <dest obj="obj_7" inlet="SustainIn"/>
          <dest obj="obj_8" inlet="SustainIn"/>
          <dest obj="obj_9" inlet="SustainIn"/>
+         <dest obj="obj_10" inlet="SustainIn"/>
       </net>
       <net>
          <source obj="obj_1" outlet="knob_top_3"/>
          <dest obj="obj_7" inlet="ReleaseIn"/>
          <dest obj="obj_8" inlet="ReleaseIn"/>
          <dest obj="obj_9" inlet="ReleaseIn"/>
+         <dest obj="obj_10" inlet="ReleaseIn"/>
       </net>
       <net>
          <source obj="obj_1" outlet="knob_top_4"/>
          <dest obj="obj_7" inlet="VolumeIn"/>
          <dest obj="obj_8" inlet="VolumeIn"/>
          <dest obj="obj_9" inlet="VolumeIn"/>
+         <dest obj="obj_10" inlet="VolumeIn"/>
       </net>
       <net>
          <source obj="obj_1" outlet="knob_top_5"/>
          <dest obj="obj_7" inlet="PitchIn"/>
          <dest obj="obj_8" inlet="PitchIn"/>
          <dest obj="obj_9" inlet="PitchIn"/>
+         <dest obj="obj_10" inlet="PitchIn"/>
       </net>
       <net>
          <source obj="i_3" outlet="out"/>
@@ -212,12 +244,14 @@
          <dest obj="obj_7" inlet="saveToSD"/>
          <dest obj="obj_8" inlet="saveToSD"/>
          <dest obj="obj_9" inlet="saveToSD"/>
+         <dest obj="obj_10" inlet="saveToSD"/>
       </net>
       <net>
          <source obj="load" outlet="o"/>
          <dest obj="obj_7" inlet="loadFromSD"/>
          <dest obj="obj_8" inlet="loadFromSD"/>
          <dest obj="obj_9" inlet="loadFromSD"/>
+         <dest obj="obj_10" inlet="loadFromSD"/>
       </net>
       <net>
          <source obj="obj_1" outlet="parasailing"/>
@@ -228,6 +262,7 @@
          <dest obj="or_3" inlet="i1"/>
          <dest obj="or_4" inlet="i1"/>
          <dest obj="or_5" inlet="i1"/>
+         <dest obj="or_6" inlet="i1"/>
       </net>
       <net>
          <source obj="obj_1" outlet="hiking"/>
@@ -244,6 +279,7 @@
          <dest obj="obj_7" inlet="frame"/>
          <dest obj="obj_8" inlet="frame"/>
          <dest obj="obj_9" inlet="frame"/>
+         <dest obj="obj_10" inlet="frame"/>
       </net>
       <net>
          <source obj="obj_1" outlet="diving"/>
@@ -254,6 +290,7 @@
          <dest obj="==_2" inlet="in"/>
          <dest obj="==_3" inlet="in"/>
          <dest obj="==_4" inlet="in"/>
+         <dest obj="==_5" inlet="in"/>
       </net>
       <net>
          <source obj="==_2" outlet="out"/>
@@ -388,6 +425,51 @@
          <dest obj="obj_7" inlet="step"/>
          <dest obj="obj_8" inlet="step"/>
          <dest obj="obj_9" inlet="step"/>
+         <dest obj="obj_10" inlet="step"/>
+      </net>
+      <net>
+         <source obj="obj_10" outlet="VolumeOut"/>
+         <dest obj="obj_11" inlet="volume"/>
+      </net>
+      <net>
+         <source obj="obj_10" outlet="PitchOut"/>
+         <dest obj="obj_11" inlet="Base Note"/>
+      </net>
+      <net>
+         <source obj="obj_10" outlet="AttackOut"/>
+         <dest obj="obj_11" inlet="attack"/>
+      </net>
+      <net>
+         <source obj="obj_10" outlet="DecayOut"/>
+         <dest obj="obj_11" inlet="decay"/>
+      </net>
+      <net>
+         <source obj="obj_10" outlet="SustainOut"/>
+         <dest obj="obj_11" inlet="sustain"/>
+      </net>
+      <net>
+         <source obj="obj_10" outlet="ReleaseOut"/>
+         <dest obj="obj_11" inlet="release"/>
+      </net>
+      <net>
+         <source obj="or_6" outlet="o"/>
+         <dest obj="obj_11" inlet="trigger"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="swimming"/>
+         <dest obj="or_6" inlet="i2"/>
+      </net>
+      <net>
+         <source obj="obj_11" outlet="out"/>
+         <dest obj="mix_1" inlet="in4"/>
+      </net>
+      <net>
+         <source obj="i_9" outlet="out"/>
+         <dest obj="obj_10" inlet="page"/>
+      </net>
+      <net>
+         <source obj="==_5" outlet="out"/>
+         <dest obj="obj_10" inlet="enableWr"/>
       </net>
    </nets>
    <settings>

@@ -1,18 +1,18 @@
 <patch-1.0 appVersion="1.0.12">
+   <obj type="logic/and 2" uuid="c67031682f552aa0a80b23377495c51ea28a8c9c" name="and_1" x="196" y="14">
+      <params/>
+      <attribs/>
+   </obj>
    <obj type="patch/inlet b" uuid="3b0d3eacb5bb978cb05d1372aa2714d5a4790844" name="trigger" x="28" y="28">
       <params/>
       <attribs/>
    </obj>
-   <obj type="logic/and 2" uuid="c67031682f552aa0a80b23377495c51ea28a8c9c" name="and_1" x="168" y="42">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="env/adsr m" uuid="98bd39fb828c392b28126d259cb5175e6f6ea34b" name="adsr_1" x="266" y="42">
+   <obj type="env/adsr m" uuid="98bd39fb828c392b28126d259cb5175e6f6ea34b" name="adsr_1" x="294" y="42">
       <params>
          <frac32.s.map name="a" value="-64.0"/>
          <frac32.s.map name="d" value="-64.0"/>
          <frac32.u.map name="s" value="0.0"/>
-         <frac32.s.map name="r" value="-64.0"/>
+         <frac32.s.map name="r" value="-63.0"/>
       </params>
       <attribs/>
    </obj>
@@ -32,6 +32,10 @@
       <params/>
       <attribs/>
    </obj>
+   <obj type="patch/outlet a" uuid="abd8c5fd3b0524a6630f65cad6dc27f6c58e2a3e" name="out" x="616" y="238">
+      <params/>
+      <attribs/>
+   </obj>
    <obj type="math/&gt;c" uuid="99f2934d97d62b715a829979ef6c8abef35dcdb2" name="&gt;c_1" x="126" y="252">
       <params>
          <frac32.u.map name="c" value="1.0"/>
@@ -42,7 +46,11 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="math/+" uuid="44553fdc8628c67ab535845ed1be304ad6c9553b" name="+_2" x="420" y="280">
+   <obj type="math/+" uuid="44553fdc8628c67ab535845ed1be304ad6c9553b" name="+_1" x="420" y="266">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_2" x="532" y="308">
       <params/>
       <attribs/>
    </obj>
@@ -51,54 +59,16 @@
       <attribs/>
    </obj>
    <comment type="patch/comment" x="266" y="322" text="carrier oscillator"/>
-   <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_2" x="518" y="336">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="patch/outlet a" uuid="abd8c5fd3b0524a6630f65cad6dc27f6c58e2a3e" name="out" x="574" y="336">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="math/+" uuid="44553fdc8628c67ab535845ed1be304ad6c9553b" name="+_1" x="168" y="350">
-      <params/>
-      <attribs/>
-   </obj>
    <obj type="osc/sine" uuid="6e094045cca76a9dbf7ebfa72e44e4700d2b3ba" name="osc_3" x="266" y="350">
       <params>
          <frac32.s.map name="pitch" value="-48.0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="ctrl/dial b" uuid="862e7d7f29093cb1ce4aed72244d118ad4d46692" name="noteMod" x="28" y="378">
-      <params>
-         <frac32.s.map name="value" onParent="true" value="0.0"/>
-      </params>
-      <attribs/>
-   </obj>
    <nets>
-      <net>
-         <source obj="+_1" outlet="out"/>
-         <dest obj="osc_3" inlet="pitch"/>
-      </net>
       <net>
          <source obj="vca_2" outlet="o"/>
          <dest obj="out" inlet="outlet"/>
-      </net>
-      <net>
-         <source obj="Base Note" outlet="inlet"/>
-         <dest obj="+_1" inlet="in1"/>
-      </net>
-      <net>
-         <source obj="trigger" outlet="inlet"/>
-         <dest obj="and_1" inlet="i1"/>
-      </net>
-      <net>
-         <source obj="noteMod" outlet="out"/>
-         <dest obj="+_1" inlet="in2"/>
-      </net>
-      <net>
-         <source obj="adsr_1" outlet="env"/>
-         <dest obj="+_2" inlet="in1"/>
       </net>
       <net>
          <source obj="attack" outlet="inlet"/>
@@ -109,17 +79,29 @@
          <dest obj="adsr_1" inlet="d"/>
       </net>
       <net>
-         <source obj="sustain" outlet="inlet"/>
-         <dest obj="adsr_1" inlet="s"/>
-      </net>
-      <net>
          <source obj="release" outlet="inlet"/>
          <dest obj="adsr_1" inlet="r"/>
       </net>
       <net>
          <source obj="volume" outlet="inlet"/>
          <dest obj="&gt;c_1" inlet="in"/>
-         <dest obj="+_2" inlet="in2"/>
+         <dest obj="+_1" inlet="in2"/>
+      </net>
+      <net>
+         <source obj="osc_3" outlet="wave"/>
+         <dest obj="vca_2" inlet="a"/>
+      </net>
+      <net>
+         <source obj="Base Note" outlet="inlet"/>
+         <dest obj="osc_3" inlet="pitch"/>
+      </net>
+      <net>
+         <source obj="trigger" outlet="inlet"/>
+         <dest obj="and_1" inlet="i1"/>
+      </net>
+      <net>
+         <source obj="sustain" outlet="inlet"/>
+         <dest obj="adsr_1" inlet="s"/>
       </net>
       <net>
          <source obj="&gt;c_1" outlet="out"/>
@@ -130,12 +112,12 @@
          <dest obj="adsr_1" inlet="gate"/>
       </net>
       <net>
-         <source obj="+_2" outlet="out"/>
-         <dest obj="vca_2" inlet="v"/>
+         <source obj="adsr_1" outlet="env"/>
+         <dest obj="+_1" inlet="in1"/>
       </net>
       <net>
-         <source obj="osc_3" outlet="wave"/>
-         <dest obj="vca_2" inlet="a"/>
+         <source obj="+_1" outlet="out"/>
+         <dest obj="vca_2" inlet="v"/>
       </net>
    </nets>
    <settings>
@@ -143,9 +125,9 @@
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>-1798</x>
-      <y>-49</y>
-      <width>709</width>
+      <x>-1177</x>
+      <y>-75</y>
+      <width>918</width>
       <height>957</height>
    </windowPos>
 </patch-1.0>

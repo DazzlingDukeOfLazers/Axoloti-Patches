@@ -59,42 +59,20 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="math/+" uuid="44553fdc8628c67ab535845ed1be304ad6c9553b" name="+_1" x="168" y="350">
-      <params/>
-      <attribs/>
-   </obj>
    <obj type="osc/saw" uuid="739ecc36017ef3249479b8f01716b8bbfba9abc1" name="saw_1" x="266" y="364">
       <params>
          <frac32.s.map name="pitch" value="-48.0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="ctrl/dial b" uuid="862e7d7f29093cb1ce4aed72244d118ad4d46692" name="noteMod" x="28" y="378">
-      <params>
-         <frac32.s.map name="value" onParent="true" value="0.0"/>
-      </params>
-      <attribs/>
-   </obj>
    <nets>
-      <net>
-         <source obj="+_1" outlet="out"/>
-         <dest obj="saw_1" inlet="pitch"/>
-      </net>
       <net>
          <source obj="vca_2" outlet="o"/>
          <dest obj="out" inlet="outlet"/>
       </net>
       <net>
-         <source obj="Base Note" outlet="inlet"/>
-         <dest obj="+_1" inlet="in1"/>
-      </net>
-      <net>
          <source obj="trigger" outlet="inlet"/>
          <dest obj="and_1" inlet="i1"/>
-      </net>
-      <net>
-         <source obj="noteMod" outlet="out"/>
-         <dest obj="+_1" inlet="in2"/>
       </net>
       <net>
          <source obj="adsr_1" outlet="env"/>
@@ -137,14 +115,18 @@
          <source obj="saw_1" outlet="wave"/>
          <dest obj="vca_2" inlet="a"/>
       </net>
+      <net>
+         <source obj="Base Note" outlet="inlet"/>
+         <dest obj="saw_1" inlet="pitch"/>
+      </net>
    </nets>
    <settings>
       <subpatchmode>no</subpatchmode>
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>-1798</x>
-      <y>-49</y>
+      <x>-1906</x>
+      <y>-74</y>
       <width>709</width>
       <height>957</height>
    </windowPos>

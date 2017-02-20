@@ -52,29 +52,23 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="table/save" uuid="3e4108b607d56d9e1cd10abb898b58eea11e53b2" name="save_1" x="854" y="336">
+   <obj type="logic/changeAfterSel" uuid="080d83c3-b79f-4eaf-9609-14c34f3ffbb9" name="changeAfterSel_1" x="336" y="392">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="table/saveLoad" uuid="9d733dd3-c9aa-4b7e-b413-bf84a63d8c41" name="saveLoad_1" x="742" y="392">
       <params/>
       <attribs>
          <objref attributeName="table" obj="tbl"/>
       </attribs>
    </obj>
-   <obj type="logic/changeAfterSel" uuid="080d83c3-b79f-4eaf-9609-14c34f3ffbb9" name="changeAfterSel_1" x="336" y="392">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="patch/inlet string" uuid="6c562c1a7890cccf18fa7327d8baa476d0926cd8" name="filename" x="28" y="434">
+   <obj type="patch/inlet string" uuid="6c562c1a7890cccf18fa7327d8baa476d0926cd8" name="filename" x="42" y="434">
       <params/>
       <attribs/>
    </obj>
    <obj type="patch/inlet b" uuid="3b0d3eacb5bb978cb05d1372aa2714d5a4790844" name="trigSave" x="42" y="490">
       <params/>
       <attribs/>
-   </obj>
-   <obj type="table/load" uuid="600cc22c6734d23a82620da1a14e78782a7e168e" name="load_1" x="854" y="504">
-      <params/>
-      <attribs>
-         <objref attributeName="table" obj="tbl"/>
-      </attribs>
    </obj>
    <obj type="patch/inlet b" uuid="3b0d3eacb5bb978cb05d1372aa2714d5a4790844" name="trigLoad" x="42" y="546">
       <params/>
@@ -83,8 +77,8 @@
    <nets>
       <net>
          <source obj="in" outlet="inlet"/>
-         <dest obj="write_1" inlet="v"/>
          <dest obj="changeAfterSel_1" inlet="in"/>
+         <dest obj="write_1" inlet="v"/>
       </net>
       <net>
          <source obj="stepIn" outlet="inlet"/>
@@ -109,16 +103,15 @@
       </net>
       <net>
          <source obj="trigSave" outlet="inlet"/>
-         <dest obj="save_1" inlet="trig"/>
+         <dest obj="saveLoad_1" inlet="trigSave"/>
       </net>
       <net>
          <source obj="trigLoad" outlet="inlet"/>
-         <dest obj="load_1" inlet="trig"/>
+         <dest obj="saveLoad_1" inlet="trigLoad"/>
       </net>
       <net>
          <source obj="filename" outlet="inlet"/>
-         <dest obj="save_1" inlet="filename"/>
-         <dest obj="load_1" inlet="filename"/>
+         <dest obj="saveLoad_1" inlet="filename"/>
       </net>
       <net>
          <source obj="enableWR" outlet="inlet"/>

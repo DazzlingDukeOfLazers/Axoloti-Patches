@@ -1,0 +1,83 @@
+<objdefs appVersion="1.0.12">
+   <obj.normal id="saveLoad" uuid="9d733dd3-c9aa-4b7e-b413-bf84a63d8c41">
+      <sDescription>load table from sdcard</sDescription>
+      <author>Johannes Taelman</author>
+      <license>BSD</license>
+      <helpPatch>table.axh</helpPatch>
+      <inlets>
+         <charptr32 name="filename" description="file name"/>
+         <bool32.rising name="trigSave" description="trigger Save"/>
+         <bool32.rising name="trigLoad" description="trigger load"/>
+      </inlets>
+      <outlets/>
+      <displays/>
+      <params/>
+      <attribs>
+         <objref name="table"/>
+      </attribs>
+      <includes>
+         <include>chibios/ext/fatfs/src/ff.h</include>
+      </includes>
+      <depends>
+         <depend>fatfs</depend>
+      </depends>
+      <code.declaration><![CDATA[int ntrigSave, ntrigLoad;]]></code.declaration>
+      <code.init><![CDATA[ntrigSave = 0; ntrigLoad = 0;]]></code.init>
+      <code.krate><![CDATA[if ((inlet_trigSave>0) && !ntrigSave) 
+{
+    ntrigSave=1;
+    FIL FileObject;
+    FRESULT err;
+    UINT bytes_written;
+    codec_clearbuffer();
+    err = f_open(&FileObject, inlet_filename, FA_WRITE | FA_CREATE_ALWAYS);
+    if (err != FR_OK) {report_fatfs_error(err,inlet_filename); return;}
+    int rem_sz = sizeof(*attr_table.array)*attr_table.LENGTH;
+    int offset = 0;
+    while (rem_sz>0) {
+      if (rem_sz>sizeof(fbuff)) {
+        memcpy((char *)fbuff,(char *)(&attr_table.array[0]) + offset, sizeof(fbuff));
+        err = f_write(&FileObject, fbuff, sizeof(fbuff),&bytes_written);
+        rem_sz -= sizeof(fbuff);
+        offset += sizeof(fbuff);
+      } else {
+        memcpy((char *)fbuff,(char *)(&attr_table.array[0]) + offset, rem_sz);
+        err = f_write(&FileObject, fbuff, rem_sz, &bytes_written);
+        rem_sz = 0;
+      }
+    }    if (err != FR_OK) report_fatfs_error(err,inlet_filename);
+    err = f_close(&FileObject);
+    if (err != FR_OK) report_fatfs_error(err,inlet_filename);
+}
+else if (!(inlet_trigSave>0)) ntrigSave=0;
+
+if ((inlet_trigLoad>0) && !ntrigLoad) 
+{
+    ntrigLoad=1;
+    FIL FileObject;
+    FRESULT err;
+    UINT bytes_read;
+    codec_clearbuffer();
+    err = f_open(&FileObject, inlet_filename, FA_READ | FA_OPEN_EXISTING);
+    if (err != FR_OK) { report_fatfs_error(err,inlet_filename); return;}
+    int rem_sz = sizeof(*attr_table.array)*attr_table.LENGTH;
+    int offset = 0;
+    while (rem_sz>0) {
+      if (rem_sz>sizeof(fbuff)) {
+        err = f_read(&FileObject, fbuff, sizeof(fbuff),&bytes_read);
+        if (bytes_read == 0) break;
+        memcpy((char *)(&attr_table.array[0]) + offset,(char *)fbuff,bytes_read);
+        rem_sz -= bytes_read;
+        offset += bytes_read;
+      } else {
+        err = f_read(&FileObject, fbuff, rem_sz,&bytes_read);
+        memcpy((char *)(&attr_table.array[0]) + offset,(char *)fbuff,bytes_read);
+        rem_sz = 0;
+      }
+    }    if (err != FR_OK) { report_fatfs_error(err,inlet_filename); return;};
+    err = f_close(&FileObject);
+    if (err != FR_OK) { report_fatfs_error(err,inlet_filename); return;};
+ }
+ else if (!(inlet_trigLoad>0)) ntrigLoad=0;]]></code.krate>
+   </obj.normal>
+</objdefs>

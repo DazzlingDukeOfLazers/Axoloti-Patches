@@ -55,7 +55,7 @@
       </params>
       <attribs/>
    </obj>
-   <obj type="16_Step_SynthModel" uuid="4552610c-2903-4a7f-8845-1f0aa123128c" name="16_Step_SynthModel_1" x="966" y="112">
+   <obj type="sequencing/16_Step_SynthModel" uuid="601f2fcb-07f3-4b8f-a7f6-e136f9cfbe2e" name="obj_7" x="966" y="112">
       <params/>
       <attribs/>
    </obj>
@@ -95,7 +95,7 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="16_Step_SynthModel" uuid="4552610c-2903-4a7f-8845-1f0aa123128c" name="16_Step_SynthModel_2" x="966" y="350">
+   <obj type="sequencing/16_Step_SynthModel" uuid="601f2fcb-07f3-4b8f-a7f6-e136f9cfbe2e" name="obj_8" x="966" y="350">
       <params/>
       <attribs/>
    </obj>
@@ -121,7 +121,7 @@
          <spinner attributeName="value" value="2"/>
       </attribs>
    </obj>
-   <obj type="16_Step_SynthModel" uuid="ff8656a2-d08d-42bc-936c-c899a1c4d681" name="16_Step_SynthModel_4" x="966" y="588">
+   <obj type="sequencing/16_Step_SynthModel" uuid="601f2fcb-07f3-4b8f-a7f6-e136f9cfbe2e" name="obj_9" x="966" y="588">
       <params/>
       <attribs/>
    </obj>
@@ -148,39 +148,39 @@
    <nets>
       <net>
          <source obj="obj_1" outlet="knob_top_0"/>
-         <dest obj="16_Step_SynthModel_1" inlet="AttackIn"/>
-         <dest obj="16_Step_SynthModel_2" inlet="AttackIn"/>
-         <dest obj="16_Step_SynthModel_4" inlet="AttackIn"/>
+         <dest obj="obj_7" inlet="AttackIn"/>
+         <dest obj="obj_8" inlet="AttackIn"/>
+         <dest obj="obj_9" inlet="AttackIn"/>
       </net>
       <net>
          <source obj="obj_1" outlet="knob_top_1"/>
-         <dest obj="16_Step_SynthModel_1" inlet="DecayIn"/>
-         <dest obj="16_Step_SynthModel_2" inlet="DecayIn"/>
-         <dest obj="16_Step_SynthModel_4" inlet="DecayIn"/>
+         <dest obj="obj_7" inlet="DecayIn"/>
+         <dest obj="obj_8" inlet="DecayIn"/>
+         <dest obj="obj_9" inlet="DecayIn"/>
       </net>
       <net>
          <source obj="obj_1" outlet="knob_top_2"/>
-         <dest obj="16_Step_SynthModel_1" inlet="SustainIn"/>
-         <dest obj="16_Step_SynthModel_2" inlet="SustainIn"/>
-         <dest obj="16_Step_SynthModel_4" inlet="SustainIn"/>
+         <dest obj="obj_7" inlet="SustainIn"/>
+         <dest obj="obj_8" inlet="SustainIn"/>
+         <dest obj="obj_9" inlet="SustainIn"/>
       </net>
       <net>
          <source obj="obj_1" outlet="knob_top_3"/>
-         <dest obj="16_Step_SynthModel_1" inlet="ReleaseIn"/>
-         <dest obj="16_Step_SynthModel_2" inlet="ReleaseIn"/>
-         <dest obj="16_Step_SynthModel_4" inlet="ReleaseIn"/>
+         <dest obj="obj_7" inlet="ReleaseIn"/>
+         <dest obj="obj_8" inlet="ReleaseIn"/>
+         <dest obj="obj_9" inlet="ReleaseIn"/>
       </net>
       <net>
          <source obj="obj_1" outlet="knob_top_4"/>
-         <dest obj="16_Step_SynthModel_1" inlet="VolumeIn"/>
-         <dest obj="16_Step_SynthModel_2" inlet="VolumeIn"/>
-         <dest obj="16_Step_SynthModel_4" inlet="VolumeIn"/>
+         <dest obj="obj_7" inlet="VolumeIn"/>
+         <dest obj="obj_8" inlet="VolumeIn"/>
+         <dest obj="obj_9" inlet="VolumeIn"/>
       </net>
       <net>
          <source obj="obj_1" outlet="knob_top_5"/>
-         <dest obj="16_Step_SynthModel_1" inlet="PitchIn"/>
-         <dest obj="16_Step_SynthModel_2" inlet="PitchIn"/>
-         <dest obj="16_Step_SynthModel_4" inlet="PitchIn"/>
+         <dest obj="obj_7" inlet="PitchIn"/>
+         <dest obj="obj_8" inlet="PitchIn"/>
+         <dest obj="obj_9" inlet="PitchIn"/>
       </net>
       <net>
          <source obj="i_3" outlet="out"/>
@@ -209,15 +209,15 @@
       </net>
       <net>
          <source obj="save" outlet="o"/>
-         <dest obj="16_Step_SynthModel_1" inlet="saveToSD"/>
-         <dest obj="16_Step_SynthModel_2" inlet="saveToSD"/>
-         <dest obj="16_Step_SynthModel_4" inlet="saveToSD"/>
+         <dest obj="obj_7" inlet="saveToSD"/>
+         <dest obj="obj_8" inlet="saveToSD"/>
+         <dest obj="obj_9" inlet="saveToSD"/>
       </net>
       <net>
          <source obj="load" outlet="o"/>
-         <dest obj="16_Step_SynthModel_1" inlet="loadFromSD"/>
-         <dest obj="16_Step_SynthModel_2" inlet="loadFromSD"/>
-         <dest obj="16_Step_SynthModel_4" inlet="loadFromSD"/>
+         <dest obj="obj_7" inlet="loadFromSD"/>
+         <dest obj="obj_8" inlet="loadFromSD"/>
+         <dest obj="obj_9" inlet="loadFromSD"/>
       </net>
       <net>
          <source obj="obj_1" outlet="parasailing"/>
@@ -241,22 +241,13 @@
          <source obj="counter2_1" outlet="o"/>
          <dest obj="i_1" inlet="in"/>
          <dest obj="obj_1" inlet="page"/>
-         <dest obj="16_Step_SynthModel_1" inlet="frame"/>
-         <dest obj="16_Step_SynthModel_2" inlet="frame"/>
-         <dest obj="16_Step_SynthModel_4" inlet="frame"/>
+         <dest obj="obj_7" inlet="frame"/>
+         <dest obj="obj_8" inlet="frame"/>
+         <dest obj="obj_9" inlet="frame"/>
       </net>
       <net>
          <source obj="obj_1" outlet="diving"/>
          <dest obj="or_4" inlet="i2"/>
-      </net>
-      <net>
-         <source obj="obj_5" outlet="col"/>
-         <dest obj="16_Step_SynthModel_1" inlet="stepIn_"/>
-         <dest obj="16_Step_SynthModel_1" inlet="stepOut_"/>
-         <dest obj="16_Step_SynthModel_2" inlet="stepIn_"/>
-         <dest obj="16_Step_SynthModel_2" inlet="stepOut_"/>
-         <dest obj="16_Step_SynthModel_4" inlet="stepIn_"/>
-         <dest obj="16_Step_SynthModel_4" inlet="stepOut_"/>
       </net>
       <net>
          <source obj="obj_5" outlet="row"/>
@@ -266,62 +257,62 @@
       </net>
       <net>
          <source obj="==_2" outlet="out"/>
-         <dest obj="16_Step_SynthModel_1" inlet="enableWr"/>
+         <dest obj="obj_7" inlet="enableWr"/>
       </net>
       <net>
          <source obj="==_3" outlet="out"/>
-         <dest obj="16_Step_SynthModel_2" inlet="enableWr"/>
+         <dest obj="obj_8" inlet="enableWr"/>
       </net>
       <net>
          <source obj="obj_5" outlet="stepNum"/>
          <dest obj="obj_1" inlet="step"/>
       </net>
       <net>
-         <source obj="16_Step_SynthModel_1" outlet="VolumeOut"/>
+         <source obj="obj_7" outlet="VolumeOut"/>
          <dest obj="obj_2" inlet="volume"/>
       </net>
       <net>
-         <source obj="16_Step_SynthModel_1" outlet="PitchOut"/>
+         <source obj="obj_7" outlet="PitchOut"/>
          <dest obj="obj_2" inlet="Base Note"/>
       </net>
       <net>
-         <source obj="16_Step_SynthModel_1" outlet="AttackOut"/>
+         <source obj="obj_7" outlet="AttackOut"/>
          <dest obj="obj_2" inlet="attack"/>
       </net>
       <net>
-         <source obj="16_Step_SynthModel_1" outlet="DecayOut"/>
+         <source obj="obj_7" outlet="DecayOut"/>
          <dest obj="obj_2" inlet="decay"/>
       </net>
       <net>
-         <source obj="16_Step_SynthModel_1" outlet="SustainOut"/>
+         <source obj="obj_7" outlet="SustainOut"/>
          <dest obj="obj_2" inlet="sustain"/>
       </net>
       <net>
-         <source obj="16_Step_SynthModel_1" outlet="ReleaseOut"/>
+         <source obj="obj_7" outlet="ReleaseOut"/>
          <dest obj="obj_2" inlet="release"/>
       </net>
       <net>
-         <source obj="16_Step_SynthModel_2" outlet="VolumeOut"/>
+         <source obj="obj_8" outlet="VolumeOut"/>
          <dest obj="obj_3" inlet="volume"/>
       </net>
       <net>
-         <source obj="16_Step_SynthModel_2" outlet="PitchOut"/>
+         <source obj="obj_8" outlet="PitchOut"/>
          <dest obj="obj_3" inlet="Base Note"/>
       </net>
       <net>
-         <source obj="16_Step_SynthModel_2" outlet="AttackOut"/>
+         <source obj="obj_8" outlet="AttackOut"/>
          <dest obj="obj_3" inlet="attack"/>
       </net>
       <net>
-         <source obj="16_Step_SynthModel_2" outlet="DecayOut"/>
+         <source obj="obj_8" outlet="DecayOut"/>
          <dest obj="obj_3" inlet="decay"/>
       </net>
       <net>
-         <source obj="16_Step_SynthModel_2" outlet="SustainOut"/>
+         <source obj="obj_8" outlet="SustainOut"/>
          <dest obj="obj_3" inlet="sustain"/>
       </net>
       <net>
-         <source obj="16_Step_SynthModel_2" outlet="ReleaseOut"/>
+         <source obj="obj_8" outlet="ReleaseOut"/>
          <dest obj="obj_3" inlet="release"/>
       </net>
       <net>
@@ -353,44 +344,50 @@
          <dest obj="mix_1" inlet="in3"/>
       </net>
       <net>
-         <source obj="16_Step_SynthModel_4" outlet="VolumeOut"/>
+         <source obj="obj_9" outlet="VolumeOut"/>
          <dest obj="obj_6" inlet="volume"/>
       </net>
       <net>
-         <source obj="16_Step_SynthModel_4" outlet="PitchOut"/>
+         <source obj="obj_9" outlet="PitchOut"/>
          <dest obj="obj_6" inlet="Base Note"/>
       </net>
       <net>
-         <source obj="16_Step_SynthModel_4" outlet="AttackOut"/>
+         <source obj="obj_9" outlet="AttackOut"/>
          <dest obj="obj_6" inlet="attack"/>
       </net>
       <net>
-         <source obj="16_Step_SynthModel_4" outlet="DecayOut"/>
+         <source obj="obj_9" outlet="DecayOut"/>
          <dest obj="obj_6" inlet="decay"/>
       </net>
       <net>
-         <source obj="16_Step_SynthModel_4" outlet="SustainOut"/>
+         <source obj="obj_9" outlet="SustainOut"/>
          <dest obj="obj_6" inlet="sustain"/>
       </net>
       <net>
-         <source obj="16_Step_SynthModel_4" outlet="ReleaseOut"/>
+         <source obj="obj_9" outlet="ReleaseOut"/>
          <dest obj="obj_6" inlet="release"/>
       </net>
       <net>
          <source obj="i_5" outlet="out"/>
-         <dest obj="16_Step_SynthModel_4" inlet="page"/>
+         <dest obj="obj_9" inlet="page"/>
       </net>
       <net>
          <source obj="==_4" outlet="out"/>
-         <dest obj="16_Step_SynthModel_4" inlet="enableWr"/>
+         <dest obj="obj_9" inlet="enableWr"/>
       </net>
       <net>
          <source obj="i_6" outlet="out"/>
-         <dest obj="16_Step_SynthModel_2" inlet="page"/>
+         <dest obj="obj_8" inlet="page"/>
       </net>
       <net>
          <source obj="i_7" outlet="out"/>
-         <dest obj="16_Step_SynthModel_1" inlet="page"/>
+         <dest obj="obj_7" inlet="page"/>
+      </net>
+      <net>
+         <source obj="obj_5" outlet="col"/>
+         <dest obj="obj_7" inlet="step"/>
+         <dest obj="obj_8" inlet="step"/>
+         <dest obj="obj_9" inlet="step"/>
       </net>
    </nets>
    <settings>

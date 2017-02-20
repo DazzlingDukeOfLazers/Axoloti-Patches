@@ -1,0 +1,54 @@
+<objdefs appVersion="1.0.12">
+   <obj.normal id="tableReadWrite" uuid="80bf0332-3574-4c01-beb7-098c3454b662">
+      <sDescription>write to table</sDescription>
+      <author>Johannes Taelman</author>
+      <license>BSD</license>
+      <helpPatch>table.axh</helpPatch>
+      <inlets>
+         <int32.positive name="a" description="index (integer, not fraction)"/>
+         <frac32 name="v" description="value"/>
+         <bool32 name="enWr" description="Enable Writing"/>
+      </inlets>
+      <outlets>
+         <frac32 name="o" description="Table out"/>
+      </outlets>
+      <displays/>
+      <params/>
+      <attribs>
+         <objref name="table"/>
+      </attribs>
+      <code.declaration><![CDATA[int ntrig, ptrig, pval;
+int pIndex;]]></code.declaration>
+      <code.init><![CDATA[ntrig = 0;
+ptrig = 0;
+pval = 0;
+pIndex=0;]]></code.init>
+      <code.krate><![CDATA[outlet_o= attr_table.array[__USAT(inlet_a,attr_table.LENGTHPOW)]<<attr_table.GAIN;
+
+if ((pval != inlet_v)&(!ptrig)) 
+{ 
+  if (inlet_a != pIndex) // if the index is shiny and new
+  {   
+  	pIndex = inlet_a; // store the old value
+  	// and do nothing else until the next time the inlet_v is moved
+  	// throwing out any stale values until the knob moves
+  }   
+  else if (inlet_enWr)  
+  {    
+    //outlet_trig = 1;
+    if (inlet_a<attr_table.LENGTH)
+    {
+         attr_table.array[inlet_a]=__SSAT(inlet_v,28)>>attr_table.GAIN;
+    }
+    pval = inlet_v;
+    ptrig = 1;
+  }
+  
+  
+} else 
+{
+  ptrig = 0;
+  //outlet_trig = 0;
+}]]></code.krate>
+   </obj.normal>
+</objdefs>

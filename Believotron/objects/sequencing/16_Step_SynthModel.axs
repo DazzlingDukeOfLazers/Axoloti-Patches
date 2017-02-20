@@ -1,5 +1,5 @@
 <patch-1.0 appVersion="1.0.12">
-   <obj type="patch/inlet i" uuid="f11927f00c59219df0c50f73056aa19f125540b7" name="stepIn_" x="98" y="0">
+   <obj type="patch/inlet i" uuid="f11927f00c59219df0c50f73056aa19f125540b7" name="step" x="98" y="28">
       <params/>
       <attribs/>
    </obj>
@@ -7,15 +7,11 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/inlet i" uuid="f11927f00c59219df0c50f73056aa19f125540b7" name="stepOut_" x="98" y="42">
-      <params/>
-      <attribs/>
-   </obj>
    <obj type="logic/change" uuid="96e39ae624c3f3c952cec4a95e1986ee0104f718" name="change_1" x="322" y="42">
       <params/>
       <attribs/>
    </obj>
-   <obj type="changedMemoryFile" uuid="3fd13888-2fd7-447a-8ab8-fb5168669280" name="changedMemoryFile_1" x="644" y="70">
+   <obj type="logic/changedMemoryFile" uuid="2b76bcb2-dbe0-40ac-bd10-b797cfc20cf8" name="obj_1" x="644" y="70">
       <params/>
       <attribs/>
    </obj>
@@ -38,7 +34,7 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="changedMemoryFile" uuid="3fd13888-2fd7-447a-8ab8-fb5168669280" name="changedMemoryFile_2" x="644" y="196">
+   <obj type="logic/changedMemoryFile" uuid="2b76bcb2-dbe0-40ac-bd10-b797cfc20cf8" name="obj_2" x="644" y="196">
       <params/>
       <attribs/>
    </obj>
@@ -65,7 +61,7 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="changedMemoryFile" uuid="3fd13888-2fd7-447a-8ab8-fb5168669280" name="changedMemoryFile_3" x="644" y="322">
+   <obj type="logic/changedMemoryFile" uuid="2b76bcb2-dbe0-40ac-bd10-b797cfc20cf8" name="obj_3" x="644" y="322">
       <params/>
       <attribs/>
    </obj>
@@ -84,7 +80,7 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="changedMemoryFile" uuid="3fd13888-2fd7-447a-8ab8-fb5168669280" name="changedMemoryFile_4" x="644" y="448">
+   <obj type="logic/changedMemoryFile" uuid="2b76bcb2-dbe0-40ac-bd10-b797cfc20cf8" name="obj_4" x="644" y="448">
       <params/>
       <attribs/>
    </obj>
@@ -107,7 +103,7 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="changedMemoryFile" uuid="3fd13888-2fd7-447a-8ab8-fb5168669280" name="changedMemoryFile_5" x="644" y="574">
+   <obj type="logic/changedMemoryFile" uuid="2b76bcb2-dbe0-40ac-bd10-b797cfc20cf8" name="obj_5" x="644" y="574">
       <params/>
       <attribs/>
    </obj>
@@ -130,7 +126,7 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="changedMemoryFile" uuid="3fd13888-2fd7-447a-8ab8-fb5168669280" name="changedMemoryFile_6" x="644" y="700">
+   <obj type="logic/changedMemoryFile" uuid="2b76bcb2-dbe0-40ac-bd10-b797cfc20cf8" name="obj_6" x="644" y="700">
       <params/>
       <attribs/>
    </obj>
@@ -152,77 +148,59 @@
    <nets>
       <net>
          <source obj="VolumeIn" outlet="inlet"/>
-         <dest obj="changedMemoryFile_1" inlet="in"/>
+         <dest obj="obj_1" inlet="in"/>
       </net>
       <net>
-         <source obj="stepOut_" outlet="inlet"/>
-         <dest obj="changedMemoryFile_1" inlet="stepOut"/>
-         <dest obj="changedMemoryFile_2" inlet="stepOut"/>
-         <dest obj="changedMemoryFile_3" inlet="stepOut"/>
-         <dest obj="changedMemoryFile_4" inlet="stepOut"/>
-         <dest obj="changedMemoryFile_5" inlet="stepOut"/>
-         <dest obj="changedMemoryFile_6" inlet="stepOut"/>
-      </net>
-      <net>
-         <source obj="changedMemoryFile_1" outlet="tableOut"/>
+         <source obj="obj_1" outlet="tableOut"/>
          <dest obj="VolumeOut" inlet="outlet"/>
       </net>
       <net>
-         <source obj="stepIn_" outlet="inlet"/>
-         <dest obj="changedMemoryFile_1" inlet="stepIn"/>
-         <dest obj="changedMemoryFile_2" inlet="stepIn"/>
-         <dest obj="changedMemoryFile_3" inlet="stepIn"/>
-         <dest obj="changedMemoryFile_4" inlet="stepIn"/>
-         <dest obj="changedMemoryFile_5" inlet="stepIn"/>
-         <dest obj="changedMemoryFile_6" inlet="stepIn"/>
-      </net>
-      <net>
          <source obj="saveToSD" outlet="inlet"/>
-         <dest obj="changedMemoryFile_1" inlet="trigSave"/>
-         <dest obj="changedMemoryFile_2" inlet="trigSave"/>
-         <dest obj="changedMemoryFile_3" inlet="trigSave"/>
-         <dest obj="changedMemoryFile_4" inlet="trigSave"/>
-         <dest obj="changedMemoryFile_5" inlet="trigSave"/>
-         <dest obj="changedMemoryFile_6" inlet="trigSave"/>
+         <dest obj="obj_1" inlet="trigSave"/>
+         <dest obj="obj_2" inlet="trigSave"/>
+         <dest obj="obj_3" inlet="trigSave"/>
+         <dest obj="obj_4" inlet="trigSave"/>
+         <dest obj="obj_5" inlet="trigSave"/>
+         <dest obj="obj_6" inlet="trigSave"/>
       </net>
       <net>
          <source obj="loadFromSD" outlet="inlet"/>
          <dest obj="or_1" inlet="i2"/>
       </net>
       <net>
-         <source obj="changedMemoryFile_2" outlet="tableOut"/>
+         <source obj="obj_2" outlet="tableOut"/>
          <dest obj="PitchOut" inlet="outlet"/>
       </net>
       <net>
          <source obj="AttackIn" outlet="inlet"/>
-         <dest obj="changedMemoryFile_3" inlet="in"/>
+         <dest obj="obj_3" inlet="in"/>
       </net>
       <net>
          <source obj="DecayIn" outlet="inlet"/>
-         <dest obj="changedMemoryFile_4" inlet="in"/>
+         <dest obj="obj_4" inlet="in"/>
       </net>
       <net>
          <source obj="SustainIn" outlet="inlet"/>
-         <dest obj="changedMemoryFile_5" inlet="in"/>
+         <dest obj="obj_5" inlet="in"/>
       </net>
       <net>
          <source obj="ReleaseIn" outlet="inlet"/>
-         <dest obj="changedMemoryFile_6" inlet="in"/>
+         <dest obj="obj_6" inlet="in"/>
       </net>
       <net>
-         <source obj="changedMemoryFile_3" outlet="tableOut"/>
+         <source obj="obj_3" outlet="tableOut"/>
          <dest obj="AttackOut" inlet="outlet"/>
       </net>
       <net>
-         <source obj="changedMemoryFile_4" outlet="tableOut"/>
+         <source obj="obj_4" outlet="tableOut"/>
          <dest obj="DecayOut" inlet="outlet"/>
       </net>
       <net>
-         <source obj="changedMemoryFile_5" outlet="tableOut"/>
+         <source obj="obj_5" outlet="tableOut"/>
          <dest obj="SustainOut" inlet="outlet"/>
       </net>
       <net>
-         <source obj="changedMemoryFile_6" outlet="tableOut"/>
+         <source obj="obj_6" outlet="tableOut"/>
          <dest obj="ReleaseOut" inlet="outlet"/>
       </net>
       <net>
@@ -246,23 +224,23 @@
       </net>
       <net>
          <source obj="doubleIndex_1" outlet="out"/>
-         <dest obj="changedMemoryFile_1" inlet="filename"/>
+         <dest obj="obj_1" inlet="filename"/>
       </net>
       <net>
          <source obj="doubleIndex_2" outlet="out"/>
-         <dest obj="changedMemoryFile_2" inlet="filename"/>
+         <dest obj="obj_2" inlet="filename"/>
       </net>
       <net>
          <source obj="doubleIndex_3" outlet="out"/>
-         <dest obj="changedMemoryFile_3" inlet="filename"/>
+         <dest obj="obj_3" inlet="filename"/>
       </net>
       <net>
          <source obj="doubleIndex_6" outlet="out"/>
-         <dest obj="changedMemoryFile_6" inlet="filename"/>
+         <dest obj="obj_6" inlet="filename"/>
       </net>
       <net>
          <source obj="PitchIn" outlet="inlet"/>
-         <dest obj="changedMemoryFile_2" inlet="in"/>
+         <dest obj="obj_2" inlet="in"/>
       </net>
       <net>
          <source obj="change_1" outlet="trig"/>
@@ -270,29 +248,38 @@
       </net>
       <net>
          <source obj="or_1" outlet="o"/>
-         <dest obj="changedMemoryFile_1" inlet="trigLoad"/>
-         <dest obj="changedMemoryFile_2" inlet="trigLoad"/>
-         <dest obj="changedMemoryFile_3" inlet="trigLoad"/>
-         <dest obj="changedMemoryFile_4" inlet="trigLoad"/>
-         <dest obj="changedMemoryFile_5" inlet="trigLoad"/>
-         <dest obj="changedMemoryFile_6" inlet="trigLoad"/>
+         <dest obj="obj_1" inlet="trigLoad"/>
+         <dest obj="obj_2" inlet="trigLoad"/>
+         <dest obj="obj_3" inlet="trigLoad"/>
+         <dest obj="obj_4" inlet="trigLoad"/>
+         <dest obj="obj_5" inlet="trigLoad"/>
+         <dest obj="obj_6" inlet="trigLoad"/>
       </net>
       <net>
          <source obj="enableWr" outlet="inlet"/>
-         <dest obj="changedMemoryFile_1" inlet="enableWR"/>
-         <dest obj="changedMemoryFile_2" inlet="enableWR"/>
-         <dest obj="changedMemoryFile_3" inlet="enableWR"/>
-         <dest obj="changedMemoryFile_4" inlet="enableWR"/>
-         <dest obj="changedMemoryFile_5" inlet="enableWR"/>
-         <dest obj="changedMemoryFile_6" inlet="enableWR"/>
+         <dest obj="obj_1" inlet="enableWR"/>
+         <dest obj="obj_2" inlet="enableWR"/>
+         <dest obj="obj_3" inlet="enableWR"/>
+         <dest obj="obj_4" inlet="enableWR"/>
+         <dest obj="obj_5" inlet="enableWR"/>
+         <dest obj="obj_6" inlet="enableWR"/>
       </net>
       <net>
          <source obj="doubleIndex_5" outlet="out"/>
-         <dest obj="changedMemoryFile_5" inlet="filename"/>
+         <dest obj="obj_5" inlet="filename"/>
       </net>
       <net>
          <source obj="doubleIndex_4" outlet="out"/>
-         <dest obj="changedMemoryFile_4" inlet="filename"/>
+         <dest obj="obj_4" inlet="filename"/>
+      </net>
+      <net>
+         <source obj="step" outlet="inlet"/>
+         <dest obj="obj_1" inlet="step"/>
+         <dest obj="obj_2" inlet="step"/>
+         <dest obj="obj_3" inlet="step"/>
+         <dest obj="obj_4" inlet="step"/>
+         <dest obj="obj_5" inlet="step"/>
+         <dest obj="obj_6" inlet="step"/>
       </net>
    </nets>
    <settings>

@@ -37,12 +37,15 @@
       </params>
       <attribs/>
    </obj>
-   <obj type="Wanderlust/Wanderlust_beta1" uuid="781e72b0-3180-420b-b6bf-4997e1fa7652" name="obj_1" x="168" y="70">
+   <obj type="Wanderlust/Wanderlust_beta1" uuid="96def2b7-2680-4fdc-91f9-963abfc708ae" name="obj_1" x="154" y="112">
       <params>
-         <bool32.tgl name="Reverse Knobs" value="1"/>
+         <bool32.tgl name="Reverse Knobs" value="0"/>
          <bool32.tgl name="Rev Padrow Top" value="0"/>
-         <bool32.tgl name="Rev Padrow Bottom" value="1"/>
-         <int32 name="LED Mode" value="1"/>
+         <bool32.tgl name="InvertJoy0" value="1"/>
+         <bool32.tgl name="Rev Padrow Bottom" value="0"/>
+         <bool32.tgl name="SwapXY" value="0"/>
+         <int32 name="LED Mode" value="0"/>
+         <bool32.tgl name="InvertJoy1" value="0"/>
       </params>
       <attribs/>
    </obj>
@@ -202,6 +205,22 @@
       <params/>
       <attribs/>
    </obj>
+   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_26" x="644" y="672">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_25" x="644" y="770">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_24" x="644" y="868">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_21" x="644" y="980">
+      <params/>
+      <attribs/>
+   </obj>
    <obj type="gpio/in/analog" uuid="1c0c845ed2d7e06ae5f377ba13d9d09f4747ac87" name="analog_2" x="630" y="1386">
       <params/>
       <attribs>
@@ -326,23 +345,6 @@
       <net>
          <source obj="obj_1" outlet="knob_bot_2"/>
          <dest obj="dial_18" inlet="in"/>
-         <dest obj="dial_19" inlet="in"/>
-      </net>
-      <net>
-         <source obj="obj_1" outlet="knob_bot_3"/>
-         <dest obj="dial_20" inlet="in"/>
-      </net>
-      <net>
-         <source obj="obj_1" outlet="knob_bot_4"/>
-         <dest obj="dial_21" inlet="in"/>
-      </net>
-      <net>
-         <source obj="obj_1" outlet="knob_bot_5"/>
-         <dest obj="dial_22" inlet="in"/>
-      </net>
-      <net>
-         <source obj="obj_1" outlet="knob_bot_6"/>
-         <dest obj="dial_23" inlet="in"/>
       </net>
       <net>
          <source obj="obj_1" outlet="parasailing"/>
@@ -421,10 +423,6 @@
          <dest obj="bool_3" inlet="in"/>
       </net>
       <net>
-         <source obj="obj_1" outlet="kb_3"/>
-         <dest obj="bool_4" inlet="in"/>
-      </net>
-      <net>
          <source obj="obj_1" outlet="kb_4"/>
          <dest obj="bool_5" inlet="in"/>
       </net>
@@ -464,15 +462,55 @@
          <source obj="dial_3" outlet="out"/>
          <dest obj="obj_1" inlet="Intensity"/>
       </net>
+      <net>
+         <source obj="obj_1" outlet="knob_bot_3"/>
+         <dest obj="dial_19" inlet="in"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="knob_bot_4"/>
+         <dest obj="dial_20" inlet="in"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="knob_bot_5"/>
+         <dest obj="dial_21" inlet="in"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="knob_bot_6"/>
+         <dest obj="dial_22" inlet="in"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="knob_bot_7"/>
+         <dest obj="dial_23" inlet="in"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="kb_3"/>
+         <dest obj="bool_4" inlet="in"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="Volume"/>
+         <dest obj="dial_24" inlet="in"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="joy_butt"/>
+         <dest obj="bool_21" inlet="in"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="joyLY"/>
+         <dest obj="dial_26" inlet="in"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="joyLX"/>
+         <dest obj="dial_25" inlet="in"/>
+      </net>
    </nets>
    <settings>
       <subpatchmode>no</subpatchmode>
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>-1928</x>
-      <y>-91</y>
-      <width>1723</width>
-      <height>976</height>
+      <x>-1715</x>
+      <y>-83</y>
+      <width>1506</width>
+      <height>1003</height>
    </windowPos>
 </patch-1.0>

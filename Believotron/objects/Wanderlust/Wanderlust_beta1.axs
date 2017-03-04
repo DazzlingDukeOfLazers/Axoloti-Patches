@@ -419,10 +419,40 @@ void loop(void)
       <params/>
       <attribs/>
    </obj>
+   <obj type="ctrl/toggle" uuid="42b8134fa729d54bfc8d62d6ef3fa99498c1de99" name="InvertJoy0" x="1624" y="798">
+      <params>
+         <bool32.tgl name="b" onParent="true" value="0"/>
+      </params>
+      <attribs/>
+   </obj>
    <obj type="ctrl/toggle" uuid="42b8134fa729d54bfc8d62d6ef3fa99498c1de99" name="Rev Padrow Bottom" x="28" y="812">
       <params>
          <bool32.tgl name="b" onParent="true" value="1"/>
       </params>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/toggle" uuid="42b8134fa729d54bfc8d62d6ef3fa99498c1de99" name="SwapXY" x="1120" y="826">
+      <params>
+         <bool32.tgl name="b" onParent="true" value="0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="mux/mux 2" uuid="3bcb8a666381ed18b8962eda50b1aa679136f618" name="mux_1" x="1302" y="840">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="math/inv" uuid="565521d3699b36d8095aa1c79b9ad0046fb133ce" name="inv_2" x="1400" y="840">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="math/+c" uuid="13eec32bd8ad57dd0bb18a02566cc0a117d320e3" name="+c_1" x="1484" y="840">
+      <params>
+         <frac32.u.map name="c" value="64.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="joyLX" x="1890" y="840">
+      <params/>
       <attribs/>
    </obj>
    <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="LED Mode" x="70" y="882">
@@ -437,7 +467,31 @@ void loop(void)
          <combo attributeName="channel" selection="PC1 (ADC1_IN11)"/>
       </attribs>
    </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="joyLX" x="1456" y="896">
+   <obj type="mux/mux 2" uuid="3bcb8a666381ed18b8962eda50b1aa679136f618" name="mux_4" x="1736" y="882">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="mux/mux 2" uuid="3bcb8a666381ed18b8962eda50b1aa679136f618" name="mux_2" x="1302" y="938">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/toggle" uuid="42b8134fa729d54bfc8d62d6ef3fa99498c1de99" name="InvertJoy1" x="1624" y="938">
+      <params>
+         <bool32.tgl name="b" onParent="true" value="0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="math/inv" uuid="565521d3699b36d8095aa1c79b9ad0046fb133ce" name="inv_3" x="1400" y="952">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="math/+c" uuid="13eec32bd8ad57dd0bb18a02566cc0a117d320e3" name="+c_2" x="1484" y="952">
+      <params>
+         <frac32.u.map name="c" value="64.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="mux/mux 2" uuid="3bcb8a666381ed18b8962eda50b1aa679136f618" name="mux_5" x="1736" y="966">
       <params/>
       <attribs/>
    </obj>
@@ -447,7 +501,44 @@ void loop(void)
          <combo attributeName="channel" selection="PC4 (ADC1_IN14)"/>
       </attribs>
    </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="joyLY" x="1456" y="980">
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="joyLY" x="1890" y="980">
+      <params/>
+      <attribs/>
+   </obj>
+   <comment type="patch/comment" x="1246" y="1050" text="tbd scale volume out"/>
+   <obj type="gpio/in/analog" uuid="1c0c845ed2d7e06ae5f377ba13d9d09f4747ac87" name="analog_3" x="1078" y="1064">
+      <params/>
+      <attribs>
+         <combo attributeName="channel" selection="PA1 (ADC1_IN1)"/>
+      </attribs>
+   </obj>
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="Volume" x="1456" y="1092">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="gpio/in/digital" uuid="f59f139e8da912742832dc541157f20f30b7ac1b" name="digital_1" x="700" y="1176">
+      <params/>
+      <attribs>
+         <combo attributeName="pad" selection="PB0"/>
+         <combo attributeName="mode" selection="pullup"/>
+      </attribs>
+   </obj>
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_1" x="854" y="1176">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="gpio/in/digital" uuid="f59f139e8da912742832dc541157f20f30b7ac1b" name="digital_2" x="1078" y="1190">
+      <params/>
+      <attribs>
+         <combo attributeName="pad" selection="PC0"/>
+         <combo attributeName="mode" selection="pullup"/>
+      </attribs>
+   </obj>
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="joy_butt" x="1456" y="1190">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="logic/inv" uuid="2bd44b865d3b63ff9b80862242bf5be779e3ad5" name="inv_1" x="1232" y="1204">
       <params/>
       <attribs/>
    </obj>
@@ -622,11 +713,13 @@ void loop(void)
       </net>
       <net>
          <source obj="analog_1" outlet="out"/>
-         <dest obj="joyLY" inlet="outlet"/>
+         <dest obj="mux_1" inlet="i2"/>
+         <dest obj="mux_2" inlet="i1"/>
       </net>
       <net>
          <source obj="analog_2" outlet="out"/>
-         <dest obj="joyLX" inlet="outlet"/>
+         <dest obj="mux_1" inlet="i1"/>
+         <dest obj="mux_2" inlet="i2"/>
       </net>
       <net>
          <source obj="Intensity" outlet="inlet"/>
@@ -667,6 +760,69 @@ void loop(void)
       <net>
          <source obj="page" outlet="inlet"/>
          <dest obj="WanderlustController_1" inlet="Page_"/>
+      </net>
+      <net>
+         <source obj="digital_1" outlet="out"/>
+         <dest obj="bool_1" inlet="in"/>
+      </net>
+      <net>
+         <source obj="analog_3" outlet="out"/>
+         <dest obj="Volume" inlet="outlet"/>
+      </net>
+      <net>
+         <source obj="digital_2" outlet="out"/>
+         <dest obj="inv_1" inlet="i"/>
+      </net>
+      <net>
+         <source obj="inv_1" outlet="o"/>
+         <dest obj="joy_butt" inlet="outlet"/>
+      </net>
+      <net>
+         <source obj="SwapXY" outlet="o"/>
+         <dest obj="mux_1" inlet="s"/>
+         <dest obj="mux_2" inlet="s"/>
+      </net>
+      <net>
+         <source obj="mux_1" outlet="o"/>
+         <dest obj="inv_2" inlet="in"/>
+         <dest obj="mux_4" inlet="i2"/>
+      </net>
+      <net>
+         <source obj="inv_2" outlet="out"/>
+         <dest obj="+c_1" inlet="in"/>
+      </net>
+      <net>
+         <source obj="+c_1" outlet="out"/>
+         <dest obj="mux_4" inlet="i1"/>
+      </net>
+      <net>
+         <source obj="inv_3" outlet="out"/>
+         <dest obj="+c_2" inlet="in"/>
+      </net>
+      <net>
+         <source obj="mux_2" outlet="o"/>
+         <dest obj="inv_3" inlet="in"/>
+         <dest obj="mux_5" inlet="i2"/>
+      </net>
+      <net>
+         <source obj="InvertJoy0" outlet="o"/>
+         <dest obj="mux_4" inlet="s"/>
+      </net>
+      <net>
+         <source obj="mux_4" outlet="o"/>
+         <dest obj="joyLX" inlet="outlet"/>
+      </net>
+      <net>
+         <source obj="mux_5" outlet="o"/>
+         <dest obj="joyLY" inlet="outlet"/>
+      </net>
+      <net>
+         <source obj="InvertJoy1" outlet="o"/>
+         <dest obj="mux_5" inlet="s"/>
+      </net>
+      <net>
+         <source obj="+c_2" outlet="out"/>
+         <dest obj="mux_5" inlet="i1"/>
       </net>
    </nets>
    <settings>

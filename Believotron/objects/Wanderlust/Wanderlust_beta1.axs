@@ -467,7 +467,7 @@ void loop(void)
          <combo attributeName="channel" selection="PC1 (ADC1_IN11)"/>
       </attribs>
    </obj>
-   <obj type="mux/mux 2" uuid="3bcb8a666381ed18b8962eda50b1aa679136f618" name="mux_4" x="1736" y="882">
+   <obj type="mux/mux 2" uuid="3bcb8a666381ed18b8962eda50b1aa679136f618" name="mux_3" x="1736" y="882">
       <params/>
       <attribs/>
    </obj>
@@ -491,7 +491,13 @@ void loop(void)
       </params>
       <attribs/>
    </obj>
-   <obj type="mux/mux 2" uuid="3bcb8a666381ed18b8962eda50b1aa679136f618" name="mux_5" x="1736" y="966">
+   <obj type="ctrl/toggle" uuid="42b8134fa729d54bfc8d62d6ef3fa99498c1de99" name="swapKnobRow" x="42" y="966">
+      <params>
+         <bool32.tgl name="b" onParent="true" value="0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="mux/mux 2" uuid="3bcb8a666381ed18b8962eda50b1aa679136f618" name="mux_4" x="1736" y="966">
       <params/>
       <attribs/>
    </obj>
@@ -754,10 +760,6 @@ void loop(void)
          <dest obj="WanderlustController_1" inlet="LEDmode_"/>
       </net>
       <net>
-         <source obj="Color In" outlet="inlet"/>
-         <dest obj="WanderlustController_1" inlet="LEDcolor_"/>
-      </net>
-      <net>
          <source obj="page" outlet="inlet"/>
          <dest obj="WanderlustController_1" inlet="Page_"/>
       </net>
@@ -785,7 +787,7 @@ void loop(void)
       <net>
          <source obj="mux_1" outlet="o"/>
          <dest obj="inv_2" inlet="in"/>
-         <dest obj="mux_4" inlet="i2"/>
+         <dest obj="mux_3" inlet="i2"/>
       </net>
       <net>
          <source obj="inv_2" outlet="out"/>
@@ -793,7 +795,7 @@ void loop(void)
       </net>
       <net>
          <source obj="+c_1" outlet="out"/>
-         <dest obj="mux_4" inlet="i1"/>
+         <dest obj="mux_3" inlet="i1"/>
       </net>
       <net>
          <source obj="inv_3" outlet="out"/>
@@ -802,27 +804,35 @@ void loop(void)
       <net>
          <source obj="mux_2" outlet="o"/>
          <dest obj="inv_3" inlet="in"/>
-         <dest obj="mux_5" inlet="i2"/>
+         <dest obj="mux_4" inlet="i2"/>
       </net>
       <net>
          <source obj="InvertJoy0" outlet="o"/>
-         <dest obj="mux_4" inlet="s"/>
+         <dest obj="mux_3" inlet="s"/>
       </net>
       <net>
-         <source obj="mux_4" outlet="o"/>
+         <source obj="mux_3" outlet="o"/>
          <dest obj="joyLX" inlet="outlet"/>
       </net>
       <net>
-         <source obj="mux_5" outlet="o"/>
+         <source obj="mux_4" outlet="o"/>
          <dest obj="joyLY" inlet="outlet"/>
       </net>
       <net>
          <source obj="InvertJoy1" outlet="o"/>
-         <dest obj="mux_5" inlet="s"/>
+         <dest obj="mux_4" inlet="s"/>
       </net>
       <net>
          <source obj="+c_2" outlet="out"/>
-         <dest obj="mux_5" inlet="i1"/>
+         <dest obj="mux_4" inlet="i1"/>
+      </net>
+      <net>
+         <source obj="swapKnobRow" outlet="o"/>
+         <dest obj="WanderlustController_1" inlet="SwapKnobRow_"/>
+      </net>
+      <net>
+         <source obj="Color In" outlet="inlet"/>
+         <dest obj="WanderlustController_1" inlet="LEDcolor_"/>
       </net>
    </nets>
    <settings>

@@ -7,12 +7,12 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="env/adsr m" uuid="98bd39fb828c392b28126d259cb5175e6f6ea34b" name="adsr_1" x="294" y="42">
+   <obj type="env/adsr m" uuid="98bd39fb828c392b28126d259cb5175e6f6ea34b" name="adsr_1" x="364" y="42">
       <params>
          <frac32.s.map name="a" value="-64.0"/>
          <frac32.s.map name="d" value="-64.0"/>
          <frac32.u.map name="s" value="0.0"/>
-         <frac32.s.map name="r" value="-63.0"/>
+         <frac32.s.map name="r" value="-64.0"/>
       </params>
       <attribs/>
    </obj>
@@ -20,15 +20,19 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="math/+" uuid="44553fdc8628c67ab535845ed1be304ad6c9553b" name="+_1" x="434" y="98">
-      <params/>
-      <attribs/>
-   </obj>
    <obj type="patch/inlet f" uuid="5c585d2dcd9c05631e345ac09626a22a639d7c13" name="decay" x="28" y="126">
       <params/>
       <attribs/>
    </obj>
+   <obj type="math/+" uuid="44553fdc8628c67ab535845ed1be304ad6c9553b" name="+_1" x="504" y="154">
+      <params/>
+      <attribs/>
+   </obj>
    <obj type="patch/inlet f" uuid="5c585d2dcd9c05631e345ac09626a22a639d7c13" name="sustain" x="28" y="168">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_1" x="602" y="168">
       <params/>
       <attribs/>
    </obj>
@@ -46,10 +50,6 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_1" x="574" y="294">
-      <params/>
-      <attribs/>
-   </obj>
    <obj type="patch/inlet f" uuid="5c585d2dcd9c05631e345ac09626a22a639d7c13" name="Base Note" x="28" y="322">
       <params/>
       <attribs/>
@@ -59,29 +59,25 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="osc/sine" uuid="6e094045cca76a9dbf7ebfa72e44e4700d2b3ba" name="osc_3" x="266" y="350">
-      <params>
-         <frac32.s.map name="pitch" value="-48.0"/>
-      </params>
-      <attribs/>
-   </obj>
-   <obj type="env/ADSR1" uuid="22b63723-acad-4e78-b44b-34d41c939c10" name="ADSR1_1" x="476" y="350">
-      <params>
-         <bool32.tgl name="on" value="1"/>
-         <frac32.s.map name="a" value="-63.0"/>
-         <frac32.s.map name="d" value="-64.0"/>
-         <frac32.u.map name="s" value="0.5"/>
-         <frac32.s.map name="r" value="-63.0"/>
-      </params>
-      <attribs/>
-   </obj>
-   <obj type="beat/osc/multiWave" uuid="50bff098-b6e0-43ff-bf4d-7f946501a55b" name="multiWave_1" x="70" y="462">
+   <obj type="osc/multiwave" uuid="f38f0682-77d4-48b7-97c2-0ba0436ea4d8" name="multiwave_1" x="350" y="350">
       <params>
          <int32.vradio name="waveform" value="0"/>
-         <frac32.s.map name="pitch" value="0.0"/>
+         <frac32.s.map name="pitch" value="-48.0"/>
          <frac32.u.map name="shape" value="0.0"/>
          <frac32.u.map name="amount" value="0.0"/>
       </params>
+      <attribs/>
+   </obj>
+   <obj type="patch/inlet a" uuid="b577fe41e0a6bc7b5502ce33cb8a3129e2e28ee5" name="modFreq" x="28" y="364">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/inlet f" uuid="5c585d2dcd9c05631e345ac09626a22a639d7c13" name="shape" x="28" y="406">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/inlet i" uuid="f11927f00c59219df0c50f73056aa19f125540b7" name="waveSel" x="28" y="462">
+      <params/>
       <attribs/>
    </obj>
    <nets>
@@ -89,11 +85,10 @@
          <source obj="volume" outlet="inlet"/>
          <dest obj="&gt;c_1" inlet="in"/>
          <dest obj="+_1" inlet="in2"/>
-         <dest obj="vca_1" inlet="v"/>
       </net>
       <net>
          <source obj="Base Note" outlet="inlet"/>
-         <dest obj="osc_3" inlet="pitch"/>
+         <dest obj="multiwave_1" inlet="pitch"/>
       </net>
       <net>
          <source obj="trigger" outlet="inlet"/>
@@ -104,40 +99,52 @@
          <dest obj="and_1" inlet="i2"/>
       </net>
       <net>
-         <source obj="adsr_1" outlet="env"/>
-         <dest obj="+_1" inlet="in1"/>
-      </net>
-      <net>
-         <source obj="osc_3" outlet="wave"/>
-         <dest obj="ADSR1_1" inlet="i"/>
-      </net>
-      <net>
          <source obj="attack" outlet="inlet"/>
-         <dest obj="ADSR1_1" inlet="a"/>
+         <dest obj="adsr_1" inlet="a"/>
       </net>
       <net>
          <source obj="decay" outlet="inlet"/>
-         <dest obj="ADSR1_1" inlet="d"/>
+         <dest obj="adsr_1" inlet="d"/>
       </net>
       <net>
          <source obj="sustain" outlet="inlet"/>
-         <dest obj="ADSR1_1" inlet="s"/>
+         <dest obj="adsr_1" inlet="s"/>
       </net>
       <net>
          <source obj="release" outlet="inlet"/>
-         <dest obj="ADSR1_1" inlet="r"/>
+         <dest obj="adsr_1" inlet="r"/>
       </net>
       <net>
          <source obj="and_1" outlet="o"/>
-         <dest obj="ADSR1_1" inlet="g"/>
-      </net>
-      <net>
-         <source obj="ADSR1_1" outlet="o"/>
-         <dest obj="vca_1" inlet="a"/>
+         <dest obj="adsr_1" inlet="gate"/>
       </net>
       <net>
          <source obj="vca_1" outlet="o"/>
          <dest obj="out" inlet="outlet"/>
+      </net>
+      <net>
+         <source obj="adsr_1" outlet="env"/>
+         <dest obj="+_1" inlet="in1"/>
+      </net>
+      <net>
+         <source obj="waveSel" outlet="inlet"/>
+         <dest obj="multiwave_1" inlet="wave"/>
+      </net>
+      <net>
+         <source obj="shape" outlet="inlet"/>
+         <dest obj="multiwave_1" inlet="shape"/>
+      </net>
+      <net>
+         <source obj="modFreq" outlet="inlet"/>
+         <dest obj="multiwave_1" inlet="freq"/>
+      </net>
+      <net>
+         <source obj="+_1" outlet="out"/>
+         <dest obj="vca_1" inlet="v"/>
+      </net>
+      <net>
+         <source obj="multiwave_1" outlet="out"/>
+         <dest obj="vca_1" inlet="a"/>
       </net>
    </nets>
    <settings>
@@ -145,9 +152,9 @@
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>-1675</x>
-      <y>9</y>
-      <width>1192</width>
+      <x>-1112</x>
+      <y>1</y>
+      <width>893</width>
       <height>772</height>
    </windowPos>
 </patch-1.0>

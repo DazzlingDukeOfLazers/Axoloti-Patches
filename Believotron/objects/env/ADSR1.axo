@@ -75,7 +75,7 @@ if (stage == 0){
    d = 0x7FFFFFFF - (d >> 2);
    val = (s<<4) + (___SMMUL(val - (s<<4),d)<<1);
 }
-loopVal = (val)>>4;]]></code.krate>
+loopVal = (val)>>4 +inlet_e;]]></code.krate>
       <code.srate><![CDATA[//Env off
 outlet_o = inlet_i;
 

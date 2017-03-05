@@ -31,6 +31,10 @@
       <params/>
       <attribs/>
    </obj>
+   <obj type="instruments/ADSR-MultiOsc" uuid="63b86b12-8bc7-4f06-b2f9-a0a1fc0237a8" name="obj_2" x="1148" y="42">
+      <params/>
+      <attribs/>
+   </obj>
    <obj type="ctrl/dial p" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="dial_3" x="28" y="56">
       <params>
          <frac32.u.map name="value" value="64.0"/>
@@ -41,10 +45,6 @@
       <params>
          <bool32.tgl name="Enable Vol Knob" value="0"/>
       </params>
-      <attribs/>
-   </obj>
-   <obj type="ADSR-MultiOsc" uuid="6940c983-fc86-4ee5-a6cb-e8f5f0b03cd9" name="ADSR-MultiOsc_1" x="1134" y="84">
-      <params/>
       <attribs/>
    </obj>
    <obj type="Wanderlust/Wanderlust_beta1" uuid="a2125df6-426a-4a66-80d5-506c0b70d14b" name="obj_1" x="154" y="112">
@@ -98,10 +98,20 @@
       </params>
       <attribs/>
    </obj>
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_3" x="1022" y="210">
+      <params>
+         <int32 name="value" value="34"/>
+      </params>
+      <attribs/>
+   </obj>
    <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_2" x="28" y="224">
       <params>
          <int32 name="value" value="0"/>
       </params>
+      <attribs/>
+   </obj>
+   <obj type="disp/hex" uuid="87617898f70d90033f8add921438bf0d11721fdd" name="hex_1" x="1148" y="224">
+      <params/>
       <attribs/>
    </obj>
    <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_13" x="448" y="280">
@@ -316,32 +326,33 @@
       <net>
          <source obj="obj_1" outlet="knob_top_0"/>
          <dest obj="dial_1" inlet="in"/>
-         <dest obj="ADSR-MultiOsc_1" inlet="attack"/>
+         <dest obj="obj_2" inlet="attack"/>
       </net>
       <net>
          <source obj="obj_1" outlet="knob_top_1"/>
          <dest obj="dial_10" inlet="in"/>
-         <dest obj="ADSR-MultiOsc_1" inlet="decay"/>
+         <dest obj="obj_2" inlet="decay"/>
       </net>
       <net>
          <source obj="obj_1" outlet="knob_top_2"/>
          <dest obj="dial_11" inlet="in"/>
-         <dest obj="ADSR-MultiOsc_1" inlet="sustain"/>
+         <dest obj="obj_2" inlet="sustain"/>
       </net>
       <net>
          <source obj="obj_1" outlet="knob_top_3"/>
          <dest obj="dial_12" inlet="in"/>
-         <dest obj="ADSR-MultiOsc_1" inlet="release"/>
+         <dest obj="obj_2" inlet="release"/>
       </net>
       <net>
          <source obj="obj_1" outlet="knob_top_4"/>
          <dest obj="dial_13" inlet="in"/>
-         <dest obj="ADSR-MultiOsc_1" inlet="volume"/>
+         <dest obj="hex_1" inlet="in"/>
+         <dest obj="obj_2" inlet="volume"/>
       </net>
       <net>
          <source obj="obj_1" outlet="knob_top_5"/>
          <dest obj="dial_14" inlet="in"/>
-         <dest obj="ADSR-MultiOsc_1" inlet="Base Note"/>
+         <dest obj="obj_2" inlet="Base Note"/>
       </net>
       <net>
          <source obj="obj_1" outlet="knob_top_6"/>
@@ -354,6 +365,7 @@
       <net>
          <source obj="obj_1" outlet="knob_bot_0"/>
          <dest obj="dial_2" inlet="in"/>
+         <dest obj="obj_2" inlet="shape"/>
       </net>
       <net>
          <source obj="obj_1" outlet="knob_bot_1"/>
@@ -426,7 +438,7 @@
       <net>
          <source obj="obj_1" outlet="horsebackriding"/>
          <dest obj="bool_32" inlet="in"/>
-         <dest obj="ADSR-MultiOsc_1" inlet="trigger"/>
+         <dest obj="obj_2" inlet="trigger"/>
       </net>
       <net>
          <source obj="obj_1" outlet="kb_0"/>
@@ -521,9 +533,13 @@
          <dest obj="dial_25" inlet="in"/>
       </net>
       <net>
-         <source obj="ADSR-MultiOsc_1" outlet="out"/>
+         <source obj="obj_2" outlet="out"/>
          <dest obj="obj_3" inlet="right"/>
          <dest obj="obj_3" inlet="left"/>
+      </net>
+      <net>
+         <source obj="i_3" outlet="out"/>
+         <dest obj="obj_2" inlet="waveSel"/>
       </net>
    </nets>
    <settings>

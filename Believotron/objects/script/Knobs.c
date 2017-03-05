@@ -4,6 +4,7 @@ void readADCAndOutput()
 	txbuf[1] = 0b00000000;
 	txbuf[2] = 0b00000000;
 
+
 	for(int iDevice=0; iDevice<2; iDevice++)
 	{
 		for(int pin=0; pin<8; pin++){
@@ -20,8 +21,18 @@ void readADCAndOutput()
 
 			SPI_CS_ALL_OFF();
 
-			if (iDevice == 0 ) palWritePad(	GPIOA,	4,	0		);	// enable ADC
-			if (iDevice == 1 ) palWritePad(	GPIOB,	7,	0		);	// enable ADC
+			if (!SwapKnobRow)
+			{
+				if (iDevice == 0 ) palWritePad(	GPIOA,	4,	0		);	// enable ADC
+				if (iDevice == 1 ) palWritePad(	GPIOB,	7,	0		);	// enable ADC
+			}
+			else
+			{
+				if (iDevice == 1 ) palWritePad(	GPIOA,	4,	0		);	// enable ADC
+				if (iDevice == 0 ) palWritePad(	GPIOB,	7,	0		);	// enable ADC
+			}
+
+
 
 			spiSend(		&SPID1,	3,	txbuf	);	// send SPI data txbuf[]
 			spiReceive(	&SPID1,	3,	rxbuf	);	// receive SPI data from MCP3208

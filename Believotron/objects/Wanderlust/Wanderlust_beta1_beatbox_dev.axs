@@ -1,4 +1,8 @@
 <patch-1.0 appVersion="1.0.12">
+   <obj type="instruments/ADSR-MultiOsc" uuid="a5117c0f-3ed9-49e1-94e7-c62ad85471d1" name="obj_2" x="1134" y="28">
+      <params/>
+      <attribs/>
+   </obj>
    <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_1" x="448" y="42">
       <params/>
       <attribs/>
@@ -31,32 +35,30 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="instruments/ADSR-MultiOsc" uuid="63b86b12-8bc7-4f06-b2f9-a0a1fc0237a8" name="obj_2" x="1148" y="42">
-      <params/>
-      <attribs/>
-   </obj>
    <obj type="ctrl/dial p" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="dial_3" x="28" y="56">
       <params>
          <frac32.u.map name="value" value="64.0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="Wanderlust/Volume Out" uuid="8cda2552-2e8a-4746-809e-0e650bb49964" name="obj_3" x="1330" y="70">
+   <obj type="Wanderlust/Volume Out" uuid="1a54ccb4-da3b-4931-8bb2-26d8495953b1" name="obj_3" x="1428" y="98">
       <params>
-         <bool32.tgl name="Enable Vol Knob" value="0"/>
+         <bool32.tgl name="Enable Vol Knob" value="1"/>
+         <bool32.tgl name="Reverse knob" value="0"/>
       </params>
       <attribs/>
    </obj>
    <obj type="Wanderlust/Wanderlust_beta1" uuid="a2125df6-426a-4a66-80d5-506c0b70d14b" name="obj_1" x="154" y="112">
       <params>
          <bool32.tgl name="Reverse Knobs" value="1"/>
-         <bool32.tgl name="Rev Padrow Top" value="0"/>
+         <bool32.tgl name="Rev Padrow Top" value="1"/>
          <bool32.tgl name="InvertJoy0" value="0"/>
-         <bool32.tgl name="Rev Padrow Bottom" value="0"/>
+         <bool32.tgl name="Rev Padrow Bottom" value="1"/>
          <bool32.tgl name="SwapXY" value="0"/>
          <int32 name="LED Mode" value="0"/>
          <bool32.tgl name="InvertJoy1" value="0"/>
          <bool32.tgl name="swapKnobRow" value="1"/>
+         <bool32.tgl name="swapPadRow" value="1"/>
       </params>
       <attribs/>
    </obj>
@@ -100,7 +102,7 @@
    </obj>
    <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_3" x="1022" y="210">
       <params>
-         <int32 name="value" value="34"/>
+         <int32 name="value" value="0"/>
       </params>
       <attribs/>
    </obj>
@@ -146,6 +148,7 @@
       <params/>
       <attribs/>
    </obj>
+   <comment type="patch/comment" x="3038" y="364" text="East coast"/>
    <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_25" x="448" y="420">
       <params/>
       <attribs/>
@@ -533,13 +536,13 @@
          <dest obj="dial_25" inlet="in"/>
       </net>
       <net>
-         <source obj="obj_2" outlet="out"/>
-         <dest obj="obj_3" inlet="right"/>
-         <dest obj="obj_3" inlet="left"/>
-      </net>
-      <net>
          <source obj="i_3" outlet="out"/>
          <dest obj="obj_2" inlet="waveSel"/>
+      </net>
+      <net>
+         <source obj="obj_2" outlet="out"/>
+         <dest obj="obj_3" inlet="left"/>
+         <dest obj="obj_3" inlet="right"/>
       </net>
    </nets>
    <settings>
@@ -547,9 +550,9 @@
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>-1830</x>
-      <y>-60</y>
-      <width>1506</width>
-      <height>1003</height>
+      <x>-1928</x>
+      <y>-91</y>
+      <width>1723</width>
+      <height>976</height>
    </windowPos>
 </patch-1.0>

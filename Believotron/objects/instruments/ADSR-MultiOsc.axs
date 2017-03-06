@@ -24,19 +24,23 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="math/+" uuid="44553fdc8628c67ab535845ed1be304ad6c9553b" name="+_1" x="504" y="154">
-      <params/>
-      <attribs/>
-   </obj>
    <obj type="patch/inlet f" uuid="5c585d2dcd9c05631e345ac09626a22a639d7c13" name="sustain" x="28" y="168">
       <params/>
       <attribs/>
    </obj>
-   <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_1" x="602" y="168">
+   <obj type="patch/inlet f" uuid="5c585d2dcd9c05631e345ac09626a22a639d7c13" name="release" x="28" y="210">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/inlet f" uuid="5c585d2dcd9c05631e345ac09626a22a639d7c13" name="release" x="28" y="210">
+   <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_2" x="658" y="224">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet a" uuid="abd8c5fd3b0524a6630f65cad6dc27f6c58e2a3e" name="out" x="742" y="224">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_1" x="588" y="238">
       <params/>
       <attribs/>
    </obj>
@@ -55,10 +59,6 @@
       <attribs/>
    </obj>
    <comment type="patch/comment" x="266" y="322" text="carrier oscillator"/>
-   <obj type="patch/outlet a" uuid="abd8c5fd3b0524a6630f65cad6dc27f6c58e2a3e" name="out" x="714" y="336">
-      <params/>
-      <attribs/>
-   </obj>
    <obj type="osc/multiwave" uuid="f38f0682-77d4-48b7-97c2-0ba0436ea4d8" name="multiwave_1" x="350" y="350">
       <params>
          <int32.vradio name="waveform" value="0"/>
@@ -84,7 +84,7 @@
       <net>
          <source obj="volume" outlet="inlet"/>
          <dest obj="&gt;c_1" inlet="in"/>
-         <dest obj="+_1" inlet="in2"/>
+         <dest obj="vca_2" inlet="v"/>
       </net>
       <net>
          <source obj="Base Note" outlet="inlet"/>
@@ -120,11 +120,7 @@
       </net>
       <net>
          <source obj="vca_1" outlet="o"/>
-         <dest obj="out" inlet="outlet"/>
-      </net>
-      <net>
-         <source obj="adsr_1" outlet="env"/>
-         <dest obj="+_1" inlet="in1"/>
+         <dest obj="vca_2" inlet="a"/>
       </net>
       <net>
          <source obj="waveSel" outlet="inlet"/>
@@ -139,12 +135,16 @@
          <dest obj="multiwave_1" inlet="freq"/>
       </net>
       <net>
-         <source obj="+_1" outlet="out"/>
+         <source obj="multiwave_1" outlet="out"/>
+         <dest obj="vca_1" inlet="a"/>
+      </net>
+      <net>
+         <source obj="adsr_1" outlet="env"/>
          <dest obj="vca_1" inlet="v"/>
       </net>
       <net>
-         <source obj="multiwave_1" outlet="out"/>
-         <dest obj="vca_1" inlet="a"/>
+         <source obj="vca_2" outlet="o"/>
+         <dest obj="out" inlet="outlet"/>
       </net>
    </nets>
    <settings>
@@ -152,8 +152,8 @@
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>-1112</x>
-      <y>1</y>
+      <x>-1513</x>
+      <y>2</y>
       <width>893</width>
       <height>772</height>
    </windowPos>

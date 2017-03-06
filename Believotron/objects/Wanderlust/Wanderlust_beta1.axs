@@ -224,12 +224,7 @@ void setup(void) {
 	rxbuf[0] = 0;	
 	txbuf[0] = 0; // CAP1188_PRODID;
 
-	PadcapSetup(WANDERLUST_KEYBOARD);
-	chThdSleepMilliseconds(1); 
-	PadcapSetup(WANDERLUST_PADCAP_LOWER);
-	chThdSleepMilliseconds(1); 
-	PadcapSetup(WANDERLUST_PADCAP_UPPER);	
-	chThdSleepMilliseconds(1); 
+	
 
 	out2 = 0xBEEF;
 	out3 = 0xABBA;
@@ -509,6 +504,12 @@ void loop(void)
    </obj>
    <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="joyLY" x="1890" y="980">
       <params/>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/toggle" uuid="42b8134fa729d54bfc8d62d6ef3fa99498c1de99" name="swapPadRow" x="28" y="1022">
+      <params>
+         <bool32.tgl name="b" onParent="true" value="0"/>
+      </params>
       <attribs/>
    </obj>
    <comment type="patch/comment" x="1246" y="1050" text="tbd scale volume out"/>
@@ -833,6 +834,10 @@ void loop(void)
       <net>
          <source obj="Color In" outlet="inlet"/>
          <dest obj="WanderlustController_1" inlet="LEDcolor_"/>
+      </net>
+      <net>
+         <source obj="swapPadRow" outlet="o"/>
+         <dest obj="WanderlustController_1" inlet="SwapPadRow_"/>
       </net>
    </nets>
    <settings>

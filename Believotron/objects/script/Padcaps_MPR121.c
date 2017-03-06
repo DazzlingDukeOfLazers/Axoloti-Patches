@@ -58,7 +58,7 @@
 // </MPR121>
 
 
-uint16_t PadcapReadReg16(uint8_t ui8Channel, uint8_t ui8Register)
+uint16_t PadcapReadReg16MPR121(uint8_t ui8Channel, uint8_t ui8Register)
 {
 	uint16_t output;
 	msg_t status = RDY_OK;
@@ -67,7 +67,7 @@ uint16_t PadcapReadReg16(uint8_t ui8Channel, uint8_t ui8Register)
 	return ( rxbuf[0] | ( rxbuf[1] << 8 ) );
 }
 
-uint16_t PadcapWriteReg(uint8_t ui8Channel, uint8_t ui8Register, uint8_t ui8Val)
+uint16_t PadcapWriteRegMPR121(uint8_t ui8Channel, uint8_t ui8Register, uint8_t ui8Val)
 {
 	msg_t status = RDY_OK;
 	txbuf[0] = ui8Register;
@@ -76,7 +76,7 @@ uint16_t PadcapWriteReg(uint8_t ui8Channel, uint8_t ui8Register, uint8_t ui8Val)
 	return status;
 }
 
-uint8_t PadcapWriteReg8(uint8_t ui8Channel, uint8_t ui8Register)
+uint8_t PadcapWriteReg8MPR121(uint8_t ui8Channel, uint8_t ui8Register)
 {
 	msg_t status = RDY_OK;
 	txbuf[0] = ui8Register;
@@ -84,20 +84,20 @@ uint8_t PadcapWriteReg8(uint8_t ui8Channel, uint8_t ui8Register)
 	return rxbuf[0];
 }
 
-void PadcapSetThreshold(uint8_t ui8Channel, uint8_t touch, uint8_t release)
+void PadcapSetThresholdMPR121(uint8_t ui8Channel, uint8_t touch, uint8_t release)
 {
 	for (uint8_t i=0; i<12; i++)
 	{
-		PadcapWriteReg(ui8Channel, MPR121_TOUCHTH_0   + 2*i, touch);
-		PadcapWriteReg(ui8Channel, MPR121_RELEASETH_0 + 2*i, release);
+		PadcapWriteRegMPR121(ui8Channel, MPR121_TOUCHTH_0   + 2*i, touch);
+		PadcapWriteRegMPR121(ui8Channel, MPR121_RELEASETH_0 + 2*i, release);
 	}
 }
 
-uint32_t PadcapTouched(uint8_t ui8Channel)
+uint32_t PadcapTouchedMPR121(uint8_t ui8Channel)
 {
 	int32_t i32NoteVal = 0;
 
-	uint16_t u16capstatus = PadcapReadReg16(ui8Channel, MPR121_TOUCHSTATUS_L);
+	uint16_t u16capstatus = PadcapReadReg16MPR121(ui8Channel, MPR121_TOUCHSTATUS_L);
 	i32NoteVal = u16capstatus;
 
 	out2 = i32NoteVal;
@@ -105,53 +105,55 @@ uint32_t PadcapTouched(uint8_t ui8Channel)
 	return i32NoteVal;
 }
 
-void PadcapSetup(uint8_t ui8tPadcapChannel)
+
+void setupMPR121CH(uint8_t ui8tPadcapChannel)
 {
-	PadcapWriteReg(	ui8tPadcapChannel,	MPR121_SOFTRESET,   0x63);
+	PadcapWriteRegMPR121(	ui8tPadcapChannel,	MPR121_SOFTRESET,   0x63);
 	chThdSleepMilliseconds(1);
-	PadcapWriteReg(	ui8tPadcapChannel,	MPR121_ECR,         0x0);
+	PadcapWriteRegMPR121(	ui8tPadcapChannel,	MPR121_ECR,         0x0);
 	chThdSleepMilliseconds(1);
 
-	uint8_t c = PadcapWriteReg8(ui8tPadcapChannel, MPR121_CONFIG2);
+	uint8_t c = PadcapWriteReg8MPR121(ui8tPadcapChannel, MPR121_CONFIG2);
 	chThdSleepMilliseconds(1);
 	if (c != 0x24)  out1 &= 0xF000; // Device ID is incorrect <TBD add to class flag>
 
 	//PadcapSetThreshold(12, 6); // <reference Device sensetivity default	>
 	//PadcapSetThreshold(ui8tPadcapChannel,36,24);
-	PadcapSetThreshold(ui8tPadcapChannel,12,6);
+	PadcapSetThresholdMPR121(ui8tPadcapChannel,12,6);
 	chThdSleepMilliseconds(1);
 
-	PadcapWriteReg(ui8tPadcapChannel, MPR121_MHDR, 0x01); chThdSleepMilliseconds(1);
-	PadcapWriteReg(ui8tPadcapChannel, MPR121_NHDR, 0x01); chThdSleepMilliseconds(1);
-	PadcapWriteReg(ui8tPadcapChannel, MPR121_NCLR, 0x0E); chThdSleepMilliseconds(1);
-	PadcapWriteReg(ui8tPadcapChannel, MPR121_FDLR, 0x00); chThdSleepMilliseconds(1);
+	PadcapWriteRegMPR121(ui8tPadcapChannel, MPR121_MHDR, 0x01); chThdSleepMilliseconds(1);
+	PadcapWriteRegMPR121(ui8tPadcapChannel, MPR121_NHDR, 0x01); chThdSleepMilliseconds(1);
+	PadcapWriteRegMPR121(ui8tPadcapChannel, MPR121_NCLR, 0x0E); chThdSleepMilliseconds(1);
+	PadcapWriteRegMPR121(ui8tPadcapChannel, MPR121_FDLR, 0x00); chThdSleepMilliseconds(1);
 
-	PadcapWriteReg(ui8tPadcapChannel, MPR121_MHDF, 0x01); chThdSleepMilliseconds(1);
-	PadcapWriteReg(ui8tPadcapChannel, MPR121_NHDF, 0x05); chThdSleepMilliseconds(1);
-	PadcapWriteReg(ui8tPadcapChannel, MPR121_NCLF, 0x01); chThdSleepMilliseconds(1);
-	PadcapWriteReg(ui8tPadcapChannel, MPR121_FDLF, 0x00); chThdSleepMilliseconds(1);
+	PadcapWriteRegMPR121(ui8tPadcapChannel, MPR121_MHDF, 0x01); chThdSleepMilliseconds(1);
+	PadcapWriteRegMPR121(ui8tPadcapChannel, MPR121_NHDF, 0x05); chThdSleepMilliseconds(1);
+	PadcapWriteRegMPR121(ui8tPadcapChannel, MPR121_NCLF, 0x01); chThdSleepMilliseconds(1);
+	PadcapWriteRegMPR121(ui8tPadcapChannel, MPR121_FDLF, 0x00); chThdSleepMilliseconds(1);
 
-	PadcapWriteReg(ui8tPadcapChannel, MPR121_NHDT, 0x00); chThdSleepMilliseconds(1);
-	PadcapWriteReg(ui8tPadcapChannel, MPR121_NCLT, 0x00); chThdSleepMilliseconds(1);
-	PadcapWriteReg(ui8tPadcapChannel, MPR121_FDLT, 0x00); chThdSleepMilliseconds(1);
+	PadcapWriteRegMPR121(ui8tPadcapChannel, MPR121_NHDT, 0x00); chThdSleepMilliseconds(1);
+	PadcapWriteRegMPR121(ui8tPadcapChannel, MPR121_NCLT, 0x00); chThdSleepMilliseconds(1);
+	PadcapWriteRegMPR121(ui8tPadcapChannel, MPR121_FDLT, 0x00); chThdSleepMilliseconds(1);
 
-	PadcapWriteReg(ui8tPadcapChannel, MPR121_DEBOUNCE, 0); chThdSleepMilliseconds(1);
-	PadcapWriteReg(ui8tPadcapChannel, MPR121_CONFIG1, 0x10); // default, 16uA charge current
+	PadcapWriteRegMPR121(ui8tPadcapChannel, MPR121_DEBOUNCE, 0); chThdSleepMilliseconds(1);
+	PadcapWriteRegMPR121(ui8tPadcapChannel, MPR121_CONFIG1, 0x10); // default, 16uA charge current
 	chThdSleepMilliseconds(1);
-	PadcapWriteReg(ui8tPadcapChannel, MPR121_CONFIG2, 0x20); // 0.5uS encoding, 1ms period
+	PadcapWriteRegMPR121(ui8tPadcapChannel, MPR121_CONFIG2, 0x20); // 0.5uS encoding, 1ms period
 	chThdSleepMilliseconds(1);
 
-	PadcapWriteReg(ui8tPadcapChannel, MPR121_ECR, 0x8F);  // start with first 5 bits of baseline tracking
+	PadcapWriteRegMPR121(ui8tPadcapChannel, MPR121_ECR, 0x8F);  // start with first 5 bits of baseline tracking
 	chThdSleepMilliseconds(1);
 }
 
-void servicePadCaps()
+
+void serviceMPR121()
 {
 	static int32_t iSameCount=0, iLoopCount;
 
 	uint32_t ui32CapTouched;
 
-	ui32CapTouched = PadcapTouched(WANDERLUST_KEYBOARD);
+	ui32CapTouched = PadcapTouchedMPR121(WANDERLUST_KEYBOARD);
 	{
 		out2 = ui32CapTouched;
 		kb0  = 0x01 & (ui32CapTouched     );
@@ -168,7 +170,28 @@ void servicePadCaps()
 		kb11 = 0x01 & (ui32CapTouched >> 11);
 	}
 
-	ui32CapTouched = PadcapTouched(WANDERLUST_PADCAP_LOWER);
+	if (SwapPadRow) { ui32CapTouched = PadcapTouchedMPR121(WANDERLUST_PADCAP_UPPER); }
+	else {            ui32CapTouched = PadcapTouchedMPR121(WANDERLUST_PADCAP_LOWER); }
+
+	if(reversePadrowBottom)
+	{
+		out3 = ui32CapTouched;
+		//ski_down = 0x080 & ( ui32CapTouched );
+		pc00 = 0x001 & ( ui32CapTouched );
+		pc01 = 0x002 & ( ui32CapTouched );
+		pc02 = 0x004 & ( ui32CapTouched );
+		pc03 = 0x008 & ( ui32CapTouched );
+		pc04 = 0x010 & ( ui32CapTouched );
+		pc05 = 0x020 & ( ui32CapTouched );
+		pc06 = 0x040 & ( ui32CapTouched );
+		pc07 = 0x080 & ( ui32CapTouched );
+
+		pc08 = 0x100 & ( ui32CapTouched );
+		pc09 = 0x200 & ( ui32CapTouched );
+		pc0A = 0x400 & ( ui32CapTouched );
+		pc0B = 0x800 & ( ui32CapTouched );
+	}
+	else
 	{
 		out3 = ui32CapTouched;
 		//ski_down = 0x080 & ( ui32CapTouched );
@@ -180,13 +203,18 @@ void servicePadCaps()
 		pc05 = 0x004 & ( ui32CapTouched );
 		pc06 = 0x002 & ( ui32CapTouched );
 		pc07 = 0x001 & ( ui32CapTouched );
+
 		pc08 = 0x100 & ( ui32CapTouched );
 		pc09 = 0x200 & ( ui32CapTouched );
 		pc0A = 0x400 & ( ui32CapTouched );
 		pc0B = 0x800 & ( ui32CapTouched );
 	}
 
-	ui32CapTouched = PadcapTouched(WANDERLUST_PADCAP_UPPER);
+
+
+	if (SwapPadRow) { ui32CapTouched = PadcapTouchedMPR121(WANDERLUST_PADCAP_LOWER); }
+	else {            ui32CapTouched = PadcapTouchedMPR121(WANDERLUST_PADCAP_UPPER); }
+	if(reversePadrowTop)
 	{
 		out3 = ui32CapTouched;
 		pc10 = 0x001 & ( ui32CapTouched );
@@ -197,6 +225,24 @@ void servicePadCaps()
 		pc15 = 0x020 & ( ui32CapTouched );
 		pc16 = 0x040 & ( ui32CapTouched );
 		pc17 = 0x080 & ( ui32CapTouched );
+
+		pc18 = 0x100 & ( ui32CapTouched );
+		pc19 = 0x200 & ( ui32CapTouched );
+		pc1A = 0x400 & ( ui32CapTouched );
+		pc1B = 0x800 & ( ui32CapTouched );
+	}
+	else
+	{
+		out3 = ui32CapTouched;
+		pc10 = 0x080 & ( ui32CapTouched );
+		pc11 = 0x040 & ( ui32CapTouched );
+		pc12 = 0x020 & ( ui32CapTouched );
+		pc13 = 0x010 & ( ui32CapTouched );
+		pc14 = 0x008 & ( ui32CapTouched );
+		pc15 = 0x004 & ( ui32CapTouched );
+		pc16 = 0x002 & ( ui32CapTouched );
+		pc17 = 0x001 & ( ui32CapTouched );
+
 		pc18 = 0x100 & ( ui32CapTouched );
 		pc19 = 0x200 & ( ui32CapTouched );
 		pc1A = 0x400 & ( ui32CapTouched );
@@ -209,9 +255,16 @@ void servicePadCaps()
 	if (iLoopCount > 50000)
 	{
 		iLoopCount = 0;
-		PadcapSetup(WANDERLUST_KEYBOARD);
-		PadcapSetup(WANDERLUST_PADCAP_LOWER);
-		PadcapSetup(WANDERLUST_PADCAP_UPPER);
+		setupMPR121CH(WANDERLUST_KEYBOARD);
+		setupMPR121CH(WANDERLUST_PADCAP_LOWER);
+		setupMPR121CH(WANDERLUST_PADCAP_UPPER);
 	}
-	
+
+}
+
+void setupMPR121()
+{
+	setupMPR121CH(WANDERLUST_KEYBOARD);
+	setupMPR121CH(WANDERLUST_PADCAP_LOWER);
+	setupMPR121CH(WANDERLUST_PADCAP_UPPER);
 }

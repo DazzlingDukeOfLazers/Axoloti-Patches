@@ -7,7 +7,7 @@
       <inlets>
          <bool32.risingfalling name="gate" description="gate"/>
          <frac32.positive name="a"/>
-         <frac32.bipolar name="d" description="decay time modulation"/>
+         <frac32.positive name="d"/>
          <frac32.bipolar name="s" description="sustail level modulation"/>
          <frac32.bipolar name="r" description="release time modulation"/>
       </inlets>
@@ -19,7 +19,6 @@
       </outlets>
       <displays/>
       <params>
-         <frac32.s.map name="d"/>
          <frac32.u.map name="s"/>
          <frac32.s.map name="r"/>
       </params>
@@ -35,9 +34,9 @@ if (!(inlet_gate>0) &&  ntrig) { stage = 0; ntrig = 0;}
 #define UNI2BIPOLAR(a) ((a -(1<<26) ) << 1)
 
 
-outlet_o1  = UNI2BIPOLAR(inlet_a);
-outlet_o1b = UNI2BIPOLAR(inlet_a);
-outlet_o1p = UNI2BIPOLAR(inlet_a);
+outlet_o1  = UNI2BIPOLAR(inlet_d);
+outlet_o1b = UNI2BIPOLAR(inlet_d);
+outlet_o1p = UNI2BIPOLAR(inlet_d);
 
 if (stage == 0) // Release!
 {
@@ -65,7 +64,7 @@ else if (stage == 2) // Decay + Sustain :/
 {
    int32_t s = __USAT(param_s + inlet_s, 27);
    int32_t d;
-   MTOF(- param_d - inlet_d, d);
+   MTOF(UNI2BIPOLAR(inlet_d)<<1, d);
    d = 0x7FFFFFFF - (d >> 2);
    envelope_out = (s<<4) + (___SMMUL(envelope_out - (s<<4),d)<<1);
 }

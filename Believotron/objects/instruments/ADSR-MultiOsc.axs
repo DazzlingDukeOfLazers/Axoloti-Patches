@@ -7,7 +7,7 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="env/adsr m" uuid="98bd39fb828c392b28126d259cb5175e6f6ea34b" name="adsr_1" x="364" y="42">
+   <obj type="env/adsr_lean" uuid="6123b450-5248-4b5b-a809-6720d18feecc" name="adsr_lean_1" x="350" y="28">
       <params>
          <frac32.s.map name="a" value="-64.0"/>
          <frac32.s.map name="d" value="-64.0"/>
@@ -100,23 +100,23 @@
       </net>
       <net>
          <source obj="attack" outlet="inlet"/>
-         <dest obj="adsr_1" inlet="a"/>
+         <dest obj="adsr_lean_1" inlet="a"/>
       </net>
       <net>
          <source obj="decay" outlet="inlet"/>
-         <dest obj="adsr_1" inlet="d"/>
+         <dest obj="adsr_lean_1" inlet="d"/>
       </net>
       <net>
          <source obj="sustain" outlet="inlet"/>
-         <dest obj="adsr_1" inlet="s"/>
+         <dest obj="adsr_lean_1" inlet="s"/>
       </net>
       <net>
          <source obj="release" outlet="inlet"/>
-         <dest obj="adsr_1" inlet="r"/>
+         <dest obj="adsr_lean_1" inlet="r"/>
       </net>
       <net>
          <source obj="and_1" outlet="o"/>
-         <dest obj="adsr_1" inlet="gate"/>
+         <dest obj="adsr_lean_1" inlet="gate"/>
       </net>
       <net>
          <source obj="vca_1" outlet="o"/>
@@ -139,7 +139,7 @@
          <dest obj="vca_1" inlet="a"/>
       </net>
       <net>
-         <source obj="adsr_1" outlet="env"/>
+         <source obj="adsr_lean_1" outlet="env"/>
          <dest obj="vca_1" inlet="v"/>
       </net>
       <net>
@@ -152,8 +152,8 @@
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>-1513</x>
-      <y>2</y>
+      <x>-1294</x>
+      <y>-2</y>
       <width>893</width>
       <height>772</height>
    </windowPos>

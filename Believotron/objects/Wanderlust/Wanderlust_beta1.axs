@@ -224,7 +224,7 @@ void setup(void) {
 	rxbuf[0] = 0;	
 	txbuf[0] = 0; // CAP1188_PRODID;
 
-	
+	PadcapSetup();
 
 	out2 = 0xBEEF;
 	out3 = 0xABBA;

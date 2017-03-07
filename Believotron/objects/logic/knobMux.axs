@@ -44,6 +44,10 @@
       <params/>
       <attribs/>
    </obj>
+   <obj type="logic/samplehold" uuid="55479a62c4ed7e3536b6e6f339ce05a802a81b9d" name="samplehold_1" x="952" y="140">
+      <params/>
+      <attribs/>
+   </obj>
    <obj type="table/alloc 16b sdram" uuid="6d8eb0fd68f404cb5d14e7d4c8c146c8ccf09da1" name="tbl2" x="714" y="168">
       <params/>
       <attribs>
@@ -402,9 +406,9 @@
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>-1928</x>
-      <y>-91</y>
-      <width>1723</width>
-      <height>976</height>
+      <x>-1798</x>
+      <y>-52</y>
+      <width>1514</width>
+      <height>1014</height>
    </windowPos>
 </patch-1.0>

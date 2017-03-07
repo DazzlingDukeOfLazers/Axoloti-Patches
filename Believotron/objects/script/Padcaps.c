@@ -5,7 +5,7 @@
 #include "C:\\Users\\danie\\Documents\\WIP\\Believotron\\Believotron-Github\\Axoloti-Patches\\Believotron\\objects\\script\\Padcaps_MPR121.c"
 #include "C:\\Users\\danie\\Documents\\WIP\\Believotron\\Believotron-Github\\Axoloti-Patches\\Believotron\\objects\\script\\Padcaps_CPT112S.c"
 
-void PadcapSetup(uint8_t ui8tPadcapChannel)
+void PadcapSetup()
 {
 	#ifdef 	CAP_MODE_MPR121
 		setupMPR121();

@@ -20,7 +20,7 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/inlet i" uuid="f11927f00c59219df0c50f73056aa19f125540b7" name="frame" x="98" y="98">
+   <obj type="patch/inlet i" uuid="f11927f00c59219df0c50f73056aa19f125540b7" name="offset" x="84" y="98">
       <params/>
       <attribs/>
    </obj>
@@ -40,7 +40,7 @@
          <table attributeName="suffix" table=".step"/>
       </attribs>
    </obj>
-   <obj type="patch/inlet i" uuid="f11927f00c59219df0c50f73056aa19f125540b7" name="page" x="98" y="154">
+   <obj type="math/+" uuid="b94a9b8e9adcb7d18868c0ee808a9b211b65578d" name="+_1" x="224" y="126">
       <params/>
       <attribs/>
    </obj>
@@ -53,7 +53,11 @@
          </text>
       </attribs>
    </obj>
-   <obj type="math/==" uuid="deaf0d36642c57876c4101e86f8a0b6a06021ab2" name="==_1" x="266" y="224">
+   <obj type="patch/inlet i" uuid="f11927f00c59219df0c50f73056aa19f125540b7" name="page" x="84" y="182">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="math/==" uuid="deaf0d36642c57876c4101e86f8a0b6a06021ab2" name="==_1" x="266" y="196">
       <params/>
       <attribs/>
    </obj>
@@ -121,6 +125,10 @@
             <sText><![CDATA[]]></sText>
          </text>
       </attribs>
+   </obj>
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="outlet_1" x="1288" y="392">
+      <params/>
+      <attribs/>
    </obj>
    <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="ChannelID" x="112" y="406">
       <params>
@@ -230,12 +238,12 @@
       </net>
       <net>
          <source obj="saveToSD" outlet="inlet"/>
-         <dest obj="tableReadWrite_1" inlet="trigSave"/>
-         <dest obj="tableReadWrite_2" inlet="trigSave"/>
          <dest obj="tableReadWrite_3" inlet="trigSave"/>
          <dest obj="tableReadWrite_4" inlet="trigSave"/>
          <dest obj="tableReadWrite_5" inlet="trigSave"/>
          <dest obj="tableReadWrite_6" inlet="trigSave"/>
+         <dest obj="tableReadWrite_1" inlet="trigSave"/>
+         <dest obj="tableReadWrite_2" inlet="trigSave"/>
       </net>
       <net>
          <source obj="loadFromSD" outlet="inlet"/>
@@ -254,14 +262,9 @@
          <dest obj="tableReadWrite_6" inlet="v"/>
       </net>
       <net>
-         <source obj="frame" outlet="inlet"/>
-         <dest obj="doubleIndex_1" inlet="index"/>
-         <dest obj="doubleIndex_2" inlet="index"/>
-         <dest obj="doubleIndex_3" inlet="index"/>
-         <dest obj="doubleIndex_4" inlet="index"/>
-         <dest obj="doubleIndex_5" inlet="index"/>
-         <dest obj="doubleIndex_6" inlet="index"/>
+         <source obj="offset" outlet="inlet"/>
          <dest obj="change_1" inlet="in"/>
+         <dest obj="+_1" inlet="in1"/>
       </net>
       <net>
          <source obj="page" outlet="inlet"/>
@@ -298,12 +301,12 @@
       </net>
       <net>
          <source obj="or_1" outlet="o"/>
-         <dest obj="tableReadWrite_1" inlet="trigLoad"/>
-         <dest obj="tableReadWrite_2" inlet="trigLoad"/>
          <dest obj="tableReadWrite_3" inlet="trigLoad"/>
          <dest obj="tableReadWrite_4" inlet="trigLoad"/>
          <dest obj="tableReadWrite_5" inlet="trigLoad"/>
          <dest obj="tableReadWrite_6" inlet="trigLoad"/>
+         <dest obj="tableReadWrite_1" inlet="trigLoad"/>
+         <dest obj="tableReadWrite_2" inlet="trigLoad"/>
       </net>
       <net>
          <source obj="doubleIndex_5" outlet="out"/>
@@ -316,6 +319,12 @@
       <net>
          <source obj="ActiveChannel" outlet="inlet"/>
          <dest obj="==_1" inlet="in1"/>
+         <dest obj="tableReadWrite_3" inlet="activeChannel"/>
+         <dest obj="tableReadWrite_4" inlet="activeChannel"/>
+         <dest obj="tableReadWrite_5" inlet="activeChannel"/>
+         <dest obj="tableReadWrite_6" inlet="activeChannel"/>
+         <dest obj="tableReadWrite_1" inlet="activeChannel"/>
+         <dest obj="tableReadWrite_2" inlet="activeChannel"/>
       </net>
       <net>
          <source obj="tableReadWrite_1" outlet="o"/>
@@ -344,6 +353,13 @@
       <net>
          <source obj="ChannelID" outlet="out"/>
          <dest obj="==_1" inlet="in2"/>
+         <dest obj="tableReadWrite_3" inlet="channelID"/>
+         <dest obj="tableReadWrite_4" inlet="channelID"/>
+         <dest obj="tableReadWrite_5" inlet="channelID"/>
+         <dest obj="tableReadWrite_6" inlet="channelID"/>
+         <dest obj="tableReadWrite_1" inlet="channelID"/>
+         <dest obj="tableReadWrite_2" inlet="channelID"/>
+         <dest obj="+_1" inlet="in2"/>
       </net>
       <net>
          <source obj="==_1" outlet="out"/>
@@ -366,6 +382,19 @@
       <net>
          <source obj="AttackIn" outlet="inlet"/>
          <dest obj="tableReadWrite_3" inlet="v"/>
+      </net>
+      <net>
+         <source obj="tableReadWrite_3" outlet="hot"/>
+         <dest obj="outlet_1" inlet="outlet"/>
+      </net>
+      <net>
+         <source obj="+_1" outlet="out"/>
+         <dest obj="doubleIndex_1" inlet="index"/>
+         <dest obj="doubleIndex_2" inlet="index"/>
+         <dest obj="doubleIndex_3" inlet="index"/>
+         <dest obj="doubleIndex_4" inlet="index"/>
+         <dest obj="doubleIndex_5" inlet="index"/>
+         <dest obj="doubleIndex_6" inlet="index"/>
       </net>
    </nets>
    <settings>

@@ -5,15 +5,18 @@
       <license>BSD</license>
       <helpPatch>table.axh</helpPatch>
       <inlets>
+         <int32.positive name="activeChannel" description="Active Channel"/>
          <int32.positive name="a" description="index (integer, not fraction)"/>
          <frac32 name="v" description="value"/>
          <bool32 name="enWr" description="Enable Writing"/>
          <bool32.rising name="trigSave" description="Triggers saving to SD card"/>
          <bool32.rising name="trigLoad" description="Triggers loading from the SD card"/>
          <charptr32 name="filename" description="filename for SD card"/>
+         <int32 name="channelID" description="channelID"/>
       </inlets>
       <outlets>
          <frac32 name="o" description="Table out"/>
+         <bool32 name="hot" description="Hot input"/>
       </outlets>
       <displays/>
       <params/>
@@ -23,44 +26,56 @@
       <depends>
          <depend>fatfs</depend>
       </depends>
-      <code.declaration><![CDATA[int ntrig, ptrig, pval;
+      <code.declaration><![CDATA[int ntrig, ptrig, pval, channelTrig;
 int pIndex;
-int ntrigSave, ntrigLoad;]]></code.declaration>
+int ntrigSave, ntrigLoad;
+int outletVal;]]></code.declaration>
       <code.init><![CDATA[ntrig = 0;
 ptrig = 0;
 pval = 0;
 pIndex=0;
 ntrigSave=0;
-ntrigLoad=0;]]></code.init>
+ntrigLoad=0;
+channelTrig=0;
+outletVal=0;]]></code.init>
       <code.krate><![CDATA[outlet_o= attr_table.array[__USAT(inlet_a,attr_table.LENGTHPOW)]<<attr_table.GAIN;
 
-if ((pval != inlet_v)&(!ptrig)) 
-{ 
-  if (inlet_a != pIndex) // if the index is shiny and new
-  {   
-  	pIndex = inlet_a; // store the old value
-  	// and do nothing else until the next time the inlet_v is moved
-  	// throwing out any stale values until the knob moves
-  }   
-  else if (inlet_enWr)  
-  {    
-    //outlet_trig = 1;
-    if (inlet_a<attr_table.LENGTH)
-    {
-         attr_table.array[inlet_a]=__SSAT(inlet_v,28)>>attr_table.GAIN;
-    }
-    pval = inlet_v;
-    ptrig = 1;
-  }
-  
-  
-} else 
+if (inlet_channelID == inlet_activeChannel)
 {
-  ptrig = 0;
-  //outlet_trig = 0;
-}
 
-if ((inlet_trigSave>0) && !ntrigSave) 
+	if ((pval != inlet_v)&(!ptrig))
+	{			
+		
+		pval = inlet_v;
+		ptrig = 1;
+
+	  if (channelTrig == 0) // Trigger once
+	  {
+	  	channelTrig = 1;
+	  	outletVal = false;
+	  	// and do nothing else until the next time the inlet_v is moved
+	  	// throwing out any stale values until the knob moves
+	  }
+	  else
+	  {
+	    outletVal = true;
+	    if (inlet_a<attr_table.LENGTH)
+	    {
+	         attr_table.array[inlet_a]=__SSAT(inlet_v,28)>>attr_table.GAIN;
+	    }	    
+	  }
+
+	} else { ptrig = 0;	}
+
+}
+else
+{
+	channelTrig = 0;
+	outletVal = false;
+}
+outlet_hot = outletVal;
+
+if ((inlet_trigSave>0) && !ntrigSave)
 {
     ntrigSave=1;
     FIL FileObject;
@@ -89,7 +104,7 @@ if ((inlet_trigSave>0) && !ntrigSave)
 else if (!(inlet_trigSave>0)) ntrigSave=0;
 
 // Table Save / Load
-if ((inlet_trigLoad>0) && !ntrigLoad) 
+if ((inlet_trigLoad>0) && !ntrigLoad)
 {
     ntrigLoad=1;
     FIL FileObject;

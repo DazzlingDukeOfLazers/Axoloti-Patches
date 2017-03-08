@@ -1,0 +1,731 @@
+<patch-1.0 appVersion="1.0.12">
+   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_2" x="1274" y="14">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/recv i" uuid="c57c3fb0d08bcb566403f4fb43426338bd37ce1f" name="recv_17" x="798" y="28">
+      <params/>
+      <attribs>
+         <objref attributeName="sender" obj="ActiveChannel"/>
+      </attribs>
+   </obj>
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="tempChannel" x="560" y="42">
+      <params>
+         <int32 name="value" value="1"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_1" x="1162" y="42">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/dial p" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="dial_3" x="28" y="56">
+      <params>
+         <frac32.u.map name="value" value="64.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="patch/send f" uuid="8a7799ea1c3b8582991e669a4f70e2f663841f2d" name="Attack" x="434" y="70">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="tempFrame" x="560" y="98">
+      <params>
+         <int32 name="value" value="0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="instruments/ADSR-MultiOsc" uuid="a5117c0f-3ed9-49e1-94e7-c62ad85471d1" name="obj_2" x="1330" y="98">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/send f" uuid="8a7799ea1c3b8582991e669a4f70e2f663841f2d" name="Decay" x="434" y="112">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="logic/knobMux" uuid="79a81c27-5ae1-43f5-8ec9-42931e793052" name="obj_5" x="966" y="112">
+      <params>
+         <int32 name="ChannelID" value="0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="Wanderlust/Wanderlust_beta1" uuid="08688327-b3fc-465a-8bd5-91d460e92f4a" name="obj_1" x="154" y="126">
+      <params>
+         <bool32.tgl name="Reverse Knobs" value="1"/>
+         <bool32.tgl name="Rev Padrow Top" value="1"/>
+         <bool32.tgl name="InvertJoy0" value="0"/>
+         <bool32.tgl name="Rev Padrow Bottom" value="1"/>
+         <bool32.tgl name="SwapXY" value="0"/>
+         <int32 name="LED Mode" value="0"/>
+         <bool32.tgl name="InvertJoy1" value="0"/>
+         <bool32.tgl name="swapKnobRow" value="1"/>
+         <bool32.tgl name="swapPadRow" value="1"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="patch/recv b" uuid="6ce86e0c667a0168b53a910eb891366e96b944d1" name="recv_8" x="700" y="126">
+      <params/>
+      <attribs>
+         <objref attributeName="sender" obj="Save"/>
+      </attribs>
+   </obj>
+   <obj type="patch/send f" uuid="8a7799ea1c3b8582991e669a4f70e2f663841f2d" name="Sustain" x="434" y="154">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="tempPage" x="560" y="154">
+      <params>
+         <int32 name="value" value="0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_1" x="28" y="168">
+      <params>
+         <int32 name="value" value="0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <comment type="patch/comment" x="756" y="168" text="Move enable / step checking inside knobmux"/>
+   <obj type="patch/send f" uuid="8a7799ea1c3b8582991e669a4f70e2f663841f2d" name="Release" x="434" y="196">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/recv b" uuid="6ce86e0c667a0168b53a910eb891366e96b944d1" name="recv_7" x="700" y="196">
+      <params/>
+      <attribs>
+         <objref attributeName="sender" obj="Load"/>
+      </attribs>
+   </obj>
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_2" x="28" y="224">
+      <params>
+         <int32 name="value" value="0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="mix/mix_8-No_Gain" uuid="df5d240a-6631-4cd2-a0e3-18888fd36b30" name="mix_8-No_Gain_2" x="1750" y="224">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="Wanderlust/Volume Out" uuid="1a54ccb4-da3b-4931-8bb2-26d8495953b1" name="obj_3" x="1946" y="224">
+      <params>
+         <bool32.tgl name="Enable Vol Knob" value="1"/>
+         <bool32.tgl name="Reverse knob" value="0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="patch/send f" uuid="8a7799ea1c3b8582991e669a4f70e2f663841f2d" name="Volume" x="434" y="238">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_37" x="700" y="266">
+      <params/>
+      <attribs>
+         <objref attributeName="sender" obj="Attack"/>
+      </attribs>
+   </obj>
+   <obj type="patch/send f" uuid="8a7799ea1c3b8582991e669a4f70e2f663841f2d" name="Pitch" x="434" y="280">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_3" x="1176" y="280">
+      <params>
+         <int32 name="value" value="0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_1" x="1610" y="280">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="osc/multiwaveADSR" uuid="60014d06-2b04-4943-93e6-f2c1d6b4cddb" name="multiwaveADSR_1" x="1442" y="294">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_38" x="700" y="336">
+      <params/>
+      <attribs>
+         <objref attributeName="sender" obj="Decay"/>
+      </attribs>
+   </obj>
+   <obj type="logic/selectChan16" uuid="4817e28e-6ae3-44e2-a76c-ea37b87d2a0d" name="selectChan16_1" x="350" y="350">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/send i" uuid="452e1d7a88de691f954015e6fec2f6994e1b35fc" name="ActiveChannel" x="490" y="350">
+      <params/>
+      <attribs/>
+   </obj>
+   <comment type="patch/comment" x="3038" y="364" text="East coast"/>
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_1" x="1260" y="378">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_6" x="994" y="392">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_3" x="700" y="406">
+      <params/>
+      <attribs>
+         <objref attributeName="sender" obj="Sustain"/>
+      </attribs>
+   </obj>
+   <obj type="gain/vcaDual" uuid="d2c06a20-51d4-4a8b-9b4a-c1d13c2ff0c1" name="vcaDual_1" x="1610" y="420">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_2" x="1260" y="462">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_4" x="700" y="476">
+      <params/>
+      <attribs>
+         <objref attributeName="sender" obj="Release"/>
+      </attribs>
+   </obj>
+   <obj type="instruments/ADSR-MultiOsc" uuid="ba0571df-8f84-4621-9142-180b8ce64fbe" name="obj_9" x="1946" y="532">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_5" x="700" y="546">
+      <params/>
+      <attribs>
+         <objref attributeName="sender" obj="Volume"/>
+      </attribs>
+   </obj>
+   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_6" x="700" y="616">
+      <params/>
+      <attribs>
+         <objref attributeName="sender" obj="Pitch"/>
+      </attribs>
+   </obj>
+   <obj type="patch/send b" uuid="b428934ee3ee80efb18736216fd871d264e9b695" name="Load" x="462" y="644">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/i" uuid="5e35fd0c62d81e70017289250cf28edd26e19e4a" name="i_5" x="1050" y="644">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_4" x="1204" y="686">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/send b" uuid="b428934ee3ee80efb18736216fd871d264e9b695" name="Save" x="448" y="700">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/recv i" uuid="c57c3fb0d08bcb566403f4fb43426338bd37ce1f" name="recv_18" x="812" y="728">
+      <params/>
+      <attribs>
+         <objref attributeName="sender" obj="ActiveChannel"/>
+      </attribs>
+   </obj>
+   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_5" x="1190" y="784">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="logic/knobMux" uuid="79a81c27-5ae1-43f5-8ec9-42931e793052" name="obj_6" x="980" y="798">
+      <params>
+         <int32 name="ChannelID" value="1"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="instruments/ADSR-MultiOsc" uuid="a5117c0f-3ed9-49e1-94e7-c62ad85471d1" name="obj_4" x="1274" y="798">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/recv b" uuid="6ce86e0c667a0168b53a910eb891366e96b944d1" name="recv_9" x="728" y="840">
+      <params/>
+      <attribs>
+         <objref attributeName="sender" obj="Save"/>
+      </attribs>
+   </obj>
+   <comment type="patch/comment" x="784" y="882" text="Move enable / step checking inside knobmux"/>
+   <obj type="patch/recv b" uuid="6ce86e0c667a0168b53a910eb891366e96b944d1" name="recv_10" x="728" y="910">
+      <params/>
+      <attribs>
+         <objref attributeName="sender" obj="Load"/>
+      </attribs>
+   </obj>
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_4" x="1176" y="952">
+      <params>
+         <int32 name="value" value="0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_11" x="728" y="980">
+      <params/>
+      <attribs>
+         <objref attributeName="sender" obj="Attack"/>
+      </attribs>
+   </obj>
+   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_12" x="728" y="1050">
+      <params/>
+      <attribs>
+         <objref attributeName="sender" obj="Decay"/>
+      </attribs>
+   </obj>
+   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_13" x="728" y="1120">
+      <params/>
+      <attribs>
+         <objref attributeName="sender" obj="Sustain"/>
+      </attribs>
+   </obj>
+   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_14" x="728" y="1190">
+      <params/>
+      <attribs>
+         <objref attributeName="sender" obj="Release"/>
+      </attribs>
+   </obj>
+   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_15" x="728" y="1260">
+      <params/>
+      <attribs>
+         <objref attributeName="sender" obj="Volume"/>
+      </attribs>
+   </obj>
+   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_16" x="728" y="1330">
+      <params/>
+      <attribs>
+         <objref attributeName="sender" obj="Pitch"/>
+      </attribs>
+   </obj>
+   <obj type="patch/recv i" uuid="c57c3fb0d08bcb566403f4fb43426338bd37ce1f" name="recv_19" x="756" y="1484">
+      <params/>
+      <attribs>
+         <objref attributeName="sender" obj="ActiveChannel"/>
+      </attribs>
+   </obj>
+   <obj type="logic/knobMux" uuid="79a81c27-5ae1-43f5-8ec9-42931e793052" name="obj_7" x="924" y="1554">
+      <params>
+         <int32 name="ChannelID" value="2"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="instruments/ADSR-MultiOsc" uuid="a5117c0f-3ed9-49e1-94e7-c62ad85471d1" name="obj_8" x="1218" y="1554">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/recv b" uuid="6ce86e0c667a0168b53a910eb891366e96b944d1" name="recv_20" x="756" y="1596">
+      <params/>
+      <attribs>
+         <objref attributeName="sender" obj="Save"/>
+      </attribs>
+   </obj>
+   <comment type="patch/comment" x="812" y="1638" text="Move enable / step checking inside knobmux"/>
+   <obj type="patch/recv b" uuid="6ce86e0c667a0168b53a910eb891366e96b944d1" name="recv_21" x="756" y="1666">
+      <params/>
+      <attribs>
+         <objref attributeName="sender" obj="Load"/>
+      </attribs>
+   </obj>
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_6" x="1134" y="1694">
+      <params>
+         <int32 name="value" value="0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_22" x="756" y="1736">
+      <params/>
+      <attribs>
+         <objref attributeName="sender" obj="Attack"/>
+      </attribs>
+   </obj>
+   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_23" x="756" y="1806">
+      <params/>
+      <attribs>
+         <objref attributeName="sender" obj="Decay"/>
+      </attribs>
+   </obj>
+   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_24" x="756" y="1876">
+      <params/>
+      <attribs>
+         <objref attributeName="sender" obj="Sustain"/>
+      </attribs>
+   </obj>
+   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_25" x="756" y="1946">
+      <params/>
+      <attribs>
+         <objref attributeName="sender" obj="Release"/>
+      </attribs>
+   </obj>
+   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_26" x="756" y="2016">
+      <params/>
+      <attribs>
+         <objref attributeName="sender" obj="Volume"/>
+      </attribs>
+   </obj>
+   <obj type="patch/recv f" uuid="d36a51b111e0f72d0012e207d467e1f1052116ef" name="recv_27" x="756" y="2086">
+      <params/>
+      <attribs>
+         <objref attributeName="sender" obj="Pitch"/>
+      </attribs>
+   </obj>
+   <nets>
+      <net>
+         <source obj="i_1" outlet="out"/>
+         <dest obj="obj_1" inlet="step"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="knob_top_0"/>
+         <dest obj="Attack" inlet="v"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="knob_top_1"/>
+         <dest obj="Decay" inlet="v"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="knob_top_2"/>
+         <dest obj="Sustain" inlet="v"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="knob_top_3"/>
+         <dest obj="Release" inlet="v"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="knob_top_4"/>
+         <dest obj="Volume" inlet="v"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="knob_top_5"/>
+         <dest obj="Pitch" inlet="v"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="knob_bot_0"/>
+         <dest obj="obj_2" inlet="shape"/>
+         <dest obj="multiwaveADSR_1" inlet="shape"/>
+      </net>
+      <net>
+         <source obj="i_2" outlet="out"/>
+         <dest obj="obj_1" inlet="Color In"/>
+      </net>
+      <net>
+         <source obj="dial_3" outlet="out"/>
+         <dest obj="obj_1" inlet="Intensity"/>
+      </net>
+      <net>
+         <source obj="i_3" outlet="out"/>
+         <dest obj="obj_2" inlet="waveSel"/>
+         <dest obj="multiwaveADSR_1" inlet="wave"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="parasailing"/>
+         <dest obj="obj_2" inlet="trigger"/>
+         <dest obj="selectChan16_1" inlet="b00"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="hiking"/>
+         <dest obj="Load" inlet="v"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="horsebackriding"/>
+         <dest obj="Save" inlet="v"/>
+      </net>
+      <net>
+         <source obj="obj_5" outlet="AttackOut"/>
+         <dest obj="obj_2" inlet="attack"/>
+         <dest obj="dial_1" inlet="in"/>
+      </net>
+      <net>
+         <source obj="obj_5" outlet="DecayOut"/>
+         <dest obj="obj_2" inlet="decay"/>
+         <dest obj="dial_2" inlet="in"/>
+      </net>
+      <net>
+         <source obj="obj_5" outlet="SustainOut"/>
+         <dest obj="obj_2" inlet="sustain"/>
+      </net>
+      <net>
+         <source obj="obj_5" outlet="ReleaseOut"/>
+         <dest obj="obj_2" inlet="release"/>
+      </net>
+      <net>
+         <source obj="obj_5" outlet="VolumeOut"/>
+         <dest obj="obj_2" inlet="volume"/>
+      </net>
+      <net>
+         <source obj="obj_5" outlet="PitchOut"/>
+         <dest obj="obj_2" inlet="Base Note"/>
+      </net>
+      <net>
+         <source obj="recv_3" outlet="v"/>
+         <dest obj="obj_5" inlet="SustainIn"/>
+      </net>
+      <net>
+         <source obj="recv_4" outlet="v"/>
+         <dest obj="obj_5" inlet="ReleaseIn"/>
+      </net>
+      <net>
+         <source obj="recv_5" outlet="v"/>
+         <dest obj="obj_5" inlet="VolumeIn"/>
+      </net>
+      <net>
+         <source obj="recv_6" outlet="v"/>
+         <dest obj="obj_5" inlet="PitchIn"/>
+      </net>
+      <net>
+         <source obj="recv_7" outlet="v"/>
+         <dest obj="obj_5" inlet="loadFromSD"/>
+      </net>
+      <net>
+         <source obj="recv_8" outlet="v"/>
+         <dest obj="obj_5" inlet="saveToSD"/>
+      </net>
+      <net>
+         <source obj="tempPage" outlet="out"/>
+         <dest obj="obj_5" inlet="page"/>
+         <dest obj="obj_6" inlet="page"/>
+         <dest obj="obj_7" inlet="page"/>
+      </net>
+      <net>
+         <source obj="i_4" outlet="out"/>
+         <dest obj="obj_4" inlet="waveSel"/>
+      </net>
+      <net>
+         <source obj="obj_6" outlet="AttackOut"/>
+         <dest obj="obj_4" inlet="attack"/>
+         <dest obj="dial_5" inlet="in"/>
+         <dest obj="multiwaveADSR_1" inlet="a"/>
+      </net>
+      <net>
+         <source obj="obj_6" outlet="DecayOut"/>
+         <dest obj="obj_4" inlet="decay"/>
+         <dest obj="dial_4" inlet="in"/>
+         <dest obj="multiwaveADSR_1" inlet="d"/>
+      </net>
+      <net>
+         <source obj="obj_6" outlet="SustainOut"/>
+         <dest obj="obj_4" inlet="sustain"/>
+         <dest obj="multiwaveADSR_1" inlet="s"/>
+      </net>
+      <net>
+         <source obj="obj_6" outlet="ReleaseOut"/>
+         <dest obj="obj_4" inlet="release"/>
+         <dest obj="multiwaveADSR_1" inlet="r"/>
+      </net>
+      <net>
+         <source obj="obj_6" outlet="VolumeOut"/>
+         <dest obj="obj_4" inlet="volume"/>
+         <dest obj="multiwaveADSR_1" inlet="v"/>
+         <dest obj="vca_1" inlet="v"/>
+      </net>
+      <net>
+         <source obj="obj_6" outlet="PitchOut"/>
+         <dest obj="obj_4" inlet="Base Note"/>
+         <dest obj="multiwaveADSR_1" inlet="pitch"/>
+      </net>
+      <net>
+         <source obj="recv_11" outlet="v"/>
+         <dest obj="obj_6" inlet="AttackIn"/>
+      </net>
+      <net>
+         <source obj="recv_12" outlet="v"/>
+         <dest obj="obj_6" inlet="DecayIn"/>
+      </net>
+      <net>
+         <source obj="recv_13" outlet="v"/>
+         <dest obj="obj_6" inlet="SustainIn"/>
+      </net>
+      <net>
+         <source obj="recv_14" outlet="v"/>
+         <dest obj="obj_6" inlet="ReleaseIn"/>
+      </net>
+      <net>
+         <source obj="recv_15" outlet="v"/>
+         <dest obj="obj_6" inlet="VolumeIn"/>
+      </net>
+      <net>
+         <source obj="recv_16" outlet="v"/>
+         <dest obj="obj_6" inlet="PitchIn"/>
+      </net>
+      <net>
+         <source obj="recv_10" outlet="v"/>
+         <dest obj="obj_6" inlet="loadFromSD"/>
+      </net>
+      <net>
+         <source obj="recv_9" outlet="v"/>
+         <dest obj="obj_6" inlet="saveToSD"/>
+      </net>
+      <net>
+         <source obj="obj_2" outlet="out"/>
+         <dest obj="mix_8-No_Gain_2" inlet="in1"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="diving"/>
+         <dest obj="obj_4" inlet="trigger"/>
+         <dest obj="selectChan16_1" inlet="b01"/>
+         <dest obj="multiwaveADSR_1" inlet="gate"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="canoing"/>
+         <dest obj="selectChan16_1" inlet="b02"/>
+         <dest obj="obj_8" inlet="trigger"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="swimming"/>
+         <dest obj="selectChan16_1" inlet="b03"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="sailing"/>
+         <dest obj="selectChan16_1" inlet="b04"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="fishing"/>
+         <dest obj="selectChan16_1" inlet="b05"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="anchor"/>
+         <dest obj="selectChan16_1" inlet="b06"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="showers"/>
+         <dest obj="selectChan16_1" inlet="b07"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="ski_down"/>
+         <dest obj="selectChan16_1" inlet="b08"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="ski_cross"/>
+         <dest obj="selectChan16_1" inlet="b09"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="skating"/>
+         <dest obj="selectChan16_1" inlet="b10"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="tram"/>
+         <dest obj="selectChan16_1" inlet="b11"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="sledding"/>
+         <dest obj="selectChan16_1" inlet="b12"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="snowmowbiling"/>
+         <dest obj="selectChan16_1" inlet="b13"/>
+      </net>
+      <net>
+         <source obj="selectChan16_1" outlet="out"/>
+         <dest obj="ActiveChannel" inlet="v"/>
+      </net>
+      <net>
+         <source obj="recv_17" outlet="v"/>
+         <dest obj="obj_5" inlet="ActiveChannel"/>
+      </net>
+      <net>
+         <source obj="recv_18" outlet="v"/>
+         <dest obj="i_5" inlet="in"/>
+         <dest obj="obj_6" inlet="ActiveChannel"/>
+      </net>
+      <net>
+         <source obj="obj_5" outlet="outlet_1"/>
+         <dest obj="bool_1" inlet="in"/>
+      </net>
+      <net>
+         <source obj="obj_6" outlet="outlet_1"/>
+         <dest obj="bool_2" inlet="in"/>
+      </net>
+      <net>
+         <source obj="i_6" outlet="out"/>
+         <dest obj="obj_8" inlet="waveSel"/>
+      </net>
+      <net>
+         <source obj="obj_7" outlet="AttackOut"/>
+         <dest obj="obj_8" inlet="attack"/>
+      </net>
+      <net>
+         <source obj="obj_7" outlet="DecayOut"/>
+         <dest obj="obj_8" inlet="decay"/>
+      </net>
+      <net>
+         <source obj="obj_7" outlet="SustainOut"/>
+         <dest obj="obj_8" inlet="sustain"/>
+      </net>
+      <net>
+         <source obj="obj_7" outlet="ReleaseOut"/>
+         <dest obj="obj_8" inlet="release"/>
+      </net>
+      <net>
+         <source obj="obj_7" outlet="VolumeOut"/>
+         <dest obj="obj_8" inlet="volume"/>
+      </net>
+      <net>
+         <source obj="obj_7" outlet="PitchOut"/>
+         <dest obj="obj_8" inlet="Base Note"/>
+      </net>
+      <net>
+         <source obj="recv_22" outlet="v"/>
+         <dest obj="obj_7" inlet="AttackIn"/>
+      </net>
+      <net>
+         <source obj="recv_23" outlet="v"/>
+         <dest obj="obj_7" inlet="DecayIn"/>
+      </net>
+      <net>
+         <source obj="recv_24" outlet="v"/>
+         <dest obj="obj_7" inlet="SustainIn"/>
+      </net>
+      <net>
+         <source obj="recv_25" outlet="v"/>
+         <dest obj="obj_7" inlet="ReleaseIn"/>
+      </net>
+      <net>
+         <source obj="recv_26" outlet="v"/>
+         <dest obj="obj_7" inlet="VolumeIn"/>
+      </net>
+      <net>
+         <source obj="recv_27" outlet="v"/>
+         <dest obj="obj_7" inlet="PitchIn"/>
+      </net>
+      <net>
+         <source obj="recv_21" outlet="v"/>
+         <dest obj="obj_7" inlet="loadFromSD"/>
+      </net>
+      <net>
+         <source obj="recv_20" outlet="v"/>
+         <dest obj="obj_7" inlet="saveToSD"/>
+      </net>
+      <net>
+         <source obj="recv_19" outlet="v"/>
+         <dest obj="obj_7" inlet="ActiveChannel"/>
+      </net>
+      <net>
+         <source obj="mix_8-No_Gain_2" outlet="out"/>
+         <dest obj="obj_3" inlet="left"/>
+         <dest obj="obj_3" inlet="right"/>
+      </net>
+      <net>
+         <source obj="recv_37" outlet="v"/>
+         <dest obj="obj_5" inlet="AttackIn"/>
+      </net>
+      <net>
+         <source obj="recv_38" outlet="v"/>
+         <dest obj="obj_5" inlet="DecayIn"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="knob_bot_1"/>
+         <dest obj="obj_2" inlet="amount"/>
+         <dest obj="multiwaveADSR_1" inlet="amount"/>
+      </net>
+      <net>
+         <source obj="multiwaveADSR_1" outlet="o"/>
+         <dest obj="vca_1" inlet="a"/>
+      </net>
+      <net>
+         <source obj="vca_1" outlet="o"/>
+         <dest obj="mix_8-No_Gain_2" inlet="in2"/>
+      </net>
+   </nets>
+   <settings>
+      <subpatchmode>no</subpatchmode>
+   </settings>
+   <notes><![CDATA[]]></notes>
+   <windowPos>
+      <x>-1928</x>
+      <y>-91</y>
+      <width>1723</width>
+      <height>976</height>
+   </windowPos>
+</patch-1.0>

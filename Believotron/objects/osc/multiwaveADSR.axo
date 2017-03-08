@@ -187,10 +187,15 @@ switch (waveform) {
 		break;
 }
 
+/*
 temp =  ___SMMUL(osc_out,i)<<5;
 i += step;
 
 outlet_o =  ___SMMUL(temp,i2)<<5;
-i2 += step2;]]></code.srate>
+i2 += step2;
+*/
+
+outlet_o =  ___SMMUL(osc_out,i)<<5;
+i += step;]]></code.srate>
    </obj.normal>
 </objdefs>

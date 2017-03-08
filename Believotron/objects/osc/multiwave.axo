@@ -13,19 +13,13 @@ Removed &gt;&gt;4 of inlet_wave</sDescription>
          <bool32.rising name="reset" description="reset phase"/>
          <frac32.bipolar name="shape" description="wave shaper"/>
          <int32.positive name="wave" description="wave select"/>
+         <frac32.bipolar name="amount" description="Shape amount"/>
       </inlets>
       <outlets>
          <frac32buffer.bipolar name="out" description="output"/>
       </outlets>
       <displays/>
-      <params>
-         <int32.vradio name="waveform" description="sine, triangle, saw, square" noLabel="false">
-            <MaxValue i="4"/>
-         </int32.vradio>
-         <frac32.s.map.pitch name="pitch" noLabel="true"/>
-         <frac32.u.map name="shape" description="changes shape of the selected waveform" noLabel="false"/>
-         <frac32.u.map name="amount" description="amount of shape"/>
-      </params>
+      <params/>
       <attribs/>
       <code.declaration><![CDATA[static uint8_t const sin = 0;
 static uint8_t const tri = 1;
@@ -46,13 +40,14 @@ r = 1;
 a = 0;
 b = 0;]]></code.init>
       <code.krate><![CDATA[uint32_t freq;
-MTOFEXTENDED(param_pitch + inlet_pitch,freq);
+#define UNI2BIPOLAR(a) ((a -(1<<26) ) << 1)
+MTOFEXTENDED(0xFA000000 + inlet_pitch,freq);
 
 int32_t shape;
-shape = __USAT(param_shape + (___SMMUL(param_amount,inlet_shape)<<1), 27);
+shape = __USAT( (___SMMUL(UNI2BIPOLAR(inlet_amount),UNI2BIPOLAR(inlet_shape))<<1), 27);
 
 int32_t waveform;
-waveform = (param_waveform + (inlet_wave))%4;]]></code.krate>
+waveform = ((inlet_wave))%4;]]></code.krate>
       <code.srate><![CDATA[/* reset phase if retriggered */
 if (inlet_reset && r) {
 	phase = 0;

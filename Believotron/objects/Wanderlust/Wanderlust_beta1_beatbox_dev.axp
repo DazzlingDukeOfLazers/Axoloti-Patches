@@ -35,7 +35,7 @@
       </params>
       <attribs/>
    </obj>
-   <obj type="instruments/ADSR-MultiOsc" uuid="a5117c0f-3ed9-49e1-94e7-c62ad85471d1" name="obj_2" x="1274" y="98">
+   <obj type="instruments/ADSR-MultiOsc" uuid="a5117c0f-3ed9-49e1-94e7-c62ad85471d1" name="obj_2" x="1330" y="98">
       <params/>
       <attribs/>
    </obj>
@@ -685,6 +685,10 @@
       <net>
          <source obj="recv_38" outlet="v"/>
          <dest obj="obj_5" inlet="DecayIn"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="knob_bot_1"/>
+         <dest obj="obj_2" inlet="amount"/>
       </net>
    </nets>
    <settings>

@@ -37,12 +37,7 @@
    </obj>
    <comment type="patch/comment" x="266" y="378" text="carrier oscillator"/>
    <obj type="osc/multiwave" uuid="f38f0682-77d4-48b7-97c2-0ba0436ea4d8" name="multiwave_1" x="350" y="406">
-      <params>
-         <int32.vradio name="waveform" value="0"/>
-         <frac32.s.map name="pitch" value="-48.0"/>
-         <frac32.u.map name="shape" value="0.0"/>
-         <frac32.u.map name="amount" value="0.0"/>
-      </params>
+      <params/>
       <attribs/>
    </obj>
    <obj type="patch/inlet a" uuid="b577fe41e0a6bc7b5502ce33cb8a3129e2e28ee5" name="modFreq" x="28" y="420">
@@ -54,6 +49,10 @@
       <attribs/>
    </obj>
    <obj type="patch/inlet i" uuid="f11927f00c59219df0c50f73056aa19f125540b7" name="waveSel" x="28" y="518">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/inlet f" uuid="5c585d2dcd9c05631e345ac09626a22a639d7c13" name="amount" x="28" y="574">
       <params/>
       <attribs/>
    </obj>
@@ -106,14 +105,18 @@
          <source obj="adsr_lean_gain_1" outlet="o"/>
          <dest obj="out" inlet="outlet"/>
       </net>
+      <net>
+         <source obj="amount" outlet="inlet"/>
+         <dest obj="multiwave_1" inlet="amount"/>
+      </net>
    </nets>
    <settings>
       <subpatchmode>no</subpatchmode>
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>-1558</x>
-      <y>44</y>
+      <x>-1319</x>
+      <y>-61</y>
       <width>893</width>
       <height>772</height>
    </windowPos>

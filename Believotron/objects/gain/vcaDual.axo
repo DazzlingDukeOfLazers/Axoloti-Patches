@@ -1,0 +1,33 @@
+<objdefs appVersion="1.0.12">
+   <obj.normal id="vcaDual" uuid="d2c06a20-51d4-4a8b-9b4a-c1d13c2ff0c1">
+      <sDescription>&quot;voltage controlled amplifier&quot;, multiplies v and a inputs, with linear interpolation from k- to s-rate</sDescription>
+      <author>Johannes Taelman</author>
+      <license>BSD</license>
+      <inlets>
+         <frac32 name="v" description="gain input"/>
+         <frac32 name="v2" description="gain 2"/>
+         <frac32buffer name="a" description="audio input"/>
+      </inlets>
+      <outlets>
+         <frac32buffer name="o" description="output"/>
+      </outlets>
+      <displays/>
+      <params/>
+      <attribs/>
+      <code.declaration><![CDATA[int32_t prev, prev2;
+int32_t step, step2;
+int32_t temp;]]></code.declaration>
+      <code.krate><![CDATA[step = (inlet_v - prev)>>4;
+int32_t i = prev;
+prev = inlet_v;
+
+step2 = (inlet_v2 - prev2)>>4;
+int32_t i2 = prev2;
+prev2 = inlet_v2;]]></code.krate>
+      <code.srate><![CDATA[temp =  ___SMMUL(inlet_a,i)<<5;
+i += step;
+
+outlet_o =  ___SMMUL(temp,i2)<<5;
+i2 += step2;]]></code.srate>
+   </obj.normal>
+</objdefs>

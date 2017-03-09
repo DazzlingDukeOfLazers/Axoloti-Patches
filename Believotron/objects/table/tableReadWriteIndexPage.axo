@@ -1,0 +1,197 @@
+<objdefs appVersion="1.0.12">
+   <obj.normal id="tableReadWriteIndexPage" uuid="b2f36c9f-a7de-4572-a943-dc8c7e645eef">
+      <sDescription>write to table</sDescription>
+      <author>Johannes Taelman</author>
+      <license>BSD</license>
+      <helpPatch>table.axh</helpPatch>
+      <inlets>
+         <int32.positive name="activeChannel" description="Active Channel"/>
+         <int32.positive name="a" description="index (integer, not fraction)"/>
+         <frac32 name="v" description="value"/>
+         <bool32 name="enWr" description="Enable Writing"/>
+         <bool32.rising name="trigSave" description="Triggers saving to SD card"/>
+         <bool32.rising name="trigLoad" description="Triggers loading from the SD card"/>
+         <int32 name="channelID" description="channelID"/>
+         <int32 name="index" description="Index within the page"/>
+         <int32 name="page" description="Page select"/>
+      </inlets>
+      <outlets>
+         <frac32 name="o" description="Table out"/>
+         <bool32 name="hot" description="Hot input"/>
+      </outlets>
+      <displays/>
+      <params/>
+      <attribs>
+         <objref name="table"/>
+         <table name="prefix"/>
+         <table name="suffix"/>
+      </attribs>
+      <depends>
+         <depend>fatfs</depend>
+      </depends>
+      <code.declaration><![CDATA[// Table Stuff
+int ntrig, ptrig, pval, channelTrig;
+int pIndex;
+int ntrigSave, ntrigLoad;
+int outletVal;
+
+
+// string/doubleIndex Stuff
+char c[64];
+int offset;
+int offset2;
+int pvalIndex, pvalPage;
+
+// table/alloc 16b sdram
+static const uint32_t LENGTHPOW = (2);
+static const uint32_t LENGTH = (1<<2);
+static const uint32_t LENGTHMASK = ((1<<2)-1);
+static const uint32_t BITS = 16;
+static const uint32_t GAIN = 12;
+int16_t *array;]]></code.declaration>
+      <code.init><![CDATA[// Init tableReadWrite
+ntrig = 0;
+ptrig = 0;
+pval = 0;
+pIndex=0;
+ntrigSave=0;
+ntrigLoad=0;
+channelTrig=0;
+outletVal=0;
+
+// Init string/doubleIndex
+strcpy(&c[0],"attr_prefix00-000attr_suffix");
+offset    = strlen("attr_prefix");
+offset2   = offset + 3; // Added extra two zeroes
+pvalIndex = 0;
+pvalPage  = 0;
+
+// Init table/alloc 16b sdram
+static int16_t _array[attr_poly][LENGTH] __attribute__ ((section (".sdram")));
+array = &_array[parent->polyIndex][0];
+{ 
+  int i;
+  for(i=0;i<LENGTH;i++) array[i]=0;
+}
+// attr_init // Don't need the table init substitution]]></code.init>
+      <code.krate><![CDATA[// Table Read Write Stuff
+
+outlet_o= attr_table.array[__USAT(inlet_a,attr_table.LENGTHPOW)]<<attr_table.GAIN;
+
+if (inlet_channelID == inlet_activeChannel)
+{
+
+	if ((pval != inlet_v)&(!ptrig))
+	{			
+		
+		pval = inlet_v;
+		ptrig = 1;
+
+	  if (channelTrig == 0) // Trigger once
+	  {
+	  	channelTrig = 1;
+	  	outletVal = false;
+	  	// and do nothing else until the next time the inlet_v is moved
+	  	// throwing out any stale values until the knob moves
+	  }
+	  else
+	  {
+	    outletVal = true;
+	    if (inlet_a<attr_table.LENGTH)
+	    {
+	         attr_table.array[inlet_a]=__SSAT(inlet_v,28)>>attr_table.GAIN;
+	    }	    
+	  }
+
+	} else { ptrig = 0;	}
+
+}
+else
+{
+	channelTrig = 0;
+	outletVal = false;
+}
+outlet_hot = outletVal;
+
+// Table Save to SD
+if ((inlet_trigSave>0) && !ntrigSave)
+{
+    ntrigSave=1;
+    FIL FileObject;
+    FRESULT err;
+    UINT bytes_written;
+    codec_clearbuffer();
+    err = f_open(&FileObject, c, FA_WRITE | FA_CREATE_ALWAYS); // tbd rename c to filename
+    if (err != FR_OK) {report_fatfs_error(err, c); return;} // tbd rename c to filename
+    int rem_sz = sizeof(*attr_table.array)*attr_table.LENGTH;
+    int offset = 0;
+    while (rem_sz>0) {
+      if (rem_sz>sizeof(fbuff)) {
+        memcpy((char *)fbuff,(char *)(&attr_table.array[0]) + offset, sizeof(fbuff));
+        err = f_write(&FileObject, fbuff, sizeof(fbuff),&bytes_written);
+        rem_sz -= sizeof(fbuff);
+        offset += sizeof(fbuff);
+      } else {
+        memcpy((char *)fbuff,(char *)(&attr_table.array[0]) + offset, rem_sz);
+        err = f_write(&FileObject, fbuff, rem_sz, &bytes_written);
+        rem_sz = 0;
+      }
+    }    if (err != FR_OK) report_fatfs_error(err,c); // tbd rename c to filename
+    err = f_close(&FileObject);
+    if (err != FR_OK) report_fatfs_error(err,c); // tbd rename c to filename
+}
+else if (!(inlet_trigSave>0)) ntrigSave=0;
+
+// Table load from SD
+if ((inlet_trigLoad>0) && !ntrigLoad)
+{
+    ntrigLoad=1;
+    FIL FileObject;
+    FRESULT err;
+    UINT bytes_read;
+    codec_clearbuffer();
+    err = f_open(&FileObject, c, FA_READ | FA_OPEN_EXISTING); // tbd rename c to filename
+    if (err != FR_OK) { report_fatfs_error(err,c); return;} // tbd rename c to filename
+    int rem_sz = sizeof(*attr_table.array)*attr_table.LENGTH;
+    int offset = 0;
+    while (rem_sz>0) {
+      if (rem_sz>sizeof(fbuff)) {
+        err = f_read(&FileObject, fbuff, sizeof(fbuff),&bytes_read);
+        if (bytes_read == 0) break;
+        memcpy((char *)(&attr_table.array[0]) + offset,(char *)fbuff,bytes_read);
+        rem_sz -= bytes_read;
+        offset += bytes_read;
+      } else {
+        err = f_read(&FileObject, fbuff, rem_sz,&bytes_read);
+        memcpy((char *)(&attr_table.array[0]) + offset,(char *)fbuff,bytes_read);
+        rem_sz = 0;
+      }
+    }    if (err != FR_OK) { report_fatfs_error(err,c); return;}; // tbd rename c to filename
+    err = f_close(&FileObject);
+    if (err != FR_OK) { report_fatfs_error(err,c); return;}; // tbd rename c to filename
+ }
+ else if (!(inlet_trigLoad>0)) ntrigLoad=0;
+
+ // string/doubleIndex Stuff
+if ( (inlet_index != pvalIndex) || (inlet_page != pvalPage) )
+{   
+   pvalIndex= inlet_index;
+   pvalPage = inlet_page;
+
+   // Add the Page # to the filename string
+   int i = inlet_page; int i0 = i/10;
+   c[offset+1] = '0'+i-10*i0;
+   i = i0; i0 = i/10;
+   c[offset]   = '0'+i-10*i0;	
+   
+   // Add the Index # to the filename string
+   i = inlet_index; i0 = i/10;
+   c[offset2+2] = '0'+i-10*i0;
+   i = i0; i0 = i/10;
+   c[offset2+1] = '0'+i-10*i0;
+   i = i0; i0 = i/10;
+   c[offset2+0] = '0'+i-10*i0;
+}
+//outlet_out = &c[0];]]></code.krate>
+   </obj.normal>
+</objdefs>

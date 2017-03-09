@@ -9,7 +9,7 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="knobMux" uuid="35b01fc6-b54c-42cb-b43c-9a32dd3b6ffc" name="knobMux_1" x="966" y="112">
+   <obj type="knobMux_dev2" uuid="3fd9a131-2f65-40b6-99a3-b3078583ddeb" name="knobMux_dev2_1" x="966" y="112">
       <params>
          <int32 name="ChannelID" value="0"/>
       </params>
@@ -78,7 +78,7 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="knobMux" uuid="35b01fc6-b54c-42cb-b43c-9a32dd3b6ffc" name="knobMux_2" x="980" y="798">
+   <obj type="knobMux_dev2" uuid="3fd9a131-2f65-40b6-99a3-b3078583ddeb" name="knobMux_dev2_2" x="980" y="798">
       <params>
          <int32 name="ChannelID" value="1"/>
       </params>
@@ -102,7 +102,7 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="knobMux" uuid="35b01fc6-b54c-42cb-b43c-9a32dd3b6ffc" name="knobMux_3" x="924" y="1554">
+   <obj type="knobMux_dev2" uuid="3fd9a131-2f65-40b6-99a3-b3078583ddeb" name="knobMux_dev2_3" x="924" y="1554">
       <params>
          <int32 name="ChannelID" value="2"/>
       </params>
@@ -122,13 +122,53 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="knobMux" uuid="35b01fc6-b54c-42cb-b43c-9a32dd3b6ffc" name="knobMux_4" x="924" y="2268">
+   <obj type="knobMux_dev2" uuid="3fd9a131-2f65-40b6-99a3-b3078583ddeb" name="knobMux_dev2_4" x="924" y="2268">
       <params>
          <int32 name="ChannelID" value="3"/>
       </params>
       <attribs/>
    </obj>
    <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_7" x="1134" y="2408">
+      <params>
+         <int32 name="value" value="0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_5" x="1498" y="2492">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="knobMux_dev2" uuid="3fd9a131-2f65-40b6-99a3-b3078583ddeb" name="knobMux_dev2_5" x="924" y="2506">
+      <params>
+         <int32 name="ChannelID" value="4"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="osc/multiwaveADSR" uuid="60014d06-2b04-4943-93e6-f2c1d6b4cddb" name="multiwaveADSR_5" x="1302" y="2520">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_8" x="1134" y="2534">
+      <params>
+         <int32 name="value" value="0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_6" x="1498" y="2702">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="knobMux_dev2" uuid="3fd9a131-2f65-40b6-99a3-b3078583ddeb" name="knobMux_dev2_6" x="924" y="2758">
+      <params>
+         <int32 name="ChannelID" value="4"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="osc/multiwaveADSR" uuid="60014d06-2b04-4943-93e6-f2c1d6b4cddb" name="multiwaveADSR_6" x="1302" y="2772">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_9" x="1134" y="2786">
       <params>
          <int32 name="value" value="0"/>
       </params>
@@ -141,31 +181,39 @@
       </net>
       <net>
          <source obj="obj_1" outlet="knob_top_1"/>
-         <dest obj="knobMux_1" inlet="DecayIn"/>
-         <dest obj="knobMux_2" inlet="DecayIn"/>
-         <dest obj="knobMux_3" inlet="DecayIn"/>
-         <dest obj="knobMux_4" inlet="DecayIn"/>
+         <dest obj="knobMux_dev2_1" inlet="DecayIn"/>
+         <dest obj="knobMux_dev2_2" inlet="DecayIn"/>
+         <dest obj="knobMux_dev2_3" inlet="DecayIn"/>
+         <dest obj="knobMux_dev2_4" inlet="DecayIn"/>
+         <dest obj="knobMux_dev2_5" inlet="DecayIn"/>
+         <dest obj="knobMux_dev2_6" inlet="DecayIn"/>
       </net>
       <net>
          <source obj="obj_1" outlet="knob_top_2"/>
-         <dest obj="knobMux_1" inlet="SustainIn"/>
-         <dest obj="knobMux_2" inlet="SustainIn"/>
-         <dest obj="knobMux_3" inlet="SustainIn"/>
-         <dest obj="knobMux_4" inlet="SustainIn"/>
+         <dest obj="knobMux_dev2_1" inlet="SustainIn"/>
+         <dest obj="knobMux_dev2_2" inlet="SustainIn"/>
+         <dest obj="knobMux_dev2_3" inlet="SustainIn"/>
+         <dest obj="knobMux_dev2_4" inlet="SustainIn"/>
+         <dest obj="knobMux_dev2_5" inlet="SustainIn"/>
+         <dest obj="knobMux_dev2_6" inlet="SustainIn"/>
       </net>
       <net>
          <source obj="obj_1" outlet="knob_top_3"/>
-         <dest obj="knobMux_1" inlet="ReleaseIn"/>
-         <dest obj="knobMux_2" inlet="ReleaseIn"/>
-         <dest obj="knobMux_3" inlet="ReleaseIn"/>
-         <dest obj="knobMux_4" inlet="ReleaseIn"/>
+         <dest obj="knobMux_dev2_1" inlet="ReleaseIn"/>
+         <dest obj="knobMux_dev2_2" inlet="ReleaseIn"/>
+         <dest obj="knobMux_dev2_3" inlet="ReleaseIn"/>
+         <dest obj="knobMux_dev2_4" inlet="ReleaseIn"/>
+         <dest obj="knobMux_dev2_5" inlet="ReleaseIn"/>
+         <dest obj="knobMux_dev2_6" inlet="ReleaseIn"/>
       </net>
       <net>
          <source obj="obj_1" outlet="knob_top_4"/>
-         <dest obj="knobMux_1" inlet="VolumeIn"/>
-         <dest obj="knobMux_2" inlet="VolumeIn"/>
-         <dest obj="knobMux_3" inlet="VolumeIn"/>
-         <dest obj="knobMux_4" inlet="VolumeIn"/>
+         <dest obj="knobMux_dev2_1" inlet="VolumeIn"/>
+         <dest obj="knobMux_dev2_2" inlet="VolumeIn"/>
+         <dest obj="knobMux_dev2_3" inlet="VolumeIn"/>
+         <dest obj="knobMux_dev2_4" inlet="VolumeIn"/>
+         <dest obj="knobMux_dev2_5" inlet="VolumeIn"/>
+         <dest obj="knobMux_dev2_6" inlet="VolumeIn"/>
       </net>
       <net>
          <source obj="obj_1" outlet="knob_bot_0"/>
@@ -190,78 +238,84 @@
       </net>
       <net>
          <source obj="obj_1" outlet="hiking"/>
-         <dest obj="knobMux_1" inlet="loadFromSD"/>
-         <dest obj="knobMux_2" inlet="loadFromSD"/>
-         <dest obj="knobMux_3" inlet="loadFromSD"/>
-         <dest obj="knobMux_4" inlet="loadFromSD"/>
+         <dest obj="knobMux_dev2_1" inlet="loadFromSD"/>
+         <dest obj="knobMux_dev2_2" inlet="loadFromSD"/>
+         <dest obj="knobMux_dev2_3" inlet="loadFromSD"/>
+         <dest obj="knobMux_dev2_4" inlet="loadFromSD"/>
+         <dest obj="knobMux_dev2_5" inlet="loadFromSD"/>
+         <dest obj="knobMux_dev2_6" inlet="loadFromSD"/>
       </net>
       <net>
          <source obj="obj_1" outlet="horsebackriding"/>
-         <dest obj="knobMux_1" inlet="saveToSD"/>
-         <dest obj="knobMux_2" inlet="saveToSD"/>
-         <dest obj="knobMux_3" inlet="saveToSD"/>
-         <dest obj="knobMux_4" inlet="saveToSD"/>
+         <dest obj="knobMux_dev2_1" inlet="saveToSD"/>
+         <dest obj="knobMux_dev2_2" inlet="saveToSD"/>
+         <dest obj="knobMux_dev2_3" inlet="saveToSD"/>
+         <dest obj="knobMux_dev2_4" inlet="saveToSD"/>
+         <dest obj="knobMux_dev2_5" inlet="saveToSD"/>
+         <dest obj="knobMux_dev2_6" inlet="saveToSD"/>
       </net>
       <net>
-         <source obj="knobMux_1" outlet="AttackOut"/>
+         <source obj="knobMux_dev2_1" outlet="AttackOut"/>
          <dest obj="multiwaveADSR_1" inlet="a"/>
       </net>
       <net>
-         <source obj="knobMux_1" outlet="DecayOut"/>
+         <source obj="knobMux_dev2_1" outlet="DecayOut"/>
          <dest obj="multiwaveADSR_1" inlet="d"/>
       </net>
       <net>
-         <source obj="knobMux_1" outlet="SustainOut"/>
+         <source obj="knobMux_dev2_1" outlet="SustainOut"/>
          <dest obj="multiwaveADSR_1" inlet="s"/>
       </net>
       <net>
-         <source obj="knobMux_1" outlet="ReleaseOut"/>
+         <source obj="knobMux_dev2_1" outlet="ReleaseOut"/>
          <dest obj="multiwaveADSR_1" inlet="r"/>
       </net>
       <net>
-         <source obj="knobMux_1" outlet="VolumeOut"/>
+         <source obj="knobMux_dev2_1" outlet="VolumeOut"/>
          <dest obj="vca_1" inlet="v"/>
          <dest obj="multiwaveADSR_1" inlet="v"/>
       </net>
       <net>
-         <source obj="knobMux_1" outlet="PitchOut"/>
+         <source obj="knobMux_dev2_1" outlet="PitchOut"/>
          <dest obj="multiwaveADSR_1" inlet="pitch"/>
          <dest obj="dial_1" inlet="in"/>
       </net>
       <net>
          <source obj="tempPage" outlet="out"/>
-         <dest obj="knobMux_1" inlet="page"/>
-         <dest obj="knobMux_2" inlet="page"/>
-         <dest obj="knobMux_3" inlet="page"/>
-         <dest obj="knobMux_4" inlet="page"/>
+         <dest obj="knobMux_dev2_1" inlet="page"/>
+         <dest obj="knobMux_dev2_2" inlet="page"/>
+         <dest obj="knobMux_dev2_3" inlet="page"/>
+         <dest obj="knobMux_dev2_4" inlet="page"/>
+         <dest obj="knobMux_dev2_5" inlet="page"/>
+         <dest obj="knobMux_dev2_6" inlet="page"/>
       </net>
       <net>
          <source obj="i_4" outlet="out"/>
          <dest obj="multiwaveADSR_2" inlet="wave"/>
       </net>
       <net>
-         <source obj="knobMux_2" outlet="AttackOut"/>
+         <source obj="knobMux_dev2_2" outlet="AttackOut"/>
          <dest obj="multiwaveADSR_2" inlet="a"/>
       </net>
       <net>
-         <source obj="knobMux_2" outlet="DecayOut"/>
+         <source obj="knobMux_dev2_2" outlet="DecayOut"/>
          <dest obj="multiwaveADSR_2" inlet="d"/>
       </net>
       <net>
-         <source obj="knobMux_2" outlet="SustainOut"/>
+         <source obj="knobMux_dev2_2" outlet="SustainOut"/>
          <dest obj="multiwaveADSR_2" inlet="s"/>
       </net>
       <net>
-         <source obj="knobMux_2" outlet="ReleaseOut"/>
+         <source obj="knobMux_dev2_2" outlet="ReleaseOut"/>
          <dest obj="multiwaveADSR_2" inlet="r"/>
       </net>
       <net>
-         <source obj="knobMux_2" outlet="VolumeOut"/>
+         <source obj="knobMux_dev2_2" outlet="VolumeOut"/>
          <dest obj="vca_2" inlet="v"/>
          <dest obj="multiwaveADSR_2" inlet="v"/>
       </net>
       <net>
-         <source obj="knobMux_2" outlet="PitchOut"/>
+         <source obj="knobMux_dev2_2" outlet="PitchOut"/>
          <dest obj="multiwaveADSR_2" inlet="pitch"/>
       </net>
       <net>
@@ -282,10 +336,12 @@
       <net>
          <source obj="obj_1" outlet="sailing"/>
          <dest obj="selectChan16_1" inlet="b04"/>
+         <dest obj="multiwaveADSR_5" inlet="gate"/>
       </net>
       <net>
          <source obj="obj_1" outlet="fishing"/>
          <dest obj="selectChan16_1" inlet="b05"/>
+         <dest obj="multiwaveADSR_6" inlet="gate"/>
       </net>
       <net>
          <source obj="obj_1" outlet="anchor"/>
@@ -321,38 +377,40 @@
       </net>
       <net>
          <source obj="selectChan16_1" outlet="out"/>
-         <dest obj="knobMux_1" inlet="ActiveChannel"/>
-         <dest obj="knobMux_2" inlet="ActiveChannel"/>
-         <dest obj="knobMux_3" inlet="ActiveChannel"/>
-         <dest obj="knobMux_4" inlet="ActiveChannel"/>
+         <dest obj="knobMux_dev2_1" inlet="ActiveChannel"/>
+         <dest obj="knobMux_dev2_2" inlet="ActiveChannel"/>
+         <dest obj="knobMux_dev2_3" inlet="ActiveChannel"/>
+         <dest obj="knobMux_dev2_4" inlet="ActiveChannel"/>
+         <dest obj="knobMux_dev2_5" inlet="ActiveChannel"/>
+         <dest obj="knobMux_dev2_6" inlet="ActiveChannel"/>
       </net>
       <net>
          <source obj="i_6" outlet="out"/>
          <dest obj="multiwaveADSR_3" inlet="wave"/>
       </net>
       <net>
-         <source obj="knobMux_3" outlet="AttackOut"/>
+         <source obj="knobMux_dev2_3" outlet="AttackOut"/>
          <dest obj="multiwaveADSR_3" inlet="a"/>
       </net>
       <net>
-         <source obj="knobMux_3" outlet="DecayOut"/>
+         <source obj="knobMux_dev2_3" outlet="DecayOut"/>
          <dest obj="multiwaveADSR_3" inlet="d"/>
       </net>
       <net>
-         <source obj="knobMux_3" outlet="SustainOut"/>
+         <source obj="knobMux_dev2_3" outlet="SustainOut"/>
          <dest obj="multiwaveADSR_3" inlet="s"/>
       </net>
       <net>
-         <source obj="knobMux_3" outlet="ReleaseOut"/>
+         <source obj="knobMux_dev2_3" outlet="ReleaseOut"/>
          <dest obj="multiwaveADSR_3" inlet="r"/>
       </net>
       <net>
-         <source obj="knobMux_3" outlet="VolumeOut"/>
+         <source obj="knobMux_dev2_3" outlet="VolumeOut"/>
          <dest obj="vca_3" inlet="v"/>
          <dest obj="multiwaveADSR_3" inlet="v"/>
       </net>
       <net>
-         <source obj="knobMux_3" outlet="PitchOut"/>
+         <source obj="knobMux_dev2_3" outlet="PitchOut"/>
          <dest obj="multiwaveADSR_3" inlet="pitch"/>
       </net>
       <net>
@@ -365,36 +423,38 @@
          <dest obj="multiwaveADSR_4" inlet="wave"/>
       </net>
       <net>
-         <source obj="knobMux_4" outlet="AttackOut"/>
+         <source obj="knobMux_dev2_4" outlet="AttackOut"/>
          <dest obj="multiwaveADSR_4" inlet="a"/>
       </net>
       <net>
-         <source obj="knobMux_4" outlet="DecayOut"/>
+         <source obj="knobMux_dev2_4" outlet="DecayOut"/>
          <dest obj="multiwaveADSR_4" inlet="d"/>
       </net>
       <net>
-         <source obj="knobMux_4" outlet="SustainOut"/>
+         <source obj="knobMux_dev2_4" outlet="SustainOut"/>
          <dest obj="multiwaveADSR_4" inlet="s"/>
       </net>
       <net>
-         <source obj="knobMux_4" outlet="ReleaseOut"/>
+         <source obj="knobMux_dev2_4" outlet="ReleaseOut"/>
          <dest obj="multiwaveADSR_4" inlet="r"/>
       </net>
       <net>
-         <source obj="knobMux_4" outlet="VolumeOut"/>
+         <source obj="knobMux_dev2_4" outlet="VolumeOut"/>
          <dest obj="vca_4" inlet="v"/>
          <dest obj="multiwaveADSR_4" inlet="v"/>
       </net>
       <net>
-         <source obj="knobMux_4" outlet="PitchOut"/>
+         <source obj="knobMux_dev2_4" outlet="PitchOut"/>
          <dest obj="multiwaveADSR_4" inlet="pitch"/>
       </net>
       <net>
          <source obj="obj_1" outlet="knob_top_0"/>
-         <dest obj="knobMux_1" inlet="AttackIn"/>
-         <dest obj="knobMux_2" inlet="AttackIn"/>
-         <dest obj="knobMux_3" inlet="AttackIn"/>
-         <dest obj="knobMux_4" inlet="AttackIn"/>
+         <dest obj="knobMux_dev2_1" inlet="AttackIn"/>
+         <dest obj="knobMux_dev2_2" inlet="AttackIn"/>
+         <dest obj="knobMux_dev2_3" inlet="AttackIn"/>
+         <dest obj="knobMux_dev2_4" inlet="AttackIn"/>
+         <dest obj="knobMux_dev2_5" inlet="AttackIn"/>
+         <dest obj="knobMux_dev2_6" inlet="AttackIn"/>
       </net>
       <net>
          <source obj="multiwaveADSR_1" outlet="o"/>
@@ -430,10 +490,86 @@
       </net>
       <net>
          <source obj="obj_1" outlet="knob_top_5"/>
-         <dest obj="knobMux_1" inlet="PitchIn"/>
-         <dest obj="knobMux_2" inlet="PitchIn"/>
-         <dest obj="knobMux_3" inlet="PitchIn"/>
-         <dest obj="knobMux_4" inlet="PitchIn"/>
+         <dest obj="knobMux_dev2_1" inlet="PitchIn"/>
+         <dest obj="knobMux_dev2_2" inlet="PitchIn"/>
+         <dest obj="knobMux_dev2_3" inlet="PitchIn"/>
+         <dest obj="knobMux_dev2_4" inlet="PitchIn"/>
+         <dest obj="knobMux_dev2_5" inlet="PitchIn"/>
+         <dest obj="knobMux_dev2_6" inlet="PitchIn"/>
+      </net>
+      <net>
+         <source obj="i_8" outlet="out"/>
+         <dest obj="multiwaveADSR_5" inlet="wave"/>
+      </net>
+      <net>
+         <source obj="knobMux_dev2_5" outlet="AttackOut"/>
+         <dest obj="multiwaveADSR_5" inlet="a"/>
+      </net>
+      <net>
+         <source obj="knobMux_dev2_5" outlet="DecayOut"/>
+         <dest obj="multiwaveADSR_5" inlet="d"/>
+      </net>
+      <net>
+         <source obj="knobMux_dev2_5" outlet="SustainOut"/>
+         <dest obj="multiwaveADSR_5" inlet="s"/>
+      </net>
+      <net>
+         <source obj="knobMux_dev2_5" outlet="ReleaseOut"/>
+         <dest obj="multiwaveADSR_5" inlet="r"/>
+      </net>
+      <net>
+         <source obj="knobMux_dev2_5" outlet="VolumeOut"/>
+         <dest obj="vca_5" inlet="v"/>
+         <dest obj="multiwaveADSR_5" inlet="v"/>
+      </net>
+      <net>
+         <source obj="knobMux_dev2_5" outlet="PitchOut"/>
+         <dest obj="multiwaveADSR_5" inlet="pitch"/>
+      </net>
+      <net>
+         <source obj="multiwaveADSR_5" outlet="o"/>
+         <dest obj="vca_5" inlet="a"/>
+      </net>
+      <net>
+         <source obj="vca_5" outlet="o"/>
+         <dest obj="mix_8-No_Gain_2" inlet="in5"/>
+      </net>
+      <net>
+         <source obj="i_9" outlet="out"/>
+         <dest obj="multiwaveADSR_6" inlet="wave"/>
+      </net>
+      <net>
+         <source obj="knobMux_dev2_6" outlet="AttackOut"/>
+         <dest obj="multiwaveADSR_6" inlet="a"/>
+      </net>
+      <net>
+         <source obj="knobMux_dev2_6" outlet="DecayOut"/>
+         <dest obj="multiwaveADSR_6" inlet="d"/>
+      </net>
+      <net>
+         <source obj="knobMux_dev2_6" outlet="SustainOut"/>
+         <dest obj="multiwaveADSR_6" inlet="s"/>
+      </net>
+      <net>
+         <source obj="knobMux_dev2_6" outlet="ReleaseOut"/>
+         <dest obj="multiwaveADSR_6" inlet="r"/>
+      </net>
+      <net>
+         <source obj="knobMux_dev2_6" outlet="VolumeOut"/>
+         <dest obj="vca_6" inlet="v"/>
+         <dest obj="multiwaveADSR_6" inlet="v"/>
+      </net>
+      <net>
+         <source obj="knobMux_dev2_6" outlet="PitchOut"/>
+         <dest obj="multiwaveADSR_6" inlet="pitch"/>
+      </net>
+      <net>
+         <source obj="multiwaveADSR_6" outlet="o"/>
+         <dest obj="vca_6" inlet="a"/>
+      </net>
+      <net>
+         <source obj="vca_6" outlet="o"/>
+         <dest obj="mix_8-No_Gain_2" inlet="in6"/>
       </net>
    </nets>
    <settings>
@@ -441,9 +577,9 @@
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>-9</x>
-      <y>-9</y>
-      <width>1514</width>
-      <height>1014</height>
+      <x>-1928</x>
+      <y>-91</y>
+      <width>1723</width>
+      <height>976</height>
    </windowPos>
 </patch-1.0>

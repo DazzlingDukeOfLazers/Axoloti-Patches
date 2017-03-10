@@ -18,7 +18,6 @@ Added Save / load from SD card</sDescription>
          <frac32 name="v6"/>
          <frac32 name="v7"/>
          <int32 name="offset" description="sets an offset for writing to the table"/>
-         <int32 name="channelID"/>
          <int32 name="activeChannel"/>
          <int32 name="page" description="Page select"/>
          <bool32.rising name="trigSaveSD" description="Save to the SD Card"/>
@@ -38,6 +37,28 @@ Added Save / load from SD card</sDescription>
       <params/>
       <attribs>
          <objref name="table"/>
+         <combo name="ChannelID">
+            <MenuEntries>
+               <string>0</string>
+               <string>1</string>
+               <string>2</string>
+               <string>3</string>
+               <string>4</string>
+               <string>5</string>
+               <string>6</string>
+               <string>7</string>
+            </MenuEntries>
+            <CEntries>
+               <string>0</string>
+               <string>1</string>
+               <string>2</string>
+               <string>3</string>
+               <string>4</string>
+               <string>5</string>
+               <string>6</string>
+               <string>7</string>
+            </CEntries>
+         </combo>
       </attribs>
       <depends>
          <depend>fatfs</depend>
@@ -102,7 +123,7 @@ Added Save / load from SD card</sDescription>
 	pvalIndex = 0;
 	pvalPage  = 0;]]></code.init>
       <code.krate><![CDATA[// Table 8
-if (inlet_activeChannel == inlet_channelID) 
+if (inlet_activeChannel == attr_ChannelID) 
 {
 	// If the channel is not active, 
 	if (bChannelActive == false) 
@@ -196,7 +217,7 @@ if ((inlet_trigSaveSD>0) && !ntrigSave)
 	   c[offset]   = '0'+i-10*i0;	
 	   
 	   // Add the Index # to the filename string
-	   i = inlet_channelID + inlet_offset ; i0 = i/10;
+	   i = attr_ChannelID + inlet_offset ; i0 = i/10;
 	   c[offset2+2] = '0'+i-10*i0;
 	   i = i0; i0 = i/10;
 	   c[offset2+1] = '0'+i-10*i0;
@@ -241,7 +262,7 @@ if ((inlet_trigLoadSD>0) && !ntrigLoad)
 	   c[offset]   = '0'+i-10*i0;	
 	   
 	   // Add the Index # to the filename string
-	   i = inlet_channelID + inlet_offset; i0 = i/10;
+	   i = attr_ChannelID + inlet_offset; i0 = i/10;
 	   c[offset2+2] = '0'+i-10*i0;
 	   i = i0; i0 = i/10;
 	   c[offset2+1] = '0'+i-10*i0;

@@ -32,6 +32,7 @@
       <params/>
       <attribs>
          <objref attributeName="table" obj="tableFoo"/>
+         <combo attributeName="ChannelID" selection="0"/>
       </attribs>
    </obj>
    <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="SustainOut" x="1498" y="266">
@@ -56,12 +57,6 @@
    </obj>
    <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="PitchOut" x="1498" y="392">
       <params/>
-      <attribs/>
-   </obj>
-   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="ChannelID" x="112" y="406">
-      <params>
-         <int32 name="value" onParent="true" value="0"/>
-      </params>
       <attribs/>
    </obj>
    <obj type="patch/inlet f" uuid="5c585d2dcd9c05631e345ac09626a22a639d7c13" name="AttackIn" x="98" y="532">
@@ -118,10 +113,6 @@
          <dest obj="table8CH_SD_1" inlet="activeChannel"/>
       </net>
       <net>
-         <source obj="ChannelID" outlet="out"/>
-         <dest obj="table8CH_SD_1" inlet="channelID"/>
-      </net>
-      <net>
          <source obj="AttackIn" outlet="inlet"/>
          <dest obj="table8CH_SD_1" inlet="v0"/>
       </net>
@@ -167,9 +158,9 @@
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>-1928</x>
-      <y>-91</y>
-      <width>1723</width>
-      <height>976</height>
+      <x>-1781</x>
+      <y>-45</y>
+      <width>1514</width>
+      <height>1014</height>
    </windowPos>
 </patch-1.0>

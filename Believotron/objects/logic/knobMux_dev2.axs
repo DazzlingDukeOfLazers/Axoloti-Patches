@@ -3,11 +3,11 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="logic/or 2" uuid="3805d3c84d30032a44fbdbe42d9a2988a1790a3e" name="or_1" x="462" y="28">
+   <obj type="patch/inlet i" uuid="f11927f00c59219df0c50f73056aa19f125540b7" name="offset" x="98" y="98">
       <params/>
       <attribs/>
    </obj>
-   <obj type="table/alloc 16b sdram" uuid="6d8eb0fd68f404cb5d14e7d4c8c146c8ccf09da1" name="tableFoo" x="616" y="28">
+   <obj type="table/alloc 16b sdram" uuid="6d8eb0fd68f404cb5d14e7d4c8c146c8ccf09da1" name="tableFoo" x="854" y="168">
       <params/>
       <attribs>
          <combo attributeName="size" selection="8"/>
@@ -15,18 +15,6 @@
             <sText><![CDATA[]]></sText>
          </text>
       </attribs>
-   </obj>
-   <obj type="logic/change" uuid="96e39ae624c3f3c952cec4a95e1986ee0104f718" name="change_1" x="322" y="42">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="patch/inlet i" uuid="f11927f00c59219df0c50f73056aa19f125540b7" name="offset" x="112" y="98">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="math/+" uuid="b94a9b8e9adcb7d18868c0ee808a9b211b65578d" name="+_1" x="224" y="126">
-      <params/>
-      <attribs/>
    </obj>
    <obj type="patch/inlet i" uuid="f11927f00c59219df0c50f73056aa19f125540b7" name="page" x="84" y="182">
       <params/>
@@ -36,19 +24,15 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="math/==" uuid="deaf0d36642c57876c4101e86f8a0b6a06021ab2" name="==_1" x="266" y="196">
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="DecayOut" x="1498" y="224">
       <params/>
       <attribs/>
    </obj>
-   <obj type="table/table8CH_SD" uuid="b63e44c0-705f-4b46-bc43-7deac444bd05" name="table8CH_SD_1" x="840" y="210">
+   <obj type="table/table8CH_SD" uuid="b63e44c0-705f-4b46-bc43-7deac444bd05" name="table8CH_SD_1" x="854" y="252">
       <params/>
       <attribs>
          <objref attributeName="table" obj="tableFoo"/>
       </attribs>
-   </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="DecayOut" x="1498" y="224">
-      <params/>
-      <attribs/>
    </obj>
    <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="SustainOut" x="1498" y="266">
       <params/>
@@ -110,10 +94,6 @@
          <dest obj="table8CH_SD_1" inlet="v4"/>
       </net>
       <net>
-         <source obj="loadFromSD" outlet="inlet"/>
-         <dest obj="or_1" inlet="i2"/>
-      </net>
-      <net>
          <source obj="DecayIn" outlet="inlet"/>
          <dest obj="table8CH_SD_1" inlet="v1"/>
       </net>
@@ -127,8 +107,6 @@
       </net>
       <net>
          <source obj="offset" outlet="inlet"/>
-         <dest obj="change_1" inlet="in"/>
-         <dest obj="+_1" inlet="in1"/>
          <dest obj="table8CH_SD_1" inlet="offset"/>
       </net>
       <net>
@@ -136,23 +114,12 @@
          <dest obj="table8CH_SD_1" inlet="v5"/>
       </net>
       <net>
-         <source obj="change_1" outlet="trig"/>
-         <dest obj="or_1" inlet="i1"/>
-      </net>
-      <net>
          <source obj="ActiveChannel" outlet="inlet"/>
-         <dest obj="==_1" inlet="in1"/>
          <dest obj="table8CH_SD_1" inlet="activeChannel"/>
       </net>
       <net>
          <source obj="ChannelID" outlet="out"/>
-         <dest obj="+_1" inlet="in2"/>
-         <dest obj="==_1" inlet="in2"/>
          <dest obj="table8CH_SD_1" inlet="channelID"/>
-      </net>
-      <net>
-         <source obj="==_1" outlet="out"/>
-         <dest obj="table8CH_SD_1" inlet="write"/>
       </net>
       <net>
          <source obj="AttackIn" outlet="inlet"/>
@@ -181,6 +148,18 @@
       <net>
          <source obj="table8CH_SD_1" outlet="v5"/>
          <dest obj="PitchOut" inlet="outlet"/>
+      </net>
+      <net>
+         <source obj="page" outlet="inlet"/>
+         <dest obj="table8CH_SD_1" inlet="page"/>
+      </net>
+      <net>
+         <source obj="saveToSD" outlet="inlet"/>
+         <dest obj="table8CH_SD_1" inlet="trigSaveSD"/>
+      </net>
+      <net>
+         <source obj="loadFromSD" outlet="inlet"/>
+         <dest obj="table8CH_SD_1" inlet="trigLoadSD"/>
       </net>
    </nets>
    <settings>

@@ -1,8 +1,13 @@
 <objdefs appVersion="1.0.12">
    <obj.normal id="table8CH_SD" uuid="b63e44c0-705f-4b46-bc43-7deac444bd05">
-      <sDescription>writes and outputs 8 values to a table.</sDescription>
-      <author>robert schirmer</author>
-      <license>who cares</license>
+      <sDescription>writes and outputs 8 values to a table.
+Derived from 
+robert schirmer under the &quot;who cares&quot; license, and relicensed under BSD
+
+Added stale value guard (for sharing one knob across multiple channels)
+Added Save / load from SD card</sDescription>
+      <author>Dazzling Duke of Lazers</author>
+      <license>BSD</license>
       <inlets>
          <frac32 name="v0"/>
          <frac32 name="v1"/>
@@ -15,6 +20,9 @@
          <int32 name="offset" description="sets an offset for writing to the table"/>
          <int32 name="channelID"/>
          <int32 name="activeChannel"/>
+         <int32 name="page" description="Page select"/>
+         <bool32.rising name="trigSaveSD" description="Save to the SD Card"/>
+         <bool32.rising name="trigLoadSD" description="Load from the SD Card"/>
       </inlets>
       <outlets>
          <frac32 name="v0"/>
@@ -31,62 +39,68 @@
       <attribs>
          <objref name="table"/>
       </attribs>
+      <depends>
+         <depend>fatfs</depend>
+      </depends>
       <code.declaration><![CDATA[// Table 8
-uint32_t prev0;
-uint32_t prev1;
-uint32_t prev2;
-uint32_t prev3;
-uint32_t prev4;
-uint32_t prev5;
-uint32_t prev6;
-uint32_t prev7;
+	uint32_t prev0;
+	uint32_t prev1;
+	uint32_t prev2;
+	uint32_t prev3;
+	uint32_t prev4;
+	uint32_t prev5;
+	uint32_t prev6;
+	uint32_t prev7;
 
-uint8_t bChannelActive;
+// Stale value guard
+	uint8_t bChannelActive;
+	uint8_t prevActiveChannel;
 
-uint8_t prevActiveChannel;]]></code.declaration>
+// tableReadWriteIndexPage 
+	// Table Stuff
+	int ntrig, ptrig, pval, channelTrig;
+	int pIndex;
+	int ntrigSave, ntrigLoad;
+	int outletVal;
+	
+	
+	// string/doubleIndex Stuff
+	char c[64];
+	int offset;
+	int offset2;
+	int pvalIndex, pvalPage;]]></code.declaration>
       <code.init><![CDATA[// Table 8
-prev0 = 0;
-prev1 = 0;
-prev2 = 0;
-prev3 = 0;
-prev4 = 0;
-prev5 = 0;
-prev6 = 0;
-prev7 = 0;
+	prev0 = 0;
+	prev1 = 0;
+	prev2 = 0;
+	prev3 = 0;
+	prev4 = 0;
+	prev5 = 0;
+	prev6 = 0;
+	prev7 = 0;
 
+// Stale value guard
+	prevActiveChannel=0;
+	bChannelActive = false;
 
-prevActiveChannel=0;
-bChannelActive = false;
-
-/*
-
-// Init tableReadWrite
-ntrig = 0;
-ptrig = 0;
-pval = 0;
-pIndex=0;
-ntrigSave=0;
-ntrigLoad=0;
-channelTrig=0;
-outletVal=0;
-
-// Init string/doubleIndex
-strcpy(&c[0],"attr_prefix00-000attr_suffix");
-offset    = strlen("attr_prefix");
-offset2   = offset + 3; // Added extra two zeroes
-pvalIndex = 0;
-pvalPage  = 0;
-
-// Init table/alloc 16b sdram
-static int16_t _array[attr_poly][LENGTH] __attribute__ ((section (".sdram")));
-array = &_array[parent->polyIndex][0];
-{ 
-  int i;
-  for(i=0;i<LENGTH;i++) array[i]=0;
-}
-// attr_init // Don't need the table init substitution
-
-*/]]></code.init>
+// tableReadWriteIndexPage 
+	// Init tableReadWrite
+	ntrig = 0;
+	ptrig = 0;
+	pval = 0;
+	pIndex=0;
+	ntrigSave=0;
+	ntrigLoad=0;
+	channelTrig=0;
+	outletVal=0;
+	
+	// Init string/doubleIndex
+	//strcpy(&c[0],"attr_prefix00-000attr_suffix");
+	strcpy(&c[0],"beatBox_00-000.mod");
+	offset    = strlen("beatBox_");
+	offset2   = offset + 3; // Added extra two digits and a dash
+	pvalIndex = 0;
+	pvalPage  = 0;]]></code.init>
       <code.krate><![CDATA[// Table 8
 if (inlet_activeChannel == inlet_channelID) 
 {
@@ -166,6 +180,102 @@ else // not the active channel
 	bChannelActive = false;
 }
 
+
+// Filename / SD save/load
+// Table Save to SD
+// Table Save to SD
+if ((inlet_trigSaveSD>0) && !ntrigSave)
+{
+    ntrigSave=1;
+    // If saving or loading, recalculate the filename
+	{
+	   // Add the Page # to the filename string
+	   int i = inlet_page; int i0 = i/10;
+	   c[offset+1] = '0'+i-10*i0;
+	   i = i0; i0 = i/10;
+	   c[offset]   = '0'+i-10*i0;	
+	   
+	   // Add the Index # to the filename string
+	   i = inlet_channelID + inlet_offset ; i0 = i/10;
+	   c[offset2+2] = '0'+i-10*i0;
+	   i = i0; i0 = i/10;
+	   c[offset2+1] = '0'+i-10*i0;
+	   i = i0; i0 = i/10;
+	   c[offset2+0] = '0'+i-10*i0;
+	}
+    FIL FileObject;
+    FRESULT err;
+    UINT bytes_written;
+    codec_clearbuffer();
+    err = f_open(&FileObject, c, FA_WRITE | FA_CREATE_ALWAYS); // tbd rename c to filename
+    if (err != FR_OK) {report_fatfs_error(err, c); return;} // tbd rename c to filename
+    int rem_sz = sizeof(*attr_table.array)*attr_table.LENGTH;
+    int offset = 0;
+    while (rem_sz>0) {
+      if (rem_sz>sizeof(fbuff)) {
+        memcpy((char *)fbuff,(char *)(&attr_table.array[0]) + offset, sizeof(fbuff));
+        err = f_write(&FileObject, fbuff, sizeof(fbuff),&bytes_written);
+        rem_sz -= sizeof(fbuff);
+        offset += sizeof(fbuff);
+      } else {
+        memcpy((char *)fbuff,(char *)(&attr_table.array[0]) + offset, rem_sz);
+        err = f_write(&FileObject, fbuff, rem_sz, &bytes_written);
+        rem_sz = 0;
+      }
+    }    if (err != FR_OK) report_fatfs_error(err,c); // tbd rename c to filename
+    err = f_close(&FileObject);
+    if (err != FR_OK) report_fatfs_error(err,c); // tbd rename c to filename
+}
+else if (!(inlet_trigSaveSD>0)) ntrigSave=0;
+
+// Table load from SD
+if ((inlet_trigLoadSD>0) && !ntrigLoad)
+{
+    ntrigLoad=1;
+    // If saving or loading, recalculate the filename
+	{
+	   // Add the Page # to the filename string
+	   int i = inlet_page; int i0 = i/10;
+	   c[offset+1] = '0'+i-10*i0;
+	   i = i0; i0 = i/10;
+	   c[offset]   = '0'+i-10*i0;	
+	   
+	   // Add the Index # to the filename string
+	   i = inlet_channelID + inlet_offset; i0 = i/10;
+	   c[offset2+2] = '0'+i-10*i0;
+	   i = i0; i0 = i/10;
+	   c[offset2+1] = '0'+i-10*i0;
+	   i = i0; i0 = i/10;
+	   c[offset2+0] = '0'+i-10*i0;
+	}
+    FIL FileObject;
+    FRESULT err;
+    UINT bytes_read;
+    codec_clearbuffer();
+    err = f_open(&FileObject, c, FA_READ | FA_OPEN_EXISTING); // tbd rename c to filename
+    if (err != FR_OK) { report_fatfs_error(err,c); return;} // tbd rename c to filename
+    int rem_sz = sizeof(*attr_table.array)*attr_table.LENGTH;
+    int offset = 0;
+    while (rem_sz>0) {
+      if (rem_sz>sizeof(fbuff)) {
+        err = f_read(&FileObject, fbuff, sizeof(fbuff),&bytes_read);
+        if (bytes_read == 0) break;
+        memcpy((char *)(&attr_table.array[0]) + offset,(char *)fbuff,bytes_read);
+        rem_sz -= bytes_read;
+        offset += bytes_read;
+      } else {
+        err = f_read(&FileObject, fbuff, rem_sz,&bytes_read);
+        memcpy((char *)(&attr_table.array[0]) + offset,(char *)fbuff,bytes_read);
+        rem_sz = 0;
+      }
+    }    if (err != FR_OK) { report_fatfs_error(err,c); return;}; // tbd rename c to filename
+    err = f_close(&FileObject);
+    if (err != FR_OK) { report_fatfs_error(err,c); return;}; // tbd rename c to filename
+ 
+ 	bChannelActive = 0; // reset the active channel guard
+ }
+ else if (!(inlet_trigLoadSD>0)) ntrigLoad=0;
+
 // Output whatever is in the table array
 outlet_v0= attr_table.array[__USAT((inlet_offset + 0),attr_table.LENGTHPOW)]<<attr_table.GAIN;
 outlet_v1= attr_table.array[__USAT((inlet_offset + 1),attr_table.LENGTHPOW)]<<attr_table.GAIN;
@@ -175,8 +285,6 @@ outlet_v4= attr_table.array[__USAT((inlet_offset + 4),attr_table.LENGTHPOW)]<<at
 outlet_v5= attr_table.array[__USAT((inlet_offset + 5),attr_table.LENGTHPOW)]<<attr_table.GAIN;
 outlet_v6= attr_table.array[__USAT((inlet_offset + 6),attr_table.LENGTHPOW)]<<attr_table.GAIN;		
 outlet_v7= attr_table.array[__USAT((inlet_offset + 7),attr_table.LENGTHPOW)]<<attr_table.GAIN;
-
-
 
 // </table 8>]]></code.krate>
    </obj.normal>

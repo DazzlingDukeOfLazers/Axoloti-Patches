@@ -40,9 +40,9 @@
    <obj type="Wanderlust/Wanderlust_beta1" uuid="08688327-b3fc-465a-8bd5-91d460e92f4a" name="obj_1" x="154" y="112">
       <params>
          <bool32.tgl name="Reverse Knobs" value="0"/>
-         <bool32.tgl name="Rev Padrow Top" value="1"/>
+         <bool32.tgl name="Rev Padrow Top" value="0"/>
          <bool32.tgl name="InvertJoy0" value="1"/>
-         <bool32.tgl name="Rev Padrow Bottom" value="1"/>
+         <bool32.tgl name="Rev Padrow Bottom" value="0"/>
          <bool32.tgl name="SwapXY" value="0"/>
          <int32 name="LED Mode" value="0"/>
          <bool32.tgl name="InvertJoy1" value="0"/>

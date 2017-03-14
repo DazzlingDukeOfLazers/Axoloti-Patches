@@ -1,6 +1,6 @@
 // Select which chip to compile for
-#define CAP_MODE_MPR121 1
-//#define CAP_MODE_CPT112S 1
+//#define CAP_MODE_MPR121 1
+#define CAP_MODE_CPT112S 1
 
 #include "C:\\Users\\danie\\Documents\\WIP\\Believotron\\Believotron-Github\\Axoloti-Patches\\Believotron\\objects\\script\\Padcaps_MPR121.c"
 #include "C:\\Users\\danie\\Documents\\WIP\\Believotron\\Believotron-Github\\Axoloti-Patches\\Believotron\\objects\\script\\Padcaps_CPT112S.c"

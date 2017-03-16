@@ -44,6 +44,7 @@ struct OscParams
     uint32_t amount;      // amount of the waveform
     uint32_t shapeMount;  // extra glue variable
     uint8_t  waveformNum; // Integer selected waveform
+    uint32_t attack;      // Attack amount
 };
 
 OscParams oscParams[16];
@@ -60,7 +61,7 @@ uint32_t phase;
 int32_t phasor;
 int32_t phaseCounter;
 
-int32_t a;
+int32_t a; // Wonderfully named temporary variables. should be separate, but worried about memory cost at scale
 int32_t b;
 
 
@@ -130,12 +131,11 @@ if (stage == 0) // Release!
 }
 else if (stage == 1) // Attack!
 {
-   int32_t a;
-   //MTOF(- -64 -inlet_a,a);
-   //MTOF(- param_a - inlet_a,a);
-   MTOF((UNI2BIPOLAR(inlet_a))<<1,a);
-   a = a >> 2;
-   envelope_out = envelope_out + a;
+   int32_t thisAttack;
+   oscParams[uiOscChan].attack = UNI2BIPOLAR(inlet_a);
+   MTOF( oscParams[uiOscChan].attack <<1,thisAttack);
+   thisAttack = thisAttack >> 2;
+   envelope_out = envelope_out + thisAttack;
    if (envelope_out<0)               // If the attack has finished (overflow)
    {
       envelope_out =0x7FFFFFFF;

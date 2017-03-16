@@ -45,6 +45,9 @@ struct OscParams
     uint32_t shapeMount;  // extra glue variable
     uint8_t  waveformNum; // Integer selected waveform
     uint32_t attack;      // Attack amount
+    uint32_t decay;       // Decay amount
+    uint32_t sustain;     // Sustain amount
+    uint32_t release;     // Release
 };
 
 OscParams oscParams[16];
@@ -125,15 +128,16 @@ if (stage == 0) // Release!
    int32_t r1;
    int32_t r2;
    //MTOF(- param_r - inlet_r, r1);
-   MTOF(UNI2BIPOLAR(inlet_r)<<1, r1);
+   oscParams[uiOscChan].release = UNI2BIPOLAR(inlet_r)<<1;
+   MTOF(oscParams[uiOscChan].release, r1);
    r1 = 0x7FFFFFFF - (r1 >> 2);
    envelope_out = ___SMMUL(envelope_out,r1)<<1;
 }
 else if (stage == 1) // Attack!
 {
    int32_t thisAttack;
-   oscParams[uiOscChan].attack = UNI2BIPOLAR(inlet_a);
-   MTOF( oscParams[uiOscChan].attack <<1,thisAttack);
+   oscParams[uiOscChan].attack = UNI2BIPOLAR(inlet_a)<<1;
+   MTOF( oscParams[uiOscChan].attack,thisAttack);
    thisAttack = thisAttack >> 2;
    envelope_out = envelope_out + thisAttack;
    if (envelope_out<0)               // If the attack has finished (overflow)
@@ -144,12 +148,15 @@ else if (stage == 1) // Attack!
 }
 else if (stage == 2) // Decay + Sustain :/
 {
-   int32_t s = __USAT(inlet_s, 27);
+    oscParams[uiOscChan].sustain = inlet_s;
 
-   int32_t d;
-   MTOF(UNI2BIPOLAR(inlet_d)<<1, d);
-   d = 0x7FFFFFFF - (d >> 2);
-   envelope_out = (s<<4) + (___SMMUL(envelope_out - (s<<4),d)<<1);
+    int32_t s = __USAT(oscParams[uiOscChan].sustain, 27);
+    int32_t d;
+
+    oscParams[uiOscChan].decay = UNI2BIPOLAR(inlet_d)<<1;
+    MTOF(oscParams[uiOscChan].decay, d);
+    d = 0x7FFFFFFF - (d >> 2);
+    envelope_out = (s<<4) + (___SMMUL(envelope_out - (s<<4),d)<<1);
 }
 
 

@@ -37,20 +37,26 @@ Removed phase reset
 // Consolidating single instance to 16 out.
 struct OscParams
 {
-    uint32_t pitch;       // External input
-    uint32_t freqMod;     // External input, added to the instantanious freq
-    uint32_t freqInst;    // Class variable, instantanious frequency
-    uint32_t shape;       // shape  of the waveform
-    uint32_t amount;      // amount of the waveform
-    uint32_t shapeMount;  // extra glue variable
-    uint8_t  waveformNum; // Integer selected waveform
-    uint32_t attack;      // Attack amount
-    uint32_t decay;       // Decay amount
-    uint32_t sustain;     // Sustain amount
-    uint32_t release;     // Release
-    uint32_t volume;      // Volume
-    int32_t  oscOut;     // Output oscillator value
+    uint32_t pitch;        // External input
+    uint32_t freqMod;      // External input, added to the instantanious freq
+    uint32_t freqInst;     // Class variable, instantanious frequency
+    uint32_t shape;        // shape  of the waveform
+    uint32_t amount;       // amount of the waveform
+    uint32_t shapeMount;   // extra glue variable
+    uint8_t  waveformNum;  // Integer selected waveform
+    uint32_t attack;       // Attack amount
+    uint32_t decay;        // Decay amount
+    uint32_t sustain;      // Sustain amount
+    uint32_t release;      // Release
+    uint32_t volume;       // Volume
+    int32_t  oscOut;       // Output oscillator value
+    int32_t  envelopePrev; // Size of the previous envelopePrev
+    int32_t  envelope;     // Envelope value
+    int32_t  envelopeStep; // Envelope step value
+    int32_t  envelopeOsc;  // The envelope that affects the oscillator
 };
+
+#define NUM_CHANNELS 1
 
 OscParams oscParams[16];
 
@@ -78,9 +84,9 @@ int32_t env; // envelope
 
 
 // Gain stuff
-int32_t prev, prev2;
-int32_t step, step2;
-int32_t temp;
+//int32_t prev2;
+//int32_t step2;
+
 ]]></code.declaration>
 <code.init><![CDATA[// Glue
 // Init code
@@ -119,70 +125,76 @@ oscParams[uiOscChan].shapeMount = __USAT( ( ___SMMUL(oscParams[uiOscChan].amount
 
 oscParams[uiOscChan].waveformNum = ((inlet_wave))%4;
 
+oscParams[uiOscChan].release = UNI2BIPOLAR(inlet_r)<<1;
+oscParams[uiOscChan].attack = UNI2BIPOLAR(inlet_a)<<1;
+oscParams[uiOscChan].sustain = inlet_s;
+oscParams[uiOscChan].decay = UNI2BIPOLAR(inlet_d)<<1;
+
 // ADSR Stuff
 if ( (inlet_gate0>0) && !ntrig) { stage = 1; ntrig = 1;}
 if (!(inlet_gate0>0) &&  ntrig) { stage = 0; ntrig = 0;}
 #define UNI2BIPOLAR(a) ((a -(1<<26) ) << 1)
 
-
-if (stage == 0) // Release!
+for (int iChan=0; iChan < NUM_CHANNELS; iChan++)
 {
-   int32_t r1;
-   int32_t r2;
-   //MTOF(- param_r - inlet_r, r1);
-   oscParams[uiOscChan].release = UNI2BIPOLAR(inlet_r)<<1;
-   MTOF(oscParams[uiOscChan].release, r1);
-   r1 = 0x7FFFFFFF - (r1 >> 2);
-   envelope_out = ___SMMUL(envelope_out,r1)<<1;
+    if (stage == 0) // Release!
+    {
+       int32_t r1;
+       int32_t r2;
+       //MTOF(- param_r - inlet_r, r1);
+       //oscParams[iChan].release = UNI2BIPOLAR(inlet_r)<<1;
+       MTOF(oscParams[iChan].release, r1);
+       r1 = 0x7FFFFFFF - (r1 >> 2);
+       envelope_out = ___SMMUL(envelope_out,r1)<<1;
+    }
+    else if (stage == 1) // Attack!
+    {
+       int32_t thisAttack;
+       //oscParams[iChan].attack = UNI2BIPOLAR(inlet_a)<<1;
+       MTOF( oscParams[iChan].attack,thisAttack);
+       thisAttack = thisAttack >> 2;
+       envelope_out = envelope_out + thisAttack;
+       if (envelope_out<0)               // If the attack has finished (overflow)
+       {
+          envelope_out =0x7FFFFFFF;
+          stage = 2;
+       }
+    }
+    else if (stage == 2) // Decay + Sustain :/
+    {
+        //oscParams[iChan].sustain = inlet_s;
+        int32_t s = __USAT(oscParams[iChan].sustain, 27);
+        int32_t d;
+
+        //oscParams[iChan].decay = UNI2BIPOLAR(inlet_d)<<1;
+        MTOF(oscParams[iChan].decay, d);
+        d = 0x7FFFFFFF - (d >> 2);
+        envelope_out = (s<<4) + (___SMMUL(envelope_out - (s<<4),d)<<1);
+    }
+
+    oscParams[iChan].envelope     =  envelope_out>>4;
+    oscParams[iChan].envelopeStep = (oscParams[iChan].envelope - oscParams[iChan].envelopePrev)>>4;
+    oscParams[iChan].envelopeOsc  = oscParams[iChan].envelopePrev;
+    oscParams[iChan].envelopePrev = oscParams[iChan].envelope;
+
+    // Volume section doesn't work
+    /*
+    oscParams[iChan].volume = inlet_v;
+    step2 = (oscParams[iChan].volume - prev2)>>4;
+    int32_t i2 = prev2;
+    prev2 = oscParams[iChan].volume;*/
 }
-else if (stage == 1) // Attack!
-{
-   int32_t thisAttack;
-   oscParams[uiOscChan].attack = UNI2BIPOLAR(inlet_a)<<1;
-   MTOF( oscParams[uiOscChan].attack,thisAttack);
-   thisAttack = thisAttack >> 2;
-   envelope_out = envelope_out + thisAttack;
-   if (envelope_out<0)               // If the attack has finished (overflow)
-   {
-      envelope_out =0x7FFFFFFF;
-      stage = 2;
-   }
-}
-else if (stage == 2) // Decay + Sustain :/
-{
-    oscParams[uiOscChan].sustain = inlet_s;
-
-    int32_t s = __USAT(oscParams[uiOscChan].sustain, 27);
-    int32_t d;
-
-    oscParams[uiOscChan].decay = UNI2BIPOLAR(inlet_d)<<1;
-    MTOF(oscParams[uiOscChan].decay, d);
-    d = 0x7FFFFFFF - (d >> 2);
-    envelope_out = (s<<4) + (___SMMUL(envelope_out - (s<<4),d)<<1);
-}
-
-
-env = envelope_out>>4;
-
-step = (env - prev)>>4;
-int32_t i = prev;
-prev = env;
-
-oscParams[uiOscChan].volume = inlet_v;
-step2 = (oscParams[uiOscChan].volume - prev2)>>4;
-int32_t i2 = prev2;
-prev2 = oscParams[uiOscChan].volume;
 
 ]]></code.krate>
 <code.srate><![CDATA[/* reset phase if retriggered */
 // SRATE Code ------------------------------------------------------------------
 
+oscParams[uiOscChan].freqMod = inlet_freqMod; // temp dev-glue
 
 
-    oscParams[uiOscChan].freqMod = inlet_freqMod; // temp dev-glue
-
-
-	phase += (oscParams[uiOscChan].freqInst>>0) + oscParams[uiOscChan].freqMod;
+for (int iChan=0; iChan < NUM_CHANNELS; iChan++)
+{
+    phase += (oscParams[iChan].freqInst>>0) + oscParams[iChan].freqMod;
 	/* if new phasor value is smaller then last one -> increment phaseCounter */
 	a = phase>>5;
 	/* first or second phase cycle */
@@ -195,43 +207,49 @@ prev2 = oscParams[uiOscChan].volume;
 	phasor = a;
 
 
-/* calculate waveforms based on phasor value */
-switch (oscParams[uiOscChan].waveformNum)
-{
-	case sin:
-		/* phasor to sine */
-		SINE2TINTERP(phasor<<5,a) /* calculate sine wave via function */
-        oscParams[uiOscChan].oscOut = (a>>4);
-		break;
+    /* calculate waveforms based on phasor value */
+    switch (oscParams[iChan].waveformNum)
+    {
+    	case sin:
+    		/* phasor to sine */
+    		SINE2TINTERP(phasor<<5,a) /* calculate sine wave via function */
+            oscParams[iChan].oscOut = (a>>4);
+    		break;
 
-	case tri:
-		/* phasor to triangle */
-		b = (phasor>0x07FFFFFF/4)? phasor-0x07FFFFFF/4:phasor+0x07FFFFFF/4*3; /* phase shift to correct wave startpoint*/
-		a = (b-(1<<26))<<1; /* phasor to sawUp (bipolar) -> -a = sawDown (bipolar) */
-		a = (a>0)? a:-a; /* merge sawUp and sawDown to triangle -> unipolar */
-		a = (a-(1<<26))<<1; /* unipolar to bipolar */
-		b = 0x07FFFFFF-(oscParams[uiOscChan].shapeMount/10*8);
-		a = (a>b || a<-b)? -a+((a>0)?2:-2)*b:a; /* param_shape threshold for wavefolding */
-		oscParams[uiOscChan].oscOut = a;
-		break;
+    	case tri:
+    		/* phasor to triangle */
+    		b = (phasor>0x07FFFFFF/4)? phasor-0x07FFFFFF/4:phasor+0x07FFFFFF/4*3; /* phase shift to correct wave startpoint*/
+    		a = (b-(1<<26))<<1; /* phasor to sawUp (bipolar) -> -a = sawDown (bipolar) */
+    		a = (a>0)? a:-a; /* merge sawUp and sawDown to triangle -> unipolar */
+    		a = (a-(1<<26))<<1; /* unipolar to bipolar */
+    		b = 0x07FFFFFF-(oscParams[iChan].shapeMount/10*8);
+    		a = (a>b || a<-b)? -a+((a>0)?2:-2)*b:a; /* param_shape threshold for wavefolding */
+    		oscParams[iChan].oscOut = a;
+    		break;
 
-	case saw:
-		/* phasor to saw */
-		b = (phasor>0x07FFFFFF/2)? phasor-0x07FFFFFF/2:phasor+0x07FFFFFF/2; /* phase shift to correct wave startpoint*/
-		a = (b-(1<<26))<<1; /* phasor to sawUp (bipolar) */
-		oscParams[uiOscChan].oscOut = (phaseCounter==1 && (phasor>0x07FFFFFF/2-oscParams[uiOscChan].shapeMount/2 && phasor<0x07FFFFFF/2+oscParams[uiOscChan].shapeMount/2))? -a:a;
-		break;
+    	case saw:
+    		/* phasor to saw */
+    		b = (phasor>0x07FFFFFF/2)? phasor-0x07FFFFFF/2:phasor+0x07FFFFFF/2; /* phase shift to correct wave startpoint*/
+    		a = (b-(1<<26))<<1; /* phasor to sawUp (bipolar) */
+    		oscParams[uiOscChan].oscOut = (phaseCounter==1 && (phasor>0x07FFFFFF/2-oscParams[iChan].shapeMount/2 && phasor<0x07FFFFFF/2+oscParams[iChan].shapeMount/2))? -a:a;
+    		break;
 
-	case pwm:
-		/* phasor to pulse width */
-		oscParams[uiOscChan].oscOut = (phasor>=0x07FFFFFF/2+oscParams[uiOscChan].shapeMount/2)? -0x08000000:0x07FFFFFF; /* pulse width depending on shape value*/
-		break;
-}
+    	case pwm:
+    		/* phasor to pulse width */
+    		oscParams[iChan].oscOut = (phasor>=0x07FFFFFF/2+oscParams[iChan].shapeMount/2)? -0x08000000:0x07FFFFFF; /* pulse width depending on shape value*/
+    		break;
+    }
 
-int iFake = 32;
+    int iFake = 64;
 
-outlet_o =  ___SMMUL(oscParams[uiOscChan].oscOut,i)<<5;
-i += step;
+    switch(iChan)
+    {
+        case 0: outlet_o =  ___SMMUL(oscParams[0].oscOut,oscParams[0].envelopeOsc)<<5; break;
+    }
+
+    oscParams[iChan].envelopeOsc += oscParams[iChan].envelopeStep;
+} // For each of the channels
+
 ]]></code.srate>
    </obj.normal>
 </objdefs>

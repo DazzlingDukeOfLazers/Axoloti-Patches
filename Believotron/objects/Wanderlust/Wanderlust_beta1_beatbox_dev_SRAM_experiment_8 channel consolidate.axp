@@ -1,0 +1,853 @@
+<patch-1.0 appVersion="1.0.12">
+   <obj type="ctrl/dial p" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="dial_3" x="28" y="56">
+      <params>
+         <frac32.u.map name="value" value="64.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="disp/hex" uuid="87617898f70d90033f8add921438bf0d11721fdd" name="hex_1" x="728" y="70">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="Wanderlust/Wanderlust_beta1" uuid="a2125df6-426a-4a66-80d5-506c0b70d14b" name="obj_1" x="154" y="126">
+      <params>
+         <bool32.tgl name="Reverse Knobs" value="1"/>
+         <bool32.tgl name="Rev Padrow Top" value="1"/>
+         <bool32.tgl name="InvertJoy0" value="0"/>
+         <bool32.tgl name="Rev Padrow Bottom" value="1"/>
+         <bool32.tgl name="SwapXY" value="0"/>
+         <int32 name="LED Mode" value="0"/>
+         <bool32.tgl name="InvertJoy1" value="0"/>
+         <bool32.tgl name="swapKnobRow" value="1"/>
+         <bool32.tgl name="swapPadRow" value="1"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="tempPage" x="560" y="154">
+      <params>
+         <int32 name="value" value="0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_1" x="28" y="168">
+      <params>
+         <int32 name="value" value="0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_2" x="28" y="224">
+      <params>
+         <int32 name="value" value="0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="audio/out stereo" uuid="a1ca7a567f535acc21055669829101d3ee7f0189" name="out_1" x="1932" y="280">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="table/alloc 16b sdram" uuid="6d8eb0fd68f404cb5d14e7d4c8c146c8ccf09da1" name="tableFoo" x="980" y="322">
+      <params/>
+      <attribs>
+         <combo attributeName="size" selection="8"/>
+         <text attributeName="init">
+            <sText><![CDATA[]]></sText>
+         </text>
+      </attribs>
+   </obj>
+   <obj type="logic/selectChan16" uuid="4817e28e-6ae3-44e2-a76c-ea37b87d2a0d" name="selectChan16_1" x="350" y="350">
+      <params/>
+      <attribs/>
+   </obj>
+   <comment type="patch/comment" x="3038" y="364" text="East coast"/>
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_1" x="1218" y="378">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="table/table8CH_SD" uuid="b63e44c0-705f-4b46-bc43-7deac444bd05" name="table8CH_SD_1" x="980" y="406">
+      <params/>
+      <attribs>
+         <objref attributeName="table" obj="tableFoo"/>
+         <combo attributeName="ChannelID" selection="0"/>
+      </attribs>
+   </obj>
+   <obj type="osc/multiwaveMultiChannelADSR" uuid="fd1e767a-6919-4a06-be8c-a4899b3f0866" name="multiwaveMultiChannelADSR_1" x="1316" y="434">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_1" x="1512" y="434">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_3" x="1176" y="504">
+      <params>
+         <int32 name="value" value="1"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_2" x="1526" y="700">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="table/alloc 16b sdram" uuid="6d8eb0fd68f404cb5d14e7d4c8c146c8ccf09da1" name="table1" x="980" y="714">
+      <params/>
+      <attribs>
+         <combo attributeName="size" selection="8"/>
+         <text attributeName="init">
+            <sText><![CDATA[]]></sText>
+         </text>
+      </attribs>
+   </obj>
+   <obj type="mix/mix_8-No_Gain" uuid="df5d240a-6631-4cd2-a0e3-18888fd36b30" name="mix_8-No_Gain_2" x="1778" y="742">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="table/table8CH_SD" uuid="b63e44c0-705f-4b46-bc43-7deac444bd05" name="table8CH_SD_2" x="980" y="798">
+      <params/>
+      <attribs>
+         <objref attributeName="table" obj="table1"/>
+         <combo attributeName="ChannelID" selection="1"/>
+      </attribs>
+   </obj>
+   <obj type="osc/multiwaveADSR" uuid="60014d06-2b04-4943-93e6-f2c1d6b4cddb" name="multiwaveADSR_2" x="1330" y="798">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_4" x="1176" y="952">
+      <params>
+         <int32 name="value" value="0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_3" x="1484" y="1456">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="table/alloc 16b sdram" uuid="6d8eb0fd68f404cb5d14e7d4c8c146c8ccf09da1" name="table2" x="756" y="1526">
+      <params/>
+      <attribs>
+         <combo attributeName="size" selection="8"/>
+         <text attributeName="init">
+            <sText><![CDATA[]]></sText>
+         </text>
+      </attribs>
+   </obj>
+   <obj type="table/table8CH_SD" uuid="b63e44c0-705f-4b46-bc43-7deac444bd05" name="table8CH_SD_3" x="910" y="1526">
+      <params/>
+      <attribs>
+         <objref attributeName="table" obj="table2"/>
+         <combo attributeName="ChannelID" selection="2"/>
+      </attribs>
+   </obj>
+   <obj type="osc/multiwaveADSR" uuid="60014d06-2b04-4943-93e6-f2c1d6b4cddb" name="multiwaveADSR_3" x="1246" y="1526">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_6" x="1134" y="1694">
+      <params>
+         <int32 name="value" value="0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_4" x="1442" y="2198">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="osc/multiwaveADSR" uuid="60014d06-2b04-4943-93e6-f2c1d6b4cddb" name="multiwaveADSR_4" x="1302" y="2254">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="table/alloc 16b sdram" uuid="6d8eb0fd68f404cb5d14e7d4c8c146c8ccf09da1" name="table3" x="770" y="2268">
+      <params/>
+      <attribs>
+         <combo attributeName="size" selection="8"/>
+         <text attributeName="init">
+            <sText><![CDATA[]]></sText>
+         </text>
+      </attribs>
+   </obj>
+   <obj type="table/table8CH_SD" uuid="b63e44c0-705f-4b46-bc43-7deac444bd05" name="table8CH_SD_4" x="924" y="2268">
+      <params/>
+      <attribs>
+         <objref attributeName="table" obj="table3"/>
+         <combo attributeName="ChannelID" selection="3"/>
+      </attribs>
+   </obj>
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_7" x="1134" y="2408">
+      <params>
+         <int32 name="value" value="0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_5" x="1498" y="2492">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="osc/multiwaveADSR" uuid="60014d06-2b04-4943-93e6-f2c1d6b4cddb" name="multiwaveADSR_5" x="1302" y="2520">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="table/alloc 16b sdram" uuid="6d8eb0fd68f404cb5d14e7d4c8c146c8ccf09da1" name="table4" x="770" y="2534">
+      <params/>
+      <attribs>
+         <combo attributeName="size" selection="8"/>
+         <text attributeName="init">
+            <sText><![CDATA[]]></sText>
+         </text>
+      </attribs>
+   </obj>
+   <obj type="table/table8CH_SD" uuid="b63e44c0-705f-4b46-bc43-7deac444bd05" name="table8CH_SD_5" x="924" y="2534">
+      <params/>
+      <attribs>
+         <objref attributeName="table" obj="table4"/>
+         <combo attributeName="ChannelID" selection="4"/>
+      </attribs>
+   </obj>
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_8" x="1134" y="2534">
+      <params>
+         <int32 name="value" value="0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="osc/multiwaveADSR" uuid="60014d06-2b04-4943-93e6-f2c1d6b4cddb" name="multiwaveADSR_6" x="1302" y="2772">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_6" x="1512" y="2772">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_9" x="1134" y="2786">
+      <params>
+         <int32 name="value" value="0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="table/alloc 16b sdram" uuid="6d8eb0fd68f404cb5d14e7d4c8c146c8ccf09da1" name="table5" x="784" y="2800">
+      <params/>
+      <attribs>
+         <combo attributeName="size" selection="8"/>
+         <text attributeName="init">
+            <sText><![CDATA[]]></sText>
+         </text>
+      </attribs>
+   </obj>
+   <obj type="table/table8CH_SD" uuid="b63e44c0-705f-4b46-bc43-7deac444bd05" name="table8CH_SD_6" x="924" y="2800">
+      <params/>
+      <attribs>
+         <objref attributeName="table" obj="table5"/>
+         <combo attributeName="ChannelID" selection="5"/>
+      </attribs>
+   </obj>
+   <obj type="osc/multiwaveADSR" uuid="60014d06-2b04-4943-93e6-f2c1d6b4cddb" name="multiwaveADSR_7" x="1302" y="3038">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_7" x="1512" y="3038">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_10" x="1134" y="3052">
+      <params>
+         <int32 name="value" value="0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="table/alloc 16b sdram" uuid="6d8eb0fd68f404cb5d14e7d4c8c146c8ccf09da1" name="table6" x="784" y="3066">
+      <params/>
+      <attribs>
+         <combo attributeName="size" selection="8"/>
+         <text attributeName="init">
+            <sText><![CDATA[]]></sText>
+         </text>
+      </attribs>
+   </obj>
+   <obj type="table/table8CH_SD" uuid="b63e44c0-705f-4b46-bc43-7deac444bd05" name="table8CH_SD_7" x="924" y="3066">
+      <params/>
+      <attribs>
+         <objref attributeName="table" obj="table6"/>
+         <combo attributeName="ChannelID" selection="6"/>
+      </attribs>
+   </obj>
+   <obj type="osc/multiwaveADSR" uuid="60014d06-2b04-4943-93e6-f2c1d6b4cddb" name="multiwaveADSR_8" x="1302" y="3276">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_8" x="1512" y="3276">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_11" x="1134" y="3290">
+      <params>
+         <int32 name="value" value="0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="table/alloc 16b sdram" uuid="6d8eb0fd68f404cb5d14e7d4c8c146c8ccf09da1" name="table7" x="784" y="3332">
+      <params/>
+      <attribs>
+         <combo attributeName="size" selection="8"/>
+         <text attributeName="init">
+            <sText><![CDATA[]]></sText>
+         </text>
+      </attribs>
+   </obj>
+   <obj type="table/table8CH_SD" uuid="b63e44c0-705f-4b46-bc43-7deac444bd05" name="table8CH_SD_8" x="924" y="3332">
+      <params/>
+      <attribs>
+         <objref attributeName="table" obj="table7"/>
+         <combo attributeName="ChannelID" selection="7"/>
+      </attribs>
+   </obj>
+   <nets>
+      <net>
+         <source obj="i_1" outlet="out"/>
+         <dest obj="obj_1" inlet="step"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="knob_top_1"/>
+         <dest obj="table8CH_SD_1" inlet="v1"/>
+         <dest obj="table8CH_SD_2" inlet="v1"/>
+         <dest obj="table8CH_SD_3" inlet="v1"/>
+         <dest obj="table8CH_SD_4" inlet="v1"/>
+         <dest obj="table8CH_SD_5" inlet="v1"/>
+         <dest obj="table8CH_SD_6" inlet="v1"/>
+         <dest obj="table8CH_SD_7" inlet="v1"/>
+         <dest obj="table8CH_SD_8" inlet="v1"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="knob_top_2"/>
+         <dest obj="table8CH_SD_1" inlet="v2"/>
+         <dest obj="table8CH_SD_2" inlet="v2"/>
+         <dest obj="table8CH_SD_3" inlet="v2"/>
+         <dest obj="table8CH_SD_4" inlet="v2"/>
+         <dest obj="table8CH_SD_5" inlet="v2"/>
+         <dest obj="table8CH_SD_6" inlet="v2"/>
+         <dest obj="table8CH_SD_7" inlet="v2"/>
+         <dest obj="table8CH_SD_8" inlet="v2"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="knob_top_3"/>
+         <dest obj="table8CH_SD_1" inlet="v3"/>
+         <dest obj="table8CH_SD_2" inlet="v3"/>
+         <dest obj="table8CH_SD_3" inlet="v3"/>
+         <dest obj="table8CH_SD_4" inlet="v3"/>
+         <dest obj="table8CH_SD_5" inlet="v3"/>
+         <dest obj="table8CH_SD_6" inlet="v3"/>
+         <dest obj="table8CH_SD_7" inlet="v3"/>
+         <dest obj="table8CH_SD_8" inlet="v3"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="knob_top_4"/>
+         <dest obj="table8CH_SD_1" inlet="v4"/>
+         <dest obj="table8CH_SD_2" inlet="v4"/>
+         <dest obj="table8CH_SD_3" inlet="v4"/>
+         <dest obj="table8CH_SD_4" inlet="v4"/>
+         <dest obj="table8CH_SD_5" inlet="v4"/>
+         <dest obj="table8CH_SD_6" inlet="v4"/>
+         <dest obj="table8CH_SD_7" inlet="v4"/>
+         <dest obj="table8CH_SD_8" inlet="v4"/>
+      </net>
+      <net>
+         <source obj="i_2" outlet="out"/>
+         <dest obj="obj_1" inlet="Color In"/>
+      </net>
+      <net>
+         <source obj="dial_3" outlet="out"/>
+         <dest obj="obj_1" inlet="Intensity"/>
+      </net>
+      <net>
+         <source obj="i_3" outlet="out"/>
+         <dest obj="multiwaveMultiChannelADSR_1" inlet="wave"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="parasailing"/>
+         <dest obj="selectChan16_1" inlet="b00"/>
+         <dest obj="multiwaveMultiChannelADSR_1" inlet="gate"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="hiking"/>
+         <dest obj="table8CH_SD_1" inlet="trigLoadSD"/>
+         <dest obj="table8CH_SD_2" inlet="trigLoadSD"/>
+         <dest obj="table8CH_SD_3" inlet="trigLoadSD"/>
+         <dest obj="table8CH_SD_4" inlet="trigLoadSD"/>
+         <dest obj="table8CH_SD_5" inlet="trigLoadSD"/>
+         <dest obj="table8CH_SD_6" inlet="trigLoadSD"/>
+         <dest obj="table8CH_SD_7" inlet="trigLoadSD"/>
+         <dest obj="table8CH_SD_8" inlet="trigLoadSD"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="horsebackriding"/>
+         <dest obj="table8CH_SD_1" inlet="trigSaveSD"/>
+         <dest obj="table8CH_SD_2" inlet="trigSaveSD"/>
+         <dest obj="table8CH_SD_3" inlet="trigSaveSD"/>
+         <dest obj="table8CH_SD_4" inlet="trigSaveSD"/>
+         <dest obj="table8CH_SD_5" inlet="trigSaveSD"/>
+         <dest obj="table8CH_SD_6" inlet="trigSaveSD"/>
+         <dest obj="table8CH_SD_7" inlet="trigSaveSD"/>
+         <dest obj="table8CH_SD_8" inlet="trigSaveSD"/>
+      </net>
+      <net>
+         <source obj="tempPage" outlet="out"/>
+         <dest obj="table8CH_SD_1" inlet="page"/>
+         <dest obj="table8CH_SD_2" inlet="page"/>
+         <dest obj="table8CH_SD_3" inlet="page"/>
+         <dest obj="table8CH_SD_4" inlet="page"/>
+         <dest obj="table8CH_SD_5" inlet="page"/>
+         <dest obj="table8CH_SD_6" inlet="page"/>
+         <dest obj="table8CH_SD_7" inlet="page"/>
+         <dest obj="table8CH_SD_8" inlet="page"/>
+      </net>
+      <net>
+         <source obj="i_4" outlet="out"/>
+         <dest obj="multiwaveADSR_2" inlet="wave"/>
+      </net>
+      <net>
+         <source obj="table8CH_SD_2" outlet="v4"/>
+         <dest obj="vca_2" inlet="v"/>
+         <dest obj="multiwaveADSR_2" inlet="v"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="diving"/>
+         <dest obj="selectChan16_1" inlet="b01"/>
+         <dest obj="multiwaveADSR_2" inlet="gate"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="canoing"/>
+         <dest obj="selectChan16_1" inlet="b02"/>
+         <dest obj="multiwaveADSR_3" inlet="gate"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="swimming"/>
+         <dest obj="selectChan16_1" inlet="b03"/>
+         <dest obj="multiwaveADSR_4" inlet="gate"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="sailing"/>
+         <dest obj="selectChan16_1" inlet="b04"/>
+         <dest obj="multiwaveADSR_5" inlet="gate"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="fishing"/>
+         <dest obj="selectChan16_1" inlet="b05"/>
+         <dest obj="multiwaveADSR_6" inlet="gate"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="anchor"/>
+         <dest obj="selectChan16_1" inlet="b06"/>
+         <dest obj="multiwaveADSR_7" inlet="gate"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="showers"/>
+         <dest obj="selectChan16_1" inlet="b07"/>
+         <dest obj="multiwaveADSR_8" inlet="gate"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="ski_down"/>
+         <dest obj="selectChan16_1" inlet="b08"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="ski_cross"/>
+         <dest obj="selectChan16_1" inlet="b09"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="skating"/>
+         <dest obj="selectChan16_1" inlet="b10"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="tram"/>
+         <dest obj="selectChan16_1" inlet="b11"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="sledding"/>
+         <dest obj="selectChan16_1" inlet="b12"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="snowmowbiling"/>
+         <dest obj="selectChan16_1" inlet="b13"/>
+      </net>
+      <net>
+         <source obj="selectChan16_1" outlet="out"/>
+         <dest obj="table8CH_SD_1" inlet="activeChannel"/>
+         <dest obj="table8CH_SD_2" inlet="activeChannel"/>
+         <dest obj="table8CH_SD_3" inlet="activeChannel"/>
+         <dest obj="table8CH_SD_4" inlet="activeChannel"/>
+         <dest obj="table8CH_SD_5" inlet="activeChannel"/>
+         <dest obj="table8CH_SD_6" inlet="activeChannel"/>
+         <dest obj="table8CH_SD_7" inlet="activeChannel"/>
+         <dest obj="table8CH_SD_8" inlet="activeChannel"/>
+      </net>
+      <net>
+         <source obj="i_6" outlet="out"/>
+         <dest obj="multiwaveADSR_3" inlet="wave"/>
+      </net>
+      <net>
+         <source obj="table8CH_SD_3" outlet="v4"/>
+         <dest obj="vca_3" inlet="v"/>
+         <dest obj="multiwaveADSR_3" inlet="v"/>
+      </net>
+      <net>
+         <source obj="i_7" outlet="out"/>
+         <dest obj="multiwaveADSR_4" inlet="wave"/>
+      </net>
+      <net>
+         <source obj="table8CH_SD_4" outlet="v4"/>
+         <dest obj="vca_4" inlet="v"/>
+         <dest obj="multiwaveADSR_4" inlet="v"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="knob_top_0"/>
+         <dest obj="hex_1" inlet="in"/>
+         <dest obj="table8CH_SD_1" inlet="v0"/>
+         <dest obj="table8CH_SD_2" inlet="v0"/>
+         <dest obj="table8CH_SD_3" inlet="v0"/>
+         <dest obj="table8CH_SD_4" inlet="v0"/>
+         <dest obj="table8CH_SD_5" inlet="v0"/>
+         <dest obj="table8CH_SD_6" inlet="v0"/>
+         <dest obj="table8CH_SD_7" inlet="v0"/>
+         <dest obj="table8CH_SD_8" inlet="v0"/>
+      </net>
+      <net>
+         <source obj="multiwaveMultiChannelADSR_1" outlet="o"/>
+         <dest obj="vca_1" inlet="a"/>
+      </net>
+      <net>
+         <source obj="multiwaveADSR_2" outlet="o"/>
+         <dest obj="vca_2" inlet="a"/>
+      </net>
+      <net>
+         <source obj="multiwaveADSR_4" outlet="o"/>
+         <dest obj="vca_4" inlet="a"/>
+      </net>
+      <net>
+         <source obj="multiwaveADSR_3" outlet="o"/>
+         <dest obj="vca_3" inlet="a"/>
+      </net>
+      <net>
+         <source obj="vca_4" outlet="o"/>
+         <dest obj="mix_8-No_Gain_2" inlet="in4"/>
+      </net>
+      <net>
+         <source obj="vca_3" outlet="o"/>
+         <dest obj="mix_8-No_Gain_2" inlet="in3"/>
+      </net>
+      <net>
+         <source obj="vca_2" outlet="o"/>
+         <dest obj="mix_8-No_Gain_2" inlet="in2"/>
+      </net>
+      <net>
+         <source obj="vca_1" outlet="o"/>
+         <dest obj="mix_8-No_Gain_2" inlet="in1"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="knob_top_5"/>
+         <dest obj="table8CH_SD_1" inlet="v5"/>
+         <dest obj="table8CH_SD_2" inlet="v5"/>
+         <dest obj="table8CH_SD_3" inlet="v5"/>
+         <dest obj="table8CH_SD_4" inlet="v5"/>
+         <dest obj="table8CH_SD_5" inlet="v5"/>
+         <dest obj="table8CH_SD_6" inlet="v5"/>
+         <dest obj="table8CH_SD_7" inlet="v5"/>
+         <dest obj="table8CH_SD_8" inlet="v5"/>
+      </net>
+      <net>
+         <source obj="i_8" outlet="out"/>
+         <dest obj="multiwaveADSR_5" inlet="wave"/>
+      </net>
+      <net>
+         <source obj="table8CH_SD_5" outlet="v4"/>
+         <dest obj="vca_5" inlet="v"/>
+         <dest obj="multiwaveADSR_5" inlet="v"/>
+      </net>
+      <net>
+         <source obj="multiwaveADSR_5" outlet="o"/>
+         <dest obj="vca_5" inlet="a"/>
+      </net>
+      <net>
+         <source obj="vca_5" outlet="o"/>
+         <dest obj="mix_8-No_Gain_2" inlet="in5"/>
+      </net>
+      <net>
+         <source obj="i_9" outlet="out"/>
+         <dest obj="multiwaveADSR_6" inlet="wave"/>
+      </net>
+      <net>
+         <source obj="table8CH_SD_6" outlet="v4"/>
+         <dest obj="vca_6" inlet="v"/>
+         <dest obj="multiwaveADSR_6" inlet="v"/>
+      </net>
+      <net>
+         <source obj="multiwaveADSR_6" outlet="o"/>
+         <dest obj="vca_6" inlet="a"/>
+      </net>
+      <net>
+         <source obj="vca_6" outlet="o"/>
+         <dest obj="mix_8-No_Gain_2" inlet="in6"/>
+      </net>
+      <net>
+         <source obj="i_10" outlet="out"/>
+         <dest obj="multiwaveADSR_7" inlet="wave"/>
+      </net>
+      <net>
+         <source obj="table8CH_SD_7" outlet="v4"/>
+         <dest obj="vca_7" inlet="v"/>
+         <dest obj="multiwaveADSR_7" inlet="v"/>
+      </net>
+      <net>
+         <source obj="multiwaveADSR_7" outlet="o"/>
+         <dest obj="vca_7" inlet="a"/>
+      </net>
+      <net>
+         <source obj="vca_7" outlet="o"/>
+         <dest obj="mix_8-No_Gain_2" inlet="in7"/>
+      </net>
+      <net>
+         <source obj="i_11" outlet="out"/>
+         <dest obj="multiwaveADSR_8" inlet="wave"/>
+      </net>
+      <net>
+         <source obj="table8CH_SD_8" outlet="v4"/>
+         <dest obj="vca_8" inlet="v"/>
+         <dest obj="multiwaveADSR_8" inlet="v"/>
+      </net>
+      <net>
+         <source obj="multiwaveADSR_8" outlet="o"/>
+         <dest obj="vca_8" inlet="a"/>
+      </net>
+      <net>
+         <source obj="vca_8" outlet="o"/>
+         <dest obj="mix_8-No_Gain_2" inlet="in8"/>
+      </net>
+      <net>
+         <source obj="mix_8-No_Gain_2" outlet="out"/>
+         <dest obj="out_1" inlet="left"/>
+         <dest obj="out_1" inlet="right"/>
+      </net>
+      <net>
+         <source obj="table8CH_SD_1" outlet="v0"/>
+         <dest obj="multiwaveMultiChannelADSR_1" inlet="a"/>
+      </net>
+      <net>
+         <source obj="table8CH_SD_1" outlet="v1"/>
+         <dest obj="multiwaveMultiChannelADSR_1" inlet="d"/>
+      </net>
+      <net>
+         <source obj="table8CH_SD_1" outlet="v2"/>
+         <dest obj="multiwaveMultiChannelADSR_1" inlet="s"/>
+      </net>
+      <net>
+         <source obj="table8CH_SD_1" outlet="v3"/>
+         <dest obj="multiwaveMultiChannelADSR_1" inlet="r"/>
+      </net>
+      <net>
+         <source obj="table8CH_SD_1" outlet="v4"/>
+         <dest obj="vca_1" inlet="v"/>
+         <dest obj="multiwaveMultiChannelADSR_1" inlet="v"/>
+      </net>
+      <net>
+         <source obj="table8CH_SD_1" outlet="v5"/>
+         <dest obj="dial_1" inlet="in"/>
+         <dest obj="multiwaveMultiChannelADSR_1" inlet="pitch"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="knob_top_6"/>
+         <dest obj="table8CH_SD_1" inlet="v6"/>
+         <dest obj="table8CH_SD_2" inlet="v6"/>
+         <dest obj="table8CH_SD_3" inlet="v6"/>
+         <dest obj="table8CH_SD_4" inlet="v6"/>
+         <dest obj="table8CH_SD_5" inlet="v6"/>
+         <dest obj="table8CH_SD_6" inlet="v6"/>
+         <dest obj="table8CH_SD_7" inlet="v6"/>
+         <dest obj="table8CH_SD_8" inlet="v6"/>
+      </net>
+      <net>
+         <source obj="table8CH_SD_1" outlet="v6"/>
+         <dest obj="multiwaveMultiChannelADSR_1" inlet="shape"/>
+      </net>
+      <net>
+         <source obj="table8CH_SD_8" outlet="v0"/>
+         <dest obj="multiwaveADSR_8" inlet="a"/>
+      </net>
+      <net>
+         <source obj="table8CH_SD_8" outlet="v1"/>
+         <dest obj="multiwaveADSR_8" inlet="d"/>
+      </net>
+      <net>
+         <source obj="table8CH_SD_8" outlet="v2"/>
+         <dest obj="multiwaveADSR_8" inlet="s"/>
+      </net>
+      <net>
+         <source obj="table8CH_SD_8" outlet="v3"/>
+         <dest obj="multiwaveADSR_8" inlet="r"/>
+      </net>
+      <net>
+         <source obj="table8CH_SD_8" outlet="v5"/>
+         <dest obj="multiwaveADSR_8" inlet="pitch"/>
+      </net>
+      <net>
+         <source obj="table8CH_SD_8" outlet="v6"/>
+         <dest obj="multiwaveADSR_8" inlet="amount"/>
+      </net>
+      <net>
+         <source obj="table8CH_SD_7" outlet="v0"/>
+         <dest obj="multiwaveADSR_7" inlet="a"/>
+      </net>
+      <net>
+         <source obj="table8CH_SD_7" outlet="v1"/>
+         <dest obj="multiwaveADSR_7" inlet="d"/>
+      </net>
+      <net>
+         <source obj="table8CH_SD_7" outlet="v2"/>
+         <dest obj="multiwaveADSR_7" inlet="s"/>
+      </net>
+      <net>
+         <source obj="table8CH_SD_7" outlet="v3"/>
+         <dest obj="multiwaveADSR_7" inlet="r"/>
+      </net>
+      <net>
+         <source obj="table8CH_SD_7" outlet="v5"/>
+         <dest obj="multiwaveADSR_7" inlet="pitch"/>
+      </net>
+      <net>
+         <source obj="table8CH_SD_7" outlet="v6"/>
+         <dest obj="multiwaveADSR_7" inlet="amount"/>
+      </net>
+      <net>
+         <source obj="table8CH_SD_6" outlet="v0"/>
+         <dest obj="multiwaveADSR_6" inlet="a"/>
+      </net>
+      <net>
+         <source obj="table8CH_SD_6" outlet="v1"/>
+         <dest obj="multiwaveADSR_6" inlet="d"/>
+      </net>
+      <net>
+         <source obj="table8CH_SD_6" outlet="v2"/>
+         <dest obj="multiwaveADSR_6" inlet="s"/>
+      </net>
+      <net>
+         <source obj="table8CH_SD_6" outlet="v3"/>
+         <dest obj="multiwaveADSR_6" inlet="r"/>
+      </net>
+      <net>
+         <source obj="table8CH_SD_6" outlet="v5"/>
+         <dest obj="multiwaveADSR_6" inlet="pitch"/>
+      </net>
+      <net>
+         <source obj="table8CH_SD_6" outlet="v6"/>
+         <dest obj="multiwaveADSR_6" inlet="shape"/>
+      </net>
+      <net>
+         <source obj="table8CH_SD_5" outlet="v0"/>
+         <dest obj="multiwaveADSR_5" inlet="a"/>
+      </net>
+      <net>
+         <source obj="table8CH_SD_5" outlet="v1"/>
+         <dest obj="multiwaveADSR_5" inlet="d"/>
+      </net>
+      <net>
+         <source obj="table8CH_SD_5" outlet="v2"/>
+         <dest obj="multiwaveADSR_5" inlet="s"/>
+      </net>
+      <net>
+         <source obj="table8CH_SD_5" outlet="v3"/>
+         <dest obj="multiwaveADSR_5" inlet="r"/>
+      </net>
+      <net>
+         <source obj="table8CH_SD_5" outlet="v5"/>
+         <dest obj="multiwaveADSR_5" inlet="pitch"/>
+      </net>
+      <net>
+         <source obj="table8CH_SD_5" outlet="v6"/>
+         <dest obj="multiwaveADSR_5" inlet="shape"/>
+      </net>
+      <net>
+         <source obj="table8CH_SD_4" outlet="v0"/>
+         <dest obj="multiwaveADSR_4" inlet="a"/>
+      </net>
+      <net>
+         <source obj="table8CH_SD_4" outlet="v1"/>
+         <dest obj="multiwaveADSR_4" inlet="d"/>
+      </net>
+      <net>
+         <source obj="table8CH_SD_4" outlet="v2"/>
+         <dest obj="multiwaveADSR_4" inlet="s"/>
+      </net>
+      <net>
+         <source obj="table8CH_SD_4" outlet="v3"/>
+         <dest obj="multiwaveADSR_4" inlet="r"/>
+      </net>
+      <net>
+         <source obj="table8CH_SD_4" outlet="v5"/>
+         <dest obj="multiwaveADSR_4" inlet="pitch"/>
+      </net>
+      <net>
+         <source obj="table8CH_SD_4" outlet="v6"/>
+         <dest obj="multiwaveADSR_4" inlet="shape"/>
+      </net>
+      <net>
+         <source obj="table8CH_SD_3" outlet="v0"/>
+         <dest obj="multiwaveADSR_3" inlet="a"/>
+      </net>
+      <net>
+         <source obj="table8CH_SD_3" outlet="v1"/>
+         <dest obj="multiwaveADSR_3" inlet="d"/>
+      </net>
+      <net>
+         <source obj="table8CH_SD_3" outlet="v2"/>
+         <dest obj="multiwaveADSR_3" inlet="s"/>
+      </net>
+      <net>
+         <source obj="table8CH_SD_3" outlet="v3"/>
+         <dest obj="multiwaveADSR_3" inlet="r"/>
+      </net>
+      <net>
+         <source obj="table8CH_SD_3" outlet="v5"/>
+         <dest obj="multiwaveADSR_3" inlet="pitch"/>
+      </net>
+      <net>
+         <source obj="table8CH_SD_3" outlet="v6"/>
+         <dest obj="multiwaveADSR_3" inlet="amount"/>
+      </net>
+      <net>
+         <source obj="table8CH_SD_2" outlet="v0"/>
+         <dest obj="multiwaveADSR_2" inlet="a"/>
+      </net>
+      <net>
+         <source obj="table8CH_SD_2" outlet="v1"/>
+         <dest obj="multiwaveADSR_2" inlet="d"/>
+      </net>
+      <net>
+         <source obj="table8CH_SD_2" outlet="v2"/>
+         <dest obj="multiwaveADSR_2" inlet="s"/>
+      </net>
+      <net>
+         <source obj="table8CH_SD_2" outlet="v3"/>
+         <dest obj="multiwaveADSR_2" inlet="r"/>
+      </net>
+      <net>
+         <source obj="table8CH_SD_2" outlet="v5"/>
+         <dest obj="multiwaveADSR_2" inlet="pitch"/>
+      </net>
+      <net>
+         <source obj="table8CH_SD_2" outlet="v6"/>
+         <dest obj="multiwaveADSR_2" inlet="amount"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="knob_top_7"/>
+         <dest obj="table8CH_SD_1" inlet="v7"/>
+      </net>
+      <net>
+         <source obj="table8CH_SD_1" outlet="v7"/>
+         <dest obj="multiwaveMultiChannelADSR_1" inlet="amount"/>
+      </net>
+   </nets>
+   <settings>
+      <subpatchmode>no</subpatchmode>
+   </settings>
+   <notes><![CDATA[]]></notes>
+   <windowPos>
+      <x>-1928</x>
+      <y>-91</y>
+      <width>1723</width>
+      <height>976</height>
+   </windowPos>
+</patch-1.0>

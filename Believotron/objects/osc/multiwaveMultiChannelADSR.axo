@@ -37,12 +37,13 @@ Removed phase reset
 // Consolidating single instance to 16 out.
 struct OscParams
 {
-    uint32_t pitch;    // External input
-    uint32_t freqMod;  // External input, added to the instantanious freq
-    uint32_t freqInst; // Class variable, instantanious frequency
-    uint32_t shape;    // shape  of the waveform
-    uint32_t amount;   // amount of the waveform
-    uint32_t shapeMount; // extra glue variable
+    uint32_t pitch;       // External input
+    uint32_t freqMod;     // External input, added to the instantanious freq
+    uint32_t freqInst;    // Class variable, instantanious frequency
+    uint32_t shape;       // shape  of the waveform
+    uint32_t amount;      // amount of the waveform
+    uint32_t shapeMount;  // extra glue variable
+    uint8_t  waveformNum; // Integer selected waveform
 };
 
 OscParams oscParams[16];
@@ -110,8 +111,7 @@ oscParams[uiOscChan].amount = UNI2BIPOLAR(inlet_amount);
 oscParams[uiOscChan].shape  = UNI2BIPOLAR(inlet_shape );
 oscParams[uiOscChan].shapeMount = __USAT( ( ___SMMUL(oscParams[uiOscChan].amount, oscParams[uiOscChan].shape)<<1), 27 );
 
-int32_t waveform;
-waveform = ((inlet_wave))%4;
+oscParams[uiOscChan].waveformNum = ((inlet_wave))%4;
 
 // ADSR Stuff
 if ( (inlet_gate>0) && !ntrig) { stage = 1; ntrig = 1;}
@@ -184,7 +184,7 @@ prev2 = inlet_v;
 
 
 /* calculate waveforms based on phasor value */
-switch (waveform)
+switch (oscParams[uiOscChan].waveformNum)
 {
 	case sin:
 		/* phasor to sine */
@@ -216,7 +216,7 @@ switch (waveform)
 		break;
 }
 
-int iFake = 4;
+int iFake = 16;
 
 /*
 temp =  ___SMMUL(osc_out,i)<<5;

@@ -360,11 +360,6 @@
          <dest obj="multiwaveMultiChannelADSR_1" inlet="wave"/>
       </net>
       <net>
-         <source obj="obj_1" outlet="parasailing"/>
-         <dest obj="selectChan16_1" inlet="b00"/>
-         <dest obj="multiwaveMultiChannelADSR_1" inlet="gate"/>
-      </net>
-      <net>
          <source obj="obj_1" outlet="hiking"/>
          <dest obj="table8CH_SD_1" inlet="trigLoadSD"/>
          <dest obj="table8CH_SD_2" inlet="trigLoadSD"/>
@@ -838,6 +833,10 @@
       <net>
          <source obj="table8CH_SD_1" outlet="v7"/>
          <dest obj="multiwaveMultiChannelADSR_1" inlet="amount"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="parasailing"/>
+         <dest obj="multiwaveMultiChannelADSR_1" inlet="gate0"/>
       </net>
    </nets>
    <settings>

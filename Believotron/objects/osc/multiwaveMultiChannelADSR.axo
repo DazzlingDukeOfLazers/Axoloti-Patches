@@ -49,11 +49,12 @@ struct OscParams
     uint32_t sustain;     // Sustain amount
     uint32_t release;     // Release
     uint32_t volume;      // Volume
+    int32_t  oscOut;     // Output oscillator value
 };
 
 OscParams oscParams[16];
 
-int32_t osc_out;
+
 
 // Osc stuff
 static uint8_t const sin = 0;
@@ -84,7 +85,7 @@ int32_t temp;
 <code.init><![CDATA[// Glue
 // Init code
 
-osc_out = 0;
+for (int i=0; i<16; i++) { oscParams[i].oscOut = 0; }
 
 // Osc init
 phase = 0;
@@ -179,6 +180,8 @@ prev2 = oscParams[uiOscChan].volume;
 
 
     oscParams[uiOscChan].freqMod = inlet_freqMod; // temp dev-glue
+
+
 	phase += (oscParams[uiOscChan].freqInst>>0) + oscParams[uiOscChan].freqMod;
 	/* if new phasor value is smaller then last one -> increment phaseCounter */
 	a = phase>>5;
@@ -198,7 +201,7 @@ switch (oscParams[uiOscChan].waveformNum)
 	case sin:
 		/* phasor to sine */
 		SINE2TINTERP(phasor<<5,a) /* calculate sine wave via function */
-		osc_out = (a>>4);
+        oscParams[uiOscChan].oscOut = (a>>4);
 		break;
 
 	case tri:
@@ -209,33 +212,25 @@ switch (oscParams[uiOscChan].waveformNum)
 		a = (a-(1<<26))<<1; /* unipolar to bipolar */
 		b = 0x07FFFFFF-(oscParams[uiOscChan].shapeMount/10*8);
 		a = (a>b || a<-b)? -a+((a>0)?2:-2)*b:a; /* param_shape threshold for wavefolding */
-		osc_out = a;
+		oscParams[uiOscChan].oscOut = a;
 		break;
 
 	case saw:
 		/* phasor to saw */
 		b = (phasor>0x07FFFFFF/2)? phasor-0x07FFFFFF/2:phasor+0x07FFFFFF/2; /* phase shift to correct wave startpoint*/
 		a = (b-(1<<26))<<1; /* phasor to sawUp (bipolar) */
-		osc_out = (phaseCounter==1 && (phasor>0x07FFFFFF/2-oscParams[uiOscChan].shapeMount/2 && phasor<0x07FFFFFF/2+oscParams[uiOscChan].shapeMount/2))? -a:a;
+		oscParams[uiOscChan].oscOut = (phaseCounter==1 && (phasor>0x07FFFFFF/2-oscParams[uiOscChan].shapeMount/2 && phasor<0x07FFFFFF/2+oscParams[uiOscChan].shapeMount/2))? -a:a;
 		break;
 
 	case pwm:
 		/* phasor to pulse width */
-		osc_out = (phasor>=0x07FFFFFF/2+oscParams[uiOscChan].shapeMount/2)? -0x08000000:0x07FFFFFF; /* pulse width depending on shape value*/
+		oscParams[uiOscChan].oscOut = (phasor>=0x07FFFFFF/2+oscParams[uiOscChan].shapeMount/2)? -0x08000000:0x07FFFFFF; /* pulse width depending on shape value*/
 		break;
 }
 
-int iFake = 16;
+int iFake = 32;
 
-/*
-temp =  ___SMMUL(osc_out,i)<<5;
-i += step;
-
-outlet_o =  ___SMMUL(temp,i2)<<5;
-i2 += step2;
-*/
-
-outlet_o =  ___SMMUL(osc_out,i)<<5;
+outlet_o =  ___SMMUL(oscParams[uiOscChan].oscOut,i)<<5;
 i += step;
 ]]></code.srate>
    </obj.normal>

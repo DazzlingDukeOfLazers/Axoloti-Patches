@@ -22,7 +22,7 @@ Removed phase reset
          <frac32.positive name="s" description="Sustain"/>
          <frac32.positive name="r" description="Release"/>
          <frac32 name="v" description="Volume"/>
-         <bool32.risingfalling name="gate" description="Gate"/>
+         <bool32.risingfalling name="gate0" description="Gate"/>
       </inlets>
       <outlets>
          <frac32buffer name="o"/>
@@ -48,6 +48,7 @@ struct OscParams
     uint32_t decay;       // Decay amount
     uint32_t sustain;     // Sustain amount
     uint32_t release;     // Release
+    uint32_t volume;      // Volume
 };
 
 OscParams oscParams[16];
@@ -118,8 +119,8 @@ oscParams[uiOscChan].shapeMount = __USAT( ( ___SMMUL(oscParams[uiOscChan].amount
 oscParams[uiOscChan].waveformNum = ((inlet_wave))%4;
 
 // ADSR Stuff
-if ( (inlet_gate>0) && !ntrig) { stage = 1; ntrig = 1;}
-if (!(inlet_gate>0) &&  ntrig) { stage = 0; ntrig = 0;}
+if ( (inlet_gate0>0) && !ntrig) { stage = 1; ntrig = 1;}
+if (!(inlet_gate0>0) &&  ntrig) { stage = 0; ntrig = 0;}
 #define UNI2BIPOLAR(a) ((a -(1<<26) ) << 1)
 
 
@@ -166,9 +167,10 @@ step = (env - prev)>>4;
 int32_t i = prev;
 prev = env;
 
-step2 = (inlet_v - prev2)>>4;
+oscParams[uiOscChan].volume = inlet_v;
+step2 = (oscParams[uiOscChan].volume - prev2)>>4;
 int32_t i2 = prev2;
-prev2 = inlet_v;
+prev2 = oscParams[uiOscChan].volume;
 
 ]]></code.krate>
 <code.srate><![CDATA[/* reset phase if retriggered */

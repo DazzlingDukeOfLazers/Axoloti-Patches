@@ -63,7 +63,7 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="table/table8CH_SD" uuid="b63e44c0-705f-4b46-bc43-7deac444bd05" name="table8CH_SD_1" x="980" y="406">
+   <obj type="table/table8CH_SD_dev" uuid="aaba8316-2400-4f77-93e8-73957c28e82c" name="table8CH_SD_dev_1" x="980" y="406">
       <params/>
       <attribs>
          <objref attributeName="table" obj="tableFoo"/>
@@ -305,7 +305,6 @@
       </net>
       <net>
          <source obj="obj_1" outlet="knob_top_1"/>
-         <dest obj="table8CH_SD_1" inlet="v1"/>
          <dest obj="table8CH_SD_2" inlet="v1"/>
          <dest obj="table8CH_SD_3" inlet="v1"/>
          <dest obj="table8CH_SD_4" inlet="v1"/>
@@ -313,10 +312,10 @@
          <dest obj="table8CH_SD_6" inlet="v1"/>
          <dest obj="table8CH_SD_7" inlet="v1"/>
          <dest obj="table8CH_SD_8" inlet="v1"/>
+         <dest obj="table8CH_SD_dev_1" inlet="v1"/>
       </net>
       <net>
          <source obj="obj_1" outlet="knob_top_2"/>
-         <dest obj="table8CH_SD_1" inlet="v2"/>
          <dest obj="table8CH_SD_2" inlet="v2"/>
          <dest obj="table8CH_SD_3" inlet="v2"/>
          <dest obj="table8CH_SD_4" inlet="v2"/>
@@ -324,10 +323,10 @@
          <dest obj="table8CH_SD_6" inlet="v2"/>
          <dest obj="table8CH_SD_7" inlet="v2"/>
          <dest obj="table8CH_SD_8" inlet="v2"/>
+         <dest obj="table8CH_SD_dev_1" inlet="v2"/>
       </net>
       <net>
          <source obj="obj_1" outlet="knob_top_3"/>
-         <dest obj="table8CH_SD_1" inlet="v3"/>
          <dest obj="table8CH_SD_2" inlet="v3"/>
          <dest obj="table8CH_SD_3" inlet="v3"/>
          <dest obj="table8CH_SD_4" inlet="v3"/>
@@ -335,10 +334,10 @@
          <dest obj="table8CH_SD_6" inlet="v3"/>
          <dest obj="table8CH_SD_7" inlet="v3"/>
          <dest obj="table8CH_SD_8" inlet="v3"/>
+         <dest obj="table8CH_SD_dev_1" inlet="v3"/>
       </net>
       <net>
          <source obj="obj_1" outlet="knob_top_4"/>
-         <dest obj="table8CH_SD_1" inlet="v4"/>
          <dest obj="table8CH_SD_2" inlet="v4"/>
          <dest obj="table8CH_SD_3" inlet="v4"/>
          <dest obj="table8CH_SD_4" inlet="v4"/>
@@ -346,6 +345,7 @@
          <dest obj="table8CH_SD_6" inlet="v4"/>
          <dest obj="table8CH_SD_7" inlet="v4"/>
          <dest obj="table8CH_SD_8" inlet="v4"/>
+         <dest obj="table8CH_SD_dev_1" inlet="v4"/>
       </net>
       <net>
          <source obj="i_2" outlet="out"/>
@@ -361,7 +361,6 @@
       </net>
       <net>
          <source obj="obj_1" outlet="hiking"/>
-         <dest obj="table8CH_SD_1" inlet="trigLoadSD"/>
          <dest obj="table8CH_SD_2" inlet="trigLoadSD"/>
          <dest obj="table8CH_SD_3" inlet="trigLoadSD"/>
          <dest obj="table8CH_SD_4" inlet="trigLoadSD"/>
@@ -369,10 +368,10 @@
          <dest obj="table8CH_SD_6" inlet="trigLoadSD"/>
          <dest obj="table8CH_SD_7" inlet="trigLoadSD"/>
          <dest obj="table8CH_SD_8" inlet="trigLoadSD"/>
+         <dest obj="table8CH_SD_dev_1" inlet="trigLoadSD"/>
       </net>
       <net>
          <source obj="obj_1" outlet="horsebackriding"/>
-         <dest obj="table8CH_SD_1" inlet="trigSaveSD"/>
          <dest obj="table8CH_SD_2" inlet="trigSaveSD"/>
          <dest obj="table8CH_SD_3" inlet="trigSaveSD"/>
          <dest obj="table8CH_SD_4" inlet="trigSaveSD"/>
@@ -380,10 +379,10 @@
          <dest obj="table8CH_SD_6" inlet="trigSaveSD"/>
          <dest obj="table8CH_SD_7" inlet="trigSaveSD"/>
          <dest obj="table8CH_SD_8" inlet="trigSaveSD"/>
+         <dest obj="table8CH_SD_dev_1" inlet="trigSaveSD"/>
       </net>
       <net>
          <source obj="tempPage" outlet="out"/>
-         <dest obj="table8CH_SD_1" inlet="page"/>
          <dest obj="table8CH_SD_2" inlet="page"/>
          <dest obj="table8CH_SD_3" inlet="page"/>
          <dest obj="table8CH_SD_4" inlet="page"/>
@@ -391,6 +390,7 @@
          <dest obj="table8CH_SD_6" inlet="page"/>
          <dest obj="table8CH_SD_7" inlet="page"/>
          <dest obj="table8CH_SD_8" inlet="page"/>
+         <dest obj="table8CH_SD_dev_1" inlet="page"/>
       </net>
       <net>
          <source obj="i_4" outlet="out"/>
@@ -462,7 +462,6 @@
       </net>
       <net>
          <source obj="selectChan16_1" outlet="out"/>
-         <dest obj="table8CH_SD_1" inlet="activeChannel"/>
          <dest obj="table8CH_SD_2" inlet="activeChannel"/>
          <dest obj="table8CH_SD_3" inlet="activeChannel"/>
          <dest obj="table8CH_SD_4" inlet="activeChannel"/>
@@ -470,6 +469,7 @@
          <dest obj="table8CH_SD_6" inlet="activeChannel"/>
          <dest obj="table8CH_SD_7" inlet="activeChannel"/>
          <dest obj="table8CH_SD_8" inlet="activeChannel"/>
+         <dest obj="table8CH_SD_dev_1" inlet="activeChannel"/>
       </net>
       <net>
          <source obj="i_6" outlet="out"/>
@@ -492,7 +492,6 @@
       <net>
          <source obj="obj_1" outlet="knob_top_0"/>
          <dest obj="hex_1" inlet="in"/>
-         <dest obj="table8CH_SD_1" inlet="v0"/>
          <dest obj="table8CH_SD_2" inlet="v0"/>
          <dest obj="table8CH_SD_3" inlet="v0"/>
          <dest obj="table8CH_SD_4" inlet="v0"/>
@@ -500,6 +499,7 @@
          <dest obj="table8CH_SD_6" inlet="v0"/>
          <dest obj="table8CH_SD_7" inlet="v0"/>
          <dest obj="table8CH_SD_8" inlet="v0"/>
+         <dest obj="table8CH_SD_dev_1" inlet="v0"/>
       </net>
       <net>
          <source obj="multiwaveMultiChannelADSR_1" outlet="o"/>
@@ -535,7 +535,6 @@
       </net>
       <net>
          <source obj="obj_1" outlet="knob_top_5"/>
-         <dest obj="table8CH_SD_1" inlet="v5"/>
          <dest obj="table8CH_SD_2" inlet="v5"/>
          <dest obj="table8CH_SD_3" inlet="v5"/>
          <dest obj="table8CH_SD_4" inlet="v5"/>
@@ -543,6 +542,7 @@
          <dest obj="table8CH_SD_6" inlet="v5"/>
          <dest obj="table8CH_SD_7" inlet="v5"/>
          <dest obj="table8CH_SD_8" inlet="v5"/>
+         <dest obj="table8CH_SD_dev_1" inlet="v5"/>
       </net>
       <net>
          <source obj="i_8" outlet="out"/>
@@ -618,34 +618,33 @@
          <dest obj="out_1" inlet="right"/>
       </net>
       <net>
-         <source obj="table8CH_SD_1" outlet="v0"/>
+         <source obj="table8CH_SD_dev_1" outlet="v0"/>
          <dest obj="multiwaveMultiChannelADSR_1" inlet="a"/>
       </net>
       <net>
-         <source obj="table8CH_SD_1" outlet="v1"/>
+         <source obj="table8CH_SD_dev_1" outlet="v1"/>
          <dest obj="multiwaveMultiChannelADSR_1" inlet="d"/>
       </net>
       <net>
-         <source obj="table8CH_SD_1" outlet="v2"/>
+         <source obj="table8CH_SD_dev_1" outlet="v2"/>
          <dest obj="multiwaveMultiChannelADSR_1" inlet="s"/>
       </net>
       <net>
-         <source obj="table8CH_SD_1" outlet="v3"/>
+         <source obj="table8CH_SD_dev_1" outlet="v3"/>
          <dest obj="multiwaveMultiChannelADSR_1" inlet="r"/>
       </net>
       <net>
-         <source obj="table8CH_SD_1" outlet="v4"/>
+         <source obj="table8CH_SD_dev_1" outlet="v4"/>
          <dest obj="vca_1" inlet="v"/>
          <dest obj="multiwaveMultiChannelADSR_1" inlet="v"/>
       </net>
       <net>
-         <source obj="table8CH_SD_1" outlet="v5"/>
+         <source obj="table8CH_SD_dev_1" outlet="v5"/>
          <dest obj="dial_1" inlet="in"/>
          <dest obj="multiwaveMultiChannelADSR_1" inlet="pitch"/>
       </net>
       <net>
          <source obj="obj_1" outlet="knob_top_6"/>
-         <dest obj="table8CH_SD_1" inlet="v6"/>
          <dest obj="table8CH_SD_2" inlet="v6"/>
          <dest obj="table8CH_SD_3" inlet="v6"/>
          <dest obj="table8CH_SD_4" inlet="v6"/>
@@ -653,9 +652,10 @@
          <dest obj="table8CH_SD_6" inlet="v6"/>
          <dest obj="table8CH_SD_7" inlet="v6"/>
          <dest obj="table8CH_SD_8" inlet="v6"/>
+         <dest obj="table8CH_SD_dev_1" inlet="v6"/>
       </net>
       <net>
-         <source obj="table8CH_SD_1" outlet="v6"/>
+         <source obj="table8CH_SD_dev_1" outlet="v6"/>
          <dest obj="multiwaveMultiChannelADSR_1" inlet="shape"/>
       </net>
       <net>
@@ -828,10 +828,10 @@
       </net>
       <net>
          <source obj="obj_1" outlet="knob_top_7"/>
-         <dest obj="table8CH_SD_1" inlet="v7"/>
+         <dest obj="table8CH_SD_dev_1" inlet="v7"/>
       </net>
       <net>
-         <source obj="table8CH_SD_1" outlet="v7"/>
+         <source obj="table8CH_SD_dev_1" outlet="v7"/>
          <dest obj="multiwaveMultiChannelADSR_1" inlet="amount"/>
       </net>
       <net>

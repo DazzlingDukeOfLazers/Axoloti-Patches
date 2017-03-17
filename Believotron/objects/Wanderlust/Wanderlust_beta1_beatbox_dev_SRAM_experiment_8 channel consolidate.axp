@@ -48,7 +48,7 @@
    <obj type="table/alloc 16b sdram" uuid="6d8eb0fd68f404cb5d14e7d4c8c146c8ccf09da1" name="tableFoo" x="980" y="322">
       <params/>
       <attribs>
-         <combo attributeName="size" selection="8"/>
+         <combo attributeName="size" selection="64"/>
          <text attributeName="init">
             <sText><![CDATA[]]></sText>
          </text>

@@ -158,7 +158,7 @@ if (1)
 		// reset the previous state to the current input
         for(int iChan=0; iChan < NUM_INPUT_CHANNELS; iChan++)
         {
-                tSD[iOscGroup].prev[iChan] = inVal[Chan];
+            tSD[iOscGroup].prev[iChan] = inVal[iChan];
         }
 	}
 	else
@@ -168,7 +168,8 @@ if (1)
             // Only triggers if knob is different after first loop // TBD should add a guardband macro
             if (inVal[iChan] != tSD[iOscGroup].prev[iChan])
             {
-                attr_table.array[inlet_offset + iChan] = __SSAT(inVal[iChan],28) >> attr_table.GAIN;
+                // iOscGroup << 3 == iOscGroup * 8, bc 8 channels
+                attr_table.array[iChan + (iOscGroup << 3)] = __SSAT(inVal[iChan],28) >> attr_table.GAIN;
             }
         }
 	}
@@ -179,9 +180,6 @@ else // not the active channel
 	tSD[iOscGroup].bActive = false;
 }
 
-
-// Filename / SD save/load
-// Table Save to SD
 // Table Save to SD
 if ((inlet_trigSaveSD>0) && !ntrigSave)
 {
@@ -195,7 +193,7 @@ if ((inlet_trigSaveSD>0) && !ntrigSave)
 	   c[offset]   = '0'+i-10*i0;
 
 	   // Add the Index # to the filename string
-	   i = attr_ChannelID + inlet_offset ; i0 = i/10;
+	   i = 0 ; i0 = i/10;
 	   c[offset2+2] = '0'+i-10*i0;
 	   i = i0; i0 = i/10;
 	   c[offset2+1] = '0'+i-10*i0;
@@ -240,7 +238,7 @@ if ((inlet_trigLoadSD>0) && !ntrigLoad)
 	   c[offset]   = '0'+i-10*i0;
 
 	   // Add the Index # to the filename string
-	   i = attr_ChannelID + inlet_offset; i0 = i/10;
+	   i = 0; i0 = i/10;
 	   c[offset2+2] = '0'+i-10*i0;
 	   i = i0; i0 = i/10;
 	   c[offset2+1] = '0'+i-10*i0;
@@ -271,19 +269,22 @@ if ((inlet_trigLoadSD>0) && !ntrigLoad)
     err = f_close(&FileObject);
     if (err != FR_OK) { report_fatfs_error(err,c); return;}; // tbd rename c to filename
 
- 	bChannelActive = 0; // reset the active channel guard
+    for (int iOscGroup=0; iOscGroup<NUM_OSC_GROUPS; iOscGroup++)
+    {
+        tSD[iOscGroup].bActive = false;
+    }
  }
  else if (!(inlet_trigLoadSD>0)) ntrigLoad=0;
 
 // Output whatever is in the table array
-outlet_v0= attr_table.array[__USAT((inlet_offset + 0),attr_table.LENGTHPOW)]<<attr_table.GAIN;
-outlet_v1= attr_table.array[__USAT((inlet_offset + 1),attr_table.LENGTHPOW)]<<attr_table.GAIN;
-outlet_v2= attr_table.array[__USAT((inlet_offset + 2),attr_table.LENGTHPOW)]<<attr_table.GAIN;
-outlet_v3= attr_table.array[__USAT((inlet_offset + 3),attr_table.LENGTHPOW)]<<attr_table.GAIN;
-outlet_v4= attr_table.array[__USAT((inlet_offset + 4),attr_table.LENGTHPOW)]<<attr_table.GAIN;
-outlet_v5= attr_table.array[__USAT((inlet_offset + 5),attr_table.LENGTHPOW)]<<attr_table.GAIN;
-outlet_v6= attr_table.array[__USAT((inlet_offset + 6),attr_table.LENGTHPOW)]<<attr_table.GAIN;
-outlet_v7= attr_table.array[__USAT((inlet_offset + 7),attr_table.LENGTHPOW)]<<attr_table.GAIN;
+outlet_v0= attr_table.array[__USAT(0,attr_table.LENGTHPOW)]<<attr_table.GAIN;
+outlet_v1= attr_table.array[__USAT(1,attr_table.LENGTHPOW)]<<attr_table.GAIN;
+outlet_v2= attr_table.array[__USAT(2,attr_table.LENGTHPOW)]<<attr_table.GAIN;
+outlet_v3= attr_table.array[__USAT(3,attr_table.LENGTHPOW)]<<attr_table.GAIN;
+outlet_v4= attr_table.array[__USAT(4,attr_table.LENGTHPOW)]<<attr_table.GAIN;
+outlet_v5= attr_table.array[__USAT(5,attr_table.LENGTHPOW)]<<attr_table.GAIN;
+outlet_v6= attr_table.array[__USAT(6,attr_table.LENGTHPOW)]<<attr_table.GAIN;
+outlet_v7= attr_table.array[__USAT(7,attr_table.LENGTHPOW)]<<attr_table.GAIN;
 
 // </table 8>]]></code.krate>
    </obj.normal>

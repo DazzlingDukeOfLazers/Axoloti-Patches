@@ -80,7 +80,7 @@
    </obj>
    <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_3" x="1176" y="504">
       <params>
-         <int32 name="value" value="1"/>
+         <int32 name="value" value="0"/>
       </params>
       <attribs/>
    </obj>

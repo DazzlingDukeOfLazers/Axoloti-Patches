@@ -18,7 +18,6 @@ Added Save / load from SD card</sDescription>
          <frac32 name="v6"/>
          <frac32 name="v7"/>
          <int32 name="offset" description="sets an offset for writing to the table"/>
-         <int32 name="activeChannel"/>
          <int32 name="page" description="Page select"/>
          <bool32.rising name="trigSaveSD" description="Save to the SD Card"/>
          <bool32.rising name="trigLoadSD" description="Load from the SD Card"/>
@@ -67,68 +66,53 @@ Added Save / load from SD card</sDescription>
 // Declaration -----------------------------------------------------------------
 
 // Table 8 stuff
-struct Table8CH_SD
-{
-    uint32_t prev[8];
-    // Stale value guard
-    uint8_t bActive;
-};
-#define NUM_INPUT_CHANNELS 8
-Table8CH_SD tSD[NUM_INPUT_CHANNELS];
+    struct Table8CH_SD
+    {
+        uint32_t prev[8];
+        // Stale value guard
+        uint8_t bActive;
+    };
+    #define NUM_INPUT_CHANNELS 8
+    Table8CH_SD tSD[NUM_INPUT_CHANNELS];
 
-
-uint8_t prevActiveChannel;
-
-
-
-
-    // tableReadWriteIndexPage
-	// Table Stuff
-	int ntrig, ptrig, pval, channelTrig;
-	int pIndex;
+// tableReadWriteIndexPage
+// Table Stuff
 	int ntrigSave, ntrigLoad;
-	int outletVal;
-
 
 	// string/doubleIndex Stuff
-	char c[64];
-	int offset;
-	int offset2;
-	int pvalIndex, pvalPage;
+	char cFileName[64];
+	int fn_offset_1;
+	int fn_offset_2;
+
 ]]></code.declaration>
   <code.init><![CDATA[
 // Init Code ------------------------------------------------------------------
 
-#define NUM_OSC_GROUPS 1
-  // Table 8
-  for (int iOscGroup=0; iOscGroup<NUM_OSC_GROUPS; iOscGroup++)
-  {
-      for (int iChan=0; iChan< NUM_INPUT_CHANNELS; iChan++)
-      {
+
+// Table 8
+    #define NUM_OSC_GROUPS 1
+    // Wipe tSD clean
+    for (int iOscGroup=0; iOscGroup<NUM_OSC_GROUPS; iOscGroup++)
+    {
+        for (int iChan=0; iChan< NUM_INPUT_CHANNELS; iChan++)
+        {
           tSD[iOscGroup].prev[iChan] = 0;
-      }
-      // Stale value guard
+        }
+        // Stale value guard
         tSD[iOscGroup].bActive = false;
-  }
+    }
 
 // tableReadWriteIndexPage
 	// Init tableReadWrite
-	ntrig = 0;
-	ptrig = 0;
-	pval = 0;
-	pIndex=0;
 	ntrigSave=0;
 	ntrigLoad=0;
-	channelTrig=0;
-	outletVal=0;
 
-	// Init string/doubleIndex
-	//strcpy(&c[0],"attr_prefix00-000attr_suffix");
-	strcpy(&c[0],"beatBox_00-000.mod");
-	offset    = strlen("beatBox_");
-	offset2   = offset + 3; // Added extra two digits and a dash
-	pvalIndex = 0;
-	pvalPage  = 0;
+// Init string/doubleIndex
+	//strcpy(&cFileName[0],"attr_prefix00-000attr_suffix");
+	strcpy(&cFileName[0],"beatBox_00-000.mod");
+	fn_offset_1    = strlen("beatBox_");
+	fn_offset_2   = fn_offset_1 + 3; // Added extra two digits and a dash
+
 
 ]]></code.init>
       <code.krate><![CDATA[// Table 8
@@ -188,26 +172,26 @@ if ((inlet_trigSaveSD>0) && !ntrigSave)
 	{
 	   // Add the Page # to the filename string
 	   int i = inlet_page; int i0 = i/10;
-	   c[offset+1] = '0'+i-10*i0;
+	   cFileName[fn_offset_1+1] = '0'+i-10*i0;
 	   i = i0; i0 = i/10;
-	   c[offset]   = '0'+i-10*i0;
+	   cFileName[fn_offset_1]   = '0'+i-10*i0;
 
 	   // Add the Index # to the filename string
 	   i = 0 ; i0 = i/10;
-	   c[offset2+2] = '0'+i-10*i0;
+	   cFileName[fn_offset_2+2] = '0'+i-10*i0;
 	   i = i0; i0 = i/10;
-	   c[offset2+1] = '0'+i-10*i0;
+	   cFileName[fn_offset_2+1] = '0'+i-10*i0;
 	   i = i0; i0 = i/10;
-	   c[offset2+0] = '0'+i-10*i0;
+	   cFileName[fn_offset_2+0] = '0'+i-10*i0;
 	}
     FIL FileObject;
     FRESULT err;
     UINT bytes_written;
     codec_clearbuffer();
-    err = f_open(&FileObject, c, FA_WRITE | FA_CREATE_ALWAYS); // tbd rename c to filename
-    if (err != FR_OK) {report_fatfs_error(err, c); return;} // tbd rename c to filename
+    err = f_open(&FileObject, cFileName, FA_WRITE | FA_CREATE_ALWAYS);
+    if (err != FR_OK) {report_fatfs_error(err, cFileName); return;}
     int rem_sz = sizeof(*attr_table.array)*attr_table.LENGTH;
-    int offset = 0;
+    int offset = 0; // TBD Offset not connected
     while (rem_sz>0) {
       if (rem_sz>sizeof(fbuff)) {
         memcpy((char *)fbuff,(char *)(&attr_table.array[0]) + offset, sizeof(fbuff));
@@ -219,9 +203,9 @@ if ((inlet_trigSaveSD>0) && !ntrigSave)
         err = f_write(&FileObject, fbuff, rem_sz, &bytes_written);
         rem_sz = 0;
       }
-    }    if (err != FR_OK) report_fatfs_error(err,c); // tbd rename c to filename
+    }    if (err != FR_OK) report_fatfs_error(err,cFileName);
     err = f_close(&FileObject);
-    if (err != FR_OK) report_fatfs_error(err,c); // tbd rename c to filename
+    if (err != FR_OK) report_fatfs_error(err,cFileName);
 }
 else if (!(inlet_trigSaveSD>0)) ntrigSave=0;
 
@@ -233,26 +217,26 @@ if ((inlet_trigLoadSD>0) && !ntrigLoad)
 	{
 	   // Add the Page # to the filename string
 	   int i = inlet_page; int i0 = i/10;
-	   c[offset+1] = '0'+i-10*i0;
+	   cFileName[fn_offset_1+1] = '0'+i-10*i0;
 	   i = i0; i0 = i/10;
-	   c[offset]   = '0'+i-10*i0;
+	   cFileName[fn_offset_1]   = '0'+i-10*i0;
 
 	   // Add the Index # to the filename string
 	   i = 0; i0 = i/10;
-	   c[offset2+2] = '0'+i-10*i0;
+	   cFileName[fn_offset_2+2] = '0'+i-10*i0;
 	   i = i0; i0 = i/10;
-	   c[offset2+1] = '0'+i-10*i0;
+	   cFileName[fn_offset_2+1] = '0'+i-10*i0;
 	   i = i0; i0 = i/10;
-	   c[offset2+0] = '0'+i-10*i0;
+	   cFileName[fn_offset_2+0] = '0'+i-10*i0;
 	}
     FIL FileObject;
     FRESULT err;
     UINT bytes_read;
     codec_clearbuffer();
-    err = f_open(&FileObject, c, FA_READ | FA_OPEN_EXISTING); // tbd rename c to filename
-    if (err != FR_OK) { report_fatfs_error(err,c); return;} // tbd rename c to filename
+    err = f_open(&FileObject, cFileName, FA_READ | FA_OPEN_EXISTING);
+    if (err != FR_OK) { report_fatfs_error(err,cFileName); return;}
     int rem_sz = sizeof(*attr_table.array)*attr_table.LENGTH;
-    int offset = 0;
+    int offset = 0; // TBD offset not connected
     while (rem_sz>0) {
       if (rem_sz>sizeof(fbuff)) {
         err = f_read(&FileObject, fbuff, sizeof(fbuff),&bytes_read);
@@ -265,9 +249,9 @@ if ((inlet_trigLoadSD>0) && !ntrigLoad)
         memcpy((char *)(&attr_table.array[0]) + offset,(char *)fbuff,bytes_read);
         rem_sz = 0;
       }
-    }    if (err != FR_OK) { report_fatfs_error(err,c); return;}; // tbd rename c to filename
+    }    if (err != FR_OK) { report_fatfs_error(err,cFileName); return;};
     err = f_close(&FileObject);
-    if (err != FR_OK) { report_fatfs_error(err,c); return;}; // tbd rename c to filename
+    if (err != FR_OK) { report_fatfs_error(err,cFileName); return;};
 
     for (int iOscGroup=0; iOscGroup<NUM_OSC_GROUPS; iOscGroup++)
     {

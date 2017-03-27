@@ -283,7 +283,6 @@ Removed phase reset
 
     for (int iOscGroup=0; iOscGroup<NUM_OSC_GROUPS; iOscGroup++)
     {
-
         uint32_t inVal[8];
 
         // If this OscGroup is the target of the communal knobs
@@ -330,39 +329,24 @@ Removed phase reset
            // reset the active channel
            tSD[iOscGroup].bActive = false;
         }
+
+
+        // Map table data to local memory to calculate waveform shape
+        int iArrayOffset = iOscGroup << 3; // * 8
+        oscParams[iOscGroup].attack      = UNI2BIPOLAR( attr_table.array[__USAT(0+iArrayOffset,attr_table.LENGTHPOW)]<<attr_table.GAIN ) <<1;
+        oscParams[iOscGroup].decay       = UNI2BIPOLAR( attr_table.array[__USAT(1+iArrayOffset,attr_table.LENGTHPOW)]<<attr_table.GAIN ) <<1;
+        oscParams[iOscGroup].sustain     =              attr_table.array[__USAT(2+iArrayOffset,attr_table.LENGTHPOW)]<<attr_table.GAIN      ;
+        oscParams[iOscGroup].release     = UNI2BIPOLAR( attr_table.array[__USAT(3+iArrayOffset,attr_table.LENGTHPOW)]<<attr_table.GAIN ) <<1;
+        oscParams[iOscGroup].volume      =              attr_table.array[__USAT(4+iArrayOffset,attr_table.LENGTHPOW)]<<attr_table.GAIN      ; // TBD scaling unknown
+        oscParams[iOscGroup].pitch       =              attr_table.array[__USAT(5+iArrayOffset,attr_table.LENGTHPOW)]<<attr_table.GAIN      ;
+        oscParams[iOscGroup].amount      = UNI2BIPOLAR( attr_table.array[__USAT(6+iArrayOffset,attr_table.LENGTHPOW)]<<attr_table.GAIN )    ;
+        oscParams[iOscGroup].shape       = UNI2BIPOLAR( attr_table.array[__USAT(7+iArrayOffset,attr_table.LENGTHPOW)]<<attr_table.GAIN )    ;
+
+        oscParams[iOscGroup].shapeMount  = __USAT( ( ___SMMUL(oscParams[iOscGroup].amount, oscParams[iOscGroup].shape)<<1), 27 );
+        oscParams[iOscGroup].waveformNum = ((inlet_wave))%4;
+        MTOFEXTENDED(0xFA000000 + oscParams[iOscGroup].pitch, oscParams[iOscGroup].freqInst);
+
     } // For each oscgroup
-
-
-    // TBD left off here. Now to pipe this data to the array
-     // Output whatever is in the table array
-     // TBD refactor
-     outlet_v0= attr_table.array[__USAT(0,attr_table.LENGTHPOW)]<<attr_table.GAIN;
-     outlet_v1= attr_table.array[__USAT(1,attr_table.LENGTHPOW)]<<attr_table.GAIN;
-     outlet_v2= attr_table.array[__USAT(2,attr_table.LENGTHPOW)]<<attr_table.GAIN;
-     outlet_v3= attr_table.array[__USAT(3,attr_table.LENGTHPOW)]<<attr_table.GAIN;
-     outlet_v4= attr_table.array[__USAT(4,attr_table.LENGTHPOW)]<<attr_table.GAIN;
-     outlet_v5= attr_table.array[__USAT(5,attr_table.LENGTHPOW)]<<attr_table.GAIN;
-     outlet_v6= attr_table.array[__USAT(6,attr_table.LENGTHPOW)]<<attr_table.GAIN;
-     outlet_v7= attr_table.array[__USAT(7,attr_table.LENGTHPOW)]<<attr_table.GAIN;
-
-
-// Marry the inlet data to the local, persistent variables
-    // TBD, this section is WIP, importing table8CH_SD_dev
-    uint8_t uiOscChan = 0;          // Temporary dev-glue
-
-    MTOFEXTENDED(0xFA000000 + oscParams[uiOscChan].pitch, oscParams[uiOscChan].freqInst);
-    oscParams[uiOscChan].pitch       = inlet_pitch; // Temporary dev-glue // TBD Replace inlet_pitch with outlet_v5
-
-    oscParams[uiOscChan].amount      = UNI2BIPOLAR(inlet_amount);     // TBD Replace inlet_amount  with outlet_v6
-    oscParams[uiOscChan].shape       = UNI2BIPOLAR(inlet_shape );     // TBD Replace inlet_shape   with outlet_v7
-    oscParams[uiOscChan].shapeMount  = __USAT( ( ___SMMUL(oscParams[uiOscChan].amount, oscParams[uiOscChan].shape)<<1), 27 );
-    oscParams[uiOscChan].waveformNum = ((inlet_wave))%4;
-    oscParams[uiOscChan].release     = UNI2BIPOLAR(inlet_release)<<1; // TBD Replace inlet_relase  with outlet_v3
-    oscParams[uiOscChan].attack      = UNI2BIPOLAR(inlet_attack) <<1; // TBD Replace inlet_attack  with outlet_v0
-    oscParams[uiOscChan].sustain     = inlet_sustain;                 // TBD Replace inlet_sustain with outlet_v2
-    oscParams[uiOscChan].decay       = UNI2BIPOLAR(inlet_decay)  <<1; // TBD Replace inlet_decay   with outlet_v1
-
-    // TBD add inlet_pitch init
 
 // Process ADSR for each OSC channel
     uint8_t gate[NUM_OSC_GROUPS];

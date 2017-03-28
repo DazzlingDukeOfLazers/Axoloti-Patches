@@ -1,31 +1,44 @@
 <objdefs appVersion="1.0.12">
    <obj.normal id="multiwaveMultiChannelADSR" uuid="fd1e767a-6919-4a06-be8c-a4899b3f0866">
 <sDescription>
-multi waveform oscilator: sine, triangle, saw, square
+TBD update flavor text after it works
+Multi waveform oscilator: sine, triangle, saw, square
 each waveform (except sine) is able to change its shape (e.g. square = pwm).
 
-Forked from Beat Rossmy.
-Removed &gt;&gt;4 of inlet_wave
-Removed phase reset
+WIP strategy:
+
+    Debug:
+        Attack is overdriven
+        Each channel, once adjusted, triggers on all channels
+            I think every ADSR is being triggered
+        Save / Load seem to work
+
+
+    Refactor after verification:
+        Volume doesn't work. Try with static value before trying to integrate it.
+        Consider merging tSD with OscParams
+
+Herstory:
+Before time or recordkeeping existed:
+           Forked from Beat Rossmy.
+           Removed &gt;&gt;4 of inlet_wave
+           Removed phase reset
+2017-03-28 Merged in table8ch SD dev.axo
 
 </sDescription>
       <author>Dazzling Duke of Lazers</author>
       <license>BSD</license>
       <inlets>
-         <frac32.bipolar name="pitch"/>
-         <frac32buffer name="freqMod" description="phase increment"/>
-         <frac32.bipolar name="shape" description="wave shaper"/>
-         <int32.positive name="wave" description="wave select"/>
-         <frac32.bipolar name="amount" description="Shape amount"/>
          <frac32 name="attack" description="Attack"/>
          <frac32 name="decay" description="Decay"/>
          <frac32 name="sustain" description="Sustain"/>
          <frac32 name="release" description="Release"/>
          <frac32 name="volume" description="Volume"/>
          <frac32 name="pitch" description="pitch"/>
-         <frac32 name="v6" description="v6"/>
-         <frac32 name="v7" description="v7"/>
-         <int32 name="offset" description="sets an offset for writing to the table"/>
+         <frac32.bipolar name="shape" description="wave shaper"/>
+         <frac32.bipolar name="amount" description="Shape amount"/>
+         <frac32 name="freqMod" description="phase increment"/>
+         <int32.positive name="wave" description="wave select"/>
          <int32 name="page" description="Page select"/>
          <bool32.risingfalling name="gate0" description="Gate"/>
          <bool32.risingfalling name="gate1" description="Gate"/>
@@ -39,11 +52,20 @@ Removed phase reset
          <bool32.rising name="trigLoadSD" description="Load from the SD Card"/>
       </inlets>
       <outlets>
-         <frac32buffer name="o"/>
+         <frac32buffer name="out0"/>
+         <frac32buffer name="out1"/>
+         <frac32buffer name="out2"/>
+         <frac32buffer name="out3"/>
+         <frac32buffer name="out4"/>
+         <frac32buffer name="out5"/>
+         <frac32buffer name="out6"/>
+         <frac32buffer name="out7"/>
       </outlets>
       <displays/>
       <params/>
-      <attribs/>
+      <attribs>
+        <objref name="table"/>
+      </attribs>
       <code.declaration>
         <![CDATA[// Glue
 // Declaration Code ------------------------------------------------------------
@@ -76,7 +98,6 @@ Removed phase reset
         int32_t  phasor;
         int32_t  phaseCounter;
     };
-
 
     OscParams oscParams[16];
 
@@ -137,7 +158,7 @@ Removed phase reset
     envelope_out = 0;
 
 // Table 8
-    #define NUM_OSC_GROUPS 1
+    #define NUM_OSC_GROUPS 8
     // Wipe tSD clean
     for (int iOscGroup=0; iOscGroup<NUM_OSC_GROUPS; iOscGroup++)
     {
@@ -158,7 +179,7 @@ Removed phase reset
 // Init string/doubleIndex
 	//strcpy(&cFileName[0],"attr_prefix00-000attr_suffix");
 	strcpy(&cFileName[0],"beatBox_00-000.mod");
-	fn_offset_1    = strlen("beatBox_");
+	fn_offset_1   = strlen("beatBox_");
 	fn_offset_2   = fn_offset_1 + 3; // Added extra two digits and a dash
 
 
@@ -265,21 +286,15 @@ Removed phase reset
 
 
 // Table stuff
-     // TBD these inlet names are wrong)
-
-
-
-// tbd this doesn't latch the channel
-// tbd this doesn't allow for parallel
     int iPrevActive = iActiveChannel;
-    if      (gate0) { iActiveChannel = 0; }
-    else if (gate1) { iActiveChannel = 1; }
-    else if (gate2) { iActiveChannel = 2; }
-    else if (gate3) { iActiveChannel = 3; }
-    else if (gate4) { iActiveChannel = 4; }
-    else if (gate5) { iActiveChannel = 5; }
-    else if (gate6) { iActiveChannel = 6; }
-    else if (gate7) { iActiveChannel = 7; }
+    if      (inlet_gate0) { iActiveChannel = 0; }
+    else if (inlet_gate1) { iActiveChannel = 1; }
+    else if (inlet_gate2) { iActiveChannel = 2; }
+    else if (inlet_gate3) { iActiveChannel = 3; }
+    else if (inlet_gate4) { iActiveChannel = 4; }
+    else if (inlet_gate5) { iActiveChannel = 5; }
+    else if (inlet_gate6) { iActiveChannel = 6; }
+    else if (inlet_gate7) { iActiveChannel = 7; }
 
     for (int iOscGroup=0; iOscGroup<NUM_OSC_GROUPS; iOscGroup++)
     {
@@ -293,10 +308,10 @@ Removed phase reset
             inVal[1] = inlet_decay;
             inVal[2] = inlet_sustain;
             inVal[3] = inlet_release;
-            inVal[4] = inlet_volume; // tbd left off here
+            inVal[4] = inlet_volume;  // TBD Volume is not in use
             inVal[5] = inlet_pitch;
-            inVal[6] = inlet_v6;
-            inVal[7] = inlet_v7;
+            inVal[6] = inlet_shape;
+            inVal[7] = inlet_amount;
 
             // If the channel has just become active
             if (iActiveChannel != iPrevActive)
@@ -312,12 +327,12 @@ Removed phase reset
             // The channel has already been active at least one loop
             else if (tSD[iOscGroup].bActive)
             {
-
                  for(int iChan=0; iChan < NUM_VALS_PER_OSC; iChan++)
                  {
                      // Only triggers if knob is different after first loop // TBD should add a guardband macro
                      if (inVal[iChan] != tSD[iOscGroup].prev[iChan])
                      {
+                         tSD[iOscGroup].prev[iChan] = inVal[iChan]; // TBD I added this, but not tested. It worked before without. Not sure how/why?
                          // iOscGroup << 3 == iOscGroup * 8, bc 8 channels
                          attr_table.array[iChan + (iOscGroup << 3)] = __SSAT(inVal[iChan],28) >> attr_table.GAIN;
                      }
@@ -330,7 +345,7 @@ Removed phase reset
            tSD[iOscGroup].bActive = false;
         }
 
-
+        // TBD-after verification- I think this chunk of code can go up into the loop and only execute when the value changes. Would have to get rid of the iChan loop.
         // Map table data to local memory to calculate waveform shape
         int iArrayOffset = iOscGroup << 3; // * 8
         oscParams[iOscGroup].attack      = UNI2BIPOLAR( attr_table.array[__USAT(0+iArrayOffset,attr_table.LENGTHPOW)]<<attr_table.GAIN ) <<1;
@@ -345,7 +360,7 @@ Removed phase reset
         oscParams[iOscGroup].shapeMount  = __USAT( ( ___SMMUL(oscParams[iOscGroup].amount, oscParams[iOscGroup].shape)<<1), 27 );
         oscParams[iOscGroup].waveformNum = ((inlet_wave))%4;
         MTOFEXTENDED(0xFA000000 + oscParams[iOscGroup].pitch, oscParams[iOscGroup].freqInst);
-
+        oscParams[iOscGroup].freqMod = inlet_freqMod; // tbd Move to Stale value
     } // For each oscgroup
 
 // Process ADSR for each OSC channel
@@ -419,7 +434,7 @@ Removed phase reset
 <code.srate><![CDATA[/* reset phase if retriggered */
 // SRATE Code ------------------------------------------------------------------
 
-oscParams[uiOscChan].freqMod = inlet_freqMod; // temp dev-glue (Shouldn't this be in the KRATE code?)
+
 
 for (int iChan=0; iChan < NUM_OSC_GROUPS; iChan++)
 {
@@ -460,7 +475,7 @@ for (int iChan=0; iChan < NUM_OSC_GROUPS; iChan++)
     		/* phasor to saw */
     		b = (oscParams[iChan].phasor>0x07FFFFFF/2)? oscParams[iChan].phasor-0x07FFFFFF/2:oscParams[iChan].phasor+0x07FFFFFF/2; /* phase shift to correct wave startpoint*/
     		a = (b-(1<<26))<<1; /* phasor to sawUp (bipolar) */
-    		oscParams[uiOscChan].oscOut = (oscParams[iChan].phaseCounter==1 && (oscParams[iChan].phasor>0x07FFFFFF/2-oscParams[iChan].shapeMount/2 && oscParams[iChan].phasor<0x07FFFFFF/2+oscParams[iChan].shapeMount/2))? -a:a;
+    		oscParams[iChan].oscOut = (oscParams[iChan].phaseCounter==1 && (oscParams[iChan].phasor>0x07FFFFFF/2-oscParams[iChan].shapeMount/2 && oscParams[iChan].phasor<0x07FFFFFF/2+oscParams[iChan].shapeMount/2))? -a:a;
     		break;
 
     	case pwm:
@@ -473,7 +488,14 @@ for (int iChan=0; iChan < NUM_OSC_GROUPS; iChan++)
 
     switch(iChan)
     {
-        case 0: outlet_o =  ___SMMUL(oscParams[0].oscOut,oscParams[0].envelopeOsc)<<5; break;
+        case 0: outlet_out0 =  ___SMMUL(oscParams[0].oscOut,oscParams[0].envelopeOsc)<<5; break;
+        case 1: outlet_out1 =  ___SMMUL(oscParams[1].oscOut,oscParams[1].envelopeOsc)<<5; break;
+        case 2: outlet_out2 =  ___SMMUL(oscParams[2].oscOut,oscParams[2].envelopeOsc)<<5; break;
+        case 3: outlet_out3 =  ___SMMUL(oscParams[3].oscOut,oscParams[3].envelopeOsc)<<5; break;
+        case 4: outlet_out4 =  ___SMMUL(oscParams[4].oscOut,oscParams[4].envelopeOsc)<<5; break;
+        case 5: outlet_out5 =  ___SMMUL(oscParams[5].oscOut,oscParams[5].envelopeOsc)<<5; break;
+        case 6: outlet_out6 =  ___SMMUL(oscParams[6].oscOut,oscParams[6].envelopeOsc)<<5; break;
+        case 7: outlet_out7 =  ___SMMUL(oscParams[7].oscOut,oscParams[7].envelopeOsc)<<5; break;
     }
 
     oscParams[iChan].envelopeOsc += oscParams[iChan].envelopeStep;

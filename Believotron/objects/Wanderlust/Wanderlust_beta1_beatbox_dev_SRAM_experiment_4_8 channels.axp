@@ -9,17 +9,17 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="Wanderlust/Wanderlust_beta1" uuid="a2125df6-426a-4a66-80d5-506c0b70d14b" name="obj_1" x="154" y="126">
+   <obj type="Wanderlust/Wanderlust_beta1" uuid="2c35d36b-e47d-4044-be9d-f52abcefc792" name="obj_1" x="112" y="112">
       <params>
          <bool32.tgl name="Reverse Knobs" value="1"/>
-         <bool32.tgl name="Rev Padrow Top" value="1"/>
+         <bool32.tgl name="Rev Padrow Top" value="0"/>
          <bool32.tgl name="InvertJoy0" value="0"/>
-         <bool32.tgl name="Rev Padrow Bottom" value="1"/>
+         <bool32.tgl name="Rev Padrow Bottom" value="0"/>
          <bool32.tgl name="SwapXY" value="0"/>
-         <int32 name="LED Mode" value="0"/>
+         <int32 name="LED Mode" value="3"/>
          <bool32.tgl name="InvertJoy1" value="0"/>
          <bool32.tgl name="swapKnobRow" value="1"/>
-         <bool32.tgl name="swapPadRow" value="1"/>
+         <bool32.tgl name="swapPadRow" value="0"/>
       </params>
       <attribs/>
    </obj>
@@ -29,19 +29,27 @@
       </params>
       <attribs/>
    </obj>
+   <obj type="math/div 8" uuid="4a6007f5cb2024c50e8449b3bb6bcaef6ac42edb" name="div_1" x="938" y="154">
+      <params/>
+      <attribs/>
+   </obj>
    <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_1" x="28" y="168">
       <params>
          <int32 name="value" value="0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_2" x="28" y="224">
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_2" x="42" y="252">
       <params>
-         <int32 name="value" value="0"/>
+         <int32 name="value" value="1"/>
       </params>
       <attribs/>
    </obj>
    <obj type="audio/out stereo" uuid="a1ca7a567f535acc21055669829101d3ee7f0189" name="out_1" x="1932" y="280">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="sptnk/logic/encode 8" uuid="dfc0a6e9d7e237c2464fd01f6972f64d897863a4" name="encode_1" x="560" y="308">
       <params/>
       <attribs/>
    </obj>
@@ -80,7 +88,7 @@
    </obj>
    <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_3" x="1176" y="504">
       <params>
-         <int32 name="value" value="0"/>
+         <int32 name="value" value="1"/>
       </params>
       <attribs/>
    </obj>
@@ -109,6 +117,10 @@
       </attribs>
    </obj>
    <obj type="osc/multiwaveADSR" uuid="60014d06-2b04-4943-93e6-f2c1d6b4cddb" name="multiwaveADSR_2" x="1330" y="798">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="math/div 8" uuid="4a6007f5cb2024c50e8449b3bb6bcaef6ac42edb" name="div_2" x="1176" y="812">
       <params/>
       <attribs/>
    </obj>
@@ -142,6 +154,10 @@
       <params/>
       <attribs/>
    </obj>
+   <obj type="math/div 8" uuid="4a6007f5cb2024c50e8449b3bb6bcaef6ac42edb" name="div_3" x="1078" y="1554">
+      <params/>
+      <attribs/>
+   </obj>
    <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_6" x="1134" y="1694">
       <params>
          <int32 name="value" value="0"/>
@@ -171,6 +187,10 @@
          <objref attributeName="table" obj="table3"/>
          <combo attributeName="ChannelID" selection="3"/>
       </attribs>
+   </obj>
+   <obj type="math/div 8" uuid="4a6007f5cb2024c50e8449b3bb6bcaef6ac42edb" name="div_4" x="1134" y="2282">
+      <params/>
+      <attribs/>
    </obj>
    <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_7" x="1134" y="2408">
       <params>
@@ -208,6 +228,10 @@
       </params>
       <attribs/>
    </obj>
+   <obj type="math/div 8" uuid="4a6007f5cb2024c50e8449b3bb6bcaef6ac42edb" name="div_5" x="1134" y="2604">
+      <params/>
+      <attribs/>
+   </obj>
    <obj type="osc/multiwaveADSR" uuid="60014d06-2b04-4943-93e6-f2c1d6b4cddb" name="multiwaveADSR_6" x="1302" y="2772">
       <params/>
       <attribs/>
@@ -237,6 +261,10 @@
          <objref attributeName="table" obj="table5"/>
          <combo attributeName="ChannelID" selection="5"/>
       </attribs>
+   </obj>
+   <obj type="math/div 8" uuid="4a6007f5cb2024c50e8449b3bb6bcaef6ac42edb" name="div_6" x="1134" y="2856">
+      <params/>
+      <attribs/>
    </obj>
    <obj type="osc/multiwaveADSR" uuid="60014d06-2b04-4943-93e6-f2c1d6b4cddb" name="multiwaveADSR_7" x="1302" y="3038">
       <params/>
@@ -268,6 +296,10 @@
          <combo attributeName="ChannelID" selection="6"/>
       </attribs>
    </obj>
+   <obj type="math/div 8" uuid="4a6007f5cb2024c50e8449b3bb6bcaef6ac42edb" name="div_7" x="1120" y="3122">
+      <params/>
+      <attribs/>
+   </obj>
    <obj type="osc/multiwaveADSR" uuid="60014d06-2b04-4943-93e6-f2c1d6b4cddb" name="multiwaveADSR_8" x="1302" y="3276">
       <params/>
       <attribs/>
@@ -297,6 +329,10 @@
          <objref attributeName="table" obj="table7"/>
          <combo attributeName="ChannelID" selection="7"/>
       </attribs>
+   </obj>
+   <obj type="math/div 8" uuid="4a6007f5cb2024c50e8449b3bb6bcaef6ac42edb" name="div_8" x="1120" y="3360">
+      <params/>
+      <attribs/>
    </obj>
    <nets>
       <net>
@@ -348,21 +384,14 @@
          <dest obj="table8CH_SD_9" inlet="v4"/>
       </net>
       <net>
-         <source obj="i_2" outlet="out"/>
-         <dest obj="obj_1" inlet="Color In"/>
-      </net>
-      <net>
          <source obj="dial_3" outlet="out"/>
          <dest obj="obj_1" inlet="Intensity"/>
-      </net>
-      <net>
-         <source obj="i_3" outlet="out"/>
-         <dest obj="multiwaveADSR_1" inlet="wave"/>
       </net>
       <net>
          <source obj="obj_1" outlet="parasailing"/>
          <dest obj="selectChan16_1" inlet="b00"/>
          <dest obj="multiwaveADSR_1" inlet="gate"/>
+         <dest obj="encode_1" inlet="b7"/>
       </net>
       <net>
          <source obj="obj_1" outlet="hiking"/>
@@ -398,10 +427,6 @@
          <dest obj="table8CH_SD_9" inlet="page"/>
       </net>
       <net>
-         <source obj="i_4" outlet="out"/>
-         <dest obj="multiwaveADSR_2" inlet="wave"/>
-      </net>
-      <net>
          <source obj="table8CH_SD_3" outlet="v4"/>
          <dest obj="vca_2" inlet="v"/>
          <dest obj="multiwaveADSR_2" inlet="v"/>
@@ -410,36 +435,43 @@
          <source obj="obj_1" outlet="diving"/>
          <dest obj="selectChan16_1" inlet="b01"/>
          <dest obj="multiwaveADSR_2" inlet="gate"/>
+         <dest obj="encode_1" inlet="b6"/>
       </net>
       <net>
          <source obj="obj_1" outlet="canoing"/>
          <dest obj="selectChan16_1" inlet="b02"/>
          <dest obj="multiwaveADSR_3" inlet="gate"/>
+         <dest obj="encode_1" inlet="b5"/>
       </net>
       <net>
          <source obj="obj_1" outlet="swimming"/>
          <dest obj="selectChan16_1" inlet="b03"/>
          <dest obj="multiwaveADSR_4" inlet="gate"/>
+         <dest obj="encode_1" inlet="b4"/>
       </net>
       <net>
          <source obj="obj_1" outlet="sailing"/>
          <dest obj="selectChan16_1" inlet="b04"/>
          <dest obj="multiwaveADSR_5" inlet="gate"/>
+         <dest obj="encode_1" inlet="b3"/>
       </net>
       <net>
          <source obj="obj_1" outlet="fishing"/>
          <dest obj="selectChan16_1" inlet="b05"/>
          <dest obj="multiwaveADSR_6" inlet="gate"/>
+         <dest obj="encode_1" inlet="b2"/>
       </net>
       <net>
          <source obj="obj_1" outlet="anchor"/>
          <dest obj="selectChan16_1" inlet="b06"/>
          <dest obj="multiwaveADSR_7" inlet="gate"/>
+         <dest obj="encode_1" inlet="b1"/>
       </net>
       <net>
          <source obj="obj_1" outlet="showers"/>
          <dest obj="selectChan16_1" inlet="b07"/>
          <dest obj="multiwaveADSR_8" inlet="gate"/>
+         <dest obj="encode_1" inlet="b0"/>
       </net>
       <net>
          <source obj="obj_1" outlet="ski_down"/>
@@ -477,17 +509,9 @@
          <dest obj="table8CH_SD_9" inlet="activeChannel"/>
       </net>
       <net>
-         <source obj="i_6" outlet="out"/>
-         <dest obj="multiwaveADSR_3" inlet="wave"/>
-      </net>
-      <net>
          <source obj="table8CH_SD_4" outlet="v4"/>
          <dest obj="vca_3" inlet="v"/>
          <dest obj="multiwaveADSR_3" inlet="v"/>
-      </net>
-      <net>
-         <source obj="i_7" outlet="out"/>
-         <dest obj="multiwaveADSR_4" inlet="wave"/>
       </net>
       <net>
          <source obj="table8CH_SD_5" outlet="v4"/>
@@ -550,10 +574,6 @@
          <dest obj="table8CH_SD_9" inlet="v5"/>
       </net>
       <net>
-         <source obj="i_8" outlet="out"/>
-         <dest obj="multiwaveADSR_5" inlet="wave"/>
-      </net>
-      <net>
          <source obj="table8CH_SD_6" outlet="v4"/>
          <dest obj="vca_5" inlet="v"/>
          <dest obj="multiwaveADSR_5" inlet="v"/>
@@ -565,10 +585,6 @@
       <net>
          <source obj="vca_5" outlet="o"/>
          <dest obj="mix_8-No_Gain_2" inlet="in5"/>
-      </net>
-      <net>
-         <source obj="i_9" outlet="out"/>
-         <dest obj="multiwaveADSR_6" inlet="wave"/>
       </net>
       <net>
          <source obj="table8CH_SD_7" outlet="v4"/>
@@ -584,10 +600,6 @@
          <dest obj="mix_8-No_Gain_2" inlet="in6"/>
       </net>
       <net>
-         <source obj="i_10" outlet="out"/>
-         <dest obj="multiwaveADSR_7" inlet="wave"/>
-      </net>
-      <net>
          <source obj="table8CH_SD_8" outlet="v4"/>
          <dest obj="vca_7" inlet="v"/>
          <dest obj="multiwaveADSR_7" inlet="v"/>
@@ -599,10 +611,6 @@
       <net>
          <source obj="vca_7" outlet="o"/>
          <dest obj="mix_8-No_Gain_2" inlet="in7"/>
-      </net>
-      <net>
-         <source obj="i_11" outlet="out"/>
-         <dest obj="multiwaveADSR_8" inlet="wave"/>
       </net>
       <net>
          <source obj="table8CH_SD_9" outlet="v4"/>
@@ -684,10 +692,6 @@
          <dest obj="multiwaveADSR_8" inlet="pitch"/>
       </net>
       <net>
-         <source obj="table8CH_SD_9" outlet="v6"/>
-         <dest obj="multiwaveADSR_8" inlet="amount"/>
-      </net>
-      <net>
          <source obj="table8CH_SD_8" outlet="v0"/>
          <dest obj="multiwaveADSR_7" inlet="a"/>
       </net>
@@ -706,10 +710,6 @@
       <net>
          <source obj="table8CH_SD_8" outlet="v5"/>
          <dest obj="multiwaveADSR_7" inlet="pitch"/>
-      </net>
-      <net>
-         <source obj="table8CH_SD_8" outlet="v6"/>
-         <dest obj="multiwaveADSR_7" inlet="amount"/>
       </net>
       <net>
          <source obj="table8CH_SD_7" outlet="v0"/>
@@ -804,10 +804,6 @@
          <dest obj="multiwaveADSR_3" inlet="pitch"/>
       </net>
       <net>
-         <source obj="table8CH_SD_4" outlet="v6"/>
-         <dest obj="multiwaveADSR_3" inlet="amount"/>
-      </net>
-      <net>
          <source obj="table8CH_SD_3" outlet="v0"/>
          <dest obj="multiwaveADSR_2" inlet="a"/>
       </net>
@@ -829,7 +825,131 @@
       </net>
       <net>
          <source obj="table8CH_SD_3" outlet="v6"/>
+         <dest obj="multiwaveADSR_2" inlet="shape"/>
+      </net>
+      <net>
+         <source obj="encode_1" outlet="out"/>
+         <dest obj="obj_1" inlet="Color In"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="knob_bot_0"/>
+         <dest obj="div_1" inlet="in"/>
+      </net>
+      <net>
+         <source obj="div_1" outlet="out"/>
+         <dest obj="multiwaveADSR_1" inlet="wave"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="knob_top_7"/>
+         <dest obj="table8CH_SD_1" inlet="v7"/>
+         <dest obj="table8CH_SD_3" inlet="v7"/>
+         <dest obj="table8CH_SD_4" inlet="v7"/>
+         <dest obj="table8CH_SD_5" inlet="v7"/>
+         <dest obj="table8CH_SD_6" inlet="v7"/>
+         <dest obj="table8CH_SD_7" inlet="v7"/>
+         <dest obj="table8CH_SD_8" inlet="v7"/>
+         <dest obj="table8CH_SD_9" inlet="v7"/>
+      </net>
+      <net>
+         <source obj="table8CH_SD_1" outlet="v7"/>
+         <dest obj="multiwaveADSR_1" inlet="amount"/>
+      </net>
+      <net>
+         <source obj="table8CH_SD_3" outlet="v7"/>
+         <dest obj="multiwaveADSR_2" inlet="reset"/>
          <dest obj="multiwaveADSR_2" inlet="amount"/>
+      </net>
+      <net>
+         <source obj="table8CH_SD_4" outlet="v7"/>
+         <dest obj="multiwaveADSR_3" inlet="amount"/>
+      </net>
+      <net>
+         <source obj="table8CH_SD_4" outlet="v6"/>
+         <dest obj="multiwaveADSR_3" inlet="shape"/>
+      </net>
+      <net>
+         <source obj="table8CH_SD_5" outlet="v7"/>
+         <dest obj="multiwaveADSR_4" inlet="amount"/>
+      </net>
+      <net>
+         <source obj="table8CH_SD_6" outlet="v7"/>
+         <dest obj="multiwaveADSR_5" inlet="amount"/>
+      </net>
+      <net>
+         <source obj="table8CH_SD_7" outlet="v7"/>
+         <dest obj="multiwaveADSR_6" inlet="amount"/>
+      </net>
+      <net>
+         <source obj="table8CH_SD_8" outlet="v7"/>
+         <dest obj="multiwaveADSR_7" inlet="amount"/>
+      </net>
+      <net>
+         <source obj="table8CH_SD_8" outlet="v6"/>
+         <dest obj="multiwaveADSR_7" inlet="shape"/>
+      </net>
+      <net>
+         <source obj="table8CH_SD_9" outlet="v7"/>
+         <dest obj="multiwaveADSR_8" inlet="amount"/>
+      </net>
+      <net>
+         <source obj="table8CH_SD_9" outlet="v6"/>
+         <dest obj="multiwaveADSR_8" inlet="shape"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="knob_bot_1"/>
+         <dest obj="div_2" inlet="in"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="knob_bot_2"/>
+         <dest obj="div_3" inlet="in"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="knob_bot_3"/>
+         <dest obj="div_4" inlet="in"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="knob_bot_4"/>
+         <dest obj="div_5" inlet="in"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="knob_bot_5"/>
+         <dest obj="div_6" inlet="in"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="knob_bot_6"/>
+         <dest obj="div_7" inlet="in"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="knob_bot_7"/>
+         <dest obj="div_8" inlet="in"/>
+      </net>
+      <net>
+         <source obj="div_2" outlet="out"/>
+         <dest obj="multiwaveADSR_2" inlet="wave"/>
+      </net>
+      <net>
+         <source obj="div_3" outlet="out"/>
+         <dest obj="multiwaveADSR_3" inlet="wave"/>
+      </net>
+      <net>
+         <source obj="div_4" outlet="out"/>
+         <dest obj="multiwaveADSR_4" inlet="wave"/>
+      </net>
+      <net>
+         <source obj="div_5" outlet="out"/>
+         <dest obj="multiwaveADSR_5" inlet="wave"/>
+      </net>
+      <net>
+         <source obj="div_6" outlet="out"/>
+         <dest obj="multiwaveADSR_6" inlet="wave"/>
+      </net>
+      <net>
+         <source obj="div_7" outlet="out"/>
+         <dest obj="multiwaveADSR_7" inlet="wave"/>
+      </net>
+      <net>
+         <source obj="div_8" outlet="out"/>
+         <dest obj="multiwaveADSR_8" inlet="wave"/>
       </net>
    </nets>
    <settings>

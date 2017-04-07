@@ -46,14 +46,17 @@ struct LED{
 #define I_GREEN_LIME_SOFT 5
 #define I_ORANGE_SOFT 6
 
-#define NUM_COLORS 7
+#define NUM_COLORS 10
 LED COLOR_LIST[NUM_COLORS] = { {C_BLACK},
 					  {C_WHITE},
 	                  {0x00, 0x00, 0xFF},
 	                  {0x00, 0xFF, 0x00},
 	                  {0xFF, 0x00, 0x00},
 					  {C_GREEN_LIME_SOFT},
-					  {C_ORANGE_SOFT}
+					  {C_ORANGE_SOFT},
+					  {C_RED_PEACH},
+					  {C_PINK_WATERMELON},
+					  {C_BLUE_ICE}
                      };
 
 struct Pixel{
@@ -281,4 +284,38 @@ void SetAllLEDs(uint8_t iColor)
 		LEDS[iLED].dIntensity = 1.0;
 
 	}
+}
+
+void SetColumn(uint8_t iColumn, uint8_t iColor)
+{
+	LEDS[iColumn].u8Color = iColor;
+	LEDS[iColumn].dIntensity = 1.0;
+
+	LEDS[iColumn+16].u8Color = iColor;
+	LEDS[iColumn+16].dIntensity = 1.0;
+
+	LEDS[iColumn+32].u8Color = iColor;
+	LEDS[iColumn+32].dIntensity = 1.0;
+
+	LEDS[iColumn+48].u8Color = iColor;
+	LEDS[iColumn+48].dIntensity = 1.0;
+}
+
+void SetColumnPair(uint8_t iColumn, uint8_t iColor)
+{
+	SetColumn(iColumn,   iColor);
+	SetColumn(iColumn+1, iColor);
+}
+
+
+void JamColumn(uint8_t kbBinary)
+{
+	if (kbBinary & 0x80) { SetColumnPair(0,  2); } else { SetColumnPair(0,   0); }
+	if (kbBinary & 0x40) { SetColumnPair(2,  3); } else { SetColumnPair(2,   0); }
+	if (kbBinary & 0x20) { SetColumnPair(4,  4); } else { SetColumnPair(4,   0); }
+	if (kbBinary & 0x10) { SetColumnPair(6,  5); } else { SetColumnPair(6,   0); }
+	if (kbBinary & 0x08) { SetColumnPair(8,  6); } else { SetColumnPair(8,   0); }
+	if (kbBinary & 0x04) { SetColumnPair(10, 7); } else { SetColumnPair(10,  0); }
+	if (kbBinary & 0x02) { SetColumnPair(12, 8); } else { SetColumnPair(12,  0); }
+	if (kbBinary & 0x01) { SetColumnPair(14, 9); } else { SetColumnPair(14,  0); }
 }

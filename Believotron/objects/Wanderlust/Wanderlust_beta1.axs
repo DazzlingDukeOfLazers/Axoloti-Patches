@@ -263,6 +263,9 @@ void loop(void)
 			SetCheckerPattern(Page);
 			SetLED(stepNum,1,stepIntensity);
 			break;			
+		case 3:
+			JamColumn(LEDcolor); 
+			break;
 		default:	
 			SetAllLEDs(LEDcolor);		
 			break;

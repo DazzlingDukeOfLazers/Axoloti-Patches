@@ -40,14 +40,14 @@ Before time or recordkeeping existed:
          <frac32 name="freqMod" description="phase increment"/>
          <int32.positive name="wave" description="wave select"/>
          <int32 name="page" description="Page select"/>
-         <bool32.risingfalling name="gate0" description="Gate"/>
-         <bool32.risingfalling name="gate1" description="Gate"/>
-         <bool32.risingfalling name="gate2" description="Gate"/>
-         <bool32.risingfalling name="gate3" description="Gate"/>
-         <bool32.risingfalling name="gate4" description="Gate"/>
-         <bool32.risingfalling name="gate5" description="Gate"/>
-         <bool32.risingfalling name="gate6" description="Gate"/>
-         <bool32.risingfalling name="gate7" description="Gate"/>
+         <bool32.rising name="gate0" description="Gate"/>
+         <bool32.rising name="gate1" description="Gate"/>
+         <bool32.rising name="gate2" description="Gate"/>
+         <bool32.rising name="gate3" description="Gate"/>
+         <bool32.rising name="gate4" description="Gate"/>
+         <bool32.rising name="gate5" description="Gate"/>
+         <bool32.rising name="gate6" description="Gate"/>
+         <bool32.rising name="gate7" description="Gate"/>
          <bool32.rising name="trigSaveSD" description="Save to the SD Card"/>
          <bool32.rising name="trigLoadSD" description="Load from the SD Card"/>
       </inlets>
@@ -284,17 +284,33 @@ Before time or recordkeeping existed:
      }
      else if (!(inlet_trigLoadSD>0)) ntrigLoad=0;
 
+     uint8_t gate[NUM_OSC_GROUPS];
+
+     // Load up the gate data
+     gate[0] = (inlet_gate0>0) ? 1:0;
+     gate[1] = (inlet_gate1>0) ? 1:0;
+     gate[2] = 0; //inlet_gate2; // TBD debug comment out
+     gate[3] = 0; //inlet_gate3;
+     gate[4] = 0; //inlet_gate4;
+     gate[5] = 0; //inlet_gate5;
+     gate[6] = 0; //inlet_gate6;
+     gate[7] = 0; //inlet_gate7;
+
 
 // Table stuff
     int iPrevActive = iActiveChannel;
-    if      (inlet_gate0) { iActiveChannel = 0; }
-    else if (inlet_gate1) { iActiveChannel = 1; }
-    else if (inlet_gate2) { iActiveChannel = 2; }
-    else if (inlet_gate3) { iActiveChannel = 3; }
-    else if (inlet_gate4) { iActiveChannel = 4; }
-    else if (inlet_gate5) { iActiveChannel = 5; }
-    else if (inlet_gate6) { iActiveChannel = 6; }
-    else if (inlet_gate7) { iActiveChannel = 7; }
+
+    // Lowest gate high is the active channel
+    for (int i=0; i<NUM_OSC_GROUPS; i++){ if(gate[i]) { iActiveChannel = i; break; } }
+
+    //if      (inlet_gate0>0) { iActiveChannel = 0; }
+    //else if (inlet_gate1>0) { iActiveChannel = 1; }
+    //else if (inlet_gate2>0) { iActiveChannel = 2; }
+    //else if (inlet_gate3>0) { iActiveChannel = 3; }
+    //else if (inlet_gate4>0) { iActiveChannel = 4; }
+    //else if (inlet_gate5>0) { iActiveChannel = 5; }
+    //else if (inlet_gate6>0) { iActiveChannel = 6; }
+    //else if (inlet_gate7>0) { iActiveChannel = 7; }
 
     for (int iOscGroup=0; iOscGroup<NUM_OSC_GROUPS; iOscGroup++)
     {
@@ -364,21 +380,12 @@ Before time or recordkeeping existed:
     } // For each oscgroup
 
 // Process ADSR for each OSC channel
-    uint8_t gate[NUM_OSC_GROUPS];
-
-    // Load up the gate data
-    gate[0] = inlet_gate0;
-    gate[1] = inlet_gate1;
-    gate[2] = inlet_gate2;
-    gate[3] = inlet_gate3;
-    gate[4] = inlet_gate4;
-    gate[5] = inlet_gate5;
-    gate[6] = inlet_gate6;
-    gate[7] = inlet_gate7;
-
     for (int iChan=0; iChan < NUM_OSC_GROUPS; iChan++)
     {
         // ADSR Stuff
+        // If the gate goes high, as long as the gate is held high: Stage 1 Attack goes until it runs out of fuel
+        // Stage 1
+        // Once the gate goes low, then sustain and release
         if ( (gate[iChan]>0) && !oscParams[iChan].ntrig) { oscParams[iChan].stage = 1; oscParams[iChan].ntrig = 1;}
         if (!(gate[iChan]>0) &&  oscParams[iChan].ntrig) { oscParams[iChan].stage = 0; oscParams[iChan].ntrig = 0;}
 
@@ -434,8 +441,6 @@ Before time or recordkeeping existed:
 <code.srate><![CDATA[/* reset phase if retriggered */
 // SRATE Code ------------------------------------------------------------------
 
-
-
 for (int iChan=0; iChan < NUM_OSC_GROUPS; iChan++)
 {
     oscParams[iChan].phase += (oscParams[iChan].freqInst>>0) + oscParams[iChan].freqMod;
@@ -484,22 +489,20 @@ for (int iChan=0; iChan < NUM_OSC_GROUPS; iChan++)
     		break;
     }
 
-    int BinaryCanary = 256; // Used to detect sticky library synching. Change this, if it doesn't show up in the object, the object didn't load
-
-    switch(iChan)
-    {
-        case 0: outlet_out0 =  ___SMMUL(oscParams[0].oscOut,oscParams[0].envelopeOsc)<<5; break;
-        case 1: outlet_out1 =  ___SMMUL(oscParams[1].oscOut,oscParams[1].envelopeOsc)<<5; break;
-        case 2: outlet_out2 =  ___SMMUL(oscParams[2].oscOut,oscParams[2].envelopeOsc)<<5; break;
-        case 3: outlet_out3 =  ___SMMUL(oscParams[3].oscOut,oscParams[3].envelopeOsc)<<5; break;
-        case 4: outlet_out4 =  ___SMMUL(oscParams[4].oscOut,oscParams[4].envelopeOsc)<<5; break;
-        case 5: outlet_out5 =  ___SMMUL(oscParams[5].oscOut,oscParams[5].envelopeOsc)<<5; break;
-        case 6: outlet_out6 =  ___SMMUL(oscParams[6].oscOut,oscParams[6].envelopeOsc)<<5; break;
-        case 7: outlet_out7 =  ___SMMUL(oscParams[7].oscOut,oscParams[7].envelopeOsc)<<5; break;
-    }
+    int BinaryCanary = 128; // Used to detect sticky library synching. Change this, if it doesn't show up in the object, the object didn't load
 
     oscParams[iChan].envelopeOsc += oscParams[iChan].envelopeStep;
 } // For each of the channels
+
+outlet_out0 =  ___SMMUL(oscParams[0].oscOut,oscParams[0].envelopeOsc)<<5; /*oscParams[0].envelopeOsc += oscParams[0].envelopeStep;*/ break; // TBD, missing i += step from multiwaveADSR; envelopeOsc += envelopeStep
+outlet_out1 =  ___SMMUL(oscParams[1].oscOut,oscParams[1].envelopeOsc)<<5; /*oscParams[1].envelopeOsc += oscParams[1].envelopeStep;*/ break;
+outlet_out2 =  ___SMMUL(oscParams[2].oscOut,oscParams[2].envelopeOsc)<<5; /*oscParams[2].envelopeOsc += oscParams[2].envelopeStep;*/ break;
+outlet_out3 =  ___SMMUL(oscParams[3].oscOut,oscParams[3].envelopeOsc)<<5; /*oscParams[3].envelopeOsc += oscParams[3].envelopeStep;*/ break;
+outlet_out4 =  ___SMMUL(oscParams[4].oscOut,oscParams[4].envelopeOsc)<<5; /*oscParams[4].envelopeOsc += oscParams[4].envelopeStep;*/ break;
+outlet_out5 =  ___SMMUL(oscParams[5].oscOut,oscParams[5].envelopeOsc)<<5; /*oscParams[5].envelopeOsc += oscParams[5].envelopeStep;*/ break;
+outlet_out6 =  ___SMMUL(oscParams[6].oscOut,oscParams[6].envelopeOsc)<<5; /*oscParams[6].envelopeOsc += oscParams[6].envelopeStep;*/ break;
+outlet_out7 =  ___SMMUL(oscParams[7].oscOut,oscParams[7].envelopeOsc)<<5; /*oscParams[7].envelopeOsc += oscParams[7].envelopeStep;*/ break;
+
 
 ]]></code.srate>
    </obj.normal>

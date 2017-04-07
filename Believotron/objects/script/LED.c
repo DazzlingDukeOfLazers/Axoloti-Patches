@@ -2,7 +2,7 @@
 // This totally has to be refactored
 uint8_t knobVal[2][8];
 
-#define STRAND_LENGTH 32
+#define STRAND_LENGTH 64
 
 // These are going to be copied to the struct below
 #define C_BLACK                  0x00, 0x00, 0x00

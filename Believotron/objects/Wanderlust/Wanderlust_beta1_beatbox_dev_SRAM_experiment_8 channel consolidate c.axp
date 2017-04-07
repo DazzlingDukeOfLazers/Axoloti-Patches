@@ -1,0 +1,304 @@
+<patch-1.0 appVersion="1.0.12">
+   <obj type="ctrl/dial p" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="dial_3" x="28" y="56">
+      <params>
+         <frac32.u.map name="value" value="64.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="Wanderlust/Wanderlust_beta1" uuid="a2125df6-426a-4a66-80d5-506c0b70d14b" name="obj_1" x="238" y="70">
+      <params>
+         <bool32.tgl name="Reverse Knobs" value="1"/>
+         <bool32.tgl name="Rev Padrow Top" value="1"/>
+         <bool32.tgl name="InvertJoy0" value="0"/>
+         <bool32.tgl name="Rev Padrow Bottom" value="1"/>
+         <bool32.tgl name="SwapXY" value="0"/>
+         <int32 name="LED Mode" value="0"/>
+         <bool32.tgl name="InvertJoy1" value="0"/>
+         <bool32.tgl name="swapKnobRow" value="1"/>
+         <bool32.tgl name="swapPadRow" value="1"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="tempPage" x="588" y="70">
+      <params>
+         <int32 name="value" value="0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="disp/hex" uuid="87617898f70d90033f8add921438bf0d11721fdd" name="hex_1" x="728" y="70">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_1" x="1190" y="126">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="table/alloc 16b sdram" uuid="6d8eb0fd68f404cb5d14e7d4c8c146c8ccf09da1" name="tableFoo" x="714" y="154">
+      <params/>
+      <attribs>
+         <combo attributeName="size" selection="64"/>
+         <text attributeName="init">
+            <sText><![CDATA[]]></sText>
+         </text>
+      </attribs>
+   </obj>
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_1" x="28" y="168">
+      <params>
+         <int32 name="value" value="0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_3" x="1078" y="196">
+      <params>
+         <int32 name="value" value="0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_2" x="28" y="224">
+      <params>
+         <int32 name="value" value="0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="osc/multiwaveMultiChannelADSR_V2" uuid="2c42e243-901f-470a-b0fa-bb1e6a62ecc0" name="multiwaveMultiChannelADSR_V2_1" x="700" y="252">
+      <params/>
+      <attribs>
+         <objref attributeName="table" obj="tableFoo"/>
+      </attribs>
+   </obj>
+   <obj type="mix/mix_8-No_Gain" uuid="df5d240a-6631-4cd2-a0e3-18888fd36b30" name="mix_8-No_Gain_1" x="1064" y="266">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="audio/out stereo" uuid="a1ca7a567f535acc21055669829101d3ee7f0189" name="out_1" x="1694" y="308">
+      <params/>
+      <attribs/>
+   </obj>
+   <comment type="patch/comment" x="3038" y="364" text="East coast"/>
+   <obj type="table/alloc 16b sdram" uuid="6d8eb0fd68f404cb5d14e7d4c8c146c8ccf09da1" name="tableBar" x="714" y="644">
+      <params/>
+      <attribs>
+         <combo attributeName="size" selection="64"/>
+         <text attributeName="init">
+            <sText><![CDATA[]]></sText>
+         </text>
+      </attribs>
+   </obj>
+   <obj type="osc/multiwaveMultiChannelADSR_V2" uuid="2c42e243-901f-470a-b0fa-bb1e6a62ecc0" name="multiwaveMultiChannelADSR_V2_2" x="728" y="728">
+      <params/>
+      <attribs>
+         <objref attributeName="table" obj="tableBar"/>
+      </attribs>
+   </obj>
+   <obj type="mix/mix_8-No_Gain" uuid="df5d240a-6631-4cd2-a0e3-18888fd36b30" name="mix_8-No_Gain_2" x="1064" y="728">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_4" x="588" y="854">
+      <params>
+         <int32 name="value" value="1"/>
+      </params>
+      <attribs/>
+   </obj>
+   <nets>
+      <net>
+         <source obj="i_1" outlet="out"/>
+         <dest obj="obj_1" inlet="step"/>
+      </net>
+      <net>
+         <source obj="i_2" outlet="out"/>
+         <dest obj="obj_1" inlet="Color In"/>
+      </net>
+      <net>
+         <source obj="dial_3" outlet="out"/>
+         <dest obj="obj_1" inlet="Intensity"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="knob_top_0"/>
+         <dest obj="hex_1" inlet="in"/>
+         <dest obj="multiwaveMultiChannelADSR_V2_1" inlet="attack"/>
+         <dest obj="multiwaveMultiChannelADSR_V2_2" inlet="attack"/>
+      </net>
+      <net>
+         <source obj="multiwaveMultiChannelADSR_V2_1" outlet="out0"/>
+         <dest obj="mix_8-No_Gain_1" inlet="in1"/>
+         <dest obj="out_1" inlet="left"/>
+      </net>
+      <net>
+         <source obj="multiwaveMultiChannelADSR_V2_1" outlet="out1"/>
+         <dest obj="mix_8-No_Gain_1" inlet="in2"/>
+         <dest obj="out_1" inlet="right"/>
+      </net>
+      <net>
+         <source obj="multiwaveMultiChannelADSR_V2_1" outlet="out2"/>
+         <dest obj="mix_8-No_Gain_1" inlet="in3"/>
+      </net>
+      <net>
+         <source obj="multiwaveMultiChannelADSR_V2_1" outlet="out3"/>
+         <dest obj="mix_8-No_Gain_1" inlet="in4"/>
+      </net>
+      <net>
+         <source obj="multiwaveMultiChannelADSR_V2_1" outlet="out4"/>
+         <dest obj="mix_8-No_Gain_1" inlet="in5"/>
+      </net>
+      <net>
+         <source obj="multiwaveMultiChannelADSR_V2_1" outlet="out5"/>
+         <dest obj="mix_8-No_Gain_1" inlet="in6"/>
+      </net>
+      <net>
+         <source obj="multiwaveMultiChannelADSR_V2_1" outlet="out6"/>
+         <dest obj="mix_8-No_Gain_1" inlet="in7"/>
+      </net>
+      <net>
+         <source obj="multiwaveMultiChannelADSR_V2_1" outlet="out7"/>
+         <dest obj="mix_8-No_Gain_1" inlet="in8"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="parasailing"/>
+         <dest obj="multiwaveMultiChannelADSR_V2_1" inlet="gate0"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="diving"/>
+         <dest obj="multiwaveMultiChannelADSR_V2_1" inlet="gate1"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="canoing"/>
+         <dest obj="multiwaveMultiChannelADSR_V2_1" inlet="gate2"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="swimming"/>
+         <dest obj="multiwaveMultiChannelADSR_V2_1" inlet="gate3"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="sailing"/>
+         <dest obj="multiwaveMultiChannelADSR_V2_1" inlet="gate4"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="fishing"/>
+         <dest obj="multiwaveMultiChannelADSR_V2_1" inlet="gate5"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="anchor"/>
+         <dest obj="multiwaveMultiChannelADSR_V2_1" inlet="gate6"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="knob_top_1"/>
+         <dest obj="multiwaveMultiChannelADSR_V2_1" inlet="decay"/>
+         <dest obj="multiwaveMultiChannelADSR_V2_2" inlet="decay"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="knob_top_2"/>
+         <dest obj="multiwaveMultiChannelADSR_V2_1" inlet="sustain"/>
+         <dest obj="multiwaveMultiChannelADSR_V2_2" inlet="sustain"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="knob_top_3"/>
+         <dest obj="multiwaveMultiChannelADSR_V2_1" inlet="release"/>
+         <dest obj="multiwaveMultiChannelADSR_V2_2" inlet="release"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="knob_top_4"/>
+         <dest obj="multiwaveMultiChannelADSR_V2_1" inlet="volume"/>
+         <dest obj="multiwaveMultiChannelADSR_V2_2" inlet="volume"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="knob_top_5"/>
+         <dest obj="multiwaveMultiChannelADSR_V2_1" inlet="pitch"/>
+         <dest obj="multiwaveMultiChannelADSR_V2_2" inlet="pitch"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="knob_top_6"/>
+         <dest obj="multiwaveMultiChannelADSR_V2_1" inlet="shape"/>
+         <dest obj="multiwaveMultiChannelADSR_V2_2" inlet="shape"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="knob_top_7"/>
+         <dest obj="multiwaveMultiChannelADSR_V2_1" inlet="amount"/>
+         <dest obj="multiwaveMultiChannelADSR_V2_2" inlet="amount"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="showers"/>
+         <dest obj="multiwaveMultiChannelADSR_V2_1" inlet="gate7"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="hiking"/>
+         <dest obj="multiwaveMultiChannelADSR_V2_1" inlet="trigLoadSD"/>
+         <dest obj="multiwaveMultiChannelADSR_V2_2" inlet="trigLoadSD"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="horsebackriding"/>
+         <dest obj="multiwaveMultiChannelADSR_V2_1" inlet="trigSaveSD"/>
+         <dest obj="multiwaveMultiChannelADSR_V2_2" inlet="trigSaveSD"/>
+      </net>
+      <net>
+         <source obj="multiwaveMultiChannelADSR_V2_2" outlet="out0"/>
+         <dest obj="mix_8-No_Gain_2" inlet="in1"/>
+      </net>
+      <net>
+         <source obj="multiwaveMultiChannelADSR_V2_2" outlet="out1"/>
+         <dest obj="mix_8-No_Gain_2" inlet="in2"/>
+      </net>
+      <net>
+         <source obj="multiwaveMultiChannelADSR_V2_2" outlet="out2"/>
+         <dest obj="mix_8-No_Gain_2" inlet="in3"/>
+      </net>
+      <net>
+         <source obj="multiwaveMultiChannelADSR_V2_2" outlet="out3"/>
+         <dest obj="mix_8-No_Gain_2" inlet="in4"/>
+      </net>
+      <net>
+         <source obj="multiwaveMultiChannelADSR_V2_2" outlet="out4"/>
+         <dest obj="mix_8-No_Gain_2" inlet="in5"/>
+      </net>
+      <net>
+         <source obj="multiwaveMultiChannelADSR_V2_2" outlet="out5"/>
+         <dest obj="mix_8-No_Gain_2" inlet="in6"/>
+      </net>
+      <net>
+         <source obj="multiwaveMultiChannelADSR_V2_2" outlet="out6"/>
+         <dest obj="mix_8-No_Gain_2" inlet="in7"/>
+      </net>
+      <net>
+         <source obj="multiwaveMultiChannelADSR_V2_2" outlet="out7"/>
+         <dest obj="mix_8-No_Gain_2" inlet="in8"/>
+      </net>
+      <net>
+         <source obj="i_4" outlet="out"/>
+         <dest obj="multiwaveMultiChannelADSR_V2_2" inlet="page"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="ski_down"/>
+         <dest obj="multiwaveMultiChannelADSR_V2_2" inlet="gate0"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="ski_cross"/>
+         <dest obj="multiwaveMultiChannelADSR_V2_2" inlet="gate1"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="skating"/>
+         <dest obj="multiwaveMultiChannelADSR_V2_2" inlet="gate2"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="tram"/>
+         <dest obj="multiwaveMultiChannelADSR_V2_2" inlet="gate3"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="sledding"/>
+         <dest obj="multiwaveMultiChannelADSR_V2_2" inlet="gate4"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="snowmowbiling"/>
+         <dest obj="multiwaveMultiChannelADSR_V2_2" inlet="gate5"/>
+      </net>
+   </nets>
+   <settings>
+      <subpatchmode>no</subpatchmode>
+   </settings>
+   <notes><![CDATA[]]></notes>
+   <windowPos>
+      <x>-1928</x>
+      <y>-91</y>
+      <width>1723</width>
+      <height>976</height>
+   </windowPos>
+</patch-1.0>

@@ -117,7 +117,7 @@ void SPI_CS_ALL_OFF()
 	// Disable Chip Select
 	palWritePad(GPIOC,5,1);	// LED
 	palWritePad(GPIOB,7,1);  // Knob, Top Row
-	palWritePad(GPIOA,4,1);	// Knob, Bottom Row
+	palWritePad(GPIOB,6,1);	// Knob, Bottom Row
 	
 }
 // </SPI stuff>
@@ -211,7 +211,7 @@ void setup(void) {
 		palSetPadMode(GPIOB,7,PAL_MODE_OUTPUT_PUSHPULL);        // MCP3208
 	
 		// Setup Knob Bottom
-		palSetPadMode(GPIOA,4,PAL_MODE_OUTPUT_PUSHPULL);        // MCP3208
+		palSetPadMode(GPIOB,6,PAL_MODE_OUTPUT_PUSHPULL);        // MCP3208
 		
 		// Setup LED
 		palSetPadMode(GPIOC,5,PAL_MODE_OUTPUT_PUSHPULL);        // MCP3208
@@ -502,7 +502,7 @@ void loop(void)
    <obj type="gpio/in/analog" uuid="1c0c845ed2d7e06ae5f377ba13d9d09f4747ac87" name="analog_1" x="1078" y="980">
       <params/>
       <attribs>
-         <combo attributeName="channel" selection="PC4 (ADC1_IN14)"/>
+         <combo attributeName="channel" selection="PC0 (ADC1_IN10)"/>
       </attribs>
    </obj>
    <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="joyLY" x="1890" y="980">
@@ -526,21 +526,10 @@ void loop(void)
       <params/>
       <attribs/>
    </obj>
-   <obj type="gpio/in/digital" uuid="f59f139e8da912742832dc541157f20f30b7ac1b" name="digital_1" x="700" y="1176">
-      <params/>
-      <attribs>
-         <combo attributeName="pad" selection="PB0"/>
-         <combo attributeName="mode" selection="pullup"/>
-      </attribs>
-   </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_1" x="854" y="1176">
-      <params/>
-      <attribs/>
-   </obj>
    <obj type="gpio/in/digital" uuid="f59f139e8da912742832dc541157f20f30b7ac1b" name="digital_2" x="1078" y="1190">
       <params/>
       <attribs>
-         <combo attributeName="pad" selection="PC0"/>
+         <combo attributeName="pad" selection="PB0"/>
          <combo attributeName="mode" selection="pullup"/>
       </attribs>
    </obj>
@@ -768,10 +757,6 @@ void loop(void)
          <dest obj="WanderlustController_1" inlet="Page_"/>
       </net>
       <net>
-         <source obj="digital_1" outlet="out"/>
-         <dest obj="bool_1" inlet="in"/>
-      </net>
-      <net>
          <source obj="analog_3" outlet="out"/>
          <dest obj="Volume" inlet="outlet"/>
       </net>
@@ -791,7 +776,7 @@ void loop(void)
       <net>
          <source obj="mux_1" outlet="o"/>
          <dest obj="inv_2" inlet="in"/>
-         <dest obj="mux_3" inlet="i2"/>
+         <dest obj="mux_3" inlet="i1"/>
       </net>
       <net>
          <source obj="inv_2" outlet="out"/>
@@ -799,7 +784,7 @@ void loop(void)
       </net>
       <net>
          <source obj="+c_1" outlet="out"/>
-         <dest obj="mux_3" inlet="i1"/>
+         <dest obj="mux_3" inlet="i2"/>
       </net>
       <net>
          <source obj="inv_3" outlet="out"/>
@@ -808,7 +793,7 @@ void loop(void)
       <net>
          <source obj="mux_2" outlet="o"/>
          <dest obj="inv_3" inlet="in"/>
-         <dest obj="mux_4" inlet="i2"/>
+         <dest obj="mux_4" inlet="i1"/>
       </net>
       <net>
          <source obj="InvertJoy0" outlet="o"/>
@@ -828,7 +813,7 @@ void loop(void)
       </net>
       <net>
          <source obj="+c_2" outlet="out"/>
-         <dest obj="mux_4" inlet="i1"/>
+         <dest obj="mux_4" inlet="i2"/>
       </net>
       <net>
          <source obj="swapKnobRow" outlet="o"/>

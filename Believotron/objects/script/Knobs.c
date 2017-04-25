@@ -21,14 +21,14 @@ void readADCAndOutput()
 
 			SPI_CS_ALL_OFF();
 
-			if (!SwapKnobRow)
+			if (SwapKnobRow)
 			{
-				if (iDevice == 0 ) palWritePad(	GPIOA,	4,	0		);	// enable ADC
+				if (iDevice == 0 ) palWritePad(	GPIOB,	6,	0		);	// enable ADC
 				if (iDevice == 1 ) palWritePad(	GPIOB,	7,	0		);	// enable ADC
 			}
 			else
 			{
-				if (iDevice == 1 ) palWritePad(	GPIOA,	4,	0		);	// enable ADC
+				if (iDevice == 1 ) palWritePad(	GPIOB,	6,	0		);	// enable ADC
 				if (iDevice == 0 ) palWritePad(	GPIOB,	7,	0		);	// enable ADC
 			}
 
@@ -49,7 +49,7 @@ void readADCAndOutput()
 #define TOTAL_TICKS 0x7F80000
 #define KNOB_PER_BIT 0.0000005
 // 64 / 0.000 000 5 = 128K
-			if (reverseKnobs)
+			if (!reverseKnobs)
 			{
 				z=TOTAL_TICKS - z;
 			}//{ z = z - 64;}

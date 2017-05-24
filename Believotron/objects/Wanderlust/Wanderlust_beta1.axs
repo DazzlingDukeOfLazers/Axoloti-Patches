@@ -253,10 +253,10 @@ void loop(void)
 	switch(LEDmode)
 	{
 		case 0:			
-			SetAllLEDs(LEDcolor);
+			SetAllLEDs(LEDcolor, stepIntensity);
 			break;
 		case 1:		
-			SetAllLEDs(LEDcolor);
+			SetAllLEDs(LEDcolor, stepIntensity);
 			SetLED(stepNum,2,stepIntensity);
 			break;			
 		case 2:		
@@ -267,7 +267,7 @@ void loop(void)
 			JamColumn(LEDcolor); 
 			break;
 		default:	
-			SetAllLEDs(LEDcolor);		
+			SetAllLEDs(LEDcolor, stepIntensity);		
 			break;
 	}
 

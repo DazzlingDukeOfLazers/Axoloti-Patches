@@ -8,20 +8,14 @@
    <obj type="Wanderlust/Wanderlust_beta1" uuid="a2125df6-426a-4a66-80d5-506c0b70d14b" name="obj_1" x="238" y="70">
       <params>
          <bool32.tgl name="Reverse Knobs" value="1"/>
-         <bool32.tgl name="Rev Padrow Top" value="1"/>
+         <bool32.tgl name="Rev Padrow Top" value="0"/>
          <bool32.tgl name="InvertJoy0" value="0"/>
-         <bool32.tgl name="Rev Padrow Bottom" value="1"/>
+         <bool32.tgl name="Rev Padrow Bottom" value="0"/>
          <bool32.tgl name="SwapXY" value="0"/>
-         <int32 name="LED Mode" value="0"/>
+         <int32 name="LED Mode" value="3"/>
          <bool32.tgl name="InvertJoy1" value="0"/>
-         <bool32.tgl name="swapKnobRow" value="1"/>
-         <bool32.tgl name="swapPadRow" value="1"/>
-      </params>
-      <attribs/>
-   </obj>
-   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="tempPage" x="588" y="70">
-      <params>
-         <int32 name="value" value="0"/>
+         <bool32.tgl name="swapKnobRow" value="0"/>
+         <bool32.tgl name="swapPadRow" value="0"/>
       </params>
       <attribs/>
    </obj>
@@ -56,7 +50,7 @@
    </obj>
    <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_2" x="28" y="224">
       <params>
-         <int32 name="value" value="0"/>
+         <int32 name="value" value="2"/>
       </params>
       <attribs/>
    </obj>
@@ -75,6 +69,12 @@
       <attribs/>
    </obj>
    <comment type="patch/comment" x="3038" y="364" text="East coast"/>
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="tempPage" x="574" y="378">
+      <params>
+         <int32 name="value" value="0"/>
+      </params>
+      <attribs/>
+   </obj>
    <obj type="table/alloc 16b sdram" uuid="6d8eb0fd68f404cb5d14e7d4c8c146c8ccf09da1" name="tableBar" x="714" y="644">
       <params/>
       <attribs>
@@ -290,6 +290,10 @@
          <source obj="obj_1" outlet="snowmowbiling"/>
          <dest obj="multiwaveMultiChannelADSR_V2_2" inlet="gate5"/>
       </net>
+      <net>
+         <source obj="tempPage" outlet="out"/>
+         <dest obj="multiwaveMultiChannelADSR_V2_1" inlet="page"/>
+      </net>
    </nets>
    <settings>
       <subpatchmode>no</subpatchmode>
@@ -297,7 +301,7 @@
    <notes><![CDATA[]]></notes>
    <windowPos>
       <x>-1928</x>
-      <y>-91</y>
+      <y>-79</y>
       <width>1723</width>
       <height>976</height>
    </windowPos>

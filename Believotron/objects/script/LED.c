@@ -274,14 +274,14 @@ void SetCheckerPattern(uint8_t iPattern)
 	}
 }
 
-void SetAllLEDs(uint8_t iColor)
+void SetAllLEDs(uint8_t iColor, double dIntensity)
 {
 	for (int iLED=0; iLED < STRAND_LENGTH; iLED++)
 	{
 		if ( (iColor < 0) || (iColor >= NUM_COLORS) ) { iColor = 0;}
 
 		LEDS[iLED].u8Color = iColor;
-		LEDS[iLED].dIntensity = 1.0;
+		LEDS[iLED].dIntensity = dIntensity;
 
 	}
 }
@@ -289,16 +289,16 @@ void SetAllLEDs(uint8_t iColor)
 void SetColumn(uint8_t iColumn, uint8_t iColor)
 {
 	LEDS[iColumn].u8Color = iColor;
-	LEDS[iColumn].dIntensity = 1.0;
+	LEDS[iColumn].dIntensity = 0.25;
 
 	LEDS[iColumn+16].u8Color = iColor;
-	LEDS[iColumn+16].dIntensity = 1.0;
+	LEDS[iColumn+16].dIntensity = 0.25;
 
 	LEDS[iColumn+32].u8Color = iColor;
-	LEDS[iColumn+32].dIntensity = 1.0;
+	LEDS[iColumn+32].dIntensity = 0.25;
 
 	LEDS[iColumn+48].u8Color = iColor;
-	LEDS[iColumn+48].dIntensity = 1.0;
+	LEDS[iColumn+48].dIntensity = 0.25;
 }
 
 void SetColumnPair(uint8_t iColumn, uint8_t iColor)

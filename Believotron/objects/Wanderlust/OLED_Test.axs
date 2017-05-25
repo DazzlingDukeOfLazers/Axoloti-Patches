@@ -16,16 +16,9 @@ systime_t tmo = MS2ST(4);
 //#include "C:\\Users\\danie\\Documents\\WIP\\Believotron\\Believotron-Github\\Axoloti-Patches\\Believotron\\objects\\script\\led.c"
 //#include "C:\\Users\\danie\\Documents\\WIP\\Believotron\\Believotron-Github\\Axoloti-Patches\\Believotron\\objects\\script\\padcaps.c"
 
-#include "C:\\Program Files (x86)\\Arduino\\libraries\\Adafruit_SSD1306\\Adafruit_SSD1306.h"
-#include "C:\\Program Files (x86)\\Arduino\\libraries\\Adafruit-GFX-Library\Adafruit_GFX.h"
-
-
-
-
-
-
-
-
+//#include "C:\\Program Files (x86)\\Arduino\\libraries\\Adafruit_SSD1306\\Adafruit_SSD1306.h"
+//#include "C:\\Program Files (x86)\\Arduino\\libraries\\Adafruit-GFX-Library\Adafruit_GFX.h"
+#include "C:\\Users\\danie\\Documents\\WIP\\Believotron\\Believotron-Github\\Axoloti-Patches\\Believotron\\objects\\OLED\\OLED_SSD1306.cpp"
 
 
 
@@ -41,12 +34,12 @@ void LinkTxRxBuffers(void)
 
 
 
-void setup(void) {
-
-
-
-
+void setup(void) 
+{
+	OLEDBegin(SSD1306_SWITCHCAPVCC, 0x3C, FALSE);
+	OLEDDisplay();
 }
+
 void loop(void)
 {	
 	
@@ -97,8 +90,8 @@ void loop(void)
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>-1449</x>
-      <y>101</y>
+      <x>-1391</x>
+      <y>202</y>
       <width>976</width>
       <height>531</height>
    </windowPos>

@@ -73,8 +73,8 @@ void OLED1306_command(uint8_t c)
 
 void OLEDBegin(uint8_t vccstate, uint8_t i2caddr, bool reset)
 {
-  _vccstate = vccstate;
-  _i2caddr = i2caddr;
+  OLED0._vccstate = vccstate;
+  OLED0._i2caddr = i2caddr;
 
   // Init sequence
   OLED1306_command(OLED_SSD1306_DISPLAYOFF);                    // 0xAE
@@ -97,7 +97,7 @@ void OLEDBegin(uint8_t vccstate, uint8_t i2caddr, bool reset)
   OLED1306_command(OLED_SSD1306_SEGREMAP | 0x1);
   OLED1306_command(OLED_SSD1306_COMSCANDEC);
 
-
+  // #if defined SSD1306_128_32
   OLED1306_command(OLED_SSD1306_SETCOMPINS);                    // 0xDA
   OLED1306_command(0x02);
   OLED1306_command(OLED_SSD1306_SETCONTRAST);                   // 0x81
@@ -121,7 +121,7 @@ void OLEDBegin(uint8_t vccstate, uint8_t i2caddr, bool reset)
 }
 
 // left off here. Unported
-OLEDDisplay(void)
+void OLEDDisplay()
 {
   OLED1306_command(OLED_SSD1306_COLUMNADDR);
   OLED1306_command(0);   // Column start address (0 = reset)

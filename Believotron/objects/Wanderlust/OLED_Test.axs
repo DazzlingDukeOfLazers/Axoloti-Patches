@@ -1,4 +1,8 @@
 <patch-1.0 appVersion="1.0.12">
+   <obj type="I2C/SlowI2C" uuid="41136ed1-bd2e-40c5-88e0-e44851c8e6ee" name="SlowI2C_1" x="84" y="42">
+      <params/>
+      <attribs/>
+   </obj>
    <obj type="OLED/OLED_Test" uuid="9820e042-d578-4400-9e5d-fe9aa1d4efdc" name="OLED_Test_1" x="476" y="140">
       <params/>
       <attribs>
@@ -7,8 +11,8 @@
 bool gate = 1;
 uint8_t *rxbuf;
 uint8_t *txbuf;
-systime_t tmo = MS2ST(4);
-
+//systime_t tmo = MS2ST(4);
+systime_t tmo = US2ST(100);
 
 // TBD, figure out cross platform solution to relative directories
 
@@ -36,8 +40,13 @@ void LinkTxRxBuffers(void)
 
 void setup(void) 
 {
-	OLEDBegin(SSD1306_SWITCHCAPVCC, 0x3C, FALSE);
-	OLEDDisplay();
+	LinkTxRxBuffers();
+	txbuf[0]=0;
+	txbuf[1]=0xAE;
+	//i2cMasterTransmitTimeout(&I2CD1, 0x3C, txbuf, 2, rxbuf, 0, TIME_IMMEDIATE); // <TBD add status checking>
+	OLEDBegin(OLED_SSD1306_SWITCHCAPVCC, 0x3C, FALSE);
+	//OLEDBegin(OLED_SSD1306_SWITCHCAPVCC, 0x3D, FALSE);
+	//OLEDDisplay();
 }
 
 void loop(void)
@@ -49,10 +58,6 @@ void loop(void)
 ]]></sText>
          </text>
       </attribs>
-   </obj>
-   <obj type="gpio/i2c/config" uuid="b095a33e56de5fcd23740a7d983bc0bafb315d81" name="i2c.begin_1" x="84" y="210">
-      <params/>
-      <attribs/>
    </obj>
    <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="joyLX" x="1890" y="840">
       <params/>
@@ -90,8 +95,8 @@ void loop(void)
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>-1391</x>
-      <y>202</y>
+      <x>-1231</x>
+      <y>203</y>
       <width>976</width>
       <height>531</height>
    </windowPos>

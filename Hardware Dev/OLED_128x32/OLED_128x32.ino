@@ -92,19 +92,11 @@ void setup()   {
   display.clearDisplay();
   display.display();
 
-  // text display tests
-  display.setTextSize(2);
-  display.setTextColor(WHITE);
-  display.setCursor(0,0);
-  display.println("Liquid");
-  display.println("Thunder");
-  //display.println("Believotron Core");
-  //display.println("Patch: Liquid Thunder");
-  //display.println("A:50 D:37 S:28 R:92");
-  display.display();
-  delay(1);
-  display.clearDisplay();
-  testDrawSteps();
+
+  drawMenu();
+  //testDrawSteps();
+
+
 
 }
 
@@ -112,6 +104,64 @@ void setup()   {
 void loop()
 {
 
+}
+
+
+
+void drawMenu()
+{
+    display.setTextSize(1);
+    display.setTextColor(WHITE);
+    display.setCursor(0,0);
+    display.println("Select Patch");
+    display.println("Live Label");
+    display.println("Settings");
+    display.println("Help");
+
+
+    //display.println("Believotron Core");
+    //display.println("Patch: Liquid Thunder");
+    //display.println("A:50 D:37 S:28 R:92");
+    display.display();
+    delay(1);
+    display.clearDisplay();
+}
+
+
+
+void drawBarker()
+{
+    display.setTextSize(1);
+    display.setTextColor(WHITE);
+    display.setCursor(0,0);
+    display.println("Use Joystick");
+    display.println("To Menu");
+
+
+    //display.println("Believotron Core");
+    //display.println("Patch: Liquid Thunder");
+    //display.println("A:50 D:37 S:28 R:92");
+    display.display();
+    delay(1);
+    display.clearDisplay();
+
+}
+
+void drawSplash()
+{
+    display.setTextSize(1);
+    display.setTextColor(WHITE);
+    display.setCursor(0,0);
+    display.println("Believotron Core");
+    display.println("Welcome to your");
+    display.println("sonic adventure");
+    display.println("No SD card present");
+    //display.println("Believotron Core");
+    //display.println("Patch: Liquid Thunder");
+    //display.println("A:50 D:37 S:28 R:92");
+    display.display();
+    delay(1);
+    display.clearDisplay();
 }
 
 // Draws a field of small circles to simulate steps

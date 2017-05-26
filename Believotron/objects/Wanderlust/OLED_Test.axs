@@ -3,7 +3,7 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="OLED/OLED_Test" uuid="9820e042-d578-4400-9e5d-fe9aa1d4efdc" name="OLED_Test_1" x="476" y="140">
+   <obj type="OLED/OLED_Test" uuid="9820e042-d578-4400-9e5d-fe9aa1d4efdc" name="OLED_Test_1" x="84" y="84">
       <params/>
       <attribs>
          <text attributeName="script">
@@ -47,6 +47,7 @@ void setup(void)
 	OLEDBegin(OLED_SSD1306_SWITCHCAPVCC, 0x3C, FALSE);
 	chThdSleepMilliseconds(10);
 	//OLEDBegin(OLED_SSD1306_SWITCHCAPVCC, 0x3D, FALSE);
+	OLED_Sandbox();
 	OLEDDisplay();
 }
 
@@ -96,9 +97,9 @@ void loop(void)
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>-1231</x>
-      <y>203</y>
-      <width>976</width>
-      <height>531</height>
+      <x>-1903</x>
+      <y>277</y>
+      <width>328</width>
+      <height>336</height>
    </windowPos>
 </patch-1.0>

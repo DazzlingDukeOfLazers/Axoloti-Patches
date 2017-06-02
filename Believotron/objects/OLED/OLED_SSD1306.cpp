@@ -31,7 +31,7 @@ All text above, and the splash screen below must be included in any redistributi
 
 // Address of 0x3C when viewing 7 bit address, and 0x78 when in 8bit viewing
 
-#include "font_press_play.h"
+#include "font_QuarterMuncher.h"
 
 #define OLED_SSD1306_DISPLAYOFF          0xAE
 #define OLED_SSD1306_SETDISPLAYCLOCKDIV  0xD5
@@ -456,7 +456,7 @@ void SetOLEDChar(uint8_t x, uint8_t y, uint8_t setChar)
 
     for (int iPixelY = 0; iPixelY < 8; iPixelY++)
     {
-        Cartesian_Byte_Array[ startY+iPixelY ][ x ] = fontPressPlay[ charOffset ][ iPixelY ];
+        Cartesian_Byte_Array[ startY+iPixelY ][ x ] = font_QuarterMuncher[ charOffset ][ iPixelY ];
     }
 
     ConvertCartesianBufferToOLEDBuffer();

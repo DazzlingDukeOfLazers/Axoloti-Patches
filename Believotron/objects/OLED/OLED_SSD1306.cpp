@@ -31,6 +31,8 @@ All text above, and the splash screen below must be included in any redistributi
 
 // Address of 0x3C when viewing 7 bit address, and 0x78 when in 8bit viewing
 
+#include "font_press_play.h"
+
 #define OLED_SSD1306_DISPLAYOFF          0xAE
 #define OLED_SSD1306_SETDISPLAYCLOCKDIV  0xD5
 #define OLED_SSD1306_SETMULTIPLEX        0xA8
@@ -411,10 +413,65 @@ void ConvertCartesianBufferToOLEDBuffer()
 }
 */
 
+
+
+
+void SetOLEDChar(uint8_t x, uint8_t y, uint8_t setChar)
+{
+    uint8_t charOffset=0;
+    uint8_t startX, startY;
+
+    if      (charOffset == 'A') charOffset = 0;
+    else if (charOffset == 'B') charOffset = 1;
+    else                        charOffset = 3;
+
+    switch( setChar )
+    {
+        case 'A':
+            charOffset = 0;
+            break;
+        case 'B':
+            charOffset = 1;
+        default:
+            charOffset = 1;
+            break;
+    }
+
+    startX = x *16;
+    startY = y *4;
+
+
+
+/*
+    Cartesian_Byte_Array[0][0] = fontPressPlay[ 0 ][ 0 ];
+    Cartesian_Byte_Array[1][0] = fontPressPlay[ 0 ][ 1 ];
+    Cartesian_Byte_Array[2][0] = fontPressPlay[ 0 ][ 2 ];
+    Cartesian_Byte_Array[3][0] = fontPressPlay[ 0 ][ 3 ];
+    Cartesian_Byte_Array[4][0] = fontPressPlay[ 0 ][ 4 ];
+    Cartesian_Byte_Array[5][0] = fontPressPlay[ 0 ][ 5 ];
+    Cartesian_Byte_Array[6][0] = fontPressPlay[ 0 ][ 6 ];
+    Cartesian_Byte_Array[7][0] = fontPressPlay[ 0 ][ 7 ];
+*/
+
+
+    for (int iPixelY = 0; iPixelY < 8; iPixelY++)
+    {
+        Cartesian_Byte_Array[ startY+iPixelY ][ x ] = fontPressPlay[ charOffset ][ iPixelY ];
+    }
+
+    ConvertCartesianBufferToOLEDBuffer();
+
+}
+
+
 void OLED_Sandbox()
 {
 
-
+    SetOLEDChar(0, 0, 'A');
+    SetOLEDChar(1, 0, 'B');
+    SetOLEDChar(2, 0, 'B');
+    SetOLEDChar(3, 0, 'A');
+/*
     for (int iRow=0; iRow < 32; iRow++)
     {
         for (int iCol=0; iCol < 128; iCol++)
@@ -427,6 +484,7 @@ void OLED_Sandbox()
 
         }
     }
+*/
 
 }
 

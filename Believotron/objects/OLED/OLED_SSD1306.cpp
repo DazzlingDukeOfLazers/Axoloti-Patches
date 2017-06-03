@@ -421,6 +421,7 @@ void SetOLEDChar(uint8_t x, uint8_t y, uint8_t setChar)
     uint8_t charOffset=0;
     uint8_t startX, startY;
 
+// TBD, nice double code you got there
     if      (charOffset == 'A') charOffset = 0;
     else if (charOffset == 'B') charOffset = 1;
     else                        charOffset = 3;
@@ -440,7 +441,34 @@ void SetOLEDChar(uint8_t x, uint8_t y, uint8_t setChar)
     startX = x *16;
     startY = y *4;
 
+/*
+    Cartesian_Byte_Array[0][0] = fontPressPlay[ 0 ][ 0 ];
+    Cartesian_Byte_Array[1][0] = fontPressPlay[ 0 ][ 1 ];
+    Cartesian_Byte_Array[2][0] = fontPressPlay[ 0 ][ 2 ];
+    Cartesian_Byte_Array[3][0] = fontPressPlay[ 0 ][ 3 ];
+    Cartesian_Byte_Array[4][0] = fontPressPlay[ 0 ][ 4 ];
+    Cartesian_Byte_Array[5][0] = fontPressPlay[ 0 ][ 5 ];
+    Cartesian_Byte_Array[6][0] = fontPressPlay[ 0 ][ 6 ];
+    Cartesian_Byte_Array[7][0] = fontPressPlay[ 0 ][ 7 ];
+*/
 
+
+    for (int iPixelY = 0; iPixelY < 8; iPixelY++)
+    {
+        Cartesian_Byte_Array[ startY+iPixelY ][ x ] = font_QuarterMuncher[ charOffset ][ iPixelY ];
+    }
+
+    ConvertCartesianBufferToOLEDBuffer();
+
+}
+
+void SetOLEDCharIndex(uint8_t x, uint8_t y, uint16_t index)
+{
+    uint8_t charOffset=index;
+    uint8_t startX, startY;
+
+    startX = x *16;
+    startY = y *4;
 
 /*
     Cartesian_Byte_Array[0][0] = fontPressPlay[ 0 ][ 0 ];
@@ -464,8 +492,16 @@ void SetOLEDChar(uint8_t x, uint8_t y, uint8_t setChar)
 }
 
 
+
 void OLED_Sandbox()
 {
+    uint8_t index=0;
+    for (uint8_t iCol=0; iCol < 16; iCol++)
+    {
+        for (uint8_t iRow=0; iRow < 4; iRow++)
+        SetOLEDCharIndex(iCol, iRow, index);
+        index++;
+    }
 
     SetOLEDChar(0, 0, 'A');
     SetOLEDChar(1, 0, 'B');

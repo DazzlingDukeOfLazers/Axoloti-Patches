@@ -468,7 +468,7 @@ void SetOLEDCharIndex(uint8_t x, uint8_t y, uint16_t index)
     uint8_t startX, startY;
 
     startX = x *16;
-    startY = y *4;
+    startY = y *8;
 
 /*
     Cartesian_Byte_Array[0][0] = fontPressPlay[ 0 ][ 0 ];
@@ -496,17 +496,20 @@ void SetOLEDCharIndex(uint8_t x, uint8_t y, uint16_t index)
 void OLED_Sandbox()
 {
     uint8_t index=0;
-    for (uint8_t iCol=0; iCol < 16; iCol++)
+    for (uint8_t iRow=0; iRow < 4; iRow++)
     {
-        for (uint8_t iRow=0; iRow < 4; iRow++)
-        SetOLEDCharIndex(iCol, iRow, index);
-        index++;
+        for (uint8_t iCol=0; iCol < 16; iCol++)
+        {
+            SetOLEDCharIndex(iCol, iRow, index);
+            index++;
+        }
     }
 
-    SetOLEDChar(0, 0, 'A');
-    SetOLEDChar(1, 0, 'B');
-    SetOLEDChar(2, 0, 'B');
-    SetOLEDChar(3, 0, 'A');
+
+    //SetOLEDChar(0, 0, 'A');
+    //SetOLEDChar(1, 0, 'B');
+    //SetOLEDChar(2, 0, 'B');
+    //SetOLEDChar(3, 0, 'A');
 /*
     for (int iRow=0; iRow < 32; iRow++)
     {

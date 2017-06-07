@@ -491,6 +491,16 @@ void SetOLEDCharIndex(uint8_t x, uint8_t y, uint16_t index)
 
 }
 
+#define I2C_SWITCH_ADDRESS 0b1110000
+void SetOLEDChan(uint8_t iChan)
+{
+    if (iChan > 3) return;
+
+    txbuf[0] = 0x01 << iChan;
+
+    i2cMasterTransmitTimeout(&I2CD1, I2C_SWITCH_ADDRESS, txbuf, 1, rxbuf, 0, tmo); // <TBD add status checking>
+    chThdSleepMilliseconds(1);
+}
 
 
 void OLED_Sandbox()
@@ -561,6 +571,8 @@ void OLEDBegin(uint8_t vccstate, uint8_t i2caddr, bool reset)
 {
   OLED0._vccstate = vccstate;
   OLED0._i2caddr = i2caddr;
+
+  SetOLEDChan(0);
 
   // Init sequence
   OLED1306_command(OLED_SSD1306_DISPLAYOFF);                    // 0xAE

@@ -1,0 +1,99 @@
+<objdefs appVersion="1.0.12">
+   <obj.normal id="BelievotronCore_PCB1005_KnobCore" uuid="dea40d4c-0e25-49d0-993a-55866aabd090">
+      <sDescription>Interface to Believotron Core PCB1005_KnobCore_2017-06-07</sDescription>
+      <author>Dazzling Duke of Lazers</author>
+      <license>MIT</license>
+      <helpPatch>script.axh</helpPatch>
+      <inlets>
+         <bool32 name="reverseKnobs_" description="Reverse Knobs"/>
+      </inlets>
+      <outlets>
+         <frac32 name="out1_" description="out1"/>
+         <int32.positive name="out2_" description="out2"/>
+         <int32.positive name="out3_" description="out3"/>
+         <frac32 name="knbT0_" description="knbT0"/>
+         <frac32 name="knbT1_" description="knbT1"/>
+         <frac32 name="knbT2_" description="knbT2"/>
+         <frac32 name="knbT3_" description="knbT3"/>
+         <frac32 name="knbT4_" description="knbT4"/>
+         <frac32 name="knbT5_" description="knbT5"/>
+         <frac32 name="knbT6_" description="knbT6"/>
+         <frac32 name="knbT7_" description="knbT7"/>
+         <frac32 name="knbB0_" description="knbB0"/>
+         <frac32 name="knbB1_" description="knbB1"/>
+         <frac32 name="knbB2_" description="knbB2"/>
+         <frac32 name="knbB3_" description="knbB3"/>
+         <frac32 name="knbB4_" description="knbB4"/>
+         <frac32 name="knbB5_" description="knbB5"/>
+         <frac32 name="knbB6_" description="knbB6"/>
+         <frac32 name="knbB7_" description="knbB7"/>
+      </outlets>
+      <displays/>
+      <params/>
+      <attribs>
+         <text name="script"/>
+      </attribs>
+      <code.declaration><![CDATA[int32_t SwapKnobRow;
+int32_t Page;
+int32_t LEDcolor;
+int32_t LEDmode;
+int32_t stepNum;
+int32_t stepIntensity,in2,reverseKnobs;
+int32_t out1,out2,out3;
+int32_t knb[2][8];
+attr_script
+msg_t ThreadX2(){
+  setup();
+  while(!chThdShouldTerminate()){
+     loop();
+     chThdSleepMilliseconds(1);
+  }
+  chThdExit((msg_t)0);
+}
+static msg_t ThreadX(void *arg) {
+((attr_parent *)arg)->ThreadX2();
+}
+WORKING_AREA(waThreadX, 1024);
+Thread *Thd;]]></code.declaration>
+      <code.init><![CDATA[SwapKnobRow=0;
+reverseKnobs=0;
+stepNum=0;
+stepIntensity=0;
+in2=0;
+out1=0;
+out2=0;
+out3=0;
+
+for (int y=0; y<2; y++)
+{
+	for (int x=0; x<8; x++)
+	{
+		knb[y][x] = 0; 	
+	}
+}
+
+Thd = chThdCreateStatic(waThreadX, sizeof(waThreadX),NORMALPRIO, ThreadX, (void *)this);]]></code.init>
+      <code.dispose><![CDATA[chThdTerminate(Thd);
+chThdWait(Thd);]]></code.dispose>
+      <code.krate><![CDATA[outlet_out1__ = this->out1;
+outlet_out2__ = this->out2;
+outlet_out3__ = this->out3;
+outlet_knbT0__ = this->knb[0][0];
+outlet_knbT1__ = this->knb[0][1];
+outlet_knbT2__ = this->knb[0][2];
+outlet_knbT3__ = this->knb[0][3];
+outlet_knbT4__ = this->knb[0][4];
+outlet_knbT5__ = this->knb[0][5];
+outlet_knbT6__ = this->knb[0][6];
+outlet_knbT7__ = this->knb[0][7];
+outlet_knbB0__ = this->knb[1][0];
+outlet_knbB1__ = this->knb[1][1];
+outlet_knbB2__ = this->knb[1][2];
+outlet_knbB3__ = this->knb[1][3];
+outlet_knbB4__ = this->knb[1][4];
+outlet_knbB5__ = this->knb[1][5];
+outlet_knbB6__ = this->knb[1][6];
+outlet_knbB7__ = this->knb[1][7];
+this->reverseKnobs  = inlet_reverseKnobs__;]]></code.krate>
+   </obj.normal>
+</objdefs>

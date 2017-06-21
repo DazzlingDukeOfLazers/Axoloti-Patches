@@ -83,6 +83,16 @@
       <params/>
       <attribs/>
    </obj>
+   <obj type="gpio/in/analog" uuid="1c0c845ed2d7e06ae5f377ba13d9d09f4747ac87" name="analog_5" x="1106" y="140">
+      <params/>
+      <attribs>
+         <combo attributeName="channel" selection="PC4 (ADC1_IN14)"/>
+      </attribs>
+   </obj>
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_4" x="1302" y="140">
+      <params/>
+      <attribs/>
+   </obj>
    <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_1" x="28" y="168">
       <params>
          <int32 name="value" value="0"/>
@@ -503,6 +513,10 @@
       <net>
          <source obj="obj_1" outlet="joyLX"/>
          <dest obj="dial_25" inlet="in"/>
+      </net>
+      <net>
+         <source obj="analog_5" outlet="out"/>
+         <dest obj="dial_4" inlet="in"/>
       </net>
    </nets>
    <settings>

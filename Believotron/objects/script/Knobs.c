@@ -1,4 +1,60 @@
-void readADCAndOutput()
+/* Knobs.c
+	A simple helper file for reading from ADCs
+*/
+
+
+//#define TOTAL_TICKS 0x07A12000
+//#define TOTAL_TICKS 0x07FFFFFF - 0x0007FFFF Offset in axo system
+#define TOTAL_TICKS 0x7F80000
+#define KNOB_PER_BIT 0.0000005
+// 64 / 0.000 000 5 = 128K
+
+
+
+void readADCAndOutput(GPIO_TypeDef* iPort, uint8_t iPin, uint8_t iDevice)
+{
+	txbuf[0] = 0b00000000;
+	txbuf[1] = 0b00000000;
+	txbuf[2] = 0b00000000;
+
+	for(int pin=0; pin<8; pin++)
+	{
+
+		{ // Assemble the Command for readback
+			txbuf[0] = pin < 4 ? 0b01100000 : 0b11100000;
+
+			if      (pin % 4 == 0)	{	txbuf[1] = 0b00000000;	} // pin == 0 || pin == 4
+			else if (pin % 4 == 1)	{	txbuf[1] = 0b00000010;	} // pin == 1 || pin == 5
+			else if (pin % 4 == 2)	{	txbuf[1] = 0b00000001;   } // pin == 2 || pin == 6
+			else                 	{	txbuf[1] = 0b00000011;   }
+
+		}
+
+		SPI_CS_ALL_OFF();
+
+		palWritePad(iPort,	iPin,	0);	// enable ADC
+
+		spiSend(	&SPID1,	3,	txbuf	);	// send SPI data txbuf[]
+		spiReceive(	&SPID1,	3,	rxbuf	);	// receive SPI data from MCP3208
+
+		SPI_CS_ALL_OFF();
+
+		// I don't know why I'm only getting 8 bits. Probably a difference btwn the 3208 and the 3008. I only need 8 bits for demo
+		uint32_t z = ( (0x0000007F & rxbuf[0]) << 1) | ( (rxbuf[0] & 0x00000080) > 6);
+		z = 0x00FF ^ z;
+		z = z<<19;
+
+		if (!reverseKnobs){ z=TOTAL_TICKS - z; }//{ z = z - 64;}
+
+		knb[iDevice][pin] = z; // output in calling object
+
+	} // For each Pin
+}
+
+
+
+/*
+void readADCAndOutput() // Legacy code
 {
 	txbuf[0] = 0b00000000;
 	txbuf[1] = 0b00000000;
@@ -81,3 +137,4 @@ void readADCAndOutput()
 		} // For each Pin
 	} // For each row
 }
+*/

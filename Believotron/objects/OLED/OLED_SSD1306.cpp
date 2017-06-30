@@ -572,7 +572,7 @@ void OLEDBegin(uint8_t vccstate, uint8_t i2caddr, bool reset)
   OLED0._vccstate = vccstate;
   OLED0._i2caddr = i2caddr;
 
-  SetOLEDChan(0);
+  SetOLEDChan(2);
 
   // Init sequence
   OLED1306_command(OLED_SSD1306_DISPLAYOFF);                    // 0xAE

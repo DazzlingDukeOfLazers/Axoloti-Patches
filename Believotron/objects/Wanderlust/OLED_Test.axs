@@ -44,9 +44,9 @@ void setup(void)
 	txbuf[0]=0;
 	txbuf[1]=0xAE;
 	//i2cMasterTransmitTimeout(&I2CD1, 0x3C, txbuf, 2, rxbuf, 0, TIME_IMMEDIATE); // <TBD add status checking>
-	OLEDBegin(OLED_SSD1306_SWITCHCAPVCC, 0x3C, FALSE);
+	//OLEDBegin(OLED_SSD1306_SWITCHCAPVCC, 0x3C, FALSE);
 	chThdSleepMilliseconds(10);
-	//OLEDBegin(OLED_SSD1306_SWITCHCAPVCC, 0x3D, FALSE);
+	OLEDBegin(OLED_SSD1306_SWITCHCAPVCC, 0x3D, FALSE);
 	OLED_Sandbox();
 	OLEDDisplay();
 }

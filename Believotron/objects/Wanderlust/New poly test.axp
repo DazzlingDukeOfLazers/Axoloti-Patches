@@ -1,0 +1,55 @@
+<patch-1.0 appVersion="1.0.12">
+   <obj type="Wanderlust/Wanderlust_core_V1" uuid="b92072dc-54e4-4c8d-97e6-34332981c06a" name="obj_1" x="168" y="42">
+      <params>
+         <bool32.tgl name="Reverse Knobs" value="0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="./testSynth" uuid="a6831c92-e4aa-41dd-9830-3d6faf772714" name="testSynth_1" x="392" y="42">
+      <params/>
+      <attribs>
+         <combo attributeName="poly" selection="8"/>
+      </attribs>
+   </obj>
+   <obj type="audio/out stereo" uuid="a1ca7a567f535acc21055669829101d3ee7f0189" name="out_1" x="560" y="42">
+      <params/>
+      <attribs/>
+   </obj>
+   <nets>
+      <net>
+         <source obj="obj_1" outlet="knob_top_1"/>
+         <dest obj="testSynth_1" inlet="attack"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="knob_top_2"/>
+         <dest obj="testSynth_1" inlet="decay"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="knob_top_3"/>
+         <dest obj="testSynth_1" inlet="sustain"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="knob_top_4"/>
+         <dest obj="testSynth_1" inlet="release"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="knob_top_7"/>
+         <dest obj="testSynth_1" inlet="volume"/>
+      </net>
+      <net>
+         <source obj="testSynth_1" outlet="magic"/>
+         <dest obj="out_1" inlet="left"/>
+         <dest obj="out_1" inlet="right"/>
+      </net>
+   </nets>
+   <settings>
+      <subpatchmode>no</subpatchmode>
+   </settings>
+   <notes><![CDATA[]]></notes>
+   <windowPos>
+      <x>-1179</x>
+      <y>53</y>
+      <width>716</width>
+      <height>400</height>
+   </windowPos>
+</patch-1.0>

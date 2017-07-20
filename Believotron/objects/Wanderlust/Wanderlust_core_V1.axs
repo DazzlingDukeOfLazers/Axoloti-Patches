@@ -1,11 +1,43 @@
 <patch-1.0 appVersion="1.0.12">
-   <obj type="ctrl/toggle" uuid="42b8134fa729d54bfc8d62d6ef3fa99498c1de99" name="Reverse Knobs" x="70" y="56">
+   <obj type="conv/unipolar2bipolar" uuid="efc8ee28c508740c5edf7995eaaa07a6d6818e5e" name="unipolar2bipolar_5" x="532" y="0">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_top_0" x="658" y="0">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="conv/unipolar2bipolar" uuid="efc8ee28c508740c5edf7995eaaa07a6d6818e5e" name="unipolar2bipolar_6" x="532" y="42">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_top_1" x="658" y="42">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="conv/unipolar2bipolar" uuid="efc8ee28c508740c5edf7995eaaa07a6d6818e5e" name="unipolar2bipolar_7" x="532" y="84">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_top_2" x="658" y="84">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="conv/unipolar2bipolar" uuid="efc8ee28c508740c5edf7995eaaa07a6d6818e5e" name="unipolar2bipolar_8" x="532" y="126">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_top_3" x="658" y="126">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/toggle" uuid="42b8134fa729d54bfc8d62d6ef3fa99498c1de99" name="Reverse Knobs" x="70" y="154">
       <params>
          <bool32.tgl name="b" onParent="true" value="0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="gpio/spi/config" uuid="d3e75d8a02e2ccabbbc2af3bc2fcdb8ea65a6133" name="config_1" x="252" y="56">
+   <obj type="gpio/spi/config" uuid="d3e75d8a02e2ccabbbc2af3bc2fcdb8ea65a6133" name="config_1" x="252" y="154">
       <params/>
       <attribs>
          <combo attributeName="clock_polarity" selection="CPOL=0"/>
@@ -14,11 +46,43 @@
          <combo attributeName="format" selection="LSB first"/>
       </attribs>
    </obj>
-   <obj type="gpio/i2c/config" uuid="b095a33e56de5fcd23740a7d983bc0bafb315d81" name="i2c.begin_1" x="266" y="154">
+   <obj type="conv/unipolar2bipolar" uuid="efc8ee28c508740c5edf7995eaaa07a6d6818e5e" name="unipolar2bipolar_9" x="532" y="168">
       <params/>
       <attribs/>
    </obj>
-   <obj type="script/BelievotronCore_PCB1005_KnobCore" uuid="dea40d4c-0e25-49d0-993a-55866aabd090" name="BelievotronCore_PCB1005_KnobCore_1" x="210" y="210">
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_top_4" x="658" y="168">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="conv/unipolar2bipolar" uuid="efc8ee28c508740c5edf7995eaaa07a6d6818e5e" name="unipolar2bipolar_10" x="532" y="210">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_top_5" x="658" y="210">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="gpio/i2c/config" uuid="b095a33e56de5fcd23740a7d983bc0bafb315d81" name="i2c.begin_1" x="266" y="252">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="conv/unipolar2bipolar" uuid="efc8ee28c508740c5edf7995eaaa07a6d6818e5e" name="unipolar2bipolar_11" x="532" y="252">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_top_6" x="658" y="252">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="conv/unipolar2bipolar" uuid="efc8ee28c508740c5edf7995eaaa07a6d6818e5e" name="unipolar2bipolar_12" x="588" y="294">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_top_7" x="658" y="294">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="script/BelievotronCore_PCB1005_KnobCore" uuid="dea40d4c-0e25-49d0-993a-55866aabd090" name="BelievotronCore_PCB1005_KnobCore_1" x="210" y="308">
       <params/>
       <attribs>
          <text attributeName="script">
@@ -90,170 +154,138 @@ void loop(void)
          </text>
       </attribs>
    </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_top_0" x="518" y="210">
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="JOY0_Y" x="812" y="378">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_top_1" x="602" y="210">
+   <obj type="conv/unipolar2bipolar" uuid="efc8ee28c508740c5edf7995eaaa07a6d6818e5e" name="unipolar2bipolar_1" x="518" y="420">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_top_2" x="686" y="210">
+   <obj type="math/inv" uuid="565521d3699b36d8095aa1c79b9ad0046fb133ce" name="inv_9" x="658" y="420">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_top_3" x="770" y="210">
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="JOY0_X" x="728" y="420">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_top_4" x="854" y="210">
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="JOY1_Y" x="812" y="490">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_top_5" x="938" y="210">
+   <obj type="conv/unipolar2bipolar" uuid="efc8ee28c508740c5edf7995eaaa07a6d6818e5e" name="unipolar2bipolar_2" x="518" y="532">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_top_6" x="1022" y="210">
+   <obj type="math/inv" uuid="565521d3699b36d8095aa1c79b9ad0046fb133ce" name="inv_10" x="658" y="532">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_top_7" x="1106" y="210">
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="JOY1_X" x="728" y="532">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="JOY0_Y" x="812" y="280">
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="JOY2_Y" x="812" y="602">
       <params/>
       <attribs/>
    </obj>
-   <obj type="conv/unipolar2bipolar" uuid="efc8ee28c508740c5edf7995eaaa07a6d6818e5e" name="unipolar2bipolar_1" x="518" y="322">
+   <obj type="conv/unipolar2bipolar" uuid="efc8ee28c508740c5edf7995eaaa07a6d6818e5e" name="unipolar2bipolar_3" x="518" y="644">
       <params/>
       <attribs/>
    </obj>
-   <obj type="math/inv" uuid="565521d3699b36d8095aa1c79b9ad0046fb133ce" name="inv_9" x="658" y="322">
+   <obj type="math/inv" uuid="565521d3699b36d8095aa1c79b9ad0046fb133ce" name="inv_11" x="658" y="644">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="JOY0_X" x="728" y="322">
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="JOY2_X" x="728" y="644">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="JOY1_Y" x="812" y="392">
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="JOY3_Y" x="812" y="714">
       <params/>
       <attribs/>
    </obj>
-   <obj type="conv/unipolar2bipolar" uuid="efc8ee28c508740c5edf7995eaaa07a6d6818e5e" name="unipolar2bipolar_2" x="518" y="434">
+   <obj type="conv/unipolar2bipolar" uuid="efc8ee28c508740c5edf7995eaaa07a6d6818e5e" name="unipolar2bipolar_4" x="518" y="756">
       <params/>
       <attribs/>
    </obj>
-   <obj type="math/inv" uuid="565521d3699b36d8095aa1c79b9ad0046fb133ce" name="inv_10" x="658" y="434">
+   <obj type="math/inv" uuid="565521d3699b36d8095aa1c79b9ad0046fb133ce" name="inv_12" x="658" y="756">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="JOY1_X" x="728" y="434">
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="JOY3_X" x="728" y="756">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="JOY2_Y" x="812" y="504">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="conv/unipolar2bipolar" uuid="efc8ee28c508740c5edf7995eaaa07a6d6818e5e" name="unipolar2bipolar_3" x="518" y="546">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="math/inv" uuid="565521d3699b36d8095aa1c79b9ad0046fb133ce" name="inv_11" x="658" y="546">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="JOY2_X" x="728" y="546">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="JOY3_Y" x="812" y="616">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="conv/unipolar2bipolar" uuid="efc8ee28c508740c5edf7995eaaa07a6d6818e5e" name="unipolar2bipolar_4" x="518" y="658">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="math/inv" uuid="565521d3699b36d8095aa1c79b9ad0046fb133ce" name="inv_12" x="658" y="658">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="JOY3_X" x="728" y="658">
-      <params/>
-      <attribs/>
-   </obj>
-   <comment type="patch/comment" x="1218" y="728" text="tbd scale volume out"/>
-   <obj type="gpio/in/analog" uuid="1c0c845ed2d7e06ae5f377ba13d9d09f4747ac87" name="analog_3" x="1050" y="742">
+   <comment type="patch/comment" x="1218" y="826" text="tbd scale volume out"/>
+   <obj type="gpio/in/analog" uuid="1c0c845ed2d7e06ae5f377ba13d9d09f4747ac87" name="analog_3" x="1050" y="840">
       <params/>
       <attribs>
          <combo attributeName="channel" selection="PA1 (ADC1_IN1)"/>
       </attribs>
    </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="Volume" x="1428" y="770">
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="Volume" x="1428" y="868">
       <params/>
       <attribs/>
    </obj>
-   <obj type="gpio/in/digital" uuid="f59f139e8da912742832dc541157f20f30b7ac1b" name="digital_2" x="1050" y="868">
+   <obj type="gpio/in/digital" uuid="f59f139e8da912742832dc541157f20f30b7ac1b" name="digital_2" x="1050" y="966">
       <params/>
       <attribs>
          <combo attributeName="pad" selection="PC0"/>
          <combo attributeName="mode" selection="pullup"/>
       </attribs>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="JOY0_BTN" x="1428" y="868">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="JOY0_BTN" x="1428" y="966">
       <params/>
       <attribs/>
    </obj>
-   <obj type="logic/inv" uuid="2bd44b865d3b63ff9b80862242bf5be779e3ad5" name="inv_1" x="1204" y="882">
+   <obj type="logic/inv" uuid="2bd44b865d3b63ff9b80862242bf5be779e3ad5" name="inv_1" x="1204" y="980">
       <params/>
       <attribs/>
    </obj>
-   <obj type="gpio/in/digital" uuid="f59f139e8da912742832dc541157f20f30b7ac1b" name="digital_4" x="1050" y="952">
+   <obj type="gpio/in/digital" uuid="f59f139e8da912742832dc541157f20f30b7ac1b" name="digital_4" x="1050" y="1050">
       <params/>
       <attribs>
          <combo attributeName="pad" selection="PC1"/>
          <combo attributeName="mode" selection="pullup"/>
       </attribs>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="JOY1_BTN" x="1428" y="952">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="JOY1_BTN" x="1428" y="1050">
       <params/>
       <attribs/>
    </obj>
-   <obj type="logic/inv" uuid="2bd44b865d3b63ff9b80862242bf5be779e3ad5" name="inv_5" x="1204" y="966">
+   <obj type="logic/inv" uuid="2bd44b865d3b63ff9b80862242bf5be779e3ad5" name="inv_5" x="1204" y="1064">
       <params/>
       <attribs/>
    </obj>
-   <obj type="gpio/in/digital" uuid="f59f139e8da912742832dc541157f20f30b7ac1b" name="digital_5" x="1050" y="1036">
+   <obj type="gpio/in/digital" uuid="f59f139e8da912742832dc541157f20f30b7ac1b" name="digital_5" x="1050" y="1134">
       <params/>
       <attribs>
          <combo attributeName="pad" selection="PB0"/>
          <combo attributeName="mode" selection="pullup"/>
       </attribs>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="JOY2_BTN" x="1428" y="1036">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="JOY2_BTN" x="1428" y="1134">
       <params/>
       <attribs/>
    </obj>
-   <obj type="logic/inv" uuid="2bd44b865d3b63ff9b80862242bf5be779e3ad5" name="inv_6" x="1204" y="1050">
+   <obj type="logic/inv" uuid="2bd44b865d3b63ff9b80862242bf5be779e3ad5" name="inv_6" x="1204" y="1148">
       <params/>
       <attribs/>
    </obj>
-   <obj type="gpio/in/digital" uuid="f59f139e8da912742832dc541157f20f30b7ac1b" name="digital_6" x="1050" y="1120">
+   <obj type="gpio/in/digital" uuid="f59f139e8da912742832dc541157f20f30b7ac1b" name="digital_6" x="1050" y="1218">
       <params/>
       <attribs>
          <combo attributeName="pad" selection="PB1"/>
          <combo attributeName="mode" selection="pullup"/>
       </attribs>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="JOY3_BTN" x="1428" y="1120">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="JOY3_BTN" x="1428" y="1218">
       <params/>
       <attribs/>
    </obj>
-   <obj type="logic/inv" uuid="2bd44b865d3b63ff9b80862242bf5be779e3ad5" name="inv_7" x="1204" y="1134">
+   <obj type="logic/inv" uuid="2bd44b865d3b63ff9b80862242bf5be779e3ad5" name="inv_7" x="1204" y="1232">
       <params/>
       <attribs/>
    </obj>
@@ -276,7 +308,7 @@ void loop(void)
       </net>
       <net>
          <source obj="BelievotronCore_PCB1005_KnobCore_1" outlet="knbT0_"/>
-         <dest obj="knob_top_0" inlet="outlet"/>
+         <dest obj="unipolar2bipolar_5" inlet="i"/>
       </net>
       <net>
          <source obj="BelievotronCore_PCB1005_KnobCore_1" outlet="knbT1_"/>
@@ -393,6 +425,10 @@ void loop(void)
       <net>
          <source obj="inv_12" outlet="out"/>
          <dest obj="JOY3_X" inlet="outlet"/>
+      </net>
+      <net>
+         <source obj="unipolar2bipolar_5" outlet="o"/>
+         <dest obj="knob_top_0" inlet="outlet"/>
       </net>
    </nets>
    <settings>

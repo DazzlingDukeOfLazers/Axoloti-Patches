@@ -15,6 +15,10 @@
       <params/>
       <attribs/>
    </obj>
+   <obj type="env/adsr_lean_gain" uuid="f0c526e4-6439-409c-85c8-603cc632eca3" name="adsr_lean_gain_1" x="1050" y="210">
+      <params/>
+      <attribs/>
+   </obj>
    <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_2" x="462" y="252">
       <params/>
       <attribs/>
@@ -29,11 +33,7 @@
       </params>
       <attribs/>
    </obj>
-   <obj type="env/adsr_lean_gain" uuid="f0c526e4-6439-409c-85c8-603cc632eca3" name="adsr_lean_gain_1" x="1064" y="350">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="patch/outlet a" uuid="abd8c5fd3b0524a6630f65cad6dc27f6c58e2a3e" name="magic" x="1204" y="350">
+   <obj type="patch/outlet a" uuid="abd8c5fd3b0524a6630f65cad6dc27f6c58e2a3e" name="magic" x="1358" y="350">
       <params/>
       <attribs/>
    </obj>
@@ -90,10 +90,6 @@
          <dest obj="adsr_lean_gain_1" inlet="a2"/>
       </net>
       <net>
-         <source obj="volume" outlet="inlet"/>
-         <dest obj="adsr_lean_gain_1" inlet="v"/>
-      </net>
-      <net>
          <source obj="release" outlet="inlet"/>
          <dest obj="adsr_lean_gain_1" inlet="r"/>
       </net>
@@ -110,6 +106,10 @@
          <dest obj="adsr_lean_gain_1" inlet="a"/>
       </net>
       <net>
+         <source obj="volume" outlet="inlet"/>
+         <dest obj="adsr_lean_gain_1" inlet="v"/>
+      </net>
+      <net>
          <source obj="adsr_lean_gain_1" outlet="o"/>
          <dest obj="magic" inlet="outlet"/>
       </net>
@@ -124,8 +124,8 @@
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>-1928</x>
-      <y>-79</y>
+      <x>-1496</x>
+      <y>60</y>
       <width>1723</width>
       <height>976</height>
    </windowPos>

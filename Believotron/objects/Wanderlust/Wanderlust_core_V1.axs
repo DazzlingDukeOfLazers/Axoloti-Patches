@@ -74,7 +74,7 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="conv/unipolar2bipolar" uuid="efc8ee28c508740c5edf7995eaaa07a6d6818e5e" name="unipolar2bipolar_12" x="588" y="294">
+   <obj type="conv/unipolar2bipolar" uuid="efc8ee28c508740c5edf7995eaaa07a6d6818e5e" name="unipolar2bipolar_12" x="532" y="294">
       <params/>
       <attribs/>
    </obj>
@@ -312,31 +312,31 @@ void loop(void)
       </net>
       <net>
          <source obj="BelievotronCore_PCB1005_KnobCore_1" outlet="knbT1_"/>
-         <dest obj="knob_top_1" inlet="outlet"/>
+         <dest obj="unipolar2bipolar_6" inlet="i"/>
       </net>
       <net>
          <source obj="BelievotronCore_PCB1005_KnobCore_1" outlet="knbT2_"/>
-         <dest obj="knob_top_2" inlet="outlet"/>
+         <dest obj="unipolar2bipolar_7" inlet="i"/>
       </net>
       <net>
          <source obj="BelievotronCore_PCB1005_KnobCore_1" outlet="knbT3_"/>
-         <dest obj="knob_top_3" inlet="outlet"/>
+         <dest obj="unipolar2bipolar_8" inlet="i"/>
       </net>
       <net>
          <source obj="BelievotronCore_PCB1005_KnobCore_1" outlet="knbT4_"/>
-         <dest obj="knob_top_4" inlet="outlet"/>
+         <dest obj="unipolar2bipolar_9" inlet="i"/>
       </net>
       <net>
          <source obj="BelievotronCore_PCB1005_KnobCore_1" outlet="knbT5_"/>
-         <dest obj="knob_top_5" inlet="outlet"/>
+         <dest obj="unipolar2bipolar_10" inlet="i"/>
       </net>
       <net>
          <source obj="BelievotronCore_PCB1005_KnobCore_1" outlet="knbT6_"/>
-         <dest obj="knob_top_6" inlet="outlet"/>
+         <dest obj="unipolar2bipolar_11" inlet="i"/>
       </net>
       <net>
          <source obj="BelievotronCore_PCB1005_KnobCore_1" outlet="knbT7_"/>
-         <dest obj="knob_top_7" inlet="outlet"/>
+         <dest obj="unipolar2bipolar_12" inlet="i"/>
       </net>
       <net>
          <source obj="BelievotronCore_PCB1005_KnobCore_1" outlet="knbB0_"/>
@@ -429,6 +429,34 @@ void loop(void)
       <net>
          <source obj="unipolar2bipolar_5" outlet="o"/>
          <dest obj="knob_top_0" inlet="outlet"/>
+      </net>
+      <net>
+         <source obj="unipolar2bipolar_6" outlet="o"/>
+         <dest obj="knob_top_1" inlet="outlet"/>
+      </net>
+      <net>
+         <source obj="unipolar2bipolar_7" outlet="o"/>
+         <dest obj="knob_top_2" inlet="outlet"/>
+      </net>
+      <net>
+         <source obj="unipolar2bipolar_8" outlet="o"/>
+         <dest obj="knob_top_3" inlet="outlet"/>
+      </net>
+      <net>
+         <source obj="unipolar2bipolar_9" outlet="o"/>
+         <dest obj="knob_top_4" inlet="outlet"/>
+      </net>
+      <net>
+         <source obj="unipolar2bipolar_10" outlet="o"/>
+         <dest obj="knob_top_5" inlet="outlet"/>
+      </net>
+      <net>
+         <source obj="unipolar2bipolar_11" outlet="o"/>
+         <dest obj="knob_top_6" inlet="outlet"/>
+      </net>
+      <net>
+         <source obj="unipolar2bipolar_12" outlet="o"/>
+         <dest obj="knob_top_7" inlet="outlet"/>
       </net>
    </nets>
    <settings>

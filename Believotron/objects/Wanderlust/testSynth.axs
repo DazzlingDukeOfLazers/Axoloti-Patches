@@ -11,15 +11,7 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_1" x="462" y="182">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="env/adsr_lean_gain" uuid="f0c526e4-6439-409c-85c8-603cc632eca3" name="adsr_lean_gain_1" x="1050" y="210">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_2" x="462" y="252">
+   <obj type="audio/out stereo" uuid="a1ca7a567f535acc21055669829101d3ee7f0189" name="out_1" x="1232" y="238">
       <params/>
       <attribs/>
    </obj>
@@ -27,10 +19,24 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="osc/sine" uuid="6e094045cca76a9dbf7ebfa72e44e4700d2b3ba" name="sine_1" x="812" y="350">
-      <params>
-         <frac32.s.map name="pitch" value="0.0"/>
-      </params>
+   <obj type="multiWave_dev" uuid="b9a68a32-28bd-468f-baac-4e915419ffc2" name="multiWave_dev_1" x="812" y="266">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/inlet i" uuid="f11927f00c59219df0c50f73056aa19f125540b7" name="waveNum" x="98" y="336">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="math/+" uuid="44553fdc8628c67ab535845ed1be304ad6c9553b" name="+_1" x="490" y="336">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="math/+" uuid="44553fdc8628c67ab535845ed1be304ad6c9553b" name="+_2" x="588" y="336">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="env/adsr_lean_gain" uuid="f0c526e4-6439-409c-85c8-603cc632eca3" name="adsr_lean_gain_1" x="1036" y="336">
+      <params/>
       <attribs/>
    </obj>
    <obj type="patch/outlet a" uuid="abd8c5fd3b0524a6630f65cad6dc27f6c58e2a3e" name="magic" x="1358" y="350">
@@ -49,16 +55,95 @@
       <params/>
       <attribs/>
    </obj>
+   <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_1" x="574" y="462">
+      <params/>
+      <attribs/>
+   </obj>
    <obj type="patch/inlet f" uuid="5c585d2dcd9c05631e345ac09626a22a639d7c13" name="sustain" x="98" y="518">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/inlet f" uuid="5c585d2dcd9c05631e345ac09626a22a639d7c13" name="release" x="98" y="574">
+   <obj type="osc/saw" uuid="739ecc36017ef3249479b8f01716b8bbfba9abc1" name="saw_1" x="434" y="518">
+      <params>
+         <frac32.s.map name="pitch" value="0.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="math/+" uuid="44553fdc8628c67ab535845ed1be304ad6c9553b" name="+_3" x="854" y="518">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/inlet f" uuid="5c585d2dcd9c05631e345ac09626a22a639d7c13" name="volume" x="98" y="630">
+   <obj type="patch/inlet f" uuid="5c585d2dcd9c05631e345ac09626a22a639d7c13" name="release" x="98" y="560">
       <params/>
+      <attribs/>
+   </obj>
+   <obj type="beat/osc/multiWave" uuid="50bff098-b6e0-43ff-bf4d-7f946501a55b" name="multiWave_1" x="994" y="574">
+      <params>
+         <int32.vradio name="waveform" value="0"/>
+         <frac32.s.map name="pitch" value="0.0"/>
+         <frac32.u.map name="shape" value="0.0"/>
+         <frac32.u.map name="amount" value="0.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="patch/inlet f" uuid="5c585d2dcd9c05631e345ac09626a22a639d7c13" name="mod1" x="98" y="616">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/dial b" uuid="862e7d7f29093cb1ce4aed72244d118ad4d46692" name="dial_1" x="672" y="616">
+      <params>
+         <frac32.s.map name="value" value="64.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="patch/inlet f" uuid="5c585d2dcd9c05631e345ac09626a22a639d7c13" name="mod2" x="98" y="672">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/inlet f" uuid="5c585d2dcd9c05631e345ac09626a22a639d7c13" name="freqModAmount" x="98" y="756">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/inlet f" uuid="5c585d2dcd9c05631e345ac09626a22a639d7c13" name="freqModPitch" x="98" y="812">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/inlet f" uuid="5c585d2dcd9c05631e345ac09626a22a639d7c13" name="PitchMod" x="98" y="868">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/inlet f" uuid="5c585d2dcd9c05631e345ac09626a22a639d7c13" name="volume" x="98" y="924">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="math/*" uuid="922423f2db9f222aa3e5ba095778288c446da47a" name="*_1" x="462" y="924">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/inlet f" uuid="5c585d2dcd9c05631e345ac09626a22a639d7c13" name="PitchLFOAmount" x="98" y="980">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="sss/lfo/multiform" uuid="c1281771-92c6-4ec2-b3ca-9238129d7db6" name="multiform_1" x="336" y="980">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="logic/and 2" uuid="c67031682f552aa0a80b23377495c51ea28a8c9c" name="and_1" x="238" y="994">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/inlet i" uuid="f11927f00c59219df0c50f73056aa19f125540b7" name="PitchLFOWaveform" x="98" y="1022">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/inlet f" uuid="5c585d2dcd9c05631e345ac09626a22a639d7c13" name="PitchLFOFreq" x="98" y="1036">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/toggle" uuid="42b8134fa729d54bfc8d62d6ef3fa99498c1de99" name="PitchLFOSync" x="98" y="1092">
+      <params>
+         <bool32.tgl name="b" onParent="true" value="0"/>
+      </params>
       <attribs/>
    </obj>
    <nets>
@@ -66,12 +151,7 @@
          <source obj="keyb_1" outlet="note"/>
          <dest obj="dial_3" inlet="in"/>
          <dest obj="i_1" inlet="in"/>
-         <dest obj="sine_1" inlet="pitch"/>
-      </net>
-      <net>
-         <source obj="keyb_1" outlet="gate"/>
-         <dest obj="bool_1" inlet="in"/>
-         <dest obj="adsr_lean_gain_1" inlet="gate"/>
+         <dest obj="+_1" inlet="in1"/>
       </net>
       <net>
          <source obj="keyb_1" outlet="velocity"/>
@@ -80,14 +160,6 @@
       <net>
          <source obj="keyb_1" outlet="releaseVelocity"/>
          <dest obj="dial_24" inlet="in"/>
-      </net>
-      <net>
-         <source obj="keyb_1" outlet="gate2"/>
-         <dest obj="bool_2" inlet="in"/>
-      </net>
-      <net>
-         <source obj="sine_1" outlet="wave"/>
-         <dest obj="adsr_lean_gain_1" inlet="a2"/>
       </net>
       <net>
          <source obj="release" outlet="inlet"/>
@@ -107,11 +179,103 @@
       </net>
       <net>
          <source obj="volume" outlet="inlet"/>
-         <dest obj="adsr_lean_gain_1" inlet="v"/>
+         <dest obj="+_3" inlet="in1"/>
+      </net>
+      <net>
+         <source obj="PitchMod" outlet="inlet"/>
+         <dest obj="+_1" inlet="in2"/>
+      </net>
+      <net>
+         <source obj="+_1" outlet="out"/>
+         <dest obj="+_2" inlet="in1"/>
+      </net>
+      <net>
+         <source obj="multiform_1" outlet="wave"/>
+         <dest obj="*_1" inlet="b"/>
+      </net>
+      <net>
+         <source obj="PitchLFOFreq" outlet="inlet"/>
+         <dest obj="multiform_1" inlet="Hz"/>
+      </net>
+      <net>
+         <source obj="*_1" outlet="result"/>
+         <dest obj="+_2" inlet="in2"/>
+      </net>
+      <net>
+         <source obj="PitchLFOAmount" outlet="inlet"/>
+         <dest obj="*_1" inlet="a"/>
+      </net>
+      <net>
+         <source obj="PitchLFOWaveform" outlet="inlet"/>
+         <dest obj="multiform_1" inlet="waveform"/>
+      </net>
+      <net>
+         <source obj="and_1" outlet="o"/>
+         <dest obj="multiform_1" inlet="reset"/>
+      </net>
+      <net>
+         <source obj="keyb_1" outlet="gate"/>
+         <dest obj="and_1" inlet="i1"/>
+         <dest obj="multiWave_dev_1" inlet="gate"/>
+         <dest obj="adsr_lean_gain_1" inlet="gate"/>
+      </net>
+      <net>
+         <source obj="PitchLFOSync" outlet="o"/>
+         <dest obj="and_1" inlet="i2"/>
       </net>
       <net>
          <source obj="adsr_lean_gain_1" outlet="o"/>
          <dest obj="magic" inlet="outlet"/>
+         <dest obj="out_1" inlet="left"/>
+         <dest obj="out_1" inlet="right"/>
+      </net>
+      <net>
+         <source obj="saw_1" outlet="wave"/>
+         <dest obj="vca_1" inlet="a"/>
+      </net>
+      <net>
+         <source obj="freqModPitch" outlet="inlet"/>
+         <dest obj="saw_1" inlet="pitch"/>
+      </net>
+      <net>
+         <source obj="vca_1" outlet="o"/>
+         <dest obj="multiWave_1" inlet="freq"/>
+         <dest obj="multiWave_dev_1" inlet="freq"/>
+      </net>
+      <net>
+         <source obj="freqModAmount" outlet="inlet"/>
+         <dest obj="vca_1" inlet="v"/>
+      </net>
+      <net>
+         <source obj="waveNum" outlet="inlet"/>
+         <dest obj="multiWave_1" inlet="wave"/>
+         <dest obj="multiWave_dev_1" inlet="waveNum"/>
+      </net>
+      <net>
+         <source obj="+_2" outlet="out"/>
+         <dest obj="multiWave_1" inlet="pitch"/>
+         <dest obj="multiWave_dev_1" inlet="foo"/>
+      </net>
+      <net>
+         <source obj="mod1" outlet="inlet"/>
+         <dest obj="multiWave_1" inlet="shape"/>
+         <dest obj="multiWave_dev_1" inlet="mod1"/>
+      </net>
+      <net>
+         <source obj="mod2" outlet="inlet"/>
+         <dest obj="multiWave_dev_1" inlet="mod2"/>
+      </net>
+      <net>
+         <source obj="dial_1" outlet="out"/>
+         <dest obj="+_3" inlet="in2"/>
+      </net>
+      <net>
+         <source obj="+_3" outlet="out"/>
+         <dest obj="adsr_lean_gain_1" inlet="v"/>
+      </net>
+      <net>
+         <source obj="multiWave_dev_1" outlet="magic"/>
+         <dest obj="adsr_lean_gain_1" inlet="a2"/>
       </net>
    </nets>
    <settings>
@@ -124,9 +288,9 @@
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>-1496</x>
-      <y>60</y>
-      <width>1723</width>
+      <x>-1455</x>
+      <y>24</y>
+      <width>1407</width>
       <height>976</height>
    </windowPos>
 </patch-1.0>

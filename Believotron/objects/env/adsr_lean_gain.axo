@@ -52,7 +52,8 @@ else if (stage == 1) // Attack!
    int32_t a;
    //MTOF(- -64 -inlet_a,a);
    //MTOF(- param_a - inlet_a,a);
-   MTOF((UNI2BIPOLAR(inlet_a))<<1,a);
+   //MTOF((UNI2BIPOLAR(inlet_a))<<1,a);
+   MTOF(inlet_a<<1,a);
    a = a >> 2;
    envelope_out = envelope_out + a;
    if (envelope_out<0)               // If the attack has finished (overflow)

@@ -46,7 +46,8 @@ void setup(void)
 	//i2cMasterTransmitTimeout(&I2CD1, 0x3C, txbuf, 2, rxbuf, 0, TIME_IMMEDIATE); // <TBD add status checking>
 	//OLEDBegin(OLED_SSD1306_SWITCHCAPVCC, 0x3C, FALSE);
 	chThdSleepMilliseconds(10);
-	OLEDBegin(OLED_SSD1306_SWITCHCAPVCC, 0x3D, FALSE);
+	//OLEDBegin(OLED_SSD1306_SWITCHCAPVCC, 0x3D, FALSE);
+	OLEDBegin(OLED_SSD1306_SWITCHCAPVCC, 0x3C, FALSE);
 	OLED_Sandbox();
 	OLEDDisplay();
 }
@@ -97,8 +98,8 @@ void loop(void)
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>-1903</x>
-      <y>277</y>
+      <x>-1985</x>
+      <y>-111</y>
       <width>328</width>
       <height>336</height>
    </windowPos>

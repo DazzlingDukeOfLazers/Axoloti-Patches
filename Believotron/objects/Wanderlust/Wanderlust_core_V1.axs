@@ -154,6 +154,10 @@ void loop(void)
          </text>
       </attribs>
    </obj>
+   <obj type="conv/unipolar2bipolar" uuid="efc8ee28c508740c5edf7995eaaa07a6d6818e5e" name="unipolar2bipolar_13" x="672" y="378">
+      <params/>
+      <attribs/>
+   </obj>
    <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="JOY0_Y" x="812" y="378">
       <params/>
       <attribs/>
@@ -162,11 +166,11 @@ void loop(void)
       <params/>
       <attribs/>
    </obj>
-   <obj type="math/inv" uuid="565521d3699b36d8095aa1c79b9ad0046fb133ce" name="inv_9" x="658" y="420">
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="JOY0_X" x="728" y="420">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="JOY0_X" x="728" y="420">
+   <obj type="conv/unipolar2bipolar" uuid="efc8ee28c508740c5edf7995eaaa07a6d6818e5e" name="unipolar2bipolar_14" x="672" y="490">
       <params/>
       <attribs/>
    </obj>
@@ -178,11 +182,11 @@ void loop(void)
       <params/>
       <attribs/>
    </obj>
-   <obj type="math/inv" uuid="565521d3699b36d8095aa1c79b9ad0046fb133ce" name="inv_10" x="658" y="532">
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="JOY1_X" x="728" y="532">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="JOY1_X" x="728" y="532">
+   <obj type="conv/unipolar2bipolar" uuid="efc8ee28c508740c5edf7995eaaa07a6d6818e5e" name="unipolar2bipolar_15" x="672" y="602">
       <params/>
       <attribs/>
    </obj>
@@ -194,11 +198,11 @@ void loop(void)
       <params/>
       <attribs/>
    </obj>
-   <obj type="math/inv" uuid="565521d3699b36d8095aa1c79b9ad0046fb133ce" name="inv_11" x="658" y="644">
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="JOY2_X" x="728" y="644">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="JOY2_X" x="728" y="644">
+   <obj type="conv/unipolar2bipolar" uuid="efc8ee28c508740c5edf7995eaaa07a6d6818e5e" name="unipolar2bipolar_16" x="672" y="714">
       <params/>
       <attribs/>
    </obj>
@@ -207,10 +211,6 @@ void loop(void)
       <attribs/>
    </obj>
    <obj type="conv/unipolar2bipolar" uuid="efc8ee28c508740c5edf7995eaaa07a6d6818e5e" name="unipolar2bipolar_4" x="518" y="756">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="math/inv" uuid="565521d3699b36d8095aa1c79b9ad0046fb133ce" name="inv_12" x="658" y="756">
       <params/>
       <attribs/>
    </obj>
@@ -232,7 +232,7 @@ void loop(void)
    <obj type="gpio/in/digital" uuid="f59f139e8da912742832dc541157f20f30b7ac1b" name="digital_2" x="1050" y="966">
       <params/>
       <attribs>
-         <combo attributeName="pad" selection="PC0"/>
+         <combo attributeName="pad" selection="PC1"/>
          <combo attributeName="mode" selection="pullup"/>
       </attribs>
    </obj>
@@ -247,7 +247,7 @@ void loop(void)
    <obj type="gpio/in/digital" uuid="f59f139e8da912742832dc541157f20f30b7ac1b" name="digital_4" x="1050" y="1050">
       <params/>
       <attribs>
-         <combo attributeName="pad" selection="PC1"/>
+         <combo attributeName="pad" selection="PC2"/>
          <combo attributeName="mode" selection="pullup"/>
       </attribs>
    </obj>
@@ -262,7 +262,7 @@ void loop(void)
    <obj type="gpio/in/digital" uuid="f59f139e8da912742832dc541157f20f30b7ac1b" name="digital_5" x="1050" y="1134">
       <params/>
       <attribs>
-         <combo attributeName="pad" selection="PB0"/>
+         <combo attributeName="pad" selection="PC3"/>
          <combo attributeName="mode" selection="pullup"/>
       </attribs>
    </obj>
@@ -277,7 +277,7 @@ void loop(void)
    <obj type="gpio/in/digital" uuid="f59f139e8da912742832dc541157f20f30b7ac1b" name="digital_6" x="1050" y="1218">
       <params/>
       <attribs>
-         <combo attributeName="pad" selection="PB1"/>
+         <combo attributeName="pad" selection="PC4"/>
          <combo attributeName="mode" selection="pullup"/>
       </attribs>
    </obj>
@@ -340,19 +340,19 @@ void loop(void)
       </net>
       <net>
          <source obj="BelievotronCore_PCB1005_KnobCore_1" outlet="knbB0_"/>
-         <dest obj="JOY0_Y" inlet="outlet"/>
+         <dest obj="unipolar2bipolar_13" inlet="i"/>
       </net>
       <net>
          <source obj="BelievotronCore_PCB1005_KnobCore_1" outlet="knbB2_"/>
-         <dest obj="JOY1_Y" inlet="outlet"/>
+         <dest obj="unipolar2bipolar_14" inlet="i"/>
       </net>
       <net>
          <source obj="BelievotronCore_PCB1005_KnobCore_1" outlet="knbB4_"/>
-         <dest obj="JOY2_Y" inlet="outlet"/>
+         <dest obj="unipolar2bipolar_15" inlet="i"/>
       </net>
       <net>
          <source obj="BelievotronCore_PCB1005_KnobCore_1" outlet="knbB6_"/>
-         <dest obj="JOY3_Y" inlet="outlet"/>
+         <dest obj="unipolar2bipolar_16" inlet="i"/>
       </net>
       <net>
          <source obj="digital_4" outlet="out"/>
@@ -395,38 +395,6 @@ void loop(void)
          <dest obj="unipolar2bipolar_4" inlet="i"/>
       </net>
       <net>
-         <source obj="unipolar2bipolar_1" outlet="o"/>
-         <dest obj="inv_9" inlet="in"/>
-      </net>
-      <net>
-         <source obj="inv_9" outlet="out"/>
-         <dest obj="JOY0_X" inlet="outlet"/>
-      </net>
-      <net>
-         <source obj="unipolar2bipolar_2" outlet="o"/>
-         <dest obj="inv_10" inlet="in"/>
-      </net>
-      <net>
-         <source obj="unipolar2bipolar_3" outlet="o"/>
-         <dest obj="inv_11" inlet="in"/>
-      </net>
-      <net>
-         <source obj="unipolar2bipolar_4" outlet="o"/>
-         <dest obj="inv_12" inlet="in"/>
-      </net>
-      <net>
-         <source obj="inv_10" outlet="out"/>
-         <dest obj="JOY1_X" inlet="outlet"/>
-      </net>
-      <net>
-         <source obj="inv_11" outlet="out"/>
-         <dest obj="JOY2_X" inlet="outlet"/>
-      </net>
-      <net>
-         <source obj="inv_12" outlet="out"/>
-         <dest obj="JOY3_X" inlet="outlet"/>
-      </net>
-      <net>
          <source obj="unipolar2bipolar_5" outlet="o"/>
          <dest obj="knob_top_0" inlet="outlet"/>
       </net>
@@ -458,6 +426,38 @@ void loop(void)
          <source obj="unipolar2bipolar_12" outlet="o"/>
          <dest obj="knob_top_7" inlet="outlet"/>
       </net>
+      <net>
+         <source obj="unipolar2bipolar_1" outlet="o"/>
+         <dest obj="JOY0_X" inlet="outlet"/>
+      </net>
+      <net>
+         <source obj="unipolar2bipolar_2" outlet="o"/>
+         <dest obj="JOY1_X" inlet="outlet"/>
+      </net>
+      <net>
+         <source obj="unipolar2bipolar_3" outlet="o"/>
+         <dest obj="JOY2_X" inlet="outlet"/>
+      </net>
+      <net>
+         <source obj="unipolar2bipolar_4" outlet="o"/>
+         <dest obj="JOY3_X" inlet="outlet"/>
+      </net>
+      <net>
+         <source obj="unipolar2bipolar_16" outlet="o"/>
+         <dest obj="JOY3_Y" inlet="outlet"/>
+      </net>
+      <net>
+         <source obj="unipolar2bipolar_15" outlet="o"/>
+         <dest obj="JOY2_Y" inlet="outlet"/>
+      </net>
+      <net>
+         <source obj="unipolar2bipolar_14" outlet="o"/>
+         <dest obj="JOY1_Y" inlet="outlet"/>
+      </net>
+      <net>
+         <source obj="unipolar2bipolar_13" outlet="o"/>
+         <dest obj="JOY0_Y" inlet="outlet"/>
+      </net>
    </nets>
    <settings>
       <subpatchmode>no</subpatchmode>
@@ -469,8 +469,8 @@ void loop(void)
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>-1928</x>
-      <y>-79</y>
+      <x>-3572</x>
+      <y>-35</y>
       <width>1723</width>
       <height>976</height>
    </windowPos>

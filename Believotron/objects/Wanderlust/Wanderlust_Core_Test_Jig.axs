@@ -3,7 +3,7 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="Wanderlust/Wanderlust_core_V1" uuid="f510b008-7b71-44d0-9f59-162f81aa56a5" name="obj_1" x="210" y="140">
+   <obj type="Wanderlust/Wanderlust_core_V1" uuid="15f43c47-7db5-4ff8-9840-18cc732d4502" name="obj_1" x="210" y="140">
       <params>
          <bool32.tgl name="Reverse Knobs" value="0"/>
       </params>
@@ -41,35 +41,23 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_17" x="532" y="308">
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_3" x="532" y="308">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_19" x="728" y="308">
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_24" x="728" y="308">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_21" x="924" y="308">
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_26" x="924" y="308">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_23" x="1120" y="308">
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_29" x="1120" y="308">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_2" x="462" y="364">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_18" x="658" y="364">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_20" x="854" y="364">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_22" x="1050" y="364">
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_5" x="462" y="392">
       <params/>
       <attribs/>
    </obj>
@@ -77,11 +65,23 @@
       <params/>
       <attribs/>
    </obj>
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_25" x="658" y="392">
+      <params/>
+      <attribs/>
+   </obj>
    <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_14" x="728" y="392">
       <params/>
       <attribs/>
    </obj>
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_27" x="854" y="392">
+      <params/>
+      <attribs/>
+   </obj>
    <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_15" x="924" y="392">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_28" x="1050" y="392">
       <params/>
       <attribs/>
    </obj>
@@ -204,35 +204,35 @@
       </net>
       <net>
          <source obj="obj_1" outlet="JOY0_X"/>
-         <dest obj="dial_2" inlet="in"/>
+         <dest obj="dial_5" inlet="in"/>
       </net>
       <net>
          <source obj="obj_1" outlet="JOY0_Y"/>
-         <dest obj="dial_17" inlet="in"/>
+         <dest obj="dial_3" inlet="in"/>
       </net>
       <net>
          <source obj="obj_1" outlet="JOY1_X"/>
-         <dest obj="dial_18" inlet="in"/>
+         <dest obj="dial_25" inlet="in"/>
       </net>
       <net>
          <source obj="obj_1" outlet="JOY1_Y"/>
-         <dest obj="dial_19" inlet="in"/>
+         <dest obj="dial_24" inlet="in"/>
       </net>
       <net>
          <source obj="obj_1" outlet="JOY2_X"/>
-         <dest obj="dial_20" inlet="in"/>
+         <dest obj="dial_27" inlet="in"/>
       </net>
       <net>
          <source obj="obj_1" outlet="JOY2_Y"/>
-         <dest obj="dial_21" inlet="in"/>
+         <dest obj="dial_26" inlet="in"/>
       </net>
       <net>
          <source obj="obj_1" outlet="JOY3_X"/>
-         <dest obj="dial_22" inlet="in"/>
+         <dest obj="dial_28" inlet="in"/>
       </net>
       <net>
          <source obj="obj_1" outlet="JOY3_Y"/>
-         <dest obj="dial_23" inlet="in"/>
+         <dest obj="dial_29" inlet="in"/>
       </net>
       <net>
          <source obj="obj_1" outlet="Volume"/>
@@ -260,8 +260,8 @@
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>-1715</x>
-      <y>-83</y>
+      <x>-3595</x>
+      <y>-99</y>
       <width>1506</width>
       <height>1003</height>
    </windowPos>

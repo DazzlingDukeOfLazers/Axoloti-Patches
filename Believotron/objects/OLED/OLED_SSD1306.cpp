@@ -214,48 +214,12 @@ void setPixel(uint8_t x, uint8_t y, bool bPixelOn)
 };*/
 
 
-
-uint8_t OLEDBuffer[OLED_BUFF_SIZE] =
-{
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-};
+#define NUM_OLED_DISPLAYS 4
+uint8_t OLEDBuffer[NUM_OLED_DISPLAYS][OLED_BUFF_SIZE];
 
 
-void ConvertCartesianBufferToOLEDBuffer()
+
+void ConvertCartesianBufferToOLEDBuffer(uint8_t iDevice)
 {
         uint8_t searchMask = 0b10000000;
         uint8_t writeMask  = 0b00000001;
@@ -283,137 +247,13 @@ void ConvertCartesianBufferToOLEDBuffer()
                 for (int bit=0; bit<8; bit++)
                 {
                     buffIndex = xOrigin+yOrigin*16+bit+8*iCartesianColumn;
-                    if (Cartesian_Byte_Array[iCartesianRow][iCartesianColumn] & searchMask) { OLEDBuffer[buffIndex] |= writeMask; } else { OLEDBuffer[buffIndex] &= invertedMask; }
-                    searchMask = searchMask >> 1;
-                }
-            }
-            if (writeMask == 0b10000000) {writeMask = 0x01;} else {writeMask = writeMask << 1;}
-
-
-
-
-        }
-
-/*
-        xOrigin = x;
-        yOrigin = 8;
-        writeMask  = 0b00000001;
-        for (uint8_t iCartesianRow = 0; iCartesianRow < 8; iCartesianRow++)
-        {
-            for( uint8_t iCartesianColumn=0; iCartesianColumn < 16; iCartesianColumn++)
-            {
-                invertedMask = ~writeMask;
-                searchMask = 0b10000000;
-                for (int bit=0; bit<8; bit++)
-                {
-                    buffIndex = xOrigin+yOrigin*16+bit+8*iCartesianColumn;
-                    if (Cartesian_Byte_Array[iCartesianRow][iCartesianColumn] & searchMask) { OLEDBuffer[buffIndex] |= writeMask; } else { OLEDBuffer[buffIndex] &= invertedMask; }
+                    if (Cartesian_Byte_Array[iCartesianRow][iCartesianColumn] & searchMask) { OLEDBuffer[iDevice][buffIndex] |= writeMask; } else { OLEDBuffer[iDevice][buffIndex] &= invertedMask; }
                     searchMask = searchMask >> 1;
                 }
             }
             if (writeMask == 0b10000000) {writeMask = 0x01;} else {writeMask = writeMask << 1;}
         }
-*/
-
-/*
-        for (int bit=0; bit<8; bit++)
-        {
-            if (Cartesian_Byte_Array[y][x] & searchMask) { OLEDBuffer[xOrigin+yOrigin*16+bit ] |= writeMask; } else { OLEDBuffer[xOrigin+yOrigin*16+bit ] &= invertedMask; }
-            searchMask = searchMask >> 1;
-        }
-
-
-        y=0;
-        x=1;
-        searchMask = 0b10000000;
-        for (int bit=0; bit<8; bit++)
-        {
-            if (Cartesian_Byte_Array[y][x] & searchMask) { OLEDBuffer[xOrigin+yOrigin*16+bit+8 ] |= writeMask; } else { OLEDBuffer[xOrigin+yOrigin*16+bit+8 ] &= invertedMask; }
-            searchMask = searchMask >> 1;
-        }
-
-        */
 }
-
-/*
-void ConvertCartesianBufferToOLEDBuffer()
-{
-        uint8_t searchMask = 0b10000000;
-        uint8_t writeMask  = 0b00000001;
-        uint8_t invertedMask;
-        invertedMask = ~writeMask;
-
-        int y=0;
-        int x=0;
-        int xOrigin = x;
-        int yOrigin = y;
-
-        for (int bit=0; bit<8; bit++)
-        {
-            if (Cartesian_Byte_Array[y][x] & searchMask) { OLEDBuffer[xOrigin+yOrigin*16+bit ] |= writeMask; } else { OLEDBuffer[xOrigin+yOrigin*16+bit ] &= invertedMask; }
-            searchMask = searchMask >> 1;
-        }
-
-
-        y=0;
-        x=1;
-        writeMask = writeMask << 1;
-        invertedMask = ~writeMask;
-        for (int bit=0; bit<8; bit++)
-        {
-            if (Cartesian_Byte_Array[y][x] & searchMask) { OLEDBuffer[xOrigin+yOrigin*16+bit ] |= writeMask; } else { OLEDBuffer[xOrigin+yOrigin*16+bit ] &= invertedMask; }
-            searchMask = searchMask >> 1;
-        }
-}
-*/
-
-/*
-void ConvertCartesianBufferToOLEDBuffer()
-{
-        uint8_t writeMask  = 0b00000001;
-        uint8_t invertedMask;
-
-        int y=0;
-        int x=0;
-        for ( int iByteSource=0; iByteSource < 8; iByteSource++)
-        {
-            uint8_t searchMask = 0b10000000;
-            invertedMask = ~writeMask;
-            for( int iBit=0; iBit<8; iBit++)
-            {
-                if (Cartesian_Byte_Array[y][x + iByteSource] & searchMask) { OLEDBuffer[ x+y*16+iBit] |= writeMask; } else { OLEDBuffer[ x+y*16+iBit ] &= invertedMask; }
-            }
-            searchMask = searchMask << 1;
-        }
-}*/
-
-/*
-void ConvertCartesianBufferToOLEDBuffer()
-{
-    for (int y=0; y < CARTESIAN_BYTE_ARRAY_NUM_ROWS; y++)
-    {
-
-        uint8_t writeMask  = 0b00000001;
-        uint8_t invertedMask;
-        for (int x=0; x < CARTESIAN_BYTE_ARRAY_NUM_COLS; x++)
-        {
-            uint8_t searchMask = 0b10000000;
-            invertedMask = ~writeMask;
-
-            for (uint8_t bit=0; bit < 8; bit++)
-            {
-                if (Cartesian_Byte_Array[y][x] & searchMask) { OLEDBuffer[ x+y*16+bit ] |= writeMask; } else { OLEDBuffer[ x+y*16+bit ] &= invertedMask; }
-                searchMask = searchMask >> 1;
-            }
-
-            if (writeMask == 0b10000000) { writeMask = 0b00000001 } else { writeMask = writeMask << 1; }
-
-        }
-    }
-}
-*/
-
-
 
 
 void SetOLEDChar(uint8_t x, uint8_t y, uint8_t setChar)
@@ -457,9 +297,6 @@ void SetOLEDChar(uint8_t x, uint8_t y, uint8_t setChar)
     {
         Cartesian_Byte_Array[ startY+iPixelY ][ x ] = font_QuarterMuncher[ charOffset ][ iPixelY ];
     }
-
-    ConvertCartesianBufferToOLEDBuffer();
-
 }
 
 void SetOLEDCharIndex(uint8_t x, uint8_t y, uint16_t index)
@@ -487,7 +324,7 @@ void SetOLEDCharIndex(uint8_t x, uint8_t y, uint16_t index)
         Cartesian_Byte_Array[ startY+iPixelY ][ x ] = font_QuarterMuncher[ charOffset ][ iPixelY ];
     }
 
-    ConvertCartesianBufferToOLEDBuffer();
+
 
 }
 
@@ -503,7 +340,7 @@ void SetOLEDChan(uint8_t iChan)
 }
 
 
-void OLED_FontTest()
+void OLED_FontTest(uint8_t iChan)
 {
     uint8_t index=0;
     for (uint8_t iRow=0; iRow < 4; iRow++)
@@ -516,10 +353,14 @@ void OLED_FontTest()
     }
 }
 
-void OLED_FontTest(uint8_t iChan)
+void OLED_FontTest()
 {
-    SetOLEDChan(iChan);
-    OLED_FontTest();
+    for (uint8_t iChan=0; iChan<4; iChan++)
+    {
+        SetOLEDChan(iChan);
+        OLED_FontTest(iChan);
+    }
+
 }
 
 struct I2CMessage
@@ -550,20 +391,25 @@ void OLED1306_command(uint8_t c)
 
 void OLEDInit()
 {
-  for (int iChan=0; iChan<4; iChan++)
-  {
-    SetOLEDChan(iChan);
-    chThdSleepMilliseconds(10);
-    OLEDInit( iChan,OLED_SSD1306_SWITCHCAPVCC,0x3C, FALSE );
-    chThdSleepMilliseconds(10);
-    OLED_FontTest(iChan);
-  }
+    for (int iDevice=0; iDevice<4; iDevice++)
+    {
+        OLEDBufferClear(iDevice); // TBD this line is causing a timeout sync
+        SetOLEDChan(iDevice);
+        OLEDInit( iDevice,OLED_SSD1306_SWITCHCAPVCC,0x3C, FALSE );
+    }
+}
+
+void OLEDBufferClear(uint8_t iDevice)
+{
+    for (int iWord=0; iWord< OLED_BUFF_SIZE; iWord++)
+    {
+        OLEDBuffer[iDevice][iWord] = 0x00;
+    }
 }
 
 void OLEDInit(uint8_t iChan, uint8_t vccstate, uint8_t iI2CAddr, bool reset)
 {
     OLED0._i2caddr = iI2CAddr;
-
      // Init sequence
   OLED1306_command(OLED_SSD1306_DISPLAYOFF);                    // 0xAE
   OLED1306_command(OLED_SSD1306_SETDISPLAYCLOCKDIV);            // 0xD5
@@ -607,13 +453,12 @@ void OLEDInit(uint8_t iChan, uint8_t vccstate, uint8_t iI2CAddr, bool reset)
 
   OLED1306_command(OLED_SSD1306_DISPLAYON);//--turn on oled panel
 
-  //ConvertCartesianBufferToOLEDBuffer();
 }
 
 
 
 
-void OLEDDisplayBuffer()
+void OLEDDisplayBuffer(uint8_t iDevice)
 {
   OLED1306_command(OLED_SSD1306_COLUMNADDR);
   OLED1306_command(0);   // Column start address (0 = reset)
@@ -646,7 +491,7 @@ void OLEDDisplayBuffer()
 
       for (int ix=0; ix < I2C_BYTES_PER_XFER; ix++)
       {
-          txbuf[ix+1] = OLEDBuffer[i+ix];
+          txbuf[ix+1] = OLEDBuffer[iDevice][i+ix];
       }
 
       thisMsg.status = i2cMasterTransmitTimeout(&I2CD1, OLED0._i2caddr, txbuf, I2C_BYTES_PER_XFER+1, rxbuf, 0, tmo); // <TBD add status checking>
@@ -664,6 +509,7 @@ void OLEDDisplay()
     for( int i=0; i< 4; i++)
     {
         SetOLEDChan(i);
-        OLEDDisplayBuffer();
+        ConvertCartesianBufferToOLEDBuffer(i);
+        OLEDDisplayBuffer(i);
     }
 }

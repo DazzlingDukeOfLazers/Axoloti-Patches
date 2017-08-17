@@ -48,6 +48,7 @@ void setup(void)
 	chThdSleepMilliseconds(10);
 	//OLEDBegin(OLED_SSD1306_SWITCHCAPVCC, 0x3D, FALSE);
 	OLEDInit();	
+	OLED_FontTest();
 	OLEDDisplay();
 }
 

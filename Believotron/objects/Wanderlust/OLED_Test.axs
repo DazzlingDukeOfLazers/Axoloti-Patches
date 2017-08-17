@@ -47,8 +47,7 @@ void setup(void)
 	//OLEDBegin(OLED_SSD1306_SWITCHCAPVCC, 0x3C, FALSE);
 	chThdSleepMilliseconds(10);
 	//OLEDBegin(OLED_SSD1306_SWITCHCAPVCC, 0x3D, FALSE);
-	OLEDBegin(OLED_SSD1306_SWITCHCAPVCC, 0x3C, FALSE);
-	OLED_Sandbox();
+	OLEDInit();	
 	OLEDDisplay();
 }
 
@@ -98,8 +97,8 @@ void loop(void)
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>-1985</x>
-      <y>-111</y>
+      <x>-3806</x>
+      <y>243</y>
       <width>328</width>
       <height>336</height>
    </windowPos>

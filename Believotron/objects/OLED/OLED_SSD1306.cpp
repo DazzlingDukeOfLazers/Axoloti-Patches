@@ -60,7 +60,7 @@ All text above, and the splash screen below must be included in any redistributi
 
 struct OLED_Struct
 {
-    int8_t _i2caddr, _vccstate;
+    int8_t _i2caddr, _vccstate; // vccstate is depricated. Remove during refactor
 };
 
 OLED_Struct OLED0;
@@ -503,7 +503,7 @@ void SetOLEDChan(uint8_t iChan)
 }
 
 
-void OLED_Sandbox()
+void OLED_FontTest()
 {
     uint8_t index=0;
     for (uint8_t iRow=0; iRow < 4; iRow++)
@@ -514,30 +514,13 @@ void OLED_Sandbox()
             index++;
         }
     }
-
-
-    //SetOLEDChar(0, 0, 'A');
-    //SetOLEDChar(1, 0, 'B');
-    //SetOLEDChar(2, 0, 'B');
-    //SetOLEDChar(3, 0, 'A');
-/*
-    for (int iRow=0; iRow < 32; iRow++)
-    {
-        for (int iCol=0; iCol < 128; iCol++)
-        {
-            setPixel(iCol,iRow, true);
-            ConvertCartesianBufferToOLEDBuffer();
-            OLEDDisplay();
-            setPixel(iCol,iRow, false);
-            chThdSleepMilliseconds(10);
-
-        }
-    }
-*/
-
 }
 
-
+void OLED_FontTest(uint8_t iChan)
+{
+    SetOLEDChan(iChan);
+    OLED_FontTest();
+}
 
 struct I2CMessage
 {
@@ -565,16 +548,23 @@ void OLED1306_command(uint8_t c)
 }
 
 
-
-
-void OLEDBegin(uint8_t vccstate, uint8_t i2caddr, bool reset)
+void OLEDInit()
 {
-  OLED0._vccstate = vccstate;
-  OLED0._i2caddr = i2caddr;
+  for (int iChan=0; iChan<4; iChan++)
+  {
+    SetOLEDChan(iChan);
+    chThdSleepMilliseconds(10);
+    OLEDInit( iChan,OLED_SSD1306_SWITCHCAPVCC,0x3C, FALSE );
+    chThdSleepMilliseconds(10);
+    OLED_FontTest(iChan);
+  }
+}
 
-  SetOLEDChan(1);
+void OLEDInit(uint8_t iChan, uint8_t vccstate, uint8_t iI2CAddr, bool reset)
+{
+    OLED0._i2caddr = iI2CAddr;
 
-  // Init sequence
+     // Init sequence
   OLED1306_command(OLED_SSD1306_DISPLAYOFF);                    // 0xAE
   OLED1306_command(OLED_SSD1306_SETDISPLAYCLOCKDIV);            // 0xD5
   OLED1306_command(0x80);                                  // the suggested ratio 0x80
@@ -620,7 +610,10 @@ void OLEDBegin(uint8_t vccstate, uint8_t i2caddr, bool reset)
   //ConvertCartesianBufferToOLEDBuffer();
 }
 
-void OLEDDisplay()
+
+
+
+void OLEDDisplayBuffer()
 {
   OLED1306_command(OLED_SSD1306_COLUMNADDR);
   OLED1306_command(0);   // Column start address (0 = reset)
@@ -664,4 +657,13 @@ void OLEDDisplay()
         TWBR = twbrbackup;
     #endif
 
+}
+
+void OLEDDisplay()
+{
+    for( int i=0; i< 4; i++)
+    {
+        SetOLEDChan(i);
+        OLEDDisplayBuffer();
+    }
 }

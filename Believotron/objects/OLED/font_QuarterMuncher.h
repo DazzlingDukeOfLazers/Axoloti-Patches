@@ -113,6 +113,8 @@ FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM
 OTHER DEALINGS IN THE FONT SOFTWARE.
 */
 
+// TBD, I think this is 9 bc I had an extra line in there somewhere.
+// Remove and test
 uint8_t font_QuarterMuncher[256][9] =
 {
     { // A 0065
@@ -412,6 +414,16 @@ uint8_t font_QuarterMuncher[256][9] =
         0b11000110,
         0b11000110,
         0b11000110,
+        0b01111110,
+        0b00000000
+    },
+    { // 0101 e
+        0b00000000,
+        0b00000000,
+        0b01111100,
+        0b11000110,
+        0b11111100,
+        0b11000000,
         0b01111110,
         0b00000000
     },

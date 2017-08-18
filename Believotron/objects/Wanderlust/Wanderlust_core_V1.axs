@@ -96,6 +96,7 @@ systime_t tmo = MS2ST(4);
 // TBD, figure out cross platform solution to relative directories
 
 #include "C:\\Users\\danie\\Documents\\WIP\\Believotron\\Believotron-Github\\Axoloti-Patches\\Believotron\\objects\\script\\knobs.c"
+#include "C:\\Users\\danie\\Documents\\WIP\\Believotron\\Believotron-Github\\Axoloti-Patches\\Believotron\\objects\\OLED\\OLED_SSD1306.cpp"
 
 
 // <SPI stuff - knobs, mostly>
@@ -143,12 +144,22 @@ void setup(void)
 	out2 = 0xBEEF;
 	out3 = 0xABBA;
 
+	// OLED setup:
+	txbuf[0]=0;
+	txbuf[1]=0xAE;
+	chThdSleepMilliseconds(10);
+	OLEDInit();
+	OLED_Sandbox();
+	OLEDDisplay();
+	
+
 }
 void loop(void)
 {	
 	readADCAndOutput(GPIOB, 7, 0);		
 	readADCAndOutput(GPIOB, 6, 1);
 	chThdSleepMilliseconds(1); 	
+	OLEDDisplay();
 }
 ]]></sText>
          </text>
@@ -469,9 +480,9 @@ void loop(void)
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>-3572</x>
-      <y>-35</y>
-      <width>1723</width>
+      <x>-3756</x>
+      <y>71</y>
+      <width>1507</width>
       <height>976</height>
    </windowPos>
 </patch-1.0>

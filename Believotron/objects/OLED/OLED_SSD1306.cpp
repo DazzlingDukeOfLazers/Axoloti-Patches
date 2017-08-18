@@ -70,6 +70,7 @@ OLED_Struct OLED0;
 #define CARTESIAN_BYTE_ARRAY_NUM_COLS 16 // 128 bits / 8 bits per byte
 #define CARTESIAN_BYTE_ARRAY_NUM_ROWS 32 // 32 rows of 16 bytes
 
+
 /*
 // Contains default Adafruit splash logo, as per license
 uint8_t OLEDBuffer[OLED_BUFF_SIZE] =
@@ -88,46 +89,10 @@ uint8_t OLEDBuffer[OLED_BUFF_SIZE] =
     0x80, 0x80, 0x00, 0x80, 0x80, 0x00, 0x00, 0x00, 0x00, 0x80, 0x80, 0x80, 0x80, 0x80, 0x00, 0xFF,
 }; */
 
-uint8_t Cartesian_Byte_Array[CARTESIAN_BYTE_ARRAY_NUM_ROWS][CARTESIAN_BYTE_ARRAY_NUM_COLS] =
-{
+#define NUM_OLED_DISPLAYS 4
+uint8_t OLEDBuffer[NUM_OLED_DISPLAYS][OLED_BUFF_SIZE];
 
-    { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 },
-    { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 },
-    { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 },
-    { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 },
-    { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 },
-    { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 },
-    { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 },
-    { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 },
-
-    { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 },
-    { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 },
-    { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 },
-    { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 },
-    { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 },
-    { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 },
-    { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 },
-    { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 },
-
-    { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 },
-    { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 },
-    { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 },
-    { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 },
-    { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 },
-    { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 },
-    { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 },
-    { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 },
-
-    { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 },
-    { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 },
-    { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 },
-    { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 },
-    { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 },
-    { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 },
-    { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 },
-    { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 },
-};
-
+uint8_t Cartesian_Byte_Array[NUM_OLED_DISPLAYS][CARTESIAN_BYTE_ARRAY_NUM_ROWS][CARTESIAN_BYTE_ARRAY_NUM_COLS];
 
 uint8_t Cartesian_Byte_Array_Checkerboard[CARTESIAN_BYTE_ARRAY_NUM_ROWS][CARTESIAN_BYTE_ARRAY_NUM_COLS] =
 {
@@ -168,11 +133,11 @@ uint8_t Cartesian_Byte_Array_Checkerboard[CARTESIAN_BYTE_ARRAY_NUM_ROWS][CARTESI
     { 0xAA, 0xAA, 0xAA, 0xAA, 0xAA, 0xAA, 0xAA, 0xAA, 0xAA, 0xAA, 0xAA, 0xAA, 0xAA, 0xAA, 0xAA, 0xAA },
 };
 
-void setPixel(uint8_t x, uint8_t y, bool bPixelOn)
+void setPixel(uint8_t x, uint8_t y, bool bPixelOn, uint8_t iOLED_Chan )
 {
     uint8_t pixelMask = 0b10000000 >> (x%8);
 
-    if (bPixelOn){ Cartesian_Byte_Array[y][x/8] |= pixelMask; } else { Cartesian_Byte_Array[y][x/8] &= ~pixelMask;}
+    if (bPixelOn){ Cartesian_Byte_Array[iOLED_Chan][y][x/8] |= pixelMask; } else { Cartesian_Byte_Array[iOLED_Chan][y][x/8] &= ~pixelMask;}
 }
 
 /*{
@@ -214,8 +179,7 @@ void setPixel(uint8_t x, uint8_t y, bool bPixelOn)
 };*/
 
 
-#define NUM_OLED_DISPLAYS 4
-uint8_t OLEDBuffer[NUM_OLED_DISPLAYS][OLED_BUFF_SIZE];
+
 
 
 
@@ -247,7 +211,7 @@ void ConvertCartesianBufferToOLEDBuffer(uint8_t iDevice)
                 for (int bit=0; bit<8; bit++)
                 {
                     buffIndex = xOrigin+yOrigin*16+bit+8*iCartesianColumn;
-                    if (Cartesian_Byte_Array[iCartesianRow][iCartesianColumn] & searchMask) { OLEDBuffer[iDevice][buffIndex] |= writeMask; } else { OLEDBuffer[iDevice][buffIndex] &= invertedMask; }
+                    if (Cartesian_Byte_Array[iDevice][iCartesianRow][iCartesianColumn] & searchMask) { OLEDBuffer[iDevice][buffIndex] |= writeMask; } else { OLEDBuffer[iDevice][buffIndex] &= invertedMask; }
                     searchMask = searchMask >> 1;
                 }
             }
@@ -255,7 +219,7 @@ void ConvertCartesianBufferToOLEDBuffer(uint8_t iDevice)
         }
 }
 
-
+/*
 void SetOLEDChar(uint8_t x, uint8_t y, uint8_t setChar)
 {
     uint8_t charOffset=0;
@@ -281,25 +245,14 @@ void SetOLEDChar(uint8_t x, uint8_t y, uint8_t setChar)
     startX = x *16;
     startY = y *4;
 
-/*
-    Cartesian_Byte_Array[0][0] = fontPressPlay[ 0 ][ 0 ];
-    Cartesian_Byte_Array[1][0] = fontPressPlay[ 0 ][ 1 ];
-    Cartesian_Byte_Array[2][0] = fontPressPlay[ 0 ][ 2 ];
-    Cartesian_Byte_Array[3][0] = fontPressPlay[ 0 ][ 3 ];
-    Cartesian_Byte_Array[4][0] = fontPressPlay[ 0 ][ 4 ];
-    Cartesian_Byte_Array[5][0] = fontPressPlay[ 0 ][ 5 ];
-    Cartesian_Byte_Array[6][0] = fontPressPlay[ 0 ][ 6 ];
-    Cartesian_Byte_Array[7][0] = fontPressPlay[ 0 ][ 7 ];
-*/
-
-
     for (int iPixelY = 0; iPixelY < 8; iPixelY++)
     {
-        Cartesian_Byte_Array[ startY+iPixelY ][ x ] = font_QuarterMuncher[ charOffset ][ iPixelY ];
+        Cartesian_Byte_Array[][ startY+iPixelY ][ x ] = font_QuarterMuncher[ charOffset ][ iPixelY ];
     }
 }
+*/
 
-void SetOLEDCharIndex(uint8_t x, uint8_t y, uint16_t index)
+void SetOLEDCharIndex(uint8_t x, uint8_t y, uint16_t index, uint8_t iDevice)
 {
     uint8_t charOffset=index;
     uint8_t startX, startY;
@@ -307,25 +260,10 @@ void SetOLEDCharIndex(uint8_t x, uint8_t y, uint16_t index)
     startX = x *16;
     startY = y *8;
 
-/*
-    Cartesian_Byte_Array[0][0] = fontPressPlay[ 0 ][ 0 ];
-    Cartesian_Byte_Array[1][0] = fontPressPlay[ 0 ][ 1 ];
-    Cartesian_Byte_Array[2][0] = fontPressPlay[ 0 ][ 2 ];
-    Cartesian_Byte_Array[3][0] = fontPressPlay[ 0 ][ 3 ];
-    Cartesian_Byte_Array[4][0] = fontPressPlay[ 0 ][ 4 ];
-    Cartesian_Byte_Array[5][0] = fontPressPlay[ 0 ][ 5 ];
-    Cartesian_Byte_Array[6][0] = fontPressPlay[ 0 ][ 6 ];
-    Cartesian_Byte_Array[7][0] = fontPressPlay[ 0 ][ 7 ];
-*/
-
-
     for (int iPixelY = 0; iPixelY < 8; iPixelY++)
     {
-        Cartesian_Byte_Array[ startY+iPixelY ][ x ] = font_QuarterMuncher[ charOffset ][ iPixelY ];
+        Cartesian_Byte_Array[iDevice][ startY+iPixelY ][ x ] = font_QuarterMuncher[ charOffset ][ iPixelY ];
     }
-
-
-
 }
 
 #define I2C_SWITCH_ADDRESS 0b1110000
@@ -340,14 +278,99 @@ void SetOLEDChan(uint8_t iChan)
 }
 
 
-void OLED_FontTest(uint8_t iChan)
+uint16_t CharToIndex(char charval)
+{
+    // Determined by order of font_QuarterMuncher[index][img data]
+    switch (charval)
+    {
+        case 'A': return 0; break;
+        case 'B': return 1; break;
+        case 'C': return 2; break;
+        case 'D': return 3; break;
+        case 'E': return 4; break;
+        case 'F': return 5; break;
+        case 'G': return 6; break;
+        case 'H': return 7; break;
+        case 'I': return 8; break;
+        case 'J': return 9; break;
+        case 'K': return 10; break;
+        case 'L': return 11; break;
+        case 'M': return 12; break;
+        case 'N': return 13; break;
+        case 'O': return 14; break;
+        case 'P': return 15; break;
+        case 'Q': return 16; break;
+        case 'R': return 17; break;
+        case 'S': return 18; break;
+        case 'T': return 19; break;
+        case 'U': return 20; break;
+        case 'V': return 21; break;
+        case 'W': return 22; break;
+        case 'X': return 23; break;
+        case 'Y': return 24; break;
+        case 'Z': return 25; break;
+        case 'a': return 26; break;
+        case 'b': return 27; break;
+        case 'c': return 28; break;
+        case 'd': return 29; break;
+        case 'e': return 30; break;
+        case 'f': return 31; break;
+        case 'g': return 32; break;
+        case 'h': return 33; break;
+        case 'i': return 34; break;
+        case 'j': return 35; break;
+        case 'k': return 36; break;
+        case 'l': return 37; break;
+        case 'm': return 38; break;
+        case 'n': return 39; break;
+        case 'o': return 40; break;
+        case 'p': return 41; break;
+        case 'q': return 42; break;
+        case 'r': return 43; break;
+        case 's': return 44; break;
+        case 't': return 45; break;
+        case 'u': return 46; break;
+        case 'v': return 47; break;
+        case 'w': return 48; break;
+        case 'x': return 49; break;
+        case 'y': return 50; break;
+        case 'z': return 51; break;
+        //case '': return ; break;
+
+        default: return 0; break;
+    }
+}
+
+
+#define NUM_OLED_CHARS 64
+char OLEDTextBuff[NUM_OLED_CHARS];
+void OLED_Print_Buff(uint8_t iChan)
+{
+
+    uint8_t iText=0;
+    uint8_t iBreak=0;
+    for (uint8_t iRow=0; iRow<4; iRow++)
+    {
+        for (uint8_t iCol=0; iCol<16; iCol++)
+        {
+            SetOLEDCharIndex( iCol, iRow, CharToIndex(OLEDTextBuff[iText]), iChan );
+
+            if ( iText < NUM_OLED_CHARS - 1) { if ( OLEDTextBuff[iText+1] == '\0' ) { iBreak=1; break; } }
+            iText++;
+        }
+        if (iBreak) break;
+    }
+}
+
+
+void OLED_FontTest(uint8_t iDevice)
 {
     uint8_t index=0;
     for (uint8_t iRow=0; iRow < 4; iRow++)
     {
         for (uint8_t iCol=0; iCol < 16; iCol++)
         {
-            SetOLEDCharIndex(iCol, iRow, index);
+            SetOLEDCharIndex(iCol, iRow, index, iDevice);
             index++;
         }
     }
@@ -360,7 +383,6 @@ void OLED_FontTest()
         SetOLEDChan(iChan);
         OLED_FontTest(iChan);
     }
-
 }
 
 struct I2CMessage
@@ -391,6 +413,7 @@ void OLED1306_command(uint8_t c)
 
 void OLEDInit()
 {
+    // TBD add Cartesian Byte array clear
     for (int iDevice=0; iDevice<4; iDevice++)
     {
         OLEDBufferClear(iDevice); // TBD this line is causing a timeout sync
@@ -512,4 +535,12 @@ void OLEDDisplay()
         ConvertCartesianBufferToOLEDBuffer(i);
         OLEDDisplayBuffer(i);
     }
+}
+
+void OLED_Sandbox()
+{
+    //strcpy(OLEDTextBuff, "ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz");
+    strcpy(OLEDTextBuff, "ABBA");
+    OLED_Print_Buff(3);
+    //OLED_FontTest();
 }

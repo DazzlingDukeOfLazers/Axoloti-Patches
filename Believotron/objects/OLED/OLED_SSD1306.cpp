@@ -435,6 +435,27 @@ void OLED_Print_Buff(uint8_t iChan)
     }
 }
 
+void OLED_Print_BuffRight(uint8_t iChan)
+{
+    uint8_t iStrLen = strlen(OLEDTextBuff);
+    iStrLen--;
+    uint8_t iText=0;
+    uint8_t iBreak=0;
+    for (uint8_t iRow=3; iRow>=0; iRow--)
+    {
+        for (uint8_t iCol=15; iCol>=0; iCol--)
+        {
+            SetOLEDCharIndex( iCol, iRow, CharToIndex(OLEDTextBuff[iStrLen - iText]), iChan );
+
+            if ( iText < NUM_OLED_CHARS - 1) { if ( OLEDTextBuff[iText+1] == '\0' ) { iBreak=1; break; } }
+            iText++;
+        }
+        if (iBreak) break;
+    }
+}
+
+
+
 
 void OLED_FontTest(uint8_t iDevice)
 {
@@ -615,11 +636,22 @@ void OLED_Sandbox()
     //strcpy(OLEDTextBuff, "ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz");
     strcpy(OLEDTextBuff, "Attack");
     OLED_Print_Buff(0);
+    strcpy(OLEDTextBuff, "Decay");
+    OLED_Print_BuffRight(0);
+
     strcpy(OLEDTextBuff, "Sustain");
     OLED_Print_Buff(1);
-    strcpy(OLEDTextBuff, "Pitch");
+    strcpy(OLEDTextBuff, "Release");
+    OLED_Print_BuffRight(1);
+
+    strcpy(OLEDTextBuff, "Volume");
     OLED_Print_Buff(2);
-    strcpy(OLEDTextBuff, "Mod 1");
+    strcpy(OLEDTextBuff, "Pitch");
+    OLED_Print_BuffRight(2);
+
+    strcpy(OLEDTextBuff, "Flange hz");
     OLED_Print_Buff(3);
+    strcpy(OLEDTextBuff, "Flange depth");
+    OLED_Print_BuffRight(3);
     //OLED_FontTest();
 }

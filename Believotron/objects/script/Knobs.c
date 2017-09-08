@@ -46,7 +46,10 @@ void readADCAndOutput(GPIO_TypeDef* iPort, uint8_t iPin, uint8_t iDevice)
 
 		if (!reverseKnobs){ z=TOTAL_TICKS - z; }//{ z = z - 64;}
 
-		knb[iDevice][pin] = z; // output in calling object
+		if (iDevice == 0)
+			knb[iDevice][7-pin] = z; // output in calling object
+		else
+			knb[iDevice][  pin] = z; // output in calling object
 
 	} // For each Pin
 }

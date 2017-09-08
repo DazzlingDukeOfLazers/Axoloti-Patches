@@ -3,23 +3,11 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_3" x="280" y="126">
-      <params/>
-      <attribs/>
-   </obj>
    <obj type="midi/in/keyb" uuid="53b04874696932f38aceaa168bd5d9efb743716d" name="keyb_1" x="84" y="168">
       <params/>
       <attribs/>
    </obj>
-   <obj type="audio/out stereo" uuid="a1ca7a567f535acc21055669829101d3ee7f0189" name="out_1" x="1232" y="238">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_5" x="280" y="266">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="multiWave_dev" uuid="b9a68a32-28bd-468f-baac-4e915419ffc2" name="multiWave_dev_1" x="812" y="266">
+   <obj type="osc/multiWave_dev" uuid="afcc705d-3fd6-4386-9ff1-822d779e4a74" name="obj_2" x="812" y="266">
       <params/>
       <attribs/>
    </obj>
@@ -40,10 +28,6 @@
       <attribs/>
    </obj>
    <obj type="patch/outlet a" uuid="abd8c5fd3b0524a6630f65cad6dc27f6c58e2a3e" name="magic" x="1358" y="350">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_24" x="280" y="364">
       <params/>
       <attribs/>
    </obj>
@@ -75,15 +59,6 @@
    </obj>
    <obj type="patch/inlet f" uuid="5c585d2dcd9c05631e345ac09626a22a639d7c13" name="release" x="98" y="560">
       <params/>
-      <attribs/>
-   </obj>
-   <obj type="beat/osc/multiWave" uuid="50bff098-b6e0-43ff-bf4d-7f946501a55b" name="multiWave_1" x="994" y="574">
-      <params>
-         <int32.vradio name="waveform" value="0"/>
-         <frac32.s.map name="pitch" value="0.0"/>
-         <frac32.u.map name="shape" value="0.0"/>
-         <frac32.u.map name="amount" value="0.0"/>
-      </params>
       <attribs/>
    </obj>
    <obj type="patch/inlet f" uuid="5c585d2dcd9c05631e345ac09626a22a639d7c13" name="mod1" x="98" y="616">
@@ -149,17 +124,8 @@
    <nets>
       <net>
          <source obj="keyb_1" outlet="note"/>
-         <dest obj="dial_3" inlet="in"/>
          <dest obj="i_1" inlet="in"/>
          <dest obj="+_1" inlet="in1"/>
-      </net>
-      <net>
-         <source obj="keyb_1" outlet="velocity"/>
-         <dest obj="dial_5" inlet="in"/>
-      </net>
-      <net>
-         <source obj="keyb_1" outlet="releaseVelocity"/>
-         <dest obj="dial_24" inlet="in"/>
       </net>
       <net>
          <source obj="release" outlet="inlet"/>
@@ -216,8 +182,8 @@
       <net>
          <source obj="keyb_1" outlet="gate"/>
          <dest obj="and_1" inlet="i1"/>
-         <dest obj="multiWave_dev_1" inlet="gate"/>
          <dest obj="adsr_lean_gain_1" inlet="gate"/>
+         <dest obj="obj_2" inlet="gate"/>
       </net>
       <net>
          <source obj="PitchLFOSync" outlet="o"/>
@@ -226,8 +192,6 @@
       <net>
          <source obj="adsr_lean_gain_1" outlet="o"/>
          <dest obj="magic" inlet="outlet"/>
-         <dest obj="out_1" inlet="left"/>
-         <dest obj="out_1" inlet="right"/>
       </net>
       <net>
          <source obj="saw_1" outlet="wave"/>
@@ -239,8 +203,7 @@
       </net>
       <net>
          <source obj="vca_1" outlet="o"/>
-         <dest obj="multiWave_1" inlet="freq"/>
-         <dest obj="multiWave_dev_1" inlet="freq"/>
+         <dest obj="obj_2" inlet="freq"/>
       </net>
       <net>
          <source obj="freqModAmount" outlet="inlet"/>
@@ -248,22 +211,19 @@
       </net>
       <net>
          <source obj="waveNum" outlet="inlet"/>
-         <dest obj="multiWave_1" inlet="wave"/>
-         <dest obj="multiWave_dev_1" inlet="waveNum"/>
+         <dest obj="obj_2" inlet="waveNum"/>
       </net>
       <net>
          <source obj="+_2" outlet="out"/>
-         <dest obj="multiWave_1" inlet="pitch"/>
-         <dest obj="multiWave_dev_1" inlet="foo"/>
+         <dest obj="obj_2" inlet="foo"/>
       </net>
       <net>
          <source obj="mod1" outlet="inlet"/>
-         <dest obj="multiWave_1" inlet="shape"/>
-         <dest obj="multiWave_dev_1" inlet="mod1"/>
+         <dest obj="obj_2" inlet="mod1"/>
       </net>
       <net>
          <source obj="mod2" outlet="inlet"/>
-         <dest obj="multiWave_dev_1" inlet="mod2"/>
+         <dest obj="obj_2" inlet="mod2"/>
       </net>
       <net>
          <source obj="dial_1" outlet="out"/>
@@ -274,7 +234,7 @@
          <dest obj="adsr_lean_gain_1" inlet="v"/>
       </net>
       <net>
-         <source obj="multiWave_dev_1" outlet="magic"/>
+         <source obj="obj_2" outlet="magic"/>
          <dest obj="adsr_lean_gain_1" inlet="a2"/>
       </net>
    </nets>
@@ -288,8 +248,8 @@
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>-1455</x>
-      <y>24</y>
+      <x>-3069</x>
+      <y>61</y>
       <width>1407</width>
       <height>976</height>
    </windowPos>

@@ -5,23 +5,23 @@
       </params>
       <attribs/>
    </obj>
-   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_2" x="392" y="14">
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_2" x="476" y="0">
       <params>
          <int32 name="value" value="0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="./testSynth" uuid="67a96590-2090-4386-a518-d37691c3dc31" name="testSynth_1" x="476" y="70">
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_2" x="378" y="14">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="./testSynth" uuid="67a96590-2090-4386-a518-d37691c3dc31" name="testSynth_1" x="546" y="70">
       <params>
          <bool32.tgl name="PitchLFOSync" value="0"/>
       </params>
       <attribs>
-         <combo attributeName="poly" selection="8"/>
+         <combo attributeName="poly" selection="5"/>
       </attribs>
-   </obj>
-   <obj type="audio/out stereo" uuid="a1ca7a567f535acc21055669829101d3ee7f0189" name="out_1" x="910" y="70">
-      <params/>
-      <attribs/>
    </obj>
    <obj type="logic/SampleAndHold_8ch" uuid="0bb68b0a-991b-4115-bb95-9e615bcfa867" name="obj_1" x="210" y="84">
       <params>
@@ -29,68 +29,94 @@
       </params>
       <attribs/>
    </obj>
-   <obj type="Wanderlust_core_V1" uuid="bdd8b949-16bb-40d0-b6bf-a964ae83fc32" name="Wanderlust_core_V1_1" x="14" y="98">
+   <obj type="Wanderlust/Wanderlust_core_V1" uuid="ffb0ca09-b08e-44b5-82ca-4b5053a77373" name="obj_3" x="14" y="98">
       <params>
          <bool32.tgl name="Reverse Knobs" value="0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="fx/flangerCtrl" uuid="ee47f42e-2bfc-4509-a8c6-86e75b2c0094" name="obj_2" x="728" y="238">
+   <obj type="fx/flangerCtrl" uuid="7d95a882-d068-447e-b47a-477c70cc33f0" name="obj_2" x="826" y="154">
       <params>
          <frac32.s.map name="speedLfo" value="-43.0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_1" x="434" y="434">
+   <obj type="audio/out stereo" uuid="a1ca7a567f535acc21055669829101d3ee7f0189" name="out_1" x="1022" y="182">
       <params/>
+      <attribs/>
+   </obj>
+   <obj type="math/+" uuid="44553fdc8628c67ab535845ed1be304ad6c9553b" name="+_1" x="434" y="196">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="math/div 2" uuid="f14884de1baf3e615e12ee162a96a013eca76789" name="div_2" x="252" y="266">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="math/div 4" uuid="507955275561b256e540f7205386d31545a2828f" name="div_1" x="252" y="322">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/i" uuid="5e35fd0c62d81e70017289250cf28edd26e19e4a" name="i_3" x="406" y="336">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/dial b" uuid="862e7d7f29093cb1ce4aed72244d118ad4d46692" name="dial_1" x="420" y="406">
+      <params>
+         <frac32.s.map name="value" value="-64.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="logic/countersat2" uuid="ac2f83169ae51aaf19acf322affbe56ca1bbf48f" name="countersat2_1" x="252" y="462">
+      <params>
+         <int32 name="maximum" value="4"/>
+      </params>
       <attribs/>
    </obj>
    <nets>
       <net>
-         <source obj="Wanderlust_core_V1_1" outlet="knob_top_0"/>
+         <source obj="obj_3" outlet="knob_top_0"/>
          <dest obj="obj_1" inlet="in0"/>
       </net>
       <net>
-         <source obj="Wanderlust_core_V1_1" outlet="knob_top_1"/>
+         <source obj="obj_3" outlet="knob_top_1"/>
          <dest obj="obj_1" inlet="in1"/>
       </net>
       <net>
-         <source obj="Wanderlust_core_V1_1" outlet="knob_top_2"/>
+         <source obj="obj_3" outlet="knob_top_2"/>
          <dest obj="obj_1" inlet="in2"/>
       </net>
       <net>
-         <source obj="Wanderlust_core_V1_1" outlet="knob_top_3"/>
+         <source obj="obj_3" outlet="knob_top_3"/>
          <dest obj="obj_1" inlet="in3"/>
       </net>
       <net>
-         <source obj="Wanderlust_core_V1_1" outlet="knob_top_7"/>
+         <source obj="obj_3" outlet="knob_top_7"/>
          <dest obj="obj_1" inlet="in7"/>
       </net>
       <net>
          <source obj="testSynth_1" outlet="magic"/>
          <dest obj="obj_2" inlet="in"/>
-         <dest obj="out_1" inlet="left"/>
-         <dest obj="out_1" inlet="right"/>
       </net>
       <net>
-         <source obj="Wanderlust_core_V1_1" outlet="knob_top_4"/>
+         <source obj="obj_3" outlet="knob_top_4"/>
          <dest obj="obj_1" inlet="in4"/>
       </net>
       <net>
-         <source obj="Wanderlust_core_V1_1" outlet="knob_top_5"/>
+         <source obj="obj_3" outlet="knob_top_5"/>
          <dest obj="obj_1" inlet="in5"/>
       </net>
       <net>
-         <source obj="Wanderlust_core_V1_1" outlet="knob_top_6"/>
+         <source obj="obj_3" outlet="knob_top_6"/>
          <dest obj="obj_1" inlet="in6"/>
       </net>
       <net>
          <source obj="obj_1" outlet="out7"/>
-         <dest obj="testSynth_1" inlet="volume"/>
-         <dest obj="dial_1" inlet="in"/>
+         <dest obj="+_1" inlet="in1"/>
       </net>
       <net>
          <source obj="obj_1" outlet="out0"/>
+         <dest obj="dial_2" inlet="in"/>
          <dest obj="testSynth_1" inlet="attack"/>
       </net>
       <net>
@@ -110,10 +136,6 @@
          <dest obj="obj_1" inlet="chan"/>
       </net>
       <net>
-         <source obj="i_2" outlet="out"/>
-         <dest obj="testSynth_1" inlet="waveNum"/>
-      </net>
-      <net>
          <source obj="obj_1" outlet="out4"/>
          <dest obj="testSynth_1" inlet="mod1"/>
       </net>
@@ -121,14 +143,59 @@
          <source obj="obj_1" outlet="out5"/>
          <dest obj="testSynth_1" inlet="mod2"/>
       </net>
+      <net>
+         <source obj="obj_3" outlet="JOY2_BTN"/>
+         <dest obj="countersat2_1" inlet="dec"/>
+      </net>
+      <net>
+         <source obj="obj_3" outlet="JOY3_BTN"/>
+         <dest obj="countersat2_1" inlet="inc"/>
+      </net>
+      <net>
+         <source obj="countersat2_1" outlet="o"/>
+         <dest obj="testSynth_1" inlet="waveNum"/>
+         <dest obj="i_3" inlet="in"/>
+      </net>
+      <net>
+         <source obj="obj_3" outlet="JOY0_Y"/>
+         <dest obj="div_1" inlet="in"/>
+      </net>
+      <net>
+         <source obj="obj_2" outlet="out"/>
+         <dest obj="out_1" inlet="left"/>
+      </net>
+      <net>
+         <source obj="obj_3" outlet="JOY1_X"/>
+         <dest obj="testSynth_1" inlet="PitchLFOFreq"/>
+      </net>
+      <net>
+         <source obj="obj_3" outlet="JOY1_Y"/>
+         <dest obj="testSynth_1" inlet="PitchLFOAmount"/>
+      </net>
+      <net>
+         <source obj="obj_3" outlet="JOY0_X"/>
+         <dest obj="div_2" inlet="in"/>
+      </net>
+      <net>
+         <source obj="+_1" outlet="out"/>
+         <dest obj="testSynth_1" inlet="volume"/>
+      </net>
+      <net>
+         <source obj="div_1" outlet="out"/>
+         <dest obj="testSynth_1" inlet="PitchMod"/>
+      </net>
+      <net>
+         <source obj="div_2" outlet="out"/>
+         <dest obj="+_1" inlet="in2"/>
+      </net>
    </nets>
    <settings>
       <subpatchmode>no</subpatchmode>
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>-1732</x>
-      <y>129</y>
+      <x>-3070</x>
+      <y>-62</y>
       <width>1180</width>
       <height>989</height>
    </windowPos>

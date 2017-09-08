@@ -159,7 +159,7 @@ void loop(void)
 	readADCAndOutput(GPIOB, 7, 0);		
 	readADCAndOutput(GPIOB, 6, 1);
 	chThdSleepMilliseconds(1); 	
-	OLEDDisplay();
+	//OLEDDisplay();
 }
 ]]></sText>
          </text>

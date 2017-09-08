@@ -417,7 +417,7 @@ uint16_t CharToIndex(char charval)
 
 #define NUM_OLED_CHARS 64
 char OLEDTextBuff[NUM_OLED_CHARS];
-void OLED_Print_Buff(uint8_t iChan)
+void OLED_Print_Buff(uint8_t iDevice)
 {
 
     uint8_t iText=0;
@@ -426,7 +426,7 @@ void OLED_Print_Buff(uint8_t iChan)
     {
         for (uint8_t iCol=0; iCol<16; iCol++)
         {
-            SetOLEDCharIndex( iCol, iRow, CharToIndex(OLEDTextBuff[iText]), iChan );
+            SetOLEDCharIndex( iCol, iRow, CharToIndex(OLEDTextBuff[iText]), iDevice );
 
             if ( iText < NUM_OLED_CHARS - 1) { if ( OLEDTextBuff[iText+1] == '\0' ) { iBreak=1; break; } }
             iText++;
@@ -435,7 +435,14 @@ void OLED_Print_Buff(uint8_t iChan)
     }
 }
 
-void OLED_Print_BuffRight(uint8_t iChan)
+
+void OLED_Print_ParamLeft(uint8_t iDevice)
+{
+    OLED_Print_Buff(iDevice);
+}
+
+
+void OLED_Print_ParamRight(uint8_t iChan)
 {
     uint8_t iStrLen = strlen(OLEDTextBuff);
     iStrLen--;
@@ -455,6 +462,25 @@ void OLED_Print_BuffRight(uint8_t iChan)
 }
 
 
+void OLED_Print_ValLeft(double dVal, uint8_t iDevice)
+{
+    // convert number to characters
+    //uint8_t iRadix = round(dVal,1);
+    // TBD need a method that can compile on this chip
+
+
+
+    // position characters
+    uint8_t iText=0;
+
+    for (uint8_t iCol=0; iCol<16; iCol++)
+    {
+        SetOLEDCharIndex( iCol, 1, CharToIndex(OLEDTextBuff[iText]), iDevice );
+
+        if ( iText < NUM_OLED_CHARS - 1) { if ( OLEDTextBuff[iText+1] == '\0' ) { break; } }
+        iText++;
+    }
+}
 
 
 void OLED_FontTest(uint8_t iDevice)
@@ -635,23 +661,24 @@ void OLED_Sandbox()
 {
     //strcpy(OLEDTextBuff, "ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz");
     strcpy(OLEDTextBuff, "Attack");
-    OLED_Print_Buff(0);
+    OLED_Print_ParamLeft(0);
     strcpy(OLEDTextBuff, "Decay");
-    OLED_Print_BuffRight(0);
+    OLED_Print_ParamRight(0);
+    OLED_Print_ValLeft(100.00, 0);
 
     strcpy(OLEDTextBuff, "Sustain");
-    OLED_Print_Buff(1);
+    OLED_Print_ParamLeft(1);
     strcpy(OLEDTextBuff, "Release");
-    OLED_Print_BuffRight(1);
+    OLED_Print_ParamRight(1);
 
     strcpy(OLEDTextBuff, "Volume");
-    OLED_Print_Buff(2);
+    OLED_Print_ParamLeft(2);
     strcpy(OLEDTextBuff, "Pitch");
-    OLED_Print_BuffRight(2);
+    OLED_Print_ParamRight(2);
 
     strcpy(OLEDTextBuff, "Flange hz");
-    OLED_Print_Buff(3);
+    OLED_Print_ParamLeft(3);
     strcpy(OLEDTextBuff, "Flange depth");
-    OLED_Print_BuffRight(3);
+    OLED_Print_ParamRight(3);
     //OLED_FontTest();
 }

@@ -35,27 +35,21 @@
       </params>
       <attribs/>
    </obj>
-   <obj type="mix/mix 8" uuid="f12e13a7920b67f4e286369e0e2c573e5af08f9c" name="mix_1" x="1344" y="112">
-      <params>
-         <frac32.u.map name="gain1" value="32.0"/>
-         <frac32.u.map name="gain2" value="32.0"/>
-         <frac32.u.map name="gain3" value="32.0"/>
-         <frac32.u.map name="gain4" value="32.0"/>
-         <frac32.u.map name="gain5" value="32.0"/>
-         <frac32.u.map name="gain6" value="32.0"/>
-         <frac32.u.map name="gain7" value="32.0"/>
-         <frac32.u.map name="gain8" value="32.0"/>
-      </params>
-      <attribs/>
-   </obj>
-   <obj type="audio/out stereo" uuid="a1ca7a567f535acc21055669829101d3ee7f0189" name="out_1" x="1498" y="112">
-      <params/>
-      <attribs/>
-   </obj>
    <obj type="fx/flangerCtrl" uuid="7d95a882-d068-447e-b47a-477c70cc33f0" name="obj_2" x="826" y="154">
       <params>
          <frac32.s.map name="speedLfo" value="-43.0"/>
       </params>
+      <attribs/>
+   </obj>
+   <obj type="mix/mix 2 g" uuid="221f038da51943034a75e442c90624fcebfe6112" name="mix_2" x="1624" y="154">
+      <params>
+         <frac32.u.map name="gain1" value="32.0"/>
+         <frac32.u.map name="gain2" value="32.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="audio/out stereo" uuid="a1ca7a567f535acc21055669829101d3ee7f0189" name="out_1" x="1750" y="154">
+      <params/>
       <attribs/>
    </obj>
    <obj type="math/+" uuid="44553fdc8628c67ab535845ed1be304ad6c9553b" name="+_2" x="406" y="168">
@@ -82,17 +76,15 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="logic/trigger_if_const" uuid="f3aa0d2b-9a8a-4906-b7c4-3153ba6fcd65" name="trigger_if_const_1" x="1050" y="336">
-      <params/>
-      <attribs>
-         <spinner attributeName="value" value="24"/>
-      </attribs>
-   </obj>
    <obj type="midi/in/cc any" uuid="eca13eae3f7625f3ca80cadd19a90de033698aa" name="cc_1" x="770" y="350">
       <params/>
       <attribs/>
    </obj>
    <obj type="math/div 4" uuid="507955275561b256e540f7205386d31545a2828f" name="div_4" x="252" y="392">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/i" uuid="5e35fd0c62d81e70017289250cf28edd26e19e4a" name="i_4" x="938" y="392">
       <params/>
       <attribs/>
    </obj>
@@ -102,15 +94,7 @@
       </params>
       <attribs/>
    </obj>
-   <obj type="osc/brds/snare" uuid="6cfef612-0d2d-4dbf-9e01-ce8704bf86c9" name="snare_1" x="1190" y="406">
-      <params>
-         <frac32.s.map name="pitch" value="0.0"/>
-         <frac32.u.map name="timbre" value="64.0"/>
-         <frac32.u.map name="color" value="32.0"/>
-      </params>
-      <attribs/>
-   </obj>
-   <obj type="disp/i" uuid="5e35fd0c62d81e70017289250cf28edd26e19e4a" name="i_4" x="994" y="434">
+   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_6" x="1106" y="406">
       <params/>
       <attribs/>
    </obj>
@@ -118,11 +102,7 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="logic/and 2" uuid="c67031682f552aa0a80b23377495c51ea28a8c9c" name="and_1" x="1092" y="490">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/i" uuid="5e35fd0c62d81e70017289250cf28edd26e19e4a" name="i_5" x="994" y="504">
+   <obj type="disp/i" uuid="5e35fd0c62d81e70017289250cf28edd26e19e4a" name="i_5" x="938" y="448">
       <params/>
       <attribs/>
    </obj>
@@ -140,7 +120,21 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="drj/math/== const i" uuid="36ae23539d64bc2fb798a1b4a65cf9dda17a1952" name="==_1" x="966" y="588">
+   <obj type="logic/SH_Channel" uuid="22487861-6be9-4e1a-a896-007dde740eb2" name="SH_Channel_1" x="952" y="560">
+      <params/>
+      <attribs>
+         <spinner attributeName="value" value="1"/>
+      </attribs>
+   </obj>
+   <obj type="osc/brds/snare" uuid="6cfef612-0d2d-4dbf-9e01-ce8704bf86c9" name="snare_1" x="1470" y="616">
+      <params>
+         <frac32.s.map name="pitch" value="0.0"/>
+         <frac32.u.map name="timbre" value="32.0"/>
+         <frac32.u.map name="color" value="2.5"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="logic/trigger_if_const" uuid="f3aa0d2b-9a8a-4906-b7c4-3153ba6fcd65" name="trigger_if_const_1" x="952" y="630">
       <params/>
       <attribs>
          <spinner attributeName="value" value="24"/>
@@ -150,51 +144,157 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_6" x="1260" y="658">
-      <params/>
+   <obj type="mix/mix 8" uuid="f12e13a7920b67f4e286369e0e2c573e5af08f9c" name="mix_1" x="1680" y="644">
+      <params>
+         <frac32.u.map name="gain1" value="33.5"/>
+         <frac32.u.map name="gain2" value="64.0"/>
+         <frac32.u.map name="gain3" value="31.5"/>
+         <frac32.u.map name="gain4" value="32.0"/>
+         <frac32.u.map name="gain5" value="32.0"/>
+         <frac32.u.map name="gain6" value="32.0"/>
+         <frac32.u.map name="gain7" value="32.0"/>
+         <frac32.u.map name="gain8" value="31.5"/>
+      </params>
       <attribs/>
    </obj>
    <obj type="MIDI/keyb_ch" uuid="382d2dec-1bd1-47ed-a7ab-50f12699f3eb" name="keyb_ch_1" x="448" y="672">
       <params/>
       <attribs/>
    </obj>
-   <obj type="ctrl/toggle" uuid="42b8134fa729d54bfc8d62d6ef3fa99498c1de99" name="toggle_1" x="784" y="672">
-      <params>
-         <bool32.tgl name="b" value="1"/>
-      </params>
+   <obj type="phi/logic/or 4" uuid="5dc5a7c1fb7809522171638f755fead71cbe14ea" name="or_1" x="1120" y="714">
+      <params/>
       <attribs/>
    </obj>
-   <obj type="logic/trigger_if_const" uuid="f3aa0d2b-9a8a-4906-b7c4-3153ba6fcd65" name="trigger_if_const_2" x="882" y="672">
+   <obj type="logic/SH_Channel" uuid="22487861-6be9-4e1a-a896-007dde740eb2" name="SH_Channel_2" x="952" y="742">
       <params/>
       <attribs>
-         <spinner attributeName="value" value="1"/>
+         <spinner attributeName="value" value="2"/>
       </attribs>
-   </obj>
-   <obj type="logic/inv" uuid="2bd44b865d3b63ff9b80862242bf5be779e3ad5" name="inv_1" x="1008" y="672">
-      <params/>
-      <attribs/>
    </obj>
    <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_5" x="616" y="756">
       <params/>
       <attribs/>
    </obj>
-   <obj type="logic/SH_Channel" uuid="22487861-6be9-4e1a-a896-007dde740eb2" name="SH_Channel_1" x="966" y="770">
+   <obj type="logic/trigger_if_const" uuid="f3aa0d2b-9a8a-4906-b7c4-3153ba6fcd65" name="trigger_if_const_2" x="952" y="840">
       <params/>
       <attribs>
-         <spinner attributeName="value" value="1"/>
+         <spinner attributeName="value" value="25"/>
       </attribs>
-   </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_1" x="1330" y="770">
-      <params/>
-      <attribs/>
    </obj>
    <obj type="disp/i" uuid="5e35fd0c62d81e70017289250cf28edd26e19e4a" name="i_6" x="616" y="854">
       <params/>
       <attribs/>
    </obj>
+   <obj type="tiar/logic/BCDEncoder" uuid="011f2e98-4191-4e3a-9dc7-41320bc1b1bc" name="BCDEncoder_1" x="1134" y="868">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="math/&lt;&lt;" uuid="b03d8d8009c0480be0ccb29ed65933a82fa4a80f" name="&lt;&lt;_1" x="1274" y="868">
+      <params/>
+      <attribs>
+         <spinner attributeName="shift" value="4"/>
+      </attribs>
+   </obj>
    <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_7" x="616" y="924">
       <params/>
       <attribs/>
+   </obj>
+   <obj type="logic/SH_Channel" uuid="22487861-6be9-4e1a-a896-007dde740eb2" name="SH_Channel_3" x="952" y="980">
+      <params/>
+      <attribs>
+         <spinner attributeName="value" value="3"/>
+      </attribs>
+   </obj>
+   <obj type="logic/trigger_if_const" uuid="f3aa0d2b-9a8a-4906-b7c4-3153ba6fcd65" name="trigger_if_const_3" x="952" y="1050">
+      <params/>
+      <attribs>
+         <spinner attributeName="value" value="26"/>
+      </attribs>
+   </obj>
+   <obj type="osc/sine" uuid="6e094045cca76a9dbf7ebfa72e44e4700d2b3ba" name="sine_1" x="1470" y="1134">
+      <params>
+         <frac32.s.map name="pitch" value="-15.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="logic/SH_Channel" uuid="22487861-6be9-4e1a-a896-007dde740eb2" name="SH_Channel_4" x="966" y="1162">
+      <params/>
+      <attribs>
+         <spinner attributeName="value" value="4"/>
+      </attribs>
+   </obj>
+   <obj type="math/+" uuid="44553fdc8628c67ab535845ed1be304ad6c9553b" name="+_3" x="1344" y="1162">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="logic/SH_Channel" uuid="22487861-6be9-4e1a-a896-007dde740eb2" name="SH_Channel_5" x="1176" y="1204">
+      <params/>
+      <attribs>
+         <spinner attributeName="value" value="5"/>
+      </attribs>
+   </obj>
+   <obj type="env/adsr m" uuid="98bd39fb828c392b28126d259cb5175e6f6ea34b" name="adsr_1" x="1540" y="1246">
+      <params>
+         <frac32.s.map name="a" value="-64.0"/>
+         <frac32.s.map name="d" value="4.0"/>
+         <frac32.u.map name="s" value="27.5"/>
+         <frac32.s.map name="r" value="0.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_1" x="1638" y="1246">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="logic/SH_Channel" uuid="22487861-6be9-4e1a-a896-007dde740eb2" name="SH_Channel_6" x="588" y="1260">
+      <params/>
+      <attribs>
+         <spinner attributeName="value" value="6"/>
+      </attribs>
+   </obj>
+   <obj type="logic/trigger_if_const" uuid="f3aa0d2b-9a8a-4906-b7c4-3153ba6fcd65" name="trigger_if_const_4" x="952" y="1274">
+      <params/>
+      <attribs>
+         <spinner attributeName="value" value="27"/>
+      </attribs>
+   </obj>
+   <obj type="tiar/logic/BCDEncoder" uuid="011f2e98-4191-4e3a-9dc7-41320bc1b1bc" name="BCDEncoder_2" x="1176" y="1330">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="math/&lt;&lt;" uuid="b03d8d8009c0480be0ccb29ed65933a82fa4a80f" name="&lt;&lt;_2" x="1316" y="1330">
+      <params/>
+      <attribs>
+         <spinner attributeName="shift" value="2"/>
+      </attribs>
+   </obj>
+   <obj type="logic/trigger_if_const" uuid="f3aa0d2b-9a8a-4906-b7c4-3153ba6fcd65" name="trigger_if_const_5" x="966" y="1386">
+      <params/>
+      <attribs>
+         <spinner attributeName="value" value="20"/>
+      </attribs>
+   </obj>
+   <obj type="logic/trigger_if_const" uuid="f3aa0d2b-9a8a-4906-b7c4-3153ba6fcd65" name="trigger_if_const_6" x="966" y="1484">
+      <params/>
+      <attribs>
+         <spinner attributeName="value" value="21"/>
+      </attribs>
+   </obj>
+   <obj type="logic/trigger_if_const" uuid="f3aa0d2b-9a8a-4906-b7c4-3153ba6fcd65" name="trigger_if_const_7" x="980" y="1582">
+      <params/>
+      <attribs>
+         <spinner attributeName="value" value="22"/>
+      </attribs>
+   </obj>
+   <obj type="phi/logic/or 4" uuid="5dc5a7c1fb7809522171638f755fead71cbe14ea" name="or_2" x="1190" y="1582">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="logic/trigger_if_const" uuid="f3aa0d2b-9a8a-4906-b7c4-3153ba6fcd65" name="trigger_if_const_8" x="980" y="1680">
+      <params/>
+      <attribs>
+         <spinner attributeName="value" value="23"/>
+      </attribs>
    </obj>
    <nets>
       <net>
@@ -317,7 +417,7 @@
       </net>
       <net>
          <source obj="obj_2" outlet="out"/>
-         <dest obj="mix_1" inlet="in1"/>
+         <dest obj="mix_2" inlet="in1"/>
       </net>
       <net>
          <source obj="obj_3" outlet="JOY2_X"/>
@@ -347,14 +447,29 @@
          <source obj="cc_1" outlet="value"/>
          <dest obj="dial_3" inlet="in"/>
          <dest obj="SH_Channel_1" inlet="in"/>
+         <dest obj="SH_Channel_2" inlet="in"/>
+         <dest obj="SH_Channel_3" inlet="in"/>
+         <dest obj="SH_Channel_4" inlet="in"/>
+         <dest obj="SH_Channel_5" inlet="in"/>
+         <dest obj="SH_Channel_6" inlet="in"/>
       </net>
       <net>
          <source obj="cc_1" outlet="cc"/>
          <dest obj="i_4" inlet="in"/>
          <dest obj="trigger_if_const_1" inlet="in"/>
-         <dest obj="==_1" inlet="in"/>
-         <dest obj="trigger_if_const_2" inlet="in"/>
          <dest obj="SH_Channel_1" inlet="CC"/>
+         <dest obj="SH_Channel_2" inlet="CC"/>
+         <dest obj="SH_Channel_3" inlet="CC"/>
+         <dest obj="SH_Channel_4" inlet="CC"/>
+         <dest obj="trigger_if_const_2" inlet="in"/>
+         <dest obj="SH_Channel_6" inlet="CC"/>
+         <dest obj="SH_Channel_5" inlet="CC"/>
+         <dest obj="trigger_if_const_3" inlet="in"/>
+         <dest obj="trigger_if_const_4" inlet="in"/>
+         <dest obj="trigger_if_const_5" inlet="in"/>
+         <dest obj="trigger_if_const_6" inlet="in"/>
+         <dest obj="trigger_if_const_7" inlet="in"/>
+         <dest obj="trigger_if_const_8" inlet="in"/>
       </net>
       <net>
          <source obj="cc_1" outlet="channel"/>
@@ -381,39 +496,117 @@
          <dest obj="i_6" inlet="in"/>
       </net>
       <net>
-         <source obj="snare_1" outlet="wave"/>
-         <dest obj="mix_1" inlet="in2"/>
+         <source obj="mix_1" outlet="out"/>
+         <dest obj="mix_2" inlet="in2"/>
       </net>
       <net>
-         <source obj="mix_1" outlet="out"/>
+         <source obj="cc_1" outlet="trig"/>
+         <dest obj="trigger_if_const_1" inlet="i1"/>
+         <dest obj="trigger_if_const_2" inlet="i1"/>
+         <dest obj="trigger_if_const_3" inlet="i1"/>
+         <dest obj="trigger_if_const_4" inlet="i1"/>
+         <dest obj="trigger_if_const_5" inlet="i1"/>
+         <dest obj="trigger_if_const_6" inlet="i1"/>
+         <dest obj="trigger_if_const_7" inlet="i1"/>
+         <dest obj="trigger_if_const_8" inlet="i1"/>
+      </net>
+      <net>
+         <source obj="trigger_if_const_1" outlet="o"/>
+         <dest obj="or_1" inlet="i1"/>
+         <dest obj="BCDEncoder_1" inlet="0"/>
+      </net>
+      <net>
+         <source obj="SH_Channel_1" outlet="out"/>
+         <dest obj="dial_6" inlet="in"/>
+         <dest obj="snare_1" inlet="pitch"/>
+      </net>
+      <net>
+         <source obj="trigger_if_const_2" outlet="o"/>
+         <dest obj="or_1" inlet="i2"/>
+         <dest obj="BCDEncoder_1" inlet="1"/>
+      </net>
+      <net>
+         <source obj="snare_1" outlet="wave"/>
+         <dest obj="mix_1" inlet="in1"/>
+      </net>
+      <net>
+         <source obj="mix_2" outlet="out"/>
          <dest obj="out_1" inlet="left"/>
          <dest obj="out_1" inlet="right"/>
       </net>
       <net>
-         <source obj="==_1" outlet="out"/>
-         <dest obj="and_1" inlet="i2"/>
+         <source obj="trigger_if_const_3" outlet="o"/>
+         <dest obj="or_1" inlet="i3"/>
+         <dest obj="BCDEncoder_1" inlet="2"/>
       </net>
       <net>
-         <source obj="cc_1" outlet="trig"/>
-         <dest obj="and_1" inlet="i1"/>
-         <dest obj="trigger_if_const_1" inlet="i1"/>
+         <source obj="trigger_if_const_4" outlet="o"/>
+         <dest obj="or_1" inlet="i4"/>
+         <dest obj="BCDEncoder_1" inlet="3"/>
       </net>
       <net>
-         <source obj="trigger_if_const_1" outlet="o"/>
+         <source obj="or_1" outlet="o"/>
          <dest obj="snare_1" inlet="strike"/>
       </net>
       <net>
-         <source obj="trigger_if_const_2" outlet="o"/>
-         <dest obj="inv_1" inlet="i"/>
+         <source obj="BCDEncoder_1" outlet="out"/>
+         <dest obj="&lt;&lt;_1" inlet="a"/>
       </net>
       <net>
-         <source obj="toggle_1" outlet="o"/>
-         <dest obj="trigger_if_const_2" inlet="i1"/>
+         <source obj="&lt;&lt;_1" outlet="result"/>
+         <dest obj="snare_1" inlet="color"/>
       </net>
       <net>
-         <source obj="SH_Channel_1" outlet="out"/>
-         <dest obj="snare_1" inlet="timbre"/>
-         <dest obj="dial_6" inlet="in"/>
+         <source obj="trigger_if_const_5" outlet="o"/>
+         <dest obj="or_2" inlet="i1"/>
+         <dest obj="BCDEncoder_2" inlet="0"/>
+      </net>
+      <net>
+         <source obj="trigger_if_const_6" outlet="o"/>
+         <dest obj="or_2" inlet="i2"/>
+         <dest obj="BCDEncoder_2" inlet="1"/>
+      </net>
+      <net>
+         <source obj="trigger_if_const_7" outlet="o"/>
+         <dest obj="or_2" inlet="i3"/>
+         <dest obj="BCDEncoder_2" inlet="2"/>
+      </net>
+      <net>
+         <source obj="trigger_if_const_8" outlet="o"/>
+         <dest obj="or_2" inlet="i4"/>
+         <dest obj="BCDEncoder_2" inlet="3"/>
+      </net>
+      <net>
+         <source obj="or_2" outlet="o"/>
+         <dest obj="adsr_1" inlet="gate"/>
+      </net>
+      <net>
+         <source obj="adsr_1" outlet="env"/>
+         <dest obj="vca_1" inlet="v"/>
+      </net>
+      <net>
+         <source obj="sine_1" outlet="wave"/>
+         <dest obj="vca_1" inlet="a"/>
+      </net>
+      <net>
+         <source obj="vca_1" outlet="o"/>
+         <dest obj="mix_1" inlet="in2"/>
+      </net>
+      <net>
+         <source obj="SH_Channel_5" outlet="out"/>
+         <dest obj="+_3" inlet="in1"/>
+      </net>
+      <net>
+         <source obj="BCDEncoder_2" outlet="out"/>
+         <dest obj="&lt;&lt;_2" inlet="a"/>
+      </net>
+      <net>
+         <source obj="&lt;&lt;_2" outlet="result"/>
+         <dest obj="+_3" inlet="in2"/>
+      </net>
+      <net>
+         <source obj="+_3" outlet="out"/>
+         <dest obj="sine_1" inlet="pitch"/>
       </net>
    </nets>
    <settings>
@@ -421,9 +614,9 @@
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>-3507</x>
-      <y>-90</y>
-      <width>1678</width>
+      <x>-3721</x>
+      <y>-102</y>
+      <width>1866</width>
       <height>989</height>
    </windowPos>
 </patch-1.0>

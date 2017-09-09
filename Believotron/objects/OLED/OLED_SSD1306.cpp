@@ -664,21 +664,21 @@ void OLED_Sandbox()
     OLED_Print_ParamLeft(0);
     strcpy(OLEDTextBuff, "Decay");
     OLED_Print_ParamRight(0);
-    OLED_Print_ValLeft(100.00, 0);
+    //OLED_Print_ValLeft(100.00, 0);
 
     strcpy(OLEDTextBuff, "Sustain");
     OLED_Print_ParamLeft(1);
     strcpy(OLEDTextBuff, "Release");
     OLED_Print_ParamRight(1);
 
-    strcpy(OLEDTextBuff, "Volume");
+    strcpy(OLEDTextBuff, "Mod1");
     OLED_Print_ParamLeft(2);
-    strcpy(OLEDTextBuff, "Pitch");
+    strcpy(OLEDTextBuff, "Mod2");
     OLED_Print_ParamRight(2);
 
-    strcpy(OLEDTextBuff, "Flange hz");
+    strcpy(OLEDTextBuff, "Pitch");
     OLED_Print_ParamLeft(3);
-    strcpy(OLEDTextBuff, "Flange depth");
+    strcpy(OLEDTextBuff, "Volume");
     OLED_Print_ParamRight(3);
     //OLED_FontTest();
 }

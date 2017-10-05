@@ -1,0 +1,35 @@
+<objdefs appVersion="1.0.12">
+   <obj.normal id="TriggerOnChannel" uuid="5d00ac48-75cc-4cf7-9ca4-060e2736152f">
+      <sDescription>Triggers on midi trigger cc</sDescription>
+      <author>Dazzling Duke of Lazers</author>
+      <license>MIT</license>
+      <helpPatch>samplehold.axh</helpPatch>
+      <inlets>
+         <frac32 name="NoteNum" description="input"/>
+         <frac32 name="compareVal"/>
+         <bool32 name="trigIn" description="trig"/>
+      </inlets>
+      <outlets>
+         <bool32 name="trigOut"/>
+      </outlets>
+      <displays/>
+      <params/>
+      <attribs>
+         <spinner name="value" MinValue="-63" MaxValue="64" DefaultValue="0"/>
+      </attribs>
+      <code.declaration><![CDATA[int32_t hold;]]></code.declaration>
+      <code.init><![CDATA[hold = 0;]]></code.init>
+      <code.krate><![CDATA[if ( inlet_NoteNum == inlet_compareVal )// &&
+     //(inlet_in > (attr_value -1))     )
+{
+	outlet_trigOut = inlet_trigIn;
+}
+else
+{
+	outlet_trigOut = 0;
+}
+
+
+//outlet_trigOut = inlet_trigIn;]]></code.krate>
+   </obj.normal>
+</objdefs>

@@ -14,7 +14,7 @@
       <displays/>
       <params/>
       <attribs>
-         <spinner name="value" MinValue="0" MaxValue="127" DefaultValue="0"/>
+         <spinner name="value" MinValue="-63" MaxValue="64" DefaultValue="0"/>
       </attribs>
       <code.declaration><![CDATA[int32_t hold;]]></code.declaration>
       <code.init><![CDATA[hold = 0;]]></code.init>

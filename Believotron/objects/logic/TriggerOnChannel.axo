@@ -8,21 +8,52 @@
          <frac32 name="NoteNum" description="input"/>
          <frac32 name="compareVal"/>
          <bool32 name="trigIn" description="trig"/>
+         <frac32 name="in0"/>
+         <frac32 name="in1"/>
+         <frac32 name="in2"/>
+         <frac32 name="in3"/>
+         <frac32 name="in4"/>
+         <frac32 name="in5"/>
+         <frac32 name="in6"/>
+         <frac32 name="in7"/>
       </inlets>
       <outlets>
          <bool32 name="trigOut"/>
+         <frac32 name="out0"/>
+         <frac32 name="out1"/>
+         <frac32 name="out2"/>
+         <frac32 name="out3"/>
+         <frac32 name="out4"/>
+         <frac32 name="out5"/>
+         <frac32 name="out6"/>
+         <frac32 name="out7"/>
       </outlets>
       <displays/>
       <params/>
       <attribs>
          <spinner name="value" MinValue="-63" MaxValue="64" DefaultValue="0"/>
       </attribs>
-      <code.declaration><![CDATA[int32_t hold;]]></code.declaration>
-      <code.init><![CDATA[hold = 0;]]></code.init>
+      <code.declaration><![CDATA[int32_t hold0, hold1, hold2, hold3, hold4, hold5, hold6, hold7;]]></code.declaration>
+      <code.init><![CDATA[hold0 = 0;
+hold1 = 0;
+hold2 = 0;
+hold3 = 0;
+hold4 = 0;
+hold5 = 0;
+hold6 = 0;
+hold7 = 0;]]></code.init>
       <code.krate><![CDATA[if ( inlet_NoteNum == inlet_compareVal )// &&
      //(inlet_in > (attr_value -1))     )
 {
 	outlet_trigOut = inlet_trigIn;
+	hold0 = inlet_in0;
+	hold1 = inlet_in1;
+	hold2 = inlet_in2;
+	hold3 = inlet_in3;
+	hold4 = inlet_in4;
+	hold5 = inlet_in5;
+	hold6 = inlet_in6;
+	hold7 = inlet_in7;
 }
 else
 {

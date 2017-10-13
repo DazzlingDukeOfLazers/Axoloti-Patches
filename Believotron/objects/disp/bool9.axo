@@ -1,0 +1,42 @@
+<objdefs appVersion="1.0.12">
+   <obj.normal id="bool9" uuid="f0104102-9f94-4d1f-9b71-1c61972fdd2d">
+      <sDescription>display boolean</sDescription>
+      <author>Dazzling Duke of Lazers</author>
+      <license>BSD</license>
+      <helpPatch>disp.axh</helpPatch>
+      <inlets>
+         <bool32 name="i0" description="input"/>
+         <bool32 name="i1"/>
+         <bool32 name="i2"/>
+         <bool32 name="i3"/>
+         <bool32 name="i4"/>
+         <bool32 name="i5"/>
+         <bool32 name="i6"/>
+         <bool32 name="i7"/>
+         <bool32 name="i8"/>
+      </inlets>
+      <outlets/>
+      <displays>
+         <bool32 name="d0" noLabel="true"/>
+         <bool32 name="d1"/>
+         <bool32 name="d2"/>
+         <bool32 name="d3"/>
+         <bool32 name="d4"/>
+         <bool32 name="d5"/>
+         <bool32 name="d6"/>
+         <bool32 name="d7"/>
+         <bool32 name="d8"/>
+      </displays>
+      <params/>
+      <attribs/>
+      <code.krate><![CDATA[disp_d0=inlet_i0;
+disp_d1=inlet_i1;
+disp_d2=inlet_i2;
+disp_d3=inlet_i3;
+disp_d4=inlet_i4;
+disp_d5=inlet_i5;
+disp_d6=inlet_i6;
+disp_d7=inlet_i7;
+disp_d8=inlet_i8;]]></code.krate>
+   </obj.normal>
+</objdefs>

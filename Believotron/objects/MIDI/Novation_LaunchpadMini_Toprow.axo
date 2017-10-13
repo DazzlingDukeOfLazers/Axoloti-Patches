@@ -1,0 +1,85 @@
+<objdefs appVersion="1.0.12">
+   <obj.normal id="Novation_LaunchpadMini_Toprow" uuid="36f2c1cf-79a2-457f-aee7-b6bbd5d1d0e6">
+      <sDescription>Receives Midi Continuous Controller messages from any CC number and channel.</sDescription>
+      <author>Johannes Taelman</author>
+      <license>BSD</license>
+      <helpPatch>midi_in.axh</helpPatch>
+      <inlets/>
+      <outlets>
+         <frac32.positive name="value" description="midi CC value 0..63.5"/>
+         <int32.positive name="cc" description="midi CC number 0..127"/>
+         <int32.positive name="channel" description="midi channel 1..16"/>
+         <bool32 name="top1"/>
+         <bool32 name="top2"/>
+         <bool32 name="top3"/>
+         <bool32 name="top4"/>
+         <bool32 name="top5"/>
+         <bool32 name="top6"/>
+         <bool32 name="top7"/>
+         <bool32 name="top8"/>
+      </outlets>
+      <displays/>
+      <params/>
+      <attribs/>
+      <code.declaration><![CDATA[int32_t _value;
+int32_t _cc;
+int32_t _channel;
+int32_t _trig[8];]]></code.declaration>
+      <code.init><![CDATA[_cc = 0;
+_channel = 1;
+_value = 0;
+for (int i=0; i<8; i++){_trig[i] = 0;}]]></code.init>
+      <code.krate><![CDATA[outlet_value= _value;
+outlet_cc = _cc;
+outlet_channel = _channel;
+
+outlet_top1 = _trig[0];
+outlet_top2 = _trig[1];
+outlet_top3 = _trig[2];
+outlet_top4 = _trig[3];
+outlet_top5 = _trig[4];
+outlet_top6 = _trig[5];
+outlet_top7 = _trig[6];
+outlet_top8 = _trig[7];]]></code.krate>
+      <code.midihandler><![CDATA[if ((status&0xF0) == MIDI_CONTROL_CHANGE) 
+{
+	_value = data2<<20;;
+	_cc = data1;
+	_channel = (status & 0x0F) + 1;
+	
+	uint8_t bSetVal=0;
+	if (_value > 0) bSetVal = 1;
+
+	switch (_cc)
+	{
+		case 104:
+			_trig[0] = bSetVal;
+			break;
+		case 105:
+			_trig[1] = bSetVal;
+			break;
+		case 106:
+			_trig[2] = bSetVal;
+			break;
+		case 107:
+			_trig[3] = bSetVal;
+			break;
+		case 108:
+			_trig[4] = bSetVal;
+			break;
+		case 109:
+			_trig[5] = bSetVal;
+			break;
+		case 110:
+			_trig[6] = bSetVal;
+			break;
+		case 111:
+			_trig[7] = bSetVal;
+			break;		
+			
+		default:
+			break;
+	}
+}]]></code.midihandler>
+   </obj.normal>
+</objdefs>

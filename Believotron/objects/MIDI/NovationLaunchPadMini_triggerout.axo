@@ -100,7 +100,7 @@ _note = 0;
 _channel = 1;
 for (int col=0; col<9; col++)
 {
-	for (int row=0; row<8; row++)
+	for (int row=0; row<9; row++)
 	{
 		_trigOut[col][row]=0;
 	}	

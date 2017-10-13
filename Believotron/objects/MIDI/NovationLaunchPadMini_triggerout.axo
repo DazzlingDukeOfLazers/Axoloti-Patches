@@ -1,0 +1,473 @@
+<objdefs appVersion="1.0.12">
+   <obj.normal id="NovationLaunchPadMini_triggerout" uuid="df496784-d79a-4460-a89f-bae41614692b">
+      <sDescription>Monophonic MIDI keyboard note input, gate, velocity and release velocity</sDescription>
+      <author>Johannes Taelman</author>
+      <license>BSD</license>
+      <helpPatch>midi_in.axh</helpPatch>
+      <inlets/>
+      <outlets>
+         <frac32.bipolar name="note" description="midi note number (-64..63)"/>
+         <bool32 name="gate" description="key pressed, no retrigger legato"/>
+         <bool32 name="gate2" description="key pressed, retrigger on legato"/>
+         <frac32.positive name="velocity" description="note-on velocity"/>
+         <frac32.positive name="releaseVelocity" description="note-off velocity"/>
+         <int32.positive name="channel" description="midi channel 1..16"/>
+         <bool32 name="A1"/>
+         <bool32 name="A2"/>
+         <bool32 name="A3"/>
+         <bool32 name="A4"/>
+         <bool32 name="A5"/>
+         <bool32 name="A6"/>
+         <bool32 name="A7"/>
+         <bool32 name="A8"/>
+         <bool32 name="A9"/>
+         <bool32 name="B1"/>
+         <bool32 name="B2"/>
+         <bool32 name="B3"/>
+         <bool32 name="B4"/>
+         <bool32 name="B5"/>
+         <bool32 name="B6"/>
+         <bool32 name="B7"/>
+         <bool32 name="B8"/>
+         <bool32 name="B9"/>
+         <bool32 name="C1"/>
+         <bool32 name="C2"/>
+         <bool32 name="C3"/>
+         <bool32 name="C4"/>
+         <bool32 name="C5"/>
+         <bool32 name="C6"/>
+         <bool32 name="C7"/>
+         <bool32 name="C8"/>
+         <bool32 name="C9"/>
+         <bool32 name="D1"/>
+         <bool32 name="D2"/>
+         <bool32 name="D3"/>
+         <bool32 name="D4"/>
+         <bool32 name="D5"/>
+         <bool32 name="D6"/>
+         <bool32 name="D7"/>
+         <bool32 name="D8"/>
+         <bool32 name="D9"/>
+         <bool32 name="E1"/>
+         <bool32 name="E2"/>
+         <bool32 name="E3"/>
+         <bool32 name="E4"/>
+         <bool32 name="E5"/>
+         <bool32 name="E6"/>
+         <bool32 name="E7"/>
+         <bool32 name="E8"/>
+         <bool32 name="E9"/>
+         <bool32 name="F1"/>
+         <bool32 name="F2"/>
+         <bool32 name="F3"/>
+         <bool32 name="F4"/>
+         <bool32 name="F5"/>
+         <bool32 name="F6"/>
+         <bool32 name="F7"/>
+         <bool32 name="F8"/>
+         <bool32 name="F9"/>
+         <bool32 name="G1"/>
+         <bool32 name="G2"/>
+         <bool32 name="G3"/>
+         <bool32 name="G4"/>
+         <bool32 name="G5"/>
+         <bool32 name="G6"/>
+         <bool32 name="G7"/>
+         <bool32 name="G8"/>
+         <bool32 name="G9"/>
+         <bool32 name="H1"/>
+         <bool32 name="H2"/>
+         <bool32 name="H3"/>
+         <bool32 name="H4"/>
+         <bool32 name="H5"/>
+         <bool32 name="H6"/>
+         <bool32 name="H7"/>
+         <bool32 name="H8"/>
+         <bool32 name="H9"/>
+      </outlets>
+      <displays/>
+      <params/>
+      <attribs/>
+      <code.declaration><![CDATA[int8_t _note;
+int32_t _gate;
+int32_t _gate2;
+uint8_t _velo;
+uint8_t _rvelo;
+int32_t _channel;
+int32_t _trigOut[9][8]; // 8x8 with an extra column [col][row]]]></code.declaration>
+      <code.init><![CDATA[_gate = 0;
+_note = 0;
+_channel = 1;
+for (int col=0; col<9; col++)
+{
+	for (int row=0; row<8; row++)
+	{
+		_trigOut[col][row]=0;
+	}	
+}]]></code.init>
+      <code.krate><![CDATA[outlet_note= _note<<21;
+outlet_gate= _gate;
+outlet_gate2= _gate2;
+_gate2 = _gate;
+outlet_velocity= _velo<<20;
+outlet_releaseVelocity= _rvelo<<20;
+outlet_channel = _channel;
+
+outlet_A1 = _trigOut[0][0];
+outlet_A2 = _trigOut[1][0];
+outlet_A3 = _trigOut[2][0];
+outlet_A4 = _trigOut[3][0];
+outlet_A5 = _trigOut[4][0];
+outlet_A6 = _trigOut[5][0];
+outlet_A7 = _trigOut[6][0];
+outlet_A8 = _trigOut[7][0];
+outlet_A9 = _trigOut[8][0];
+
+
+outlet_B1 = _trigOut[0][1];
+outlet_B2 = _trigOut[1][1];
+outlet_B3 = _trigOut[2][1];
+outlet_B4 = _trigOut[3][1];
+outlet_B5 = _trigOut[4][1];
+outlet_B6 = _trigOut[5][1];
+outlet_B7 = _trigOut[6][1];
+outlet_B8 = _trigOut[7][1];
+outlet_B9 = _trigOut[8][1];
+
+outlet_C1 = _trigOut[0][2];
+outlet_C2 = _trigOut[1][2];
+outlet_C3 = _trigOut[2][2];
+outlet_C4 = _trigOut[3][2];
+outlet_C5 = _trigOut[4][2];
+outlet_C6 = _trigOut[5][2];
+outlet_C7 = _trigOut[6][2];
+outlet_C8 = _trigOut[7][2];
+outlet_C9 = _trigOut[8][2];
+
+
+outlet_D1 = _trigOut[0][3];
+outlet_D2 = _trigOut[1][3];
+outlet_D3 = _trigOut[2][3];
+outlet_D4 = _trigOut[3][3];
+outlet_D5 = _trigOut[4][3];
+outlet_D6 = _trigOut[5][3];
+outlet_D7 = _trigOut[6][3];
+outlet_D8 = _trigOut[7][3];
+outlet_D9 = _trigOut[8][3];
+
+outlet_E1 = _trigOut[0][4];
+outlet_E2 = _trigOut[1][4];
+outlet_E3 = _trigOut[2][4];
+outlet_E4 = _trigOut[3][4];
+outlet_E5 = _trigOut[4][4];
+outlet_E6 = _trigOut[5][4];
+outlet_E7 = _trigOut[6][4];
+outlet_E8 = _trigOut[7][4];
+outlet_E9 = _trigOut[8][4];
+
+outlet_F1 = _trigOut[0][5];
+outlet_F2 = _trigOut[1][5];
+outlet_F3 = _trigOut[2][5];
+outlet_F4 = _trigOut[3][5];
+outlet_F5 = _trigOut[4][5];
+outlet_F6 = _trigOut[5][5];
+outlet_F7 = _trigOut[6][5];
+outlet_F8 = _trigOut[7][5];
+outlet_F9 = _trigOut[8][5];
+
+outlet_G1 = _trigOut[0][6];
+outlet_G2 = _trigOut[1][6];
+outlet_G3 = _trigOut[2][6];
+outlet_G4 = _trigOut[3][6];
+outlet_G5 = _trigOut[4][6];
+outlet_G6 = _trigOut[5][6];
+outlet_G7 = _trigOut[6][6];
+outlet_G8 = _trigOut[7][6];
+outlet_G9 = _trigOut[8][6];
+
+outlet_H1 = _trigOut[0][7];
+outlet_H2 = _trigOut[1][7];
+outlet_H3 = _trigOut[2][7];
+outlet_H4 = _trigOut[3][7];
+outlet_H5 = _trigOut[4][7];
+outlet_H6 = _trigOut[5][7];
+outlet_H7 = _trigOut[6][7];
+outlet_H8 = _trigOut[7][7];
+outlet_H9 = _trigOut[8][7];]]></code.krate>
+      <code.midihandler><![CDATA[int8_t bHandleGate=0;
+
+if ((status == MIDI_NOTE_ON + attr_midichannel) && (data2)) 
+{
+  _velo = data2;
+  _note = data1-64;
+  _gate = 1<<27;
+  _gate2 = 0;
+  _channel = (status & 0x0F) + 1;
+  bHandleGate  =1;
+} else if (((status == MIDI_NOTE_ON + attr_midichannel) && (!data2))||
+          (status == MIDI_NOTE_OFF + attr_midichannel)) 
+{
+  if (_note == data1-64) 
+  {
+    _rvelo = data2;
+    _gate = 0;
+    bHandleGate = 1;
+  }
+} else if ((status == attr_midichannel + MIDI_CONTROL_CHANGE)&&(data1 == MIDI_C_ALL_NOTES_OFF)) 
+{
+  _gate = 0;
+  bHandleGate = 1;
+}
+
+if (bHandleGate)
+{
+	switch(_note)
+	{
+ 		case -64:
+  			_trigOut[0][0] = _gate;
+  			break;
+  		case -63:
+  			_trigOut[1][0] = _gate;
+  			break;
+  		case -62:
+  			_trigOut[2][0] = _gate;
+  			break;
+  		case -61:
+  			_trigOut[3][0] = _gate;
+  			break;
+  		case -60:
+  			_trigOut[4][0] = _gate;
+  			break;
+  		case -59:
+  			_trigOut[5][0] = _gate;
+  			break;
+  		case -58:
+  			_trigOut[6][0] = _gate;
+  			break;
+  		case -57:
+  			_trigOut[7][0] = _gate;
+  			break;
+  		case -56:
+  			_trigOut[8][0] = _gate;
+  			break;
+  		
+
+		case -48:
+  			_trigOut[0][1] = _gate;
+  			break;
+  		case -47:
+  			_trigOut[1][1] = _gate;
+  			break;
+  		case -46:
+  			_trigOut[2][1] = _gate;
+  			break;
+  		case -45:
+  			_trigOut[3][1] = _gate;
+  			break;
+  		case -44:
+  			_trigOut[4][1] = _gate;
+  			break;
+  		case -43:
+  			_trigOut[5][1] = _gate;
+  			break;
+  		case -42:
+  			_trigOut[6][1] = _gate;
+  			break;
+  		case -41:
+  			_trigOut[7][1] = _gate;
+  			break;
+  		case -40:
+  			_trigOut[8][1] = _gate;
+  			break;
+
+  		
+
+		case -32:
+  			_trigOut[0][2] = _gate;
+  			break;
+  		case -31:
+  			_trigOut[1][2] = _gate;
+  			break;
+  		case -30:
+  			_trigOut[2][2] = _gate;
+  			break;
+  		case -29:
+  			_trigOut[3][2] = _gate;
+  			break;
+  		case -28:
+  			_trigOut[4][2] = _gate;
+  			break;
+  		case -27:
+  			_trigOut[5][2] = _gate;
+  			break;
+  		case -26:
+  			_trigOut[6][2] = _gate;
+  			break;
+  		case -25:
+  			_trigOut[7][2] = _gate;
+  			break;
+  		case -24:
+  			_trigOut[8][2] = _gate;
+  			break;
+
+
+  		
+
+  		case -16:
+  			_trigOut[0][3] = _gate;
+  			break;
+  		case -15:
+  			_trigOut[1][3] = _gate;
+  			break;
+  		case -14:
+  			_trigOut[2][3] = _gate;
+  			break;
+  		case -13:
+  			_trigOut[3][3] = _gate;
+  			break;
+  		case -12:
+  			_trigOut[4][3] = _gate;
+  			break;
+  		case -11:
+  			_trigOut[5][3] = _gate;
+  			break;
+  		case -10:
+  			_trigOut[6][3] = _gate;
+  			break;
+  		case -9:
+  			_trigOut[7][3] = _gate;
+  			break;
+  		case -8:
+  			_trigOut[8][3] = _gate;
+  			break;
+  		
+
+
+
+  		case 0:
+  			_trigOut[0][4] = _gate;
+  			break;
+  		case 1:
+  			_trigOut[1][4] = _gate;
+  			break;
+  		case 2:
+  			_trigOut[2][4] = _gate;
+  			break;
+  		case 3:
+  			_trigOut[3][4] = _gate;
+  			break;
+  		case 4:
+  			_trigOut[4][4] = _gate;
+  			break;
+  		case 5:
+  			_trigOut[5][4] = _gate;
+  			break;
+  		case 6:
+  			_trigOut[6][4] = _gate;
+  			break;
+  		case 7:
+  			_trigOut[7][4] = _gate;
+  			break;
+  		case 8:
+  			_trigOut[8][4] = _gate;
+  			break;
+
+
+
+
+		case 16:
+  			_trigOut[0][5] = _gate;
+  			break;
+  		case 17:
+  			_trigOut[1][5] = _gate;
+  			break;
+  		case 18:
+  			_trigOut[2][5] = _gate;
+  			break;
+  		case 19:
+  			_trigOut[3][5] = _gate;
+  			break;
+  		case 20:
+  			_trigOut[4][5] = _gate;
+  			break;
+  		case 21:
+  			_trigOut[5][5] = _gate;
+  			break;
+  		case 22:
+  			_trigOut[6][5] = _gate;
+  			break;
+  		case 23:
+  			_trigOut[7][5] = _gate;
+  			break;
+  		case 24:
+  			_trigOut[8][5] = _gate;
+  			break;
+
+  		
+  		
+  		
+  		case 32:
+  			_trigOut[0][6] = _gate;
+  			break;
+  		case 33:
+  			_trigOut[1][6] = _gate;
+  			break;
+  		case 34:
+  			_trigOut[2][6] = _gate;
+  			break;
+  		case 35:
+  			_trigOut[3][6] = _gate;
+  			break;
+  		case 36:
+  			_trigOut[4][6] = _gate;
+  			break;
+  		case 37:
+  			_trigOut[5][6] = _gate;
+  			break;
+  		case 38:
+  			_trigOut[6][6] = _gate;
+  			break;
+  		case 39:
+  			_trigOut[7][6] = _gate;
+  			break;
+  		case 40:
+  			_trigOut[8][6] = _gate;
+  			break;
+
+
+ 
+  		case 48:
+  			_trigOut[0][7] = _gate;
+  			break;
+  		case 49:
+  			_trigOut[1][7] = _gate;
+  			break;
+  		case 50:
+  			_trigOut[2][7] = _gate;
+  			break;
+  		case 51:
+  			_trigOut[3][7] = _gate;
+  			break;
+  		case 52:
+  			_trigOut[4][7] = _gate;
+  			break;
+  		case 53:
+  			_trigOut[5][7] = _gate;
+  			break;
+  		case 54:
+  			_trigOut[6][7] = _gate;
+  			break;
+  		case 55:
+  			_trigOut[7][7] = _gate;
+  			break;
+  		case 56:
+  			_trigOut[8][7] = _gate;
+  			break; 
+  		
+  			
+  		default:
+  			break;
+	}	
+}]]></code.midihandler>
+   </obj.normal>
+</objdefs>

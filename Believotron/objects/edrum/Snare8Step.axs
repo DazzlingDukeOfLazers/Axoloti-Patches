@@ -101,6 +101,10 @@
       <params/>
       <attribs/>
    </obj>
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="trig" x="1330" y="686">
+      <params/>
+      <attribs/>
+   </obj>
    <obj type="ctrl/dial p" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="dial_17" x="686" y="700">
       <params>
          <frac32.u.map name="value" value="32.0"/>
@@ -171,6 +175,7 @@
       <net>
          <source obj="obj_4" outlet="or16"/>
          <dest obj="snare_1" inlet="strike"/>
+         <dest obj="trig" inlet="outlet"/>
       </net>
       <net>
          <source obj="dial_13" outlet="out"/>

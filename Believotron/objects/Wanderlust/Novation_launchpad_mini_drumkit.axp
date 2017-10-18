@@ -1,375 +1,524 @@
 <patch-1.0 appVersion="1.0.12">
-   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_6" x="826" y="14">
+   <obj type="disp/note" uuid="ce3190ad98b73b468f22221f555b01feee03226a" name="note_1" x="490" y="0">
       <params/>
       <attribs/>
    </obj>
-   <obj type="logic/or08" uuid="68be7a83-2512-4b47-b983-21156b6a20d8" name="obj_4" x="658" y="28">
+   <obj type="MIDI/NovationLaunchPadMini_triggerout" uuid="df496784-d79a-4460-a89f-bae41614692b" name="NovationLaunchPadMini_triggerout_1" x="210" y="56">
       <params/>
       <attribs/>
    </obj>
-   <obj type="MIDI/NovationLaunchPadMini_triggerout" uuid="df496784-d79a-4460-a89f-bae41614692b" name="NovationLaunchPadMini_triggerout_1" x="126" y="56">
+   <obj type="logic/toggle" uuid="f42f0d3aab552c17bc78b9e65f85dc24f977503d" name="toggle_2" x="490" y="70">
       <params/>
       <attribs/>
    </obj>
-   <obj type="logic/monophonicKBSel" uuid="eb493a19-36a5-41cc-a687-077dfdc6483a" name="monophonicKBSel_1" x="364" y="70">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_2" x="588" y="70">
       <params/>
       <attribs/>
    </obj>
-   <obj type="ctrl/dial p" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="dial_3" x="560" y="70">
-      <params>
-         <frac32.u.map name="value" value="0.0"/>
-      </params>
-      <attribs/>
-   </obj>
-   <obj type="mux/mux 8" uuid="de5167d9da39b04039376e8cc620ea2afc22e28a" name="mux_1" x="742" y="70">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="osc/brds/snare" uuid="6cfef612-0d2d-4dbf-9e01-ce8704bf86c9" name="snare_1" x="1008" y="140">
-      <params>
-         <frac32.s.map name="pitch" value="0.0"/>
-         <frac32.u.map name="timbre" value="28.5"/>
-         <frac32.u.map name="color" value="0.0"/>
-      </params>
-      <attribs/>
-   </obj>
-   <obj type="disp/i" uuid="5e35fd0c62d81e70017289250cf28edd26e19e4a" name="i_1" x="518" y="168">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="ctrl/dial p" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="dial_4" x="560" y="168">
-      <params>
-         <frac32.u.map name="value" value="8.0"/>
-      </params>
-      <attribs/>
-   </obj>
-   <obj type="mix/mix 8 g" uuid="ca3c8ec626ad31e48d8374d5dd44962bf3bd7e6f" name="mix_1" x="1148" y="168">
-      <params>
-         <frac32.u.map name="gain1" value="0.0"/>
-         <frac32.u.map name="gain2" value="0.0"/>
-         <frac32.u.map name="gain3" value="0.0"/>
-         <frac32.u.map name="gain4" value="64.0"/>
-         <frac32.u.map name="gain5" value="64.0"/>
-         <frac32.u.map name="gain6" value="32.0"/>
-         <frac32.u.map name="gain7" value="32.0"/>
-         <frac32.u.map name="gain8" value="32.0"/>
-      </params>
-      <attribs/>
-   </obj>
-   <obj type="wp/edrum/snare_mod" uuid="221b7dee-e53c-4ad6-9740-c57bc506d812" name="obj_2" x="840" y="182">
-      <params>
-         <frac32.s.map name="ad_mod_1:a" value="-7.0"/>
-         <frac32.s.map name="ad_mod_1:d" value="-25.0"/>
-         <frac32.s.map name="bp_1:pitch" value="14.0"/>
-         <frac32.u.map name="bp_1:reso" value="43.0"/>
-      </params>
-      <attribs/>
-   </obj>
-   <obj type="conv/bipolar2unipolar" uuid="f6f63d71053d572d3c795f83c7ec11dfbbce82dd" name="bipolar2unipolar_1" x="1358" y="210">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_1" x="1526" y="210">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="audio/out stereo" uuid="a1ca7a567f535acc21055669829101d3ee7f0189" name="out_1" x="1596" y="210">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="ctrl/dial p" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="dial_5" x="560" y="252">
-      <params>
-         <frac32.u.map name="value" value="16.0"/>
-      </params>
-      <attribs/>
-   </obj>
-   <obj type="ctrl/dial b" uuid="862e7d7f29093cb1ce4aed72244d118ad4d46692" name="dial_7" x="756" y="308">
-      <params>
-         <frac32.s.map name="value" value="-64.0"/>
-      </params>
-      <attribs/>
-   </obj>
-   <obj type="ctrl/dial p" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="dial_13" x="560" y="336">
-      <params>
-         <frac32.u.map name="value" value="24.0"/>
-      </params>
-      <attribs/>
-   </obj>
-   <obj type="ctrl/dial b" uuid="862e7d7f29093cb1ce4aed72244d118ad4d46692" name="dial_18" x="434" y="392">
+   <comment type="patch/comment" x="882" y="70" text="The dropout is within the module snare8step"/>
+   <obj type="ctrl/dial b" uuid="862e7d7f29093cb1ce4aed72244d118ad4d46692" name="dial_18" x="854" y="140">
       <params>
          <frac32.s.map name="value" value="32.0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="ctrl/dial p" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="dial_14" x="560" y="420">
-      <params>
-         <frac32.u.map name="value" value="32.0"/>
-      </params>
-      <attribs/>
-   </obj>
-   <obj type="edrum/Snare8Step" uuid="a98c5748-f273-482f-82dd-d376fa219d3c" name="obj_1" x="868" y="448">
+   <obj type="Snare8Step" uuid="9020850a-aa4f-49e1-b365-76a113427ab8" name="Snare8Step_1" x="924" y="140">
       <params/>
       <attribs/>
    </obj>
-   <obj type="ctrl/dial b" uuid="862e7d7f29093cb1ce4aed72244d118ad4d46692" name="dial_19" x="434" y="490">
+   <obj type="conv/bipolar2unipolar" uuid="f6f63d71053d572d3c795f83c7ec11dfbbce82dd" name="bipolar2unipolar_1" x="1442" y="210">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_1" x="1610" y="210">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="audio/out stereo" uuid="a1ca7a567f535acc21055669829101d3ee7f0189" name="out_1" x="1680" y="210">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/dial b" uuid="862e7d7f29093cb1ce4aed72244d118ad4d46692" name="dial_19" x="840" y="308">
+      <params>
+         <frac32.s.map name="value" value="28.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="Snare8Step" uuid="9020850a-aa4f-49e1-b365-76a113427ab8" name="Snare8Step_2" x="924" y="308">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="logic/or08" uuid="57bb6c7a-56bd-463c-9a9f-4c9c92404856" name="obj_1" x="1190" y="336">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="logic/toggle" uuid="f42f0d3aab552c17bc78b9e65f85dc24f977503d" name="toggle_1" x="1302" y="336">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_1" x="1400" y="336">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/dial b" uuid="862e7d7f29093cb1ce4aed72244d118ad4d46692" name="dial_25" x="840" y="462">
+      <params>
+         <frac32.s.map name="value" value="24.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="Snare8Step" uuid="9020850a-aa4f-49e1-b365-76a113427ab8" name="Snare8Step_3" x="924" y="462">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/dial b" uuid="862e7d7f29093cb1ce4aed72244d118ad4d46692" name="dial_24" x="840" y="616">
+      <params>
+         <frac32.s.map name="value" value="20.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="Snare8Step" uuid="9020850a-aa4f-49e1-b365-76a113427ab8" name="Snare8Step_4" x="924" y="616">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="mix/mix 8 g" uuid="ca3c8ec626ad31e48d8374d5dd44962bf3bd7e6f" name="mix_1" x="1092" y="644">
+      <params>
+         <frac32.u.map name="gain1" value="64.0"/>
+         <frac32.u.map name="gain2" value="64.0"/>
+         <frac32.u.map name="gain3" value="64.0"/>
+         <frac32.u.map name="gain4" value="64.0"/>
+         <frac32.u.map name="gain5" value="64.0"/>
+         <frac32.u.map name="gain6" value="64.0"/>
+         <frac32.u.map name="gain7" value="64.0"/>
+         <frac32.u.map name="gain8" value="64.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/dial b" uuid="862e7d7f29093cb1ce4aed72244d118ad4d46692" name="dial_23" x="840" y="770">
+      <params>
+         <frac32.s.map name="value" value="0.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="Snare8Step" uuid="9020850a-aa4f-49e1-b365-76a113427ab8" name="Snare8Step_5" x="924" y="770">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="MIDI/Novation_LaunchpadMini_Toprow" uuid="36f2c1cf-79a2-457f-aee7-b6bbd5d1d0e6" name="Novation_LaunchpadMini_Toprow_1" x="0" y="812">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/dial b" uuid="862e7d7f29093cb1ce4aed72244d118ad4d46692" name="dial_22" x="840" y="924">
+      <params>
+         <frac32.s.map name="value" value="-16.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="Snare8Step" uuid="9020850a-aa4f-49e1-b365-76a113427ab8" name="Snare8Step_6" x="924" y="924">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/dial b" uuid="862e7d7f29093cb1ce4aed72244d118ad4d46692" name="dial_21" x="840" y="1078">
+      <params>
+         <frac32.s.map name="value" value="-32.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="Snare8Step" uuid="9020850a-aa4f-49e1-b365-76a113427ab8" name="Snare8Step_7" x="924" y="1078">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/dial b" uuid="862e7d7f29093cb1ce4aed72244d118ad4d46692" name="dial_20" x="840" y="1246">
       <params>
          <frac32.s.map name="value" value="-48.0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="edrum/Snare8Step" uuid="a98c5748-f273-482f-82dd-d376fa219d3c" name="obj_5" x="980" y="490">
+   <obj type="Snare8Step" uuid="9020850a-aa4f-49e1-b365-76a113427ab8" name="Snare8Step_8" x="924" y="1246">
       <params/>
-      <attribs/>
-   </obj>
-   <obj type="ctrl/dial p" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="dial_15" x="560" y="504">
-      <params>
-         <frac32.u.map name="value" value="48.0"/>
-      </params>
-      <attribs/>
-   </obj>
-   <obj type="ctrl/dial p" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="dial_8" x="714" y="532">
-      <params>
-         <frac32.u.map name="value" value="13.5"/>
-      </params>
-      <attribs/>
-   </obj>
-   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_1" x="1316" y="574">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="ctrl/dial p" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="dial_16" x="560" y="588">
-      <params>
-         <frac32.u.map name="value" value="56.0"/>
-      </params>
-      <attribs/>
-   </obj>
-   <obj type="ctrl/dial p" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="dial_9" x="714" y="616">
-      <params>
-         <frac32.u.map name="value" value="9.5"/>
-      </params>
-      <attribs/>
-   </obj>
-   <obj type="Wanderlust/Wanderlust_core_V1" uuid="a84a0250-1b01-488b-8a6e-3ec321a3f50b" name="obj_3" x="966" y="658">
-      <params>
-         <bool32.tgl name="Reverse Knobs" value="0"/>
-      </params>
-      <attribs/>
-   </obj>
-   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_2" x="1316" y="658">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="ctrl/dial p" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="dial_17" x="560" y="672">
-      <params>
-         <frac32.u.map name="value" value="64.0"/>
-      </params>
-      <attribs/>
-   </obj>
-   <obj type="ctrl/dial p" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="dial_10" x="714" y="700">
-      <params>
-         <frac32.u.map name="value" value="34.5"/>
-      </params>
-      <attribs/>
-   </obj>
-   <obj type="ctrl/dial p" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="dial_11" x="714" y="784">
-      <params>
-         <frac32.u.map name="value" value="43.5"/>
-      </params>
-      <attribs/>
-   </obj>
-   <obj type="MIDI/Novation_LaunchpadMini_Toprow" uuid="36f2c1cf-79a2-457f-aee7-b6bbd5d1d0e6" name="Novation_LaunchpadMini_Toprow_1" x="364" y="826">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="ctrl/dial p" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="dial_12" x="602" y="868">
-      <params>
-         <frac32.u.map name="value" value="17.5"/>
-      </params>
       <attribs/>
    </obj>
    <nets>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="A1"/>
-         <dest obj="monophonicKBSel_1" inlet="b0"/>
-         <dest obj="obj_4" inlet="i00"/>
-         <dest obj="obj_1" inlet="i0"/>
-      </net>
-      <net>
-         <source obj="obj_2" outlet="outlet_1"/>
-         <dest obj="mix_1" inlet="in1"/>
-      </net>
-      <net>
-         <source obj="vca_1" outlet="o"/>
-         <dest obj="out_1" inlet="left"/>
-         <dest obj="out_1" inlet="right"/>
-      </net>
-      <net>
-         <source obj="obj_3" outlet="knob_top_7"/>
-         <dest obj="bipolar2unipolar_1" inlet="i"/>
+         <dest obj="Snare8Step_1" inlet="i0"/>
       </net>
       <net>
          <source obj="bipolar2unipolar_1" outlet="o"/>
          <dest obj="vca_1" inlet="v"/>
       </net>
       <net>
-         <source obj="obj_3" outlet="JOY0_Y"/>
-         <dest obj="dial_1" inlet="in"/>
-         <dest obj="dial_2" inlet="in"/>
-      </net>
-      <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="A2"/>
-         <dest obj="monophonicKBSel_1" inlet="b1"/>
-         <dest obj="obj_4" inlet="i01"/>
-         <dest obj="obj_1" inlet="i1"/>
+         <dest obj="Snare8Step_1" inlet="i1"/>
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="A3"/>
-         <dest obj="monophonicKBSel_1" inlet="b2"/>
-         <dest obj="obj_4" inlet="i02"/>
-         <dest obj="obj_1" inlet="i2"/>
-      </net>
-      <net>
-         <source obj="monophonicKBSel_1" outlet="out"/>
-         <dest obj="i_1" inlet="in"/>
-         <dest obj="mux_1" inlet="s"/>
+         <dest obj="Snare8Step_1" inlet="i2"/>
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="A4"/>
-         <dest obj="monophonicKBSel_1" inlet="b3"/>
-         <dest obj="obj_4" inlet="i03"/>
-         <dest obj="obj_1" inlet="i3"/>
-      </net>
-      <net>
-         <dest obj="monophonicKBSel_1" inlet="b4"/>
-         <dest obj="obj_4" inlet="i04"/>
+         <dest obj="Snare8Step_1" inlet="i3"/>
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="A6"/>
-         <dest obj="monophonicKBSel_1" inlet="b5"/>
-         <dest obj="obj_4" inlet="i05"/>
-         <dest obj="obj_1" inlet="i5"/>
+         <dest obj="Snare8Step_1" inlet="i5"/>
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="A7"/>
-         <dest obj="monophonicKBSel_1" inlet="b6"/>
-         <dest obj="obj_4" inlet="i06"/>
-         <dest obj="obj_1" inlet="i6"/>
+         <dest obj="Snare8Step_1" inlet="i6"/>
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="A8"/>
-         <dest obj="monophonicKBSel_1" inlet="b7"/>
-         <dest obj="obj_4" inlet="i07"/>
-         <dest obj="obj_1" inlet="i7"/>
-      </net>
-      <net>
-         <source obj="NovationLaunchPadMini_triggerout_1" outlet="A9"/>
-         <dest obj="monophonicKBSel_1" inlet="b8"/>
+         <dest obj="Snare8Step_1" inlet="i7"/>
       </net>
       <net>
          <source obj="mix_1" outlet="out"/>
          <dest obj="vca_1" inlet="a"/>
-      </net>
-      <net>
-         <source obj="mux_1" outlet="o"/>
-         <dest obj="dial_6" inlet="in"/>
-         <dest obj="snare_1" inlet="color"/>
-      </net>
-      <net>
-         <source obj="dial_3" outlet="out"/>
-         <dest obj="mux_1" inlet="i0"/>
-      </net>
-      <net>
-         <source obj="dial_4" outlet="out"/>
-         <dest obj="mux_1" inlet="i1"/>
-      </net>
-      <net>
-         <source obj="dial_5" outlet="out"/>
-         <dest obj="mux_1" inlet="i2"/>
-      </net>
-      <net>
-         <source obj="obj_4" outlet="or16"/>
-         <dest obj="obj_2" inlet="trig"/>
-         <dest obj="snare_1" inlet="strike"/>
-      </net>
-      <net>
-         <source obj="dial_7" outlet="out"/>
-         <dest obj="obj_2" inlet="attack"/>
-      </net>
-      <net>
-         <source obj="snare_1" outlet="wave"/>
-         <dest obj="mix_1" inlet="in3"/>
-      </net>
-      <net>
-         <source obj="dial_13" outlet="out"/>
-         <dest obj="mux_1" inlet="i3"/>
-      </net>
-      <net>
-         <source obj="dial_14" outlet="out"/>
-         <dest obj="mux_1" inlet="i4"/>
-      </net>
-      <net>
-         <source obj="dial_15" outlet="out"/>
-         <dest obj="mux_1" inlet="i5"/>
-      </net>
-      <net>
-         <source obj="dial_16" outlet="out"/>
-         <dest obj="mux_1" inlet="i6"/>
-      </net>
-      <net>
-         <source obj="dial_17" outlet="out"/>
-         <dest obj="mux_1" inlet="i7"/>
+         <dest obj="out_1" inlet="left"/>
+         <dest obj="out_1" inlet="right"/>
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="A5"/>
-         <dest obj="obj_1" inlet="i4"/>
+         <dest obj="Snare8Step_1" inlet="i4"/>
       </net>
       <net>
-         <source obj="obj_1" outlet="snareOut"/>
-         <dest obj="mix_1" inlet="in4"/>
+         <source obj="Snare8Step_1" outlet="snareOut"/>
+         <dest obj="mix_1" inlet="in1"/>
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="B1"/>
-         <dest obj="obj_5" inlet="i0"/>
+         <dest obj="Snare8Step_2" inlet="i0"/>
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="B2"/>
-         <dest obj="obj_5" inlet="i1"/>
+         <dest obj="Snare8Step_2" inlet="i1"/>
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="B3"/>
-         <dest obj="obj_5" inlet="i2"/>
+         <dest obj="Snare8Step_2" inlet="i2"/>
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="B4"/>
-         <dest obj="obj_5" inlet="i3"/>
+         <dest obj="Snare8Step_2" inlet="i3"/>
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="B5"/>
-         <dest obj="obj_5" inlet="i4"/>
+         <dest obj="Snare8Step_2" inlet="i4"/>
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="B6"/>
-         <dest obj="obj_5" inlet="i5"/>
+         <dest obj="Snare8Step_2" inlet="i5"/>
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="B7"/>
-         <dest obj="obj_5" inlet="i6"/>
+         <dest obj="Snare8Step_2" inlet="i6"/>
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="B8"/>
-         <dest obj="obj_5" inlet="i7"/>
-      </net>
-      <net>
-         <source obj="obj_5" outlet="snareOut"/>
-         <dest obj="mix_1" inlet="in5"/>
+         <dest obj="Snare8Step_2" inlet="i7"/>
       </net>
       <net>
          <source obj="dial_18" outlet="out"/>
-         <dest obj="obj_1" inlet="pitch"/>
+         <dest obj="Snare8Step_1" inlet="pitch"/>
       </net>
       <net>
          <source obj="dial_19" outlet="out"/>
-         <dest obj="obj_5" inlet="pitch"/>
+         <dest obj="Snare8Step_2" inlet="pitch"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="C1"/>
+         <dest obj="Snare8Step_3" inlet="i0"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="C2"/>
+         <dest obj="Snare8Step_3" inlet="i1"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="C3"/>
+         <dest obj="Snare8Step_3" inlet="i2"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="C4"/>
+         <dest obj="Snare8Step_3" inlet="i3"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="C5"/>
+         <dest obj="Snare8Step_3" inlet="i4"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="C6"/>
+         <dest obj="Snare8Step_3" inlet="i5"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="C7"/>
+         <dest obj="Snare8Step_3" inlet="i6"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="C8"/>
+         <dest obj="Snare8Step_3" inlet="i7"/>
+      </net>
+      <net>
+         <source obj="Snare8Step_2" outlet="snareOut"/>
+         <dest obj="mix_1" inlet="in2"/>
+      </net>
+      <net>
+         <source obj="Snare8Step_3" outlet="snareOut"/>
+         <dest obj="mix_1" inlet="in3"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="D1"/>
+         <dest obj="Snare8Step_4" inlet="i0"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="D2"/>
+         <dest obj="Snare8Step_4" inlet="i1"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="D3"/>
+         <dest obj="Snare8Step_4" inlet="i2"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="D4"/>
+         <dest obj="Snare8Step_4" inlet="i3"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="D5"/>
+         <dest obj="Snare8Step_4" inlet="i4"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="D6"/>
+         <dest obj="Snare8Step_4" inlet="i5"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="D7"/>
+         <dest obj="Snare8Step_4" inlet="i6"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="D8"/>
+         <dest obj="Snare8Step_4" inlet="i7"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="E1"/>
+         <dest obj="Snare8Step_5" inlet="i0"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="E2"/>
+         <dest obj="Snare8Step_5" inlet="i1"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="E3"/>
+         <dest obj="Snare8Step_5" inlet="i2"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="E4"/>
+         <dest obj="Snare8Step_5" inlet="i3"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="E5"/>
+         <dest obj="Snare8Step_5" inlet="i4"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="E6"/>
+         <dest obj="Snare8Step_5" inlet="i5"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="E7"/>
+         <dest obj="Snare8Step_5" inlet="i6"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="E8"/>
+         <dest obj="Snare8Step_5" inlet="i7"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="F1"/>
+         <dest obj="Snare8Step_6" inlet="i0"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="F2"/>
+         <dest obj="Snare8Step_6" inlet="i1"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="F3"/>
+         <dest obj="Snare8Step_6" inlet="i2"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="F4"/>
+         <dest obj="Snare8Step_6" inlet="i3"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="F5"/>
+         <dest obj="Snare8Step_6" inlet="i4"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="F6"/>
+         <dest obj="Snare8Step_6" inlet="i5"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="F7"/>
+         <dest obj="Snare8Step_6" inlet="i6"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="F8"/>
+         <dest obj="Snare8Step_6" inlet="i7"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="H1"/>
+         <dest obj="Snare8Step_8" inlet="i0"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="H2"/>
+         <dest obj="Snare8Step_8" inlet="i1"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="H3"/>
+         <dest obj="Snare8Step_8" inlet="i2"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="H4"/>
+         <dest obj="Snare8Step_8" inlet="i3"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="H5"/>
+         <dest obj="Snare8Step_8" inlet="i4"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="H6"/>
+         <dest obj="Snare8Step_8" inlet="i5"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="H7"/>
+         <dest obj="Snare8Step_8" inlet="i6"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="H8"/>
+         <dest obj="Snare8Step_8" inlet="i7"/>
+      </net>
+      <net>
+         <source obj="Snare8Step_4" outlet="snareOut"/>
+         <dest obj="mix_1" inlet="in4"/>
+      </net>
+      <net>
+         <source obj="Snare8Step_5" outlet="snareOut"/>
+         <dest obj="mix_1" inlet="in5"/>
+      </net>
+      <net>
+         <source obj="Snare8Step_6" outlet="snareOut"/>
+         <dest obj="mix_1" inlet="in6"/>
+      </net>
+      <net>
+         <source obj="Snare8Step_8" outlet="snareOut"/>
+         <dest obj="mix_1" inlet="in8"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="G1"/>
+         <dest obj="Snare8Step_7" inlet="i0"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="G2"/>
+         <dest obj="Snare8Step_7" inlet="i1"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="G3"/>
+         <dest obj="Snare8Step_7" inlet="i2"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="G4"/>
+         <dest obj="Snare8Step_7" inlet="i3"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="G5"/>
+         <dest obj="Snare8Step_7" inlet="i4"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="G6"/>
+         <dest obj="Snare8Step_7" inlet="i5"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="G7"/>
+         <dest obj="Snare8Step_7" inlet="i6"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="G8"/>
+         <dest obj="Snare8Step_7" inlet="i7"/>
+      </net>
+      <net>
+         <source obj="Snare8Step_7" outlet="snareOut"/>
+         <dest obj="mix_1" inlet="in7"/>
+      </net>
+      <net>
+         <source obj="dial_20" outlet="out"/>
+         <dest obj="Snare8Step_8" inlet="pitch"/>
+      </net>
+      <net>
+         <source obj="dial_21" outlet="out"/>
+         <dest obj="Snare8Step_7" inlet="pitch"/>
+      </net>
+      <net>
+         <source obj="dial_22" outlet="out"/>
+         <dest obj="Snare8Step_6" inlet="pitch"/>
+      </net>
+      <net>
+         <source obj="dial_23" outlet="out"/>
+         <dest obj="Snare8Step_5" inlet="pitch"/>
+      </net>
+      <net>
+         <source obj="dial_24" outlet="out"/>
+         <dest obj="Snare8Step_4" inlet="pitch"/>
+      </net>
+      <net>
+         <source obj="dial_25" outlet="out"/>
+         <dest obj="Snare8Step_3" inlet="pitch"/>
+      </net>
+      <net>
+         <source obj="Snare8Step_1" outlet="trig"/>
+         <dest obj="obj_1" inlet="i00"/>
+      </net>
+      <net>
+         <source obj="Snare8Step_2" outlet="trig"/>
+         <dest obj="obj_1" inlet="i01"/>
+      </net>
+      <net>
+         <source obj="Snare8Step_3" outlet="trig"/>
+         <dest obj="obj_1" inlet="i02"/>
+      </net>
+      <net>
+         <source obj="Snare8Step_4" outlet="trig"/>
+         <dest obj="obj_1" inlet="i03"/>
+      </net>
+      <net>
+         <source obj="Snare8Step_5" outlet="trig"/>
+         <dest obj="obj_1" inlet="i04"/>
+      </net>
+      <net>
+         <source obj="Snare8Step_6" outlet="trig"/>
+         <dest obj="obj_1" inlet="i05"/>
+      </net>
+      <net>
+         <source obj="Snare8Step_7" outlet="trig"/>
+         <dest obj="obj_1" inlet="i06"/>
+      </net>
+      <net>
+         <source obj="Snare8Step_8" outlet="trig"/>
+         <dest obj="obj_1" inlet="i07"/>
+      </net>
+      <net>
+         <source obj="toggle_1" outlet="o"/>
+         <dest obj="bool_1" inlet="in"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="or16"/>
+         <dest obj="toggle_1" inlet="trig"/>
+      </net>
+      <net>
+         <source obj="toggle_2" outlet="o"/>
+         <dest obj="bool_2" inlet="in"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="gate"/>
+         <dest obj="toggle_2" inlet="trig"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="note"/>
+         <dest obj="note_1" inlet="in"/>
       </net>
    </nets>
    <settings>
@@ -377,9 +526,9 @@
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>-4</x>
-      <y>1</y>
-      <width>1506</width>
-      <height>1003</height>
+      <x>-8</x>
+      <y>-8</y>
+      <width>1516</width>
+      <height>1016</height>
    </windowPos>
 </patch-1.0>

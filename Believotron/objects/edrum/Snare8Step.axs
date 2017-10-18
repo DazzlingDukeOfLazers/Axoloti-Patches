@@ -3,26 +3,22 @@
       <params/>
       <attribs/>
    </obj>
+   <obj type="logic/or08" uuid="68be7a83-2512-4b47-b983-21156b6a20d8" name="obj_4" x="770" y="14">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="logic/monophonicKBSel" uuid="eb493a19-36a5-41cc-a687-077dfdc6483a" name="monophonicKBSel_1" x="462" y="28">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="mux/mux 8" uuid="de5167d9da39b04039376e8cc620ea2afc22e28a" name="mux_1" x="910" y="28">
+      <params/>
+      <attribs/>
+   </obj>
    <obj type="ctrl/dial p" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="dial_3" x="686" y="98">
       <params>
          <frac32.u.map name="value" value="0.0"/>
       </params>
-      <attribs/>
-   </obj>
-   <obj type="logic/monophonicKBSel" uuid="eb493a19-36a5-41cc-a687-077dfdc6483a" name="monophonicKBSel_1" x="476" y="112">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="osc/brds/snare" uuid="6cfef612-0d2d-4dbf-9e01-ce8704bf86c9" name="snare_1" x="1134" y="168">
-      <params>
-         <frac32.s.map name="pitch" value="0.0"/>
-         <frac32.u.map name="timbre" value="28.5"/>
-         <frac32.u.map name="color" value="0.0"/>
-      </params>
-      <attribs/>
-   </obj>
-   <obj type="patch/outlet a" uuid="abd8c5fd3b0524a6630f65cad6dc27f6c58e2a3e" name="snareOut" x="1288" y="168">
-      <params/>
       <attribs/>
    </obj>
    <obj type="ctrl/dial p" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="dial_4" x="686" y="196">
@@ -46,14 +42,6 @@
       <attribs/>
    </obj>
    <obj type="patch/inlet b" uuid="3b0d3eacb5bb978cb05d1372aa2714d5a4790844" name="i2" x="126" y="308">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="mux/mux 8" uuid="de5167d9da39b04039376e8cc620ea2afc22e28a" name="mux_1" x="910" y="308">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="logic/or08" uuid="68be7a83-2512-4b47-b983-21156b6a20d8" name="obj_4" x="504" y="336">
       <params/>
       <attribs/>
    </obj>
@@ -95,10 +83,22 @@
       </params>
       <attribs/>
    </obj>
+   <obj type="osc/brds/snare" uuid="6cfef612-0d2d-4dbf-9e01-ce8704bf86c9" name="snare_1" x="1162" y="602">
+      <params>
+         <frac32.s.map name="pitch" value="0.0"/>
+         <frac32.u.map name="timbre" value="28.5"/>
+         <frac32.u.map name="color" value="0.0"/>
+      </params>
+      <attribs/>
+   </obj>
    <obj type="ctrl/dial p" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="dial_16" x="686" y="616">
       <params>
          <frac32.u.map name="value" value="32.0"/>
       </params>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet a" uuid="abd8c5fd3b0524a6630f65cad6dc27f6c58e2a3e" name="snareOut" x="1330" y="616">
+      <params/>
       <attribs/>
    </obj>
    <obj type="ctrl/dial p" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="dial_17" x="686" y="700">
@@ -208,7 +208,7 @@
    <windowPos>
       <x>-8</x>
       <y>-8</y>
-      <width>1516</width>
-      <height>1016</height>
+      <width>1514</width>
+      <height>1014</height>
    </windowPos>
 </patch-1.0>

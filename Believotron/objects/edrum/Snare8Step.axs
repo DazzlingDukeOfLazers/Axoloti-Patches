@@ -3,7 +3,7 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="logic/or08" uuid="68be7a83-2512-4b47-b983-21156b6a20d8" name="obj_4" x="770" y="14">
+   <obj type="logic/or08" uuid="57bb6c7a-56bd-463c-9a9f-4c9c92404856" name="orWhatever" x="770" y="14">
       <params/>
       <attribs/>
    </obj>
@@ -115,17 +115,17 @@
       <net>
          <source obj="i0" outlet="inlet"/>
          <dest obj="monophonicKBSel_1" inlet="b0"/>
-         <dest obj="obj_4" inlet="i00"/>
+         <dest obj="orWhatever" inlet="i00"/>
       </net>
       <net>
          <source obj="i1" outlet="inlet"/>
          <dest obj="monophonicKBSel_1" inlet="b1"/>
-         <dest obj="obj_4" inlet="i01"/>
+         <dest obj="orWhatever" inlet="i01"/>
       </net>
       <net>
          <source obj="i2" outlet="inlet"/>
          <dest obj="monophonicKBSel_1" inlet="b2"/>
-         <dest obj="obj_4" inlet="i02"/>
+         <dest obj="orWhatever" inlet="i02"/>
       </net>
       <net>
          <source obj="monophonicKBSel_1" outlet="out"/>
@@ -134,27 +134,27 @@
       <net>
          <source obj="i3" outlet="inlet"/>
          <dest obj="monophonicKBSel_1" inlet="b3"/>
-         <dest obj="obj_4" inlet="i03"/>
+         <dest obj="orWhatever" inlet="i03"/>
       </net>
       <net>
          <source obj="i4" outlet="inlet"/>
          <dest obj="monophonicKBSel_1" inlet="b4"/>
-         <dest obj="obj_4" inlet="i04"/>
+         <dest obj="orWhatever" inlet="i04"/>
       </net>
       <net>
          <source obj="i5" outlet="inlet"/>
          <dest obj="monophonicKBSel_1" inlet="b5"/>
-         <dest obj="obj_4" inlet="i05"/>
+         <dest obj="orWhatever" inlet="i05"/>
       </net>
       <net>
          <source obj="i6" outlet="inlet"/>
          <dest obj="monophonicKBSel_1" inlet="b6"/>
-         <dest obj="obj_4" inlet="i06"/>
+         <dest obj="orWhatever" inlet="i06"/>
       </net>
       <net>
          <source obj="i7" outlet="inlet"/>
          <dest obj="monophonicKBSel_1" inlet="b7"/>
-         <dest obj="obj_4" inlet="i07"/>
+         <dest obj="orWhatever" inlet="i07"/>
       </net>
       <net>
          <source obj="mux_1" outlet="o"/>
@@ -173,7 +173,7 @@
          <dest obj="mux_1" inlet="i2"/>
       </net>
       <net>
-         <source obj="obj_4" outlet="or16"/>
+         <source obj="orWhatever" outlet="or16"/>
          <dest obj="snare_1" inlet="strike"/>
          <dest obj="trig" inlet="outlet"/>
       </net>

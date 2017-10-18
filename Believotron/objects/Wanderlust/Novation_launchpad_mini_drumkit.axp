@@ -22,7 +22,7 @@
       </params>
       <attribs/>
    </obj>
-   <obj type="Snare8Step" uuid="9020850a-aa4f-49e1-b365-76a113427ab8" name="Snare8Step_1" x="924" y="140">
+   <obj type="edrum/Snare8Step" uuid="211241f2-4f96-4421-80f0-edb2c9f5735b" name="obj_2" x="924" y="140">
       <params/>
       <attribs/>
    </obj>
@@ -44,7 +44,7 @@
       </params>
       <attribs/>
    </obj>
-   <obj type="Snare8Step" uuid="9020850a-aa4f-49e1-b365-76a113427ab8" name="Snare8Step_2" x="924" y="308">
+   <obj type="edrum/Snare8Step" uuid="211241f2-4f96-4421-80f0-edb2c9f5735b" name="obj_3" x="924" y="308">
       <params/>
       <attribs/>
    </obj>
@@ -66,7 +66,7 @@
       </params>
       <attribs/>
    </obj>
-   <obj type="Snare8Step" uuid="9020850a-aa4f-49e1-b365-76a113427ab8" name="Snare8Step_3" x="924" y="462">
+   <obj type="edrum/Snare8Step" uuid="211241f2-4f96-4421-80f0-edb2c9f5735b" name="obj_4" x="924" y="462">
       <params/>
       <attribs/>
    </obj>
@@ -76,7 +76,7 @@
       </params>
       <attribs/>
    </obj>
-   <obj type="Snare8Step" uuid="9020850a-aa4f-49e1-b365-76a113427ab8" name="Snare8Step_4" x="924" y="616">
+   <obj type="edrum/Snare8Step" uuid="211241f2-4f96-4421-80f0-edb2c9f5735b" name="obj_5" x="924" y="616">
       <params/>
       <attribs/>
    </obj>
@@ -99,7 +99,7 @@
       </params>
       <attribs/>
    </obj>
-   <obj type="Snare8Step" uuid="9020850a-aa4f-49e1-b365-76a113427ab8" name="Snare8Step_5" x="924" y="770">
+   <obj type="edrum/Snare8Step" uuid="211241f2-4f96-4421-80f0-edb2c9f5735b" name="obj_6" x="924" y="770">
       <params/>
       <attribs/>
    </obj>
@@ -113,7 +113,7 @@
       </params>
       <attribs/>
    </obj>
-   <obj type="Snare8Step" uuid="9020850a-aa4f-49e1-b365-76a113427ab8" name="Snare8Step_6" x="924" y="924">
+   <obj type="edrum/Snare8Step" uuid="211241f2-4f96-4421-80f0-edb2c9f5735b" name="obj_7" x="924" y="924">
       <params/>
       <attribs/>
    </obj>
@@ -123,7 +123,7 @@
       </params>
       <attribs/>
    </obj>
-   <obj type="Snare8Step" uuid="9020850a-aa4f-49e1-b365-76a113427ab8" name="Snare8Step_7" x="924" y="1078">
+   <obj type="edrum/Snare8Step" uuid="211241f2-4f96-4421-80f0-edb2c9f5735b" name="obj_8" x="924" y="1078">
       <params/>
       <attribs/>
    </obj>
@@ -133,14 +133,14 @@
       </params>
       <attribs/>
    </obj>
-   <obj type="Snare8Step" uuid="9020850a-aa4f-49e1-b365-76a113427ab8" name="Snare8Step_8" x="924" y="1246">
+   <obj type="edrum/Snare8Step" uuid="211241f2-4f96-4421-80f0-edb2c9f5735b" name="obj_9" x="924" y="1246">
       <params/>
       <attribs/>
    </obj>
    <nets>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="A1"/>
-         <dest obj="Snare8Step_1" inlet="i0"/>
+         <dest obj="obj_2" inlet="i0"/>
       </net>
       <net>
          <source obj="bipolar2unipolar_1" outlet="o"/>
@@ -148,27 +148,27 @@
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="A2"/>
-         <dest obj="Snare8Step_1" inlet="i1"/>
+         <dest obj="obj_2" inlet="i1"/>
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="A3"/>
-         <dest obj="Snare8Step_1" inlet="i2"/>
+         <dest obj="obj_2" inlet="i2"/>
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="A4"/>
-         <dest obj="Snare8Step_1" inlet="i3"/>
+         <dest obj="obj_2" inlet="i3"/>
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="A6"/>
-         <dest obj="Snare8Step_1" inlet="i5"/>
+         <dest obj="obj_2" inlet="i5"/>
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="A7"/>
-         <dest obj="Snare8Step_1" inlet="i6"/>
+         <dest obj="obj_2" inlet="i6"/>
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="A8"/>
-         <dest obj="Snare8Step_1" inlet="i7"/>
+         <dest obj="obj_2" inlet="i7"/>
       </net>
       <net>
          <source obj="mix_1" outlet="out"/>
@@ -178,326 +178,326 @@
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="A5"/>
-         <dest obj="Snare8Step_1" inlet="i4"/>
+         <dest obj="obj_2" inlet="i4"/>
       </net>
       <net>
-         <source obj="Snare8Step_1" outlet="snareOut"/>
+         <source obj="obj_2" outlet="snareOut"/>
          <dest obj="mix_1" inlet="in1"/>
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="B1"/>
-         <dest obj="Snare8Step_2" inlet="i0"/>
+         <dest obj="obj_3" inlet="i0"/>
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="B2"/>
-         <dest obj="Snare8Step_2" inlet="i1"/>
+         <dest obj="obj_3" inlet="i1"/>
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="B3"/>
-         <dest obj="Snare8Step_2" inlet="i2"/>
+         <dest obj="obj_3" inlet="i2"/>
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="B4"/>
-         <dest obj="Snare8Step_2" inlet="i3"/>
+         <dest obj="obj_3" inlet="i3"/>
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="B5"/>
-         <dest obj="Snare8Step_2" inlet="i4"/>
+         <dest obj="obj_3" inlet="i4"/>
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="B6"/>
-         <dest obj="Snare8Step_2" inlet="i5"/>
+         <dest obj="obj_3" inlet="i5"/>
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="B7"/>
-         <dest obj="Snare8Step_2" inlet="i6"/>
+         <dest obj="obj_3" inlet="i6"/>
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="B8"/>
-         <dest obj="Snare8Step_2" inlet="i7"/>
+         <dest obj="obj_3" inlet="i7"/>
       </net>
       <net>
          <source obj="dial_18" outlet="out"/>
-         <dest obj="Snare8Step_1" inlet="pitch"/>
+         <dest obj="obj_2" inlet="pitch"/>
       </net>
       <net>
          <source obj="dial_19" outlet="out"/>
-         <dest obj="Snare8Step_2" inlet="pitch"/>
+         <dest obj="obj_3" inlet="pitch"/>
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="C1"/>
-         <dest obj="Snare8Step_3" inlet="i0"/>
+         <dest obj="obj_4" inlet="i0"/>
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="C2"/>
-         <dest obj="Snare8Step_3" inlet="i1"/>
+         <dest obj="obj_4" inlet="i1"/>
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="C3"/>
-         <dest obj="Snare8Step_3" inlet="i2"/>
+         <dest obj="obj_4" inlet="i2"/>
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="C4"/>
-         <dest obj="Snare8Step_3" inlet="i3"/>
+         <dest obj="obj_4" inlet="i3"/>
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="C5"/>
-         <dest obj="Snare8Step_3" inlet="i4"/>
+         <dest obj="obj_4" inlet="i4"/>
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="C6"/>
-         <dest obj="Snare8Step_3" inlet="i5"/>
+         <dest obj="obj_4" inlet="i5"/>
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="C7"/>
-         <dest obj="Snare8Step_3" inlet="i6"/>
+         <dest obj="obj_4" inlet="i6"/>
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="C8"/>
-         <dest obj="Snare8Step_3" inlet="i7"/>
+         <dest obj="obj_4" inlet="i7"/>
       </net>
       <net>
-         <source obj="Snare8Step_2" outlet="snareOut"/>
+         <source obj="obj_3" outlet="snareOut"/>
          <dest obj="mix_1" inlet="in2"/>
       </net>
       <net>
-         <source obj="Snare8Step_3" outlet="snareOut"/>
+         <source obj="obj_4" outlet="snareOut"/>
          <dest obj="mix_1" inlet="in3"/>
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="D1"/>
-         <dest obj="Snare8Step_4" inlet="i0"/>
+         <dest obj="obj_5" inlet="i0"/>
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="D2"/>
-         <dest obj="Snare8Step_4" inlet="i1"/>
+         <dest obj="obj_5" inlet="i1"/>
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="D3"/>
-         <dest obj="Snare8Step_4" inlet="i2"/>
+         <dest obj="obj_5" inlet="i2"/>
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="D4"/>
-         <dest obj="Snare8Step_4" inlet="i3"/>
+         <dest obj="obj_5" inlet="i3"/>
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="D5"/>
-         <dest obj="Snare8Step_4" inlet="i4"/>
+         <dest obj="obj_5" inlet="i4"/>
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="D6"/>
-         <dest obj="Snare8Step_4" inlet="i5"/>
+         <dest obj="obj_5" inlet="i5"/>
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="D7"/>
-         <dest obj="Snare8Step_4" inlet="i6"/>
+         <dest obj="obj_5" inlet="i6"/>
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="D8"/>
-         <dest obj="Snare8Step_4" inlet="i7"/>
+         <dest obj="obj_5" inlet="i7"/>
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="E1"/>
-         <dest obj="Snare8Step_5" inlet="i0"/>
+         <dest obj="obj_6" inlet="i0"/>
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="E2"/>
-         <dest obj="Snare8Step_5" inlet="i1"/>
+         <dest obj="obj_6" inlet="i1"/>
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="E3"/>
-         <dest obj="Snare8Step_5" inlet="i2"/>
+         <dest obj="obj_6" inlet="i2"/>
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="E4"/>
-         <dest obj="Snare8Step_5" inlet="i3"/>
+         <dest obj="obj_6" inlet="i3"/>
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="E5"/>
-         <dest obj="Snare8Step_5" inlet="i4"/>
+         <dest obj="obj_6" inlet="i4"/>
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="E6"/>
-         <dest obj="Snare8Step_5" inlet="i5"/>
+         <dest obj="obj_6" inlet="i5"/>
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="E7"/>
-         <dest obj="Snare8Step_5" inlet="i6"/>
+         <dest obj="obj_6" inlet="i6"/>
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="E8"/>
-         <dest obj="Snare8Step_5" inlet="i7"/>
+         <dest obj="obj_6" inlet="i7"/>
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="F1"/>
-         <dest obj="Snare8Step_6" inlet="i0"/>
+         <dest obj="obj_7" inlet="i0"/>
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="F2"/>
-         <dest obj="Snare8Step_6" inlet="i1"/>
+         <dest obj="obj_7" inlet="i1"/>
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="F3"/>
-         <dest obj="Snare8Step_6" inlet="i2"/>
+         <dest obj="obj_7" inlet="i2"/>
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="F4"/>
-         <dest obj="Snare8Step_6" inlet="i3"/>
+         <dest obj="obj_7" inlet="i3"/>
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="F5"/>
-         <dest obj="Snare8Step_6" inlet="i4"/>
+         <dest obj="obj_7" inlet="i4"/>
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="F6"/>
-         <dest obj="Snare8Step_6" inlet="i5"/>
+         <dest obj="obj_7" inlet="i5"/>
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="F7"/>
-         <dest obj="Snare8Step_6" inlet="i6"/>
+         <dest obj="obj_7" inlet="i6"/>
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="F8"/>
-         <dest obj="Snare8Step_6" inlet="i7"/>
+         <dest obj="obj_7" inlet="i7"/>
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="H1"/>
-         <dest obj="Snare8Step_8" inlet="i0"/>
+         <dest obj="obj_9" inlet="i0"/>
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="H2"/>
-         <dest obj="Snare8Step_8" inlet="i1"/>
+         <dest obj="obj_9" inlet="i1"/>
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="H3"/>
-         <dest obj="Snare8Step_8" inlet="i2"/>
+         <dest obj="obj_9" inlet="i2"/>
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="H4"/>
-         <dest obj="Snare8Step_8" inlet="i3"/>
+         <dest obj="obj_9" inlet="i3"/>
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="H5"/>
-         <dest obj="Snare8Step_8" inlet="i4"/>
+         <dest obj="obj_9" inlet="i4"/>
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="H6"/>
-         <dest obj="Snare8Step_8" inlet="i5"/>
+         <dest obj="obj_9" inlet="i5"/>
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="H7"/>
-         <dest obj="Snare8Step_8" inlet="i6"/>
+         <dest obj="obj_9" inlet="i6"/>
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="H8"/>
-         <dest obj="Snare8Step_8" inlet="i7"/>
+         <dest obj="obj_9" inlet="i7"/>
       </net>
       <net>
-         <source obj="Snare8Step_4" outlet="snareOut"/>
+         <source obj="obj_5" outlet="snareOut"/>
          <dest obj="mix_1" inlet="in4"/>
       </net>
       <net>
-         <source obj="Snare8Step_5" outlet="snareOut"/>
+         <source obj="obj_6" outlet="snareOut"/>
          <dest obj="mix_1" inlet="in5"/>
       </net>
       <net>
-         <source obj="Snare8Step_6" outlet="snareOut"/>
+         <source obj="obj_7" outlet="snareOut"/>
          <dest obj="mix_1" inlet="in6"/>
       </net>
       <net>
-         <source obj="Snare8Step_8" outlet="snareOut"/>
+         <source obj="obj_9" outlet="snareOut"/>
          <dest obj="mix_1" inlet="in8"/>
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="G1"/>
-         <dest obj="Snare8Step_7" inlet="i0"/>
+         <dest obj="obj_8" inlet="i0"/>
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="G2"/>
-         <dest obj="Snare8Step_7" inlet="i1"/>
+         <dest obj="obj_8" inlet="i1"/>
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="G3"/>
-         <dest obj="Snare8Step_7" inlet="i2"/>
+         <dest obj="obj_8" inlet="i2"/>
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="G4"/>
-         <dest obj="Snare8Step_7" inlet="i3"/>
+         <dest obj="obj_8" inlet="i3"/>
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="G5"/>
-         <dest obj="Snare8Step_7" inlet="i4"/>
+         <dest obj="obj_8" inlet="i4"/>
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="G6"/>
-         <dest obj="Snare8Step_7" inlet="i5"/>
+         <dest obj="obj_8" inlet="i5"/>
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="G7"/>
-         <dest obj="Snare8Step_7" inlet="i6"/>
+         <dest obj="obj_8" inlet="i6"/>
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="G8"/>
-         <dest obj="Snare8Step_7" inlet="i7"/>
+         <dest obj="obj_8" inlet="i7"/>
       </net>
       <net>
-         <source obj="Snare8Step_7" outlet="snareOut"/>
+         <source obj="obj_8" outlet="snareOut"/>
          <dest obj="mix_1" inlet="in7"/>
       </net>
       <net>
          <source obj="dial_20" outlet="out"/>
-         <dest obj="Snare8Step_8" inlet="pitch"/>
+         <dest obj="obj_9" inlet="pitch"/>
       </net>
       <net>
          <source obj="dial_21" outlet="out"/>
-         <dest obj="Snare8Step_7" inlet="pitch"/>
+         <dest obj="obj_8" inlet="pitch"/>
       </net>
       <net>
          <source obj="dial_22" outlet="out"/>
-         <dest obj="Snare8Step_6" inlet="pitch"/>
+         <dest obj="obj_7" inlet="pitch"/>
       </net>
       <net>
          <source obj="dial_23" outlet="out"/>
-         <dest obj="Snare8Step_5" inlet="pitch"/>
+         <dest obj="obj_6" inlet="pitch"/>
       </net>
       <net>
          <source obj="dial_24" outlet="out"/>
-         <dest obj="Snare8Step_4" inlet="pitch"/>
+         <dest obj="obj_5" inlet="pitch"/>
       </net>
       <net>
          <source obj="dial_25" outlet="out"/>
-         <dest obj="Snare8Step_3" inlet="pitch"/>
+         <dest obj="obj_4" inlet="pitch"/>
       </net>
       <net>
-         <source obj="Snare8Step_1" outlet="trig"/>
+         <source obj="obj_2" outlet="trig"/>
          <dest obj="obj_1" inlet="i00"/>
       </net>
       <net>
-         <source obj="Snare8Step_2" outlet="trig"/>
+         <source obj="obj_3" outlet="trig"/>
          <dest obj="obj_1" inlet="i01"/>
       </net>
       <net>
-         <source obj="Snare8Step_3" outlet="trig"/>
+         <source obj="obj_4" outlet="trig"/>
          <dest obj="obj_1" inlet="i02"/>
       </net>
       <net>
-         <source obj="Snare8Step_4" outlet="trig"/>
+         <source obj="obj_5" outlet="trig"/>
          <dest obj="obj_1" inlet="i03"/>
       </net>
       <net>
-         <source obj="Snare8Step_5" outlet="trig"/>
+         <source obj="obj_6" outlet="trig"/>
          <dest obj="obj_1" inlet="i04"/>
       </net>
       <net>
-         <source obj="Snare8Step_6" outlet="trig"/>
+         <source obj="obj_7" outlet="trig"/>
          <dest obj="obj_1" inlet="i05"/>
       </net>
       <net>
-         <source obj="Snare8Step_7" outlet="trig"/>
+         <source obj="obj_8" outlet="trig"/>
          <dest obj="obj_1" inlet="i06"/>
       </net>
       <net>
-         <source obj="Snare8Step_8" outlet="trig"/>
+         <source obj="obj_9" outlet="trig"/>
          <dest obj="obj_1" inlet="i07"/>
       </net>
       <net>
@@ -528,7 +528,7 @@
    <windowPos>
       <x>-8</x>
       <y>-8</y>
-      <width>1516</width>
-      <height>1016</height>
+      <width>1514</width>
+      <height>1014</height>
    </windowPos>
 </patch-1.0>

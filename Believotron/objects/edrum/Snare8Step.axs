@@ -23,7 +23,7 @@
    </obj>
    <obj type="ctrl/dial p" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="dial_4" x="686" y="196">
       <params>
-         <frac32.u.map name="value" value="8.0"/>
+         <frac32.u.map name="value" value="9.0"/>
       </params>
       <attribs/>
    </obj>
@@ -37,7 +37,7 @@
    </obj>
    <obj type="ctrl/dial p" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="dial_5" x="686" y="280">
       <params>
-         <frac32.u.map name="value" value="16.0"/>
+         <frac32.u.map name="value" value="18.0"/>
       </params>
       <attribs/>
    </obj>
@@ -51,7 +51,7 @@
    </obj>
    <obj type="ctrl/dial p" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="dial_13" x="686" y="364">
       <params>
-         <frac32.u.map name="value" value="24.0"/>
+         <frac32.u.map name="value" value="27.0"/>
       </params>
       <attribs/>
    </obj>
@@ -65,7 +65,7 @@
    </obj>
    <obj type="ctrl/dial p" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="dial_14" x="686" y="448">
       <params>
-         <frac32.u.map name="value" value="32.0"/>
+         <frac32.u.map name="value" value="36.0"/>
       </params>
       <attribs/>
    </obj>
@@ -79,7 +79,7 @@
    </obj>
    <obj type="ctrl/dial p" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="dial_15" x="686" y="532">
       <params>
-         <frac32.u.map name="value" value="32.0"/>
+         <frac32.u.map name="value" value="45.0"/>
       </params>
       <attribs/>
    </obj>
@@ -93,7 +93,7 @@
    </obj>
    <obj type="ctrl/dial p" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="dial_16" x="686" y="616">
       <params>
-         <frac32.u.map name="value" value="32.0"/>
+         <frac32.u.map name="value" value="54.0"/>
       </params>
       <attribs/>
    </obj>
@@ -107,7 +107,7 @@
    </obj>
    <obj type="ctrl/dial p" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="dial_17" x="686" y="700">
       <params>
-         <frac32.u.map name="value" value="32.0"/>
+         <frac32.u.map name="value" value="64.0"/>
       </params>
       <attribs/>
    </obj>

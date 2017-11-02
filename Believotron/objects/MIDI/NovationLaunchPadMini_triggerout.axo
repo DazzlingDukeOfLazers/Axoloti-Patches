@@ -196,15 +196,7 @@ outlet_H8 = _trigOut[7][7];
 outlet_H9 = _trigOut[8][7];]]></code.krate>
       <code.midihandler><![CDATA[int8_t bHandleGate=0;
 
-if ((status == MIDI_NOTE_ON + attr_midichannel) && (data2)) 
-{
-  _velo = data2;
-  _note = data1-64;
-  _gate = 1<<27;
-  _gate2 = 0;
-  _channel = (status & 0x0F) + 1;
-  bHandleGate  =1;
-} else if (((status == MIDI_NOTE_ON + attr_midichannel) && (!data2))||
+if (((status == MIDI_NOTE_ON + attr_midichannel) && (!data2))||
           (status == MIDI_NOTE_OFF + attr_midichannel)) 
 {
   if (_note == data1-64) 
@@ -218,6 +210,16 @@ if ((status == MIDI_NOTE_ON + attr_midichannel) && (data2))
   _gate = 0;
   bHandleGate = 1;
 }
+else if ((status == MIDI_NOTE_ON + attr_midichannel) && (data2)) 
+{
+  _velo = data2;
+  _note = data1-64;
+  _gate = 1<<27;
+  _gate2 = 0;
+  _channel = (status & 0x0F) + 1;
+  bHandleGate  =1;
+} 
+
 
 if (bHandleGate)
 {

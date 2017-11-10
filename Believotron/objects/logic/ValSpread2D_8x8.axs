@@ -820,6 +820,7 @@
       <net>
          <source obj="rowH" outlet="or16"/>
          <dest obj="H" inlet="outlet"/>
+         <dest obj="obj_2" inlet="i7"/>
       </net>
    </nets>
    <settings>

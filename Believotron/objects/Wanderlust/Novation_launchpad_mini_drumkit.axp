@@ -7,13 +7,8 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="logic/ValSpread2D_8x8" uuid="2d0cff84-3f02-4d90-b505-6cde37977bfb" name="obj_3" x="714" y="56">
-      <params>
-         <frac32.s.map name="obj_1:base_freq" value="-39.0"/>
-         <frac32.u.map name="obj_1:stepsize" value="16.0"/>
-         <frac32.s.map name="obj_2:base_freq" value="-12.0"/>
-         <frac32.u.map name="obj_2:stepsize" value="4.0"/>
-      </params>
+   <obj type="logic/ValSpread2D_8x8" uuid="7fe45411-42aa-4197-a72c-9e1fa3cd9b19" name="obj_3" x="714" y="56">
+      <params/>
       <attribs/>
    </obj>
    <obj type="osc/brds/snare" uuid="6cfef612-0d2d-4dbf-9e01-ce8704bf86c9" name="snare_1" x="1106" y="70">
@@ -24,8 +19,45 @@
       </params>
       <attribs/>
    </obj>
+   <obj type="disp/i" uuid="5e35fd0c62d81e70017289250cf28edd26e19e4a" name="i_1" x="1274" y="70">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/note" uuid="ce3190ad98b73b468f22221f555b01feee03226a" name="note_2" x="182" y="84">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/dial b" uuid="862e7d7f29093cb1ce4aed72244d118ad4d46692" name="dial_3" x="28" y="112">
+      <params>
+         <frac32.s.map name="value" value="0.0"/>
+      </params>
+      <attribs/>
+   </obj>
    <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_2" x="994" y="126">
       <params/>
+      <attribs/>
+   </obj>
+   <obj type="midi/out/note" uuid="a76ae870da278cbbce5501a57ce7bd0e0ea4215c" name="note_1" x="238" y="140">
+      <params/>
+      <attribs>
+         <combo attributeName="device" selection="usb host port 1"/>
+         <spinner attributeName="channel" value="1"/>
+      </attribs>
+   </obj>
+   <obj type="disp/i" uuid="5e35fd0c62d81e70017289250cf28edd26e19e4a" name="i_2" x="1274" y="140">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/dial b" uuid="862e7d7f29093cb1ce4aed72244d118ad4d46692" name="dial_4" x="28" y="210">
+      <params>
+         <frac32.s.map name="value" value="0.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/button" uuid="ef3d13774349df85aa9bfecf30dbc91ab8488b3f" name="button_1" x="28" y="294">
+      <params>
+         <bool32.mom name="b" value="0"/>
+      </params>
       <attribs/>
    </obj>
    <obj type="osc/brds/snare" uuid="6cfef612-0d2d-4dbf-9e01-ce8704bf86c9" name="snare_2" x="1106" y="294">
@@ -454,6 +486,27 @@
          <dest obj="snare_6" inlet="pitch"/>
          <dest obj="snare_7" inlet="pitch"/>
          <dest obj="snare_8" inlet="pitch"/>
+      </net>
+      <net>
+         <source obj="dial_3" outlet="out"/>
+         <dest obj="note_2" inlet="in"/>
+         <dest obj="note_1" inlet="note"/>
+      </net>
+      <net>
+         <source obj="dial_4" outlet="out"/>
+         <dest obj="note_1" inlet="velo"/>
+      </net>
+      <net>
+         <source obj="button_1" outlet="o"/>
+         <dest obj="note_1" inlet="trig"/>
+      </net>
+      <net>
+         <source obj="obj_3" outlet="horzSel"/>
+         <dest obj="i_1" inlet="in"/>
+      </net>
+      <net>
+         <source obj="obj_3" outlet="vertSel"/>
+         <dest obj="i_2" inlet="in"/>
       </net>
    </nets>
    <settings>

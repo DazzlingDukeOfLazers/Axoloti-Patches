@@ -5,8 +5,8 @@
    </obj>
    <obj type="math/Spread8" uuid="fe498462-4730-47bc-bbf6-b79b192dbbd7" name="obj_1" x="1260" y="42">
       <params>
-         <frac32.s.map name="base_freq" value="-12.0"/>
-         <frac32.u.map name="stepsize" value="1.0"/>
+         <frac32.s.map name="base_freq" onParent="true" value="-12.0"/>
+         <frac32.u.map name="stepsize" onParent="true" value="1.0"/>
       </params>
       <attribs/>
    </obj>
@@ -208,8 +208,8 @@
    </obj>
    <obj type="math/Spread8" uuid="fe498462-4730-47bc-bbf6-b79b192dbbd7" name="obj_2" x="1204" y="1456">
       <params>
-         <frac32.s.map name="base_freq" value="-12.0"/>
-         <frac32.u.map name="stepsize" value="1.0"/>
+         <frac32.s.map name="base_freq" onParent="true" value="-12.0"/>
+         <frac32.u.map name="stepsize" onParent="true" value="1.0"/>
       </params>
       <attribs/>
    </obj>
@@ -819,7 +819,7 @@
       </net>
       <net>
          <source obj="rowH" outlet="or16"/>
-         <dest obj="obj_2" inlet="i7"/>
+         <dest obj="H" inlet="outlet"/>
       </net>
    </nets>
    <settings>

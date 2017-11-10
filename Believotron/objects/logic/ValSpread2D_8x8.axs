@@ -3,13 +3,6 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="math/Spread8" uuid="fe498462-4730-47bc-bbf6-b79b192dbbd7" name="obj_1" x="1260" y="42">
-      <params>
-         <frac32.s.map name="base_freq" onParent="true" value="-12.0"/>
-         <frac32.u.map name="stepsize" onParent="true" value="1.0"/>
-      </params>
-      <attribs/>
-   </obj>
    <obj type="patch/inlet f" uuid="5c585d2dcd9c05631e345ac09626a22a639d7c13" name="val0_step_size" x="154" y="98">
       <params/>
       <attribs/>
@@ -26,7 +19,7 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="logic/or08" uuid="c5e4172a-2c77-4a3e-bcae-a751eef7b516" name="COL0" x="910" y="308">
+   <obj type="logic/or08" uuid="5894467e-7590-4ede-804e-7a2e84154455" name="COL0" x="910" y="308">
       <params/>
       <attribs/>
    </obj>
@@ -35,10 +28,6 @@
       <attribs/>
    </obj>
    <obj type="patch/inlet b" uuid="3b0d3eacb5bb978cb05d1372aa2714d5a4790844" name="A1" x="154" y="350">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="vert" x="1918" y="364">
       <params/>
       <attribs/>
    </obj>
@@ -54,7 +43,7 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="logic/or08" uuid="c5e4172a-2c77-4a3e-bcae-a751eef7b516" name="COL0_" x="910" y="448">
+   <obj type="logic/or08" uuid="5894467e-7590-4ede-804e-7a2e84154455" name="COL0_" x="910" y="448">
       <params/>
       <attribs/>
    </obj>
@@ -74,11 +63,7 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="logic/or08" uuid="c5e4172a-2c77-4a3e-bcae-a751eef7b516" name="COL0__" x="910" y="588">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="A" x="1918" y="588">
+   <obj type="logic/or08" uuid="5894467e-7590-4ede-804e-7a2e84154455" name="COL0__" x="910" y="588">
       <params/>
       <attribs/>
    </obj>
@@ -86,27 +71,22 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="B" x="1918" y="630">
-      <params/>
-      <attribs/>
-   </obj>
    <obj type="patch/inlet b" uuid="3b0d3eacb5bb978cb05d1372aa2714d5a4790844" name="B0" x="154" y="672">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="C" x="1918" y="672">
-      <params/>
+   <obj type="Spread8" uuid="5af77a85-7536-4a60-a72c-ab66a22d2b32" name="obj_1" x="1330" y="686">
+      <params>
+         <frac32.s.map name="base_freq" onParent="true" value="-12.0"/>
+         <frac32.u.map name="stepsize" onParent="true" value="1.0"/>
+      </params>
       <attribs/>
    </obj>
    <obj type="patch/inlet b" uuid="3b0d3eacb5bb978cb05d1372aa2714d5a4790844" name="B1" x="154" y="714">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="D" x="1918" y="714">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="logic/or08" uuid="c5e4172a-2c77-4a3e-bcae-a751eef7b516" name="COL0___" x="910" y="728">
+   <obj type="logic/or08" uuid="5894467e-7590-4ede-804e-7a2e84154455" name="COL0___" x="910" y="728">
       <params/>
       <attribs/>
    </obj>
@@ -114,15 +94,7 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="E" x="1918" y="756">
-      <params/>
-      <attribs/>
-   </obj>
    <obj type="patch/inlet b" uuid="3b0d3eacb5bb978cb05d1372aa2714d5a4790844" name="B3" x="154" y="798">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="F" x="1918" y="798">
       <params/>
       <attribs/>
    </obj>
@@ -130,19 +102,11 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="G" x="1918" y="840">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="logic/or08" uuid="c5e4172a-2c77-4a3e-bcae-a751eef7b516" name="COL0____" x="910" y="868">
+   <obj type="logic/or08" uuid="5894467e-7590-4ede-804e-7a2e84154455" name="COL0____" x="910" y="868">
       <params/>
       <attribs/>
    </obj>
    <obj type="patch/inlet b" uuid="3b0d3eacb5bb978cb05d1372aa2714d5a4790844" name="B5" x="154" y="882">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="H" x="1918" y="882">
       <params/>
       <attribs/>
    </obj>
@@ -154,7 +118,7 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="logic/or08" uuid="c5e4172a-2c77-4a3e-bcae-a751eef7b516" name="COL0_____" x="910" y="1008">
+   <obj type="logic/or08" uuid="5894467e-7590-4ede-804e-7a2e84154455" name="COL0_____" x="910" y="1008">
       <params/>
       <attribs/>
    </obj>
@@ -170,7 +134,7 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="logic/or08" uuid="c5e4172a-2c77-4a3e-bcae-a751eef7b516" name="COL0______" x="910" y="1148">
+   <obj type="logic/or08" uuid="5894467e-7590-4ede-804e-7a2e84154455" name="COL0______" x="910" y="1148">
       <params/>
       <attribs/>
    </obj>
@@ -190,7 +154,11 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="logic/or08" uuid="c5e4172a-2c77-4a3e-bcae-a751eef7b516" name="COL0_______" x="910" y="1288">
+   <obj type="logic/or08" uuid="5894467e-7590-4ede-804e-7a2e84154455" name="COL0_______" x="910" y="1288">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="vert" x="1946" y="1302">
       <params/>
       <attribs/>
    </obj>
@@ -202,18 +170,23 @@
       <params/>
       <attribs/>
    </obj>
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="A" x="1946" y="1442">
+      <params/>
+      <attribs/>
+   </obj>
    <obj type="patch/inlet b" uuid="3b0d3eacb5bb978cb05d1372aa2714d5a4790844" name="D1" x="154" y="1456">
       <params/>
       <attribs/>
    </obj>
-   <obj type="math/Spread8" uuid="fe498462-4730-47bc-bbf6-b79b192dbbd7" name="obj_2" x="1204" y="1456">
-      <params>
-         <frac32.s.map name="base_freq" onParent="true" value="-12.0"/>
-         <frac32.u.map name="stepsize" onParent="true" value="1.0"/>
-      </params>
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="B" x="1946" y="1484">
+      <params/>
       <attribs/>
    </obj>
    <obj type="patch/inlet b" uuid="3b0d3eacb5bb978cb05d1372aa2714d5a4790844" name="D2" x="154" y="1498">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="C" x="1946" y="1526">
       <params/>
       <attribs/>
    </obj>
@@ -221,7 +194,15 @@
       <params/>
       <attribs/>
    </obj>
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="D" x="1946" y="1568">
+      <params/>
+      <attribs/>
+   </obj>
    <obj type="patch/inlet b" uuid="3b0d3eacb5bb978cb05d1372aa2714d5a4790844" name="D4" x="154" y="1582">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="E" x="1946" y="1610">
       <params/>
       <attribs/>
    </obj>
@@ -229,11 +210,23 @@
       <params/>
       <attribs/>
    </obj>
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="F" x="1946" y="1652">
+      <params/>
+      <attribs/>
+   </obj>
    <obj type="patch/inlet b" uuid="3b0d3eacb5bb978cb05d1372aa2714d5a4790844" name="D6" x="154" y="1666">
       <params/>
       <attribs/>
    </obj>
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="G" x="1946" y="1694">
+      <params/>
+      <attribs/>
+   </obj>
    <obj type="patch/inlet b" uuid="3b0d3eacb5bb978cb05d1372aa2714d5a4790844" name="D7" x="154" y="1708">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="H" x="1946" y="1736">
       <params/>
       <attribs/>
    </obj>
@@ -347,6 +340,13 @@
    </obj>
    <obj type="logic/or08Trig" uuid="6f93b2a9-a292-4d12-9040-119a0df72ed6" name="rowG" x="924" y="2688">
       <params/>
+      <attribs/>
+   </obj>
+   <obj type="Spread8" uuid="5af77a85-7536-4a60-a72c-ab66a22d2b32" name="obj_2" x="1204" y="2716">
+      <params>
+         <frac32.s.map name="base_freq" onParent="true" value="-12.0"/>
+         <frac32.u.map name="stepsize" onParent="true" value="1.0"/>
+      </params>
       <attribs/>
    </obj>
    <obj type="patch/inlet b" uuid="3b0d3eacb5bb978cb05d1372aa2714d5a4790844" name="G5" x="154" y="2730">
@@ -752,37 +752,30 @@
       </net>
       <net>
          <source obj="rowA" outlet="or16"/>
-         <dest obj="A" inlet="outlet"/>
          <dest obj="obj_2" inlet="i0"/>
       </net>
       <net>
          <source obj="rowB" outlet="or16"/>
-         <dest obj="B" inlet="outlet"/>
          <dest obj="obj_2" inlet="i1"/>
       </net>
       <net>
          <source obj="rowC" outlet="or16"/>
-         <dest obj="C" inlet="outlet"/>
          <dest obj="obj_2" inlet="i2"/>
       </net>
       <net>
          <source obj="rowD" outlet="or16"/>
-         <dest obj="D" inlet="outlet"/>
          <dest obj="obj_2" inlet="i3"/>
       </net>
       <net>
          <source obj="rowE" outlet="or16"/>
-         <dest obj="E" inlet="outlet"/>
          <dest obj="obj_2" inlet="i4"/>
       </net>
       <net>
          <source obj="rowF" outlet="or16"/>
-         <dest obj="F" inlet="outlet"/>
          <dest obj="obj_2" inlet="i5"/>
       </net>
       <net>
          <source obj="rowG" outlet="or16"/>
-         <dest obj="G" inlet="outlet"/>
          <dest obj="obj_2" inlet="i6"/>
       </net>
       <net>
@@ -819,8 +812,39 @@
       </net>
       <net>
          <source obj="rowH" outlet="or16"/>
-         <dest obj="H" inlet="outlet"/>
          <dest obj="obj_2" inlet="i7"/>
+      </net>
+      <net>
+         <source obj="obj_2" outlet="out0"/>
+         <dest obj="A" inlet="outlet"/>
+      </net>
+      <net>
+         <source obj="obj_2" outlet="out1"/>
+         <dest obj="B" inlet="outlet"/>
+      </net>
+      <net>
+         <source obj="obj_2" outlet="out2"/>
+         <dest obj="C" inlet="outlet"/>
+      </net>
+      <net>
+         <source obj="obj_2" outlet="out3"/>
+         <dest obj="D" inlet="outlet"/>
+      </net>
+      <net>
+         <source obj="obj_2" outlet="out4"/>
+         <dest obj="E" inlet="outlet"/>
+      </net>
+      <net>
+         <source obj="obj_2" outlet="out5"/>
+         <dest obj="F" inlet="outlet"/>
+      </net>
+      <net>
+         <source obj="obj_2" outlet="out6"/>
+         <dest obj="G" inlet="outlet"/>
+      </net>
+      <net>
+         <source obj="obj_2" outlet="out7"/>
+         <dest obj="H" inlet="outlet"/>
       </net>
    </nets>
    <settings>

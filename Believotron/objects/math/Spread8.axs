@@ -67,19 +67,7 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="mux/mux 8" uuid="de5167d9da39b04039376e8cc620ea2afc22e28a" name="mux_1" x="1820" y="756">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="Val0" x="1932" y="756">
-      <params/>
-      <attribs/>
-   </obj>
    <obj type="math/+" uuid="44553fdc8628c67ab535845ed1be304ad6c9553b" name="+_6" x="1554" y="826">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="patch/outlet i" uuid="aae2176b26209e34e4fdeba5edb1ace82d178655" name="selNum" x="1932" y="826">
       <params/>
       <attribs/>
    </obj>
@@ -103,18 +91,65 @@
       <params/>
       <attribs/>
    </obj>
+   <obj type="mux/mux 8" uuid="de5167d9da39b04039376e8cc620ea2afc22e28a" name="mux_1" x="1834" y="1316">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="Val0" x="1946" y="1316">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet i" uuid="aae2176b26209e34e4fdeba5edb1ace82d178655" name="selNum" x="1946" y="1386">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="out0" x="1946" y="1484">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="out1" x="1946" y="1526">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="out2" x="1946" y="1568">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="out3" x="1946" y="1610">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="out4" x="1946" y="1652">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="out5" x="1946" y="1694">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="out6" x="1946" y="1736">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="out7" x="1946" y="1778">
+      <params/>
+      <attribs/>
+   </obj>
    <nets>
       <net>
          <source obj="i0" outlet="inlet"/>
          <dest obj="monophonicKBSel_1" inlet="b0"/>
+         <dest obj="out0" inlet="outlet"/>
       </net>
       <net>
          <source obj="i1" outlet="inlet"/>
          <dest obj="monophonicKBSel_1" inlet="b1"/>
+         <dest obj="out1" inlet="outlet"/>
       </net>
       <net>
          <source obj="i2" outlet="inlet"/>
          <dest obj="monophonicKBSel_1" inlet="b2"/>
+         <dest obj="out2" inlet="outlet"/>
       </net>
       <net>
          <source obj="monophonicKBSel_1" outlet="out"/>
@@ -124,22 +159,27 @@
       <net>
          <source obj="i3" outlet="inlet"/>
          <dest obj="monophonicKBSel_1" inlet="b3"/>
+         <dest obj="out3" inlet="outlet"/>
       </net>
       <net>
          <source obj="i4" outlet="inlet"/>
          <dest obj="monophonicKBSel_1" inlet="b4"/>
+         <dest obj="out4" inlet="outlet"/>
       </net>
       <net>
          <source obj="i5" outlet="inlet"/>
          <dest obj="monophonicKBSel_1" inlet="b5"/>
+         <dest obj="out5" inlet="outlet"/>
       </net>
       <net>
          <source obj="i6" outlet="inlet"/>
          <dest obj="monophonicKBSel_1" inlet="b6"/>
+         <dest obj="out6" inlet="outlet"/>
       </net>
       <net>
          <source obj="i7" outlet="inlet"/>
          <dest obj="monophonicKBSel_1" inlet="b7"/>
+         <dest obj="out7" inlet="outlet"/>
       </net>
       <net>
          <source obj="mux_1" outlet="o"/>

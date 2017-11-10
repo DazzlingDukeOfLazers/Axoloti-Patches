@@ -79,6 +79,10 @@
       <params/>
       <attribs/>
    </obj>
+   <obj type="patch/outlet i" uuid="aae2176b26209e34e4fdeba5edb1ace82d178655" name="selNum" x="1932" y="826">
+      <params/>
+      <attribs/>
+   </obj>
    <obj type="math/+" uuid="44553fdc8628c67ab535845ed1be304ad6c9553b" name="+_4" x="1470" y="896">
       <params/>
       <attribs/>
@@ -115,6 +119,7 @@
       <net>
          <source obj="monophonicKBSel_1" outlet="out"/>
          <dest obj="mux_1" inlet="s"/>
+         <dest obj="selNum" inlet="outlet"/>
       </net>
       <net>
          <source obj="i3" outlet="inlet"/>

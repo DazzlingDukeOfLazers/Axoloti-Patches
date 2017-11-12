@@ -1,44 +1,8 @@
 <patch-1.0 appVersion="1.0.12">
-   <obj type="patch/inlet b" uuid="3b0d3eacb5bb978cb05d1372aa2714d5a4790844" name="i0" x="126" y="28">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="logic/monophonicKBSel" uuid="eb493a19-36a5-41cc-a687-077dfdc6483a" name="monophonicKBSel_1" x="462" y="28">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="patch/inlet b" uuid="3b0d3eacb5bb978cb05d1372aa2714d5a4790844" name="i1" x="126" y="70">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="patch/inlet b" uuid="3b0d3eacb5bb978cb05d1372aa2714d5a4790844" name="i2" x="126" y="112">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="patch/inlet b" uuid="3b0d3eacb5bb978cb05d1372aa2714d5a4790844" name="i3" x="126" y="154">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="patch/inlet b" uuid="3b0d3eacb5bb978cb05d1372aa2714d5a4790844" name="i4" x="126" y="196">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="patch/inlet b" uuid="3b0d3eacb5bb978cb05d1372aa2714d5a4790844" name="i5" x="126" y="238">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="patch/inlet b" uuid="3b0d3eacb5bb978cb05d1372aa2714d5a4790844" name="i6" x="126" y="280">
-      <params/>
-      <attribs/>
-   </obj>
    <obj type="ctrl/dial b" uuid="862e7d7f29093cb1ce4aed72244d118ad4d46692" name="base_freq" x="630" y="308">
       <params>
          <frac32.s.map name="value" onParent="true" value="-12.0"/>
       </params>
-      <attribs/>
-   </obj>
-   <obj type="patch/inlet b" uuid="3b0d3eacb5bb978cb05d1372aa2714d5a4790844" name="i7" x="126" y="322">
-      <params/>
       <attribs/>
    </obj>
    <obj type="math/+" uuid="44553fdc8628c67ab535845ed1be304ad6c9553b" name="+_9" x="728" y="392">
@@ -111,7 +75,19 @@
       <params/>
       <attribs/>
    </obj>
+   <obj type="patch/inlet b" uuid="3b0d3eacb5bb978cb05d1372aa2714d5a4790844" name="i0" x="140" y="1568">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="logic/monophonicKBSel" uuid="eb493a19-36a5-41cc-a687-077dfdc6483a" name="monophonicKBSel_1" x="476" y="1568">
+      <params/>
+      <attribs/>
+   </obj>
    <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="out2" x="1946" y="1568">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/inlet b" uuid="3b0d3eacb5bb978cb05d1372aa2714d5a4790844" name="i1" x="140" y="1610">
       <params/>
       <attribs/>
    </obj>
@@ -119,7 +95,15 @@
       <params/>
       <attribs/>
    </obj>
+   <obj type="patch/inlet b" uuid="3b0d3eacb5bb978cb05d1372aa2714d5a4790844" name="i2" x="140" y="1652">
+      <params/>
+      <attribs/>
+   </obj>
    <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="out4" x="1946" y="1652">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/inlet b" uuid="3b0d3eacb5bb978cb05d1372aa2714d5a4790844" name="i3" x="140" y="1694">
       <params/>
       <attribs/>
    </obj>
@@ -127,7 +111,15 @@
       <params/>
       <attribs/>
    </obj>
+   <obj type="patch/inlet b" uuid="3b0d3eacb5bb978cb05d1372aa2714d5a4790844" name="i4" x="140" y="1736">
+      <params/>
+      <attribs/>
+   </obj>
    <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="out6" x="1946" y="1736">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/inlet b" uuid="3b0d3eacb5bb978cb05d1372aa2714d5a4790844" name="i5" x="140" y="1778">
       <params/>
       <attribs/>
    </obj>
@@ -135,21 +127,29 @@
       <params/>
       <attribs/>
    </obj>
+   <obj type="patch/inlet b" uuid="3b0d3eacb5bb978cb05d1372aa2714d5a4790844" name="i6" x="140" y="1820">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/inlet b" uuid="3b0d3eacb5bb978cb05d1372aa2714d5a4790844" name="i7" x="140" y="1862">
+      <params/>
+      <attribs/>
+   </obj>
    <nets>
       <net>
          <source obj="i0" outlet="inlet"/>
-         <dest obj="monophonicKBSel_1" inlet="b0"/>
          <dest obj="out0" inlet="outlet"/>
+         <dest obj="monophonicKBSel_1" inlet="b0"/>
       </net>
       <net>
          <source obj="i1" outlet="inlet"/>
-         <dest obj="monophonicKBSel_1" inlet="b1"/>
          <dest obj="out1" inlet="outlet"/>
+         <dest obj="monophonicKBSel_1" inlet="b1"/>
       </net>
       <net>
          <source obj="i2" outlet="inlet"/>
-         <dest obj="monophonicKBSel_1" inlet="b2"/>
          <dest obj="out2" inlet="outlet"/>
+         <dest obj="monophonicKBSel_1" inlet="b2"/>
       </net>
       <net>
          <source obj="monophonicKBSel_1" outlet="out"/>
@@ -158,28 +158,28 @@
       </net>
       <net>
          <source obj="i3" outlet="inlet"/>
-         <dest obj="monophonicKBSel_1" inlet="b3"/>
          <dest obj="out3" inlet="outlet"/>
+         <dest obj="monophonicKBSel_1" inlet="b3"/>
       </net>
       <net>
          <source obj="i4" outlet="inlet"/>
-         <dest obj="monophonicKBSel_1" inlet="b4"/>
          <dest obj="out4" inlet="outlet"/>
+         <dest obj="monophonicKBSel_1" inlet="b4"/>
       </net>
       <net>
          <source obj="i5" outlet="inlet"/>
-         <dest obj="monophonicKBSel_1" inlet="b5"/>
          <dest obj="out5" inlet="outlet"/>
+         <dest obj="monophonicKBSel_1" inlet="b5"/>
       </net>
       <net>
          <source obj="i6" outlet="inlet"/>
-         <dest obj="monophonicKBSel_1" inlet="b6"/>
          <dest obj="out6" inlet="outlet"/>
+         <dest obj="monophonicKBSel_1" inlet="b6"/>
       </net>
       <net>
          <source obj="i7" outlet="inlet"/>
-         <dest obj="monophonicKBSel_1" inlet="b7"/>
          <dest obj="out7" inlet="outlet"/>
+         <dest obj="monophonicKBSel_1" inlet="b7"/>
       </net>
       <net>
          <source obj="mux_1" outlet="o"/>
@@ -256,9 +256,9 @@
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>-1647</x>
-      <y>216</y>
-      <width>1514</width>
+      <x>161</x>
+      <y>181</y>
+      <width>1884</width>
       <height>1014</height>
    </windowPos>
 </patch-1.0>

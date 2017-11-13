@@ -1,149 +1,156 @@
 <patch-1.0 appVersion="1.0.12">
-   <obj type="jls/logic/sample_hold_gate" uuid="62baf4ef-ffa2-4e08-a66b-00d6c610b56a" name="sample_hold_gate_1" x="1722" y="42">
+   <obj type="jls/logic/sample_hold_gate" uuid="62baf4ef-ffa2-4e08-a66b-00d6c610b56a" name="sample_hold_gate_1" x="1750" y="42">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_6" x="1890" y="42">
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_6" x="1918" y="42">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_5" x="1988" y="42">
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_5" x="2016" y="42">
       <params/>
       <attribs/>
    </obj>
-   <obj type="midi/out/note" uuid="a76ae870da278cbbce5501a57ce7bd0e0ea4215c" name="note_1" x="1344" y="112">
+   <obj type="midi/out/note" uuid="a76ae870da278cbbce5501a57ce7bd0e0ea4215c" name="note_1" x="1372" y="112">
       <params/>
       <attribs>
          <combo attributeName="device" selection="usb host port 1"/>
          <spinner attributeName="channel" value="1"/>
       </attribs>
    </obj>
-   <obj type="jls/logic/sample_hold_gate" uuid="62baf4ef-ffa2-4e08-a66b-00d6c610b56a" name="sample_hold_gate_2" x="1722" y="154">
+   <obj type="jls/logic/sample_hold_gate" uuid="62baf4ef-ffa2-4e08-a66b-00d6c610b56a" name="sample_hold_gate_2" x="1750" y="154">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_7" x="1890" y="154">
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_7" x="1918" y="154">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_8" x="1988" y="154">
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_8" x="2016" y="154">
       <params/>
       <attribs/>
    </obj>
-   <obj type="logic/or08" uuid="35b5da53-b374-46f5-9565-80a1d21a73ed" name="obj_1" x="1582" y="168">
+   <obj type="logic/or08" uuid="35b5da53-b374-46f5-9565-80a1d21a73ed" name="obj_1" x="1610" y="168">
       <params/>
       <attribs/>
    </obj>
-   <obj type="MIDI/NovationLaunchPadMini_triggerout" uuid="df496784-d79a-4460-a89f-bae41614692b" name="NovationLaunchPadMini_triggerout_1" x="714" y="224">
+   <obj type="MIDI/NovationLaunchPadMini_triggerout" uuid="df496784-d79a-4460-a89f-bae41614692b" name="NovationLaunchPadMini_triggerout_1" x="728" y="196">
       <params/>
       <attribs/>
    </obj>
-   <obj type="logic/ValSpread2D_8x8" uuid="d739cc97-a80f-4680-934e-cb9db2854596" name="obj_3" x="1218" y="224">
+   <obj type="env/adsr m" uuid="98bd39fb828c392b28126d259cb5175e6f6ea34b" name="adsr_1" x="2254" y="196">
       <params>
-         <frac32.s.map name="rowcolspreader:obj_1:base_freq" value="-63.0"/>
-         <frac32.u.map name="rowcolspreader:obj_1:stepsize" value="8.0"/>
-         <frac32.s.map name="rowcolspreader:obj_2:base_freq" value="0.0"/>
-         <frac32.u.map name="rowcolspreader:obj_2:stepsize" value="1.0"/>
+         <frac32.s.map name="a" value="-64.0"/>
+         <frac32.s.map name="d" value="-30.0"/>
+         <frac32.u.map name="s" value="19.5"/>
+         <frac32.s.map name="r" value="6.0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="math/Spread8" uuid="22f8683f-79a9-40e9-a93b-26810d71158c" name="obj_5" x="1008" y="238">
+   <obj type="math/Spread8" uuid="22f8683f-79a9-40e9-a93b-26810d71158c" name="obj_5" x="1022" y="210">
       <params>
-         <frac32.s.map name="base_freq" value="-64.0"/>
+         <frac32.s.map name="base_freq" value="-48.0"/>
          <frac32.u.map name="stepsize" value="8.0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="disp/note" uuid="ce3190ad98b73b468f22221f555b01feee03226a" name="note_2" x="616" y="294">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="osc/brds/plucked" uuid="e78bfbb5-2963-49a0-8863-dead044d748c" name="plucked_2" x="1792" y="294">
+   <obj type="logic/ValSpread2D_8x8" uuid="d739cc97-a80f-4680-934e-cb9db2854596" name="obj_3" x="1246" y="224">
       <params>
-         <frac32.s.map name="pitch" value="0.0"/>
-         <frac32.u.map name="timbre" value="64.0"/>
-         <frac32.u.map name="color" value="32.0"/>
+         <frac32.s.map name="rowcolspreader:obj_1:base_freq" value="-63.0"/>
+         <frac32.u.map name="rowcolspreader:obj_1:stepsize" value="17.0"/>
+         <frac32.s.map name="rowcolspreader:obj_2:base_freq" value="0.0"/>
+         <frac32.u.map name="rowcolspreader:obj_2:stepsize" value="4.0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="disp/i" uuid="5e35fd0c62d81e70017289250cf28edd26e19e4a" name="i_1" x="1960" y="294">
+   <obj type="disp/note" uuid="ce3190ad98b73b468f22221f555b01feee03226a" name="note_2" x="630" y="266">
       <params/>
       <attribs/>
    </obj>
-   <obj type="logic/or 2" uuid="3805d3c84d30032a44fbdbe42d9a2988a1790a3e" name="or_1" x="1694" y="336">
+   <obj type="disp/i" uuid="5e35fd0c62d81e70017289250cf28edd26e19e4a" name="i_1" x="1988" y="294">
       <params/>
       <attribs/>
    </obj>
-   <obj type="ctrl/dial b" uuid="862e7d7f29093cb1ce4aed72244d118ad4d46692" name="dial_3" x="504" y="350">
+   <obj type="ctrl/dial b" uuid="862e7d7f29093cb1ce4aed72244d118ad4d46692" name="dial_3" x="518" y="322">
       <params>
          <frac32.s.map name="value" value="0.0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="disp/i" uuid="5e35fd0c62d81e70017289250cf28edd26e19e4a" name="i_2" x="1960" y="364">
+   <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_1" x="2408" y="350">
       <params/>
       <attribs/>
    </obj>
-   <obj type="math/Spread8" uuid="22f8683f-79a9-40e9-a93b-26810d71158c" name="obj_2" x="1526" y="392">
+   <obj type="disp/i" uuid="5e35fd0c62d81e70017289250cf28edd26e19e4a" name="i_2" x="1988" y="364">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="math/Spread8" uuid="22f8683f-79a9-40e9-a93b-26810d71158c" name="obj_2" x="1554" y="392">
       <params>
          <frac32.s.map name="base_freq" value="18.5"/>
          <frac32.u.map name="stepsize" value="1.0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="ctrl/dial b" uuid="862e7d7f29093cb1ce4aed72244d118ad4d46692" name="dial_4" x="504" y="448">
+   <obj type="ctrl/dial b" uuid="862e7d7f29093cb1ce4aed72244d118ad4d46692" name="dial_4" x="518" y="420">
       <params>
          <frac32.s.map name="value" value="-19.0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="osc/brds/plucked" uuid="e78bfbb5-2963-49a0-8863-dead044d748c" name="plucked_9" x="1792" y="518">
+   <obj type="osc/sine" uuid="6e094045cca76a9dbf7ebfa72e44e4700d2b3ba" name="sine_1" x="2030" y="448">
       <params>
          <frac32.s.map name="pitch" value="0.0"/>
-         <frac32.u.map name="timbre" value="64.0"/>
-         <frac32.u.map name="color" value="32.0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="ctrl/button" uuid="ef3d13774349df85aa9bfecf30dbc91ab8488b3f" name="button_1" x="504" y="532">
+   <obj type="osc/phasor" uuid="e5553f226015bf75f4fdc3faa39be1bee4f84044" name="phasor_1" x="1904" y="476">
+      <params>
+         <frac32.s.map name="pitch" value="0.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/button" uuid="ef3d13774349df85aa9bfecf30dbc91ab8488b3f" name="button_1" x="518" y="504">
       <params>
          <bool32.mom name="b" value="0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="logic/or 2" uuid="3805d3c84d30032a44fbdbe42d9a2988a1790a3e" name="or_2" x="1694" y="560">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/i" uuid="5e35fd0c62d81e70017289250cf28edd26e19e4a" name="i_3" x="434" y="658">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="osc/brds/plucked" uuid="e78bfbb5-2963-49a0-8863-dead044d748c" name="plucked_8" x="1792" y="728">
+   <obj type="env/adsr m" uuid="98bd39fb828c392b28126d259cb5175e6f6ea34b" name="adsr_2" x="2254" y="532">
       <params>
-         <frac32.s.map name="pitch" value="0.0"/>
-         <frac32.u.map name="timbre" value="64.0"/>
-         <frac32.u.map name="color" value="32.0"/>
+         <frac32.s.map name="a" value="-64.0"/>
+         <frac32.s.map name="d" value="-30.0"/>
+         <frac32.u.map name="s" value="19.5"/>
+         <frac32.s.map name="r" value="6.0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="MIDI/Novation_LaunchpadMini_Toprow" uuid="36f2c1cf-79a2-457f-aee7-b6bbd5d1d0e6" name="Novation_LaunchpadMini_Toprow_1" x="0" y="742">
+   <obj type="osc/sine" uuid="6e094045cca76a9dbf7ebfa72e44e4700d2b3ba" name="sine_2" x="2058" y="630">
+      <params>
+         <frac32.s.map name="pitch" value="0.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="osc/phasor" uuid="e5553f226015bf75f4fdc3faa39be1bee4f84044" name="phasor_2" x="1932" y="644">
+      <params>
+         <frac32.s.map name="pitch" value="0.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_2" x="2408" y="686">
       <params/>
       <attribs/>
    </obj>
-   <obj type="logic/or 2" uuid="3805d3c84d30032a44fbdbe42d9a2988a1790a3e" name="or_3" x="1694" y="770">
-      <params/>
+   <obj type="env/adsr m" uuid="98bd39fb828c392b28126d259cb5175e6f6ea34b" name="adsr_3" x="2254" y="826">
+      <params>
+         <frac32.s.map name="a" value="-64.0"/>
+         <frac32.s.map name="d" value="-30.0"/>
+         <frac32.u.map name="s" value="19.5"/>
+         <frac32.s.map name="r" value="6.0"/>
+      </params>
       <attribs/>
    </obj>
-   <obj type="logic/monophonicKBSel" uuid="eb493a19-36a5-41cc-a687-077dfdc6483a" name="monophonicKBSel_1" x="196" y="784">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="patch/load i" uuid="b79124f5b7d1e8b39e187677ddab6260ce8c60a3" name="load_1" x="616" y="812">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="mix/mix 8 g" uuid="ca3c8ec626ad31e48d8374d5dd44962bf3bd7e6f" name="mix_1" x="2506" y="882">
+   <obj type="mix/mix 8 g" uuid="ca3c8ec626ad31e48d8374d5dd44962bf3bd7e6f" name="mix_1" x="2730" y="868">
       <params>
          <frac32.u.map name="gain1" value="64.0"/>
          <frac32.u.map name="gain2" value="64.0"/>
@@ -156,62 +163,186 @@
       </params>
       <attribs/>
    </obj>
-   <obj type="audio/out stereo" uuid="a1ca7a567f535acc21055669829101d3ee7f0189" name="out_1" x="2632" y="882">
+   <obj type="audio/out stereo" uuid="a1ca7a567f535acc21055669829101d3ee7f0189" name="out_1" x="2912" y="868">
       <params/>
       <attribs/>
    </obj>
-   <obj type="rbrt/control/pulse delay" uuid="6b629e7c-9173-453f-ac27-0e322d077ba7" name="pulse_1" x="448" y="896">
+   <obj type="osc/phasor" uuid="e5553f226015bf75f4fdc3faa39be1bee4f84044" name="phasor_3" x="1946" y="910">
+      <params>
+         <frac32.s.map name="pitch" value="0.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="MIDI/Novation_LaunchpadMini_Toprow" uuid="36f2c1cf-79a2-457f-aee7-b6bbd5d1d0e6" name="Novation_LaunchpadMini_Toprow_1" x="0" y="924">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/load i" uuid="b79124f5b7d1e8b39e187677ddab6260ce8c60a3" name="load_1" x="588" y="938">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="osc/sine" uuid="6e094045cca76a9dbf7ebfa72e44e4700d2b3ba" name="sine_3" x="2086" y="938">
+      <params>
+         <frac32.s.map name="pitch" value="0.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_3" x="2422" y="938">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="logic/monophonicKBSel" uuid="eb493a19-36a5-41cc-a687-077dfdc6483a" name="monophonicKBSel_1" x="238" y="966">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="rbrt/control/pulse delay" uuid="6b629e7c-9173-453f-ac27-0e322d077ba7" name="pulse_1" x="420" y="1078">
       <params/>
       <attribs>
          <spinner attributeName="kticks" value="1"/>
       </attribs>
    </obj>
-   <obj type="logic/or08" uuid="35b5da53-b374-46f5-9565-80a1d21a73ed" name="obj_4" x="364" y="910">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="osc/brds/plucked" uuid="e78bfbb5-2963-49a0-8863-dead044d748c" name="plucked_7" x="1792" y="938">
+   <obj type="env/adsr m" uuid="98bd39fb828c392b28126d259cb5175e6f6ea34b" name="adsr_4" x="2240" y="1106">
       <params>
-         <frac32.s.map name="pitch" value="0.0"/>
-         <frac32.u.map name="timbre" value="64.0"/>
-         <frac32.u.map name="color" value="32.0"/>
+         <frac32.s.map name="a" value="-64.0"/>
+         <frac32.s.map name="d" value="-30.0"/>
+         <frac32.u.map name="s" value="19.5"/>
+         <frac32.s.map name="r" value="6.0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="logic/or 2" uuid="3805d3c84d30032a44fbdbe42d9a2988a1790a3e" name="or_4" x="1694" y="980">
+   <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_4" x="2422" y="1106">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="osc/sine" uuid="6e094045cca76a9dbf7ebfa72e44e4700d2b3ba" name="sine_4" x="2086" y="1120">
+      <params>
+         <frac32.s.map name="pitch" value="0.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="osc/phasor" uuid="e5553f226015bf75f4fdc3faa39be1bee4f84044" name="phasor_4" x="1946" y="1134">
+      <params>
+         <frac32.s.map name="pitch" value="0.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="logic/or08" uuid="35b5da53-b374-46f5-9565-80a1d21a73ed" name="obj_4" x="238" y="1176">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="env/adsr m" uuid="98bd39fb828c392b28126d259cb5175e6f6ea34b" name="adsr_5" x="2240" y="1372">
+      <params>
+         <frac32.s.map name="a" value="-64.0"/>
+         <frac32.s.map name="d" value="-30.0"/>
+         <frac32.u.map name="s" value="19.5"/>
+         <frac32.s.map name="r" value="6.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_5" x="2422" y="1386">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="osc/phasor" uuid="e5553f226015bf75f4fdc3faa39be1bee4f84044" name="phasor_5" x="1946" y="1414">
+      <params>
+         <frac32.s.map name="pitch" value="0.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="osc/sine" uuid="6e094045cca76a9dbf7ebfa72e44e4700d2b3ba" name="sine_5" x="2072" y="1428">
+      <params>
+         <frac32.s.map name="pitch" value="0.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_6" x="2422" y="1652">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="env/adsr m" uuid="98bd39fb828c392b28126d259cb5175e6f6ea34b" name="adsr_6" x="2240" y="1666">
+      <params>
+         <frac32.s.map name="a" value="-64.0"/>
+         <frac32.s.map name="d" value="-30.0"/>
+         <frac32.u.map name="s" value="19.5"/>
+         <frac32.s.map name="r" value="6.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="osc/sine" uuid="6e094045cca76a9dbf7ebfa72e44e4700d2b3ba" name="sine_6" x="2086" y="1680">
+      <params>
+         <frac32.s.map name="pitch" value="0.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="osc/phasor" uuid="e5553f226015bf75f4fdc3faa39be1bee4f84044" name="phasor_6" x="1946" y="1694">
+      <params>
+         <frac32.s.map name="pitch" value="0.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="env/adsr m" uuid="98bd39fb828c392b28126d259cb5175e6f6ea34b" name="adsr_7" x="2254" y="1932">
+      <params>
+         <frac32.s.map name="a" value="-64.0"/>
+         <frac32.s.map name="d" value="-30.0"/>
+         <frac32.u.map name="s" value="19.5"/>
+         <frac32.s.map name="r" value="6.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_7" x="2422" y="1932">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="osc/phasor" uuid="e5553f226015bf75f4fdc3faa39be1bee4f84044" name="phasor_7" x="1960" y="1946">
+      <params>
+         <frac32.s.map name="pitch" value="0.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="osc/sine" uuid="6e094045cca76a9dbf7ebfa72e44e4700d2b3ba" name="sine_7" x="2086" y="1946">
+      <params>
+         <frac32.s.map name="pitch" value="0.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="env/adsr m" uuid="98bd39fb828c392b28126d259cb5175e6f6ea34b" name="adsr_8" x="2254" y="2198">
+      <params>
+         <frac32.s.map name="a" value="-64.0"/>
+         <frac32.s.map name="d" value="-30.0"/>
+         <frac32.u.map name="s" value="19.5"/>
+         <frac32.s.map name="r" value="6.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="osc/sine" uuid="6e094045cca76a9dbf7ebfa72e44e4700d2b3ba" name="sine_8" x="2100" y="2212">
+      <params>
+         <frac32.s.map name="pitch" value="0.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="osc/phasor" uuid="e5553f226015bf75f4fdc3faa39be1bee4f84044" name="phasor_8" x="1960" y="2226">
+      <params>
+         <frac32.s.map name="pitch" value="0.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_8" x="2408" y="2226">
       <params/>
       <attribs/>
    </obj>
    <nets>
       <net>
-         <source obj="mix_1" outlet="out"/>
-         <dest obj="out_1" inlet="left"/>
-         <dest obj="out_1" inlet="right"/>
-      </net>
-      <net>
-         <source obj="plucked_9" outlet="wave"/>
-         <dest obj="mix_1" inlet="in2"/>
-      </net>
-      <net>
-         <source obj="plucked_8" outlet="wave"/>
-         <dest obj="mix_1" inlet="in3"/>
-      </net>
-      <net>
-         <source obj="plucked_7" outlet="wave"/>
-         <dest obj="mix_1" inlet="in4"/>
-      </net>
-      <net>
          <source obj="obj_3" outlet="horz"/>
          <dest obj="dial_5" inlet="in"/>
          <dest obj="sample_hold_gate_1" inlet="in"/>
-         <dest obj="plucked_2" inlet="color"/>
-         <dest obj="plucked_7" inlet="timbre"/>
-         <dest obj="plucked_7" inlet="color"/>
-         <dest obj="plucked_8" inlet="timbre"/>
-         <dest obj="plucked_8" inlet="color"/>
-         <dest obj="plucked_9" inlet="timbre"/>
-         <dest obj="plucked_9" inlet="color"/>
-         <dest obj="plucked_2" inlet="timbre"/>
+         <dest obj="phasor_1" inlet="pitch"/>
+         <dest obj="phasor_2" inlet="pitch"/>
+         <dest obj="phasor_3" inlet="pitch"/>
+         <dest obj="phasor_4" inlet="pitch"/>
+         <dest obj="phasor_5" inlet="pitch"/>
+         <dest obj="phasor_6" inlet="pitch"/>
+         <dest obj="phasor_7" inlet="pitch"/>
+         <dest obj="phasor_8" inlet="pitch"/>
       </net>
       <net>
          <source obj="dial_3" outlet="out"/>
@@ -245,10 +376,14 @@
          <source obj="obj_3" outlet="vert"/>
          <dest obj="dial_8" inlet="in"/>
          <dest obj="sample_hold_gate_2" inlet="in"/>
-         <dest obj="plucked_2" inlet="pitch"/>
-         <dest obj="plucked_7" inlet="pitch"/>
-         <dest obj="plucked_8" inlet="pitch"/>
-         <dest obj="plucked_9" inlet="pitch"/>
+         <dest obj="sine_1" inlet="pitch"/>
+         <dest obj="sine_2" inlet="pitch"/>
+         <dest obj="sine_3" inlet="pitch"/>
+         <dest obj="sine_4" inlet="pitch"/>
+         <dest obj="sine_5" inlet="pitch"/>
+         <dest obj="sine_6" inlet="pitch"/>
+         <dest obj="sine_7" inlet="pitch"/>
+         <dest obj="sine_8" inlet="pitch"/>
       </net>
       <net>
          <source obj="sample_hold_gate_2" outlet="out"/>
@@ -510,42 +645,42 @@
          <source obj="obj_3" outlet="H"/>
          <dest obj="sample_hold_gate_1" inlet="trig"/>
          <dest obj="obj_1" inlet="i07"/>
-         <dest obj="or_4" inlet="i2"/>
+         <dest obj="adsr_8" inlet="gate"/>
       </net>
       <net>
          <source obj="obj_3" outlet="A"/>
          <dest obj="obj_1" inlet="i00"/>
-         <dest obj="or_1" inlet="i1"/>
+         <dest obj="adsr_1" inlet="gate"/>
       </net>
       <net>
          <source obj="obj_3" outlet="B"/>
          <dest obj="obj_1" inlet="i01"/>
-         <dest obj="or_1" inlet="i2"/>
+         <dest obj="adsr_2" inlet="gate"/>
       </net>
       <net>
          <source obj="obj_3" outlet="C"/>
          <dest obj="obj_1" inlet="i02"/>
-         <dest obj="or_2" inlet="i1"/>
+         <dest obj="adsr_3" inlet="gate"/>
       </net>
       <net>
          <source obj="obj_3" outlet="D"/>
          <dest obj="obj_1" inlet="i03"/>
-         <dest obj="or_2" inlet="i2"/>
+         <dest obj="adsr_4" inlet="gate"/>
       </net>
       <net>
          <source obj="obj_3" outlet="E"/>
          <dest obj="obj_1" inlet="i04"/>
-         <dest obj="or_3" inlet="i1"/>
+         <dest obj="adsr_5" inlet="gate"/>
       </net>
       <net>
          <source obj="obj_3" outlet="F"/>
          <dest obj="obj_1" inlet="i05"/>
-         <dest obj="or_3" inlet="i2"/>
+         <dest obj="adsr_6" inlet="gate"/>
       </net>
       <net>
          <source obj="obj_3" outlet="G"/>
          <dest obj="obj_1" inlet="i06"/>
-         <dest obj="or_4" inlet="i1"/>
+         <dest obj="adsr_7" inlet="gate"/>
       </net>
       <net>
          <source obj="obj_1" outlet="or16"/>
@@ -600,29 +735,13 @@
          <dest obj="obj_4" inlet="i07"/>
       </net>
       <net>
-         <source obj="plucked_2" outlet="wave"/>
-         <dest obj="mix_1" inlet="in1"/>
-      </net>
-      <net>
-         <source obj="or_4" outlet="o"/>
-         <dest obj="plucked_7" inlet="strike"/>
-      </net>
-      <net>
-         <source obj="or_3" outlet="o"/>
-         <dest obj="plucked_8" inlet="strike"/>
-      </net>
-      <net>
-         <source obj="or_2" outlet="o"/>
-         <dest obj="plucked_9" inlet="strike"/>
-      </net>
-      <net>
-         <source obj="or_1" outlet="o"/>
-         <dest obj="plucked_2" inlet="strike"/>
-      </net>
-      <net>
          <source obj="monophonicKBSel_1" outlet="out"/>
-         <dest obj="i_3" inlet="in"/>
+         <dest obj="pulse_1" inlet="kticks"/>
          <dest obj="load_1" inlet="i"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="C7"/>
+         <dest obj="obj_3" inlet="C6"/>
       </net>
       <net>
          <source obj="obj_4" outlet="or16"/>
@@ -631,10 +750,6 @@
       <net>
          <source obj="pulse_1" outlet="trig"/>
          <dest obj="load_1" inlet="trig"/>
-      </net>
-      <net>
-         <source obj="NovationLaunchPadMini_triggerout_1" outlet="C7"/>
-         <dest obj="obj_3" inlet="C6"/>
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="A9"/>
@@ -672,15 +787,148 @@
          <source obj="obj_5" outlet="Val0"/>
          <dest obj="obj_3" inlet="Y_Base"/>
       </net>
+      <net>
+         <source obj="adsr_1" outlet="env"/>
+         <dest obj="vca_1" inlet="v"/>
+      </net>
+      <net>
+         <source obj="mix_1" outlet="out"/>
+         <dest obj="out_1" inlet="left"/>
+         <dest obj="out_1" inlet="right"/>
+      </net>
+      <net>
+         <source obj="vca_1" outlet="o"/>
+         <dest obj="mix_1" inlet="in1"/>
+      </net>
+      <net>
+         <source obj="adsr_2" outlet="env"/>
+         <dest obj="vca_2" inlet="v"/>
+      </net>
+      <net>
+         <source obj="vca_2" outlet="o"/>
+         <dest obj="mix_1" inlet="in2"/>
+      </net>
+      <net>
+         <source obj="adsr_3" outlet="env"/>
+         <dest obj="vca_3" inlet="v"/>
+      </net>
+      <net>
+         <source obj="adsr_4" outlet="env"/>
+         <dest obj="vca_4" inlet="v"/>
+      </net>
+      <net>
+         <source obj="adsr_6" outlet="env"/>
+         <dest obj="vca_6" inlet="v"/>
+      </net>
+      <net>
+         <source obj="adsr_7" outlet="env"/>
+         <dest obj="vca_7" inlet="v"/>
+      </net>
+      <net>
+         <source obj="adsr_8" outlet="env"/>
+         <dest obj="vca_8" inlet="v"/>
+      </net>
+      <net>
+         <source obj="vca_5" outlet="o"/>
+         <dest obj="mix_1" inlet="in5"/>
+      </net>
+      <net>
+         <source obj="vca_6" outlet="o"/>
+         <dest obj="mix_1" inlet="in6"/>
+      </net>
+      <net>
+         <source obj="vca_3" outlet="o"/>
+         <dest obj="mix_1" inlet="in3"/>
+      </net>
+      <net>
+         <source obj="vca_4" outlet="o"/>
+         <dest obj="mix_1" inlet="in4"/>
+      </net>
+      <net>
+         <source obj="vca_7" outlet="o"/>
+         <dest obj="mix_1" inlet="in7"/>
+      </net>
+      <net>
+         <source obj="vca_8" outlet="o"/>
+         <dest obj="mix_1" inlet="in8"/>
+      </net>
+      <net>
+         <source obj="phasor_1" outlet="phasor"/>
+         <dest obj="sine_1" inlet="freq"/>
+      </net>
+      <net>
+         <source obj="sine_1" outlet="wave"/>
+         <dest obj="vca_1" inlet="a"/>
+      </net>
+      <net>
+         <source obj="phasor_2" outlet="phasor"/>
+         <dest obj="sine_2" inlet="freq"/>
+      </net>
+      <net>
+         <source obj="sine_2" outlet="wave"/>
+         <dest obj="vca_2" inlet="a"/>
+      </net>
+      <net>
+         <source obj="phasor_3" outlet="phasor"/>
+         <dest obj="sine_3" inlet="freq"/>
+      </net>
+      <net>
+         <source obj="sine_3" outlet="wave"/>
+         <dest obj="vca_3" inlet="a"/>
+      </net>
+      <net>
+         <source obj="phasor_4" outlet="phasor"/>
+         <dest obj="sine_4" inlet="freq"/>
+      </net>
+      <net>
+         <source obj="sine_4" outlet="wave"/>
+         <dest obj="vca_4" inlet="a"/>
+      </net>
+      <net>
+         <source obj="phasor_5" outlet="phasor"/>
+         <dest obj="sine_5" inlet="freq"/>
+      </net>
+      <net>
+         <source obj="adsr_5" outlet="env"/>
+         <dest obj="vca_5" inlet="v"/>
+      </net>
+      <net>
+         <source obj="sine_5" outlet="wave"/>
+         <dest obj="vca_5" inlet="a"/>
+      </net>
+      <net>
+         <source obj="phasor_6" outlet="phasor"/>
+         <dest obj="sine_6" inlet="freq"/>
+      </net>
+      <net>
+         <source obj="sine_6" outlet="wave"/>
+         <dest obj="vca_6" inlet="a"/>
+      </net>
+      <net>
+         <source obj="sine_7" outlet="wave"/>
+         <dest obj="vca_7" inlet="a"/>
+      </net>
+      <net>
+         <source obj="phasor_8" outlet="phasor"/>
+         <dest obj="sine_8" inlet="freq"/>
+      </net>
+      <net>
+         <source obj="sine_8" outlet="wave"/>
+         <dest obj="vca_8" inlet="a"/>
+      </net>
+      <net>
+         <source obj="phasor_7" outlet="phasor"/>
+         <dest obj="sine_7" inlet="freq"/>
+      </net>
    </nets>
    <settings>
       <subpatchmode>no</subpatchmode>
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>19</x>
-      <y>187</y>
-      <width>2139</width>
+      <x>159</x>
+      <y>21</y>
+      <width>1990</width>
       <height>1014</height>
    </windowPos>
 </patch-1.0>

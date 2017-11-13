@@ -1,125 +1,105 @@
 <patch-1.0 appVersion="1.0.12">
-   <obj type="jls/logic/sample_hold_gate" uuid="62baf4ef-ffa2-4e08-a66b-00d6c610b56a" name="sample_hold_gate_1" x="1722" y="42">
+   <obj type="jls/logic/sample_hold_gate" uuid="62baf4ef-ffa2-4e08-a66b-00d6c610b56a" name="sample_hold_gate_1" x="1750" y="42">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_6" x="1890" y="42">
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_6" x="1918" y="42">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_5" x="1988" y="42">
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_5" x="2016" y="42">
       <params/>
       <attribs/>
    </obj>
-   <obj type="midi/out/note" uuid="a76ae870da278cbbce5501a57ce7bd0e0ea4215c" name="note_1" x="1344" y="112">
+   <obj type="midi/out/note" uuid="a76ae870da278cbbce5501a57ce7bd0e0ea4215c" name="note_1" x="1372" y="112">
       <params/>
       <attribs>
          <combo attributeName="device" selection="usb host port 1"/>
          <spinner attributeName="channel" value="1"/>
       </attribs>
    </obj>
-   <obj type="jls/logic/sample_hold_gate" uuid="62baf4ef-ffa2-4e08-a66b-00d6c610b56a" name="sample_hold_gate_2" x="1722" y="154">
+   <obj type="jls/logic/sample_hold_gate" uuid="62baf4ef-ffa2-4e08-a66b-00d6c610b56a" name="sample_hold_gate_2" x="1750" y="154">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_7" x="1890" y="154">
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_7" x="1918" y="154">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_8" x="1988" y="154">
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_8" x="2016" y="154">
       <params/>
       <attribs/>
    </obj>
-   <obj type="logic/or08" uuid="35b5da53-b374-46f5-9565-80a1d21a73ed" name="obj_1" x="1582" y="168">
+   <obj type="logic/or08" uuid="35b5da53-b374-46f5-9565-80a1d21a73ed" name="obj_1" x="1610" y="168">
       <params/>
       <attribs/>
    </obj>
-   <obj type="MIDI/NovationLaunchPadMini_triggerout" uuid="df496784-d79a-4460-a89f-bae41614692b" name="NovationLaunchPadMini_triggerout_1" x="714" y="224">
+   <obj type="MIDI/NovationLaunchPadMini_triggerout" uuid="df496784-d79a-4460-a89f-bae41614692b" name="NovationLaunchPadMini_triggerout_1" x="728" y="196">
       <params/>
       <attribs/>
    </obj>
-   <obj type="logic/ValSpread2D_8x8" uuid="d739cc97-a80f-4680-934e-cb9db2854596" name="obj_3" x="1218" y="224">
+   <obj type="math/Spread8" uuid="22f8683f-79a9-40e9-a93b-26810d71158c" name="obj_5" x="1022" y="210">
       <params>
-         <frac32.s.map name="rowcolspreader:obj_1:base_freq" value="-63.0"/>
-         <frac32.u.map name="rowcolspreader:obj_1:stepsize" value="8.0"/>
-         <frac32.s.map name="rowcolspreader:obj_2:base_freq" value="0.0"/>
-         <frac32.u.map name="rowcolspreader:obj_2:stepsize" value="1.0"/>
-      </params>
-      <attribs/>
-   </obj>
-   <obj type="math/Spread8" uuid="22f8683f-79a9-40e9-a93b-26810d71158c" name="obj_5" x="1008" y="238">
-      <params>
-         <frac32.s.map name="base_freq" value="-64.0"/>
+         <frac32.s.map name="base_freq" value="-48.0"/>
          <frac32.u.map name="stepsize" value="8.0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="disp/note" uuid="ce3190ad98b73b468f22221f555b01feee03226a" name="note_2" x="616" y="294">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="osc/brds/plucked" uuid="e78bfbb5-2963-49a0-8863-dead044d748c" name="plucked_2" x="1792" y="294">
+   <obj type="logic/ValSpread2D_8x8" uuid="d739cc97-a80f-4680-934e-cb9db2854596" name="obj_3" x="1246" y="224">
       <params>
-         <frac32.s.map name="pitch" value="0.0"/>
-         <frac32.u.map name="timbre" value="64.0"/>
-         <frac32.u.map name="color" value="32.0"/>
+         <frac32.s.map name="rowcolspreader:obj_1:base_freq" value="-63.0"/>
+         <frac32.u.map name="rowcolspreader:obj_1:stepsize" value="10.0"/>
+         <frac32.s.map name="rowcolspreader:obj_2:base_freq" value="0.0"/>
+         <frac32.u.map name="rowcolspreader:obj_2:stepsize" value="4.0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="disp/i" uuid="5e35fd0c62d81e70017289250cf28edd26e19e4a" name="i_1" x="1960" y="294">
+   <obj type="disp/note" uuid="ce3190ad98b73b468f22221f555b01feee03226a" name="note_2" x="630" y="266">
       <params/>
       <attribs/>
    </obj>
-   <obj type="logic/or 2" uuid="3805d3c84d30032a44fbdbe42d9a2988a1790a3e" name="or_1" x="1694" y="336">
+   <obj type="osc/brds/struckbell" uuid="7dc99f76-9a23-4faf-a6da-3654cd168670" name="struckbell_1" x="1820" y="294">
+      <params>
+         <frac32.s.map name="pitch" value="0.0"/>
+         <frac32.u.map name="timbre" value="47.0"/>
+         <frac32.u.map name="color" value="64.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="disp/i" uuid="5e35fd0c62d81e70017289250cf28edd26e19e4a" name="i_1" x="1988" y="294">
       <params/>
       <attribs/>
    </obj>
-   <obj type="ctrl/dial b" uuid="862e7d7f29093cb1ce4aed72244d118ad4d46692" name="dial_3" x="504" y="350">
+   <obj type="ctrl/dial b" uuid="862e7d7f29093cb1ce4aed72244d118ad4d46692" name="dial_3" x="518" y="322">
       <params>
          <frac32.s.map name="value" value="0.0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="disp/i" uuid="5e35fd0c62d81e70017289250cf28edd26e19e4a" name="i_2" x="1960" y="364">
+   <obj type="disp/i" uuid="5e35fd0c62d81e70017289250cf28edd26e19e4a" name="i_2" x="1988" y="364">
       <params/>
       <attribs/>
    </obj>
-   <obj type="math/Spread8" uuid="22f8683f-79a9-40e9-a93b-26810d71158c" name="obj_2" x="1526" y="392">
+   <obj type="math/Spread8" uuid="22f8683f-79a9-40e9-a93b-26810d71158c" name="obj_2" x="1554" y="392">
       <params>
          <frac32.s.map name="base_freq" value="18.5"/>
          <frac32.u.map name="stepsize" value="1.0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="ctrl/dial b" uuid="862e7d7f29093cb1ce4aed72244d118ad4d46692" name="dial_4" x="504" y="448">
+   <obj type="ctrl/dial b" uuid="862e7d7f29093cb1ce4aed72244d118ad4d46692" name="dial_4" x="518" y="420">
       <params>
          <frac32.s.map name="value" value="-19.0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="osc/brds/plucked" uuid="e78bfbb5-2963-49a0-8863-dead044d748c" name="plucked_9" x="1792" y="518">
-      <params>
-         <frac32.s.map name="pitch" value="0.0"/>
-         <frac32.u.map name="timbre" value="64.0"/>
-         <frac32.u.map name="color" value="32.0"/>
-      </params>
-      <attribs/>
-   </obj>
-   <obj type="ctrl/button" uuid="ef3d13774349df85aa9bfecf30dbc91ab8488b3f" name="button_1" x="504" y="532">
+   <obj type="ctrl/button" uuid="ef3d13774349df85aa9bfecf30dbc91ab8488b3f" name="button_1" x="518" y="504">
       <params>
          <bool32.mom name="b" value="0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="logic/or 2" uuid="3805d3c84d30032a44fbdbe42d9a2988a1790a3e" name="or_2" x="1694" y="560">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/i" uuid="5e35fd0c62d81e70017289250cf28edd26e19e4a" name="i_3" x="434" y="658">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="osc/brds/plucked" uuid="e78bfbb5-2963-49a0-8863-dead044d748c" name="plucked_8" x="1792" y="728">
+   <obj type="osc/brds/struckbell" uuid="7dc99f76-9a23-4faf-a6da-3654cd168670" name="struckbell_2" x="1820" y="518">
       <params>
          <frac32.s.map name="pitch" value="0.0"/>
          <frac32.u.map name="timbre" value="64.0"/>
@@ -127,23 +107,15 @@
       </params>
       <attribs/>
    </obj>
-   <obj type="MIDI/Novation_LaunchpadMini_Toprow" uuid="36f2c1cf-79a2-457f-aee7-b6bbd5d1d0e6" name="Novation_LaunchpadMini_Toprow_1" x="0" y="742">
-      <params/>
+   <obj type="osc/brds/struckbell" uuid="7dc99f76-9a23-4faf-a6da-3654cd168670" name="struckbell_3" x="1820" y="728">
+      <params>
+         <frac32.s.map name="pitch" value="0.0"/>
+         <frac32.u.map name="timbre" value="64.0"/>
+         <frac32.u.map name="color" value="32.0"/>
+      </params>
       <attribs/>
    </obj>
-   <obj type="logic/or 2" uuid="3805d3c84d30032a44fbdbe42d9a2988a1790a3e" name="or_3" x="1694" y="770">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="logic/monophonicKBSel" uuid="eb493a19-36a5-41cc-a687-077dfdc6483a" name="monophonicKBSel_1" x="196" y="784">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="patch/load i" uuid="b79124f5b7d1e8b39e187677ddab6260ce8c60a3" name="load_1" x="616" y="812">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="mix/mix 8 g" uuid="ca3c8ec626ad31e48d8374d5dd44962bf3bd7e6f" name="mix_1" x="2506" y="882">
+   <obj type="mix/mix 8 g" uuid="ca3c8ec626ad31e48d8374d5dd44962bf3bd7e6f" name="mix_1" x="2534" y="882">
       <params>
          <frac32.u.map name="gain1" value="64.0"/>
          <frac32.u.map name="gain2" value="64.0"/>
@@ -156,21 +128,19 @@
       </params>
       <attribs/>
    </obj>
-   <obj type="audio/out stereo" uuid="a1ca7a567f535acc21055669829101d3ee7f0189" name="out_1" x="2632" y="882">
+   <obj type="audio/out stereo" uuid="a1ca7a567f535acc21055669829101d3ee7f0189" name="out_1" x="2660" y="882">
       <params/>
       <attribs/>
    </obj>
-   <obj type="rbrt/control/pulse delay" uuid="6b629e7c-9173-453f-ac27-0e322d077ba7" name="pulse_1" x="448" y="896">
-      <params/>
-      <attribs>
-         <spinner attributeName="kticks" value="1"/>
-      </attribs>
-   </obj>
-   <obj type="logic/or08" uuid="35b5da53-b374-46f5-9565-80a1d21a73ed" name="obj_4" x="364" y="910">
+   <obj type="MIDI/Novation_LaunchpadMini_Toprow" uuid="36f2c1cf-79a2-457f-aee7-b6bbd5d1d0e6" name="Novation_LaunchpadMini_Toprow_1" x="0" y="924">
       <params/>
       <attribs/>
    </obj>
-   <obj type="osc/brds/plucked" uuid="e78bfbb5-2963-49a0-8863-dead044d748c" name="plucked_7" x="1792" y="938">
+   <obj type="patch/load i" uuid="b79124f5b7d1e8b39e187677ddab6260ce8c60a3" name="load_1" x="588" y="938">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="osc/brds/struckbell" uuid="7dc99f76-9a23-4faf-a6da-3654cd168670" name="struckbell_4" x="1820" y="938">
       <params>
          <frac32.s.map name="pitch" value="0.0"/>
          <frac32.u.map name="timbre" value="64.0"/>
@@ -178,8 +148,50 @@
       </params>
       <attribs/>
    </obj>
-   <obj type="logic/or 2" uuid="3805d3c84d30032a44fbdbe42d9a2988a1790a3e" name="or_4" x="1694" y="980">
+   <obj type="logic/monophonicKBSel" uuid="eb493a19-36a5-41cc-a687-077dfdc6483a" name="monophonicKBSel_1" x="238" y="966">
       <params/>
+      <attribs/>
+   </obj>
+   <obj type="rbrt/control/pulse delay" uuid="6b629e7c-9173-453f-ac27-0e322d077ba7" name="pulse_1" x="420" y="1078">
+      <params/>
+      <attribs>
+         <spinner attributeName="kticks" value="1"/>
+      </attribs>
+   </obj>
+   <obj type="osc/brds/struckbell" uuid="7dc99f76-9a23-4faf-a6da-3654cd168670" name="struckbell_5" x="1820" y="1148">
+      <params>
+         <frac32.s.map name="pitch" value="0.0"/>
+         <frac32.u.map name="timbre" value="64.0"/>
+         <frac32.u.map name="color" value="32.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="logic/or08" uuid="35b5da53-b374-46f5-9565-80a1d21a73ed" name="obj_4" x="238" y="1176">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="osc/brds/struckbell" uuid="7dc99f76-9a23-4faf-a6da-3654cd168670" name="struckbell_6" x="1820" y="1358">
+      <params>
+         <frac32.s.map name="pitch" value="0.0"/>
+         <frac32.u.map name="timbre" value="64.0"/>
+         <frac32.u.map name="color" value="32.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="osc/brds/struckbell" uuid="7dc99f76-9a23-4faf-a6da-3654cd168670" name="struckbell_7" x="1820" y="1568">
+      <params>
+         <frac32.s.map name="pitch" value="0.0"/>
+         <frac32.u.map name="timbre" value="64.0"/>
+         <frac32.u.map name="color" value="32.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="osc/brds/struckbell" uuid="7dc99f76-9a23-4faf-a6da-3654cd168670" name="struckbell_8" x="1820" y="1778">
+      <params>
+         <frac32.s.map name="pitch" value="0.0"/>
+         <frac32.u.map name="timbre" value="64.0"/>
+         <frac32.u.map name="color" value="32.0"/>
+      </params>
       <attribs/>
    </obj>
    <nets>
@@ -189,29 +201,57 @@
          <dest obj="out_1" inlet="right"/>
       </net>
       <net>
-         <source obj="plucked_9" outlet="wave"/>
+         <source obj="struckbell_2" outlet="wave"/>
          <dest obj="mix_1" inlet="in2"/>
       </net>
       <net>
-         <source obj="plucked_8" outlet="wave"/>
+         <source obj="struckbell_3" outlet="wave"/>
          <dest obj="mix_1" inlet="in3"/>
       </net>
       <net>
-         <source obj="plucked_7" outlet="wave"/>
+         <source obj="struckbell_4" outlet="wave"/>
          <dest obj="mix_1" inlet="in4"/>
+      </net>
+      <net>
+         <source obj="struckbell_5" outlet="wave"/>
+         <dest obj="mix_1" inlet="in5"/>
+      </net>
+      <net>
+         <source obj="struckbell_1" outlet="wave"/>
+         <dest obj="mix_1" inlet="in1"/>
+      </net>
+      <net>
+         <source obj="struckbell_6" outlet="wave"/>
+         <dest obj="mix_1" inlet="in6"/>
+      </net>
+      <net>
+         <source obj="struckbell_7" outlet="wave"/>
+         <dest obj="mix_1" inlet="in7"/>
+      </net>
+      <net>
+         <source obj="struckbell_8" outlet="wave"/>
+         <dest obj="mix_1" inlet="in8"/>
       </net>
       <net>
          <source obj="obj_3" outlet="horz"/>
          <dest obj="dial_5" inlet="in"/>
          <dest obj="sample_hold_gate_1" inlet="in"/>
-         <dest obj="plucked_2" inlet="color"/>
-         <dest obj="plucked_7" inlet="timbre"/>
-         <dest obj="plucked_7" inlet="color"/>
-         <dest obj="plucked_8" inlet="timbre"/>
-         <dest obj="plucked_8" inlet="color"/>
-         <dest obj="plucked_9" inlet="timbre"/>
-         <dest obj="plucked_9" inlet="color"/>
-         <dest obj="plucked_2" inlet="timbre"/>
+         <dest obj="struckbell_1" inlet="timbre"/>
+         <dest obj="struckbell_1" inlet="color"/>
+         <dest obj="struckbell_2" inlet="color"/>
+         <dest obj="struckbell_2" inlet="timbre"/>
+         <dest obj="struckbell_3" inlet="timbre"/>
+         <dest obj="struckbell_3" inlet="color"/>
+         <dest obj="struckbell_4" inlet="timbre"/>
+         <dest obj="struckbell_4" inlet="color"/>
+         <dest obj="struckbell_5" inlet="timbre"/>
+         <dest obj="struckbell_5" inlet="color"/>
+         <dest obj="struckbell_6" inlet="timbre"/>
+         <dest obj="struckbell_6" inlet="color"/>
+         <dest obj="struckbell_7" inlet="timbre"/>
+         <dest obj="struckbell_7" inlet="color"/>
+         <dest obj="struckbell_8" inlet="timbre"/>
+         <dest obj="struckbell_8" inlet="color"/>
       </net>
       <net>
          <source obj="dial_3" outlet="out"/>
@@ -245,10 +285,14 @@
          <source obj="obj_3" outlet="vert"/>
          <dest obj="dial_8" inlet="in"/>
          <dest obj="sample_hold_gate_2" inlet="in"/>
-         <dest obj="plucked_2" inlet="pitch"/>
-         <dest obj="plucked_7" inlet="pitch"/>
-         <dest obj="plucked_8" inlet="pitch"/>
-         <dest obj="plucked_9" inlet="pitch"/>
+         <dest obj="struckbell_1" inlet="pitch"/>
+         <dest obj="struckbell_2" inlet="pitch"/>
+         <dest obj="struckbell_3" inlet="pitch"/>
+         <dest obj="struckbell_4" inlet="pitch"/>
+         <dest obj="struckbell_5" inlet="pitch"/>
+         <dest obj="struckbell_6" inlet="pitch"/>
+         <dest obj="struckbell_7" inlet="pitch"/>
+         <dest obj="struckbell_8" inlet="pitch"/>
       </net>
       <net>
          <source obj="sample_hold_gate_2" outlet="out"/>
@@ -510,42 +554,42 @@
          <source obj="obj_3" outlet="H"/>
          <dest obj="sample_hold_gate_1" inlet="trig"/>
          <dest obj="obj_1" inlet="i07"/>
-         <dest obj="or_4" inlet="i2"/>
+         <dest obj="struckbell_8" inlet="strike"/>
       </net>
       <net>
          <source obj="obj_3" outlet="A"/>
          <dest obj="obj_1" inlet="i00"/>
-         <dest obj="or_1" inlet="i1"/>
+         <dest obj="struckbell_1" inlet="strike"/>
       </net>
       <net>
          <source obj="obj_3" outlet="B"/>
          <dest obj="obj_1" inlet="i01"/>
-         <dest obj="or_1" inlet="i2"/>
+         <dest obj="struckbell_2" inlet="strike"/>
       </net>
       <net>
          <source obj="obj_3" outlet="C"/>
          <dest obj="obj_1" inlet="i02"/>
-         <dest obj="or_2" inlet="i1"/>
+         <dest obj="struckbell_3" inlet="strike"/>
       </net>
       <net>
          <source obj="obj_3" outlet="D"/>
          <dest obj="obj_1" inlet="i03"/>
-         <dest obj="or_2" inlet="i2"/>
+         <dest obj="struckbell_4" inlet="strike"/>
       </net>
       <net>
          <source obj="obj_3" outlet="E"/>
          <dest obj="obj_1" inlet="i04"/>
-         <dest obj="or_3" inlet="i1"/>
+         <dest obj="struckbell_5" inlet="strike"/>
       </net>
       <net>
          <source obj="obj_3" outlet="F"/>
          <dest obj="obj_1" inlet="i05"/>
-         <dest obj="or_3" inlet="i2"/>
+         <dest obj="struckbell_6" inlet="strike"/>
       </net>
       <net>
          <source obj="obj_3" outlet="G"/>
          <dest obj="obj_1" inlet="i06"/>
-         <dest obj="or_4" inlet="i1"/>
+         <dest obj="struckbell_7" inlet="strike"/>
       </net>
       <net>
          <source obj="obj_1" outlet="or16"/>
@@ -600,29 +644,13 @@
          <dest obj="obj_4" inlet="i07"/>
       </net>
       <net>
-         <source obj="plucked_2" outlet="wave"/>
-         <dest obj="mix_1" inlet="in1"/>
-      </net>
-      <net>
-         <source obj="or_4" outlet="o"/>
-         <dest obj="plucked_7" inlet="strike"/>
-      </net>
-      <net>
-         <source obj="or_3" outlet="o"/>
-         <dest obj="plucked_8" inlet="strike"/>
-      </net>
-      <net>
-         <source obj="or_2" outlet="o"/>
-         <dest obj="plucked_9" inlet="strike"/>
-      </net>
-      <net>
-         <source obj="or_1" outlet="o"/>
-         <dest obj="plucked_2" inlet="strike"/>
-      </net>
-      <net>
          <source obj="monophonicKBSel_1" outlet="out"/>
-         <dest obj="i_3" inlet="in"/>
+         <dest obj="pulse_1" inlet="kticks"/>
          <dest obj="load_1" inlet="i"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="C7"/>
+         <dest obj="obj_3" inlet="C6"/>
       </net>
       <net>
          <source obj="obj_4" outlet="or16"/>
@@ -631,10 +659,6 @@
       <net>
          <source obj="pulse_1" outlet="trig"/>
          <dest obj="load_1" inlet="trig"/>
-      </net>
-      <net>
-         <source obj="NovationLaunchPadMini_triggerout_1" outlet="C7"/>
-         <dest obj="obj_3" inlet="C6"/>
       </net>
       <net>
          <source obj="NovationLaunchPadMini_triggerout_1" outlet="A9"/>
@@ -678,9 +702,9 @@
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>19</x>
-      <y>187</y>
-      <width>2139</width>
+      <x>69</x>
+      <y>71</y>
+      <width>1990</width>
       <height>1014</height>
    </windowPos>
 </patch-1.0>

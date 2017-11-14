@@ -1,74 +1,160 @@
 <patch-1.0 appVersion="1.0.12">
-   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_1" x="84" y="0">
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_1" x="84" y="182">
       <params>
          <int32 name="value" value="0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="Wanderlust/Wanderlust_core_V1" uuid="ffb0ca09-b08e-44b5-82ca-4b5053a77373" name="obj_3" x="14" y="98">
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_1" x="924" y="182">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_2" x="602" y="196">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_3" x="924" y="266">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="Wanderlust/Wanderlust_core_V1" uuid="ffb0ca09-b08e-44b5-82ca-4b5053a77373" name="obj_3" x="224" y="280">
       <params>
          <bool32.tgl name="Reverse Knobs" value="0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="instruments/doomTuba" uuid="39eff771-8480-4233-be71-3e82828f6478" name="tuba1" x="938" y="112">
-      <params>
-         <frac32.s.map name="doomTuba:pitch" value="-20.0"/>
-         <frac32.u.map name="doomTuba:slope" value="30.5"/>
-         <frac32.s.map name="doomTuba:Swidth" value="-46.0"/>
-         <frac32.s.map name="twerk" value="42.0"/>
-      </params>
-      <attribs/>
-   </obj>
-   <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_1" x="1498" y="126">
+   <obj type="math/+" uuid="44553fdc8628c67ab535845ed1be304ad6c9553b" name="+_1" x="602" y="294">
       <params/>
       <attribs/>
    </obj>
-   <obj type="MIDI/Akai_MPK_Mini_MKII" uuid="9da0daef-9f29-4408-b0ab-6a2c55a7de0a" name="mk2" x="420" y="154">
+   <obj type="math/+" uuid="44553fdc8628c67ab535845ed1be304ad6c9553b" name="+_2" x="700" y="294">
       <params/>
       <attribs/>
    </obj>
-   <obj type="audio/out stereo" uuid="a1ca7a567f535acc21055669829101d3ee7f0189" name="out_1" x="1750" y="154">
+   <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_1" x="1778" y="294">
       <params/>
       <attribs/>
    </obj>
-   <obj type="cpwitz-fmsynth-paraphonic" uuid="66e92e8e-5837-4c0e-a9cf-cab7e810e51f" name="cpwitz-fmsynth-paraphonic_1" x="714" y="182">
+   <obj type="audio/out stereo" uuid="a1ca7a567f535acc21055669829101d3ee7f0189" name="out_1" x="1904" y="322">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_8" x="1386" y="196">
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_4" x="924" y="350">
       <params/>
       <attribs/>
    </obj>
-   <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_2" x="1512" y="238">
+   <obj type="math/+" uuid="44553fdc8628c67ab535845ed1be304ad6c9553b" name="+_3" x="602" y="364">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_9" x="1386" y="294">
+   <obj type="math/+" uuid="44553fdc8628c67ab535845ed1be304ad6c9553b" name="+_4" x="700" y="364">
       <params/>
       <attribs/>
    </obj>
-   <obj type="logic/toggle" uuid="f42f0d3aab552c17bc78b9e65f85dc24f977503d" name="toggle_1" x="1372" y="420">
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_8" x="1666" y="364">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_3" x="1484" y="434">
+   <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_2" x="1792" y="406">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="math/+" uuid="44553fdc8628c67ab535845ed1be304ad6c9553b" name="+_5" x="602" y="434">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="math/+" uuid="44553fdc8628c67ab535845ed1be304ad6c9553b" name="+_6" x="700" y="434">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_5" x="924" y="434">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="math/+" uuid="44553fdc8628c67ab535845ed1be304ad6c9553b" name="+_7" x="602" y="504">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="math/+" uuid="44553fdc8628c67ab535845ed1be304ad6c9553b" name="+_8" x="700" y="504">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_6" x="924" y="518">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="cpwitz-fmsynth-paraphonic" uuid="2ce4d07a-7caa-4db2-948d-38614cb41550" name="cpwitz-fmsynth-paraphonic_1" x="1022" y="518">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="math/+" uuid="44553fdc8628c67ab535845ed1be304ad6c9553b" name="+_9" x="602" y="574">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="math/+" uuid="44553fdc8628c67ab535845ed1be304ad6c9553b" name="+_10" x="700" y="574">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="logic/toggle" uuid="f42f0d3aab552c17bc78b9e65f85dc24f977503d" name="toggle_1" x="1652" y="588">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_7" x="924" y="602">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_3" x="1764" y="602">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_9" x="392" y="630">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="math/+" uuid="44553fdc8628c67ab535845ed1be304ad6c9553b" name="+_11" x="602" y="644">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="math/+" uuid="44553fdc8628c67ab535845ed1be304ad6c9553b" name="+_12" x="700" y="644">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="Akai_MPK_Mini_MKII" uuid="4e3803a5-7209-431a-af60-641a95bff82e" name="Akai_MPK_Mini_MKII_1" x="252" y="672">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_10" x="924" y="686">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="math/+" uuid="44553fdc8628c67ab535845ed1be304ad6c9553b" name="+_13" x="602" y="714">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="math/+" uuid="44553fdc8628c67ab535845ed1be304ad6c9553b" name="+_14" x="700" y="714">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_11" x="924" y="770">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="math/+" uuid="44553fdc8628c67ab535845ed1be304ad6c9553b" name="+_15" x="602" y="798">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="math/+" uuid="44553fdc8628c67ab535845ed1be304ad6c9553b" name="+_16" x="700" y="798">
       <params/>
       <attribs/>
    </obj>
    <nets>
       <net>
-         <source obj="mk2" outlet="Knob_K1"/>
+         <source obj="Akai_MPK_Mini_MKII_1" outlet="Knob_K1_B"/>
          <dest obj="dial_8" inlet="in"/>
-         <dest obj="cpwitz-fmsynth-paraphonic_1" inlet="Attack"/>
+         <dest obj="+_2" inlet="in2"/>
       </net>
       <net>
-         <source obj="mk2" outlet="Knob_K2"/>
-         <dest obj="dial_9" inlet="in"/>
-         <dest obj="cpwitz-fmsynth-paraphonic_1" inlet="Decay"/>
-      </net>
-      <net>
-         <source obj="mk2" outlet="Pad5"/>
+         <source obj="Akai_MPK_Mini_MKII_1" outlet="Pad5"/>
          <dest obj="toggle_1" inlet="trig"/>
       </net>
       <net>
@@ -80,42 +166,186 @@
          <dest obj="vca_1" inlet="a"/>
       </net>
       <net>
-         <source obj="cpwitz-fmsynth-paraphonic_1" outlet="right"/>
+         <source obj="Akai_MPK_Mini_MKII_1" outlet="Knob_K8_P"/>
+         <dest obj="+_16" inlet="in2"/>
+      </net>
+      <net>
+         <source obj="+_1" outlet="out"/>
+         <dest obj="+_2" inlet="in1"/>
+      </net>
+      <net>
+         <source obj="obj_3" outlet="knob_top_0"/>
+         <dest obj="+_1" inlet="in1"/>
+         <dest obj="dial_2" inlet="in"/>
+      </net>
+      <net>
+         <source obj="cpwitz-fmsynth-paraphonic_1" outlet="otherLeft"/>
          <dest obj="vca_2" inlet="a"/>
       </net>
       <net>
-         <source obj="mk2" outlet="Knob_K3"/>
+         <source obj="obj_3" outlet="JOY0_X"/>
+         <dest obj="+_1" inlet="in2"/>
+      </net>
+      <net>
+         <source obj="vca_1" outlet="o"/>
+         <dest obj="out_1" inlet="left"/>
+      </net>
+      <net>
+         <source obj="vca_2" outlet="o"/>
+         <dest obj="out_1" inlet="right"/>
+      </net>
+      <net>
+         <source obj="+_2" outlet="out"/>
+         <dest obj="dial_1" inlet="in"/>
+         <dest obj="cpwitz-fmsynth-paraphonic_1" inlet="Attack"/>
+      </net>
+      <net>
+         <source obj="Akai_MPK_Mini_MKII_1" outlet="Knob_K2_B"/>
+         <dest obj="+_4" inlet="in2"/>
+      </net>
+      <net>
+         <source obj="Akai_MPK_Mini_MKII_1" outlet="note"/>
+         <dest obj="dial_9" inlet="in"/>
+      </net>
+      <net>
+         <source obj="Akai_MPK_Mini_MKII_1" outlet="Knob_K3_B"/>
+         <dest obj="+_6" inlet="in2"/>
+      </net>
+      <net>
+         <source obj="Akai_MPK_Mini_MKII_1" outlet="Knob_K4_B"/>
+         <dest obj="+_8" inlet="in2"/>
+      </net>
+      <net>
+         <source obj="Akai_MPK_Mini_MKII_1" outlet="Knob_K5_B"/>
+         <dest obj="+_10" inlet="in2"/>
+      </net>
+      <net>
+         <source obj="Akai_MPK_Mini_MKII_1" outlet="Knob_K6_B"/>
+         <dest obj="+_12" inlet="in2"/>
+      </net>
+      <net>
+         <source obj="Akai_MPK_Mini_MKII_1" outlet="Knob_K7_P"/>
+         <dest obj="+_14" inlet="in2"/>
+      </net>
+      <net>
+         <source obj="+_3" outlet="out"/>
+         <dest obj="+_4" inlet="in1"/>
+      </net>
+      <net>
+         <source obj="obj_3" outlet="knob_top_1"/>
+         <dest obj="+_3" inlet="in1"/>
+      </net>
+      <net>
+         <source obj="obj_3" outlet="JOY0_Y"/>
+         <dest obj="+_3" inlet="in2"/>
+      </net>
+      <net>
+         <source obj="+_4" outlet="out"/>
+         <dest obj="dial_3" inlet="in"/>
+         <dest obj="cpwitz-fmsynth-paraphonic_1" inlet="Decay"/>
+      </net>
+      <net>
+         <source obj="+_5" outlet="out"/>
+         <dest obj="+_6" inlet="in1"/>
+      </net>
+      <net>
+         <source obj="+_7" outlet="out"/>
+         <dest obj="+_8" inlet="in1"/>
+      </net>
+      <net>
+         <source obj="+_9" outlet="out"/>
+         <dest obj="+_10" inlet="in1"/>
+      </net>
+      <net>
+         <source obj="+_11" outlet="out"/>
+         <dest obj="+_12" inlet="in1"/>
+      </net>
+      <net>
+         <source obj="+_13" outlet="out"/>
+         <dest obj="+_14" inlet="in1"/>
+      </net>
+      <net>
+         <source obj="+_15" outlet="out"/>
+         <dest obj="+_16" inlet="in1"/>
+      </net>
+      <net>
+         <source obj="obj_3" outlet="knob_top_2"/>
+         <dest obj="+_5" inlet="in1"/>
+      </net>
+      <net>
+         <source obj="obj_3" outlet="knob_top_3"/>
+         <dest obj="+_7" inlet="in1"/>
+      </net>
+      <net>
+         <source obj="obj_3" outlet="knob_top_4"/>
+         <dest obj="+_9" inlet="in1"/>
+      </net>
+      <net>
+         <source obj="obj_3" outlet="knob_top_5"/>
+         <dest obj="+_11" inlet="in1"/>
+      </net>
+      <net>
+         <source obj="obj_3" outlet="knob_top_6"/>
+         <dest obj="+_13" inlet="in1"/>
+      </net>
+      <net>
+         <source obj="obj_3" outlet="knob_top_7"/>
+         <dest obj="+_15" inlet="in1"/>
+      </net>
+      <net>
+         <source obj="obj_3" outlet="JOY1_X"/>
+         <dest obj="+_5" inlet="in2"/>
+      </net>
+      <net>
+         <source obj="obj_3" outlet="JOY1_Y"/>
+         <dest obj="+_7" inlet="in2"/>
+      </net>
+      <net>
+         <source obj="obj_3" outlet="JOY3_Y"/>
+         <dest obj="+_11" inlet="in2"/>
+      </net>
+      <net>
+         <source obj="+_6" outlet="out"/>
          <dest obj="cpwitz-fmsynth-paraphonic_1" inlet="Sustain"/>
+         <dest obj="dial_4" inlet="in"/>
       </net>
       <net>
-         <source obj="mk2" outlet="Knob_K4"/>
+         <source obj="+_8" outlet="out"/>
          <dest obj="cpwitz-fmsynth-paraphonic_1" inlet="Release"/>
+         <dest obj="dial_5" inlet="in"/>
       </net>
       <net>
-         <source obj="mk2" outlet="Knob_K5"/>
+         <source obj="+_10" outlet="out"/>
          <dest obj="cpwitz-fmsynth-paraphonic_1" inlet="LFO_Pitch"/>
+         <dest obj="dial_6" inlet="in"/>
       </net>
       <net>
-         <source obj="mk2" outlet="Knob_K6"/>
+         <source obj="+_12" outlet="out"/>
          <dest obj="cpwitz-fmsynth-paraphonic_1" inlet="ModFreq"/>
+         <dest obj="dial_7" inlet="in"/>
       </net>
       <net>
-         <source obj="mk2" outlet="Knob_K7"/>
+         <source obj="+_14" outlet="out"/>
          <dest obj="cpwitz-fmsynth-paraphonic_1" inlet="ModAmount"/>
+         <dest obj="dial_10" inlet="in"/>
       </net>
       <net>
-         <source obj="mk2" outlet="Knob_K8"/>
+         <source obj="+_16" outlet="out"/>
          <dest obj="vca_1" inlet="v"/>
          <dest obj="vca_2" inlet="v"/>
+         <dest obj="dial_11" inlet="in"/>
       </net>
       <net>
-         <source obj="mk2" outlet="note"/>
-         <dest obj="tuba1" inlet="inlet_1"/>
+         <source obj="obj_3" outlet="JOY3_X"/>
+         <dest obj="+_13" inlet="in2"/>
       </net>
       <net>
-         <source obj="tuba1" outlet="outlet_1"/>
-         <dest obj="out_1" inlet="left"/>
-         <dest obj="out_1" inlet="right"/>
+         <source obj="obj_3" outlet="JOY2_X"/>
+         <dest obj="+_9" inlet="in2"/>
+      </net>
+      <net>
+         <source obj="obj_3" outlet="JOY2_Y"/>
+         <dest obj="+_15" inlet="in2"/>
       </net>
    </nets>
    <settings>
@@ -123,9 +353,9 @@
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>300</x>
-      <y>211</y>
-      <width>1866</width>
+      <x>107</x>
+      <y>183</y>
+      <width>1984</width>
       <height>988</height>
    </windowPos>
 </patch-1.0>

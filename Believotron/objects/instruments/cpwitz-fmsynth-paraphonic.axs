@@ -20,7 +20,7 @@
       <params/>
       <attribs/>
    </obj>
-   <patcher type="patch/patcher" uuid="ce29a7c8-c680-40d9-a828-1ff5e03686c4" name="patcher_2" x="588" y="28">
+   <patcher type="patch/patcher" uuid="483a5c0d-633d-4c93-a4b1-e719b9613d4a" name="patcher_2" x="588" y="28">
       <params/>
       <attribs/>
       <subpatch appVersion="1.0.12">
@@ -179,7 +179,7 @@
       <params/>
       <attribs/>
    </obj>
-   <patcher type="patch/patcher" uuid="69ef2edf-f10f-40f9-acf9-f7752da89f64" name="patcher_1" x="448" y="196">
+   <patcher type="patch/patcher" uuid="7804b1d0-178a-4673-a6e5-85b04d786f2f" name="patcher_1" x="448" y="196">
       <params>
          <frac32.u.map name="glide_1" value="32.0"/>
          <frac32.u.map name="glide_2" value="32.0"/>
@@ -492,7 +492,7 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="audio/out stereo" uuid="a1ca7a567f535acc21055669829101d3ee7f0189" name="out_1" x="1610" y="196">
+   <obj type="patch/outlet a" uuid="abd8c5fd3b0524a6630f65cad6dc27f6c58e2a3e" name="left" x="1610" y="196">
       <params/>
       <attribs/>
    </obj>
@@ -515,6 +515,10 @@
       <attribs/>
    </obj>
    <obj type="mix/xfade" uuid="375dc91d218e96cdc9cbc7e92adb48f705ef701a" name="xfade_2" x="1484" y="280">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet a" uuid="abd8c5fd3b0524a6630f65cad6dc27f6c58e2a3e" name="otherLeft" x="1610" y="294">
       <params/>
       <attribs/>
    </obj>
@@ -722,11 +726,11 @@
       </net>
       <net>
          <source obj="xfade_1" outlet="o"/>
-         <dest obj="out_1" inlet="left"/>
+         <dest obj="left" inlet="outlet"/>
       </net>
       <net>
          <source obj="xfade_2" outlet="o"/>
-         <dest obj="out_1" inlet="right"/>
+         <dest obj="otherLeft" inlet="outlet"/>
       </net>
       <net>
          <source obj="vca_3" outlet="o"/>

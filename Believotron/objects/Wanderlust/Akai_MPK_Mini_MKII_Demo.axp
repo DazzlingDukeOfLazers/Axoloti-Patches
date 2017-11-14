@@ -1,0 +1,131 @@
+<patch-1.0 appVersion="1.0.12">
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_1" x="84" y="0">
+      <params>
+         <int32 name="value" value="0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="Wanderlust/Wanderlust_core_V1" uuid="ffb0ca09-b08e-44b5-82ca-4b5053a77373" name="obj_3" x="14" y="98">
+      <params>
+         <bool32.tgl name="Reverse Knobs" value="0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="instruments/doomTuba" uuid="39eff771-8480-4233-be71-3e82828f6478" name="tuba1" x="938" y="112">
+      <params>
+         <frac32.s.map name="doomTuba:pitch" value="-20.0"/>
+         <frac32.u.map name="doomTuba:slope" value="30.5"/>
+         <frac32.s.map name="doomTuba:Swidth" value="-46.0"/>
+         <frac32.s.map name="twerk" value="42.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_1" x="1498" y="126">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="MIDI/Akai_MPK_Mini_MKII" uuid="9da0daef-9f29-4408-b0ab-6a2c55a7de0a" name="mk2" x="420" y="154">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="audio/out stereo" uuid="a1ca7a567f535acc21055669829101d3ee7f0189" name="out_1" x="1750" y="154">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="cpwitz-fmsynth-paraphonic" uuid="66e92e8e-5837-4c0e-a9cf-cab7e810e51f" name="cpwitz-fmsynth-paraphonic_1" x="714" y="182">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_8" x="1386" y="196">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_2" x="1512" y="238">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_9" x="1386" y="294">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="logic/toggle" uuid="f42f0d3aab552c17bc78b9e65f85dc24f977503d" name="toggle_1" x="1372" y="420">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_3" x="1484" y="434">
+      <params/>
+      <attribs/>
+   </obj>
+   <nets>
+      <net>
+         <source obj="mk2" outlet="Knob_K1"/>
+         <dest obj="dial_8" inlet="in"/>
+         <dest obj="cpwitz-fmsynth-paraphonic_1" inlet="Attack"/>
+      </net>
+      <net>
+         <source obj="mk2" outlet="Knob_K2"/>
+         <dest obj="dial_9" inlet="in"/>
+         <dest obj="cpwitz-fmsynth-paraphonic_1" inlet="Decay"/>
+      </net>
+      <net>
+         <source obj="mk2" outlet="Pad5"/>
+         <dest obj="toggle_1" inlet="trig"/>
+      </net>
+      <net>
+         <source obj="toggle_1" outlet="o"/>
+         <dest obj="bool_3" inlet="in"/>
+      </net>
+      <net>
+         <source obj="cpwitz-fmsynth-paraphonic_1" outlet="left"/>
+         <dest obj="vca_1" inlet="a"/>
+      </net>
+      <net>
+         <source obj="cpwitz-fmsynth-paraphonic_1" outlet="right"/>
+         <dest obj="vca_2" inlet="a"/>
+      </net>
+      <net>
+         <source obj="mk2" outlet="Knob_K3"/>
+         <dest obj="cpwitz-fmsynth-paraphonic_1" inlet="Sustain"/>
+      </net>
+      <net>
+         <source obj="mk2" outlet="Knob_K4"/>
+         <dest obj="cpwitz-fmsynth-paraphonic_1" inlet="Release"/>
+      </net>
+      <net>
+         <source obj="mk2" outlet="Knob_K5"/>
+         <dest obj="cpwitz-fmsynth-paraphonic_1" inlet="LFO_Pitch"/>
+      </net>
+      <net>
+         <source obj="mk2" outlet="Knob_K6"/>
+         <dest obj="cpwitz-fmsynth-paraphonic_1" inlet="ModFreq"/>
+      </net>
+      <net>
+         <source obj="mk2" outlet="Knob_K7"/>
+         <dest obj="cpwitz-fmsynth-paraphonic_1" inlet="ModAmount"/>
+      </net>
+      <net>
+         <source obj="mk2" outlet="Knob_K8"/>
+         <dest obj="vca_1" inlet="v"/>
+         <dest obj="vca_2" inlet="v"/>
+      </net>
+      <net>
+         <source obj="mk2" outlet="note"/>
+         <dest obj="tuba1" inlet="inlet_1"/>
+      </net>
+      <net>
+         <source obj="tuba1" outlet="outlet_1"/>
+         <dest obj="out_1" inlet="left"/>
+         <dest obj="out_1" inlet="right"/>
+      </net>
+   </nets>
+   <settings>
+      <subpatchmode>no</subpatchmode>
+   </settings>
+   <notes><![CDATA[]]></notes>
+   <windowPos>
+      <x>300</x>
+      <y>211</y>
+      <width>1866</width>
+      <height>988</height>
+   </windowPos>
+</patch-1.0>

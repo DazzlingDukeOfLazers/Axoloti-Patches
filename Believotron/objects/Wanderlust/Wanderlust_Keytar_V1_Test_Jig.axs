@@ -35,7 +35,7 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="Wanderlust_Keytar_V1" uuid="a446e132-fd84-4889-ba00-259e9d3be8e1" name="Wanderlust_Keytar_V1_1" x="112" y="196">
+   <obj type="Wanderlust/Wanderlust_Keytar_V1" uuid="768ad288-4b99-4e0a-890e-43a47281ca22" name="obj_1" x="112" y="196">
       <params>
          <bool32.tgl name="Reverse Knobs" value="0"/>
       </params>
@@ -135,51 +135,51 @@
          <dest obj="joyRX" inlet="outlet"/>
       </net>
       <net>
-         <source obj="Wanderlust_Keytar_V1_1" outlet="Volume"/>
+         <source obj="obj_1" outlet="Volume"/>
          <dest obj="dial_4" inlet="in"/>
       </net>
       <net>
-         <source obj="Wanderlust_Keytar_V1_1" outlet="knob_top_0"/>
+         <source obj="obj_1" outlet="knob_top_0"/>
          <dest obj="dial_1" inlet="in"/>
       </net>
       <net>
-         <source obj="Wanderlust_Keytar_V1_1" outlet="knob_top_1"/>
+         <source obj="obj_1" outlet="knob_top_1"/>
          <dest obj="dial_10" inlet="in"/>
       </net>
       <net>
-         <source obj="Wanderlust_Keytar_V1_1" outlet="knob_top_2"/>
+         <source obj="obj_1" outlet="knob_top_2"/>
          <dest obj="dial_11" inlet="in"/>
       </net>
       <net>
-         <source obj="Wanderlust_Keytar_V1_1" outlet="knob_top_3"/>
+         <source obj="obj_1" outlet="knob_top_3"/>
          <dest obj="dial_12" inlet="in"/>
       </net>
       <net>
-         <source obj="Wanderlust_Keytar_V1_1" outlet="knob_top_4"/>
+         <source obj="obj_1" outlet="knob_top_4"/>
          <dest obj="dial_13" inlet="in"/>
       </net>
       <net>
-         <source obj="Wanderlust_Keytar_V1_1" outlet="knob_top_5"/>
+         <source obj="obj_1" outlet="knob_top_5"/>
          <dest obj="dial_14" inlet="in"/>
       </net>
       <net>
-         <source obj="Wanderlust_Keytar_V1_1" outlet="knob_top_6"/>
+         <source obj="obj_1" outlet="knob_top_6"/>
          <dest obj="dial_15" inlet="in"/>
       </net>
       <net>
-         <source obj="Wanderlust_Keytar_V1_1" outlet="knob_top_7"/>
+         <source obj="obj_1" outlet="knob_top_7"/>
          <dest obj="dial_16" inlet="in"/>
       </net>
       <net>
-         <source obj="Wanderlust_Keytar_V1_1" outlet="JOYX"/>
+         <source obj="obj_1" outlet="JOYX"/>
          <dest obj="dial_2" inlet="in"/>
       </net>
       <net>
-         <source obj="Wanderlust_Keytar_V1_1" outlet="JOYY"/>
+         <source obj="obj_1" outlet="JOYY"/>
          <dest obj="dial_17" inlet="in"/>
       </net>
       <net>
-         <source obj="Wanderlust_Keytar_V1_1" outlet="JOY0_BTN"/>
+         <source obj="obj_1" outlet="JOY0_BTN"/>
          <dest obj="bool_13" inlet="in"/>
       </net>
    </nets>
@@ -188,8 +188,8 @@
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>-1754</x>
-      <y>-67</y>
+      <x>383</x>
+      <y>26</y>
       <width>1506</width>
       <height>1003</height>
    </windowPos>

@@ -7,6 +7,10 @@
       <inlets>
          <bool32 name="reverseKnobs_" description="Reverse Knobs"/>
          <charptr32 name="OLEDA0_" description="OLED Text"/>
+         <charptr32 name="OLEDA1_"/>
+         <charptr32 name="OLEDA2_"/>
+         <charptr32 name="OLEDA3_"/>
+         <charptr32 name="OLEDB0_"/>
       </inlets>
       <outlets>
          <frac32 name="out1_" description="out1"/>
@@ -34,7 +38,8 @@
       <attribs>
          <text name="script"/>
       </attribs>
-      <code.declaration><![CDATA[char c[16];
+      <code.declaration><![CDATA[char OLEDTxt[4][4][16]; // Device, row, character
+
 int32_t SwapKnobRow;
 int32_t Page;
 int32_t LEDcolor;
@@ -98,6 +103,15 @@ outlet_knbB6__ = this->knb[1][6];
 outlet_knbB7__ = this->knb[1][7];
 this->reverseKnobs  = inlet_reverseKnobs__;
 
-strcpy(c, inlet_OLEDA0__);]]></code.krate>
+// TBD add a ONCE bit
+strcpy(OLEDTxt[0][0], inlet_OLEDA0__);
+strcpy(OLEDTxt[0][1], inlet_OLEDA1__);
+strcpy(OLEDTxt[0][2], inlet_OLEDA2__);
+strcpy(OLEDTxt[0][3], inlet_OLEDA3__);
+
+strcpy(OLEDTxt[1][0], inlet_OLEDB0__);
+//strcpy(OLEDTxt[0][1], inlet_OLEDA1__);
+//strcpy(OLEDTxt[0][2], inlet_OLEDA2__);
+//strcpy(OLEDTxt[0][3], inlet_OLEDA3__);]]></code.krate>
    </obj.normal>
 </objdefs>

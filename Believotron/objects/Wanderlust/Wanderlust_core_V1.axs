@@ -96,10 +96,10 @@
    <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_1" x="14" y="308">
       <params/>
       <attribs>
-         <table attributeName="str" table="THISSHITZBANNANA"/>
+         <table attributeName="str" table="THISSHITZBANNAN"/>
       </attribs>
    </obj>
-   <obj type="script/BelievotronCore_PCB1005_KnobCore" uuid="dea40d4c-0e25-49d0-993a-55866aabd090" name="BelievotronCore_PCB1005_KnobCore_1" x="210" y="308">
+   <obj type="script/BelievotronCore_PCB1005_KnobCore" uuid="dea40d4c-0e25-49d0-993a-55866aabd090" name="BelievotronCore_PCB1005_KnobCore_1" x="266" y="308">
       <params/>
       <attribs>
          <text attributeName="script">
@@ -166,7 +166,8 @@ void setup(void)
 	txbuf[1]=0xAE;
 	chThdSleepMilliseconds(10);
 	OLEDInit();
-	OLED_Sandbox();
+	OLED_setstring();
+	//OLED_Sandbox();
 	OLEDDisplay();
 	
 
@@ -181,21 +182,27 @@ void loop(void)
 
 // Debug - TBD enable with switch, and perform without loss of audio processing
 
-	static int iOLED=0;	
-	iOLED++;
-	if (iOLED==2000)
-	{
-		OLEDInit();
-		//OLED_Sandbox();
-		OLED_setstring();
-		OLEDDisplay();
-		iOLED=0;
-	}
+//	static int iOLED=0;	
+//	iOLED++;
+//	if (iOLED==2000)
+//	{
+//		OLEDInit();
+//		//OLED_Sandbox();
+//		OLED_setstring();
+//		OLEDDisplay();
+//		iOLED=0;
+//	}
 
 	
 }
 ]]></sText>
          </text>
+      </attribs>
+   </obj>
+   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_2" x="14" y="378">
+      <params/>
+      <attribs>
+         <table attributeName="str" table="What  Spaces?123"/>
       </attribs>
    </obj>
    <obj type="conv/unipolar2bipolar" uuid="efc8ee28c508740c5edf7995eaaa07a6d6818e5e" name="unipolar2bipolar_13" x="672" y="378">
@@ -214,6 +221,12 @@ void loop(void)
       <params/>
       <attribs/>
    </obj>
+   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_3" x="14" y="448">
+      <params/>
+      <attribs>
+         <table attributeName="str" table="This is fun"/>
+      </attribs>
+   </obj>
    <obj type="conv/unipolar2bipolar" uuid="efc8ee28c508740c5edf7995eaaa07a6d6818e5e" name="unipolar2bipolar_14" x="672" y="490">
       <params/>
       <attribs/>
@@ -222,6 +235,12 @@ void loop(void)
       <params/>
       <attribs/>
    </obj>
+   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_4" x="14" y="518">
+      <params/>
+      <attribs>
+         <table attributeName="str" table="Super Fun"/>
+      </attribs>
+   </obj>
    <obj type="conv/unipolar2bipolar" uuid="efc8ee28c508740c5edf7995eaaa07a6d6818e5e" name="unipolar2bipolar_2" x="518" y="532">
       <params/>
       <attribs/>
@@ -229,6 +248,12 @@ void loop(void)
    <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="JOY1_X" x="728" y="532">
       <params/>
       <attribs/>
+   </obj>
+   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_5" x="14" y="588">
+      <params/>
+      <attribs>
+         <table attributeName="str" table="Second Column"/>
+      </attribs>
    </obj>
    <obj type="conv/unipolar2bipolar" uuid="efc8ee28c508740c5edf7995eaaa07a6d6818e5e" name="unipolar2bipolar_15" x="672" y="602">
       <params/>
@@ -505,6 +530,22 @@ void loop(void)
       <net>
          <source obj="c_1" outlet="out"/>
          <dest obj="BelievotronCore_PCB1005_KnobCore_1" inlet="OLEDA0_"/>
+      </net>
+      <net>
+         <source obj="c_2" outlet="out"/>
+         <dest obj="BelievotronCore_PCB1005_KnobCore_1" inlet="OLEDA1_"/>
+      </net>
+      <net>
+         <source obj="c_3" outlet="out"/>
+         <dest obj="BelievotronCore_PCB1005_KnobCore_1" inlet="OLEDA2_"/>
+      </net>
+      <net>
+         <source obj="c_4" outlet="out"/>
+         <dest obj="BelievotronCore_PCB1005_KnobCore_1" inlet="OLEDA3_"/>
+      </net>
+      <net>
+         <source obj="c_5" outlet="out"/>
+         <dest obj="BelievotronCore_PCB1005_KnobCore_1" inlet="OLEDB0_"/>
       </net>
    </nets>
    <settings>

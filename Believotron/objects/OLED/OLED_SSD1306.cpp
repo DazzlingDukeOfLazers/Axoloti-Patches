@@ -430,7 +430,11 @@ void OLED_Print_Buff(uint8_t iDevice)
         {
             SetOLEDCharIndex( iCol, iRow, CharToIndex(OLEDTextBuff[iText]), iDevice );
 
-            if ( iText < NUM_OLED_CHARS - 1) { if ( OLEDTextBuff[iText+1] == '\0' ) { iBreak=1; break; } }
+            if ( iText < NUM_OLED_CHARS - 1)
+            {
+                if ( OLEDTextBuff[iText+1] == '\0' )
+                {iBreak=1; break;}
+            }
             iText++;
         }
         if (iBreak) break;
@@ -667,11 +671,87 @@ void OLEDDisplay()
     }
 }
 
+uint8_t min(uint8_t a, uint8_t b)
+{
+    if (a > b) return b;
+    else return a;
+}
+
+void pad16(char strPad[])
+{
+    int iPad0 =0;
+    for (int i=0; i< 16; i++)
+    {
+        if (strPad[i] == '\0')
+        {iPad0=1;}
+
+        if (iPad0)
+            strPad[i] = ' ';
+    }
+}
+
 void OLED_setstring()
 {
-    strcpy(OLEDTextBuff, c);
+    //char OLEDNull[17]="                ";
+    char OLEDNull[17]="0123456789012345";
     //strcpy(OLEDTextBuff, "BAR");
+    uint8_t iLen=0;
+    //iLen = strlen(OLEDTxt[0][0]);
+
+    // int iPad0 =0;
+    // for (int i=0; i< 16; i++)
+    // {
+    //     if (OLEDTxt[0][0][i] == '\0')
+    //     {iPad0=1;}
+    //
+    //     if (iPad0)
+    //         OLEDTxt[0][0][i] = ' ';
+    // }
+
+    //if (iLen < 16) {  strncat(OLEDTxt[0][0], OLEDNull, 16-iLen-1); }
+    // while (iLen < 16)
+    // {
+    //     strcat(OLEDTxt[0][0], "0");
+    //     iLen = strlen(OLEDTxt[0][0]);
+    // }
+
+    pad16(OLEDTxt[0][0]);
+    strncpy(&OLEDTextBuff[0],  OLEDTxt[0][0], 16);
+/*
+    iLen = strlen(OLEDTxt[0][1]);
+    //if (iLen < 16) {  strncat(OLEDTxt[0][0], OLEDNull, 16-iLen-1); }
+    while (iLen < 16)
+    {
+        strcat(OLEDTxt[0][1], "1");
+        iLen = strlen(OLEDTxt[0][1]);
+    }
+*/
+    pad16(OLEDTxt[0][1]);
+    strncpy(&OLEDTextBuff[16], OLEDTxt[0][1], 16);
+
+    pad16(OLEDTxt[0][2]);
+    strncpy(&OLEDTextBuff[32], OLEDTxt[0][2], 16);
+
+    pad16(OLEDTxt[0][3]);
+    strncpy(&OLEDTextBuff[48], OLEDTxt[0][3], 16);
+
+
+    //strncpy(&OLEDTextBuff[0],  OLEDTxt[0][0], min(16, strlen(OLEDTxt[0][0]) ) );
+
+
+    //strncpy(&OLEDTextBuff[16], OLEDTxt[0][1], min(16, strlen(OLEDTxt[0][1]) ) );
+    //strncpy(&OLEDTextBuff[32], OLEDTxt[0][2], min(16, strlen(OLEDTxt[0][2]) ) );
+    //strncpy(&OLEDTextBuff[48], OLEDTxt[0][3], min(16, strlen(OLEDTxt[0][3]) ) );
     OLED_Print_ParamLeft(0);
+
+    strncpy(&OLEDTextBuff[0],  OLEDTxt[1][0], 16);
+    //strncpy(&OLEDTextBuff[16], OLEDTxt[0][1], 16);
+    //strncpy(&OLEDTextBuff[32], OLEDTxt[0][2], 16);
+    //strncpy(&OLEDTextBuff[48], OLEDTxt[0][3], 16);
+    OLED_Print_ParamLeft(1);
+
+
+
 }
 
 void OLED_Sandbox()

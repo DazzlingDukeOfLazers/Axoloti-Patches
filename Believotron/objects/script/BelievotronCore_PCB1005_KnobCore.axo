@@ -50,6 +50,7 @@
          <text name="script"/>
       </attribs>
       <code.declaration><![CDATA[char OLEDTxt[4][4][16]; // Device, row, character
+uint8_t u8Count;
 
 int32_t SwapKnobRow;
 int32_t Page;
@@ -81,6 +82,7 @@ in2=0;
 out1=0;
 out2=0;
 out3=0;
+u8Count=0;
 
 for (int y=0; y<2; y++)
 {
@@ -114,25 +116,29 @@ outlet_knbB6__ = this->knb[1][6];
 outlet_knbB7__ = this->knb[1][7];
 this->reverseKnobs  = inlet_reverseKnobs__;
 
-// TBD add a ONCE bit
-strcpy(OLEDTxt[0][0], inlet_OLEDA0__);
-strcpy(OLEDTxt[0][1], inlet_OLEDA1__);
-strcpy(OLEDTxt[0][2], inlet_OLEDA2__);
-strcpy(OLEDTxt[0][3], inlet_OLEDA3__);
 
-strcpy(OLEDTxt[1][0], inlet_OLEDB0__);
-strcpy(OLEDTxt[1][1], inlet_OLEDB1__);
-strcpy(OLEDTxt[1][2], inlet_OLEDB2__);
-strcpy(OLEDTxt[1][3], inlet_OLEDB3__);
-
-strcpy(OLEDTxt[2][0], inlet_OLEDC0__);
-strcpy(OLEDTxt[2][1], inlet_OLEDC1__);
-strcpy(OLEDTxt[2][2], inlet_OLEDC2__);
-strcpy(OLEDTxt[2][3], inlet_OLEDC3__);
-
-strcpy(OLEDTxt[3][0], inlet_OLEDD0__);
-strcpy(OLEDTxt[3][1], inlet_OLEDD1__);
-strcpy(OLEDTxt[3][2], inlet_OLEDD2__);
-strcpy(OLEDTxt[3][3], inlet_OLEDD3__);]]></code.krate>
+if(u8Count < 2) // have to do it the second time, bc the txt won't fully load on the first frame
+{
+	strcpy(OLEDTxt[0][0], inlet_OLEDA0__);
+	strcpy(OLEDTxt[0][1], inlet_OLEDA1__);
+	strcpy(OLEDTxt[0][2], inlet_OLEDA2__);
+	strcpy(OLEDTxt[0][3], inlet_OLEDA3__);
+	
+	strcpy(OLEDTxt[1][0], inlet_OLEDB0__);
+	strcpy(OLEDTxt[1][1], inlet_OLEDB1__);
+	strcpy(OLEDTxt[1][2], inlet_OLEDB2__);
+	strcpy(OLEDTxt[1][3], inlet_OLEDB3__);
+	
+	strcpy(OLEDTxt[2][0], inlet_OLEDC0__);
+	strcpy(OLEDTxt[2][1], inlet_OLEDC1__);
+	strcpy(OLEDTxt[2][2], inlet_OLEDC2__);
+	strcpy(OLEDTxt[2][3], inlet_OLEDC3__);
+	
+	strcpy(OLEDTxt[3][0], inlet_OLEDD0__);
+	strcpy(OLEDTxt[3][1], inlet_OLEDD1__);
+	strcpy(OLEDTxt[3][2], inlet_OLEDD2__);
+	strcpy(OLEDTxt[3][3], inlet_OLEDD3__);
+	u8Count++; 	 
+}]]></code.krate>
    </obj.normal>
 </objdefs>

@@ -90,6 +90,7 @@ uint8_t OLEDBuffer[OLED_BUFF_SIZE] =
 }; */
 
 #define NUM_OLED_DISPLAYS 4
+#define NUM_TEXT_ROWS 4
 uint8_t OLEDBuffer[NUM_OLED_DISPLAYS][OLED_BUFF_SIZE];
 
 uint8_t Cartesian_Byte_Array[NUM_OLED_DISPLAYS][CARTESIAN_BYTE_ARRAY_NUM_ROWS][CARTESIAN_BYTE_ARRAY_NUM_COLS];
@@ -692,40 +693,24 @@ void pad16(char strPad[])
 
 void OLED_setstring()
 {
-    //char OLEDNull[17]="                ";
-    char OLEDNull[17]="0123456789012345";
     //strcpy(OLEDTextBuff, "BAR");
-    uint8_t iLen=0;
-    //iLen = strlen(OLEDTxt[0][0]);
+    //uint8_t iLen=0;
+    for (int iDevice = 0; iDevice < NUM_OLED_DISPLAYS; iDevice++)
+    {
+        int iOffset=0;
+        for(int iRow = 0; iRow < NUM_TEXT_ROWS; iRow++ )
+        {
+            pad16(OLEDTxt[iDevice][iRow]);
+            strncpy(&OLEDTextBuff[0+iOffset],  OLEDTxt[iDevice][iRow], 16);
+            iOffset+=16;
+        }
+        OLED_Print_ParamLeft(iDevice);
+    }
 
-    // int iPad0 =0;
-    // for (int i=0; i< 16; i++)
-    // {
-    //     if (OLEDTxt[0][0][i] == '\0')
-    //     {iPad0=1;}
-    //
-    //     if (iPad0)
-    //         OLEDTxt[0][0][i] = ' ';
-    // }
-
-    //if (iLen < 16) {  strncat(OLEDTxt[0][0], OLEDNull, 16-iLen-1); }
-    // while (iLen < 16)
-    // {
-    //     strcat(OLEDTxt[0][0], "0");
-    //     iLen = strlen(OLEDTxt[0][0]);
-    // }
-
+/*
     pad16(OLEDTxt[0][0]);
     strncpy(&OLEDTextBuff[0],  OLEDTxt[0][0], 16);
-/*
-    iLen = strlen(OLEDTxt[0][1]);
-    //if (iLen < 16) {  strncat(OLEDTxt[0][0], OLEDNull, 16-iLen-1); }
-    while (iLen < 16)
-    {
-        strcat(OLEDTxt[0][1], "1");
-        iLen = strlen(OLEDTxt[0][1]);
-    }
-*/
+
     pad16(OLEDTxt[0][1]);
     strncpy(&OLEDTextBuff[16], OLEDTxt[0][1], 16);
 
@@ -734,14 +719,6 @@ void OLED_setstring()
 
     pad16(OLEDTxt[0][3]);
     strncpy(&OLEDTextBuff[48], OLEDTxt[0][3], 16);
-
-
-    //strncpy(&OLEDTextBuff[0],  OLEDTxt[0][0], min(16, strlen(OLEDTxt[0][0]) ) );
-
-
-    //strncpy(&OLEDTextBuff[16], OLEDTxt[0][1], min(16, strlen(OLEDTxt[0][1]) ) );
-    //strncpy(&OLEDTextBuff[32], OLEDTxt[0][2], min(16, strlen(OLEDTxt[0][2]) ) );
-    //strncpy(&OLEDTextBuff[48], OLEDTxt[0][3], min(16, strlen(OLEDTxt[0][3]) ) );
     OLED_Print_ParamLeft(0);
 
     strncpy(&OLEDTextBuff[0],  OLEDTxt[1][0], 16);
@@ -749,7 +726,7 @@ void OLED_setstring()
     //strncpy(&OLEDTextBuff[32], OLEDTxt[0][2], 16);
     //strncpy(&OLEDTextBuff[48], OLEDTxt[0][3], 16);
     OLED_Print_ParamLeft(1);
-
+*/
 
 
 }

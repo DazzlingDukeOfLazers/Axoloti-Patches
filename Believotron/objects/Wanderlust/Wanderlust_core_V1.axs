@@ -1,47 +1,47 @@
 <patch-1.0 appVersion="1.0.12">
-   <obj type="conv/unipolar2bipolar" uuid="efc8ee28c508740c5edf7995eaaa07a6d6818e5e" name="unipolar2bipolar_5" x="1106" y="0">
+   <obj type="conv/unipolar2bipolar" uuid="efc8ee28c508740c5edf7995eaaa07a6d6818e5e" name="unipolar2bipolar_5" x="1554" y="0">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_top_0" x="1232" y="0">
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_top_0" x="1680" y="0">
       <params/>
       <attribs/>
    </obj>
-   <obj type="conv/unipolar2bipolar" uuid="efc8ee28c508740c5edf7995eaaa07a6d6818e5e" name="unipolar2bipolar_6" x="1106" y="42">
+   <obj type="conv/unipolar2bipolar" uuid="efc8ee28c508740c5edf7995eaaa07a6d6818e5e" name="unipolar2bipolar_6" x="1554" y="42">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_top_1" x="1232" y="42">
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_top_1" x="1680" y="42">
       <params/>
       <attribs/>
    </obj>
-   <obj type="conv/unipolar2bipolar" uuid="efc8ee28c508740c5edf7995eaaa07a6d6818e5e" name="unipolar2bipolar_7" x="1106" y="84">
+   <obj type="conv/unipolar2bipolar" uuid="efc8ee28c508740c5edf7995eaaa07a6d6818e5e" name="unipolar2bipolar_7" x="1554" y="84">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_top_2" x="1232" y="84">
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_top_2" x="1680" y="84">
       <params/>
       <attribs/>
    </obj>
-   <obj type="conv/unipolar2bipolar" uuid="efc8ee28c508740c5edf7995eaaa07a6d6818e5e" name="unipolar2bipolar_8" x="1106" y="126">
+   <obj type="conv/unipolar2bipolar" uuid="efc8ee28c508740c5edf7995eaaa07a6d6818e5e" name="unipolar2bipolar_8" x="1554" y="126">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_top_3" x="1232" y="126">
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_top_3" x="1680" y="126">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/load fn" uuid="12a194acdd5b94470e044f98e8e025d0dac65e18" name="load_1" x="1512" y="140">
+   <obj type="patch/load fn" uuid="12a194acdd5b94470e044f98e8e025d0dac65e18" name="load_1" x="1960" y="140">
       <params/>
       <attribs/>
    </obj>
-   <obj type="ctrl/toggle" uuid="42b8134fa729d54bfc8d62d6ef3fa99498c1de99" name="Reverse Knobs" x="644" y="154">
+   <obj type="ctrl/toggle" uuid="42b8134fa729d54bfc8d62d6ef3fa99498c1de99" name="Reverse Knobs" x="1092" y="154">
       <params>
          <bool32.tgl name="b" onParent="true" value="0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="gpio/spi/config" uuid="d3e75d8a02e2ccabbbc2af3bc2fcdb8ea65a6133" name="config_1" x="826" y="154">
+   <obj type="gpio/spi/config" uuid="d3e75d8a02e2ccabbbc2af3bc2fcdb8ea65a6133" name="config_1" x="1274" y="154">
       <params/>
       <attribs>
          <combo attributeName="clock_polarity" selection="CPOL=0"/>
@@ -50,74 +50,90 @@
          <combo attributeName="format" selection="LSB first"/>
       </attribs>
    </obj>
-   <obj type="conv/unipolar2bipolar" uuid="efc8ee28c508740c5edf7995eaaa07a6d6818e5e" name="unipolar2bipolar_9" x="1106" y="168">
+   <obj type="conv/unipolar2bipolar" uuid="efc8ee28c508740c5edf7995eaaa07a6d6818e5e" name="unipolar2bipolar_9" x="1554" y="168">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_top_4" x="1232" y="168">
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_top_4" x="1680" y="168">
       <params/>
       <attribs/>
    </obj>
-   <obj type="conv/unipolar2bipolar" uuid="efc8ee28c508740c5edf7995eaaa07a6d6818e5e" name="unipolar2bipolar_10" x="1106" y="210">
+   <obj type="conv/unipolar2bipolar" uuid="efc8ee28c508740c5edf7995eaaa07a6d6818e5e" name="unipolar2bipolar_10" x="1554" y="210">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_top_5" x="1232" y="210">
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_top_5" x="1680" y="210">
       <params/>
       <attribs/>
    </obj>
-   <obj type="gpio/i2c/config" uuid="b095a33e56de5fcd23740a7d983bc0bafb315d81" name="i2c.begin_1" x="840" y="252">
+   <obj type="ctrl/toggle" uuid="42b8134fa729d54bfc8d62d6ef3fa99498c1de99" name="Default_OLED_TXT" x="742" y="224">
+      <params>
+         <bool32.tgl name="b" onParent="true" value="0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="logic/inv" uuid="2bd44b865d3b63ff9b80862242bf5be779e3ad5" name="inv_2" x="868" y="238">
       <params/>
       <attribs/>
    </obj>
-   <obj type="conv/unipolar2bipolar" uuid="efc8ee28c508740c5edf7995eaaa07a6d6818e5e" name="unipolar2bipolar_11" x="1106" y="252">
+   <obj type="gpio/i2c/config" uuid="b095a33e56de5fcd23740a7d983bc0bafb315d81" name="i2c.begin_1" x="1288" y="252">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_top_6" x="1232" y="252">
+   <obj type="conv/unipolar2bipolar" uuid="efc8ee28c508740c5edf7995eaaa07a6d6818e5e" name="unipolar2bipolar_11" x="1554" y="252">
       <params/>
       <attribs/>
    </obj>
-   <obj type="string/PlayFolder" uuid="a883eeb5-f4ef-470e-898d-8fb54eb57f45" name="PlayFolder_1" x="1694" y="252">
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_top_6" x="1680" y="252">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="string/PlayFolder" uuid="a883eeb5-f4ef-470e-898d-8fb54eb57f45" name="PlayFolder_1" x="2142" y="252">
       <params/>
       <attribs>
          <table attributeName="prefix" table=""/>
          <table attributeName="suffix" table=""/>
       </attribs>
    </obj>
-   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_1" x="0" y="294">
-      <params/>
-      <attribs>
-         <table attributeName="str" table="Risky"/>
-      </attribs>
-   </obj>
-   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_5" x="196" y="294">
-      <params/>
-      <attribs>
-         <table attributeName="str" table="Second Column"/>
-      </attribs>
-   </obj>
-   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_9" x="392" y="294">
-      <params/>
-      <attribs>
-         <table attributeName="str" table="Column Three"/>
-      </attribs>
-   </obj>
-   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_13" x="588" y="294">
-      <params/>
-      <attribs>
-         <table attributeName="str" table="Third Column"/>
-      </attribs>
-   </obj>
-   <obj type="conv/unipolar2bipolar" uuid="efc8ee28c508740c5edf7995eaaa07a6d6818e5e" name="unipolar2bipolar_12" x="1106" y="294">
+   <obj type="conv/unipolar2bipolar" uuid="efc8ee28c508740c5edf7995eaaa07a6d6818e5e" name="unipolar2bipolar_12" x="1554" y="294">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_top_7" x="1232" y="294">
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_top_7" x="1680" y="294">
       <params/>
       <attribs/>
    </obj>
-   <obj type="script/BelievotronCore_PCB1005_KnobCore" uuid="dea40d4c-0e25-49d0-993a-55866aabd090" name="BelievotronCore_PCB1005_KnobCore_1" x="840" y="308">
+   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_1" x="0" y="308">
+      <params/>
+      <attribs>
+         <table attributeName="str" table="OLED Test (0,0)"/>
+      </attribs>
+   </obj>
+   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_5" x="196" y="308">
+      <params/>
+      <attribs>
+         <table attributeName="str" table="OLED Test (1,0)"/>
+      </attribs>
+   </obj>
+   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_9" x="392" y="308">
+      <params/>
+      <attribs>
+         <table attributeName="str" table="OLED Test (2,0)"/>
+      </attribs>
+   </obj>
+   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_13" x="574" y="308">
+      <params/>
+      <attribs>
+         <table attributeName="str" table="OLED Test (3,0)"/>
+      </attribs>
+   </obj>
+   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_17" x="784" y="308">
+      <params/>
+      <attribs>
+         <table attributeName="str" table="Tootie"/>
+      </attribs>
+   </obj>
+   <obj type="script/BelievotronCore_PCB1005_KnobCore" uuid="dea40d4c-0e25-49d0-993a-55866aabd090" name="BelievotronCore_PCB1005_KnobCore_1" x="1288" y="308">
       <params/>
       <attribs>
          <text attributeName="script">
@@ -217,210 +233,338 @@ void loop(void)
          </text>
       </attribs>
    </obj>
-   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_2" x="0" y="364">
+   <obj type="mux/mux 2" uuid="777491e645978e331fcbab6610f52c1aaa5ade0e" name="mux_1" x="1148" y="322">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/inlet string" uuid="6c562c1a7890cccf18fa7327d8baa476d0926cd8" name="OLED A0" x="994" y="336">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_2" x="0" y="378">
       <params/>
       <attribs>
-         <table attributeName="str" table="What  Spaces?"/>
+         <table attributeName="str" table="OLED Test (0,1)"/>
       </attribs>
    </obj>
-   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_6" x="196" y="364">
+   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_6" x="196" y="378">
       <params/>
       <attribs>
-         <table attributeName="str" table="prax subtracts"/>
+         <table attributeName="str" table="OLED Test (1,1)"/>
       </attribs>
    </obj>
-   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_10" x="392" y="364">
+   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_10" x="392" y="378">
       <params/>
       <attribs>
-         <table attributeName="str" table="As you can see"/>
+         <table attributeName="str" table="OLED Test (2,1)"/>
       </attribs>
    </obj>
-   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_14" x="588" y="364">
+   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_14" x="574" y="378">
       <params/>
       <attribs>
-         <table attributeName="str" table="Writing fox "/>
+         <table attributeName="str" table="OLED Test (3,1)"/>
       </attribs>
    </obj>
-   <obj type="conv/unipolar2bipolar" uuid="efc8ee28c508740c5edf7995eaaa07a6d6818e5e" name="unipolar2bipolar_13" x="1246" y="378">
+   <obj type="conv/unipolar2bipolar" uuid="efc8ee28c508740c5edf7995eaaa07a6d6818e5e" name="unipolar2bipolar_13" x="1694" y="378">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="JOY0_Y" x="1386" y="378">
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="JOY0_Y" x="1834" y="378">
       <params/>
       <attribs/>
    </obj>
-   <obj type="conv/unipolar2bipolar" uuid="efc8ee28c508740c5edf7995eaaa07a6d6818e5e" name="unipolar2bipolar_1" x="1092" y="420">
+   <obj type="mux/mux 2" uuid="777491e645978e331fcbab6610f52c1aaa5ade0e" name="mux_2" x="1148" y="392">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="JOY0_X" x="1302" y="420">
+   <obj type="patch/inlet string" uuid="6c562c1a7890cccf18fa7327d8baa476d0926cd8" name="OLED A1" x="994" y="406">
       <params/>
       <attribs/>
    </obj>
-   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_3" x="0" y="434">
+   <obj type="conv/unipolar2bipolar" uuid="efc8ee28c508740c5edf7995eaaa07a6d6818e5e" name="unipolar2bipolar_1" x="1540" y="420">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="JOY0_X" x="1750" y="420">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_3" x="0" y="448">
       <params/>
       <attribs>
-         <table attributeName="str" table="This is fun"/>
+         <table attributeName="str" table="OLED Test (0,2)"/>
       </attribs>
    </obj>
-   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_7" x="196" y="434">
+   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_7" x="196" y="448">
       <params/>
       <attribs>
-         <table attributeName="str" table="Giving faith"/>
+         <table attributeName="str" table="OLED Test (1,2)"/>
       </attribs>
    </obj>
-   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_11" x="392" y="434">
+   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_11" x="392" y="448">
       <params/>
       <attribs>
-         <table attributeName="str" table="Is made up of"/>
+         <table attributeName="str" table="OLED Test (2,2)"/>
       </attribs>
    </obj>
-   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_15" x="588" y="434">
+   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_15" x="574" y="448">
       <params/>
       <attribs>
-         <table attributeName="str" table="fleet dog"/>
+         <table attributeName="str" table="OLED Test (3,2)"/>
       </attribs>
    </obj>
-   <obj type="conv/unipolar2bipolar" uuid="efc8ee28c508740c5edf7995eaaa07a6d6818e5e" name="unipolar2bipolar_14" x="1246" y="490">
+   <obj type="mux/mux 2" uuid="777491e645978e331fcbab6610f52c1aaa5ade0e" name="mux_3" x="1148" y="462">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="JOY1_Y" x="1386" y="490">
+   <obj type="patch/inlet string" uuid="6c562c1a7890cccf18fa7327d8baa476d0926cd8" name="OLED A2" x="994" y="476">
       <params/>
       <attribs/>
    </obj>
-   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_4" x="0" y="504">
+   <obj type="conv/unipolar2bipolar" uuid="efc8ee28c508740c5edf7995eaaa07a6d6818e5e" name="unipolar2bipolar_14" x="1694" y="490">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="JOY1_Y" x="1834" y="490">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_4" x="0" y="518">
       <params/>
       <attribs>
-         <table attributeName="str" table="Super Fun"/>
+         <table attributeName="str" table="OLED Test (0,3)"/>
       </attribs>
    </obj>
-   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_8" x="196" y="504">
+   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_8" x="196" y="518">
       <params/>
       <attribs>
-         <table attributeName="str" table="taking wisdom"/>
+         <table attributeName="str" table="OLED Test (1,3)"/>
       </attribs>
    </obj>
-   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_12" x="392" y="504">
+   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_12" x="392" y="518">
       <params/>
       <attribs>
-         <table attributeName="str" table="ribbons and stars"/>
+         <table attributeName="str" table="OLED Test (2,3)"/>
       </attribs>
    </obj>
-   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_16" x="588" y="504">
+   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_16" x="574" y="518">
       <params/>
       <attribs>
-         <table attributeName="str" table="Laura Ipsom"/>
+         <table attributeName="str" table="OLED Test (3,3)"/>
       </attribs>
    </obj>
-   <obj type="conv/unipolar2bipolar" uuid="efc8ee28c508740c5edf7995eaaa07a6d6818e5e" name="unipolar2bipolar_2" x="1092" y="532">
+   <obj type="mux/mux 2" uuid="777491e645978e331fcbab6610f52c1aaa5ade0e" name="mux_4" x="1148" y="532">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="JOY1_X" x="1302" y="532">
+   <obj type="conv/unipolar2bipolar" uuid="efc8ee28c508740c5edf7995eaaa07a6d6818e5e" name="unipolar2bipolar_2" x="1540" y="532">
       <params/>
       <attribs/>
    </obj>
-   <obj type="conv/unipolar2bipolar" uuid="efc8ee28c508740c5edf7995eaaa07a6d6818e5e" name="unipolar2bipolar_15" x="1246" y="602">
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="JOY1_X" x="1750" y="532">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="JOY2_Y" x="1386" y="602">
+   <obj type="patch/inlet string" uuid="6c562c1a7890cccf18fa7327d8baa476d0926cd8" name="OLED A3" x="994" y="546">
       <params/>
       <attribs/>
    </obj>
-   <obj type="conv/unipolar2bipolar" uuid="efc8ee28c508740c5edf7995eaaa07a6d6818e5e" name="unipolar2bipolar_3" x="1092" y="644">
+   <obj type="mux/mux 2" uuid="777491e645978e331fcbab6610f52c1aaa5ade0e" name="mux_5" x="1148" y="602">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="JOY2_X" x="1302" y="644">
+   <obj type="conv/unipolar2bipolar" uuid="efc8ee28c508740c5edf7995eaaa07a6d6818e5e" name="unipolar2bipolar_15" x="1694" y="602">
       <params/>
       <attribs/>
    </obj>
-   <obj type="conv/unipolar2bipolar" uuid="efc8ee28c508740c5edf7995eaaa07a6d6818e5e" name="unipolar2bipolar_16" x="1246" y="714">
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="JOY2_Y" x="1834" y="602">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="JOY3_Y" x="1386" y="714">
+   <obj type="patch/inlet string" uuid="6c562c1a7890cccf18fa7327d8baa476d0926cd8" name="OLED B0" x="994" y="616">
       <params/>
       <attribs/>
    </obj>
-   <obj type="conv/unipolar2bipolar" uuid="efc8ee28c508740c5edf7995eaaa07a6d6818e5e" name="unipolar2bipolar_4" x="1092" y="756">
+   <obj type="conv/unipolar2bipolar" uuid="efc8ee28c508740c5edf7995eaaa07a6d6818e5e" name="unipolar2bipolar_3" x="1540" y="644">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="JOY3_X" x="1302" y="756">
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="JOY2_X" x="1750" y="644">
       <params/>
       <attribs/>
    </obj>
-   <comment type="patch/comment" x="1792" y="826" text="tbd scale volume out"/>
-   <obj type="gpio/in/analog" uuid="1c0c845ed2d7e06ae5f377ba13d9d09f4747ac87" name="analog_3" x="1624" y="840">
+   <obj type="mux/mux 2" uuid="777491e645978e331fcbab6610f52c1aaa5ade0e" name="mux_6" x="1148" y="672">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/inlet string" uuid="6c562c1a7890cccf18fa7327d8baa476d0926cd8" name="OLED B1" x="994" y="686">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="conv/unipolar2bipolar" uuid="efc8ee28c508740c5edf7995eaaa07a6d6818e5e" name="unipolar2bipolar_16" x="1694" y="714">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="JOY3_Y" x="1834" y="714">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="mux/mux 2" uuid="777491e645978e331fcbab6610f52c1aaa5ade0e" name="mux_7" x="1148" y="742">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/inlet string" uuid="6c562c1a7890cccf18fa7327d8baa476d0926cd8" name="OLED B2" x="994" y="756">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="conv/unipolar2bipolar" uuid="efc8ee28c508740c5edf7995eaaa07a6d6818e5e" name="unipolar2bipolar_4" x="1540" y="756">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="JOY3_X" x="1750" y="756">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="mux/mux 2" uuid="777491e645978e331fcbab6610f52c1aaa5ade0e" name="mux_8" x="1148" y="812">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/inlet string" uuid="6c562c1a7890cccf18fa7327d8baa476d0926cd8" name="OLED B3" x="994" y="826">
+      <params/>
+      <attribs/>
+   </obj>
+   <comment type="patch/comment" x="2240" y="826" text="tbd scale volume out"/>
+   <obj type="gpio/in/analog" uuid="1c0c845ed2d7e06ae5f377ba13d9d09f4747ac87" name="analog_3" x="2072" y="840">
       <params/>
       <attribs>
          <combo attributeName="channel" selection="PA1 (ADC1_IN1)"/>
       </attribs>
    </obj>
-   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="Volume" x="2002" y="868">
+   <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="Volume" x="2450" y="868">
       <params/>
       <attribs/>
    </obj>
-   <obj type="gpio/in/digital" uuid="f59f139e8da912742832dc541157f20f30b7ac1b" name="digital_2" x="1624" y="966">
+   <obj type="mux/mux 2" uuid="777491e645978e331fcbab6610f52c1aaa5ade0e" name="mux_9" x="1148" y="882">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/inlet string" uuid="6c562c1a7890cccf18fa7327d8baa476d0926cd8" name="OLED C0" x="994" y="896">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="mux/mux 2" uuid="777491e645978e331fcbab6610f52c1aaa5ade0e" name="mux_10" x="1148" y="952">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/inlet string" uuid="6c562c1a7890cccf18fa7327d8baa476d0926cd8" name="OLED C1" x="994" y="966">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="gpio/in/digital" uuid="f59f139e8da912742832dc541157f20f30b7ac1b" name="digital_2" x="2072" y="966">
       <params/>
       <attribs>
          <combo attributeName="pad" selection="PC1"/>
          <combo attributeName="mode" selection="pullup"/>
       </attribs>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="JOY0_BTN" x="2002" y="966">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="JOY0_BTN" x="2450" y="966">
       <params/>
       <attribs/>
    </obj>
-   <obj type="logic/inv" uuid="2bd44b865d3b63ff9b80862242bf5be779e3ad5" name="inv_1" x="1778" y="980">
+   <obj type="logic/inv" uuid="2bd44b865d3b63ff9b80862242bf5be779e3ad5" name="inv_1" x="2226" y="980">
       <params/>
       <attribs/>
    </obj>
-   <obj type="gpio/in/digital" uuid="f59f139e8da912742832dc541157f20f30b7ac1b" name="digital_4" x="1624" y="1050">
+   <obj type="mux/mux 2" uuid="777491e645978e331fcbab6610f52c1aaa5ade0e" name="mux_11" x="1148" y="1022">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/inlet string" uuid="6c562c1a7890cccf18fa7327d8baa476d0926cd8" name="OLED C2" x="994" y="1036">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="gpio/in/digital" uuid="f59f139e8da912742832dc541157f20f30b7ac1b" name="digital_4" x="2072" y="1050">
       <params/>
       <attribs>
          <combo attributeName="pad" selection="PC2"/>
          <combo attributeName="mode" selection="pullup"/>
       </attribs>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="JOY1_BTN" x="2002" y="1050">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="JOY1_BTN" x="2450" y="1050">
       <params/>
       <attribs/>
    </obj>
-   <obj type="logic/inv" uuid="2bd44b865d3b63ff9b80862242bf5be779e3ad5" name="inv_5" x="1778" y="1064">
+   <obj type="logic/inv" uuid="2bd44b865d3b63ff9b80862242bf5be779e3ad5" name="inv_5" x="2226" y="1064">
       <params/>
       <attribs/>
    </obj>
-   <obj type="gpio/in/digital" uuid="f59f139e8da912742832dc541157f20f30b7ac1b" name="digital_5" x="1624" y="1134">
+   <obj type="mux/mux 2" uuid="777491e645978e331fcbab6610f52c1aaa5ade0e" name="mux_12" x="1148" y="1092">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/inlet string" uuid="6c562c1a7890cccf18fa7327d8baa476d0926cd8" name="OLED C3" x="994" y="1106">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="gpio/in/digital" uuid="f59f139e8da912742832dc541157f20f30b7ac1b" name="digital_5" x="2072" y="1134">
       <params/>
       <attribs>
          <combo attributeName="pad" selection="PC3"/>
          <combo attributeName="mode" selection="pullup"/>
       </attribs>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="JOY2_BTN" x="2002" y="1134">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="JOY2_BTN" x="2450" y="1134">
       <params/>
       <attribs/>
    </obj>
-   <obj type="logic/inv" uuid="2bd44b865d3b63ff9b80862242bf5be779e3ad5" name="inv_6" x="1778" y="1148">
+   <obj type="logic/inv" uuid="2bd44b865d3b63ff9b80862242bf5be779e3ad5" name="inv_6" x="2226" y="1148">
       <params/>
       <attribs/>
    </obj>
-   <obj type="gpio/in/digital" uuid="f59f139e8da912742832dc541157f20f30b7ac1b" name="digital_6" x="1624" y="1218">
+   <obj type="mux/mux 2" uuid="777491e645978e331fcbab6610f52c1aaa5ade0e" name="mux_13" x="1148" y="1162">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/inlet string" uuid="6c562c1a7890cccf18fa7327d8baa476d0926cd8" name="OLED D0" x="994" y="1176">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="gpio/in/digital" uuid="f59f139e8da912742832dc541157f20f30b7ac1b" name="digital_6" x="2072" y="1218">
       <params/>
       <attribs>
          <combo attributeName="pad" selection="PC4"/>
          <combo attributeName="mode" selection="pullup"/>
       </attribs>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="JOY3_BTN" x="2002" y="1218">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="JOY3_BTN" x="2450" y="1218">
       <params/>
       <attribs/>
    </obj>
-   <obj type="logic/inv" uuid="2bd44b865d3b63ff9b80862242bf5be779e3ad5" name="inv_7" x="1778" y="1232">
+   <obj type="mux/mux 2" uuid="777491e645978e331fcbab6610f52c1aaa5ade0e" name="mux_14" x="1148" y="1232">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="logic/inv" uuid="2bd44b865d3b63ff9b80862242bf5be779e3ad5" name="inv_7" x="2226" y="1232">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/inlet string" uuid="6c562c1a7890cccf18fa7327d8baa476d0926cd8" name="OLED D1" x="994" y="1246">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="mux/mux 2" uuid="777491e645978e331fcbab6610f52c1aaa5ade0e" name="mux_15" x="1148" y="1302">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/inlet string" uuid="6c562c1a7890cccf18fa7327d8baa476d0926cd8" name="OLED D2" x="994" y="1316">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="mux/mux 2" uuid="777491e645978e331fcbab6610f52c1aaa5ade0e" name="mux_16" x="1148" y="1372">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/inlet string" uuid="6c562c1a7890cccf18fa7327d8baa476d0926cd8" name="OLED D3" x="994" y="1386">
       <params/>
       <attribs/>
    </obj>
@@ -594,68 +738,219 @@ void loop(void)
          <dest obj="JOY0_Y" inlet="outlet"/>
       </net>
       <net>
-         <source obj="c_1" outlet="out"/>
-         <dest obj="BelievotronCore_PCB1005_KnobCore_1" inlet="OLEDA0_"/>
-      </net>
-      <net>
-         <source obj="c_2" outlet="out"/>
+         <source obj="mux_2" outlet="o"/>
          <dest obj="BelievotronCore_PCB1005_KnobCore_1" inlet="OLEDA1_"/>
       </net>
       <net>
-         <source obj="c_3" outlet="out"/>
+         <source obj="mux_3" outlet="o"/>
          <dest obj="BelievotronCore_PCB1005_KnobCore_1" inlet="OLEDA2_"/>
       </net>
       <net>
-         <source obj="c_4" outlet="out"/>
+         <source obj="mux_4" outlet="o"/>
          <dest obj="BelievotronCore_PCB1005_KnobCore_1" inlet="OLEDA3_"/>
       </net>
       <net>
-         <source obj="c_5" outlet="out"/>
+         <source obj="mux_5" outlet="o"/>
          <dest obj="BelievotronCore_PCB1005_KnobCore_1" inlet="OLEDB0_"/>
       </net>
       <net>
-         <source obj="c_6" outlet="out"/>
+         <source obj="mux_6" outlet="o"/>
          <dest obj="BelievotronCore_PCB1005_KnobCore_1" inlet="OLEDB1_"/>
       </net>
       <net>
-         <source obj="c_7" outlet="out"/>
+         <source obj="mux_7" outlet="o"/>
          <dest obj="BelievotronCore_PCB1005_KnobCore_1" inlet="OLEDB2_"/>
       </net>
       <net>
-         <source obj="c_8" outlet="out"/>
+         <source obj="mux_8" outlet="o"/>
          <dest obj="BelievotronCore_PCB1005_KnobCore_1" inlet="OLEDB3_"/>
       </net>
       <net>
-         <source obj="c_9" outlet="out"/>
+         <source obj="mux_9" outlet="o"/>
          <dest obj="BelievotronCore_PCB1005_KnobCore_1" inlet="OLEDC0_"/>
       </net>
       <net>
-         <source obj="c_10" outlet="out"/>
+         <source obj="mux_10" outlet="o"/>
          <dest obj="BelievotronCore_PCB1005_KnobCore_1" inlet="OLEDC1_"/>
       </net>
       <net>
-         <source obj="c_11" outlet="out"/>
+         <source obj="mux_11" outlet="o"/>
          <dest obj="BelievotronCore_PCB1005_KnobCore_1" inlet="OLEDC2_"/>
       </net>
       <net>
-         <source obj="c_12" outlet="out"/>
+         <source obj="mux_12" outlet="o"/>
          <dest obj="BelievotronCore_PCB1005_KnobCore_1" inlet="OLEDC3_"/>
       </net>
       <net>
-         <source obj="c_13" outlet="out"/>
+         <source obj="mux_13" outlet="o"/>
          <dest obj="BelievotronCore_PCB1005_KnobCore_1" inlet="OLEDD0_"/>
       </net>
       <net>
-         <source obj="c_14" outlet="out"/>
+         <source obj="mux_14" outlet="o"/>
          <dest obj="BelievotronCore_PCB1005_KnobCore_1" inlet="OLEDD1_"/>
       </net>
       <net>
-         <source obj="c_15" outlet="out"/>
+         <source obj="mux_15" outlet="o"/>
          <dest obj="BelievotronCore_PCB1005_KnobCore_1" inlet="OLEDD2_"/>
       </net>
       <net>
-         <source obj="c_16" outlet="out"/>
+         <source obj="mux_16" outlet="o"/>
          <dest obj="BelievotronCore_PCB1005_KnobCore_1" inlet="OLEDD3_"/>
+      </net>
+      <net>
+         <source obj="c_1" outlet="out"/>
+         <dest obj="mux_1" inlet="i1"/>
+      </net>
+      <net>
+         <source obj="c_2" outlet="out"/>
+         <dest obj="mux_2" inlet="i1"/>
+      </net>
+      <net>
+         <source obj="c_3" outlet="out"/>
+         <dest obj="mux_3" inlet="i1"/>
+      </net>
+      <net>
+         <source obj="c_4" outlet="out"/>
+         <dest obj="mux_4" inlet="i1"/>
+      </net>
+      <net>
+         <source obj="c_5" outlet="out"/>
+         <dest obj="mux_5" inlet="i1"/>
+      </net>
+      <net>
+         <source obj="c_6" outlet="out"/>
+         <dest obj="mux_6" inlet="i1"/>
+      </net>
+      <net>
+         <source obj="c_7" outlet="out"/>
+         <dest obj="mux_7" inlet="i1"/>
+      </net>
+      <net>
+         <source obj="c_8" outlet="out"/>
+         <dest obj="mux_8" inlet="i1"/>
+      </net>
+      <net>
+         <source obj="c_9" outlet="out"/>
+         <dest obj="mux_9" inlet="i1"/>
+      </net>
+      <net>
+         <source obj="c_10" outlet="out"/>
+         <dest obj="mux_10" inlet="i1"/>
+      </net>
+      <net>
+         <source obj="c_11" outlet="out"/>
+         <dest obj="mux_11" inlet="i1"/>
+      </net>
+      <net>
+         <source obj="c_12" outlet="out"/>
+         <dest obj="mux_12" inlet="i1"/>
+      </net>
+      <net>
+         <source obj="c_13" outlet="out"/>
+         <dest obj="mux_13" inlet="i1"/>
+      </net>
+      <net>
+         <source obj="c_14" outlet="out"/>
+         <dest obj="mux_14" inlet="i1"/>
+      </net>
+      <net>
+         <source obj="c_15" outlet="out"/>
+         <dest obj="mux_15" inlet="i1"/>
+      </net>
+      <net>
+         <source obj="c_16" outlet="out"/>
+         <dest obj="mux_16" inlet="i1"/>
+      </net>
+      <net>
+         <source obj="Default_OLED_TXT" outlet="o"/>
+         <dest obj="inv_2" inlet="i"/>
+      </net>
+      <net>
+         <source obj="inv_2" outlet="o"/>
+         <dest obj="mux_1" inlet="s"/>
+         <dest obj="mux_2" inlet="s"/>
+         <dest obj="mux_3" inlet="s"/>
+         <dest obj="mux_4" inlet="s"/>
+         <dest obj="mux_5" inlet="s"/>
+         <dest obj="mux_6" inlet="s"/>
+         <dest obj="mux_7" inlet="s"/>
+         <dest obj="mux_8" inlet="s"/>
+         <dest obj="mux_9" inlet="s"/>
+         <dest obj="mux_10" inlet="s"/>
+         <dest obj="mux_11" inlet="s"/>
+         <dest obj="mux_12" inlet="s"/>
+         <dest obj="mux_13" inlet="s"/>
+         <dest obj="mux_14" inlet="s"/>
+         <dest obj="mux_15" inlet="s"/>
+         <dest obj="mux_16" inlet="s"/>
+      </net>
+      <net>
+         <source obj="OLED A1" outlet="inlet"/>
+         <dest obj="mux_2" inlet="i2"/>
+      </net>
+      <net>
+         <source obj="OLED A2" outlet="inlet"/>
+         <dest obj="mux_3" inlet="i2"/>
+      </net>
+      <net>
+         <source obj="OLED A3" outlet="inlet"/>
+         <dest obj="mux_4" inlet="i2"/>
+      </net>
+      <net>
+         <source obj="OLED B0" outlet="inlet"/>
+         <dest obj="mux_5" inlet="i2"/>
+      </net>
+      <net>
+         <source obj="OLED B1" outlet="inlet"/>
+         <dest obj="mux_6" inlet="i2"/>
+      </net>
+      <net>
+         <source obj="OLED B2" outlet="inlet"/>
+         <dest obj="mux_7" inlet="i2"/>
+      </net>
+      <net>
+         <source obj="OLED B3" outlet="inlet"/>
+         <dest obj="mux_8" inlet="i2"/>
+      </net>
+      <net>
+         <source obj="OLED C0" outlet="inlet"/>
+         <dest obj="mux_9" inlet="i2"/>
+      </net>
+      <net>
+         <source obj="OLED C1" outlet="inlet"/>
+         <dest obj="mux_10" inlet="i2"/>
+      </net>
+      <net>
+         <source obj="OLED C2" outlet="inlet"/>
+         <dest obj="mux_11" inlet="i2"/>
+      </net>
+      <net>
+         <source obj="OLED C3" outlet="inlet"/>
+         <dest obj="mux_12" inlet="i2"/>
+      </net>
+      <net>
+         <source obj="OLED D0" outlet="inlet"/>
+         <dest obj="mux_13" inlet="i2"/>
+      </net>
+      <net>
+         <source obj="OLED D1" outlet="inlet"/>
+         <dest obj="mux_14" inlet="i2"/>
+      </net>
+      <net>
+         <source obj="OLED D2" outlet="inlet"/>
+         <dest obj="mux_15" inlet="i2"/>
+      </net>
+      <net>
+         <source obj="OLED D3" outlet="inlet"/>
+         <dest obj="mux_16" inlet="i2"/>
+      </net>
+      <net>
+         <source obj="c_17" outlet="out"/>
+         <dest obj="mux_1" inlet="i2"/>
+      </net>
+      <net>
+         <source obj="OLED A0" outlet="inlet"/>
+         <dest obj="BelievotronCore_PCB1005_KnobCore_1" inlet="OLEDA0_"/>
       </net>
    </nets>
    <settings>

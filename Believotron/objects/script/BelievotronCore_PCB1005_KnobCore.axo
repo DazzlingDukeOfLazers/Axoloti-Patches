@@ -117,7 +117,7 @@ outlet_knbB7__ = this->knb[1][7];
 this->reverseKnobs  = inlet_reverseKnobs__;
 
 
-if(u8Count < 2) // have to do it the second time, bc the txt won't fully load on the first frame
+if(u8Count < 10) // have to do it the second time, bc the txt won't fully load on the first frame
 {
 	strcpy(OLEDTxt[0][0], inlet_OLEDA0__);
 	strcpy(OLEDTxt[0][1], inlet_OLEDA1__);

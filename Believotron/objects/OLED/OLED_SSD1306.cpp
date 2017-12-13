@@ -197,14 +197,14 @@ void ConvertCartesianBufferToOLEDBuffer(uint8_t iDevice)
         int yOrigin = y;
 
         writeMask  = 0b00000001;
-        for (uint8_t iCartesianRow = 0; iCartesianRow < 32; iCartesianRow++)
+        for (uint8_t iCartesianRow = 0; iCartesianRow < CARTESIAN_BYTE_ARRAY_NUM_ROWS; iCartesianRow++)
         {
             if (iCartesianRow == 0) {yOrigin=0;}
             if (iCartesianRow == 8) {yOrigin=8;}
             if (iCartesianRow == 16) {yOrigin=16;}
             if (iCartesianRow == 24) {yOrigin=24;}
 
-            for( uint8_t iCartesianColumn=0; iCartesianColumn < 16; iCartesianColumn++)
+            for( uint8_t iCartesianColumn=0; iCartesianColumn < CARTESIAN_BYTE_ARRAY_NUM_COLS; iCartesianColumn++)
             {
                 invertedMask = ~writeMask;
                 searchMask = 0b10000000;
@@ -349,7 +349,7 @@ uint16_t CharToIndex(char charval)
         case '-': return 63; break;
         case '*': return 64; break;
         case '/': return 65; break;
-        case '÷': return 66; break;
+        //case '÷': return 66; break;
         case '=': return 67; break;
         case '%': return 68; break;
         case '\"': return 69; break;
@@ -364,9 +364,9 @@ uint16_t CharToIndex(char charval)
         case '.': return 78; break;
         case ';': return 79; break;
         case ':': return 80; break;
-        case '¿': return 81; break;
+        //case '¿': return 81; break;
         case '?': return 82; break;
-        case '¡': return 83; break;
+        //case '¡': return 83; break;
         case '!': return 84; break;
         case '\\': return 85; break;
         case '|': return 86; break;
@@ -376,37 +376,39 @@ uint16_t CharToIndex(char charval)
         case '>': return 90; break;
         case '[': return 91; break;
         case ']': return 92; break;
-        case 'μ': return 93; break;
+        //case 'μ': return 93; break;
         case '^': return 94; break;
-        case 'À': return 95; break;
-        case 'Á': return 96; break;
-        case 'Â': return 97; break;
-        case 'Ã': return 98; break;
-        case 'Ä': return 99; break;
-        case 'Å': return 100; break;
-        case 'Æ': return 101; break;
-        case 'ç': return 102; break;
-        case 'È': return 103; break;
-        case 'É': return 104; break;
-        case 'Ê': return 105; break;
-        case 'Ë': return 106; break;
-        case 'Ì': return 107; break;
-        case 'Í': return 108; break;
-        case 'Î': return 109; break;
-        case 'Ï': return 110; break;
-        case 'Ñ': return 112; break;
-        case 'Ò': return 113; break;
-        case 'Ó': return 114; break;
-        case 'Ô': return 115; break;
-        case 'Õ': return 116; break;
-        case 'Ö': return 117; break;
-        case 'Ø': return 118; break;
-        case 'Œ': return 119; break;
-        case 'Ù': return 120; break;
-        case 'Ú': return 121; break;
-        case 'Û': return 122; break;
-        case 'Ü': return 123; break;
-        case 'ß': return 124; break;
+
+        // TBD fix international character issues
+        // case 'À': return 95; break;
+        // case 'Á': return 96; break;
+        // case 'Â': return 97; break;
+        // case 'Ã': return 98; break;
+        // case 'Ä': return 99; break;
+        // case 'Å': return 100; break;
+        // case 'Æ': return 101; break;
+        // case 'ç': return 102; break;
+        // case 'È': return 103; break;
+        // case 'É': return 104; break;
+        // case 'Ê': return 105; break;
+        // case 'Ë': return 106; break;
+        // case 'Ì': return 107; break;
+        // case 'Í': return 108; break;
+        // case 'Î': return 109; break;
+        // case 'Ï': return 110; break;
+        // case 'Ñ': return 112; break;
+        // case 'Ò': return 113; break;
+        // case 'Ó': return 114; break;
+        // case 'Ô': return 115; break;
+        // case 'Õ': return 116; break;
+        // case 'Ö': return 117; break;
+        // case 'Ø': return 118; break;
+        // case 'Œ': return 119; break;
+        // case 'Ù': return 120; break;
+        // case 'Ú': return 121; break;
+        // case 'Û': return 122; break;
+        // case 'Ü': return 123; break;
+        // case 'ß': return 124; break;
         case ' ': return 125; break;
         //case '': return ; break;
 
@@ -538,19 +540,27 @@ void OLEDInit()
     {
         OLEDBufferClear(iDevice); // TBD this line is causing a timeout sync
         SetOLEDChan(iDevice);
-        OLEDInit( iDevice,OLED_SSD1306_SWITCHCAPVCC,0x3C, FALSE );
+        OLEDInitCMD( iDevice,OLED_SSD1306_SWITCHCAPVCC,0x3C, FALSE );
     }
 }
 
 void OLEDBufferClear(uint8_t iDevice)
 {
-    for (int iWord=0; iWord< OLED_BUFF_SIZE; iWord++)
+    //for (int iWord=0; iWord< OLED_BUFF_SIZE; iWord++)
+    //{
+        //OLEDBuffer[iDevice][iWord] = 0x00;
+    //}
+
+    for (int iRow=0; iRow< CARTESIAN_BYTE_ARRAY_NUM_ROWS; iRow++)
     {
-        OLEDBuffer[iDevice][iWord] = 0x00;
+        for(int iCol=0; iCol< CARTESIAN_BYTE_ARRAY_NUM_COLS; iCol++)
+        {
+            Cartesian_Byte_Array[iDevice][iRow][iCol] = 0x00;
+        }
     }
 }
 
-void OLEDInit(uint8_t iChan, uint8_t vccstate, uint8_t iI2CAddr, bool reset)
+void OLEDInitCMD(uint8_t iChan, uint8_t vccstate, uint8_t iI2CAddr, bool reset)
 {
     OLED0._i2caddr = iI2CAddr;
      // Init sequence
@@ -655,6 +665,13 @@ void OLEDDisplay()
         ConvertCartesianBufferToOLEDBuffer(i);
         OLEDDisplayBuffer(i);
     }
+}
+
+void OLED_setstring()
+{
+    strcpy(OLEDTextBuff, c);
+    //strcpy(OLEDTextBuff, "BAR");
+    OLED_Print_ParamLeft(0);
 }
 
 void OLED_Sandbox()

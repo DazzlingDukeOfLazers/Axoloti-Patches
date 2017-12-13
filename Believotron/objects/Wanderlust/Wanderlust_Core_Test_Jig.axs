@@ -3,7 +3,7 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="Wanderlust/Wanderlust_core_V1" uuid="c5307779-0b57-4dc7-8e61-a8b620838c7a" name="obj_1" x="112" y="140">
+   <obj type="Wanderlust/Wanderlust_core_V1" uuid="159e39e5-3908-4396-8528-1d58946ec952" name="obj_1" x="112" y="140">
       <params>
          <bool32.tgl name="Reverse Knobs" value="0"/>
       </params>
@@ -260,8 +260,8 @@
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>-3304</x>
-      <y>-61</y>
+      <x>343</x>
+      <y>85</y>
       <width>1506</width>
       <height>1003</height>
    </windowPos>

@@ -31,6 +31,10 @@
       <params/>
       <attribs/>
    </obj>
+   <obj type="patch/load fn" uuid="12a194acdd5b94470e044f98e8e025d0dac65e18" name="load_1" x="938" y="140">
+      <params/>
+      <attribs/>
+   </obj>
    <obj type="ctrl/toggle" uuid="42b8134fa729d54bfc8d62d6ef3fa99498c1de99" name="Reverse Knobs" x="70" y="154">
       <params>
          <bool32.tgl name="b" onParent="true" value="0"/>
@@ -74,6 +78,13 @@
       <params/>
       <attribs/>
    </obj>
+   <obj type="string/PlayFolder" uuid="a883eeb5-f4ef-470e-898d-8fb54eb57f45" name="PlayFolder_1" x="1120" y="252">
+      <params/>
+      <attribs>
+         <table attributeName="prefix" table=""/>
+         <table attributeName="suffix" table=""/>
+      </attribs>
+   </obj>
    <obj type="conv/unipolar2bipolar" uuid="efc8ee28c508740c5edf7995eaaa07a6d6818e5e" name="unipolar2bipolar_12" x="532" y="294">
       <params/>
       <attribs/>
@@ -81,6 +92,12 @@
    <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_top_7" x="658" y="294">
       <params/>
       <attribs/>
+   </obj>
+   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_1" x="14" y="308">
+      <params/>
+      <attribs>
+         <table attributeName="str" table="THISSHITZBANNANA"/>
+      </attribs>
    </obj>
    <obj type="script/BelievotronCore_PCB1005_KnobCore" uuid="dea40d4c-0e25-49d0-993a-55866aabd090" name="BelievotronCore_PCB1005_KnobCore_1" x="210" y="308">
       <params/>
@@ -156,10 +173,26 @@ void setup(void)
 }
 void loop(void)
 {	
+	
+	
 	readADCAndOutput(GPIOB, 7, 0);		
 	readADCAndOutput(GPIOB, 6, 1);
 	chThdSleepMilliseconds(1); 	
-	//OLEDDisplay();
+
+// Debug - TBD enable with switch, and perform without loss of audio processing
+
+	static int iOLED=0;	
+	iOLED++;
+	if (iOLED==2000)
+	{
+		OLEDInit();
+		//OLED_Sandbox();
+		OLED_setstring();
+		OLEDDisplay();
+		iOLED=0;
+	}
+
+	
 }
 ]]></sText>
          </text>
@@ -469,6 +502,10 @@ void loop(void)
          <source obj="unipolar2bipolar_13" outlet="o"/>
          <dest obj="JOY0_Y" inlet="outlet"/>
       </net>
+      <net>
+         <source obj="c_1" outlet="out"/>
+         <dest obj="BelievotronCore_PCB1005_KnobCore_1" inlet="OLEDA0_"/>
+      </net>
    </nets>
    <settings>
       <subpatchmode>no</subpatchmode>
@@ -480,9 +517,9 @@ void loop(void)
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>-3756</x>
-      <y>71</y>
-      <width>1507</width>
-      <height>976</height>
+      <x>-8</x>
+      <y>-8</y>
+      <width>1514</width>
+      <height>1014</height>
    </windowPos>
 </patch-1.0>

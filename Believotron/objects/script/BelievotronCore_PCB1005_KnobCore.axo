@@ -6,6 +6,7 @@
       <helpPatch>script.axh</helpPatch>
       <inlets>
          <bool32 name="reverseKnobs_" description="Reverse Knobs"/>
+         <charptr32 name="OLEDA0_" description="OLED Text"/>
       </inlets>
       <outlets>
          <frac32 name="out1_" description="out1"/>
@@ -33,7 +34,8 @@
       <attribs>
          <text name="script"/>
       </attribs>
-      <code.declaration><![CDATA[int32_t SwapKnobRow;
+      <code.declaration><![CDATA[char c[16];
+int32_t SwapKnobRow;
 int32_t Page;
 int32_t LEDcolor;
 int32_t LEDmode;
@@ -94,6 +96,8 @@ outlet_knbB4__ = this->knb[1][4];
 outlet_knbB5__ = this->knb[1][5];
 outlet_knbB6__ = this->knb[1][6];
 outlet_knbB7__ = this->knb[1][7];
-this->reverseKnobs  = inlet_reverseKnobs__;]]></code.krate>
+this->reverseKnobs  = inlet_reverseKnobs__;
+
+strcpy(c, inlet_OLEDA0__);]]></code.krate>
    </obj.normal>
 </objdefs>

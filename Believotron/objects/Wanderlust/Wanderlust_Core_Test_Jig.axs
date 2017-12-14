@@ -1,5 +1,17 @@
 <patch-1.0 appVersion="1.0.12">
-   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_4" x="1064" y="28">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_2" x="1288" y="84">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_5" x="1540" y="84">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_9" x="1806" y="84">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_10" x="2058" y="84">
       <params/>
       <attribs/>
    </obj>
@@ -34,35 +46,51 @@
       </params>
       <attribs/>
    </obj>
-   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_1" x="1064" y="140">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_1" x="1218" y="140">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_10" x="1134" y="140">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_3" x="1358" y="140">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_11" x="1204" y="140">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_6" x="1470" y="140">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_12" x="1274" y="140">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_7" x="1610" y="140">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_13" x="1344" y="140">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_11" x="1736" y="140">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_14" x="1414" y="140">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_12" x="1876" y="140">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_15" x="1484" y="140">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_17" x="1988" y="140">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_16" x="1554" y="140">
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_18" x="2128" y="140">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_4" x="1288" y="196">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_8" x="1540" y="196">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_19" x="1806" y="196">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_20" x="2058" y="196">
       <params/>
       <attribs/>
    </obj>
@@ -114,19 +142,7 @@
          <table attributeName="str" table="JIG Test (3,2)"/>
       </attribs>
    </obj>
-   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_3" x="1148" y="308">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_24" x="1344" y="308">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_26" x="1540" y="308">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_29" x="1736" y="308">
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_4" x="1218" y="294">
       <params/>
       <attribs/>
    </obj>
@@ -154,35 +170,83 @@
          <table attributeName="str" table="JIG Test (3,3)"/>
       </attribs>
    </obj>
-   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_5" x="1078" y="392">
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_1" x="1246" y="406">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_13" x="1148" y="392">
+   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_10" x="1288" y="406">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_25" x="1274" y="392">
+   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_11" x="1358" y="406">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_14" x="1344" y="392">
+   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_12" x="1428" y="406">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_27" x="1470" y="392">
+   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_13" x="1498" y="406">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_15" x="1540" y="392">
+   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_14" x="1568" y="406">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_28" x="1666" y="392">
+   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_15" x="1638" y="406">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_16" x="1736" y="392">
+   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_16" x="1708" y="406">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_3" x="1302" y="574">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_24" x="1498" y="574">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_26" x="1694" y="574">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_29" x="1890" y="574">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_5" x="1232" y="658">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_13" x="1302" y="658">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_25" x="1428" y="658">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_14" x="1498" y="658">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_27" x="1624" y="658">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_15" x="1694" y="658">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_28" x="1820" y="658">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_16" x="1890" y="658">
       <params/>
       <attribs/>
    </obj>
@@ -266,10 +330,6 @@
          <source obj="analog_4" outlet="out"/>
          <dest obj="dial_8" inlet="in"/>
          <dest obj="joyRX" inlet="outlet"/>
-      </net>
-      <net>
-         <source obj="Wanderlust_core_V1_1" outlet="knob_top_0"/>
-         <dest obj="dial_1" inlet="in"/>
       </net>
       <net>
          <source obj="Wanderlust_core_V1_1" outlet="knob_top_1"/>
@@ -414,6 +474,74 @@
       <net>
          <source obj="c_1" outlet="out"/>
          <dest obj="Wanderlust_core_V1_1" inlet="OLED A0"/>
+      </net>
+      <net>
+         <source obj="Wanderlust_core_V1_1" outlet="knob_top_0"/>
+         <dest obj="dial_1" inlet="in"/>
+      </net>
+      <net>
+         <source obj="Wanderlust_core_V1_1" outlet="JOY0_UP"/>
+         <dest obj="bool_2" inlet="in"/>
+      </net>
+      <net>
+         <source obj="Wanderlust_core_V1_1" outlet="JOY0_DN"/>
+         <dest obj="bool_4" inlet="in"/>
+      </net>
+      <net>
+         <source obj="Wanderlust_core_V1_1" outlet="JOY0_RT"/>
+         <dest obj="bool_3" inlet="in"/>
+      </net>
+      <net>
+         <source obj="Wanderlust_core_V1_1" outlet="JOY0_LT"/>
+         <dest obj="bool_1" inlet="in"/>
+      </net>
+      <net>
+         <source obj="Wanderlust_core_V1_1" outlet="JOY1_UP"/>
+         <dest obj="bool_5" inlet="in"/>
+      </net>
+      <net>
+         <source obj="Wanderlust_core_V1_1" outlet="JOY1_DN"/>
+         <dest obj="bool_8" inlet="in"/>
+      </net>
+      <net>
+         <source obj="Wanderlust_core_V1_1" outlet="JOY1_RT"/>
+         <dest obj="bool_7" inlet="in"/>
+      </net>
+      <net>
+         <source obj="Wanderlust_core_V1_1" outlet="JOY1_LT"/>
+         <dest obj="bool_6" inlet="in"/>
+      </net>
+      <net>
+         <source obj="Wanderlust_core_V1_1" outlet="JOY2_UP"/>
+         <dest obj="bool_9" inlet="in"/>
+      </net>
+      <net>
+         <source obj="Wanderlust_core_V1_1" outlet="JOY2_DN"/>
+         <dest obj="bool_19" inlet="in"/>
+      </net>
+      <net>
+         <source obj="Wanderlust_core_V1_1" outlet="JOY2_RT"/>
+         <dest obj="bool_12" inlet="in"/>
+      </net>
+      <net>
+         <source obj="Wanderlust_core_V1_1" outlet="JOY2_LT"/>
+         <dest obj="bool_11" inlet="in"/>
+      </net>
+      <net>
+         <source obj="Wanderlust_core_V1_1" outlet="JOY3_UP"/>
+         <dest obj="bool_10" inlet="in"/>
+      </net>
+      <net>
+         <source obj="Wanderlust_core_V1_1" outlet="JOY3_DN"/>
+         <dest obj="bool_20" inlet="in"/>
+      </net>
+      <net>
+         <source obj="Wanderlust_core_V1_1" outlet="JOY3_RT"/>
+         <dest obj="bool_18" inlet="in"/>
+      </net>
+      <net>
+         <source obj="Wanderlust_core_V1_1" outlet="JOY3_LT"/>
+         <dest obj="bool_17" inlet="in"/>
       </net>
    </nets>
    <settings>

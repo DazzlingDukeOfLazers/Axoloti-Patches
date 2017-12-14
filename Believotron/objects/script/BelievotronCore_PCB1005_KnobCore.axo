@@ -42,7 +42,8 @@
          <frac32 name="knbB4_" description="knbB4"/>
          <frac32 name="knbB5_" description="knbB5"/>
          <frac32 name="knbB6_" description="knbB6"/>
-         <frac32 name="knbB7_" description="knbB7"/>
+         <bool32 name="knbB7_"/>
+         <bool32 name="POR_" description="Power on reset"/>
       </outlets>
       <displays/>
       <params/>
@@ -51,6 +52,7 @@
       </attribs>
       <code.declaration><![CDATA[char OLEDTxt[4][4][16]; // Device, row, character
 uint8_t u8Count;
+int32_t PORCount;
 
 int32_t SwapKnobRow;
 int32_t Page;
@@ -83,6 +85,8 @@ out1=0;
 out2=0;
 out3=0;
 u8Count=0;
+PORCount=0;
+
 
 for (int y=0; y<2; y++)
 {
@@ -95,7 +99,10 @@ for (int y=0; y<2; y++)
 Thd = chThdCreateStatic(waThreadX, sizeof(waThreadX),NORMALPRIO, ThreadX, (void *)this);]]></code.init>
       <code.dispose><![CDATA[chThdTerminate(Thd);
 chThdWait(Thd);]]></code.dispose>
-      <code.krate><![CDATA[outlet_out1__ = this->out1;
+      <code.krate><![CDATA[if (PORCount++ < 1000) {outlet_POR__ = 1;}
+else { outlet_POR__ = 0;}
+
+outlet_out1__ = this->out1;
 outlet_out2__ = this->out2;
 outlet_out3__ = this->out3;
 outlet_knbT0__ = this->knb[0][0];
@@ -117,8 +124,11 @@ outlet_knbB7__ = this->knb[1][7];
 this->reverseKnobs  = inlet_reverseKnobs__;
 
 
+
+
 if(u8Count < 10) // have to do it the second time, bc the txt won't fully load on the first frame
 {
+	outlet_POR__ = 1;
 	strcpy(OLEDTxt[0][0], inlet_OLEDA0__);
 	strcpy(OLEDTxt[0][1], inlet_OLEDA1__);
 	strcpy(OLEDTxt[0][2], inlet_OLEDA2__);

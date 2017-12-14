@@ -39,7 +39,7 @@
          <table attributeName="str" table="JIG Test (3,0)"/>
       </attribs>
    </obj>
-   <obj type="Wanderlust_core_V1" uuid="4d6a0c91-8872-402a-b678-b36d5a233c0c" name="Wanderlust_core_V1_1" x="840" y="140">
+   <obj type="Wanderlust_core_V1" uuid="4d6a0c91-8872-402a-b678-b36d5a233c0c" name="Wanderlust_core_V1_1" x="812" y="140">
       <params>
          <bool32.tgl name="Reverse Knobs" value="0"/>
          <bool32.tgl name="Default_OLED_TXT" value="0"/>

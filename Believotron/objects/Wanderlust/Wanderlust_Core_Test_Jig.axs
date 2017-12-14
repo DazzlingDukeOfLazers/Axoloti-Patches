@@ -15,6 +15,10 @@
       <params/>
       <attribs/>
    </obj>
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_22" x="1008" y="112">
+      <params/>
+      <attribs/>
+   </obj>
    <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_1" x="0" y="140">
       <params/>
       <attribs>
@@ -39,7 +43,7 @@
          <table attributeName="str" table="JIG Test (3,0)"/>
       </attribs>
    </obj>
-   <obj type="Wanderlust_core_V1" uuid="4d6a0c91-8872-402a-b678-b36d5a233c0c" name="Wanderlust_core_V1_1" x="812" y="140">
+   <obj type="Wanderlust/Wanderlust_core_V1" uuid="21b19a5d-2caf-4f1f-8a4f-fe190d2452dc" name="obj_1" x="812" y="140">
       <params>
          <bool32.tgl name="Reverse Knobs" value="0"/>
          <bool32.tgl name="Default_OLED_TXT" value="0"/>
@@ -332,216 +336,220 @@
          <dest obj="joyRX" inlet="outlet"/>
       </net>
       <net>
-         <source obj="Wanderlust_core_V1_1" outlet="knob_top_1"/>
+         <source obj="obj_1" outlet="knob_top_1"/>
          <dest obj="dial_10" inlet="in"/>
       </net>
       <net>
-         <source obj="Wanderlust_core_V1_1" outlet="knob_top_2"/>
+         <source obj="obj_1" outlet="knob_top_2"/>
          <dest obj="dial_11" inlet="in"/>
       </net>
       <net>
-         <source obj="Wanderlust_core_V1_1" outlet="knob_top_3"/>
+         <source obj="obj_1" outlet="knob_top_3"/>
          <dest obj="dial_12" inlet="in"/>
       </net>
       <net>
-         <source obj="Wanderlust_core_V1_1" outlet="knob_top_4"/>
+         <source obj="obj_1" outlet="knob_top_4"/>
          <dest obj="dial_13" inlet="in"/>
       </net>
       <net>
-         <source obj="Wanderlust_core_V1_1" outlet="knob_top_5"/>
+         <source obj="obj_1" outlet="knob_top_5"/>
          <dest obj="dial_14" inlet="in"/>
       </net>
       <net>
-         <source obj="Wanderlust_core_V1_1" outlet="knob_top_6"/>
+         <source obj="obj_1" outlet="knob_top_6"/>
          <dest obj="dial_15" inlet="in"/>
       </net>
       <net>
-         <source obj="Wanderlust_core_V1_1" outlet="knob_top_7"/>
+         <source obj="obj_1" outlet="knob_top_7"/>
          <dest obj="dial_16" inlet="in"/>
       </net>
       <net>
-         <source obj="Wanderlust_core_V1_1" outlet="JOY0_X"/>
+         <source obj="obj_1" outlet="JOY0_X"/>
          <dest obj="dial_5" inlet="in"/>
       </net>
       <net>
-         <source obj="Wanderlust_core_V1_1" outlet="JOY0_Y"/>
+         <source obj="obj_1" outlet="JOY0_Y"/>
          <dest obj="dial_3" inlet="in"/>
       </net>
       <net>
-         <source obj="Wanderlust_core_V1_1" outlet="JOY1_X"/>
+         <source obj="obj_1" outlet="JOY1_X"/>
          <dest obj="dial_25" inlet="in"/>
       </net>
       <net>
-         <source obj="Wanderlust_core_V1_1" outlet="JOY1_Y"/>
+         <source obj="obj_1" outlet="JOY1_Y"/>
          <dest obj="dial_24" inlet="in"/>
       </net>
       <net>
-         <source obj="Wanderlust_core_V1_1" outlet="JOY2_X"/>
+         <source obj="obj_1" outlet="JOY2_X"/>
          <dest obj="dial_27" inlet="in"/>
       </net>
       <net>
-         <source obj="Wanderlust_core_V1_1" outlet="JOY2_Y"/>
+         <source obj="obj_1" outlet="JOY2_Y"/>
          <dest obj="dial_26" inlet="in"/>
       </net>
       <net>
-         <source obj="Wanderlust_core_V1_1" outlet="JOY3_X"/>
+         <source obj="obj_1" outlet="JOY3_X"/>
          <dest obj="dial_28" inlet="in"/>
       </net>
       <net>
-         <source obj="Wanderlust_core_V1_1" outlet="JOY3_Y"/>
+         <source obj="obj_1" outlet="JOY3_Y"/>
          <dest obj="dial_29" inlet="in"/>
       </net>
       <net>
-         <source obj="Wanderlust_core_V1_1" outlet="Volume"/>
+         <source obj="obj_1" outlet="Volume"/>
          <dest obj="dial_4" inlet="in"/>
       </net>
       <net>
-         <source obj="Wanderlust_core_V1_1" outlet="JOY0_BTN"/>
+         <source obj="obj_1" outlet="JOY0_BTN"/>
          <dest obj="bool_13" inlet="in"/>
       </net>
       <net>
-         <source obj="Wanderlust_core_V1_1" outlet="JOY1_BTN"/>
+         <source obj="obj_1" outlet="JOY1_BTN"/>
          <dest obj="bool_14" inlet="in"/>
       </net>
       <net>
-         <source obj="Wanderlust_core_V1_1" outlet="JOY2_BTN"/>
+         <source obj="obj_1" outlet="JOY2_BTN"/>
          <dest obj="bool_15" inlet="in"/>
       </net>
       <net>
-         <source obj="Wanderlust_core_V1_1" outlet="JOY3_BTN"/>
+         <source obj="obj_1" outlet="JOY3_BTN"/>
          <dest obj="bool_16" inlet="in"/>
       </net>
       <net>
          <source obj="c_2" outlet="out"/>
-         <dest obj="Wanderlust_core_V1_1" inlet="OLED A1"/>
+         <dest obj="obj_1" inlet="OLED A1"/>
       </net>
       <net>
          <source obj="c_3" outlet="out"/>
-         <dest obj="Wanderlust_core_V1_1" inlet="OLED A2"/>
+         <dest obj="obj_1" inlet="OLED A2"/>
       </net>
       <net>
          <source obj="c_4" outlet="out"/>
-         <dest obj="Wanderlust_core_V1_1" inlet="OLED A3"/>
+         <dest obj="obj_1" inlet="OLED A3"/>
       </net>
       <net>
          <source obj="c_5" outlet="out"/>
-         <dest obj="Wanderlust_core_V1_1" inlet="OLED B0"/>
+         <dest obj="obj_1" inlet="OLED B0"/>
       </net>
       <net>
          <source obj="c_6" outlet="out"/>
-         <dest obj="Wanderlust_core_V1_1" inlet="OLED B1"/>
+         <dest obj="obj_1" inlet="OLED B1"/>
       </net>
       <net>
          <source obj="c_7" outlet="out"/>
-         <dest obj="Wanderlust_core_V1_1" inlet="OLED B2"/>
+         <dest obj="obj_1" inlet="OLED B2"/>
       </net>
       <net>
          <source obj="c_8" outlet="out"/>
-         <dest obj="Wanderlust_core_V1_1" inlet="OLED B3"/>
+         <dest obj="obj_1" inlet="OLED B3"/>
       </net>
       <net>
          <source obj="c_9" outlet="out"/>
-         <dest obj="Wanderlust_core_V1_1" inlet="OLED C0"/>
+         <dest obj="obj_1" inlet="OLED C0"/>
       </net>
       <net>
          <source obj="c_10" outlet="out"/>
-         <dest obj="Wanderlust_core_V1_1" inlet="OLED C1"/>
+         <dest obj="obj_1" inlet="OLED C1"/>
       </net>
       <net>
          <source obj="c_11" outlet="out"/>
-         <dest obj="Wanderlust_core_V1_1" inlet="OLED C2"/>
+         <dest obj="obj_1" inlet="OLED C2"/>
       </net>
       <net>
          <source obj="c_12" outlet="out"/>
-         <dest obj="Wanderlust_core_V1_1" inlet="OLED C3"/>
+         <dest obj="obj_1" inlet="OLED C3"/>
       </net>
       <net>
          <source obj="c_13" outlet="out"/>
-         <dest obj="Wanderlust_core_V1_1" inlet="OLED D0"/>
+         <dest obj="obj_1" inlet="OLED D0"/>
       </net>
       <net>
          <source obj="c_14" outlet="out"/>
-         <dest obj="Wanderlust_core_V1_1" inlet="OLED D1"/>
+         <dest obj="obj_1" inlet="OLED D1"/>
       </net>
       <net>
          <source obj="c_15" outlet="out"/>
-         <dest obj="Wanderlust_core_V1_1" inlet="OLED D2"/>
+         <dest obj="obj_1" inlet="OLED D2"/>
       </net>
       <net>
          <source obj="c_16" outlet="out"/>
-         <dest obj="Wanderlust_core_V1_1" inlet="OLED D3"/>
+         <dest obj="obj_1" inlet="OLED D3"/>
       </net>
       <net>
          <source obj="c_1" outlet="out"/>
-         <dest obj="Wanderlust_core_V1_1" inlet="OLED A0"/>
+         <dest obj="obj_1" inlet="OLED A0"/>
       </net>
       <net>
-         <source obj="Wanderlust_core_V1_1" outlet="knob_top_0"/>
+         <source obj="obj_1" outlet="knob_top_0"/>
          <dest obj="dial_1" inlet="in"/>
       </net>
       <net>
-         <source obj="Wanderlust_core_V1_1" outlet="JOY0_UP"/>
+         <source obj="obj_1" outlet="JOY0_UP"/>
          <dest obj="bool_2" inlet="in"/>
       </net>
       <net>
-         <source obj="Wanderlust_core_V1_1" outlet="JOY0_DN"/>
+         <source obj="obj_1" outlet="JOY0_DN"/>
          <dest obj="bool_4" inlet="in"/>
       </net>
       <net>
-         <source obj="Wanderlust_core_V1_1" outlet="JOY0_RT"/>
+         <source obj="obj_1" outlet="JOY0_RT"/>
          <dest obj="bool_3" inlet="in"/>
       </net>
       <net>
-         <source obj="Wanderlust_core_V1_1" outlet="JOY0_LT"/>
+         <source obj="obj_1" outlet="JOY0_LT"/>
          <dest obj="bool_1" inlet="in"/>
       </net>
       <net>
-         <source obj="Wanderlust_core_V1_1" outlet="JOY1_UP"/>
+         <source obj="obj_1" outlet="JOY1_UP"/>
          <dest obj="bool_5" inlet="in"/>
       </net>
       <net>
-         <source obj="Wanderlust_core_V1_1" outlet="JOY1_DN"/>
+         <source obj="obj_1" outlet="JOY1_DN"/>
          <dest obj="bool_8" inlet="in"/>
       </net>
       <net>
-         <source obj="Wanderlust_core_V1_1" outlet="JOY1_RT"/>
+         <source obj="obj_1" outlet="JOY1_RT"/>
          <dest obj="bool_7" inlet="in"/>
       </net>
       <net>
-         <source obj="Wanderlust_core_V1_1" outlet="JOY1_LT"/>
+         <source obj="obj_1" outlet="JOY1_LT"/>
          <dest obj="bool_6" inlet="in"/>
       </net>
       <net>
-         <source obj="Wanderlust_core_V1_1" outlet="JOY2_UP"/>
+         <source obj="obj_1" outlet="JOY2_UP"/>
          <dest obj="bool_9" inlet="in"/>
       </net>
       <net>
-         <source obj="Wanderlust_core_V1_1" outlet="JOY2_DN"/>
+         <source obj="obj_1" outlet="JOY2_DN"/>
          <dest obj="bool_19" inlet="in"/>
       </net>
       <net>
-         <source obj="Wanderlust_core_V1_1" outlet="JOY2_RT"/>
+         <source obj="obj_1" outlet="JOY2_RT"/>
          <dest obj="bool_12" inlet="in"/>
       </net>
       <net>
-         <source obj="Wanderlust_core_V1_1" outlet="JOY2_LT"/>
+         <source obj="obj_1" outlet="JOY2_LT"/>
          <dest obj="bool_11" inlet="in"/>
       </net>
       <net>
-         <source obj="Wanderlust_core_V1_1" outlet="JOY3_UP"/>
+         <source obj="obj_1" outlet="JOY3_UP"/>
          <dest obj="bool_10" inlet="in"/>
       </net>
       <net>
-         <source obj="Wanderlust_core_V1_1" outlet="JOY3_DN"/>
+         <source obj="obj_1" outlet="JOY3_DN"/>
          <dest obj="bool_20" inlet="in"/>
       </net>
       <net>
-         <source obj="Wanderlust_core_V1_1" outlet="JOY3_RT"/>
+         <source obj="obj_1" outlet="JOY3_RT"/>
          <dest obj="bool_18" inlet="in"/>
       </net>
       <net>
-         <source obj="Wanderlust_core_V1_1" outlet="JOY3_LT"/>
+         <source obj="obj_1" outlet="JOY3_LT"/>
          <dest obj="bool_17" inlet="in"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="POR"/>
+         <dest obj="bool_22" inlet="in"/>
       </net>
    </nets>
    <settings>

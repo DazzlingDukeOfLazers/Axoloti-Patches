@@ -31,6 +31,10 @@
       <params/>
       <attribs/>
    </obj>
+   <obj type="logic/inv" uuid="2bd44b865d3b63ff9b80862242bf5be779e3ad5" name="inv_4" x="2086" y="182">
+      <params/>
+      <attribs/>
+   </obj>
    <obj type="math/&gt;c" uuid="99f2934d97d62b715a829979ef6c8abef35dcdb2" name="&gt;c_2" x="2268" y="210">
       <params>
          <frac32.u.map name="c" value="40.0"/>
@@ -902,9 +906,9 @@ void loop(void)
       </net>
       <net>
          <source obj="BelievotronCore_PCB1005_KnobCore_1" outlet="knbB7_"/>
-         <dest obj="&lt;c_8" inlet="in"/>
-         <dest obj="&gt;c_8" inlet="in"/>
          <dest obj="unipolar2bipolar_4" inlet="i"/>
+         <dest obj="&gt;c_8" inlet="in"/>
+         <dest obj="&lt;c_8" inlet="in"/>
       </net>
       <net>
          <source obj="unipolar2bipolar_5" outlet="o"/>
@@ -1251,22 +1255,7 @@ void loop(void)
          <source obj="BelievotronCore_PCB1005_KnobCore_1" outlet="POR_"/>
          <dest obj="POR" inlet="outlet"/>
          <dest obj="inv_3" inlet="i"/>
-         <dest obj="and_5" inlet="i1"/>
-         <dest obj="and_6" inlet="i1"/>
-         <dest obj="and_7" inlet="i1"/>
-         <dest obj="and_8" inlet="i1"/>
-         <dest obj="and_9" inlet="i1"/>
-         <dest obj="and_10" inlet="i1"/>
-         <dest obj="and_11" inlet="i1"/>
-         <dest obj="and_12" inlet="i1"/>
-         <dest obj="and_13" inlet="i1"/>
-         <dest obj="and_14" inlet="i1"/>
-         <dest obj="and_15" inlet="i1"/>
-         <dest obj="and_16" inlet="i1"/>
-         <dest obj="and_17" inlet="i1"/>
-         <dest obj="and_18" inlet="i1"/>
-         <dest obj="and_19" inlet="i1"/>
-         <dest obj="and_20" inlet="i1"/>
+         <dest obj="inv_4" inlet="i"/>
       </net>
       <net>
          <source obj="inv_3" outlet="o"/>
@@ -1362,6 +1351,33 @@ void loop(void)
       <net>
          <source obj="and_19" outlet="o"/>
          <dest obj="JOY3_RT" inlet="outlet"/>
+      </net>
+      <net>
+         <source obj="inv_4" outlet="o"/>
+         <dest obj="and_5" inlet="i1"/>
+         <dest obj="and_6" inlet="i1"/>
+         <dest obj="and_7" inlet="i1"/>
+         <dest obj="and_8" inlet="i1"/>
+         <dest obj="and_9" inlet="i1"/>
+         <dest obj="and_10" inlet="i1"/>
+         <dest obj="and_11" inlet="i1"/>
+         <dest obj="and_12" inlet="i1"/>
+         <dest obj="and_13" inlet="i1"/>
+         <dest obj="and_14" inlet="i1"/>
+         <dest obj="and_15" inlet="i1"/>
+         <dest obj="and_16" inlet="i1"/>
+         <dest obj="and_17" inlet="i1"/>
+         <dest obj="and_18" inlet="i1"/>
+         <dest obj="and_19" inlet="i1"/>
+         <dest obj="and_20" inlet="i1"/>
+      </net>
+      <net>
+         <source obj="&gt;c_6" outlet="out"/>
+         <dest obj="and_15" inlet="i2"/>
+      </net>
+      <net>
+         <source obj="unipolar2bipolar_2" outlet="o"/>
+         <dest obj="JOY1_X" inlet="outlet"/>
       </net>
    </nets>
    <settings>

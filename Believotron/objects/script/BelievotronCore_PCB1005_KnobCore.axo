@@ -42,7 +42,7 @@
          <frac32 name="knbB4_" description="knbB4"/>
          <frac32 name="knbB5_" description="knbB5"/>
          <frac32 name="knbB6_" description="knbB6"/>
-         <bool32 name="knbB7_"/>
+         <frac32 name="knbB7_"/>
          <bool32 name="POR_" description="Power on reset"/>
       </outlets>
       <displays/>

@@ -9,11 +9,7 @@
       </params>
       <attribs/>
    </obj>
-   <obj type="logic/and 2" uuid="c67031682f552aa0a80b23377495c51ea28a8c9c" name="and_5" x="2352" y="56">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="JOY0_UP" x="2436" y="56">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="JOY0_UP" x="2352" y="56">
       <params/>
       <attribs/>
    </obj>
@@ -23,15 +19,7 @@
       </params>
       <attribs/>
    </obj>
-   <obj type="logic/and 2" uuid="c67031682f552aa0a80b23377495c51ea28a8c9c" name="and_6" x="2352" y="126">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="JOY0_DN" x="2436" y="126">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="logic/inv" uuid="2bd44b865d3b63ff9b80862242bf5be779e3ad5" name="inv_4" x="2086" y="182">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="JOY0_DN" x="2352" y="126">
       <params/>
       <attribs/>
    </obj>
@@ -41,11 +29,7 @@
       </params>
       <attribs/>
    </obj>
-   <obj type="logic/and 2" uuid="c67031682f552aa0a80b23377495c51ea28a8c9c" name="and_7" x="2352" y="210">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="JOY0_RT" x="2436" y="210">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="JOY0_RT" x="2352" y="210">
       <params/>
       <attribs/>
    </obj>
@@ -55,11 +39,7 @@
       </params>
       <attribs/>
    </obj>
-   <obj type="logic/and 2" uuid="c67031682f552aa0a80b23377495c51ea28a8c9c" name="and_8" x="2352" y="294">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="JOY0_LT" x="2436" y="294">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="JOY0_LT" x="2352" y="294">
       <params/>
       <attribs/>
    </obj>
@@ -69,11 +49,7 @@
       </params>
       <attribs/>
    </obj>
-   <obj type="logic/and 2" uuid="c67031682f552aa0a80b23377495c51ea28a8c9c" name="and_9" x="2352" y="392">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="JOY1_UP" x="2436" y="392">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="JOY1_UP" x="2352" y="392">
       <params/>
       <attribs/>
    </obj>
@@ -83,19 +59,11 @@
       </params>
       <attribs/>
    </obj>
-   <obj type="logic/and 2" uuid="c67031682f552aa0a80b23377495c51ea28a8c9c" name="and_10" x="2352" y="476">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="JOY1_DN" x="2352" y="476">
       <params/>
       <attribs/>
    </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="JOY1_DN" x="2436" y="476">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="logic/and 2" uuid="c67031682f552aa0a80b23377495c51ea28a8c9c" name="and_11" x="2352" y="546">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="JOY1_RT" x="2436" y="546">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="JOY1_RT" x="2352" y="546">
       <params/>
       <attribs/>
    </obj>
@@ -105,11 +73,7 @@
       </params>
       <attribs/>
    </obj>
-   <obj type="logic/and 2" uuid="c67031682f552aa0a80b23377495c51ea28a8c9c" name="and_12" x="2352" y="630">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="JOY1_LT" x="2436" y="630">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="JOY1_LT" x="2352" y="630">
       <params/>
       <attribs/>
    </obj>
@@ -125,11 +89,7 @@
       </params>
       <attribs/>
    </obj>
-   <obj type="logic/and 2" uuid="c67031682f552aa0a80b23377495c51ea28a8c9c" name="and_13" x="2352" y="756">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="JOY2_UP" x="2436" y="756">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="JOY2_UP" x="2352" y="756">
       <params/>
       <attribs/>
    </obj>
@@ -139,11 +99,7 @@
       </params>
       <attribs/>
    </obj>
-   <obj type="logic/and 2" uuid="c67031682f552aa0a80b23377495c51ea28a8c9c" name="and_14" x="2352" y="840">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="JOY2_DN" x="2436" y="840">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="JOY2_DN" x="2352" y="840">
       <params/>
       <attribs/>
    </obj>
@@ -153,11 +109,7 @@
       </params>
       <attribs/>
    </obj>
-   <obj type="logic/and 2" uuid="c67031682f552aa0a80b23377495c51ea28a8c9c" name="and_15" x="2352" y="924">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="JOY2_RT" x="2436" y="924">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="JOY2_RT" x="2352" y="924">
       <params/>
       <attribs/>
    </obj>
@@ -167,11 +119,7 @@
       </params>
       <attribs/>
    </obj>
-   <obj type="logic/and 2" uuid="c67031682f552aa0a80b23377495c51ea28a8c9c" name="and_16" x="2352" y="1008">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="JOY2_LT" x="2436" y="1008">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="JOY2_LT" x="2352" y="1008">
       <params/>
       <attribs/>
    </obj>
@@ -181,11 +129,7 @@
       </params>
       <attribs/>
    </obj>
-   <obj type="logic/and 2" uuid="c67031682f552aa0a80b23377495c51ea28a8c9c" name="and_17" x="2352" y="1106">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="JOY3_UP" x="2436" y="1106">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="JOY3_UP" x="2352" y="1106">
       <params/>
       <attribs/>
    </obj>
@@ -195,11 +139,7 @@
       </params>
       <attribs/>
    </obj>
-   <obj type="logic/and 2" uuid="c67031682f552aa0a80b23377495c51ea28a8c9c" name="and_18" x="2352" y="1190">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="JOY3_DN" x="2436" y="1190">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="JOY3_DN" x="2352" y="1190">
       <params/>
       <attribs/>
    </obj>
@@ -209,11 +149,7 @@
       </params>
       <attribs/>
    </obj>
-   <obj type="logic/and 2" uuid="c67031682f552aa0a80b23377495c51ea28a8c9c" name="and_19" x="2352" y="1260">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="JOY3_RT" x="2436" y="1260">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="JOY3_RT" x="2352" y="1260">
       <params/>
       <attribs/>
    </obj>
@@ -223,11 +159,7 @@
       </params>
       <attribs/>
    </obj>
-   <obj type="logic/and 2" uuid="c67031682f552aa0a80b23377495c51ea28a8c9c" name="and_20" x="2352" y="1344">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="JOY3_LT" x="2436" y="1344">
+   <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="JOY3_LT" x="2352" y="1344">
       <params/>
       <attribs/>
    </obj>
@@ -667,14 +599,6 @@ void loop(void)
       <params/>
       <attribs/>
    </obj>
-   <obj type="logic/inv" uuid="2bd44b865d3b63ff9b80862242bf5be779e3ad5" name="inv_3" x="2240" y="2338">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="logic/and 2" uuid="c67031682f552aa0a80b23377495c51ea28a8c9c" name="and_1" x="2324" y="2366">
-      <params/>
-      <attribs/>
-   </obj>
    <obj type="mux/mux 2" uuid="777491e645978e331fcbab6610f52c1aaa5ade0e" name="mux_10" x="1148" y="2380">
       <params/>
       <attribs/>
@@ -721,10 +645,6 @@ void loop(void)
       <params/>
       <attribs/>
    </obj>
-   <obj type="logic/and 2" uuid="c67031682f552aa0a80b23377495c51ea28a8c9c" name="and_2" x="2324" y="2492">
-      <params/>
-      <attribs/>
-   </obj>
    <obj type="mux/mux 2" uuid="777491e645978e331fcbab6610f52c1aaa5ade0e" name="mux_12" x="1148" y="2520">
       <params/>
       <attribs/>
@@ -739,10 +659,6 @@ void loop(void)
          <combo attributeName="pad" selection="PC3"/>
          <combo attributeName="mode" selection="pullup"/>
       </attribs>
-   </obj>
-   <obj type="logic/and 2" uuid="c67031682f552aa0a80b23377495c51ea28a8c9c" name="and_3" x="2338" y="2562">
-      <params/>
-      <attribs/>
    </obj>
    <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="JOY2_BTN" x="2450" y="2562">
       <params/>
@@ -766,10 +682,6 @@ void loop(void)
          <combo attributeName="pad" selection="PC4"/>
          <combo attributeName="mode" selection="pullup"/>
       </attribs>
-   </obj>
-   <obj type="logic/and 2" uuid="c67031682f552aa0a80b23377495c51ea28a8c9c" name="and_4" x="2324" y="2646">
-      <params/>
-      <attribs/>
    </obj>
    <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="JOY3_BTN" x="2450" y="2646">
       <params/>
@@ -815,6 +727,10 @@ void loop(void)
       <net>
          <source obj="digital_2" outlet="out"/>
          <dest obj="inv_1" inlet="i"/>
+      </net>
+      <net>
+         <source obj="inv_1" outlet="o"/>
+         <dest obj="JOY0_BTN" inlet="outlet"/>
       </net>
       <net>
          <source obj="BelievotronCore_PCB1005_KnobCore_1" outlet="knbT0_"/>
@@ -871,12 +787,16 @@ void loop(void)
          <dest obj="inv_5" inlet="i"/>
       </net>
       <net>
+         <source obj="inv_5" outlet="o"/>
+         <dest obj="JOY1_BTN" inlet="outlet"/>
+      </net>
+      <net>
          <source obj="digital_5" outlet="out"/>
          <dest obj="inv_6" inlet="i"/>
       </net>
       <net>
          <source obj="inv_6" outlet="o"/>
-         <dest obj="and_3" inlet="i2"/>
+         <dest obj="JOY2_BTN" inlet="outlet"/>
       </net>
       <net>
          <source obj="digital_6" outlet="out"/>
@@ -884,7 +804,7 @@ void loop(void)
       </net>
       <net>
          <source obj="inv_7" outlet="o"/>
-         <dest obj="and_4" inlet="i2"/>
+         <dest obj="JOY3_BTN" inlet="outlet"/>
       </net>
       <net>
          <source obj="BelievotronCore_PCB1005_KnobCore_1" outlet="knbB1_"/>
@@ -906,9 +826,9 @@ void loop(void)
       </net>
       <net>
          <source obj="BelievotronCore_PCB1005_KnobCore_1" outlet="knbB7_"/>
-         <dest obj="unipolar2bipolar_4" inlet="i"/>
-         <dest obj="&gt;c_8" inlet="in"/>
          <dest obj="&lt;c_8" inlet="in"/>
+         <dest obj="&gt;c_8" inlet="in"/>
+         <dest obj="unipolar2bipolar_4" inlet="i"/>
       </net>
       <net>
          <source obj="unipolar2bipolar_5" outlet="o"/>
@@ -1187,63 +1107,67 @@ void loop(void)
       </net>
       <net>
          <source obj="&gt;c_1" outlet="out"/>
-         <dest obj="and_5" inlet="i2"/>
+         <dest obj="JOY0_UP" inlet="outlet"/>
       </net>
       <net>
          <source obj="&lt;c_1" outlet="out"/>
-         <dest obj="and_6" inlet="i2"/>
+         <dest obj="JOY0_DN" inlet="outlet"/>
       </net>
       <net>
          <source obj="&gt;c_2" outlet="out"/>
-         <dest obj="and_7" inlet="i2"/>
+         <dest obj="JOY0_RT" inlet="outlet"/>
       </net>
       <net>
          <source obj="&lt;c_2" outlet="out"/>
-         <dest obj="and_8" inlet="i2"/>
+         <dest obj="JOY0_LT" inlet="outlet"/>
       </net>
       <net>
          <source obj="&gt;c_3" outlet="out"/>
-         <dest obj="and_9" inlet="i2"/>
+         <dest obj="JOY1_UP" inlet="outlet"/>
       </net>
       <net>
          <source obj="&lt;c_3" outlet="out"/>
-         <dest obj="and_10" inlet="i2"/>
+         <dest obj="JOY1_DN" inlet="outlet"/>
       </net>
       <net>
          <source obj="&gt;c_4" outlet="out"/>
-         <dest obj="and_11" inlet="i2"/>
+         <dest obj="JOY1_RT" inlet="outlet"/>
       </net>
       <net>
          <source obj="&lt;c_4" outlet="out"/>
-         <dest obj="and_12" inlet="i2"/>
+         <dest obj="JOY1_LT" inlet="outlet"/>
       </net>
       <net>
          <source obj="&gt;c_5" outlet="out"/>
-         <dest obj="and_13" inlet="i2"/>
+         <dest obj="JOY2_UP" inlet="outlet"/>
       </net>
       <net>
          <source obj="&lt;c_5" outlet="out"/>
-         <dest obj="and_14" inlet="i2"/>
+         <dest obj="JOY2_DN" inlet="outlet"/>
+      </net>
+      <net>
+         <source obj="&gt;c_6" outlet="out"/>
+         <dest obj="JOY2_RT" inlet="outlet"/>
       </net>
       <net>
          <source obj="&lt;c_6" outlet="out"/>
-         <dest obj="and_16" inlet="i2"/>
+         <dest obj="JOY2_LT" inlet="outlet"/>
       </net>
       <net>
          <source obj="&gt;c_7" outlet="out"/>
-         <dest obj="and_17" inlet="i2"/>
+         <dest obj="JOY3_UP" inlet="outlet"/>
       </net>
       <net>
          <source obj="&lt;c_7" outlet="out"/>
-         <dest obj="and_18" inlet="i2"/>
+         <dest obj="JOY3_DN" inlet="outlet"/>
       </net>
       <net>
          <source obj="&gt;c_8" outlet="out"/>
-         <dest obj="and_19" inlet="i2"/>
+         <dest obj="JOY3_RT" inlet="outlet"/>
       </net>
       <net>
          <source obj="&lt;c_8" outlet="out"/>
-         <dest obj="and_20" inlet="i2"/>
+         <dest obj="JOY3_LT" inlet="outlet"/>
       </net>
       <net>
          <source obj="BelievotronCore_PCB1005_KnobCore_1" outlet="knbB4_"/>
@@ -1254,126 +1178,6 @@ void loop(void)
       <net>
          <source obj="BelievotronCore_PCB1005_KnobCore_1" outlet="POR_"/>
          <dest obj="POR" inlet="outlet"/>
-         <dest obj="inv_3" inlet="i"/>
-         <dest obj="inv_4" inlet="i"/>
-      </net>
-      <net>
-         <source obj="inv_3" outlet="o"/>
-         <dest obj="and_1" inlet="i1"/>
-         <dest obj="and_2" inlet="i1"/>
-         <dest obj="and_3" inlet="i1"/>
-         <dest obj="and_4" inlet="i1"/>
-      </net>
-      <net>
-         <source obj="and_4" outlet="o"/>
-         <dest obj="JOY3_BTN" inlet="outlet"/>
-      </net>
-      <net>
-         <source obj="and_3" outlet="o"/>
-         <dest obj="JOY2_BTN" inlet="outlet"/>
-      </net>
-      <net>
-         <source obj="and_2" outlet="o"/>
-         <dest obj="JOY1_BTN" inlet="outlet"/>
-      </net>
-      <net>
-         <source obj="inv_5" outlet="o"/>
-         <dest obj="and_2" inlet="i2"/>
-      </net>
-      <net>
-         <source obj="and_1" outlet="o"/>
-         <dest obj="JOY0_BTN" inlet="outlet"/>
-      </net>
-      <net>
-         <source obj="inv_1" outlet="o"/>
-         <dest obj="and_1" inlet="i2"/>
-      </net>
-      <net>
-         <source obj="and_20" outlet="o"/>
-         <dest obj="JOY3_LT" inlet="outlet"/>
-      </net>
-      <net>
-         <source obj="and_5" outlet="o"/>
-         <dest obj="JOY0_UP" inlet="outlet"/>
-      </net>
-      <net>
-         <source obj="and_6" outlet="o"/>
-         <dest obj="JOY0_DN" inlet="outlet"/>
-      </net>
-      <net>
-         <source obj="and_7" outlet="o"/>
-         <dest obj="JOY0_RT" inlet="outlet"/>
-      </net>
-      <net>
-         <source obj="and_8" outlet="o"/>
-         <dest obj="JOY0_LT" inlet="outlet"/>
-      </net>
-      <net>
-         <source obj="and_9" outlet="o"/>
-         <dest obj="JOY1_UP" inlet="outlet"/>
-      </net>
-      <net>
-         <source obj="and_10" outlet="o"/>
-         <dest obj="JOY1_DN" inlet="outlet"/>
-      </net>
-      <net>
-         <source obj="and_11" outlet="o"/>
-         <dest obj="JOY1_RT" inlet="outlet"/>
-      </net>
-      <net>
-         <source obj="and_12" outlet="o"/>
-         <dest obj="JOY1_LT" inlet="outlet"/>
-      </net>
-      <net>
-         <source obj="and_13" outlet="o"/>
-         <dest obj="JOY2_UP" inlet="outlet"/>
-      </net>
-      <net>
-         <source obj="and_14" outlet="o"/>
-         <dest obj="JOY2_DN" inlet="outlet"/>
-      </net>
-      <net>
-         <source obj="and_15" outlet="o"/>
-         <dest obj="JOY2_RT" inlet="outlet"/>
-      </net>
-      <net>
-         <source obj="and_16" outlet="o"/>
-         <dest obj="JOY2_LT" inlet="outlet"/>
-      </net>
-      <net>
-         <source obj="and_17" outlet="o"/>
-         <dest obj="JOY3_UP" inlet="outlet"/>
-      </net>
-      <net>
-         <source obj="and_18" outlet="o"/>
-         <dest obj="JOY3_DN" inlet="outlet"/>
-      </net>
-      <net>
-         <source obj="and_19" outlet="o"/>
-         <dest obj="JOY3_RT" inlet="outlet"/>
-      </net>
-      <net>
-         <source obj="inv_4" outlet="o"/>
-         <dest obj="and_5" inlet="i1"/>
-         <dest obj="and_6" inlet="i1"/>
-         <dest obj="and_7" inlet="i1"/>
-         <dest obj="and_8" inlet="i1"/>
-         <dest obj="and_9" inlet="i1"/>
-         <dest obj="and_10" inlet="i1"/>
-         <dest obj="and_11" inlet="i1"/>
-         <dest obj="and_12" inlet="i1"/>
-         <dest obj="and_13" inlet="i1"/>
-         <dest obj="and_14" inlet="i1"/>
-         <dest obj="and_15" inlet="i1"/>
-         <dest obj="and_16" inlet="i1"/>
-         <dest obj="and_17" inlet="i1"/>
-         <dest obj="and_18" inlet="i1"/>
-         <dest obj="and_19" inlet="i1"/>
-         <dest obj="and_20" inlet="i1"/>
-      </net>
-      <net>
-         <source obj="&gt;c_6" outlet="out"/>
-         <dest obj="and_15" inlet="i2"/>
       </net>
       <net>
          <source obj="unipolar2bipolar_2" outlet="o"/>

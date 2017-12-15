@@ -47,7 +47,7 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="or08" uuid="cf68ef0f-77bf-488c-826b-5b0449c05180" name="or08_1" x="1008" y="336">
+   <obj type="logic/or08" uuid="61c520d7-6b3c-47c6-8274-8e4756069420" name="obj_2" x="1008" y="336">
       <params/>
       <attribs/>
    </obj>
@@ -247,7 +247,7 @@
       </net>
       <net>
          <source obj="obj_1" outlet="JOY0_BTN"/>
-         <dest obj="or08_1" inlet="i00"/>
+         <dest obj="obj_2" inlet="i00"/>
       </net>
       <net>
          <source obj="i_1" outlet="out"/>
@@ -292,7 +292,7 @@
       <net>
          <source obj="obj_1" outlet="JOY3_BTN"/>
          <dest obj="or_1" inlet="i2"/>
-         <dest obj="or08_1" inlet="i03"/>
+         <dest obj="obj_2" inlet="i03"/>
       </net>
       <net>
          <source obj="toggle_2" outlet="o"/>
@@ -325,14 +325,14 @@
       </net>
       <net>
          <source obj="obj_1" outlet="JOY1_BTN"/>
-         <dest obj="or08_1" inlet="i01"/>
+         <dest obj="obj_2" inlet="i01"/>
       </net>
       <net>
          <source obj="obj_1" outlet="JOY2_BTN"/>
-         <dest obj="or08_1" inlet="i02"/>
+         <dest obj="obj_2" inlet="i02"/>
       </net>
       <net>
-         <source obj="or08_1" outlet="or16"/>
+         <source obj="obj_2" outlet="or16"/>
          <dest obj="load_1" inlet="trig"/>
       </net>
    </nets>
@@ -343,7 +343,7 @@
    <windowPos>
       <x>-8</x>
       <y>-8</y>
-      <width>1516</width>
-      <height>1016</height>
+      <width>1514</width>
+      <height>1014</height>
    </windowPos>
 </patch-1.0>

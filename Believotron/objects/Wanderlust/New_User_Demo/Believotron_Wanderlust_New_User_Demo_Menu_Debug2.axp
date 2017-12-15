@@ -1,0 +1,143 @@
+<patch-1.0 appVersion="1.0.12">
+   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_1" x="0" y="70">
+      <params/>
+      <attribs>
+         <table attributeName="str" table="Menu"/>
+      </attribs>
+   </obj>
+   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_5" x="182" y="70">
+      <params/>
+      <attribs>
+         <table attributeName="str" table=""/>
+      </attribs>
+   </obj>
+   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_9" x="378" y="70">
+      <params/>
+      <attribs>
+         <table attributeName="str" table=""/>
+      </attribs>
+   </obj>
+   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_13" x="574" y="70">
+      <params/>
+      <attribs>
+         <table attributeName="str" table="J3U Doom Tuba"/>
+      </attribs>
+   </obj>
+   <obj type="Wanderlust/Wanderlust_core_V1" uuid="a6fe3c19-f6f9-4ff7-a2b2-2f46239c7aa3" name="obj_1" x="812" y="70">
+      <params>
+         <bool32.tgl name="Reverse Knobs" value="0"/>
+         <bool32.tgl name="Default_OLED_TXT" value="0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="const/i" uuid="e202f44b2df17ae0b3e663b98ea6b14c8ff00408" name="i_1" x="1050" y="98">
+      <params/>
+      <attribs>
+         <spinner attributeName="value" value="2"/>
+      </attribs>
+   </obj>
+   <obj type="patch/load i" uuid="b79124f5b7d1e8b39e187677ddab6260ce8c60a3" name="load_1" x="1176" y="98">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_2" x="0" y="140">
+      <params/>
+      <attribs>
+         <table attributeName="str" table=""/>
+      </attribs>
+   </obj>
+   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_6" x="182" y="140">
+      <params/>
+      <attribs>
+         <table attributeName="str" table=""/>
+      </attribs>
+   </obj>
+   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_10" x="378" y="140">
+      <params/>
+      <attribs>
+         <table attributeName="str" table=""/>
+      </attribs>
+   </obj>
+   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_14" x="574" y="140">
+      <params/>
+      <attribs>
+         <table attributeName="str" table="J3R Drip Bell"/>
+      </attribs>
+   </obj>
+   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_3" x="0" y="210">
+      <params/>
+      <attribs>
+         <table attributeName="str" table="J0B Step Seq"/>
+      </attribs>
+   </obj>
+   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_7" x="182" y="210">
+      <params/>
+      <attribs>
+         <table attributeName="str" table="J1B Drum Lab"/>
+      </attribs>
+   </obj>
+   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_11" x="378" y="210">
+      <params/>
+      <attribs>
+         <table attributeName="str" table="J2B Noise Lab"/>
+      </attribs>
+   </obj>
+   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_15" x="574" y="210">
+      <params/>
+      <attribs>
+         <table attributeName="str" table="J3D Ice Breath"/>
+      </attribs>
+   </obj>
+   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_4" x="0" y="280">
+      <params/>
+      <attribs>
+         <table attributeName="str" table=""/>
+      </attribs>
+   </obj>
+   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_8" x="182" y="280">
+      <params/>
+      <attribs>
+         <table attributeName="str" table=""/>
+      </attribs>
+   </obj>
+   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_12" x="378" y="280">
+      <params/>
+      <attribs>
+         <table attributeName="str" table=""/>
+      </attribs>
+   </obj>
+   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_16" x="574" y="280">
+      <params/>
+      <attribs>
+         <table attributeName="str" table="J3L Rubber Key"/>
+      </attribs>
+   </obj>
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_1" x="1022" y="532">
+      <params/>
+      <attribs/>
+   </obj>
+   <nets>
+      <net>
+         <source obj="obj_1" outlet="JOY0_BTN"/>
+         <dest obj="bool_1" inlet="in"/>
+      </net>
+      <net>
+         <source obj="i_1" outlet="out"/>
+         <dest obj="load_1" inlet="i"/>
+      </net>
+      <net>
+         <source obj="c_16" outlet="out"/>
+         <dest obj="obj_1" inlet="OLED D3"/>
+      </net>
+   </nets>
+   <settings>
+      <subpatchmode>no</subpatchmode>
+   </settings>
+   <notes><![CDATA[]]></notes>
+   <windowPos>
+      <x>190</x>
+      <y>223</y>
+      <width>1234</width>
+      <height>780</height>
+   </windowPos>
+</patch-1.0>

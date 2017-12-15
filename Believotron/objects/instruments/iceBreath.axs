@@ -1,10 +1,10 @@
-<patch-1.0 appVersion="1.0.10">
+<patch-1.0 appVersion="1.0.12">
    <obj type="logic/change" uuid="42071f8cb4cfe1f35956c0bd5a313a57e049bec4" name="change_2" x="308" y="112">
       <params/>
       <attribs/>
    </obj>
    <comment type="patch/comment" x="420" y="126" text="noise burst as excitation"/>
-   <obj type="noise/uniform" sha="117e0adca76d1dc3810e120a06d022ef06093103" name="rand_2" x="462" y="168">
+   <obj type="noise/uniform" uuid="a3926ef22ae9ac217cd09933d90101848796eb78" name="rand_2" x="462" y="168">
       <params/>
       <attribs/>
    </obj>
@@ -15,17 +15,17 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="env/d" sha="d9f7cfe1295d7bcc550714a18126d4f73c7c8411" name="envd1__" x="364" y="224">
+   <obj type="env/d" uuid="190ae648e41832b41adbedb465317c18a010aefe" name="envd1__" x="364" y="224">
       <params>
          <frac32.s.map name="d" value="18.0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="gain/vca" sha="6bbeaeb94e74091879965461ad0cb043f2e7f6cf" name="vca_8" x="490" y="224">
+   <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_8" x="490" y="224">
       <params/>
       <attribs/>
    </obj>
-   <obj type="filter/lp" sha="f08f8ceddfd25d03290d4164aa7884cd7257e242" name="lpf_1" x="560" y="224">
+   <obj type="filter/lp" uuid="1427779cf086ab83c8b03eeeac69c2a97759c651" name="lpf_1" x="560" y="224">
       <params>
          <frac32.s.map name="pitch" value="26.0"/>
          <frac32.u.map name="reso" value="5.0"/>
@@ -38,7 +38,7 @@
       </params>
       <attribs/>
    </obj>
-   <obj type="filter/vcf3" sha="2a5cccf4517f54d2450ab7518925f49e4c41c837" name="voice 1" x="798" y="224">
+   <obj type="filter/vcf3" uuid="92455c652cd098cbb682a5497baa18abbf2ef865" name="voice 1" x="798" y="224">
       <params>
          <frac32.s.map name="pitch" onParent="true" value="-13.0"/>
          <frac32.u.map name="reso" value="60.0"/>
@@ -47,15 +47,23 @@
    </obj>
    <comment type="patch/comment" x="364" y="322" text="high = short burst"/>
    <comment type="patch/comment" x="364" y="336" text="low = long burst"/>
-   <obj type="filter/vcf3" sha="2a5cccf4517f54d2450ab7518925f49e4c41c837" name="voice 2" x="798" y="364">
+   <obj type="patch/inlet f" uuid="5c585d2dcd9c05631e345ac09626a22a639d7c13" name="resonate1" x="98" y="364">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="filter/vcf3" uuid="92455c652cd098cbb682a5497baa18abbf2ef865" name="voice 2" x="798" y="364">
       <params>
          <frac32.s.map name="pitch" onParent="true" value="-6.0"/>
          <frac32.u.map name="reso" value="63.0"/>
       </params>
       <attribs/>
    </obj>
+   <obj type="patch/inlet f" uuid="5c585d2dcd9c05631e345ac09626a22a639d7c13" name="resonate2" x="98" y="462">
+      <params/>
+      <attribs/>
+   </obj>
    <comment type="patch/comment" x="1078" y="490" text="volume"/>
-   <obj type="filter/vcf3" sha="2a5cccf4517f54d2450ab7518925f49e4c41c837" name="voice 3" x="798" y="518">
+   <obj type="filter/vcf3" uuid="92455c652cd098cbb682a5497baa18abbf2ef865" name="voice 3" x="798" y="518">
       <params>
          <frac32.s.map name="pitch" onParent="true" value="-15.0"/>
          <frac32.u.map name="reso" value="60.5"/>
@@ -134,14 +142,22 @@
          <source obj="*c_5" outlet="out"/>
          <dest obj="outlet_1" inlet="outlet"/>
       </net>
+      <net>
+         <source obj="resonate1" outlet="inlet"/>
+         <dest obj="voice 1" inlet="reso"/>
+      </net>
+      <net>
+         <source obj="resonate2" outlet="inlet"/>
+         <dest obj="voice 2" inlet="reso"/>
+      </net>
    </nets>
    <settings>
       <subpatchmode>no</subpatchmode>
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>-1824</x>
-      <y>78</y>
+      <x>12</x>
+      <y>60</y>
       <width>1423</width>
       <height>880</height>
    </windowPos>

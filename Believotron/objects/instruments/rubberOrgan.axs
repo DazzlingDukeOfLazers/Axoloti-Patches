@@ -1,4 +1,4 @@
-<patch-1.0 appVersion="1.0.10">
+<patch-1.0 appVersion="1.0.12">
    <obj type="patch/inlet f" uuid="5c585d2dcd9c05631e345ac09626a22a639d7c13" name="inlet_1" x="70" y="196">
       <params/>
       <attribs/>
@@ -23,19 +23,19 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="osc/sine" sha="edec4a9d5f533ea748cd564ce8c69673dd78742f" name="osc_1" x="728" y="322">
+   <obj type="osc/sine" uuid="6e094045cca76a9dbf7ebfa72e44e4700d2b3ba" name="osc_1" x="728" y="322">
       <params>
          <frac32.s.map name="pitch" value="0.0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="env/d" sha="d9f7cfe1295d7bcc550714a18126d4f73c7c8411" name="envd1_" x="840" y="322">
+   <obj type="env/d" uuid="190ae648e41832b41adbedb465317c18a010aefe" name="envd1_" x="840" y="322">
       <params>
          <frac32.s.map name="d" value="64.0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="gain/vca" sha="6bbeaeb94e74091879965461ad0cb043f2e7f6cf" name="vca_4" x="966" y="322">
+   <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_4" x="966" y="322">
       <params/>
       <attribs/>
    </obj>
@@ -49,19 +49,19 @@
       </params>
       <attribs/>
    </obj>
-   <obj type="osc/sine" sha="edec4a9d5f533ea748cd564ce8c69673dd78742f" name="osc_2" x="728" y="462">
+   <obj type="osc/sine" uuid="6e094045cca76a9dbf7ebfa72e44e4700d2b3ba" name="osc_2" x="728" y="462">
       <params>
          <frac32.s.map name="pitch" value="-7.0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="env/d" sha="d9f7cfe1295d7bcc550714a18126d4f73c7c8411" name="envd2" x="840" y="462">
+   <obj type="env/d" uuid="190ae648e41832b41adbedb465317c18a010aefe" name="envd2" x="840" y="462">
       <params>
          <frac32.s.map name="d" value="64.0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="gain/vca" sha="6bbeaeb94e74091879965461ad0cb043f2e7f6cf" name="vca_5" x="966" y="462">
+   <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_5" x="966" y="462">
       <params/>
       <attribs/>
    </obj>
@@ -87,19 +87,19 @@
       </params>
       <attribs/>
    </obj>
-   <obj type="osc/sine" sha="edec4a9d5f533ea748cd564ce8c69673dd78742f" name="osc_3" x="728" y="602">
+   <obj type="osc/sine" uuid="6e094045cca76a9dbf7ebfa72e44e4700d2b3ba" name="osc_3" x="728" y="602">
       <params>
          <frac32.s.map name="pitch" value="0.0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="env/d" sha="d9f7cfe1295d7bcc550714a18126d4f73c7c8411" name="envd3" x="840" y="602">
+   <obj type="env/d" uuid="190ae648e41832b41adbedb465317c18a010aefe" name="envd3" x="840" y="602">
       <params>
          <frac32.s.map name="d" value="41.0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="gain/vca" sha="6bbeaeb94e74091879965461ad0cb043f2e7f6cf" name="vca_6" x="966" y="602">
+   <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_6" x="966" y="602">
       <params/>
       <attribs/>
    </obj>
@@ -193,12 +193,19 @@
       </net>
    </nets>
    <settings>
-      <subpatchmode>no</subpatchmode>
+      <subpatchmode>polyphonic</subpatchmode>
+      <MidiChannel>1</MidiChannel>
+      <NPresets>8</NPresets>
+      <NPresetEntries>32</NPresetEntries>
+      <NModulationSources>8</NModulationSources>
+      <NModulationTargetsPerSource>8</NModulationTargetsPerSource>
+      <Author></Author>
+      <Saturate>false</Saturate>
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>-1830</x>
-      <y>-18</y>
+      <x>161</x>
+      <y>46</y>
       <width>1252</width>
       <height>893</height>
    </windowPos>

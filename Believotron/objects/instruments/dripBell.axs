@@ -42,12 +42,19 @@
       </net>
    </nets>
    <settings>
-      <subpatchmode>no</subpatchmode>
+      <subpatchmode>polyphonic</subpatchmode>
+      <MidiChannel>1</MidiChannel>
+      <NPresets>8</NPresets>
+      <NPresetEntries>32</NPresetEntries>
+      <NModulationSources>8</NModulationSources>
+      <NModulationTargetsPerSource>8</NModulationTargetsPerSource>
+      <Author></Author>
+      <Saturate>false</Saturate>
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>-892</x>
-      <y>414</y>
+      <x>416</x>
+      <y>168</y>
       <width>638</width>
       <height>400</height>
    </windowPos>

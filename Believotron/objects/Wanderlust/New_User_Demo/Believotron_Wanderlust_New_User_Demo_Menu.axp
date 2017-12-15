@@ -1,5 +1,5 @@
 <patch-1.0 appVersion="1.0.12">
-   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_1" x="1246" y="70">
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_1" x="1246" y="126">
       <params>
          <int32 name="value" value="2"/>
       </params>
@@ -9,11 +9,17 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="logic/or08" uuid="eeee76c7-4d6a-41f7-b93b-8c8a4b4b2e48" name="obj_8" x="1232" y="140">
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_1" x="1806" y="182">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_1" x="1806" y="182">
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_2" x="1246" y="196">
+      <params>
+         <int32 name="value" value="3"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="patch/load i" uuid="b79124f5b7d1e8b39e187677ddab6260ce8c60a3" name="load_2" x="1330" y="196">
       <params/>
       <attribs/>
    </obj>
@@ -26,6 +32,16 @@
          <frac32.u.map name="gain1" value="32.0"/>
          <frac32.u.map name="gain2" value="32.0"/>
       </params>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_3" x="1246" y="266">
+      <params>
+         <int32 name="value" value="4"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="patch/load i" uuid="b79124f5b7d1e8b39e187677ddab6260ce8c60a3" name="load_3" x="1330" y="266">
+      <params/>
       <attribs/>
    </obj>
    <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_3" x="1806" y="266">
@@ -56,7 +72,7 @@
          <table attributeName="str" table=""/>
       </attribs>
    </obj>
-   <obj type="Wanderlust/Wanderlust_core_V1" uuid="03180cdd-a570-48eb-8028-0a0f5aa03202" name="obj_3" x="812" y="280">
+   <obj type="Wanderlust/Wanderlust_core_V1" uuid="c519394b-f1ce-43a1-a56a-203e600fe57d" name="obj_3" x="812" y="280">
       <params>
          <bool32.tgl name="Reverse Knobs" value="0"/>
          <bool32.tgl name="Default_OLED_TXT" value="0"/>
@@ -79,28 +95,38 @@
       <params/>
       <attribs/>
    </obj>
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_4" x="1246" y="336">
+      <params>
+         <int32 name="value" value="5"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="patch/load i" uuid="b79124f5b7d1e8b39e187677ddab6260ce8c60a3" name="load_4" x="1330" y="336">
+      <params/>
+      <attribs/>
+   </obj>
    <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_2" x="0" y="350">
       <params/>
       <attribs>
-         <table attributeName="str" table="J1.B Step-Seq"/>
+         <table attributeName="str" table="J0B Step-Seq"/>
       </attribs>
    </obj>
    <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_6" x="196" y="350">
       <params/>
       <attribs>
-         <table attributeName="str" table=""/>
+         <table attributeName="str" table="J1B Drumlab"/>
       </attribs>
    </obj>
    <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_10" x="392" y="350">
       <params/>
       <attribs>
-         <table attributeName="str" table=""/>
+         <table attributeName="str" table="J2B NoiseLab"/>
       </attribs>
    </obj>
    <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_14" x="588" y="350">
       <params/>
       <attribs>
-         <table attributeName="str" table=""/>
+         <table attributeName="str" table="J3B TBD"/>
       </attribs>
    </obj>
    <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_4" x="1806" y="350">
@@ -663,23 +689,31 @@
       </net>
       <net>
          <source obj="obj_3" outlet="JOY0_BTN"/>
-         <dest obj="obj_8" inlet="i00"/>
+         <dest obj="load_1" inlet="trig"/>
+      </net>
+      <net>
+         <source obj="i_2" outlet="out"/>
+         <dest obj="load_2" inlet="i"/>
+      </net>
+      <net>
+         <source obj="i_3" outlet="out"/>
+         <dest obj="load_3" inlet="i"/>
+      </net>
+      <net>
+         <source obj="i_4" outlet="out"/>
+         <dest obj="load_4" inlet="i"/>
       </net>
       <net>
          <source obj="obj_3" outlet="JOY1_BTN"/>
-         <dest obj="obj_8" inlet="i01"/>
+         <dest obj="load_2" inlet="trig"/>
       </net>
       <net>
          <source obj="obj_3" outlet="JOY2_BTN"/>
-         <dest obj="obj_8" inlet="i02"/>
+         <dest obj="load_3" inlet="trig"/>
       </net>
       <net>
          <source obj="obj_3" outlet="JOY3_BTN"/>
-         <dest obj="obj_8" inlet="i03"/>
-      </net>
-      <net>
-         <source obj="obj_8" outlet="or16"/>
-         <dest obj="load_1" inlet="trig"/>
+         <dest obj="load_4" inlet="trig"/>
       </net>
    </nets>
    <settings>

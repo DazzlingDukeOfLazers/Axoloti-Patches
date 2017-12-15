@@ -85,7 +85,7 @@
          <table attributeName="str" table="Open Source"/>
       </attribs>
    </obj>
-   <obj type="Wanderlust/Wanderlust_core_V1" uuid="c519394b-f1ce-43a1-a56a-203e600fe57d" name="obj_1" x="812" y="504">
+   <obj type="Wanderlust/Wanderlust_core_V1" uuid="e42c9249-f837-4ef9-a647-9767ac4f3f73" name="obj_1" x="812" y="504">
       <params>
          <bool32.tgl name="Reverse Knobs" value="0"/>
          <bool32.tgl name="Default_OLED_TXT" value="0"/>
@@ -341,9 +341,9 @@
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>-8</x>
-      <y>-8</y>
-      <width>1516</width>
-      <height>1016</height>
+      <x>743</x>
+      <y>0</y>
+      <width>764</width>
+      <height>1007</height>
    </windowPos>
 </patch-1.0>

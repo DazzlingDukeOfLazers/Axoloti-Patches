@@ -599,6 +599,10 @@ void loop(void)
       <params/>
       <attribs/>
    </obj>
+   <obj type="logic/inv" uuid="2bd44b865d3b63ff9b80862242bf5be779e3ad5" name="inv_3" x="2254" y="2338">
+      <params/>
+      <attribs/>
+   </obj>
    <obj type="mux/mux 2" uuid="777491e645978e331fcbab6610f52c1aaa5ade0e" name="mux_10" x="1148" y="2380">
       <params/>
       <attribs/>
@@ -613,6 +617,10 @@ void loop(void)
          <combo attributeName="pad" selection="PC1"/>
          <combo attributeName="mode" selection="pullup"/>
       </attribs>
+   </obj>
+   <obj type="logic/and 2" uuid="c67031682f552aa0a80b23377495c51ea28a8c9c" name="and_1" x="2338" y="2394">
+      <params/>
+      <attribs/>
    </obj>
    <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="JOY0_BTN" x="2450" y="2394">
       <params/>
@@ -637,6 +645,10 @@ void loop(void)
          <combo attributeName="mode" selection="pullup"/>
       </attribs>
    </obj>
+   <obj type="logic/and 2" uuid="c67031682f552aa0a80b23377495c51ea28a8c9c" name="and_2" x="2338" y="2478">
+      <params/>
+      <attribs/>
+   </obj>
    <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="JOY1_BTN" x="2450" y="2478">
       <params/>
       <attribs/>
@@ -660,6 +672,10 @@ void loop(void)
          <combo attributeName="mode" selection="pullup"/>
       </attribs>
    </obj>
+   <obj type="logic/and 2" uuid="c67031682f552aa0a80b23377495c51ea28a8c9c" name="and_3" x="2338" y="2562">
+      <params/>
+      <attribs/>
+   </obj>
    <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="JOY2_BTN" x="2450" y="2562">
       <params/>
       <attribs/>
@@ -682,6 +698,10 @@ void loop(void)
          <combo attributeName="pad" selection="PC4"/>
          <combo attributeName="mode" selection="pullup"/>
       </attribs>
+   </obj>
+   <obj type="logic/and 2" uuid="c67031682f552aa0a80b23377495c51ea28a8c9c" name="and_4" x="2338" y="2646">
+      <params/>
+      <attribs/>
    </obj>
    <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="JOY3_BTN" x="2450" y="2646">
       <params/>
@@ -727,10 +747,6 @@ void loop(void)
       <net>
          <source obj="digital_2" outlet="out"/>
          <dest obj="inv_1" inlet="i"/>
-      </net>
-      <net>
-         <source obj="inv_1" outlet="o"/>
-         <dest obj="JOY0_BTN" inlet="outlet"/>
       </net>
       <net>
          <source obj="BelievotronCore_PCB1005_KnobCore_1" outlet="knbT0_"/>
@@ -788,7 +804,7 @@ void loop(void)
       </net>
       <net>
          <source obj="inv_5" outlet="o"/>
-         <dest obj="JOY1_BTN" inlet="outlet"/>
+         <dest obj="and_2" inlet="i2"/>
       </net>
       <net>
          <source obj="digital_5" outlet="out"/>
@@ -796,7 +812,7 @@ void loop(void)
       </net>
       <net>
          <source obj="inv_6" outlet="o"/>
-         <dest obj="JOY2_BTN" inlet="outlet"/>
+         <dest obj="and_3" inlet="i2"/>
       </net>
       <net>
          <source obj="digital_6" outlet="out"/>
@@ -804,7 +820,7 @@ void loop(void)
       </net>
       <net>
          <source obj="inv_7" outlet="o"/>
-         <dest obj="JOY3_BTN" inlet="outlet"/>
+         <dest obj="and_4" inlet="i2"/>
       </net>
       <net>
          <source obj="BelievotronCore_PCB1005_KnobCore_1" outlet="knbB1_"/>
@@ -1178,10 +1194,38 @@ void loop(void)
       <net>
          <source obj="BelievotronCore_PCB1005_KnobCore_1" outlet="POR_"/>
          <dest obj="POR" inlet="outlet"/>
+         <dest obj="inv_3" inlet="i"/>
       </net>
       <net>
          <source obj="unipolar2bipolar_2" outlet="o"/>
          <dest obj="JOY1_X" inlet="outlet"/>
+      </net>
+      <net>
+         <source obj="inv_3" outlet="o"/>
+         <dest obj="and_1" inlet="i1"/>
+         <dest obj="and_2" inlet="i1"/>
+         <dest obj="and_3" inlet="i1"/>
+         <dest obj="and_4" inlet="i1"/>
+      </net>
+      <net>
+         <source obj="and_1" outlet="o"/>
+         <dest obj="JOY0_BTN" inlet="outlet"/>
+      </net>
+      <net>
+         <source obj="inv_1" outlet="o"/>
+         <dest obj="and_1" inlet="i2"/>
+      </net>
+      <net>
+         <source obj="and_3" outlet="o"/>
+         <dest obj="JOY2_BTN" inlet="outlet"/>
+      </net>
+      <net>
+         <source obj="and_4" outlet="o"/>
+         <dest obj="JOY3_BTN" inlet="outlet"/>
+      </net>
+      <net>
+         <source obj="and_2" outlet="o"/>
+         <dest obj="JOY1_BTN" inlet="outlet"/>
       </net>
    </nets>
    <settings>

@@ -128,28 +128,28 @@
    <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_1" x="0" y="504">
       <params/>
       <attribs>
-         <table attributeName="str" table="Drumlab"/>
+         <table attributeName="str" table="K0  P.DrumLab"/>
       </attribs>
    </obj>
    <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_5" x="196" y="504">
       <params/>
       <attribs>
-         <table attributeName="str" table=""/>
+         <table attributeName="str" table="K2  LowPass Filt"/>
       </attribs>
    </obj>
    <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_9" x="392" y="504">
       <params/>
       <attribs>
-         <table attributeName="str" table="Space Hat"/>
+         <table attributeName="str" table="K4  Envelope"/>
       </attribs>
    </obj>
    <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_13" x="588" y="504">
       <params/>
       <attribs>
-         <table attributeName="str" table="K7 Vol"/>
+         <table attributeName="str" table="K6  LowPass Filt"/>
       </attribs>
    </obj>
-   <obj type="Wanderlust/Wanderlust_core_V1" uuid="017cfae9-4dd6-4b6e-8f14-8cf3b1ac76bd" name="obj_1" x="812" y="504">
+   <obj type="Wanderlust/Wanderlust_core_V1" uuid="8fb98920-f0e9-4c2a-a29a-e5fe8197881e" name="obj_1" x="812" y="504">
       <params>
          <bool32.tgl name="Reverse Knobs" value="0"/>
          <bool32.tgl name="Default_OLED_TXT" value="0"/>
@@ -167,25 +167,25 @@
    <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_2" x="0" y="574">
       <params/>
       <attribs>
-         <table attributeName="str" table="K0 DPit K1 Timber"/>
+         <table attributeName="str" table="K1  Timber"/>
       </attribs>
    </obj>
    <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_6" x="196" y="574">
       <params/>
       <attribs>
-         <table attributeName="str" table="K2 LP1 K3 Timber"/>
+         <table attributeName="str" table="K3  Tamber"/>
       </attribs>
    </obj>
    <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_10" x="392" y="574">
       <params/>
       <attribs>
-         <table attributeName="str" table="K3 Env K4 Delay"/>
+         <table attributeName="str" table="K5  Delay"/>
       </attribs>
    </obj>
    <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_14" x="588" y="574">
       <params/>
       <attribs>
-         <table attributeName="str" table=""/>
+         <table attributeName="str" table="K7  Volume"/>
       </attribs>
    </obj>
    <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_3" x="1218" y="602">
@@ -195,49 +195,49 @@
    <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_3" x="0" y="644">
       <params/>
       <attribs>
-         <table attributeName="str" table="J0DIR-&gt;Drum1"/>
+         <table attributeName="str" table="J0X Pitch"/>
       </attribs>
    </obj>
    <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_7" x="196" y="644">
       <params/>
       <attribs>
-         <table attributeName="str" table="J1DIR-&gt;Drum2"/>
+         <table attributeName="str" table="J1X LowPass Filth"/>
       </attribs>
    </obj>
    <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_11" x="392" y="644">
       <params/>
       <attribs>
-         <table attributeName="str" table="J2DIR-&gt;SpaceHat"/>
+         <table attributeName="str" table="J2X Envelope"/>
       </attribs>
    </obj>
    <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_15" x="588" y="644">
       <params/>
       <attribs>
-         <table attributeName="str" table="J3DIR-"/>
+         <table attributeName="str" table="J3X Attack"/>
       </attribs>
    </obj>
    <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_4" x="0" y="714">
       <params/>
       <attribs>
-         <table attributeName="str" table="J1.B Menu"/>
+         <table attributeName="str" table="J0Y Tmbr J0B MNU"/>
       </attribs>
    </obj>
    <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_8" x="196" y="714">
       <params/>
       <attribs>
-         <table attributeName="str" table=""/>
+         <table attributeName="str" table="J1Y Tamber"/>
       </attribs>
    </obj>
    <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_12" x="392" y="714">
       <params/>
       <attribs>
-         <table attributeName="str" table=""/>
+         <table attributeName="str" table="J2Y Delay"/>
       </attribs>
    </obj>
    <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_16" x="588" y="714">
       <params/>
       <attribs>
-         <table attributeName="str" table=""/>
+         <table attributeName="str" table="J3Y Decay"/>
       </attribs>
    </obj>
    <obj type="phi/logic/or 4" uuid="5dc5a7c1fb7809522171638f755fead71cbe14ea" name="or_3" x="1918" y="784">
@@ -387,22 +387,6 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="gao/edrum/clap" uuid="be8b77ee-46c1-4330-897c-f5a149842ba0" name="obj_5" x="2324" y="1960">
-      <params>
-         <frac32.s.map name="pulse hp:pitch" value="64.0"/>
-         <frac32.u.map name="pulse hp:reso" value="0.0"/>
-         <frac32.s.map name="ad:a" value="5.0"/>
-         <frac32.s.map name="ad:d" value="-2.0"/>
-         <frac32.s.map name="fb ad:a" value="-32.0"/>
-         <frac32.s.map name="fb ad:d" value="17.0"/>
-         <frac32.s.map name="bp:pitch" value="29.0"/>
-         <frac32.u.map name="bp:reso" value="39.0"/>
-         <frac32.s.map name="lp:pitch" value="24.0"/>
-         <frac32.u.map name="lp:reso" value="37.5"/>
-         <frac32.u.map name="gain" value="17.0"/>
-      </params>
-      <attribs/>
-   </obj>
    <obj type="ctrl/dial b" uuid="862e7d7f29093cb1ce4aed72244d118ad4d46692" name="dial_16" x="1736" y="2030">
       <params>
          <frac32.s.map name="value" value="5.0"/>
@@ -412,6 +396,22 @@
    <obj type="ctrl/dial b" uuid="862e7d7f29093cb1ce4aed72244d118ad4d46692" name="dial_17" x="1876" y="2030">
       <params>
          <frac32.s.map name="value" value="2.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="edrum/clap-b" uuid="2f01b9bc-9827-43de-b871-f7b254f4160c" name="obj_5" x="2492" y="2044">
+      <params>
+         <frac32.s.map name="hp_1:pitch" value="10.0"/>
+         <frac32.u.map name="hp_1:reso" value="40.0"/>
+         <frac32.s.map name="ad_m_1:a" value="1.0"/>
+         <frac32.s.map name="ad_m_1:d" value="3.0"/>
+         <frac32.s.map name="ad_m_2:a" value="-53.0"/>
+         <frac32.s.map name="ad_m_2:d" value="-2.0"/>
+         <frac32.s.map name="bp:pitch" value="29.0"/>
+         <frac32.u.map name="bp:reso" value="39.0"/>
+         <frac32.s.map name="lp_1:pitch" value="30.0"/>
+         <frac32.u.map name="lp_1:reso" value="40.0"/>
+         <frac32.u.map name="gain" value="17.0"/>
       </params>
       <attribs/>
    </obj>
@@ -845,6 +845,22 @@
       <net>
          <source obj="or_7" outlet="o"/>
          <dest obj="obj_5" inlet="trig"/>
+      </net>
+      <net>
+         <source obj="+_5" outlet="out"/>
+         <dest obj="obj_5" inlet="hp p"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="knob_top_6"/>
+         <dest obj="obj_5" inlet="lp p"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="JOY3_X"/>
+         <dest obj="obj_5" inlet="ab_a"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="JOY3_Y"/>
+         <dest obj="obj_5" inlet="ab_d"/>
       </net>
    </nets>
    <settings>

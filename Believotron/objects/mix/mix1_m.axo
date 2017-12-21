@@ -1,0 +1,27 @@
+<objdefs appVersion="1.0.12">
+   <obj.normal id="mix1_m" uuid="cd851533-66fa-46a0-a8df-22b3e6ae19a3">
+      <sDescription>1 input k-rate mixer, with control
+Modified by Dazzing Duke of Lazers
+Original Author: Johannes Taelman</sDescription>
+      <author>Dazzling Duke of Lazers</author>
+      <license>BSD</license>
+      <inlets>
+         <frac32 name="bus_in" description="input with unity gain"/>
+         <frac32 name="in1" description="input 1"/>
+         <frac32 name="gainAmt"/>
+      </inlets>
+      <outlets>
+         <frac32 name="out" description="mix out"/>
+      </outlets>
+      <displays/>
+      <params>
+         <frac32.u.map name="gain1" noLabel="true">
+            <DefaultValue v="32.0"/>
+         </frac32.u.map>
+      </params>
+      <attribs/>
+      <code.krate><![CDATA[{   int32_t accum = ___SMMUL(inlet_in1,param_gain1+inlet_gainAmt);
+   outlet_out=  __SSAT(inlet_bus__in + (accum<<5),28);
+}]]></code.krate>
+   </obj.normal>
+</objdefs>

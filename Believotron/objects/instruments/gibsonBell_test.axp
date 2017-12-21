@@ -22,9 +22,9 @@
       </params>
       <attribs/>
    </obj>
-   <obj type="gibsonBell" uuid="ca2c6cb9-4207-4a6c-8bd0-080eeb2859ec" name="gibsonBell_1" x="490" y="112">
+   <obj type="instruments/gibsonBell" uuid="38898725-d19d-4e1a-833c-73e645994310" name="obj_1" x="490" y="112">
       <params>
-         <frac32.s.map name="cyberDrive" value="0.0"/>
+         <frac32.s.map name="cyberDrive" value="-9.0"/>
       </params>
       <attribs>
          <combo attributeName="poly" selection="4"/>
@@ -63,10 +63,10 @@
       </net>
       <net>
          <source obj="keyb_1" outlet="note"/>
-         <dest obj="gibsonBell_1" inlet="cyberDive"/>
+         <dest obj="obj_1" inlet="cyberDive"/>
       </net>
       <net>
-         <source obj="gibsonBell_1" outlet="bell"/>
+         <source obj="obj_1" outlet="bell"/>
          <dest obj="vca_1" inlet="a"/>
       </net>
    </nets>

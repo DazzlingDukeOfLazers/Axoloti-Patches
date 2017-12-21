@@ -1,4 +1,4 @@
-<patch-1.0 appVersion="1.0.10">
+<patch-1.0 appVersion="1.0.12">
    <obj type="patch/inlet f" uuid="5c585d2dcd9c05631e345ac09626a22a639d7c13" name="cyberDive" x="0" y="70">
       <params/>
       <attribs/>
@@ -34,12 +34,19 @@
       </net>
    </nets>
    <settings>
-      <subpatchmode>no</subpatchmode>
+      <subpatchmode>polyphonic</subpatchmode>
+      <MidiChannel>1</MidiChannel>
+      <NPresets>8</NPresets>
+      <NPresetEntries>32</NPresetEntries>
+      <NModulationSources>8</NModulationSources>
+      <NModulationTargetsPerSource>8</NModulationTargetsPerSource>
+      <Author></Author>
+      <Saturate>false</Saturate>
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>-1986</x>
-      <y>281</y>
+      <x>990</x>
+      <y>174</y>
       <width>400</width>
       <height>400</height>
    </windowPos>

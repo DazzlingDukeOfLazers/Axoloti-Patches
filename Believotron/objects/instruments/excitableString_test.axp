@@ -27,7 +27,9 @@
          <frac32.s.map name="excite" value="14.0"/>
          <frac32.u.map name="mix1_m_1" value="0.0"/>
       </params>
-      <attribs/>
+      <attribs>
+         <combo attributeName="poly" selection="4"/>
+      </attribs>
    </obj>
    <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_1" x="644" y="112">
       <params/>

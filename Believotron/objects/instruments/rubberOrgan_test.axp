@@ -32,13 +32,8 @@
       </params>
       <attribs/>
    </obj>
-   <obj type="instruments/doomTuba" uuid="8b5717c5-4ee6-4975-9b6d-28e4aae882f4" name="obj_1" x="406" y="112">
-      <params>
-         <frac32.s.map name="trisaw_1:pitch" value="-28.0"/>
-         <frac32.u.map name="trisaw_1:slope" value="16.0"/>
-         <frac32.s.map name="trisaw_1:Swidth" value="-18.0"/>
-         <frac32.s.map name="twerk" value="-23.0"/>
-      </params>
+   <obj type="instruments/rubberOrgan" uuid="f1d8fe69-fc36-4a51-b36a-b2b690785ad6" name="obj_2" x="392" y="140">
+      <params/>
       <attribs>
          <combo attributeName="poly" selection="4"/>
       </attribs>
@@ -63,22 +58,6 @@
    </obj>
    <nets>
       <net>
-         <source obj="dial_1" outlet="out"/>
-         <dest obj="obj_1" inlet="pitch"/>
-      </net>
-      <net>
-         <source obj="dial_2" outlet="out"/>
-         <dest obj="obj_1" inlet="Slope Base"/>
-      </net>
-      <net>
-         <source obj="dial_3" outlet="out"/>
-         <dest obj="obj_1" inlet="Slope LFO Rate"/>
-      </net>
-      <net>
-         <source obj="dial_4" outlet="out"/>
-         <dest obj="obj_1" inlet="FMW"/>
-      </net>
-      <net>
          <source obj="adsr_1" outlet="env"/>
          <dest obj="vca_1" inlet="v"/>
       </net>
@@ -88,13 +67,17 @@
          <dest obj="out_stereo_vol_1" inlet="right"/>
       </net>
       <net>
-         <source obj="obj_1" outlet="outlet_1"/>
-         <dest obj="vca_1" inlet="a"/>
-      </net>
-      <net>
          <source obj="keyb_1" outlet="gate"/>
          <dest obj="adsr_1" inlet="gate"/>
          <dest obj="bool_1" inlet="in"/>
+      </net>
+      <net>
+         <source obj="keyb_1" outlet="note"/>
+         <dest obj="obj_2" inlet="inlet_1"/>
+      </net>
+      <net>
+         <source obj="obj_2" outlet="outlet_1"/>
+         <dest obj="vca_1" inlet="a"/>
       </net>
    </nets>
    <settings>

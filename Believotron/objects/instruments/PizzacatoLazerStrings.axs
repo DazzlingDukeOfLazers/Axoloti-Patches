@@ -1,5 +1,11 @@
-<patch-1.0 appVersion="1.0.10">
-   <obj type="patch/inlet f" uuid="5c585d2dcd9c05631e345ac09626a22a639d7c13" name="inlet_1" x="84" y="112">
+<patch-1.0 appVersion="1.0.12">
+   <obj type="env/d m" uuid="85e82f54dfc28839d300cda777af8907ae2a28d0" name="d_1" x="504" y="42">
+      <params>
+         <frac32.s.map name="d" value="-9.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="patch/inlet f" uuid="5c585d2dcd9c05631e345ac09626a22a639d7c13" name="space_in" x="84" y="112">
       <params/>
       <attribs/>
    </obj>
@@ -8,17 +14,15 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="env/d" sha="d9f7cfe1295d7bcc550714a18126d4f73c7c8411" name="spacetime" x="504" y="182">
-      <params>
-         <frac32.s.map name="d" onParent="true" value="-9.0"/>
-      </params>
-      <attribs/>
-   </obj>
-   <obj type="gain/vca" sha="6bbeaeb94e74091879965461ad0cb043f2e7f6cf" name="vca_3" x="714" y="196">
+   <obj type="patch/inlet f" uuid="5c585d2dcd9c05631e345ac09626a22a639d7c13" name="spacetime_in" x="70" y="196">
       <params/>
       <attribs/>
    </obj>
-   <obj type="noise/uniform" sha="117e0adca76d1dc3810e120a06d022ef06093103" name="rand_1" x="616" y="238">
+   <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_3" x="714" y="196">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="noise/uniform" uuid="a3926ef22ae9ac217cd09933d90101848796eb78" name="rand_1" x="616" y="238">
       <params/>
       <attribs/>
    </obj>
@@ -26,7 +30,7 @@
    <comment type="patch/comment" x="728" y="294" text="99% feedback"/>
    <comment type="patch/comment" x="840" y="294" text="delayline write"/>
    <comment type="patch/comment" x="322" y="308" text="compute the right delay time from pitch"/>
-   <obj type="delay/mtod" sha="60139378b4e43b414539a7911c172765f979796" name="space" x="350" y="336">
+   <obj type="delay/mtod" uuid="bbaeb53acbf18f926c5febae31d8bf2f52725ee" name="space" x="350" y="336">
       <params>
          <frac32.s.map name="pitch" onParent="true" value="8.0"/>
       </params>
@@ -38,11 +42,11 @@
       </params>
       <attribs/>
    </obj>
-   <obj type="conv/interp" sha="5a9175b8d44d830756d1599a86b4a6a49813a19b" name="interp_1" x="532" y="336">
+   <obj type="conv/interp" uuid="d68c1a8709d8b55e3de8715d727ec0a2d8569d9a" name="interp_1" x="532" y="336">
       <params/>
       <attribs/>
    </obj>
-   <obj type="delay/read interp" sha="6fda3a4b04cc8fc49e63240c2fff115695ec7a7" name="time" x="616" y="336">
+   <obj type="delay/read interp" uuid="e3d8b8823ab551c588659520bf6cc25c630466c7" name="read_1" x="616" y="336">
       <params>
          <frac32.u.map name="time" onParent="true" value="0.0"/>
       </params>
@@ -56,7 +60,7 @@
       </params>
       <attribs/>
    </obj>
-   <obj type="delay/write" sha="c573b27a5ebc2efb2d1e8ec173ff4793a2acbae2" name="d1" x="924" y="336">
+   <obj type="delay/write" uuid="bd73958e3830021807ee97a8cff4500a72a5710d" name="d1" x="924" y="336">
       <params/>
       <attribs>
          <combo attributeName="size" selection="2048 (42.66ms)"/>
@@ -75,10 +79,6 @@
    <comment type="patch/comment" x="350" y="434" text="bug: tuning reference is incorrect"/>
    <nets>
       <net>
-         <source obj="spacetime" outlet="env"/>
-         <dest obj="vca_3" inlet="v"/>
-      </net>
-      <net>
          <source obj="rand_1" outlet="wave"/>
          <dest obj="vca_3" inlet="a"/>
       </net>
@@ -93,7 +93,7 @@
       </net>
       <net>
          <source obj="interp_1" outlet="o"/>
-         <dest obj="time" inlet="time"/>
+         <dest obj="read_1" inlet="time"/>
       </net>
       <net>
          <source obj="-c_1" outlet="out"/>
@@ -104,15 +104,15 @@
          <dest obj="-c_1" inlet="in"/>
       </net>
       <net>
-         <source obj="time" outlet="out"/>
+         <source obj="read_1" outlet="out"/>
          <dest obj="mix_2" inlet="in1"/>
       </net>
       <net>
          <source obj="change_1" outlet="trig"/>
-         <dest obj="spacetime" inlet="trig"/>
+         <dest obj="d_1" inlet="trig"/>
       </net>
       <net>
-         <source obj="inlet_1" outlet="inlet"/>
+         <source obj="space_in" outlet="inlet"/>
          <dest obj="change_1" inlet="in"/>
          <dest obj="space" inlet="pitch"/>
       </net>
@@ -120,15 +120,23 @@
          <source obj="*c_3" outlet="out"/>
          <dest obj="outlet_1" inlet="outlet"/>
       </net>
+      <net>
+         <source obj="d_1" outlet="env"/>
+         <dest obj="vca_3" inlet="v"/>
+      </net>
+      <net>
+         <source obj="spacetime_in" outlet="inlet"/>
+         <dest obj="d_1" inlet="d"/>
+      </net>
    </nets>
    <settings>
       <subpatchmode>no</subpatchmode>
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>-2068</x>
-      <y>196</y>
-      <width>1036</width>
+      <x>-1826</x>
+      <y>220</y>
+      <width>1283</width>
       <height>701</height>
    </windowPos>
 </patch-1.0>

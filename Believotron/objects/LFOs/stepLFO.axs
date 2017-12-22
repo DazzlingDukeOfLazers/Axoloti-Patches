@@ -1,4 +1,4 @@
-<patch-1.0 appVersion="1.0.10">
+<patch-1.0 appVersion="1.0.12">
    <obj type="patch/inlet f" uuid="5c585d2dcd9c05631e345ac09626a22a639d7c13" name="stepFrq" x="56" y="28">
       <params/>
       <attribs/>
@@ -43,7 +43,7 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="logic/counter2" sha="520bfefaef89b5ba4deb2a4d79b4236f0b321489" uuid="d9536f238ab92e53ac93d5927c3b43ceef998dc1" name="counter2_1" x="924" y="140">
+   <obj type="logic/counter2" uuid="d9536f238ab92e53ac93d5927c3b43ceef998dc1" name="counter2_1" x="924" y="140">
       <params>
          <int32 name="maximum" onParent="true" value="16"/>
       </params>
@@ -63,21 +63,25 @@
       </params>
       <attribs/>
    </obj>
+   <obj type="patch/inlet b" uuid="3b0d3eacb5bb978cb05d1372aa2714d5a4790844" name="reset" x="42" y="210">
+      <params/>
+      <attribs/>
+   </obj>
    <obj type="math/div 2" uuid="f14884de1baf3e615e12ee162a96a013eca76789" name="div_1" x="392" y="210">
       <params/>
       <attribs/>
    </obj>
-   <obj type="math/&gt;" uuid="a459588d6498caeb4daf3a07f9d5e9b4a657262f" name="&gt;_1" x="630" y="364">
+   <obj type="math/&gt;" uuid="a459588d6498caeb4daf3a07f9d5e9b4a657262f" name="&gt;_1" x="686" y="252">
       <params/>
       <attribs/>
    </obj>
-   <obj type="const/i" uuid="e202f44b2df17ae0b3e663b98ea6b14c8ff00408" name="i_5" x="518" y="378">
+   <obj type="const/i" uuid="e202f44b2df17ae0b3e663b98ea6b14c8ff00408" name="i_5" x="574" y="266">
       <params/>
       <attribs>
          <spinner attributeName="value" value="1"/>
       </attribs>
    </obj>
-   <comment type="patch/comment" x="700" y="392" text="old debug stub"/>
+   <comment type="patch/comment" x="756" y="280" text="old debug stub"/>
    <nets>
       <net>
          <source obj="dial_3" outlet="out"/>
@@ -128,15 +132,19 @@
          <source obj="sync" outlet="inlet"/>
          <dest obj="saw_1" inlet="reset"/>
       </net>
+      <net>
+         <source obj="reset" outlet="inlet"/>
+         <dest obj="counter2_1" inlet="r"/>
+      </net>
    </nets>
    <settings>
       <subpatchmode>no</subpatchmode>
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>-2091</x>
-      <y>20</y>
-      <width>1839</width>
-      <height>1036</height>
+      <x>24</x>
+      <y>132</y>
+      <width>1284</width>
+      <height>584</height>
    </windowPos>
 </patch-1.0>

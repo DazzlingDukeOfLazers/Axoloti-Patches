@@ -1,0 +1,40 @@
+<objdefs appVersion="1.0.12">
+   <obj.normal id="button8" uuid="ad510325-47cb-43ba-b602-44f14b2defa2">
+      <sDescription>constant boolean, momentary control</sDescription>
+      <author>Johannes Taelman</author>
+      <license>BSD</license>
+      <helpPatch>ctrl.axh</helpPatch>
+      <inlets/>
+      <outlets>
+         <bool32 name="o0" description="output"/>
+         <bool32 name="o1"/>
+         <bool32 name="o2"/>
+         <bool32 name="o3"/>
+         <bool32 name="o4"/>
+         <bool32 name="o5"/>
+         <bool32 name="o6"/>
+         <bool32 name="o7"/>
+         <bool32 name="o8"/>
+      </outlets>
+      <displays/>
+      <params>
+         <bool32.mom name="b0" noLabel="true"/>
+         <bool32.mom name="b1"/>
+         <bool32.mom name="b2"/>
+         <bool32.mom name="b3"/>
+         <bool32.mom name="b4"/>
+         <bool32.mom name="b5"/>
+         <bool32.mom name="b6"/>
+         <bool32.mom name="b7"/>
+      </params>
+      <attribs/>
+      <code.krate><![CDATA[outlet_o0=param_b0;
+outlet_o1=param_b1;
+outlet_o2=param_b2;
+outlet_o3=param_b3;
+outlet_o4=param_b4;
+outlet_o5=param_b5;
+outlet_o6=param_b6;
+outlet_o7=param_b7;]]></code.krate>
+   </obj.normal>
+</objdefs>

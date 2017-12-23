@@ -1,5 +1,5 @@
 <patch-1.0 appVersion="1.0.12">
-   <obj type="ctrl/button8" uuid="ad510325-47cb-43ba-b602-44f14b2defa2" name="button8_1" x="98" y="70">
+   <obj type="ctrl/button8" uuid="ad510325-47cb-43ba-b602-44f14b2defa2" name="button8_1" x="42" y="28">
       <params>
          <bool32.mom name="b0" value="0"/>
          <bool32.mom name="b1" value="0"/>
@@ -12,15 +12,15 @@
       </params>
       <attribs/>
    </obj>
-   <obj type="logic/monophonicKBSel" uuid="eb493a19-36a5-41cc-a687-077dfdc6483a" name="monophonicKBSel_1" x="308" y="70">
+   <obj type="logic/monophonicKBSel" uuid="eb493a19-36a5-41cc-a687-077dfdc6483a" name="monophonicKBSel_1" x="252" y="28">
       <params/>
       <attribs/>
    </obj>
-   <obj type="disp/i" uuid="5e35fd0c62d81e70017289250cf28edd26e19e4a" name="i_1" x="448" y="70">
+   <obj type="disp/i" uuid="5e35fd0c62d81e70017289250cf28edd26e19e4a" name="i_1" x="392" y="28">
       <params/>
       <attribs/>
    </obj>
-   <obj type="ctrl/button8" uuid="ad510325-47cb-43ba-b602-44f14b2defa2" name="button8_2" x="196" y="182">
+   <obj type="ctrl/button8" uuid="ad510325-47cb-43ba-b602-44f14b2defa2" name="button8_2" x="140" y="140">
       <params>
          <bool32.mom name="b0" value="0"/>
          <bool32.mom name="b1" value="0"/>
@@ -94,7 +94,7 @@
    <windowPos>
       <x>614</x>
       <y>331</y>
-      <width>829</width>
-      <height>400</height>
+      <width>517</width>
+      <height>586</height>
    </windowPos>
 </patch-1.0>

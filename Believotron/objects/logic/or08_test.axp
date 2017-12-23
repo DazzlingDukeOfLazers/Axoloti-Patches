@@ -1,0 +1,71 @@
+<patch-1.0 appVersion="1.0.12">
+   <obj type="ctrl/button8" uuid="ad510325-47cb-43ba-b602-44f14b2defa2" name="button8_1" x="14" y="14">
+      <params>
+         <bool32.mom name="b0" value="0"/>
+         <bool32.mom name="b1" value="0"/>
+         <bool32.mom name="b2" value="0"/>
+         <bool32.mom name="b3" value="0"/>
+         <bool32.mom name="b4" value="0"/>
+         <bool32.mom name="b5" value="0"/>
+         <bool32.mom name="b6" value="0"/>
+         <bool32.mom name="b7" value="0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="logic/or08" uuid="a78b723b-23d6-495c-ab92-a3657a1d10b1" name="obj_1" x="98" y="14">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_1" x="196" y="14">
+      <params/>
+      <attribs/>
+   </obj>
+   <nets>
+      <net>
+         <source obj="obj_1" outlet="or16"/>
+         <dest obj="bool_1" inlet="in"/>
+      </net>
+      <net>
+         <source obj="button8_1" outlet="o0"/>
+         <dest obj="obj_1" inlet="i00"/>
+      </net>
+      <net>
+         <source obj="button8_1" outlet="o1"/>
+         <dest obj="obj_1" inlet="i01"/>
+      </net>
+      <net>
+         <source obj="button8_1" outlet="o2"/>
+         <dest obj="obj_1" inlet="i02"/>
+      </net>
+      <net>
+         <source obj="button8_1" outlet="o3"/>
+         <dest obj="obj_1" inlet="i03"/>
+      </net>
+      <net>
+         <source obj="button8_1" outlet="o4"/>
+         <dest obj="obj_1" inlet="i04"/>
+      </net>
+      <net>
+         <source obj="button8_1" outlet="o5"/>
+         <dest obj="obj_1" inlet="i05"/>
+      </net>
+      <net>
+         <source obj="button8_1" outlet="o6"/>
+         <dest obj="obj_1" inlet="i06"/>
+      </net>
+      <net>
+         <source obj="button8_1" outlet="o7"/>
+         <dest obj="obj_1" inlet="i07"/>
+      </net>
+   </nets>
+   <settings>
+      <subpatchmode>no</subpatchmode>
+   </settings>
+   <notes><![CDATA[]]></notes>
+   <windowPos>
+      <x>691</x>
+      <y>484</y>
+      <width>315</width>
+      <height>429</height>
+   </windowPos>
+</patch-1.0>

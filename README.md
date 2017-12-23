@@ -7,6 +7,10 @@ The first hardware supported is the Believotron Wanderlust.
 
 This project is in an open beta. The codebase is currently hot spaghetti and in active refactoring.
 
+Sign up for newsletters at http://believotron.com/sign-up
+
+Ask questions, raise issues, and find answers in the http://community.believotron.com
+
 # Task list:
 ## Short term
 -Continue removing old/dependency code/objects
@@ -18,7 +22,8 @@ This project is in an open beta. The codebase is currently hot spaghetti and in 
 ## Mid term
 -Add midi controllers on request
 
+## Technical Debt
+-Rename /logic/trigger_if_const to /logic/bufferOnChannelSel and update all upstream references
 
-Sign up for newsletters at http://believotron.com/sign-up
-
-Ask questions, raise issues, and find answers in the http://community.believotron.com
+## Completed:
+-Refactored and created tests for /logic

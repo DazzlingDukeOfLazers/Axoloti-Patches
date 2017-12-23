@@ -14,7 +14,6 @@
          <bool32 name="o5"/>
          <bool32 name="o6"/>
          <bool32 name="o7"/>
-         <bool32 name="o8"/>
       </outlets>
       <displays/>
       <params>

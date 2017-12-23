@@ -49,10 +49,6 @@
          <source obj="button8_1" outlet="o7"/>
          <dest obj="bool9_1" inlet="i7"/>
       </net>
-      <net>
-         <source obj="button8_1" outlet="o8"/>
-         <dest obj="bool9_1" inlet="i8"/>
-      </net>
    </nets>
    <settings>
       <subpatchmode>no</subpatchmode>

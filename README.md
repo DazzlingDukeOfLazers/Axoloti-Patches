@@ -13,17 +13,17 @@ Ask questions, raise issues, and find answers in the http://community.believotro
 
 # Task list:
 ## Short term
--Continue removing old/dependency code/objects
--Build unit tests
--Finalize file locations
--Install on new system and write Getting Started documentation
--Verify install on Beta user
+- Continue removing old/dependency code/objects
+- Build unit tests
+- Finalize file locations
+- Install on new system and write Getting Started documentation
+- Verify install on Beta user
 
 ## Mid term
--Add midi controllers on request
+- Add midi controllers on request
 
 ## Technical Debt
--Rename /logic/trigger_if_const to /logic/bufferOnChannelSel and update all upstream references
+- Rename /logic/trigger_if_const to /logic/bufferOnChannelSel and update all upstream references
 
 ## Completed:
--Refactored and created tests for /logic
+- Refactored and created tests for /logic

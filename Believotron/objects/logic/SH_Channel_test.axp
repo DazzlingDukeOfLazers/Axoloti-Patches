@@ -1,0 +1,48 @@
+<patch-1.0 appVersion="1.0.12">
+   <obj type="ctrl/dial b" uuid="862e7d7f29093cb1ce4aed72244d118ad4d46692" name="dial_1" x="56" y="56">
+      <params>
+         <frac32.s.map name="value" value="24.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="logic/SH_Channel" uuid="22487861-6be9-4e1a-a896-007dde740eb2" name="SH_Channel_1" x="168" y="56">
+      <params/>
+      <attribs>
+         <spinner attributeName="value" value="0"/>
+      </attribs>
+   </obj>
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_2" x="294" y="56">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_1" x="70" y="154">
+      <params>
+         <int32 name="value" value="1"/>
+      </params>
+      <attribs/>
+   </obj>
+   <nets>
+      <net>
+         <source obj="SH_Channel_1" outlet="out"/>
+         <dest obj="dial_2" inlet="in"/>
+      </net>
+      <net>
+         <source obj="dial_1" outlet="out"/>
+         <dest obj="SH_Channel_1" inlet="in"/>
+      </net>
+      <net>
+         <source obj="i_1" outlet="out"/>
+         <dest obj="SH_Channel_1" inlet="CC"/>
+      </net>
+   </nets>
+   <settings>
+      <subpatchmode>no</subpatchmode>
+   </settings>
+   <notes><![CDATA[]]></notes>
+   <windowPos>
+      <x>723</x>
+      <y>241</y>
+      <width>480</width>
+      <height>477</height>
+   </windowPos>
+</patch-1.0>

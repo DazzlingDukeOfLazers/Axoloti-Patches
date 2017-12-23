@@ -1,4 +1,4 @@
-<patch-1.0 appVersion="1.0.10">
+<patch-1.0 appVersion="1.0.12">
    <obj type="patch/inlet f" uuid="5c585d2dcd9c05631e345ac09626a22a639d7c13" name="i0" x="28" y="28">
       <params/>
       <attribs/>
@@ -20,14 +20,6 @@
       <attribs/>
    </obj>
    <obj type="patch/inlet f" uuid="5c585d2dcd9c05631e345ac09626a22a639d7c13" name="i4" x="28" y="196">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="math/-" uuid="3280bb759e9fc189e134300e48dda7e903c9a110" name="-_1" x="686" y="210">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="math/*" uuid="13882852b58661ad012ffbe246470b5df4b6c5d1" name="*_1" x="770" y="210">
       <params/>
       <attribs/>
    </obj>
@@ -53,24 +45,12 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_2" x="602" y="294">
-      <params>
-         <int32 name="value" value="32"/>
-      </params>
-      <attribs/>
-   </obj>
    <obj type="patch/inlet f" uuid="5c585d2dcd9c05631e345ac09626a22a639d7c13" name="i7" x="28" y="322">
       <params/>
       <attribs/>
    </obj>
    <obj type="mux/mux 8" uuid="de5167d9da39b04039376e8cc620ea2afc22e28a" name="mux_3" x="406" y="322">
       <params/>
-      <attribs/>
-   </obj>
-   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_1" x="700" y="364">
-      <params>
-         <int32 name="value" value="2"/>
-      </params>
       <attribs/>
    </obj>
    <obj type="patch/inlet f" uuid="5c585d2dcd9c05631e345ac09626a22a639d7c13" name="i8" x="28" y="392">
@@ -171,10 +151,6 @@
          <dest obj="inv_1" inlet="i"/>
       </net>
       <net>
-         <source obj="mux_4" outlet="o"/>
-         <dest obj="-_1" inlet="in1"/>
-      </net>
-      <net>
          <source obj="inlet_1" outlet="inlet"/>
          <dest obj="stepPos" inlet="v"/>
       </net>
@@ -252,20 +228,8 @@
          <dest obj="mux_3" inlet="i7"/>
       </net>
       <net>
-         <source obj="i_1" outlet="out"/>
-         <dest obj="*_1" inlet="b"/>
-      </net>
-      <net>
-         <source obj="*_1" outlet="result"/>
+         <source obj="mux_4" outlet="o"/>
          <dest obj="CurrentChVal" inlet="outlet"/>
-      </net>
-      <net>
-         <source obj="i_2" outlet="out"/>
-         <dest obj="-_1" inlet="in2"/>
-      </net>
-      <net>
-         <source obj="-_1" outlet="out"/>
-         <dest obj="*_1" inlet="a"/>
       </net>
    </nets>
    <settings>
@@ -273,8 +237,8 @@
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>-1628</x>
-      <y>316</y>
+      <x>-1284</x>
+      <y>292</y>
       <width>1057</width>
       <height>814</height>
    </windowPos>

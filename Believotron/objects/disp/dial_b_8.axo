@@ -1,0 +1,39 @@
+<objdefs appVersion="1.0.12">
+   <obj.normal id="dial_b_8" uuid="f84e11f7-29e2-40eb-b2ab-25065f551c31">
+      <sDescription>displays bipolar k-rate signals</sDescription>
+      <author>Johannes Taelman</author>
+      <license>BSD</license>
+      <helpPatch>disp.axh</helpPatch>
+      <inlets>
+         <frac32.bipolar name="i0" description="input"/>
+         <frac32.bipolar name="i1"/>
+         <frac32.bipolar name="i2"/>
+         <frac32.bipolar name="i3"/>
+         <frac32.bipolar name="i4"/>
+         <frac32.bipolar name="i5"/>
+         <frac32.bipolar name="i6"/>
+         <frac32.bipolar name="i7"/>
+      </inlets>
+      <outlets/>
+      <displays>
+         <frac32.s.dial name="v0" noLabel="true"/>
+         <frac32.s.dial name="v1"/>
+         <frac32.s.dial name="v2"/>
+         <frac32.s.dial name="v3"/>
+         <frac32.s.dial name="v4"/>
+         <frac32.s.dial name="v5"/>
+         <frac32.s.dial name="v6"/>
+         <frac32.s.dial name="v7"/>
+      </displays>
+      <params/>
+      <attribs/>
+      <code.krate><![CDATA[disp_v0=inlet_i0;
+disp_v1=inlet_i1;
+disp_v2=inlet_i2;
+disp_v3=inlet_i3;
+disp_v4=inlet_i4;
+disp_v5=inlet_i5;
+disp_v6=inlet_i6;
+disp_v7=inlet_i7;]]></code.krate>
+   </obj.normal>
+</objdefs>

@@ -24,6 +24,8 @@ Ask questions, raise issues, and find answers in the http://community.believotro
 
 ## Technical Debt
 - Rename /logic/trigger_if_const to /logic/bufferOnChannelSel and update all upstream references
+- /math/Spread8 seems backwards. Flip logic and add a switch to count up/down. Update all upstream references
 
 ## Completed:
 - Refactored and created tests for /logic
+- Refactored and created tests for /math

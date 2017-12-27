@@ -1,0 +1,242 @@
+<patch-1.0 appVersion="1.0.12">
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_1" x="350" y="0">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_2" x="434" y="0">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_1" x="238" y="70">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="MIDI/Akai_MPK_Mini_MKII" uuid="c4d65ff8-0737-4be2-8731-7c87546dbdb4" name="foo" x="28" y="84">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial_b_8" uuid="f84e11f7-29e2-40eb-b2ab-25065f551c31" name="dial_b_8_1" x="490" y="112">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_3" x="616" y="112">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_5" x="616" y="196">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="logic/toggle" uuid="f42f0d3aab552c17bc78b9e65f85dc24f977503d" name="toggle_1" x="252" y="224">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/bool9" uuid="f0104102-9f94-4d1f-9b71-1c61972fdd2d" name="bool9_1" x="350" y="224">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="logic/toggle" uuid="f42f0d3aab552c17bc78b9e65f85dc24f977503d" name="toggle_2" x="252" y="266">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_6" x="616" y="280">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="logic/toggle" uuid="f42f0d3aab552c17bc78b9e65f85dc24f977503d" name="toggle_3" x="252" y="308">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="logic/toggle" uuid="f42f0d3aab552c17bc78b9e65f85dc24f977503d" name="toggle_4" x="252" y="350">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_7" x="616" y="364">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="logic/toggle" uuid="f42f0d3aab552c17bc78b9e65f85dc24f977503d" name="toggle_5" x="252" y="392">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="logic/toggle" uuid="f42f0d3aab552c17bc78b9e65f85dc24f977503d" name="toggle_6" x="252" y="434">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_8" x="616" y="448">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="logic/toggle" uuid="f42f0d3aab552c17bc78b9e65f85dc24f977503d" name="toggle_7" x="252" y="476">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="logic/toggle" uuid="f42f0d3aab552c17bc78b9e65f85dc24f977503d" name="toggle_8" x="252" y="518">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_9" x="616" y="532">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_10" x="616" y="616">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_11" x="616" y="700">
+      <params/>
+      <attribs/>
+   </obj>
+   <nets>
+      <net>
+         <source obj="foo" outlet="note"/>
+         <dest obj="dial_1" inlet="in"/>
+      </net>
+      <net>
+         <source obj="foo" outlet="velocity"/>
+         <dest obj="dial_2" inlet="in"/>
+      </net>
+      <net>
+         <source obj="foo" outlet="Knob_K1_B"/>
+         <dest obj="dial_b_8_1" inlet="i0"/>
+      </net>
+      <net>
+         <source obj="foo" outlet="Knob_K2_B"/>
+         <dest obj="dial_b_8_1" inlet="i1"/>
+      </net>
+      <net>
+         <source obj="foo" outlet="Knob_K3_B"/>
+         <dest obj="dial_b_8_1" inlet="i2"/>
+      </net>
+      <net>
+         <source obj="foo" outlet="Knob_K4_B"/>
+         <dest obj="dial_b_8_1" inlet="i3"/>
+      </net>
+      <net>
+         <source obj="foo" outlet="Knob_K5_B"/>
+         <dest obj="dial_b_8_1" inlet="i4"/>
+      </net>
+      <net>
+         <source obj="foo" outlet="Knob_K6_B"/>
+         <dest obj="dial_b_8_1" inlet="i5"/>
+      </net>
+      <net>
+         <source obj="foo" outlet="Knob_K7_B"/>
+         <dest obj="dial_b_8_1" inlet="i6"/>
+      </net>
+      <net>
+         <source obj="foo" outlet="Knob_K8_B"/>
+         <dest obj="dial_b_8_1" inlet="i7"/>
+      </net>
+      <net>
+         <source obj="foo" outlet="Knob_K1_P"/>
+         <dest obj="dial_3" inlet="in"/>
+      </net>
+      <net>
+         <source obj="foo" outlet="Knob_K2_P"/>
+         <dest obj="dial_5" inlet="in"/>
+      </net>
+      <net>
+         <source obj="foo" outlet="Knob_K3_P"/>
+         <dest obj="dial_6" inlet="in"/>
+      </net>
+      <net>
+         <source obj="foo" outlet="Knob_K4_P"/>
+         <dest obj="dial_7" inlet="in"/>
+      </net>
+      <net>
+         <source obj="foo" outlet="Knob_K5_P"/>
+         <dest obj="dial_8" inlet="in"/>
+      </net>
+      <net>
+         <source obj="foo" outlet="Knob_K6_P"/>
+         <dest obj="dial_9" inlet="in"/>
+      </net>
+      <net>
+         <source obj="foo" outlet="Knob_K7_P"/>
+         <dest obj="dial_10" inlet="in"/>
+      </net>
+      <net>
+         <source obj="foo" outlet="Knob_K8_P"/>
+         <dest obj="dial_11" inlet="in"/>
+      </net>
+      <net>
+         <source obj="toggle_1" outlet="o"/>
+         <dest obj="bool9_1" inlet="i0"/>
+      </net>
+      <net>
+         <source obj="toggle_2" outlet="o"/>
+         <dest obj="bool9_1" inlet="i1"/>
+      </net>
+      <net>
+         <source obj="toggle_3" outlet="o"/>
+         <dest obj="bool9_1" inlet="i2"/>
+      </net>
+      <net>
+         <source obj="toggle_4" outlet="o"/>
+         <dest obj="bool9_1" inlet="i3"/>
+      </net>
+      <net>
+         <source obj="toggle_5" outlet="o"/>
+         <dest obj="bool9_1" inlet="i4"/>
+      </net>
+      <net>
+         <source obj="toggle_6" outlet="o"/>
+         <dest obj="bool9_1" inlet="i5"/>
+      </net>
+      <net>
+         <source obj="toggle_7" outlet="o"/>
+         <dest obj="bool9_1" inlet="i6"/>
+      </net>
+      <net>
+         <source obj="toggle_8" outlet="o"/>
+         <dest obj="bool9_1" inlet="i7"/>
+      </net>
+      <net>
+         <source obj="foo" outlet="Pad5"/>
+         <dest obj="toggle_1" inlet="trig"/>
+      </net>
+      <net>
+         <source obj="foo" outlet="Pad6"/>
+         <dest obj="toggle_2" inlet="trig"/>
+      </net>
+      <net>
+         <source obj="foo" outlet="Pad7"/>
+         <dest obj="toggle_3" inlet="trig"/>
+      </net>
+      <net>
+         <source obj="foo" outlet="Pad8"/>
+         <dest obj="toggle_4" inlet="trig"/>
+      </net>
+      <net>
+         <source obj="foo" outlet="Pad1"/>
+         <dest obj="toggle_5" inlet="trig"/>
+      </net>
+      <net>
+         <source obj="foo" outlet="Pad2"/>
+         <dest obj="toggle_6" inlet="trig"/>
+      </net>
+      <net>
+         <source obj="foo" outlet="Pad3"/>
+         <dest obj="toggle_7" inlet="trig"/>
+      </net>
+      <net>
+         <source obj="foo" outlet="Pad4"/>
+         <dest obj="toggle_8" inlet="trig"/>
+      </net>
+      <net>
+         <source obj="foo" outlet="gate"/>
+         <dest obj="bool_1" inlet="in"/>
+      </net>
+   </nets>
+   <settings>
+      <subpatchmode>no</subpatchmode>
+   </settings>
+   <notes><![CDATA[]]></notes>
+   <windowPos>
+      <x>471</x>
+      <y>244</y>
+      <width>1015</width>
+      <height>920</height>
+   </windowPos>
+</patch-1.0>

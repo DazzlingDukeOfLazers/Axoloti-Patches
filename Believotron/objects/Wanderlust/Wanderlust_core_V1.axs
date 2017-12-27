@@ -293,8 +293,9 @@ systime_t tmo = MS2ST(4);
 
 // TBD, figure out cross platform solution to relative directories
 
-#include "C:\\Users\\danie\\Documents\\WIP\\Believotron\\Believotron-Github\\Axoloti-Patches\\Believotron\\objects\\script\\knobs.c"
-#include "C:\\Users\\danie\\Documents\\WIP\\Believotron\\Believotron-Github\\Axoloti-Patches\\Believotron\\objects\\OLED\\OLED_SSD1306.cpp"
+#include "C:\\Users\\danie\\Documents\\WIP\\Believotron\\Believotron-Github\\Axoloti-Patches-Dev\\Believotron\\objects\\script\\knobs.c"
+#include "C:\\Users\\danie\\Documents\\WIP\\Believotron\\Believotron-Github\\Axoloti-Patches-Dev\\Believotron\\objects\\script\\knobs.c"
+#include "C:\\Users\\danie\\Documents\\WIP\\Believotron\\Believotron-Github\\Axoloti-Patches-Dev\\Believotron\\objects\\OLED\\OLED_SSD1306.cpp"
 
 
 // <SPI stuff - knobs, mostly>

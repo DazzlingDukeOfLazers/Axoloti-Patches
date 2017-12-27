@@ -294,18 +294,22 @@ systime_t tmo = MS2ST(4);
 // TBD, figure out cross platform solution to relative directories
 
 //#include "C:\\Users\\danie\\Documents\\WIP\\Believotron\\Believotron-Github\\Axoloti-Patches-Dev\\Believotron\\objects\\script\\knobs.c"
+
+// You need to change these
 #include "C:\\Users\\danie\\Documents\\WIP\\Believotron\\Believotron-Github\\Axoloti-Patches-Dev\\Believotron\\objects\\script\\knobs.c"
 #include "C:\\Users\\danie\\Documents\\WIP\\Believotron\\Believotron-Github\\Axoloti-Patches-Dev\\Believotron\\objects\\OLED\\OLED_SSD1306.cpp"
+//#include "YOUR_PATH\\Axoloti-Patches-Dev\\Believotron\\objects\\script\\knobs.c"
+//#include "YOUR_PATH\\Axoloti-Patches-Dev\\Believotron\\objects\\OLED\\OLED_SSD1306.cpp"
 
 
 // <SPI stuff - knobs, mostly>
 // Turns all the SPI chip selects off
 void SPI_CS_ALL_OFF()
 {
-	// Disable Chip Select	
+	// Disable Chip Select
 	palWritePad(GPIOB,7,1);  // Knob, Top Row
 	palWritePad(GPIOB,6,1);	// Knob, Bottom Row
-	
+
 }
 // </SPI stuff>
 
@@ -318,25 +322,25 @@ void LinkTxRxBuffers(void)
 	rxbuf = _rxbuf;
 }
 
-void setup(void) 
+void setup(void)
 {
-	chThdSleepMilliseconds(1000); 
+	chThdSleepMilliseconds(1000);
 	LinkTxRxBuffers();
 
 	// enable and reset SPI Chip selects
 	{
 		// Setup Knob Top
 		palSetPadMode(GPIOB,7,PAL_MODE_OUTPUT_PUSHPULL);        // MCP3208
-	
+
 		// Setup Knob Bottom
 		palSetPadMode(GPIOB,6,PAL_MODE_OUTPUT_PUSHPULL);        // MCP3208
-	
-		SPI_CS_ALL_OFF();	
+
+		SPI_CS_ALL_OFF();
 	}
-	
+
 	out1 = 0xABBA;
-	
-	rxbuf[0] = 0;	
+
+	rxbuf[0] = 0;
 	txbuf[0] = 0; // CAP1188_PRODID;
 
 
@@ -351,20 +355,20 @@ void setup(void)
 	OLED_setstring();
 	//OLED_Sandbox();
 	OLEDDisplay();
-	
+
 
 }
 void loop(void)
-{	
-	
-	
-	readADCAndOutput(GPIOB, 7, 0);		
+{
+
+
+	readADCAndOutput(GPIOB, 7, 0);
 	readADCAndOutput(GPIOB, 6, 1);
-	chThdSleepMilliseconds(1); 	
+	chThdSleepMilliseconds(1);
 
 // Debug - TBD enable with switch, and perform without loss of audio processing
 
-//	static int iOLED=0;	
+//	static int iOLED=0;
 //	iOLED++;
 //	if (iOLED==2000)
 //	{
@@ -375,7 +379,7 @@ void loop(void)
 //		iOLED=0;
 //	}
 
-	
+
 }
 ]]></sText>
          </text>

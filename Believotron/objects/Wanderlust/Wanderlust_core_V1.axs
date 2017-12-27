@@ -293,7 +293,7 @@ systime_t tmo = MS2ST(4);
 
 // TBD, figure out cross platform solution to relative directories
 
-#include "C:\\Users\\danie\\Documents\\WIP\\Believotron\\Believotron-Github\\Axoloti-Patches-Dev\\Believotron\\objects\\script\\knobs.c"
+//#include "C:\\Users\\danie\\Documents\\WIP\\Believotron\\Believotron-Github\\Axoloti-Patches-Dev\\Believotron\\objects\\script\\knobs.c"
 #include "C:\\Users\\danie\\Documents\\WIP\\Believotron\\Believotron-Github\\Axoloti-Patches-Dev\\Believotron\\objects\\script\\knobs.c"
 #include "C:\\Users\\danie\\Documents\\WIP\\Believotron\\Believotron-Github\\Axoloti-Patches-Dev\\Believotron\\objects\\OLED\\OLED_SSD1306.cpp"
 
@@ -1239,8 +1239,8 @@ void loop(void)
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>-8</x>
-      <y>0</y>
+      <x>560</x>
+      <y>155</y>
       <width>1507</width>
       <height>1014</height>
    </windowPos>

@@ -26,6 +26,7 @@ Ask questions, raise issues, and find answers in the http://community.believotro
 - Rename /logic/trigger_if_const to /logic/bufferOnChannelSel and update all upstream references
 - /math/Spread8 seems backwards. Flip logic and add a switch to count up/down. Update all upstream references
 - /MIDI/keyb_ch should add CC as well
+- /mix/mix8MINUSNo_Gain.axo needs a unit test
 
 ## Completed:
 - Refactored and created tests for /logic

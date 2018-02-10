@@ -296,8 +296,10 @@ systime_t tmo = MS2ST(4);
 //#include "C:\\Users\\danie\\Documents\\WIP\\Believotron\\Believotron-Github\\Axoloti-Patches-Dev\\Believotron\\objects\\script\\knobs.c"
 
 // You need to change these
-#include "C:\\Users\\danie\\Documents\\WIP\\Believotron\\Believotron-Github\\Axoloti-Patches-Dev\\Believotron\\objects\\script\\knobs.c"
-#include "C:\\Users\\danie\\Documents\\WIP\\Believotron\\Believotron-Github\\Axoloti-Patches-Dev\\Believotron\\objects\\OLED\\OLED_SSD1306.cpp"
+#include "knobs.c"
+#include "OLED_SSD1306.cpp"
+//#include "C:\\Users\\danie\\Documents\\WIP\\Believotron\\Believotron-Github\\Axoloti-Patches-Dev\\Believotron\\objects\\script\\knobs.c"
+//#include "C:\\Users\\danie\\Documents\\WIP\\Believotron\\Believotron-Github\\Axoloti-Patches-Dev\\Believotron\\objects\\OLED\\OLED_SSD1306.cpp"
 //#include "YOUR_PATH\\Axoloti-Patches-Dev\\Believotron\\objects\\script\\knobs.c"
 //#include "YOUR_PATH\\Axoloti-Patches-Dev\\Believotron\\objects\\OLED\\OLED_SSD1306.cpp"
 
@@ -1243,9 +1245,9 @@ void loop(void)
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>560</x>
-      <y>155</y>
-      <width>1507</width>
-      <height>1014</height>
+      <x>0</x>
+      <y>23</y>
+      <width>1440</width>
+      <height>873</height>
    </windowPos>
 </patch-1.0>

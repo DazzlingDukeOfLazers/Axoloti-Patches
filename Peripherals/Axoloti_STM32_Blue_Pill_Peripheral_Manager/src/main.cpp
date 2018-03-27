@@ -1,10 +1,12 @@
 #include <Arduino.h>
 //#include <TwoWire.h>
 
-#include <SoftWire.h>
-#include <SoftwireI2CTest.h>
 
-SoftWire SWire(PB6, PB7, SOFT_FAST);
+//#include <SoftwireI2CTest.h>
+#include "OLED_SSD1306.h"
+#include "font_QuarterMuncher.cpp"
+
+
 
 
 #define LED_BUILTIN PC13
@@ -13,13 +15,15 @@ SoftWire SWire(PB6, PB7, SOFT_FAST);
 
 void setup()
 {
+    InitFontQuarterMuncher();
     // put your setup code here, to run once:
     pinMode(LED_BUILTIN, OUTPUT);
 
-    SWire.begin();
-    SoftWireI2CTest(SWire);
 
-    //OLEDInit();
+    //SoftWireI2CTest(SWire);
+    InitFontQuarterMuncher();
+
+    OLEDInit();
 	//OLED_setstring();
 	//OLED_Sandbox();
 	//OLEDDisplay();
@@ -28,6 +32,6 @@ void setup()
 void loop()
 {
     //heartbeat(3000);
-    heartbeat(1000);
+    //heartbeat(1000);
 
 }

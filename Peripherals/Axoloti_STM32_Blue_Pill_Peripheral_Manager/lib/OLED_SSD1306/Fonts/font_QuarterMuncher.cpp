@@ -119,7 +119,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
 // #define uint8_t char
 // #endif
 #include <stdint.h>
-#include <font_QuarterMuncher.h>
+#include "font_QuarterMuncher.h"
 uint8_t font_QuarterMuncher[256][8];
 
 

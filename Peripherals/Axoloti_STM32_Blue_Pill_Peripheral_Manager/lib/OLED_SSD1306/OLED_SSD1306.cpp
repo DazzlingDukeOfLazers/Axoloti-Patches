@@ -37,12 +37,15 @@ All text above, and the splash screen below must be included in any redistributi
 
 // Address of 0x3C when viewing 7 bit address, and 0x78 when in 8bit viewing
 #include "OLED_SSD1306.h"
+
+#include "Fonts/font_QuarterMuncher.cpp"
+
 #include <SoftWire.h>
 
 
+
 // <r>
-struct OLED_Struct
-{
+struct OLED_Struct{
     uint8_t _i2caddr, _vccstate; // vccstate is depricated. Remove during refactor
 };
 
@@ -52,8 +55,7 @@ OLED_Struct OLED0;
 
 uint8_t txbuf[I2C_BUFF_SIZE], rxbuf[I2C_BUFF_SIZE];
 
-struct I2CMessage
-{
+struct I2CMessage{
 	int32_t status;
 	uint32_t result;
 };
@@ -64,8 +66,7 @@ uint8_t Cartesian_Byte_Array[NUM_OLED_DISPLAYS][CARTESIAN_BYTE_ARRAY_NUM_ROWS][C
 
 uint8_t OLEDUpdateMask[NUM_OLED_DISPLAYS][NUM_TEXT_ROWS];
 
-uint8_t Cartesian_Byte_Array_Checkerboard[CARTESIAN_BYTE_ARRAY_NUM_ROWS][CARTESIAN_BYTE_ARRAY_NUM_COLS] =
-{
+uint8_t Cartesian_Byte_Array_Checkerboard[CARTESIAN_BYTE_ARRAY_NUM_ROWS][CARTESIAN_BYTE_ARRAY_NUM_COLS] = {
     { 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55 },
     { 0xAA, 0xAA, 0xAA, 0xAA, 0xAA, 0xAA, 0xAA, 0xAA, 0xAA, 0xAA, 0xAA, 0xAA, 0xAA, 0xAA, 0xAA, 0xAA },
     { 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55 },
@@ -243,7 +244,7 @@ void OLED1306_SendInitSequence(){
 
 void OLEDInit(){
 
-    
+    InitFontQuarterMuncher();
     //palSetPadMode(GPIOC,5, PAL_MODE_OUTPUT_PUSHPULL);
     // TBD add Cartesian Byte array clear
     i2CBegin();
@@ -257,6 +258,101 @@ void OLEDInit(){
     }
 }
 
+//------------------------------------------------------------------------------
+void ConvertCartesianBufferToOLEDBuffer(uint8_t iDevice){
+    uint8_t searchMask = 0b10000000;
+    uint8_t writeMask  = 0b00000001;
+    uint8_t invertedMask;
+    uint32_t buffIndex;
+    invertedMask = ~writeMask;
+
+    int y=0;
+    int x=0;
+    int xOrigin = x;
+    int yOrigin = y;
+
+    writeMask  = 0b00000001;
+    for (uint8_t iCartesianRow = 0; iCartesianRow < CARTESIAN_BYTE_ARRAY_NUM_ROWS; iCartesianRow++)
+
+    {
+        if (iCartesianRow == 0) {yOrigin=0;}
+        if (iCartesianRow == 8) {yOrigin=8;}
+        if (iCartesianRow == 16) {yOrigin=16;}
+        if (iCartesianRow == 24) {yOrigin=24;}
+
+        for( uint8_t iCartesianColumn=0; iCartesianColumn < CARTESIAN_BYTE_ARRAY_NUM_COLS; iCartesianColumn++)
+        {
+            invertedMask = ~writeMask;
+            searchMask = 0b10000000;
+            for (int bit=0; bit<8; bit++)
+            {
+                buffIndex = xOrigin+yOrigin*16+bit+8*iCartesianColumn;
+                if (Cartesian_Byte_Array[iDevice][iCartesianRow][iCartesianColumn] & searchMask) { OLEDBuffer[iDevice][buffIndex] |= writeMask; }
+                else                                                                             { OLEDBuffer[iDevice][buffIndex] &= invertedMask; }
+                searchMask = searchMask >> 1;
+            }
+        }
+        if (writeMask == 0b10000000) {writeMask = 0x01;} else {writeMask = writeMask << 1;}
+    }
+}
+
+void OLEDWriteDisplayBuffer(uint8_t iDevice)
+{
+  //debugPulse(1,1);
+
+  OLED1306_command(OLED_SSD1306_COLUMNADDR);
+  OLED1306_command(0);   // Column start address (0 = reset)
+  OLED1306_command(OLED_SSD1306_LCDWIDTH-1); // Column end address (127 = reset)
+
+  OLED1306_command(OLED_SSD1306_PAGEADDR);
+  OLED1306_command(0); // Page start address (0 = reset)
+  #if OLED_SSD1306_LCDHEIGHT == 64
+    OLED1306_command(7); // Page end address
+  #endif
+  #if OLED_SSD1306_LCDHEIGHT == 32
+    OLED1306_command(3); // Page end address
+  #endif
+  #if OLED_SSD1306_LCDHEIGHT == 16
+    OLED1306_command(1); // Page end address
+  #endif
+
+    // (128 * 32)/8 == 4096/8 == 512
+    for (uint16_t i=0; i<(OLED_SSD1306_LCDWIDTH*OLED_SSD1306_LCDHEIGHT/8); i+=I2C_DATA_BYTES_PER_XFER)
+    {
+        txbuf[0] = 0x40;
+
+        for (int ix=0; ix < I2C_DATA_BYTES_PER_XFER; ix++)
+        {
+            txbuf[ix+1] = OLEDBuffer[iDevice][i+ix];
+        }
+
+        i2CWrite(OLED_I2C_ADDR, txbuf, I2C_DATA_BYTES_PER_XFER+1);
+
+        delay(1);
+    }
+    //debugPulse(2,2);
+}
+
+void OLEDDisplay()
+{
+    //debugPulse(3,3);
+    for( int i=0; i< NUM_OLED_DISPLAYS; i++)
+    {
+        SetOLEDChan(i);
+        ConvertCartesianBufferToOLEDBuffer(i);
+        //debugPulse(3,3);
+        OLEDWriteDisplayBuffer(i);   // WIP, decreasing timing
+                                // 84 ms,
+                                // 51 ms,    doubled buffer to 16 bytes
+                                // 31 ms,    doubled buffer to 32 bytes
+                                // 27-35 ms, doubled buffer to 64 bytes
+                                // 17-25 ms, removed 10 ms sleep
+                                //  9-21 ms, removed 1ms sleep, might cause issues with audio
+        //debugPulse(4,4);
+    }
+    //debugPulse(4,4);
+}
+
 
 
 
@@ -267,42 +363,7 @@ void OLEDInit(){
 //     if (bPixelOn){ Cartesian_Byte_Array[iOLED_Chan][y][x/8] |= pixelMask; } else { Cartesian_Byte_Array[iOLED_Chan][y][x/8] &= ~pixelMask;}
 // }
 //
-// void ConvertCartesianBufferToOLEDBuffer(uint8_t iDevice)
-// {
-//         uint8_t searchMask = 0b10000000;
-//         uint8_t writeMask  = 0b00000001;
-//         uint8_t invertedMask;
-//         uint32_t buffIndex;
-//         invertedMask = ~writeMask;
-//
-//         int y=0;
-//         int x=0;
-//         int xOrigin = x;
-//         int yOrigin = y;
-//
-//         writeMask  = 0b00000001;
-//         for (uint8_t iCartesianRow = 0; iCartesianRow < CARTESIAN_BYTE_ARRAY_NUM_ROWS; iCartesianRow++)
-//
-//         {
-//             if (iCartesianRow == 0) {yOrigin=0;}
-//             if (iCartesianRow == 8) {yOrigin=8;}
-//             if (iCartesianRow == 16) {yOrigin=16;}
-//             if (iCartesianRow == 24) {yOrigin=24;}
-//
-//             for( uint8_t iCartesianColumn=0; iCartesianColumn < CARTESIAN_BYTE_ARRAY_NUM_COLS; iCartesianColumn++)
-//             {
-//                 invertedMask = ~writeMask;
-//                 searchMask = 0b10000000;
-//                 for (int bit=0; bit<8; bit++)
-//                 {
-//                     buffIndex = xOrigin+yOrigin*16+bit+8*iCartesianColumn;
-//                     if (Cartesian_Byte_Array[iDevice][iCartesianRow][iCartesianColumn] & searchMask) { OLEDBuffer[iDevice][buffIndex] |= writeMask; } else { OLEDBuffer[iDevice][buffIndex] &= invertedMask; }
-//                     searchMask = searchMask >> 1;
-//                 }
-//             }
-//             if (writeMask == 0b10000000) {writeMask = 0x01;} else {writeMask = writeMask << 1;}
-//         }
-// }
+
 //
 //
 //
@@ -609,7 +670,7 @@ void OLEDInit(){
 // */
 // }
 //
-// #define I2C_BYTES_PER_XFER 128
+
 // void OLEDDisplayProto()
 // {
 //     uint8_t iCol = 0;
@@ -654,58 +715,7 @@ void OLEDInit(){
 // }
 //
 //
-// void OLEDDisplayBuffer(uint8_t iDevice)
-// {
-//
-//   //debugPulse(1,1);
-//
-//   OLED1306_command(OLED_SSD1306_COLUMNADDR);
-//   OLED1306_command(0);   // Column start address (0 = reset)
-//   OLED1306_command(OLED_SSD1306_LCDWIDTH-1); // Column end address (127 = reset)
-//
-//   OLED1306_command(OLED_SSD1306_PAGEADDR);
-//   OLED1306_command(0); // Page start address (0 = reset)
-//   #if OLED_SSD1306_LCDHEIGHT == 64
-//     OLED1306_command(7); // Page end address
-//   #endif
-//   #if OLED_SSD1306_LCDHEIGHT == 32
-//     OLED1306_command(3); // Page end address
-//   #endif
-//   #if OLED_SSD1306_LCDHEIGHT == 16
-//     OLED1306_command(1); // Page end address
-//   #endif
-//
-// /*
-// #ifdef TWBR
-//     uint8_t twbrbackup = TWBR;  // DDL, not sure if this is necessary
-//     TWBR = 12; // upgrade to 400KHz!
-// #endif
-// */
-//
-//     I2CMessage thisMsg;
-// //                         (128 * 32)/8 == 4096/8 == 512
-//     for (uint16_t i=0; i<(OLED_SSD1306_LCDWIDTH*OLED_SSD1306_LCDHEIGHT/8); i+=I2C_BYTES_PER_XFER)
-//     {
-//       txbuf[0] = 0x40;
-//
-//       for (int ix=0; ix < I2C_BYTES_PER_XFER; ix++)
-//       {
-//           txbuf[ix+1] = OLEDBuffer[iDevice][i+ix];
-//       }
-//
-//
-//       thisMsg.status = i2cMasterTransmitTimeout(&I2CD1, OLED0._i2caddr, txbuf, I2C_BYTES_PER_XFER+1, rxbuf, 0, tmo); // <TBD add status checking>
-//
-//       chThdSleepMilliseconds(1);
-//     }
-//
-//     //debugPulse(2,2);
-// /*
-//     #ifdef TWBR
-//         TWBR = twbrbackup;
-//     #endif
-// */
-// }
+
 //
 //
 // char * reverse(char * str)
@@ -926,25 +936,7 @@ void OLEDInit(){
 // }
 //
 //
-// void OLEDDisplay()
-// {
-//     debugPulse(3,3);
-//     for( int i=0; i< 4; i++)
-//     {
-//         SetOLEDChan(i);
-//         ConvertCartesianBufferToOLEDBuffer(i);
-//         //debugPulse(3,3);
-//         OLEDDisplayBuffer(i);   // WIP, decreasing timing
-//                                 // 84 ms,
-//                                 // 51 ms,    doubled buffer to 16 bytes
-//                                 // 31 ms,    doubled buffer to 32 bytes
-//                                 // 27-35 ms, doubled buffer to 64 bytes
-//                                 // 17-25 ms, removed 10 ms sleep
-//                                 //  9-21 ms, removed 1ms sleep, might cause issues with audio
-//         //debugPulse(4,4);
-//     }
-//     debugPulse(4,4);
-// }
+
 //
 // uint8_t min(uint8_t a, uint8_t b)
 // {

@@ -103,8 +103,10 @@ uint8_t OLEDBuffer[OLED_BUFF_SIZE] =
 
     #define RDY_OK   0
 
-    #define I2C_BUFF_SIZE 8
+    #define I2C_BUFF_SIZE 9
+    #define I2C_DATA_BYTES_PER_XFER 8
 
 #endif
 
 void OLEDInit();
+void OLEDDisplay();

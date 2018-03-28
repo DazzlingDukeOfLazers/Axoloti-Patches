@@ -4,7 +4,7 @@
 
 //#include <SoftwireI2CTest.h>
 #include "OLED_SSD1306.h"
-#include "font_QuarterMuncher.cpp"
+//#include "font_QuarterMuncher.cpp"
 
 
 
@@ -15,18 +15,18 @@
 
 void setup()
 {
-    InitFontQuarterMuncher();
+    //InitFontQuarterMuncher();
     // put your setup code here, to run once:
     pinMode(LED_BUILTIN, OUTPUT);
 
 
     //SoftWireI2CTest(SWire);
-    InitFontQuarterMuncher();
+
 
     OLEDInit();
 	//OLED_setstring();
 	//OLED_Sandbox();
-	//OLEDDisplay();
+	OLEDDisplay();
 }
 
 void loop()

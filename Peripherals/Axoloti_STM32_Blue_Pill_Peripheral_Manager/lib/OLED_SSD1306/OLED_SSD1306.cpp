@@ -587,8 +587,11 @@ void OLED_Sandbox()
     //KludgeTest();
     //strcpy(OLEDTextBuff, "ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz");
     //strcpy(&OLEDTextBuff[0][0], "Attack");
-    OLEDTextBuff[0][0] = 'A';
-    OLEDTextBuff[0][1] = '\0';
+    strcpy(&OLEDTextBuff[0][0], "Hi Sugar");
+
+
+    //OLEDTextBuff[0][0] = 'A';
+    //OLEDTextBuff[0][1] = '\0';
     OLED_Print_ParamLeft(0);
     // strcpy(OLEDTextBuff[0], "Decay");
     // OLED_Print_ParamRight(0);

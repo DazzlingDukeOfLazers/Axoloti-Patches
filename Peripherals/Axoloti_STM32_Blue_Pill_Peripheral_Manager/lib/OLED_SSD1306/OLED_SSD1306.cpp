@@ -542,9 +542,8 @@ void ConvertCharToPixelFont(uint8_t iCol, uint8_t iRow, uint16_t index, uint8_t 
 
     for (int iPixelY = 0; iPixelY < 8; iPixelY++)
     {
-        //Cartesian_Byte_Array[iDevice][ startY+iPixelY ][ iCol ] = font_QuarterMuncher[ charOffset ][ iPixelY ];
-        Cartesian_Byte_Array[iDevice][ startY+iPixelY ][ iCol ] = 0x00;
-
+        Cartesian_Byte_Array[iDevice][ startY+iPixelY ][ iCol ] = font_QuarterMuncher[ charOffset ][ iPixelY ];
+        //Cartesian_Byte_Array[iDevice][ startY+iPixelY ][ iCol ] = 0x00;
     }
 
 }
@@ -589,6 +588,7 @@ void OLED_Sandbox()
     //strcpy(OLEDTextBuff, "ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz");
     //strcpy(&OLEDTextBuff[0][0], "Attack");
     OLEDTextBuff[0][0] = 'A';
+    OLEDTextBuff[0][1] = '\0';
     OLED_Print_ParamLeft(0);
     // strcpy(OLEDTextBuff[0], "Decay");
     // OLED_Print_ParamRight(0);

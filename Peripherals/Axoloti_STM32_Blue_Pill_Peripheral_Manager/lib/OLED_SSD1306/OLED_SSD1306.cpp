@@ -41,6 +41,7 @@ All text above, and the splash screen below must be included in any redistributi
 #include "Fonts/font_QuarterMuncher.cpp"
 
 #include <SoftWire.h>
+#include <string.h>
 
 
 
@@ -163,11 +164,14 @@ uint8_t i2CWrite(uint8_t address, uint8_t * buff, int numBytes ){
 }
 
 void OLEDBufferClear(uint8_t iDevice){
+    //for (int iRow=0; iRow< CARTESIAN_BYTE_ARRAY_NUM_ROWS; iRow++)
     for (int iRow=0; iRow< CARTESIAN_BYTE_ARRAY_NUM_ROWS; iRow++)
     {
         for(int iCol=0; iCol< CARTESIAN_BYTE_ARRAY_NUM_COLS; iCol++)
         {
-            Cartesian_Byte_Array[iDevice][iRow][iCol] = 0x00;
+            if (iRow % 2 == 0) {Cartesian_Byte_Array[iDevice][iRow][iCol] = 0xAA;}
+            else                 {Cartesian_Byte_Array[iDevice][iRow][iCol] = 0x55;}
+
         }
     }
 }
@@ -356,6 +360,231 @@ void OLEDDisplay()
 
 
 
+uint16_t CharToIndex(char charval){
+    // Determined by order of font_QuarterMuncher[index][img data]
+    switch (charval)
+    {
+        case 'A': return 0; break;
+        case 'B': return 1; break;
+        case 'C': return 2; break;
+        case 'D': return 3; break;
+        case 'E': return 4; break;
+        case 'F': return 5; break;
+        case 'G': return 6; break;
+        case 'H': return 7; break;
+        case 'I': return 8; break;
+        case 'J': return 9; break;
+        case 'K': return 10; break;
+        case 'L': return 11; break;
+        case 'M': return 12; break;
+        case 'N': return 13; break;
+        case 'O': return 14; break;
+        case 'P': return 15; break;
+        case 'Q': return 16; break;
+        case 'R': return 17; break;
+        case 'S': return 18; break;
+        case 'T': return 19; break;
+        case 'U': return 20; break;
+        case 'V': return 21; break;
+        case 'W': return 22; break;
+        case 'X': return 23; break;
+        case 'Y': return 24; break;
+        case 'Z': return 25; break;
+        case 'a': return 26; break;
+        case 'b': return 27; break;
+        case 'c': return 28; break;
+        case 'd': return 29; break;
+        case 'e': return 30; break;
+        case 'f': return 31; break;
+        case 'g': return 32; break;
+        case 'h': return 33; break;
+        case 'i': return 34; break;
+        case 'j': return 35; break;
+        case 'k': return 36; break;
+        case 'l': return 37; break;
+        case 'm': return 38; break;
+        case 'n': return 39; break;
+        case 'o': return 40; break;
+        case 'p': return 41; break;
+        case 'q': return 42; break;
+        case 'r': return 43; break;
+        case 's': return 44; break;
+        case 't': return 45; break;
+        case 'u': return 46; break;
+        case 'v': return 47; break;
+        case 'w': return 48; break;
+        case 'x': return 49; break;
+        case 'y': return 50; break;
+        case 'z': return 51; break;
+        case '0': return 52; break;
+        case '1': return 53; break;
+        case '2': return 54; break;
+        case '3': return 55; break;
+        case '4': return 56; break;
+        case '5': return 57; break;
+        case '6': return 58; break;
+        case '7': return 59; break;
+        case '8': return 60; break;
+        case '9': return 61; break;
+        case '+': return 62; break;
+        case '-': return 63; break;
+        case '*': return 64; break;
+        case '/': return 65; break;
+        //case '÷': return 66; break;
+        case '=': return 67; break;
+        case '%': return 68; break;
+        case '\"': return 69; break;
+        case '\'': return 70; break;
+        case '#': return 71; break;
+        case '@': return 72; break;
+        case '&': return 73; break;
+        case '_': return 74; break;
+        case '(': return 75; break;
+        case ')': return 76; break;
+        case ',': return 77; break;
+        case '.': return 78; break;
+        case ';': return 79; break;
+        case ':': return 80; break;
+        //case '¿': return 81; break;
+        case '?': return 82; break;
+        //case '¡': return 83; break;
+        case '!': return 84; break;
+        case '\\': return 85; break;
+        case '|': return 86; break;
+        case '{': return 87; break;
+        case '}': return 88; break;
+        case '<': return 89; break;
+        case '>': return 90; break;
+        case '[': return 91; break;
+        case ']': return 92; break;
+        //case 'μ': return 93; break;
+        case '^': return 94; break;
+
+        // TBD fix international character issues
+        // case 'À': return 95; break;
+        // case 'Á': return 96; break;
+        // case 'Â': return 97; break;
+        // case 'Ã': return 98; break;
+        // case 'Ä': return 99; break;
+        // case 'Å': return 100; break;
+        // case 'Æ': return 101; break;
+        // case 'ç': return 102; break;
+        // case 'È': return 103; break;
+        // case 'É': return 104; break;
+        // case 'Ê': return 105; break;
+        // case 'Ë': return 106; break;
+        // case 'Ì': return 107; break;
+        // case 'Í': return 108; break;
+        // case 'Î': return 109; break;
+        // case 'Ï': return 110; break;
+        // case 'Ñ': return 112; break;
+        // case 'Ò': return 113; break;
+        // case 'Ó': return 114; break;
+        // case 'Ô': return 115; break;
+        // case 'Õ': return 116; break;
+        // case 'Ö': return 117; break;
+        // case 'Ø': return 118; break;
+        // case 'Œ': return 119; break;
+        // case 'Ù': return 120; break;
+        // case 'Ú': return 121; break;
+        // case 'Û': return 122; break;
+        // case 'Ü': return 123; break;
+        // case 'ß': return 124; break;
+        case ' ': return 125; break;
+        //case '': return ; break;
+
+        default: return 0; break;
+    }
+}
+
+void KludgeTest()
+{
+    Cartesian_Byte_Array[0][ 0 ][ 0 ] = 0x00;
+    Cartesian_Byte_Array[0][ 1 ][ 0 ] = 0x00;
+    Cartesian_Byte_Array[0][ 2 ][ 0 ] = 0x00;
+    Cartesian_Byte_Array[0][ 3 ][ 0 ] = 0x00;
+}
+
+void ConvertCharToPixelFont(uint8_t iCol, uint8_t iRow, uint16_t index, uint8_t iDevice){
+    uint8_t charOffset=index;
+    uint8_t startX, startY;
+
+    startX = iCol *16;
+    startY = iRow *8;
+
+    for (int iPixelY = 0; iPixelY < 8; iPixelY++)
+    {
+        //Cartesian_Byte_Array[iDevice][ startY+iPixelY ][ iCol ] = font_QuarterMuncher[ charOffset ][ iPixelY ];
+        Cartesian_Byte_Array[iDevice][ startY+iPixelY ][ iCol ] = 0x00;
+
+    }
+
+}
+
+
+
+
+char OLEDTextBuff[NUM_OLED_DISPLAYS][NUM_OLED_CHARS];
+
+void OLED_Print_Buff(uint16_t iDevice)
+{
+
+    uint16_t iText=0;
+    uint8_t iBreak=0;
+    for (uint8_t iRow=0; iRow<4; iRow++)
+    {
+        for (uint8_t iCol=0; iCol<16; iCol++)
+        {
+            ConvertCharToPixelFont( iCol, iRow, CharToIndex(OLEDTextBuff[iDevice][iText]), iDevice );
+
+            if ( iText < NUM_OLED_CHARS - 1)
+            {
+                if ( OLEDTextBuff[iDevice][iText+1] == '\0' )
+                {iBreak=1; break;}
+            }
+            iText++;
+        }
+        if (iBreak) break;
+    }
+}
+
+void OLED_Print_ParamLeft(uint8_t iDevice)
+{
+    OLED_Print_Buff(iDevice);
+}
+
+
+void OLED_Sandbox()
+{
+
+    KludgeTest();
+    //strcpy(OLEDTextBuff, "ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz");
+    //strcpy(&OLEDTextBuff[0][0], "Attack");
+    // OLEDTextBuff[0][0] = 'A';
+    // OLED_Print_ParamLeft(0);
+    // strcpy(OLEDTextBuff[0], "Decay");
+    // OLED_Print_ParamRight(0);
+    // //OLED_Print_ValLeft(100.00, 0);
+    //
+    // strcpy(OLEDTextBuff[1], "Sustain");
+    // OLED_Print_ParamLeft(1);
+    // strcpy(OLEDTextBuff[1], "Release");
+    // OLED_Print_ParamRight(1);
+    //
+    // strcpy(OLEDTextBuff[2], "Mod1");
+    // OLED_Print_ParamLeft(2);
+    // strcpy(OLEDTextBuff[2], "Mod2");
+    // OLED_Print_ParamRight(2);
+    //
+    // strcpy(OLEDTextBuff[3], "Pitch");
+    // OLED_Print_ParamLeft(3);
+    // strcpy(OLEDTextBuff[3], "Volume");
+    // OLED_Print_ParamRight(3);
+    // // OLED_FontTest();
+}
+
+
+
 // void setPixel(uint8_t x, uint8_t y, bool bPixelOn, uint8_t iOLED_Chan )
 // {
 //     uint8_t pixelMask = 0b10000000 >> (x%8);
@@ -367,192 +596,16 @@ void OLEDDisplay()
 //
 //
 //
-// void SetOLEDCharIndex(uint8_t x, uint8_t y, uint16_t index, uint8_t iDevice)
-// {
-//     uint8_t charOffset=index;
-//     uint8_t startX, startY;
-//
-//     startX = x *16;
-//     startY = y *8;
-//
-//     for (int iPixelY = 0; iPixelY < 8; iPixelY++)
-//     {
-//         Cartesian_Byte_Array[iDevice][ startY+iPixelY ][ x ] = font_QuarterMuncher[ charOffset ][ iPixelY ];
-//     }
-// }
-//
-// #define I2C_SWITCH_ADDRESS 0b1110000
+
+
 
 //
 //
-// uint16_t CharToIndex(char charval)
-// {
-//     // Determined by order of font_QuarterMuncher[index][img data]
-//     switch (charval)
-//     {
-//         case 'A': return 0; break;
-//         case 'B': return 1; break;
-//         case 'C': return 2; break;
-//         case 'D': return 3; break;
-//         case 'E': return 4; break;
-//         case 'F': return 5; break;
-//         case 'G': return 6; break;
-//         case 'H': return 7; break;
-//         case 'I': return 8; break;
-//         case 'J': return 9; break;
-//         case 'K': return 10; break;
-//         case 'L': return 11; break;
-//         case 'M': return 12; break;
-//         case 'N': return 13; break;
-//         case 'O': return 14; break;
-//         case 'P': return 15; break;
-//         case 'Q': return 16; break;
-//         case 'R': return 17; break;
-//         case 'S': return 18; break;
-//         case 'T': return 19; break;
-//         case 'U': return 20; break;
-//         case 'V': return 21; break;
-//         case 'W': return 22; break;
-//         case 'X': return 23; break;
-//         case 'Y': return 24; break;
-//         case 'Z': return 25; break;
-//         case 'a': return 26; break;
-//         case 'b': return 27; break;
-//         case 'c': return 28; break;
-//         case 'd': return 29; break;
-//         case 'e': return 30; break;
-//         case 'f': return 31; break;
-//         case 'g': return 32; break;
-//         case 'h': return 33; break;
-//         case 'i': return 34; break;
-//         case 'j': return 35; break;
-//         case 'k': return 36; break;
-//         case 'l': return 37; break;
-//         case 'm': return 38; break;
-//         case 'n': return 39; break;
-//         case 'o': return 40; break;
-//         case 'p': return 41; break;
-//         case 'q': return 42; break;
-//         case 'r': return 43; break;
-//         case 's': return 44; break;
-//         case 't': return 45; break;
-//         case 'u': return 46; break;
-//         case 'v': return 47; break;
-//         case 'w': return 48; break;
-//         case 'x': return 49; break;
-//         case 'y': return 50; break;
-//         case 'z': return 51; break;
-//         case '0': return 52; break;
-//         case '1': return 53; break;
-//         case '2': return 54; break;
-//         case '3': return 55; break;
-//         case '4': return 56; break;
-//         case '5': return 57; break;
-//         case '6': return 58; break;
-//         case '7': return 59; break;
-//         case '8': return 60; break;
-//         case '9': return 61; break;
-//         case '+': return 62; break;
-//         case '-': return 63; break;
-//         case '*': return 64; break;
-//         case '/': return 65; break;
-//         //case '÷': return 66; break;
-//         case '=': return 67; break;
-//         case '%': return 68; break;
-//         case '\"': return 69; break;
-//         case '\'': return 70; break;
-//         case '#': return 71; break;
-//         case '@': return 72; break;
-//         case '&': return 73; break;
-//         case '_': return 74; break;
-//         case '(': return 75; break;
-//         case ')': return 76; break;
-//         case ',': return 77; break;
-//         case '.': return 78; break;
-//         case ';': return 79; break;
-//         case ':': return 80; break;
-//         //case '¿': return 81; break;
-//         case '?': return 82; break;
-//         //case '¡': return 83; break;
-//         case '!': return 84; break;
-//         case '\\': return 85; break;
-//         case '|': return 86; break;
-//         case '{': return 87; break;
-//         case '}': return 88; break;
-//         case '<': return 89; break;
-//         case '>': return 90; break;
-//         case '[': return 91; break;
-//         case ']': return 92; break;
-//         //case 'μ': return 93; break;
-//         case '^': return 94; break;
-//
-//         // TBD fix international character issues
-//         // case 'À': return 95; break;
-//         // case 'Á': return 96; break;
-//         // case 'Â': return 97; break;
-//         // case 'Ã': return 98; break;
-//         // case 'Ä': return 99; break;
-//         // case 'Å': return 100; break;
-//         // case 'Æ': return 101; break;
-//         // case 'ç': return 102; break;
-//         // case 'È': return 103; break;
-//         // case 'É': return 104; break;
-//         // case 'Ê': return 105; break;
-//         // case 'Ë': return 106; break;
-//         // case 'Ì': return 107; break;
-//         // case 'Í': return 108; break;
-//         // case 'Î': return 109; break;
-//         // case 'Ï': return 110; break;
-//         // case 'Ñ': return 112; break;
-//         // case 'Ò': return 113; break;
-//         // case 'Ó': return 114; break;
-//         // case 'Ô': return 115; break;
-//         // case 'Õ': return 116; break;
-//         // case 'Ö': return 117; break;
-//         // case 'Ø': return 118; break;
-//         // case 'Œ': return 119; break;
-//         // case 'Ù': return 120; break;
-//         // case 'Ú': return 121; break;
-//         // case 'Û': return 122; break;
-//         // case 'Ü': return 123; break;
-//         // case 'ß': return 124; break;
-//         case ' ': return 125; break;
-//         //case '': return ; break;
-//
-//         default: return 0; break;
-//     }
-// }
-//
-//
-//
 // char OLEDTextBuff[NUM_OLED_DISPLAYS][NUM_OLED_CHARS];
-// void OLED_Print_Buff(uint8_t iDevice)
-// {
-//
-//     uint8_t iText=0;
-//     uint8_t iBreak=0;
-//     for (uint8_t iRow=0; iRow<4; iRow++)
-//     {
-//         for (uint8_t iCol=0; iCol<16; iCol++)
-//         {
-//             SetOLEDCharIndex( iCol, iRow, CharToIndex(OLEDTextBuff[iDevice][iText]), iDevice );
-//
-//             if ( iText < NUM_OLED_CHARS - 1)
-//             {
-//                 if ( OLEDTextBuff[iDevice][iText+1] == '\0' )
-//                 {iBreak=1; break;}
-//             }
-//             iText++;
-//         }
-//         if (iBreak) break;
-//     }
-// }
+
 //
 //
-// void OLED_Print_ParamLeft(uint8_t iDevice)
-// {
-//     OLED_Print_Buff(iDevice);
-// }
+
 //
 //
 // void OLED_Print_ParamRight(uint8_t iDevice)
@@ -1016,28 +1069,3 @@ void OLEDDisplay()
 //
 //
 //
-// void OLED_Sandbox()
-// {
-//     //strcpy(OLEDTextBuff, "ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz");
-//     strcpy(OLEDTextBuff[0], "Attack");
-//     OLED_Print_ParamLeft(0);
-//     strcpy(OLEDTextBuff[0], "Decay");
-//     OLED_Print_ParamRight(0);
-//     //OLED_Print_ValLeft(100.00, 0);
-//
-//     strcpy(OLEDTextBuff[1], "Sustain");
-//     OLED_Print_ParamLeft(1);
-//     strcpy(OLEDTextBuff[1], "Release");
-//     OLED_Print_ParamRight(1);
-//
-//     strcpy(OLEDTextBuff[2], "Mod1");
-//     OLED_Print_ParamLeft(2);
-//     strcpy(OLEDTextBuff[2], "Mod2");
-//     OLED_Print_ParamRight(2);
-//
-//     strcpy(OLEDTextBuff[3], "Pitch");
-//     OLED_Print_ParamLeft(3);
-//     strcpy(OLEDTextBuff[3], "Volume");
-//     OLED_Print_ParamRight(3);
-//     //OLED_FontTest();
-// }

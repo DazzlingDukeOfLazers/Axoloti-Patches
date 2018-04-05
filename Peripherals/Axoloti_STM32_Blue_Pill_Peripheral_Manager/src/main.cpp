@@ -25,7 +25,7 @@ void setup()
 
     OLEDInit();
 	//OLED_setstring();
-	//OLED_Sandbox();
+	OLED_Sandbox();
 	OLEDDisplay();
 }
 

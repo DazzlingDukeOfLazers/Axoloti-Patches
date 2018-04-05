@@ -163,15 +163,42 @@ uint8_t i2CWrite(uint8_t address, uint8_t * buff, int numBytes ){
     return errors;
 }
 
-void OLEDBufferClear(uint8_t iDevice){
-    //for (int iRow=0; iRow< CARTESIAN_BYTE_ARRAY_NUM_ROWS; iRow++)
-    for (int iRow=0; iRow< CARTESIAN_BYTE_ARRAY_NUM_ROWS; iRow++)
-    {
-        for(int iCol=0; iCol< CARTESIAN_BYTE_ARRAY_NUM_COLS; iCol++)
-        {
-            if (iRow % 2 == 0) {Cartesian_Byte_Array[iDevice][iRow][iCol] = 0xAA;}
-            else                 {Cartesian_Byte_Array[iDevice][iRow][iCol] = 0x55;}
+#define OLED_CLEAR      0
+#define OLED_SOLID      1
+#define OLED_CHECKER_AA 2
+#define OLED_CHECKER_55 3
 
+void OLEDBufferClear(uint8_t iDevice, uint8_t iPattern){
+    //for (int iRow=0; iRow< CARTESIAN_BYTE_ARRAY_NUM_ROWS; iRow++)
+    uint8_t iPatternEven, iPatternOdd;
+
+    switch (iPattern){
+        case OLED_CLEAR:
+            iPatternEven = 0x00;
+            iPatternOdd  = 0x00;
+        break;
+
+        case OLED_CHECKER_AA:
+            iPatternEven = 0xAA;
+            iPatternOdd  = 0x55;
+        break;
+
+        case OLED_CHECKER_55:
+            iPatternEven = 0x55;
+            iPatternOdd  = 0xAA;
+        break;
+
+        case OLED_SOLID:
+        default:
+            iPatternEven = 0xFF;
+            iPatternOdd  = 0xFF;
+            break;
+    }
+
+    for (int iRow=0; iRow< CARTESIAN_BYTE_ARRAY_NUM_ROWS; iRow++) {
+        for(int iCol=0; iCol< CARTESIAN_BYTE_ARRAY_NUM_COLS; iCol++) {
+            if (iRow % 2 == 0) { Cartesian_Byte_Array[iDevice][iRow][iCol] = iPatternEven; }
+            else               { Cartesian_Byte_Array[iDevice][iRow][iCol] = iPatternOdd;  }
         }
     }
 }
@@ -253,9 +280,9 @@ void OLEDInit(){
     // TBD add Cartesian Byte array clear
     i2CBegin();
 
-    for (int iDevice=0; iDevice<4; iDevice++)
+    for (int iDevice=0; iDevice<NUM_OLED_DISPLAYS; iDevice++)
     {
-        OLEDBufferClear(iDevice); // TBD this line is causing a timeout sync
+        OLEDBufferClear(iDevice, OLED_CHECKER_AA); // TBD this line is causing a timeout sync
         SetOLEDChan(iDevice);
         OLED1306_SendInitSequence();
         for (int iRow=0; iRow< NUM_TEXT_ROWS; iRow++) { OLEDUpdateMask[iDevice][iRow] = 1; }
@@ -499,10 +526,11 @@ uint16_t CharToIndex(char charval){
 
 void KludgeTest()
 {
-    Cartesian_Byte_Array[0][ 0 ][ 0 ] = 0x00;
-    Cartesian_Byte_Array[0][ 1 ][ 0 ] = 0x00;
-    Cartesian_Byte_Array[0][ 2 ][ 0 ] = 0x00;
-    Cartesian_Byte_Array[0][ 3 ][ 0 ] = 0x00;
+
+    // Cartesian_Byte_Array[0][ 0 ][ 0 ] = 0x00;
+    // Cartesian_Byte_Array[0][ 1 ][ 0 ] = 0x00;
+    // Cartesian_Byte_Array[0][ 2 ][ 0 ] = 0x00;
+    // Cartesian_Byte_Array[0][ 3 ][ 0 ] = 0x00;
 }
 
 void ConvertCharToPixelFont(uint8_t iCol, uint8_t iRow, uint16_t index, uint8_t iDevice){
@@ -557,11 +585,11 @@ void OLED_Print_ParamLeft(uint8_t iDevice)
 void OLED_Sandbox()
 {
 
-    KludgeTest();
+    //KludgeTest();
     //strcpy(OLEDTextBuff, "ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz");
     //strcpy(&OLEDTextBuff[0][0], "Attack");
-    // OLEDTextBuff[0][0] = 'A';
-    // OLED_Print_ParamLeft(0);
+    OLEDTextBuff[0][0] = 'A';
+    OLED_Print_ParamLeft(0);
     // strcpy(OLEDTextBuff[0], "Decay");
     // OLED_Print_ParamRight(0);
     // //OLED_Print_ValLeft(100.00, 0);

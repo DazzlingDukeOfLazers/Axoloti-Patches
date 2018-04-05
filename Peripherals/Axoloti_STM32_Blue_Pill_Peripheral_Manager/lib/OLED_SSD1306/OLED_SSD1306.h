@@ -96,7 +96,7 @@ uint8_t OLEDBuffer[OLED_BUFF_SIZE] =
     #define CARTESIAN_BYTE_ARRAY_NUM_COLS 16 // 128 bits / 8 bits per byte
     #define CARTESIAN_BYTE_ARRAY_NUM_ROWS 32 // 32 rows of 16 bytes
 
-    #define NUM_OLED_DISPLAYS 4
+    #define NUM_OLED_DISPLAYS 1
     #define NUM_TEXT_ROWS 4
 
     #define NUM_OLED_CHARS 64

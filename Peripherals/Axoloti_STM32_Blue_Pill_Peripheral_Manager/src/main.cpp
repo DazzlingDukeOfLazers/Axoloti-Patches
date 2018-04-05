@@ -20,7 +20,7 @@ void setup()
     pinMode(LED_BUILTIN, OUTPUT);
 
 
-    //SoftWireI2CTest(SWire);
+    //SoftWireI2CTest(SWire);``
 
 
     OLEDInit();
@@ -29,9 +29,21 @@ void setup()
 	OLEDDisplay();
 }
 
+void heartbeat(int iDelay)
+{
+    // put your main code here, to run repeatedly:
+    digitalWrite(LED_BUILTIN, HIGH); // LED OFF
+
+    delay(iDelay);
+
+    digitalWrite(LED_BUILTIN, LOW); // LED ON
+
+    delay(iDelay);
+}
+
 void loop()
 {
     //heartbeat(3000);
-    //heartbeat(1000);
+    heartbeat(1000);
 
 }

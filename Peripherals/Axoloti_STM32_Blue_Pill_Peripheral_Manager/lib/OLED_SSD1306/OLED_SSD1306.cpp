@@ -619,17 +619,26 @@ void setPixel(uint8_t x, uint8_t y, bool bPixelOn, uint8_t iOLED_Chan )
 
 
 
-void OLEDDisplayInt8(uint8_t iDevice, int8_t iVal, uint8_t iRow, uint8_t iBaseAddr){
+void OLEDDisplayInt8(uint8_t iDevice, int8_t iVal, uint8_t iWidth, uint8_t iRow, uint8_t iBaseAddr){
     char itoaBuff[16];
     int32_t iRoot, iDecimal;
     //iRoot = iVal / 2097100; // keep magic reference for axo data crossover
-    int iStrLen = 3;
 
-    sprintf(itoaBuff, "%+02d", iVal);
+    if      (iWidth >  8) iWidth =  8;
+    else if (iWidth <  4) iWidth =  4;
+
+
+    char cFormatBuff[8] = "%+04d";
+    char cWidth[1];
+
+    itoa(iWidth,cWidth, 10);
+    cFormatBuff[3] = cWidth[0];
+
+    sprintf(itoaBuff,cFormatBuff, iVal);
 
     iBaseAddr += iRow*16;
 
-    for (int i=0; i<iStrLen; i++) { OLEDTextBuff[iDevice][iBaseAddr+i] = itoaBuff[i];  }
+    for (int i=0; i<iWidth; i++) { OLEDTextBuff[iDevice][iBaseAddr+i] = itoaBuff[i];  }
 
     OLED_Print_ParamLeft(iDevice);
 }
@@ -641,11 +650,12 @@ void OLED_Sandbox()
 {
 
 
-    // OLEDDisplayInt32(uint8_t iDevice, int32_t iVal, uint8_t iRow, uint8_t iBaseAddr);
-    OLEDDisplayInt8(0, -64, 1, 2);
-    OLEDDisplayInt8(0,  16, 3, 3);
 
-    OLEDDisplayInt8(0,  17, 3, 7);
+    //OLEDDisplayInt8(uint8_t iDevice, int8_t iVal, uint8_t iWidth, uint8_t iRow, uint8_t iBaseAddr)
+    OLEDDisplayInt8(0, -64, 5, 1, 2);
+    OLEDDisplayInt8(0,  16, 6, 3, 3);
+
+    OLEDDisplayInt8(0,  17, 4, 3, 7);
     //KludgeTest();
     //strcpy(OLEDTextBuff, "ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz");
     //OLED_FontTest(0);

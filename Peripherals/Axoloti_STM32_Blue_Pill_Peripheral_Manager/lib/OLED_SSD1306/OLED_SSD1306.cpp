@@ -668,13 +668,41 @@ void OLEDDisplayDouble(uint8_t iDevice, double dVal, uint8_t iDecimalPoints, uin
     OLED_Print_ParamLeft(iDevice);
 }
 
+void OLEDDisplayString(uint8_t iDevice, char* strVal, uint8_t iWidth, uint8_t iRow, uint8_t iBaseAddr){
+
+    //iRoot = iVal / 2097100; // keep magic reference for axo data crossover
+
+    if      (iWidth >  16) iWidth =  16;
+    else if (iWidth <  0) iWidth =  0;
+
+    // TBD bug vector with line wrap
+
+    //strVal.copy(itoaBuff, iWidth, 0);
+
+    //for (int iLen=0; iLen < iWidth)
+
+    iBaseAddr += iRow*16;
+
+    iWidth = strlen(strVal);
+
+    for (int i=0; i<iWidth; i++) { OLEDTextBuff[iDevice][iBaseAddr+i] = strVal[i];  }
+
+    OLED_Print_ParamLeft(iDevice);
+}
 
 
-void OLED_Sandbox()
+void testOLEDDisplayString()
 {
+    //OLEDDisplayString(uint8_t iDevice, std::string strVal, uint8_t iWidth, uint8_t iRow, uint8_t iBaseAddr){
+    char cBuff[16] = "peanuts";
 
-    //OLEDDisplayDouble(uint8_t iDevice, double dVal, uint8_t iDecimalPoints, uint8_t iRow, uint8_t iBaseAddr){
+    OLEDDisplayString(0, "I work for", 8, 0, 0);
+    OLEDDisplayString(0, "Peanuts", 8, 1, 0);
+    OLEDDisplayString(0, "just like", 8, 2, 0);
+    OLEDDisplayString(0, "you", 8, 3, 0);
+}
 
+void testOLEDDisplayDouble(){
     double dCycle[4] = {0.0, 999.999, 42.0, -999999};
 
     while (1){
@@ -692,7 +720,17 @@ void OLED_Sandbox()
         OLEDDisplay();
 
     }
+}
 
+
+
+void OLED_Sandbox(){
+
+    testOLEDDisplayString();
+    //OLEDDisplayDouble(uint8_t iDevice, double dVal, uint8_t iDecimalPoints, uint8_t iRow, uint8_t iBaseAddr){
+
+
+    //testOLEDDisplayDouble(); // Infinite loop
 
     //OLEDDisplayDouble(0,-2.48753     , 0, 1, 0);
 

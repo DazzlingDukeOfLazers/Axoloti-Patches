@@ -548,9 +548,9 @@ void KludgeTest()
 
 void ConvertCharToPixelFont(uint8_t iCol, uint8_t iRow, uint16_t index, uint8_t iDevice){
     uint8_t charOffset=index;
-    uint8_t startX, startY;
+    uint8_t startY;
 
-    startX = iCol *16;
+    //startX = iCol *16;
     startY = iRow *8;
 
     for (int iPixelY = 0; iPixelY < 8; iPixelY++)
@@ -619,16 +619,15 @@ void setPixel(uint8_t x, uint8_t y, bool bPixelOn, uint8_t iOLED_Chan )
 
 
 
-void OLEDDisplayInt8(uint8_t iDevice, int8_t iVal, uint8_t iWidth, uint8_t iRow, uint8_t iBaseAddr){
+void OLEDDisplayInt(uint8_t iDevice, int32_t iVal, uint8_t iWidth, uint8_t iRow, uint8_t iBaseAddr){
     char itoaBuff[16];
-    int32_t iRoot, iDecimal;
     //iRoot = iVal / 2097100; // keep magic reference for axo data crossover
 
     if      (iWidth >  8) iWidth =  8;
     else if (iWidth <  4) iWidth =  4;
 
 
-    char cFormatBuff[8] = "%+04d";
+    char cFormatBuff[8] = "%+04ld";
     char cWidth[1];
 
     itoa(iWidth,cWidth, 10);
@@ -644,18 +643,66 @@ void OLEDDisplayInt8(uint8_t iDevice, int8_t iVal, uint8_t iWidth, uint8_t iRow,
 }
 
 
+void OLEDDisplayDouble(uint8_t iDevice, double dVal, uint8_t iDecimalPoints, uint8_t iRow, uint8_t iBaseAddr){
+    char itoaBuff[16];
+    //iRoot = iVal / 2097100; // keep magic reference for axo data crossover
+
+    if      (iDecimalPoints >  3) iDecimalPoints =  3;
+    else if (iDecimalPoints <  0) iDecimalPoints =  0;
+
+
+    char cFormatBuff[16] = "%+8.3lf";
+    char cWidth[1];
+
+    itoa(iDecimalPoints,cWidth, 10);
+    cFormatBuff[4] = cWidth[0];
+
+    sprintf(itoaBuff,cFormatBuff, dVal);
+
+    iBaseAddr += iRow*16;
+
+    uint8_t iWidth = strlen(itoaBuff);
+
+    for (int i=0; i<iWidth; i++) { OLEDTextBuff[iDevice][iBaseAddr+i] = itoaBuff[i];  }
+
+    OLED_Print_ParamLeft(iDevice);
+}
+
 
 
 void OLED_Sandbox()
 {
 
+    //OLEDDisplayDouble(uint8_t iDevice, double dVal, uint8_t iDecimalPoints, uint8_t iRow, uint8_t iBaseAddr){
+
+    double dCycle[4] = {0.0, 999.999, 42.0, -999999};
+
+    while (1){
+
+        dCycle[0] += 0.001;
+        dCycle[1] -= 0.001;
+        dCycle[2] += 0.273543213221;
+        dCycle[3] += 1.0 + dCycle[0];
+
+        OLEDDisplayDouble(0,dCycle[0], 3, 0, 0);
+        OLEDDisplayDouble(0,dCycle[1], 3, 0, 8);
+        OLEDDisplayDouble(0,dCycle[2], 3, 2, 0);
+        OLEDDisplayDouble(0,dCycle[3], 3, 3, 8);
+
+        OLEDDisplay();
+
+    }
+
+
+    //OLEDDisplayDouble(0,-2.48753     , 0, 1, 0);
+
 
 
     //OLEDDisplayInt8(uint8_t iDevice, int8_t iVal, uint8_t iWidth, uint8_t iRow, uint8_t iBaseAddr)
-    OLEDDisplayInt8(0, -64, 5, 1, 2);
-    OLEDDisplayInt8(0,  16, 6, 3, 3);
+    //OLEDDisplayInt(0, -64, 5, 1, 2);
+    //OLEDDisplayInt(0,  16, 6, 3, 3);
 
-    OLEDDisplayInt8(0,  17, 4, 3, 7);
+    //OLEDDisplayInt(0,  32568, 8, 2, 7);
     //KludgeTest();
     //strcpy(OLEDTextBuff, "ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz");
     //OLED_FontTest(0);

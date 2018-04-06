@@ -1,4 +1,6 @@
 #include <Arduino.h>
+#undef max
+#undef min
 //#include <TwoWire.h>
 
 

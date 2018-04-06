@@ -41,7 +41,12 @@ All text above, and the splash screen below must be included in any redistributi
 #include "Fonts/font_QuarterMuncher.cpp"
 
 #include <SoftWire.h>
-#include <string.h>
+//#include <string.h>
+#undef max
+#undef min
+#include <string>
+
+
 
 
 
@@ -168,6 +173,8 @@ uint8_t i2CWrite(uint8_t address, uint8_t * buff, int numBytes ){
 #define OLED_CHECKER_AA 2
 #define OLED_CHECKER_55 3
 
+char OLEDTextBuff[NUM_OLED_DISPLAYS][NUM_OLED_CHARS];
+
 void OLEDBufferClear(uint8_t iDevice, uint8_t iPattern){
     //for (int iRow=0; iRow< CARTESIAN_BYTE_ARRAY_NUM_ROWS; iRow++)
     uint8_t iPatternEven, iPatternOdd;
@@ -193,6 +200,12 @@ void OLEDBufferClear(uint8_t iDevice, uint8_t iPattern){
             iPatternEven = 0xFF;
             iPatternOdd  = 0xFF;
             break;
+    }
+
+
+
+    for (int iChar=0; iChar < NUM_OLED_CHARS; iChar++){
+        OLEDTextBuff[iDevice][iChar] = ' ';
     }
 
     for (int iRow=0; iRow< CARTESIAN_BYTE_ARRAY_NUM_ROWS; iRow++) {
@@ -551,7 +564,7 @@ void ConvertCharToPixelFont(uint8_t iCol, uint8_t iRow, uint16_t index, uint8_t 
 
 
 
-char OLEDTextBuff[NUM_OLED_DISPLAYS][NUM_OLED_CHARS];
+
 
 void OLED_Print_Buff(uint16_t iDevice)
 {
@@ -575,27 +588,80 @@ void OLED_Print_Buff(uint16_t iDevice)
     }
 }
 
-void OLED_Print_ParamLeft(uint8_t iDevice)
-{
+void OLED_Print_ParamLeft(uint8_t iDevice){
     OLED_Print_Buff(iDevice);
 }
+
+
+void OLED_FontTest(uint8_t iDevice){
+    uint8_t index=0;
+    for (uint8_t iRow=0; iRow < 4; iRow++){
+        for (uint8_t iCol=0; iCol < 16; iCol++){
+            ConvertCharToPixelFont(iCol, iRow, index, iDevice);
+            index++;
+        }
+    }
+}
+
+void setPixel(uint8_t x, uint8_t y, bool bPixelOn, uint8_t iOLED_Chan )
+{
+    uint8_t pixelMask = 0b10000000 >> (x%8);
+
+    if (bPixelOn){ Cartesian_Byte_Array[iOLED_Chan][y][x/8] |= pixelMask; } else { Cartesian_Byte_Array[iOLED_Chan][y][x/8] &= ~pixelMask;}
+}
+
+// TBD convert to proper multi display
+// void OLEDClearDisplay()
+// {
+//     memset(OLEDBuffer, 0, (OLED_SSD1306_LCDWIDTH*OLED_SSD1306_LCDHEIGHT/8));
+// }
+
+
+
+
+void OLEDDisplayInt8(uint8_t iDevice, int8_t iVal, uint8_t iRow, uint8_t iBaseAddr){
+    char itoaBuff[16];
+    int32_t iRoot, iDecimal;
+    //iRoot = iVal / 2097100; // keep magic reference for axo data crossover
+    int iStrLen = 3;
+
+    sprintf(itoaBuff, "%+02d", iVal);
+
+    iBaseAddr += iRow*16;
+
+    for (int i=0; i<iStrLen; i++) { OLEDTextBuff[iDevice][iBaseAddr+i] = itoaBuff[i];  }
+
+    OLED_Print_ParamLeft(iDevice);
+}
+
+
 
 
 void OLED_Sandbox()
 {
 
+
+    // OLEDDisplayInt32(uint8_t iDevice, int32_t iVal, uint8_t iRow, uint8_t iBaseAddr);
+    OLEDDisplayInt8(0, -64, 1, 2);
+    OLEDDisplayInt8(0,  16, 3, 3);
+
+    OLEDDisplayInt8(0,  17, 3, 7);
     //KludgeTest();
     //strcpy(OLEDTextBuff, "ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz");
+    //OLED_FontTest(0);
+
+    //setPixel(10,10, 1, 0);
+    //setPixel(20,20, 1, 0);
+    //setPixel(30,30, 1, 0);
+
+
     //strcpy(&OLEDTextBuff[0][0], "Attack");
-    strcpy(&OLEDTextBuff[0][0], "Hi Sugar");
-
-
     //OLEDTextBuff[0][0] = 'A';
     //OLEDTextBuff[0][1] = '\0';
-    OLED_Print_ParamLeft(0);
+    //OLED_Print_ParamLeft(0);
     // strcpy(OLEDTextBuff[0], "Decay");
     // OLED_Print_ParamRight(0);
-    // //OLED_Print_ValLeft(100.00, 0);
+
     //
     // strcpy(OLEDTextBuff[1], "Sustain");
     // OLED_Print_ParamLeft(1);
@@ -616,297 +682,27 @@ void OLED_Sandbox()
 
 
 
-// void setPixel(uint8_t x, uint8_t y, bool bPixelOn, uint8_t iOLED_Chan )
-// {
-//     uint8_t pixelMask = 0b10000000 >> (x%8);
-//
-//     if (bPixelOn){ Cartesian_Byte_Array[iOLED_Chan][y][x/8] |= pixelMask; } else { Cartesian_Byte_Array[iOLED_Chan][y][x/8] &= ~pixelMask;}
-// }
-//
-
-//
-//
-//
 
 
-
-//
-//
-// char OLEDTextBuff[NUM_OLED_DISPLAYS][NUM_OLED_CHARS];
-
-//
-//
-
-//
-//
-// void OLED_Print_ParamRight(uint8_t iDevice)
-// {
-//     uint8_t iStrLen = strlen(OLEDTextBuff[iDevice]);
-//     iStrLen--;
-//     uint8_t iText=0;
-//     uint8_t iBreak=0;
-//     for (uint8_t iRow=3; iRow>=0; iRow--)
-//     {
-//         for (uint8_t iCol=15; iCol>=0; iCol--)
-//         {
-//             SetOLEDCharIndex( iCol, iRow, CharToIndex(OLEDTextBuff[iDevice][iStrLen - iText]), iDevice );
-//
-//             if ( iText < NUM_OLED_CHARS - 1) { if ( OLEDTextBuff[iDevice][iText+1] == '\0' ) { iBreak=1; break; } }
-//             iText++;
-//         }
-//         if (iBreak) break;
-//     }
-// }
-//
-//
-// void OLED_Print_ValLeft(double dVal, uint8_t iDevice)
-// {
-//     // convert number to characters
-//     //uint8_t iRadix = round(dVal,1);
-//     // TBD need a method that can compile on this chip
-//
-//
-//
-//     // position characters
-//     uint8_t iText=0;
-//
-//     for (uint8_t iCol=0; iCol<16; iCol++)
-//     {
-//         SetOLEDCharIndex( iCol, 1, CharToIndex(OLEDTextBuff[iDevice][iText]), iDevice );
-//
-//         if ( iText < NUM_OLED_CHARS - 1) { if ( OLEDTextBuff[iDevice][iText+1] == '\0' ) { break; } }
-//         iText++;
-//     }
-// }
-//
-//
-// void OLED_FontTest(uint8_t iDevice)
-// {
-//     uint8_t index=0;
-//     for (uint8_t iRow=0; iRow < 4; iRow++)
-//     {
-//         for (uint8_t iCol=0; iCol < 16; iCol++)
-//         {
-//             SetOLEDCharIndex(iCol, iRow, index, iDevice);
-//             index++;
-//         }
-//     }
-// }
-//
-// void OLED_FontTest()
-// {
-//     for (uint8_t iChan=0; iChan<4; iChan++)
-//     {
-//         SetOLEDChan(iChan);
-//         OLED_FontTest(iChan);
-//     }
-// }
-//
-
-//
-//
-// void OLEDClearDisplay()
-// {
-//     memset(OLEDBuffer, 0, (OLED_SSD1306_LCDWIDTH*OLED_SSD1306_LCDHEIGHT/8));
-// }
-//
 
 //
 //
 
 
 
-//
-// void debugPulse(int iNumPulses, int delay)
-// {
-//     for (int i=0; i<iNumPulses; i++)
-//     {
-//         palWritePad(GPIOC,5, 1);
-//         chThdSleepMilliseconds(delay);
-//         palWritePad(GPIOC,5, 0);
-//         chThdSleepMilliseconds(delay);
-//     }
-// }
-//
-//
-// void OLEDSetAddrRange(uint8_t iStartAddr, uint8_t iEndAddr, uint8_t iStartPage, uint8_t iEndPage)
-// {
-//     OLED1306_command(OLED_SSD1306_COLUMNADDR);
-//     OLED1306_command(iStartAddr);   // Column start address (0 = reset)
-//     OLED1306_command(iEndAddr-1);   // Column end address (127 = reset)
-//
-//
-//     OLED1306_command(OLED_SSD1306_PAGEADDR);
-//     OLED1306_command(iStartPage); // Page start address (0 = reset)
-//     OLED1306_command(iEndPage);  // Page end address
-//
-// // Leave for future robustness -------------------------------------------------
-// /*
-//     #if OLED_SSD1306_LCDHEIGHT == 64
-//       OLED1306_command(7); // Page end address
-//     #endif
-//     #if OLED_SSD1306_LCDHEIGHT == 32
-//       OLED1306_command(3); // Page end address
-//     #endif
-//     #if OLED_SSD1306_LCDHEIGHT == 16
-//       OLED1306_command(1); // Page end address
-//     #endif
-// */
-// }
-//
 
-// void OLEDDisplayProto()
-// {
-//     uint8_t iCol = 0;
-//     uint8_t iRow = 0;
-//     uint8_t iNumChars = 16;
-//
-//
-//     OLEDSetAddrRange(iCol*8, iCol*8+8*iNumChars, iRow, iRow+1);
-//     //OLEDSetAddrRange(0, OLED_SSD1306_LCDWIDTH, 0, 3);
-//
-//     I2CMessage thisMsg;
-//
-//     uint8_t ui8BytesPerXfer = 8*iNumChars;
-//
-//     //                         (128 * 32)/8 == 4096/8 == 512
-//     //for (uint16_t i=0; i<(OLED_SSD1306_LCDWIDTH*OLED_SSD1306_LCDHEIGHT/8); i+=ui8BytesPerXfer)
-//     for (uint16_t i=0; i< 8; i += ui8BytesPerXfer)
-//     {
-//       txbuf[0] = 0x40;
-//
-//       for (int ix=0; ix < ui8BytesPerXfer; ix++)
-//       {
-//           txbuf[ix+1] = 0xff;//OLEDBuffer[iDevice][i+ix];
-//       }
-//
-//       thisMsg.status = i2cMasterTransmitTimeout(&I2CD1, OLED0._i2caddr, txbuf, ui8BytesPerXfer+1, rxbuf, 0, tmo); // <TBD add status checking>
-//
-//       //chThdSleepMilliseconds(1);
-//     }
-// }
-//
-// void OLEDDisplayDebug()
-// {
-//     for (int iDevice = 0; iDevice < 4; iDevice++)
-//     {
-//         SetOLEDChan(iDevice);
-//     debugPulse(2,2);
-//         OLEDDisplayProto();
-//     debugPulse(3,3);
-//     }
-//     //ConvertCartesianBufferToOLEDBuffer(iDevice);
-// }
-//
-//
+
+
 
 //
-//
-// char * reverse(char * str)
-// {
-//     int iStrLen = strlen(str);
-//     char cTemp;
-//
-//     for (int i=0; i< iStrLen; i++)
-//     {
-//         cTemp  = str[i];
-//         str[i] = str[iStrLen - i - 1];
-//                  str[iStrLen - i - 1] = 0;
-//     }
-//
-// }
-//
-// // Implementation of itoa()
-// char* itoa(int num, char* str, int base)
-// {
-//     int i = 0;
-//     bool isNegative = false;
-//
-//     /* Handle 0 explicitely, otherwise empty string is printed for 0 */
-//     if (num == 0)
-//     {
-//         str[i++] = '0';
-//         str[i] = '\0';
-//         return str;
-//     }
-//
-//     // In standard itoa(), negative numbers are handled only with
-//     // base 10. Otherwise numbers are considered unsigned.
-//     if (num < 0 && base == 10)
-//     {
-//         isNegative = true;
-//         num = -num;
-//     }
-//
-//     // Process individual digits
-//     while (num != 0)
-//     {
-//         int rem = num % base;
-//         str[i++] = (rem > 9)? (rem-10) + 'a' : rem + '0';
-//         num = num/base;
-//     }
-//
-//     // If number is negative, append '-'
-//     if (isNegative)
-//         str[i++] = '-';
-//
-//     str[i] = '\0'; // Append string terminator
-//
-//     // Reverse the string
-//     //reverse(str);
-//
-//     return str;
-// }
-//
-// void OLEDDisplayCartesianBuffer(int iDevice)
-// {
-//     SetOLEDChan(iDevice);
-//     ConvertCartesianBufferToOLEDBuffer(iDevice);
-//     OLEDDisplayBuffer(iDevice);
-// }
-//
-//
-//
+
+
+// rename
 // void OLEDDisplayBipolar(uint8_t iDevice, int32_t iVal, uint8_t iRow, uint8_t iBaseAddr)
-// {
-//     char itoaBuff[16];
-//     char cFormat[8];
-//     char cMetaFormat[8];
-//     char cBuff[1];
-//
-//     int32_t iRoot, iDecimal;
-//
-//     iRoot = iVal / 2097100;
-//
-//     uint8_t iStrLen = 3;
-//
-//     strcpy (cFormat, "%+0");
-//     sprintf(cMetaFormat, "%d", iStrLen); // Creates the format string
-//     strcat (cFormat, cMetaFormat);
-//     strcat (cFormat, "d");
-//     //sprintf(itoaBuff, "%03d", iVal);
-//     sprintf(itoaBuff, cFormat, iRoot);
-//
-//     iDecimal = iVal / 209710;
-//
-//     sprintf(cFormat, "%d", iDecimal);
-//
-//     strcat( itoaBuff, ".");
-//
-//     cBuff[0] = cFormat[ strlen(cFormat)-1 ];
-//     strcat( itoaBuff, cBuff );
-//
-//     iBaseAddr += iRow*16;
-//
-//     iStrLen += 2;
-//
-//     for (int i=0; i<iStrLen; i++) { OLEDTextBuff[iDevice][iBaseAddr+i] = itoaBuff[i];  }
-//
-//     OLED_Print_ParamLeft(iDevice);
-//
-//     OLEDDisplayCartesianBuffer(iDevice);
-// }
-//
+// void OLEDDisplayInt32(uint8_t iDevice, int32_t iVal, uint8_t iRow, uint8_t iBaseAddr)
+
+
+
 //
 // void OLEDDisplayIntAt(uint8_t iDevice, int32_t iVal, uint8_t iRow, uint8_t iBaseAddr, uint8_t iStrLen)
 // {
@@ -1041,27 +837,7 @@ void OLED_Sandbox()
 //     }
 // }
 //
-// void OLED_setstring()
-// {
-//
-//     //strcpy(OLEDTextBuff, "BAR");
-//     //uint8_t iLen=0;
-//
-//     for (int iDevice = 0; iDevice < NUM_OLED_DISPLAYS; iDevice++)
-//     {
-//         int iOffset=0;
-//         for(int iRow = 0; iRow < NUM_TEXT_ROWS; iRow++ )
-//         {
-//             if ( OLEDUpdateMask[iDevice][iRow] )
-//             {
-//                 pad16(OLEDTxt[iDevice][iRow]);
-//                 strncpy(&OLEDTextBuff[iDevice][0+iOffset],  OLEDTxt[iDevice][iRow], 16);
-//             }
-//             iOffset+=16;
-//         }
-//         OLED_Print_ParamLeft(iDevice);
-//     }
-// }
+
 //
 // void OLEDMemDebug()
 // {
@@ -1100,3 +876,218 @@ void OLED_Sandbox()
 //
 //
 //
+
+
+
+
+
+//------------------------------------------------------------------------------
+// Maybe keep
+//
+// void OLED_FontTest()
+// {
+//     for (uint8_t iChan=0; iChan<4; iChan++)
+//     {
+//         SetOLEDChan(iChan);
+//         OLED_FontTest(iChan);
+//     }
+// }
+//
+//
+// void debugPulse(int iNumPulses, int delay)
+// {
+//     for (int i=0; i<iNumPulses; i++)
+//     {
+//         palWritePad(GPIOC,5, 1);
+//         chThdSleepMilliseconds(delay);
+//         palWritePad(GPIOC,5, 0);
+//         chThdSleepMilliseconds(delay);
+//     }
+// }
+//
+//
+// void OLEDSetAddrRange(uint8_t iStartAddr, uint8_t iEndAddr, uint8_t iStartPage, uint8_t iEndPage)
+// {
+//     OLED1306_command(OLED_SSD1306_COLUMNADDR);
+//     OLED1306_command(iStartAddr);   // Column start address (0 = reset)
+//     OLED1306_command(iEndAddr-1);   // Column end address (127 = reset)
+//
+//
+//     OLED1306_command(OLED_SSD1306_PAGEADDR);
+//     OLED1306_command(iStartPage); // Page start address (0 = reset)
+//     OLED1306_command(iEndPage);  // Page end address
+//
+// // Leave for future robustness -------------------------------------------------
+// /*
+//     #if OLED_SSD1306_LCDHEIGHT == 64
+//       OLED1306_command(7); // Page end address
+//     #endif
+//     #if OLED_SSD1306_LCDHEIGHT == 32
+//       OLED1306_command(3); // Page end address
+//     #endif
+//     #if OLED_SSD1306_LCDHEIGHT == 16
+//       OLED1306_command(1); // Page end address
+//     #endif
+// */
+// }
+//
+
+// void OLEDDisplayProto()
+// {
+//     uint8_t iCol = 0;
+//     uint8_t iRow = 0;
+//     uint8_t iNumChars = 16;
+//
+//
+//     OLEDSetAddrRange(iCol*8, iCol*8+8*iNumChars, iRow, iRow+1);
+//     //OLEDSetAddrRange(0, OLED_SSD1306_LCDWIDTH, 0, 3);
+//
+//     I2CMessage thisMsg;
+//
+//     uint8_t ui8BytesPerXfer = 8*iNumChars;
+//
+//     //                         (128 * 32)/8 == 4096/8 == 512
+//     //for (uint16_t i=0; i<(OLED_SSD1306_LCDWIDTH*OLED_SSD1306_LCDHEIGHT/8); i+=ui8BytesPerXfer)
+//     for (uint16_t i=0; i< 8; i += ui8BytesPerXfer)
+//     {
+//       txbuf[0] = 0x40;
+//
+//       for (int ix=0; ix < ui8BytesPerXfer; ix++)
+//       {
+//           txbuf[ix+1] = 0xff;//OLEDBuffer[iDevice][i+ix];
+//       }
+//
+//       thisMsg.status = i2cMasterTransmitTimeout(&I2CD1, OLED0._i2caddr, txbuf, ui8BytesPerXfer+1, rxbuf, 0, tmo); // <TBD add status checking>
+//
+//       //chThdSleepMilliseconds(1);
+//     }
+// }
+//
+// void OLEDDisplayDebug()
+// {
+//     for (int iDevice = 0; iDevice < 4; iDevice++)
+//     {
+//         SetOLEDChan(iDevice);
+//     debugPulse(2,2);
+//         OLEDDisplayProto();
+//     debugPulse(3,3);
+//     }
+//     //ConvertCartesianBufferToOLEDBuffer(iDevice);
+// }
+//
+
+//
+//
+// char * reverse(char * str)
+// {
+//     int iStrLen = strlen(str);
+//     char cTemp;
+//
+//     for (int i=0; i< iStrLen; i++)
+//     {
+//         cTemp  = str[i];
+//         str[i] = str[iStrLen - i - 1];
+//                  str[iStrLen - i - 1] = 0;
+//     }
+//
+// }
+//
+// // Implementation of itoa()
+// char* itoa(int num, char* str, int base)
+// {
+//     int i = 0;
+//     bool isNegative = false;
+//
+//     /* Handle 0 explicitely, otherwise empty string is printed for 0 */
+//     if (num == 0)
+//     {
+//         str[i++] = '0';
+//         str[i] = '\0';
+//         return str;
+//     }
+//
+//     // In standard itoa(), negative numbers are handled only with
+//     // base 10. Otherwise numbers are considered unsigned.
+//     if (num < 0 && base == 10)
+//     {
+//         isNegative = true;
+//         num = -num;
+//     }
+//
+//     // Process individual digits
+//     while (num != 0)
+//     {
+//         int rem = num % base;
+//         str[i++] = (rem > 9)? (rem-10) + 'a' : rem + '0';
+//         num = num/base;
+//     }
+//
+//     // If number is negative, append '-'
+//     if (isNegative)
+//         str[i++] = '-';
+//
+//     str[i] = '\0'; // Append string terminator
+//
+//     // Reverse the string
+//     //reverse(str);
+//
+//     return str;
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//------------------------------------------------------------------------------
+// Cutting room floor
+// TBD Not very useful
+// void OLED_Print_ParamRight(uint8_t iDevice){
+//     uint8_t iStrLen = strlen(OLEDTextBuff[iDevice]);
+//     iStrLen--;
+//     uint8_t iText=0;
+//     uint8_t iBreak=0;
+//     for (uint8_t iRow=3; iRow>=0; iRow--)
+//     {
+//         for (uint8_t iCol=15; iCol>=0; iCol--)
+//         {
+//             ConvertCharToPixelFont( iCol, iRow, CharToIndex(OLEDTextBuff[iDevice][iStrLen - iText]), iDevice );
+//
+//             if ( iText < NUM_OLED_CHARS - 1) { if ( OLEDTextBuff[iDevice][iText+1] == '\0' ) { iBreak=1; break; } }
+//             iText++;
+//         }
+//         if (iBreak) break;
+//     }
+// }
+
+
+// void OLED_setstring()
+// {
+//
+//     //strcpy(OLEDTextBuff, "BAR");
+//     //uint8_t iLen=0;
+//
+//     for (int iDevice = 0; iDevice < NUM_OLED_DISPLAYS; iDevice++)
+//     {
+//         int iOffset=0;
+//         for(int iRow = 0; iRow < NUM_TEXT_ROWS; iRow++ )
+//         {
+//             if ( OLEDUpdateMask[iDevice][iRow] )
+//             {
+//                 pad16(OLEDTxt[iDevice][iRow]);
+//                 strncpy(&OLEDTextBuff[iDevice][0+iOffset],  OLEDTxt[iDevice][iRow], 16);
+//             }
+//             iOffset+=16;
+//         }
+//         OLED_Print_ParamLeft(iDevice);
+//     }
+// }

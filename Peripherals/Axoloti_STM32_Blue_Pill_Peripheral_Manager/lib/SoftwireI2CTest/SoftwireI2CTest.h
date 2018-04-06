@@ -3,6 +3,8 @@
 // SWire.begin();
 #include <Softwire.h>
 #include <Arduino.h>
+#undef max
+#undef min
 
 #define LED_BUILTIN PC13
 

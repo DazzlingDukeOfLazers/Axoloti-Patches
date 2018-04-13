@@ -148,7 +148,8 @@ uint8_t Cartesian_Byte_Array_Checkerboard[CARTESIAN_BYTE_ARRAY_NUM_ROWS][CARTESI
     { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 },
 };*/
 
-SoftWire SWire(PB6, PB7, SOFT_FAST);
+//SoftWire SWire(PB6, PB7, SOFT_FAST);
+SoftWire SWire(PB10, PB11, SOFT_FAST);
 
 void i2CBegin() { SWire.begin();}
 

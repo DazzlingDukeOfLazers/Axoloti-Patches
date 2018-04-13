@@ -698,8 +698,8 @@ void testOLEDDisplayString()
 
     OLEDDisplayString(0, "I work for", 8, 0, 0);
     OLEDDisplayString(0, "Peanuts", 8, 1, 0);
-    OLEDDisplayString(0, "just like", 8, 2, 0);
-    OLEDDisplayString(0, "you", 8, 3, 0);
+    //OLEDDisplayString(0, "just like", 8, 2, 0);
+    //OLEDDisplayString(0, "you", 8, 3, 0);
 }
 
 
@@ -728,6 +728,7 @@ void clearUARTCommand(){
 
 void parseUARTByte(char cBuf){
     static uint8_t iState = 0;
+    static int iCount = 0;
 
     char cTempBuff[1];
     cTempBuff[0] = '\0';
@@ -785,7 +786,7 @@ void parseUARTByte(char cBuf){
 
         case 7:
             if (uartCommand.iCommandType == UART_WRITELINE){
-                if (cBuf == ',') iState = 7;
+                if (cBuf == ',') iState = 8;
             } else iState = 0;
             break;
 
@@ -825,6 +826,7 @@ void parseUARTByte(char cBuf){
                 if (cBuf == '}'){
                     //void OLEDDisplayString(uint8_t iDevice, char* strVal, uint8_t iWidth, uint8_t iRow, uint8_t iBaseAddr){
                     OLEDDisplayString(uartCommand.iDisplayNum, uartCommand.cBuff, uartCommand.iStrLength, uartCommand.iLineNum, uartCommand.iOffset);
+                    OLEDDisplay();
                 }
                 iState = 0;
             } else iState = 0;
@@ -839,6 +841,16 @@ void parseUARTByte(char cBuf){
             iState = 0;
             break;
     }
+
+
+    // cTempBuff[0] = cBuf;
+    // OLEDDisplayString(0, cTempBuff, 1, 2, 4);
+    // // //OLEDDisplayInt(uint8_t iDevice, int32_t iVal, uint8_t iWidth, uint8_t iRow, uint8_t iBaseAddr){
+    // OLEDDisplayInt(0, iCount++, 4, 3, 8);
+    //
+    // OLEDDisplayInt(0, iState, 4, 3, 4);
+    // OLEDDisplay();
+
 
 
 }

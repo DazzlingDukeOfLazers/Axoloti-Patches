@@ -57,7 +57,8 @@ void loop()
         // read the incoming byte:
         incomingByte = Serial1.read();
         //parseByte(incomingByte);
-        heartbeat(50);
+        parseUARTByte(incomingByte);
+        heartbeat(10);
 
         // say what you got:
         //Serial.print("I received: ");

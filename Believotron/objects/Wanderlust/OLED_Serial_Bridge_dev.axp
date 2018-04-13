@@ -33,9 +33,9 @@ void writeLine( char * chBuff, uint8_t iLength)
 	UARTWriteByte(',');
 	UARTWriteByte('0');
 	UARTWriteByte(',');
-	UARTWriteByte('1');
-	UARTWriteByte('6');
-	UARTWriteByte(',');
+	//UARTWriteByte('1');
+	//UARTWriteByte('6');
+	//UARTWriteByte(',');
 	UARTWriteByte('"');
 	
 	
@@ -58,7 +58,7 @@ void setup(void) {
 	UARTWriteByte( 'C' );
 	UARTWriteByte( 'D' );
 
-	writeLine("foo", 3);
+	writeLine("Proof of UART", 13);
 	
 	
 } 

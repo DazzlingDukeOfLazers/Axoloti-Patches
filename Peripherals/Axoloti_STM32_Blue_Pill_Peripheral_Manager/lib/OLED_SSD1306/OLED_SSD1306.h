@@ -113,3 +113,5 @@ uint8_t OLEDBuffer[OLED_BUFF_SIZE] =
 void OLEDInit();
 void OLEDDisplay();
 void OLED_Sandbox();
+void parseByte(char cBuf);
+void parseUARTByte(char cBuf);

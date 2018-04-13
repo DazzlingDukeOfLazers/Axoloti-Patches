@@ -1,0 +1,116 @@
+<patch-1.0 appVersion="1.0.12">
+   <comment type="patch/comment" x="14" y="14" text="demonstrates the use of hardware serial I/O. Connect PA2 to PA3 to create a loopback test."/>
+   <obj type="gpio/serial/config" uuid="8ec617bbe7b552a58656442e87513d8b4c69833a" name="serial.begin_1" x="14" y="42">
+      <params/>
+      <attribs>
+         <combo attributeName="baudrate" selection="9600"/>
+      </attribs>
+   </obj>
+   <comment type="patch/comment" x="14" y="112" text="transmission/reception of serial data is done in a script2 object"/>
+   <obj type="ctrl/dial p" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="c_1" x="14" y="140">
+      <params>
+         <frac32.u.map name="value" value="58.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="script/script2" uuid="d39e743cf47c9221f4e99c133430148cf74c68c5" name="script2_1" x="98" y="140">
+      <params/>
+      <attribs>
+         <text attributeName="script">
+            <sText><![CDATA[// demo serial transmission and reception using SD2 (USART2)
+
+#define UARTWriteByte( a ) (sdPut(&SD2,a))
+
+void writeLine( char * chBuff, uint8_t iLength)
+{
+	UARTWriteByte('{');
+	UARTWriteByte('W');
+	UARTWriteByte('L');
+	UARTWriteByte(',');
+	UARTWriteByte('0');
+	UARTWriteByte(',');
+	UARTWriteByte('0');
+	UARTWriteByte(',');
+	UARTWriteByte('0');
+	UARTWriteByte(',');
+	UARTWriteByte('1');
+	UARTWriteByte('6');
+	UARTWriteByte(',');
+	UARTWriteByte('"');
+	
+	
+	for (int i=0; i<iLength; i++)
+	{		
+		UARTWriteByte( chBuff[i] );
+		if (chBuff[i] == '\0') break;
+	}
+
+	UARTWriteByte('"');
+	UARTWriteByte('}');	
+	
+}
+
+
+void setup(void) {
+
+	UARTWriteByte( 'A' );
+	UARTWriteByte( 'B' );
+	UARTWriteByte( 'C' );
+	UARTWriteByte( 'D' );
+
+	writeLine("foo", 3);
+	
+	
+} 
+
+
+
+
+
+void loop(void) {
+	uint8_t foo;
+	
+	// send a single byte, value from in1
+	//sdPut(&SD2, 'b'); 
+	//sdPut(&SD2, in1>>21); 
+	//UARTWriteByte( 'A' );
+	//UARTWriteByte( 'B' );
+
+	//char cBuff[16] = "Them apples";
+
+	//writeLine(cBuff, strlen(cBuff) );
+
+	// read all pending bytes, value to out1
+	while(!sdGetWouldBlock(&SD2)){
+		out1 = sdGet(&SD2)<<21;
+	}
+	chThdSleepMilliseconds(3);
+}]]></sText>
+         </text>
+      </attribs>
+   </obj>
+   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="displayU_1" x="210" y="140">
+      <params/>
+      <attribs/>
+   </obj>
+   <nets>
+      <net>
+         <source obj="c_1" outlet="out"/>
+         <dest obj="script2_1" inlet="in1_"/>
+      </net>
+      <net>
+         <source obj="script2_1" outlet="out1_"/>
+         <dest obj="displayU_1" inlet="in"/>
+      </net>
+   </nets>
+   <settings>
+      <subpatchmode>no</subpatchmode>
+   </settings>
+   <notes><![CDATA[]]></notes>
+   <windowPos>
+      <x>630</x>
+      <y>407</y>
+      <width>562</width>
+      <height>506</height>
+   </windowPos>
+</patch-1.0>

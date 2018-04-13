@@ -15,22 +15,6 @@
 
 //TwoWire myWire(PB9, PB8, SOFT_FAST);
 
-void setup()
-{
-    //InitFontQuarterMuncher();
-    // put your setup code here, to run once:
-    pinMode(LED_BUILTIN, OUTPUT);
-
-
-    //SoftWireI2CTest(SWire);``
-
-
-    OLEDInit();
-	//OLED_setstring();
-	OLED_Sandbox();
-	OLEDDisplay();
-}
-
 void heartbeat(int iDelay)
 {
     // put your main code here, to run repeatedly:
@@ -43,9 +27,43 @@ void heartbeat(int iDelay)
     delay(iDelay);
 }
 
+
+void setup()
+{
+    //InitFontQuarterMuncher();
+    // put your setup code here, to run once:
+    pinMode(LED_BUILTIN, OUTPUT);
+
+    Serial1.begin(9600);
+
+
+
+
+    //SoftWireI2CTest(SWire);``
+
+
+    OLEDInit();
+	//OLED_setstring();
+	OLED_Sandbox();
+	OLEDDisplay();
+}
+
+
+
 void loop()
 {
+    int incomingByte = 0;
+    if (Serial1.available() > 0) {
+        // read the incoming byte:
+        incomingByte = Serial1.read();
+        //parseByte(incomingByte);
+        heartbeat(50);
+
+        // say what you got:
+        //Serial.print("I received: ");
+        //Serial.println(incomingByte, DEC);
+    }
     //heartbeat(3000);
-    heartbeat(1000);
+
 
 }

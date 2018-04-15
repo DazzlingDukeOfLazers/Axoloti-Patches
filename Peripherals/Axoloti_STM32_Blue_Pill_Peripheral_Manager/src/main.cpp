@@ -58,12 +58,13 @@ void loop()
         incomingByte = Serial1.read();
         //parseByte(incomingByte);
         parseUARTByte(incomingByte);
-        heartbeat(10);
+        //heartbeat(10);
 
         // say what you got:
         //Serial.print("I received: ");
         //Serial.println(incomingByte, DEC);
     }
+    //heartbeat(1000);
     //heartbeat(3000);
 
 

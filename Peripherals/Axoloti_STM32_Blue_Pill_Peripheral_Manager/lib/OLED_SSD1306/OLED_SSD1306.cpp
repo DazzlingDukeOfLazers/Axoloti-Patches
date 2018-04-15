@@ -148,6 +148,7 @@ uint8_t Cartesian_Byte_Array_Checkerboard[CARTESIAN_BYTE_ARRAY_NUM_ROWS][CARTESI
     { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 },
 };*/
 
+//              DATA, CLOCK
 //SoftWire SWire(PB6, PB7, SOFT_FAST);
 SoftWire SWire(PB10, PB11, SOFT_FAST);
 
@@ -219,14 +220,14 @@ void OLEDBufferClear(uint8_t iDevice, uint8_t iPattern){
 
 void SetOLEDChan(uint8_t iChan)
 { // Only used if an I2C Address switcher is inline
-#if 0
+#if 1
     if (iChan > 3) return;
 
     txbuf[0] = 0x01 << iChan;
 
-    i2CWriteByte(I2C_SWITCH_ADDRESS, txbuf);
+    i2CWrite(I2C_SWITCH_ADDRESS, txbuf,1);
     //i2cMasterTransmitTimeout(&I2CD1, I2C_SWITCH_ADDRESS, txbuf, 1, rxbuf, 0, tmo); // <TBD add status checking>
-    chThdSleepMilliseconds(1);
+
 #endif
 }
 
@@ -703,6 +704,36 @@ void testOLEDDisplayString()
     //OLEDDisplayString(0, "you", 8, 3, 0);
 }
 
+void testOLEDDisplay()
+{
+    //OLEDDisplayString(uint8_t iDevice, std::string strVal, uint8_t iWidth, uint8_t iRow, uint8_t iBaseAddr){
+    char cBuff[16] = "peanuts";
+    //                   "                "
+    OLEDDisplayString(0, "QuadOLEDBootTest", 8, 0, 0);
+    OLEDDisplayString(0, "The quick brown ", 8, 1, 0);
+    OLEDDisplayString(0, "fox jumped over ", 8, 2, 0);
+    OLEDDisplayString(0, "the lazy dog 012", 8, 3, 0);
+
+    OLEDDisplayString(1, "Although,frankly", 8, 0, 0);
+    OLEDDisplayString(1, "it could be     ", 8, 1, 0);
+    OLEDDisplayString(1, "argued that the ", 8, 2, 0);
+    OLEDDisplayString(1, "story had bias. ", 8, 3, 0);
+
+    OLEDDisplayString(2, "Is it noteworthy", 8, 0, 0);
+    OLEDDisplayString(2, "to bypass doggo ", 8, 1, 0);
+    OLEDDisplayString(2, "when pup is nap?", 8, 2, 0);
+    OLEDDisplayString(2, "What is fox news", 8, 3, 0);
+
+    OLEDDisplayString(3, "The forest is   ", 8, 0, 0);
+    OLEDDisplayString(3, "too dangerous   ", 8, 1, 0);
+    OLEDDisplayString(3, "for typesetters ", 8, 2, 0);
+    OLEDDisplayString(3, "and engineers   ", 8, 3, 0);
+
+    //OLEDDisplayString(0, "just like", 8, 2, 0);
+    //OLEDDisplayString(0, "you", 8, 3, 0);
+}
+
+
 
 
 struct UARTCommand{
@@ -890,7 +921,9 @@ void testOLEDDisplayDouble(){
 
 void OLED_Sandbox(){
 
-    testOLEDDisplayString();
+    testOLEDDisplay();
+
+    //testOLEDDisplayString();
     //OLEDDisplayDouble(uint8_t iDevice, double dVal, uint8_t iDecimalPoints, uint8_t iRow, uint8_t iBaseAddr){
 
 

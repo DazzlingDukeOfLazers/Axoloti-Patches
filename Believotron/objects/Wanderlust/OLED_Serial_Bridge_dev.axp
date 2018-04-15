@@ -27,11 +27,11 @@ void writeLine( char * chBuff, uint8_t iLength)
 	UARTWriteByte('W');
 	UARTWriteByte('L');
 	UARTWriteByte(',');
-	UARTWriteByte('0');
+	UARTWriteByte('3');
 	UARTWriteByte(',');
-	UARTWriteByte('0');
+	UARTWriteByte('3');
 	UARTWriteByte(',');
-	UARTWriteByte('0');
+	UARTWriteByte('1');
 	UARTWriteByte(',');
 	//UARTWriteByte('1');
 	//UARTWriteByte('6');
@@ -108,9 +108,9 @@ void loop(void) {
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>630</x>
-      <y>407</y>
-      <width>562</width>
+      <x>927</x>
+      <y>261</y>
+      <width>1150</width>
       <height>506</height>
    </windowPos>
 </patch-1.0>

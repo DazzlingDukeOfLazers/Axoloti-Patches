@@ -35,10 +35,6 @@ void setup()
     pinMode(LED_BUILTIN, OUTPUT);
 
     Serial1.begin(9600);
-
-
-
-
     //SoftWireI2CTest(SWire);``
 
 
@@ -58,7 +54,7 @@ void loop()
         incomingByte = Serial1.read();
         //parseByte(incomingByte);
         parseUARTByte(incomingByte);
-        //heartbeat(10);
+        //heartbeat(100);
 
         // say what you got:
         //Serial.print("I received: ");

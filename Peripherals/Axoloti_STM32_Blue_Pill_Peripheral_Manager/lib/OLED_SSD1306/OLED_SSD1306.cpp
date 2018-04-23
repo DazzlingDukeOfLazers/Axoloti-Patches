@@ -744,9 +744,11 @@ struct UARTCommand{
     uint8_t iLength;
     char    cBuff[64];
     uint8_t iStrLength;
+    int32_t i32Val;
 }uartCommand;
 
 #define UART_WRITELINE 1
+#define UART_WRITEINT  2
 
 void clearUARTCommand(){
     uartCommand.iCommandType = 0;
@@ -756,133 +758,220 @@ void clearUARTCommand(){
     uartCommand.iLength      = 0;
     uartCommand.iStrLength   = 0;
     for (int i=0; i<64; i++) uartCommand.cBuff[i] ='\0';
+    uartCommand.i32Val = 0;
 }
 
 void parseUARTByte(char cBuf){
     static uint8_t iState = 0;
-    static int iCount = 0;
+
+
 
     char cTempBuff[1];
     cTempBuff[0] = '\0';
     cTempBuff[1] = '\0';
 
-    switch (iState){
-        case 0:
-            clearUARTCommand();
-            if (cBuf == '{') iState = 1;
-            break;
+    if (iState <= 2)
+    {
+        switch (iState){
+            case 0:
+                clearUARTCommand();
+                if (cBuf == '{') iState = 1;
+                break;
 
-        case 1:
-            if (cBuf == 'W') iState = 2;
-            else iState = 0;
-            break;
+            case 1:
+                if (cBuf == 'W') iState = 2;
+                else iState = 0;
+                break;
 
-        case 2:
-            if (cBuf == 'L'){
-                iState = 3;
-                uartCommand.iCommandType = UART_WRITELINE;
-            } else iState = 0;
-            break;
+            case 2:
+                if (cBuf == 'L'){
+                    iState = 3;
+                    uartCommand.iCommandType = UART_WRITELINE;
+                }
+                else if (cBuf =='I'){
+                    iState = 3;
+                    uartCommand.iCommandType = UART_WRITEINT;
+                }
+                else iState = 0;
+                break;
 
-        case 3:
-            if (uartCommand.iCommandType == UART_WRITELINE){
+            default:
+                iState = 0;
+                break;
+        }
+    }
+    else if (uartCommand.iCommandType == UART_WRITELINE){
+
+        switch (iState) {
+            case 3:
                 if (cBuf == ',') iState = 4;
-            } else iState = 0;
-            break;
+                break;
 
-        case 4:
-            if (uartCommand.iCommandType == UART_WRITELINE){
+            case 4:
                 if (cBuf >= '0' && cBuf <= '9'){
                     cTempBuff[0] = cBuf;
                     uartCommand.iDisplayNum = atoi(cTempBuff);
                     iState = 5;
                 } else iState = 0;
-            } else iState = 0;
-            break;
+                break;
 
-        case 5:
-            if (uartCommand.iCommandType == UART_WRITELINE){
+            case 5:
                 if (cBuf == ',') iState = 6;
-            } else iState = 0;
-            break;
+                break;
 
-        case 6:
-            if (uartCommand.iCommandType == UART_WRITELINE){
+            case 6:
                 if (cBuf >= '0' && cBuf <= '9'){
                     cTempBuff[0] = cBuf;
                     uartCommand.iLineNum = atoi(cTempBuff);
                     iState = 7;
                 } else iState = 0;
-            } else iState = 0;
-            break;
+                break;
 
-        case 7:
-            if (uartCommand.iCommandType == UART_WRITELINE){
+            case 7:
                 if (cBuf == ',') iState = 8;
-            } else iState = 0;
-            break;
+                break;
 
-        case 8:
-            if (uartCommand.iCommandType == UART_WRITELINE){
+            case 8:
                 if (cBuf >= '0' && cBuf <= '9'){
                     cTempBuff[0] = cBuf;
                     uartCommand.iOffset = atoi(cTempBuff);
                     iState = 9;
                 } else iState = 0;
-            } else iState = 0;
-            break;
+                break;
 
-        case 9:
-            if (uartCommand.iCommandType == UART_WRITELINE){
+            case 9:
                 if (cBuf == ',') iState = 10;
-            } else iState = 0;
-            break;
+                break;
 
-        case 10:
-            if (uartCommand.iCommandType == UART_WRITELINE){
+            case 10:
                 if (cBuf == '\"') iState = 11;
                 uartCommand.iStrLength   = 0;
-            } else iState = 0;
-            break;
+                break;
 
-        case 11:
-            if (uartCommand.iCommandType == UART_WRITELINE){
+            case 11:
                 if (cBuf == '\"') {iState = 12;}
                 else { uartCommand.cBuff[uartCommand.iStrLength++] = cBuf;}
                 if (uartCommand.iStrLength > 16) iState = 0;
-            } else iState = 0;
-            break;
+                break;
 
-        case 12:
-            if (uartCommand.iCommandType == UART_WRITELINE){
+
+            case 12:
                 if (cBuf == '}'){
                     //void OLEDDisplayString(uint8_t iDevice, char* strVal, uint8_t iWidth, uint8_t iRow, uint8_t iBaseAddr){
                     OLEDDisplayString(uartCommand.iDisplayNum, uartCommand.cBuff, uartCommand.iStrLength, uartCommand.iLineNum, uartCommand.iOffset);
                     OLEDDisplay();
+                    iState = 0;
+                }
+                break;
+
+            default:
+                iState = 0;
+                break;
+        }
+
+    }
+    else if (uartCommand.iCommandType == UART_WRITEINT){
+        switch (iState) {
+            case 3:
+                if (cBuf == ',') iState = 4;
+                break;
+
+            case 4:
+                if (cBuf >= '0' && cBuf <= '9'){
+                    cTempBuff[0] = cBuf;
+                    uartCommand.iDisplayNum = atoi(cTempBuff);
+                    iState = 5;
+                } else iState = 0;
+                break;
+
+            case 5:
+                if (cBuf == ',') iState = 6;
+                break;
+
+            case 6:
+                if (cBuf >= '0' && cBuf <= '9'){
+                    cTempBuff[0] = cBuf;
+                    uartCommand.iLineNum = atoi(cTempBuff);
+                    iState = 7;
+                } else iState = 0;
+                break;
+
+            case 7:
+                if (cBuf == ',') iState = 8;
+                break;
+
+            case 8:
+                if (cBuf >= '0' && cBuf <= '9'){
+                    cTempBuff[0] = cBuf;
+                    uartCommand.iOffset = atoi(cTempBuff);
+                    iState = 9;
+                } else iState = 0;
+                break;
+
+            case 9:
+                if (cBuf == ',') iState = 10;
+                break;
+
+            case 10:
+                if (cBuf >= '0' && cBuf <= '9'){
+                    cTempBuff[0] = cBuf;
+                    uartCommand.iLength = atoi(cTempBuff);
+                    iState = 11;
+                } else iState = 0;
+                break;
+
+            case 11:
+                if (cBuf == ',') iState = 12; else iState = 0;
+                break;
+
+            case 12:
+                uartCommand.i32Val  = 0xFF000000 & (cBuf << 24);
+                iState++;
+                break;
+
+            case 13:
+                uartCommand.i32Val += 0x00FF0000 & (cBuf << 16);
+                iState++;
+                break;
+
+            case 14:
+                uartCommand.i32Val += 0x0000FF00 & (cBuf <<  8);
+                //uartCommand.i32Val = 1; //0x0000FF00 & (cBuf <<  8);
+                iState++;
+                break;
+
+            case 15:
+                uartCommand.i32Val += 0x000000FF & (cBuf      );
+                iState++;
+                break;
+
+            case 16:
+                if (cBuf == '}'){
+                    //void OLEDDisplayInt(uint8_t iDevice, int32_t iVal, uint8_t iWidth, uint8_t iRow, uint8_t iBaseAddr){
+                    OLEDDisplayInt(uartCommand.iDisplayNum, uartCommand.i32Val, uartCommand.iLength, uartCommand.iLineNum, uartCommand.iOffset);
+                    OLEDDisplay();
                 }
                 iState = 0;
-            } else iState = 0;
-            break;
+                break;
 
+            default:
+                iState = 0;
+                break;
+        }
 
-
-
-
-
-        default:
-            iState = 0;
-            break;
     }
 
 
-    // cTempBuff[0] = cBuf;
-    // OLEDDisplayString(0, cTempBuff, 1, 2, 4);
-    // // //OLEDDisplayInt(uint8_t iDevice, int32_t iVal, uint8_t iWidth, uint8_t iRow, uint8_t iBaseAddr){
-    // OLEDDisplayInt(0, iCount++, 4, 3, 8);
-    //
-    // OLEDDisplayInt(0, iState, 4, 3, 4);
-    // OLEDDisplay();
-
+#if 0 // debug
+    static int iCount = 0;
+    //void OLEDDisplayInt(uint8_t iDevice, int32_t iVal, uint8_t iWidth, uint8_t iRow, uint8_t iBaseAddr){
+    OLEDDisplayInt(0, iCount++, 4, 0, 0);
+    OLEDDisplayInt(0,   iState, 4, 1, 0);
+    cTempBuff[0] = cBuf;
+    static int iOffset = 0; if (iState == 0) iOffset = 0;
+    OLEDDisplayString(0,  cTempBuff, 4, 2, iOffset++);
+    OLEDDisplay();
+#endif
 
 
 }

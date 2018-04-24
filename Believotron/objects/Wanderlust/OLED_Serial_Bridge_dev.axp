@@ -64,15 +64,15 @@ void writeInt(int32_t i32Val, int iDevice, int iRow, int iOffset, int iWidth)
 	UARTWriteByte(',');
 	UARTWriteByte('4');
 	UARTWriteByte(',');
-	UARTWriteByte(0);
-	UARTWriteByte(0);
-	UARTWriteByte(0);
-	UARTWriteByte(1);
+	//UARTWriteByte(0);
+	//UARTWriteByte(0);
+	//UARTWriteByte(0);
+	//UARTWriteByte(1);
 
-	//UARTWriteByte( (char) ( (i32Val >> 24) & 0x0F ) );
-	//UARTWriteByte( (char) ( (i32Val >> 16) & 0x0F ) );
-	//UARTWriteByte( (char) ( (i32Val >>  8) & 0x0F ) );
-	//UARTWriteByte( (char) ( (i32Val      ) & 0x0F ) );		
+	UARTWriteByte( (char) ( (i32Val >> 24) & 0xFF ) );
+	UARTWriteByte( (char) ( (i32Val >> 16) & 0xFF ) );
+	UARTWriteByte( (char) ( (i32Val >>  8) & 0xFF ) );
+	UARTWriteByte( (char) ( (i32Val      ) & 0xFF ) );		
 	UARTWriteByte('}');	
 }
 

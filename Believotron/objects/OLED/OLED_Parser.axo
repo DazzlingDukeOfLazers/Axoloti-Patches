@@ -7,6 +7,12 @@
       <inlets>
          <frac32 name="in1_" description="in1"/>
          <frac32 name="in2_" description="in2"/>
+         <frac32 name="in3_"/>
+         <frac32 name="in4_"/>
+         <frac32 name="in5_"/>
+         <frac32 name="in6_"/>
+         <frac32 name="in7_"/>
+         <frac32 name="in8_"/>
          <bool32 name="trig_"/>
       </inlets>
       <outlets>
@@ -18,7 +24,7 @@
       <attribs>
          <text name="script"/>
       </attribs>
-      <code.declaration><![CDATA[int32_t in1,in2;
+      <code.declaration><![CDATA[int32_t in[8];
 int32_t out1,out2;
 attr_script
 int32_t bTrig;
@@ -35,7 +41,15 @@ static msg_t ThreadX(void *arg) {
 }
 WORKING_AREA(waThreadX, 1024);
 Thread *Thd;]]></code.declaration>
-      <code.init><![CDATA[in1=0;in2=0;out1=0;out2=0;
+      <code.init><![CDATA[in[0]=0;
+in[1]=0;
+in[2]=0;
+in[3]=0;
+in[4]=0;
+in[5]=0;
+in[6]=0;
+in[7]=0;
+
 bTrig = 0;
   Thd = chThdCreateStatic(waThreadX, sizeof(waThreadX),
                     NORMALPRIO, ThreadX, (void *)this);]]></code.init>
@@ -43,8 +57,16 @@ bTrig = 0;
 chThdWait(Thd);]]></code.dispose>
       <code.krate><![CDATA[outlet_out1__  = this->out1;
 outlet_out2__  = this->out2;
-this->in1      = inlet_in1__;
-this->in2      = inlet_in2__;
+this->in[0]    = inlet_in1__;
+this->in[1]    = inlet_in2__;
+this->in[2]    = inlet_in3__;
+this->in[3]    = inlet_in4__;
+this->in[4]    = inlet_in5__;
+this->in[5]    = inlet_in6__;
+this->in[6]    = inlet_in7__;
+this->in[7]    = inlet_in8__;
+
+
 this->bTrig    = inlet_trig__;]]></code.krate>
    </obj.normal>
 </objdefs>

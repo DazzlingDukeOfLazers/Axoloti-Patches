@@ -34,7 +34,7 @@ void setup()
     // put your setup code here, to run once:
     pinMode(LED_BUILTIN, OUTPUT);
 
-    Serial1.begin(9600);
+    Serial1.begin(115200);
     //SoftWireI2CTest(SWire);``
 
 

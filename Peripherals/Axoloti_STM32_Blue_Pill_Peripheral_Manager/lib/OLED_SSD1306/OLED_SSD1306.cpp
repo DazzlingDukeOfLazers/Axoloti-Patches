@@ -297,7 +297,8 @@ void OLEDInit(){
 
     for (int iDevice=0; iDevice<NUM_OLED_DISPLAYS; iDevice++)
     {
-        OLEDBufferClear(iDevice, OLED_CHECKER_AA); // TBD this line is causing a timeout sync
+        //OLEDBufferClear(iDevice, OLED_CHECKER_AA); // TBD this line is causing a timeout sync
+        OLEDBufferClear(iDevice, OLED_CLEAR); // TBD this line is causing a timeout sync
         SetOLEDChan(iDevice);
         OLED1306_SendInitSequence();
         for (int iRow=0; iRow< NUM_TEXT_ROWS; iRow++) { OLEDUpdateMask[iDevice][iRow] = 1; }
@@ -762,7 +763,7 @@ struct UARTCommand{
 #define UART_WRITELINE    1
 #define UART_WRITEINT     2
 #define UART_WRITEFLOAT   3
-
+#define UART_WRITECLEAR   4
 
 
 void clearUARTCommand(){
@@ -818,6 +819,17 @@ void parseUARTByte(char cBuf){
                     case 'F':
                         iState = 3;
                         uartCommand.iCommandType = UART_WRITEFLOAT;
+                        break;
+
+                    case 'C':
+                        iState = 0;
+                        OLEDInit();
+                        OLEDDisplay();
+                        break;
+
+                    case 'S':
+                        iState = 0;
+                        OLEDDisplay();
                         break;
 
                     default:
@@ -992,7 +1004,6 @@ void parseUARTByte(char cBuf){
 
 
     }
-
     else if (uartCommand.iCommandType == UART_WRITEFLOAT){
         float2bytes f2b;
         switch (iState) {
@@ -1071,24 +1082,14 @@ void parseUARTByte(char cBuf){
 
             case 16:
                 if (cBuf == '}'){
-                    // float fFake = -18.223;
-                    // float2bytes f2bTest;
-                    // f2bTest.f = fFake;
-                    //
-                    // uartCommand.f2b.b[0] = f2bTest.b[0];
-                    // uartCommand.f2b.b[1] = f2bTest.b[1];
-                    // uartCommand.f2b.b[2] = f2bTest.b[2];
-                    // uartCommand.f2b.b[3] = f2bTest.b[3];
+                    sprintf(uartCommand.cBuff, "%+05.1f", uartCommand.f2b.f);
 
-                    sprintf(uartCommand.cBuff, "%+08.3f", uartCommand.f2b.f);
-                    //sprintf(uartCommand.cBuff, "%+08.3f", uartCommand.i32Val);
-                    //OLEDDisplayString(uartCommand.iDisplayNum, uartCommand.cBuff, uartCommand.iStrLength, uartCommand.iLineNum, uartCommand.iOffset);
                     OLEDDisplayString(uartCommand.iDisplayNum, uartCommand.cBuff, 8, uartCommand.iLineNum, uartCommand.iOffset);
 
+                    SetOLEDChan(uartCommand.iDisplayNum);
+                    ConvertCartesianBufferToOLEDBuffer(uartCommand.iDisplayNum);
 
-                    //void OLEDDisplayInt(uint8_t iDevice, int32_t iVal, uint8_t iWidth, uint8_t iRow, uint8_t iBaseAddr){
-                    //OLEDDisplayInt(uartCommand.iDisplayNum, uartCommand.i32Val, uartCommand.iLength, uartCommand.iLineNum, uartCommand.iOffset);
-                    OLEDDisplay();
+                    OLEDWriteDisplayBuffer(uartCommand.iDisplayNum);   // WIP, decreasing timing
                 }
                 iState = 0;
                 break;

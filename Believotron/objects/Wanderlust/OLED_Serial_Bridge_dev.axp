@@ -9,11 +9,11 @@
    <comment type="patch/comment" x="14" y="112" text="transmission/reception of serial data is done in a script2 object"/>
    <obj type="ctrl/dial p" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="c_1" x="14" y="140">
       <params>
-         <frac32.u.map name="value" value="58.0"/>
+         <frac32.u.map name="value" value="63.0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="script/script2" uuid="d39e743cf47c9221f4e99c133430148cf74c68c5" name="script2_1" x="98" y="140">
+   <obj type="OLED/OLED_Parser" uuid="d455c788-2a8a-4096-85d1-2e1302ed60e6" name="OLED_Parser_1" x="238" y="140">
       <params/>
       <attribs>
          <text attributeName="script">
@@ -50,6 +50,38 @@ void writeLine( char * chBuff, uint8_t iLength)
 	
 }
 
+union float2bytes { float f; char b[sizeof(float)]; };
+
+void writeFloat(float fVal, int iDevice, int iRow, int iOffset, int iWidth)
+{
+	UARTWriteByte('{');
+	UARTWriteByte('W');
+	UARTWriteByte('F');
+	UARTWriteByte(',');
+	UARTWriteByte('1');
+	UARTWriteByte(',');
+	UARTWriteByte('0');
+	UARTWriteByte(',');
+	UARTWriteByte('0');
+	UARTWriteByte(',');
+	UARTWriteByte('9');
+	UARTWriteByte(',');
+	//UARTWriteByte(0);
+	//UARTWriteByte(0);
+	//UARTWriteByte(0);
+	//UARTWriteByte(1);
+
+	float2bytes f2b;
+	f2b.f = fVal;
+
+	UARTWriteByte( f2b.b[0] );
+	UARTWriteByte( f2b.b[1] );
+	UARTWriteByte( f2b.b[2] );
+	UARTWriteByte( f2b.b[3] );		
+	UARTWriteByte('}');	
+}
+
+
 void writeInt(int32_t i32Val, int iDevice, int iRow, int iOffset, int iWidth)
 {
 	UARTWriteByte('{');
@@ -62,7 +94,7 @@ void writeInt(int32_t i32Val, int iDevice, int iRow, int iOffset, int iWidth)
 	UARTWriteByte(',');
 	UARTWriteByte('0');
 	UARTWriteByte(',');
-	UARTWriteByte('4');
+	UARTWriteByte('9');
 	UARTWriteByte(',');
 	//UARTWriteByte(0);
 	//UARTWriteByte(0);
@@ -85,7 +117,7 @@ void setup(void) {
 	UARTWriteByte( 'D' );
 
 	//writeLine("Proof of UART", 13);
-	writeInt(42, 2, 1, 3, 4);
+	//writeInt(in1, 2, 1, 3, 8);
 	
 	
 } 
@@ -96,6 +128,16 @@ void setup(void) {
 
 void loop(void) {
 	uint8_t foo;
+	static uint8_t bLastVal=0;
+
+	if (bLastVal == 0 && bTrig)
+	{
+		//writeInt(in1, 2, 1, 3, 8);		
+		writeFloat(in1, 2, 1, 3, 8);		
+	}
+
+	bLastVal = bTrig;
+	
 	
 	// send a single byte, value from in1
 	//sdPut(&SD2, 'b'); 
@@ -116,18 +158,24 @@ void loop(void) {
          </text>
       </attribs>
    </obj>
-   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="displayU_1" x="210" y="140">
+   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="displayU_1" x="476" y="140">
       <params/>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/button" uuid="ef3d13774349df85aa9bfecf30dbc91ab8488b3f" name="button_1" x="98" y="168">
+      <params>
+         <bool32.mom name="b" value="0"/>
+      </params>
       <attribs/>
    </obj>
    <nets>
       <net>
          <source obj="c_1" outlet="out"/>
-         <dest obj="script2_1" inlet="in1_"/>
+         <dest obj="OLED_Parser_1" inlet="in1_"/>
       </net>
       <net>
-         <source obj="script2_1" outlet="out1_"/>
-         <dest obj="displayU_1" inlet="in"/>
+         <source obj="button_1" outlet="o"/>
+         <dest obj="OLED_Parser_1" inlet="trig_"/>
       </net>
    </nets>
    <settings>
@@ -135,8 +183,8 @@ void loop(void) {
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>-2156</x>
-      <y>575</y>
+      <x>114</x>
+      <y>523</y>
       <width>1150</width>
       <height>506</height>
    </windowPos>

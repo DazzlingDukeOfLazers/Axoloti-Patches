@@ -9,7 +9,7 @@
    <comment type="patch/comment" x="14" y="112" text="transmission/reception of serial data is done in a script2 object"/>
    <obj type="ctrl/dial p" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="c_1" x="14" y="140">
       <params>
-         <frac32.u.map name="value" value="63.0"/>
+         <frac32.u.map name="value" value="27.23200035095215"/>
       </params>
       <attribs/>
    </obj>
@@ -132,8 +132,11 @@ void loop(void) {
 
 	if (bLastVal == 0 && bTrig)
 	{
+		float fl1;
+		fl1 = in1 * 0.000000476835;		
+		
 		//writeInt(in1, 2, 1, 3, 8);		
-		writeFloat(in1, 2, 1, 3, 8);		
+		writeFloat(fl1, 2, 1, 3, 8);		
 	}
 
 	bLastVal = bTrig;

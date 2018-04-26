@@ -5,15 +5,32 @@
       <license>BSD</license>
       <helpPatch>script.axh</helpPatch>
       <inlets>
+         <bool32 name="dispNums_"/>
+         <bool32 name="trig_"/>
+         <charptr32 name="OLEDA0_"/>
+         <charptr32 name="OLEDA1_"/>
+         <charptr32 name="OLEDA2_"/>
+         <charptr32 name="OLEDA3_"/>
          <frac32 name="in1_" description="in1"/>
          <frac32 name="in2_" description="in2"/>
+         <charptr32 name="OLEDB0_"/>
+         <charptr32 name="OLEDB1_"/>
+         <charptr32 name="OLEDB2_"/>
+         <charptr32 name="OLEDB3_"/>
          <frac32 name="in3_"/>
          <frac32 name="in4_"/>
+         <charptr32 name="OLEDC0_"/>
+         <charptr32 name="OLEDC1_"/>
+         <charptr32 name="OLEDC2_"/>
+         <charptr32 name="OLEDC3_"/>
          <frac32 name="in5_"/>
          <frac32 name="in6_"/>
+         <charptr32 name="OLEDD0_"/>
+         <charptr32 name="OLEDD1_"/>
+         <charptr32 name="OLEDD2_"/>
+         <charptr32 name="OLEDD3_"/>
          <frac32 name="in7_"/>
          <frac32 name="in8_"/>
-         <bool32 name="trig_"/>
       </inlets>
       <outlets>
          <frac32 name="out1_" description="out1"/>
@@ -26,11 +43,12 @@
       <attribs>
          <text name="script"/>
       </attribs>
-      <code.declaration><![CDATA[int32_t in[8];
+      <code.declaration><![CDATA[char OLEDTxt[4][4][16]; // Device, row, character
+int32_t in[8];
 int32_t bOut;
 int32_t out1,out2,o1;
 attr_script
-int32_t bTrig;
+int32_t bTrig, bDispNums;
 msg_t ThreadX2(){
   setup();
   while(!chThdShouldTerminate()){
@@ -55,6 +73,7 @@ in[7]=0;
 o1=0;
 
 bOut  = 0;
+bDispNums = 0;
 bTrig = 0;
   Thd = chThdCreateStatic(waThreadX, sizeof(waThreadX),
                     NORMALPRIO, ThreadX, (void *)this);]]></code.init>
@@ -64,6 +83,10 @@ chThdWait(Thd);]]></code.dispose>
 outlet_out2__  = this->out2;
 outlet_bOut__  = this->bOut;
 outlet_o1__    = this->o1;
+
+this->bDispNums = inlet_dispNums__;
+this->bTrig    = inlet_trig__;
+
 this->in[0]    = inlet_in1__;
 this->in[1]    = inlet_in2__;
 this->in[2]    = inlet_in3__;
@@ -74,6 +97,24 @@ this->in[6]    = inlet_in7__;
 this->in[7]    = inlet_in8__;
 
 
-this->bTrig    = inlet_trig__;]]></code.krate>
+strcpy(OLEDTxt[0][0], inlet_OLEDA0__);
+strcpy(OLEDTxt[0][1], inlet_OLEDA1__);
+strcpy(OLEDTxt[0][2], inlet_OLEDA2__);
+strcpy(OLEDTxt[0][3], inlet_OLEDA3__);
+
+strcpy(OLEDTxt[1][0], inlet_OLEDB0__);
+strcpy(OLEDTxt[1][1], inlet_OLEDB1__);
+strcpy(OLEDTxt[1][2], inlet_OLEDB2__);
+strcpy(OLEDTxt[1][3], inlet_OLEDB3__);
+
+strcpy(OLEDTxt[2][0], inlet_OLEDC0__);
+strcpy(OLEDTxt[2][1], inlet_OLEDC1__);
+strcpy(OLEDTxt[2][2], inlet_OLEDC2__);
+strcpy(OLEDTxt[2][3], inlet_OLEDC3__);
+
+strcpy(OLEDTxt[3][0], inlet_OLEDD0__);
+strcpy(OLEDTxt[3][1], inlet_OLEDD1__);
+strcpy(OLEDTxt[3][2], inlet_OLEDD2__);
+strcpy(OLEDTxt[3][3], inlet_OLEDD3__);]]></code.krate>
    </obj.normal>
 </objdefs>

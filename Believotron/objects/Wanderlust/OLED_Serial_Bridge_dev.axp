@@ -163,7 +163,7 @@ void loop(void) {
 	//writeFloat( fFoo     , 0, 0, 3, 8);
 	bOut = 1;
 
-	int iDelay = 30;	
+	int iDelay = 1;	
 	if (inPrev[0] == in[0]) { writeFloat( ConvertPolarToFloat(in[0]) , 0, 0, 3, 8); chThdSleepMilliseconds(iDelay); }
 	if (inPrev[1] == in[1]) { writeFloat( ConvertPolarToFloat(in[1]) , 1, 0, 3, 8); chThdSleepMilliseconds(iDelay); }
 	if (inPrev[2] == in[2]) { writeFloat( ConvertPolarToFloat(in[2]) , 2, 0, 3, 8); chThdSleepMilliseconds(iDelay); }

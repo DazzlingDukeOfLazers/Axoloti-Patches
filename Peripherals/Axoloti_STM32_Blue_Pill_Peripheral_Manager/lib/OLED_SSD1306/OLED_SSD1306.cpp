@@ -821,6 +821,7 @@ void parseUARTByte(char cBuf){
         switch (iState){
             case 0:
                 clearUARTCommand();
+
                 if (cBuf == '{'){
                     iState = 1;
                 }
@@ -927,9 +928,11 @@ void parseUARTByte(char cBuf){
 
             case 12:
                 if (cBuf == '}'){
+                    digitalWrite(PC13, HIGH);
                     //void OLEDDisplayString(uint8_t iDevice, char* strVal, uint8_t iWidth, uint8_t iRow, uint8_t iBaseAddr){
-                    OLEDDisplayString(uartCommand.iDisplayNum, uartCommand.cBuff, uartCommand.iStrLength, uartCommand.iLineNum, uartCommand.iOffset);
-                    OLEDDisplay();
+                    OLEDDisplayString(uartCommand.iDisplayNum, uartCommand.cBuff, 16, uartCommand.iLineNum, uartCommand.iOffset);
+                    OLEDDisplay(uartCommand.iDisplayNum);
+                    digitalWrite(PC13, LOW);
                     iState = 0;
                 }
                 break;
@@ -1019,7 +1022,7 @@ void parseUARTByte(char cBuf){
                 if (cBuf == '}'){
                     //void OLEDDisplayInt(uint8_t iDevice, int32_t iVal, uint8_t iWidth, uint8_t iRow, uint8_t iBaseAddr){
                     OLEDDisplayInt(uartCommand.iDisplayNum, uartCommand.i32Val, uartCommand.iLength, uartCommand.iLineNum, uartCommand.iOffset);
-                    OLEDDisplay();
+                    OLEDDisplay(uartCommand.iDisplayNum);
                 }
                 iState = 0;
                 break;
@@ -1111,9 +1114,8 @@ void parseUARTByte(char cBuf){
                 if (cBuf == '}'){
                     sprintf(uartCommand.cBuff, "%+05.1f", uartCommand.f2b.f);
                     OLEDDisplayString(uartCommand.iDisplayNum, uartCommand.cBuff, 8, uartCommand.iLineNum, uartCommand.iOffset);
-                    digitalWrite(PC13, HIGH);
                     OLEDDisplay(uartCommand.iDisplayNum);
-                    digitalWrite(PC13, LOW);
+
                 }
                 iState = 0;
                 break;

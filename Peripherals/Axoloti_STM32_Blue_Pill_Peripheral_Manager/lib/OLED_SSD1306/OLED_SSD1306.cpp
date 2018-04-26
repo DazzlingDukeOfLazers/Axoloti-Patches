@@ -917,6 +917,7 @@ void parseUARTByte(char cBuf){
             case 10:
                 if (cBuf == '\"') iState = 11;
                 uartCommand.iStrLength   = 0;
+                strcpy(uartCommand.cBuff, "                ");
                 break;
 
             case 11:

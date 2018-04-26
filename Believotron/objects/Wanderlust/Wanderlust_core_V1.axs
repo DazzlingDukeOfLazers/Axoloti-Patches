@@ -195,6 +195,14 @@
       <params/>
       <attribs/>
    </obj>
+   <obj type="patch/inlet b" uuid="3b0d3eacb5bb978cb05d1372aa2714d5a4790844" name="triggerOLED" x="616" y="1568">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="logic/or 2" uuid="3805d3c84d30032a44fbdbe42d9a2988a1790a3e" name="or_1" x="798" y="1568">
+      <params/>
+      <attribs/>
+   </obj>
    <obj type="ctrl/toggle" uuid="42b8134fa729d54bfc8d62d6ef3fa99498c1de99" name="Reverse Knobs" x="1092" y="1582">
       <params>
          <bool32.tgl name="b" onParent="true" value="0"/>
@@ -216,6 +224,12 @@
    </obj>
    <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="knob_top_4" x="1680" y="1596">
       <params/>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/button" uuid="ef3d13774349df85aa9bfecf30dbc91ab8488b3f" name="button_1" x="602" y="1638">
+      <params>
+         <bool32.mom name="b" value="0"/>
+      </params>
       <attribs/>
    </obj>
    <obj type="conv/unipolar2bipolar" uuid="efc8ee28c508740c5edf7995eaaa07a6d6818e5e" name="unipolar2bipolar_10" x="1554" y="1638">
@@ -297,7 +311,7 @@ systime_t tmo = MS2ST(4);
 
 // You need to change these
 #include "knobs.c"
-#include "OLED_SSD1306.cpp"
+//#include "OLED_SSD1306.cpp"
 //#include "C:\\Users\\danie\\Documents\\WIP\\Believotron\\Believotron-Github\\Axoloti-Patches-Dev\\Believotron\\objects\\script\\knobs.c"
 //#include "C:\\Users\\danie\\Documents\\WIP\\Believotron\\Believotron-Github\\Axoloti-Patches-Dev\\Believotron\\objects\\OLED\\OLED_SSD1306.cpp"
 //#include "YOUR_PATH\\Axoloti-Patches-Dev\\Believotron\\objects\\script\\knobs.c"
@@ -353,10 +367,10 @@ void setup(void)
 	txbuf[0]=0;
 	txbuf[1]=0xAE;
 	chThdSleepMilliseconds(10);
-	OLEDInit();
-	OLED_setstring();
+	//OLEDInit();
+	//OLED_setstring();
 	//OLED_Sandbox();
-	OLEDDisplay();
+	//OLEDDisplay();
 
 
 }
@@ -551,6 +565,13 @@ void loop(void)
       <params/>
       <attribs/>
    </obj>
+   <obj type="OLED/OLED_Parser_w" uuid="e3f91a49-1a25-4ac4-b526-674c9aa3f122" name="obj_1" x="1288" y="2100">
+      <params>
+         <bool32.tgl name="ForceDisplayNumbers" onParent="true" value="1"/>
+         <bool32.tgl name="Default_OLED_TXT" value="0"/>
+      </params>
+      <attribs/>
+   </obj>
    <obj type="patch/inlet string" uuid="6c562c1a7890cccf18fa7327d8baa476d0926cd8" name="OLED B1" x="994" y="2114">
       <params/>
       <attribs/>
@@ -579,6 +600,14 @@ void loop(void)
       <params/>
       <attribs/>
    </obj>
+   <obj type="patch/inlet f" uuid="5c585d2dcd9c05631e345ac09626a22a639d7c13" name="inlet_1" x="490" y="2198">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/inlet f" uuid="5c585d2dcd9c05631e345ac09626a22a639d7c13" name="inlet_2" x="490" y="2240">
+      <params/>
+      <attribs/>
+   </obj>
    <obj type="mux/mux 2" uuid="777491e645978e331fcbab6610f52c1aaa5ade0e" name="mux_8" x="1148" y="2240">
       <params/>
       <attribs/>
@@ -594,6 +623,10 @@ void loop(void)
          <combo attributeName="channel" selection="PA1 (ADC1_IN1)"/>
       </attribs>
    </obj>
+   <obj type="patch/inlet f" uuid="5c585d2dcd9c05631e345ac09626a22a639d7c13" name="inlet_3" x="490" y="2282">
+      <params/>
+      <attribs/>
+   </obj>
    <obj type="patch/outlet f" uuid="d18a9a550bcaaebac94e25983bd0e27dbfd7233c" name="Volume" x="2450" y="2296">
       <params/>
       <attribs/>
@@ -602,11 +635,19 @@ void loop(void)
       <params/>
       <attribs/>
    </obj>
+   <obj type="patch/inlet f" uuid="5c585d2dcd9c05631e345ac09626a22a639d7c13" name="inlet_4" x="490" y="2324">
+      <params/>
+      <attribs/>
+   </obj>
    <obj type="patch/inlet string" uuid="6c562c1a7890cccf18fa7327d8baa476d0926cd8" name="OLED C0" x="994" y="2324">
       <params/>
       <attribs/>
    </obj>
    <obj type="logic/inv" uuid="2bd44b865d3b63ff9b80862242bf5be779e3ad5" name="inv_3" x="2254" y="2338">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/inlet f" uuid="5c585d2dcd9c05631e345ac09626a22a639d7c13" name="inlet_5" x="490" y="2366">
       <params/>
       <attribs/>
    </obj>
@@ -633,7 +674,15 @@ void loop(void)
       <params/>
       <attribs/>
    </obj>
+   <obj type="patch/inlet f" uuid="5c585d2dcd9c05631e345ac09626a22a639d7c13" name="inlet_6" x="490" y="2408">
+      <params/>
+      <attribs/>
+   </obj>
    <obj type="logic/inv" uuid="2bd44b865d3b63ff9b80862242bf5be779e3ad5" name="inv_1" x="2226" y="2408">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/inlet f" uuid="5c585d2dcd9c05631e345ac09626a22a639d7c13" name="inlet_7" x="490" y="2450">
       <params/>
       <attribs/>
    </obj>
@@ -657,6 +706,10 @@ void loop(void)
       <attribs/>
    </obj>
    <obj type="patch/outlet b" uuid="191792f616d4835dba0b55375474a12942e5bcbd" name="JOY1_BTN" x="2450" y="2478">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/inlet f" uuid="5c585d2dcd9c05631e345ac09626a22a639d7c13" name="inlet_8" x="490" y="2492">
       <params/>
       <attribs/>
    </obj>
@@ -915,63 +968,63 @@ void loop(void)
       </net>
       <net>
          <source obj="mux_2" outlet="o"/>
-         <dest obj="BelievotronCore_PCB1005_KnobCore_1" inlet="OLEDA1_"/>
+         <dest obj="obj_1" inlet="OLED0_1"/>
       </net>
       <net>
          <source obj="mux_3" outlet="o"/>
-         <dest obj="BelievotronCore_PCB1005_KnobCore_1" inlet="OLEDA2_"/>
+         <dest obj="obj_1" inlet="OLED0_2"/>
       </net>
       <net>
          <source obj="mux_4" outlet="o"/>
-         <dest obj="BelievotronCore_PCB1005_KnobCore_1" inlet="OLEDA3_"/>
+         <dest obj="obj_1" inlet="OLED0_3"/>
       </net>
       <net>
          <source obj="mux_5" outlet="o"/>
-         <dest obj="BelievotronCore_PCB1005_KnobCore_1" inlet="OLEDB0_"/>
+         <dest obj="obj_1" inlet="OLED1_0"/>
       </net>
       <net>
          <source obj="mux_6" outlet="o"/>
-         <dest obj="BelievotronCore_PCB1005_KnobCore_1" inlet="OLEDB1_"/>
+         <dest obj="obj_1" inlet="OLED1_1"/>
       </net>
       <net>
          <source obj="mux_7" outlet="o"/>
-         <dest obj="BelievotronCore_PCB1005_KnobCore_1" inlet="OLEDB2_"/>
+         <dest obj="obj_1" inlet="OLED1_2"/>
       </net>
       <net>
          <source obj="mux_8" outlet="o"/>
-         <dest obj="BelievotronCore_PCB1005_KnobCore_1" inlet="OLEDB3_"/>
+         <dest obj="obj_1" inlet="OLED1_3"/>
       </net>
       <net>
          <source obj="mux_9" outlet="o"/>
-         <dest obj="BelievotronCore_PCB1005_KnobCore_1" inlet="OLEDC0_"/>
+         <dest obj="obj_1" inlet="OLED2_0"/>
       </net>
       <net>
          <source obj="mux_10" outlet="o"/>
-         <dest obj="BelievotronCore_PCB1005_KnobCore_1" inlet="OLEDC1_"/>
+         <dest obj="obj_1" inlet="OLED2_1"/>
       </net>
       <net>
          <source obj="mux_11" outlet="o"/>
-         <dest obj="BelievotronCore_PCB1005_KnobCore_1" inlet="OLEDC2_"/>
+         <dest obj="obj_1" inlet="OLED2_2"/>
       </net>
       <net>
          <source obj="mux_12" outlet="o"/>
-         <dest obj="BelievotronCore_PCB1005_KnobCore_1" inlet="OLEDC3_"/>
+         <dest obj="obj_1" inlet="OLED2_3"/>
       </net>
       <net>
          <source obj="mux_13" outlet="o"/>
-         <dest obj="BelievotronCore_PCB1005_KnobCore_1" inlet="OLEDD0_"/>
+         <dest obj="obj_1" inlet="OLED3_0"/>
       </net>
       <net>
          <source obj="mux_14" outlet="o"/>
-         <dest obj="BelievotronCore_PCB1005_KnobCore_1" inlet="OLEDD1_"/>
+         <dest obj="obj_1" inlet="OLED3_1"/>
       </net>
       <net>
          <source obj="mux_15" outlet="o"/>
-         <dest obj="BelievotronCore_PCB1005_KnobCore_1" inlet="OLEDD2_"/>
+         <dest obj="obj_1" inlet="OLED3_2"/>
       </net>
       <net>
          <source obj="mux_16" outlet="o"/>
-         <dest obj="BelievotronCore_PCB1005_KnobCore_1" inlet="OLEDD3_"/>
+         <dest obj="obj_1" inlet="OLED3_3"/>
       </net>
       <net>
          <source obj="c_1" outlet="out"/>
@@ -1125,10 +1178,6 @@ void loop(void)
          <dest obj="mux_1" inlet="i2"/>
       </net>
       <net>
-         <source obj="mux_1" outlet="o"/>
-         <dest obj="BelievotronCore_PCB1005_KnobCore_1" inlet="OLEDA0_"/>
-      </net>
-      <net>
          <source obj="&gt;c_1" outlet="out"/>
          <dest obj="JOY0_UP" inlet="outlet"/>
       </net>
@@ -1234,6 +1283,54 @@ void loop(void)
          <source obj="and_2" outlet="o"/>
          <dest obj="JOY1_BTN" inlet="outlet"/>
       </net>
+      <net>
+         <source obj="mux_1" outlet="o"/>
+         <dest obj="obj_1" inlet="OLED0_0"/>
+      </net>
+      <net>
+         <source obj="triggerOLED" outlet="inlet"/>
+         <dest obj="or_1" inlet="i1"/>
+      </net>
+      <net>
+         <source obj="button_1" outlet="o"/>
+         <dest obj="or_1" inlet="i2"/>
+      </net>
+      <net>
+         <source obj="or_1" outlet="o"/>
+         <dest obj="obj_1" inlet="trigStringWrite"/>
+      </net>
+      <net>
+         <source obj="inlet_1" outlet="inlet"/>
+         <dest obj="obj_1" inlet="inlet_1"/>
+      </net>
+      <net>
+         <source obj="inlet_2" outlet="inlet"/>
+         <dest obj="obj_1" inlet="inlet_2"/>
+      </net>
+      <net>
+         <source obj="inlet_3" outlet="inlet"/>
+         <dest obj="obj_1" inlet="inlet_3"/>
+      </net>
+      <net>
+         <source obj="inlet_4" outlet="inlet"/>
+         <dest obj="obj_1" inlet="inlet_4"/>
+      </net>
+      <net>
+         <source obj="inlet_5" outlet="inlet"/>
+         <dest obj="obj_1" inlet="inlet_5"/>
+      </net>
+      <net>
+         <source obj="inlet_6" outlet="inlet"/>
+         <dest obj="obj_1" inlet="inlet_6"/>
+      </net>
+      <net>
+         <source obj="inlet_7" outlet="inlet"/>
+         <dest obj="obj_1" inlet="inlet_7"/>
+      </net>
+      <net>
+         <source obj="inlet_8" outlet="inlet"/>
+         <dest obj="obj_1" inlet="inlet_8"/>
+      </net>
    </nets>
    <settings>
       <subpatchmode>no</subpatchmode>
@@ -1245,8 +1342,8 @@ void loop(void)
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>0</x>
-      <y>23</y>
+      <x>405</x>
+      <y>271</y>
       <width>1440</width>
       <height>873</height>
    </windowPos>

@@ -1,9 +1,9 @@
 <patch-1.0 appVersion="1.0.12">
-   <obj type="gpio/serial/config" uuid="8ec617bbe7b552a58656442e87513d8b4c69833a" name="serial.begin_1" x="126" y="42">
-      <params/>
-      <attribs>
-         <combo attributeName="baudrate" selection="115200"/>
-      </attribs>
+   <obj type="ctrl/button" uuid="ef3d13774349df85aa9bfecf30dbc91ab8488b3f" name="button_1" x="476" y="56">
+      <params>
+         <bool32.mom name="b" value="0"/>
+      </params>
+      <attribs/>
    </obj>
    <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_2" x="1288" y="84">
       <params/>
@@ -53,6 +53,7 @@
       <params>
          <bool32.tgl name="Reverse Knobs" value="0"/>
          <bool32.tgl name="Default_OLED_TXT" value="0"/>
+         <bool32.tgl name="obj_1:ForceDisplayNumbers" value="1"/>
       </params>
       <attribs/>
    </obj>
@@ -159,282 +160,6 @@
    <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_4" x="1218" y="294">
       <params/>
       <attribs/>
-   </obj>
-   <obj type="OLED/OLED_Parser" uuid="d455c788-2a8a-4096-85d1-2e1302ed60e6" name="OLED_Parser_1" x="1022" y="322">
-      <params/>
-      <attribs>
-         <text attributeName="script">
-            <sText><![CDATA[// demo serial transmission and reception using SD2 (USART2)
-
-#define UARTWriteByte( a ) (sdPut(&SD2,a))
-
-void writeLine( char * chBuff, uint8_t iLength)
-{
-	UARTWriteByte('{');
-	UARTWriteByte('W');
-	UARTWriteByte('L');
-	UARTWriteByte(',');
-	UARTWriteByte('3');
-	UARTWriteByte(',');
-	UARTWriteByte('3');
-	UARTWriteByte(',');
-	UARTWriteByte('1');
-	UARTWriteByte(',');
-	//UARTWriteByte('1');
-	//UARTWriteByte('6');
-	//UARTWriteByte(',');
-	UARTWriteByte('"');
-	
-	
-	for (int i=0; i<iLength; i++)
-	{		
-		UARTWriteByte( chBuff[i] );
-		if (chBuff[i] == '\0') break;
-	}
-
-	UARTWriteByte('"');
-	UARTWriteByte('}');	
-	
-}
-
-void writeScreen(){
-	UARTWriteByte('{');
-	UARTWriteByte('W');
-	UARTWriteByte('S');
-}
-
-
-union float2bytes { float f; char b[sizeof(float)]; };
-
-void writeFloat(float fVal, int iDevice, int iRow, int iOffset, int iWidth)
-{
-	char cBuff;
-	
-	UARTWriteByte('{');
-	UARTWriteByte('W');
-	UARTWriteByte('F');
-	UARTWriteByte(',');
-	//UARTWriteByte('1');
-	//itoa(iDevice,  cBuff, 10);
-	//UARTWriteByte( cBuff[0] );
-	cBuff = '0' + iDevice;
-	UARTWriteByte( cBuff );
-	UARTWriteByte(',');
-	//UARTWriteByte('0');
-	cBuff = '0' + iRow;
-	UARTWriteByte( cBuff );
-	UARTWriteByte(',');
-	cBuff = '0' + iOffset;
-	UARTWriteByte( cBuff );
-	//UARTWriteByte('0');
-	UARTWriteByte(',');
-	UARTWriteByte('9');
-	UARTWriteByte(',');
-	//UARTWriteByte(0);
-	//UARTWriteByte(0);
-	//UARTWriteByte(0);
-	//UARTWriteByte(1);
-
-	float2bytes f2b;
-	f2b.f = fVal;
-
-	UARTWriteByte( f2b.b[0] );
-	UARTWriteByte( f2b.b[1] );
-	UARTWriteByte( f2b.b[2] );
-	UARTWriteByte( f2b.b[3] );
-	UARTWriteByte('}');	
-
-	//chThdSleepMilliseconds(1);
-}
-
-
-void writeInt(int32_t i32Val, int iDevice, int iRow, int iOffset, int iWidth)
-{
-	UARTWriteByte('{');
-	UARTWriteByte('W');
-	UARTWriteByte('I');
-	UARTWriteByte(',');
-	UARTWriteByte('1');
-	UARTWriteByte(',');
-	UARTWriteByte('0');
-	UARTWriteByte(',');
-	UARTWriteByte('0');
-	UARTWriteByte(',');
-	UARTWriteByte('9');
-	UARTWriteByte(',');
-	//UARTWriteByte(0);
-	//UARTWriteByte(0);
-	//UARTWriteByte(0);
-	//UARTWriteByte(1);
-
-	UARTWriteByte( (char) ( (i32Val >> 24) & 0xFF ) );
-	UARTWriteByte( (char) ( (i32Val >> 16) & 0xFF ) );
-	UARTWriteByte( (char) ( (i32Val >>  8) & 0xFF ) );
-	UARTWriteByte( (char) ( (i32Val      ) & 0xFF ) );		
-	UARTWriteByte('}');	
-}
-
-void writeClear()
-{
-	UARTWriteByte('{');
-	UARTWriteByte('W');
-	UARTWriteByte('C');	
-}
-
-
-void setup(void) {
-
-	UARTWriteByte( 'A' );
-	UARTWriteByte( 'B' );
-	UARTWriteByte( 'C' );
-	UARTWriteByte( 'D' );
-
-	writeClear();
-
-	//writeLine("Proof of UART", 13);
-	//writeInt(in1, 2, 1, 3, 8);
-	
-	
-} 
-
-
-float ConvertPolarToFloat(int32_t i32Val)
-{
-	return (i32Val * 0.000000476835);
-}
-
-
-void loop(void) {
-	uint8_t foo;
-	static int32_t iCount = 0;
-	static uint8_t bLastVal=0;
-	static int32_t inPrev[8] = {0,0,0,0,0,0,0,0};
-
-	//if (in2 != in2Prev)	{
-	float fFoo;
-	o1 = iCount;
-	switch( iCount )
-	{
-		case 0:
-			writeFloat( ConvertPolarToFloat(in[0]) , 0, 3, 0, 8);
-			break;
-
-		case 1:
-			writeFloat( ConvertPolarToFloat(in[1]) , 0, 3, 8, 8); 
-			break;
-		
-		case 2:
-			writeFloat( ConvertPolarToFloat(in[2]) , 1, 3, 0, 8);
-			break;
-
-		case 3:
-			writeFloat( ConvertPolarToFloat(in[3]) , 1, 3, 8, 8);
-			break;
-			
-		case 4:
-			writeFloat( ConvertPolarToFloat(in[4]) , 2, 3, 0, 8);
-			break;
-			
-		case 5:
-			writeFloat( ConvertPolarToFloat(in[5]) , 2, 3, 8, 8);
-			break;
-
-		case 6:
-			writeFloat( ConvertPolarToFloat(in[6]) , 3, 3, 0, 8);
-			break;
-
-		case 7:
-			writeFloat( ConvertPolarToFloat(in[7]) , 3, 3, 8, 8);			
-			break;
-		
-		default:	
-			iCount = 0;		
-			break;
-	}
-	iCount++;
-	if (iCount > 7) iCount = 0;
-	
-	//fFoo = ConvertPolarToFloat(in2);
-	//writeInt(in1, 2, 1, 3, 8);				
-	//writeFloat( fFoo     , 0, 0, 3, 8);
-
-	//writeInt(in1, 0, 2, 3, 8);	
-	//writeFloat( fFoo     , 0, 0, 3, 8);
-	bOut = 1;
-
-	int iDelay = 1;	
-	//if (inPrev[0] == in[0]) { writeFloat( ConvertPolarToFloat(in[0]) , 0, 0, 3, 8); chThdSleepMilliseconds(iDelay); }
-	//if (inPrev[1] == in[1]) { writeFloat( ConvertPolarToFloat(in[1]) , 1, 0, 3, 8); chThdSleepMilliseconds(iDelay); }
-	//if (inPrev[2] == in[2]) { writeFloat( ConvertPolarToFloat(in[2]) , 2, 0, 3, 8); chThdSleepMilliseconds(iDelay); }
-	//if (inPrev[3] == in[3]) { writeFloat( ConvertPolarToFloat(in[3]) , 3, 0, 3, 8); chThdSleepMilliseconds(iDelay); }
-
-	//if (inPrev[4] == in[4]) { writeFloat( ConvertPolarToFloat(in[4]) , 0, 1, 3, 8); chThdSleepMilliseconds(iDelay); }
-	//if (inPrev[5] == in[5]) { writeFloat( ConvertPolarToFloat(in[5]) , 1, 1, 3, 8); chThdSleepMilliseconds(iDelay); }
-	//if (inPrev[6] == in[6]) { writeFloat( ConvertPolarToFloat(in[6]) , 2, 1, 3, 8); chThdSleepMilliseconds(iDelay); }
-	//if (inPrev[7] == in[7]) { writeFloat( ConvertPolarToFloat(in[7]) , 3, 1, 3, 8); chThdSleepMilliseconds(iDelay); }
-	
-	
-	/*
-	writeFloat( ConvertPolarToFloat(in[0]) , 0, 0, 3, 8);	
-	writeFloat( ConvertPolarToFloat(in[1]) , 1, 0, 3, 8);
-	writeFloat( ConvertPolarToFloat(in[2]) , 2, 0, 3, 8);
-	writeFloat( ConvertPolarToFloat(in[3]) , 3, 0, 3, 8);
-
-	writeFloat( ConvertPolarToFloat(in[4]) , 0, 1, 3, 8);
-	writeFloat( ConvertPolarToFloat(in[5]) , 1, 1, 3, 8);
-	writeFloat( ConvertPolarToFloat(in[6]) , 2, 1, 3, 8);
-	writeFloat( ConvertPolarToFloat(in[7]) , 3, 1, 3, 8);
-	
-	//writeFloat( ConvertPolarToFloat(in[1]) , 1, 0, 3, 8);
-	//writeFloat( ConvertPolarToFloat(in[2]) , 2, 0, 3, 8);
-	//writeFloat( ConvertPolarToFloat(in[3]) , 3, 0, 3, 8);
-	//writeFloat( ConvertPolarToFloat(in[0]) , 0, 0, 3, 8);
-	//writeFloat( ConvertPolarToFloat(in[0]) , 0, 0, 3, 8);
-	*/
-	bOut = 0;
-
-	//writeScreen();
-	//}
-
-	//in2Prev = in2;
-
-	for (int i=0; i< 8; i++)	{
-		inPrev[i] = in[i];	
-	}
-	
-
-	//if (bLastVal == 0 && bTrig)
-	//{	
-	//	float fFoo;
-	//	fFoo = ConvertPolarToFloat(in2);
-	//	//writeInt(in1, 2, 1, 3, 8);		
-	//	writeFloat( ConvertPolarToFloat(in2) , 2, 1, 3, 8);		
-	//}
-
-	bLastVal = bTrig;
-	
-	
-	// send a single byte, value from in1
-	//sdPut(&SD2, 'b'); 
-	//sdPut(&SD2, in1>>21); 
-	//UARTWriteByte( 'A' );
-	//UARTWriteByte( 'B' );
-
-	//char cBuff[16] = "Them apples";
-
-	//writeLine(cBuff, strlen(cBuff) );
-
-	// read all pending bytes, value to out1
-	while(!sdGetWouldBlock(&SD2)){
-		out1 = sdGet(&SD2)<<21;
-	}
-	//chThdSleepMilliseconds(100);
-	chThdSleepMilliseconds(20);
-}
-
-]]></sText>
-         </text>
-      </attribs>
    </obj>
    <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_4" x="0" y="350">
       <params/>
@@ -624,37 +349,37 @@ void loop(void) {
       <net>
          <source obj="thisthing" outlet="knob_top_1"/>
          <dest obj="dial_10" inlet="in"/>
-         <dest obj="OLED_Parser_1" inlet="in2_"/>
+         <dest obj="thisthing" inlet="inlet_2"/>
       </net>
       <net>
          <source obj="thisthing" outlet="knob_top_2"/>
          <dest obj="dial_11" inlet="in"/>
-         <dest obj="OLED_Parser_1" inlet="in3_"/>
+         <dest obj="thisthing" inlet="inlet_3"/>
       </net>
       <net>
          <source obj="thisthing" outlet="knob_top_3"/>
          <dest obj="dial_12" inlet="in"/>
-         <dest obj="OLED_Parser_1" inlet="in4_"/>
+         <dest obj="thisthing" inlet="inlet_4"/>
       </net>
       <net>
          <source obj="thisthing" outlet="knob_top_4"/>
          <dest obj="dial_13" inlet="in"/>
-         <dest obj="OLED_Parser_1" inlet="in5_"/>
+         <dest obj="thisthing" inlet="inlet_5"/>
       </net>
       <net>
          <source obj="thisthing" outlet="knob_top_5"/>
          <dest obj="dial_14" inlet="in"/>
-         <dest obj="OLED_Parser_1" inlet="in6_"/>
+         <dest obj="thisthing" inlet="inlet_6"/>
       </net>
       <net>
          <source obj="thisthing" outlet="knob_top_6"/>
          <dest obj="dial_15" inlet="in"/>
-         <dest obj="OLED_Parser_1" inlet="in7_"/>
+         <dest obj="thisthing" inlet="inlet_7"/>
       </net>
       <net>
          <source obj="thisthing" outlet="knob_top_7"/>
          <dest obj="dial_16" inlet="in"/>
-         <dest obj="OLED_Parser_1" inlet="in8_"/>
+         <dest obj="thisthing" inlet="inlet_8"/>
       </net>
       <net>
          <source obj="thisthing" outlet="JOY0_X"/>
@@ -775,7 +500,7 @@ void loop(void) {
       <net>
          <source obj="thisthing" outlet="knob_top_0"/>
          <dest obj="dial_1" inlet="in"/>
-         <dest obj="OLED_Parser_1" inlet="in1_"/>
+         <dest obj="thisthing" inlet="inlet_1"/>
       </net>
       <net>
          <source obj="thisthing" outlet="JOY0_UP"/>
@@ -846,8 +571,8 @@ void loop(void) {
          <dest obj="bool_22" inlet="in"/>
       </net>
       <net>
-         <source obj="OLED_Parser_1" outlet="o1_"/>
-         <dest obj="i_1" inlet="in"/>
+         <source obj="button_1" outlet="o"/>
+         <dest obj="thisthing" inlet="triggerOLED"/>
       </net>
    </nets>
    <settings>

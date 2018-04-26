@@ -67,7 +67,7 @@ void writeLine( char * chBuff, uint8_t iDisplay, uint8_t iLine, uint8_t iLength)
 	for (int i=0; i<iLength; i++)
 	{		
 		UARTWriteByte( chBuff[i] );
-		if (chBuff[i] == '\0') break;
+		//if (chBuff[i] == '\0') break;
 	}
 
 	UARTWriteByte('"');
@@ -379,7 +379,7 @@ if (bDispNums){
    <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_17" x="938" y="98">
       <params/>
       <attribs>
-         <table attributeName="str" table="OLED Test (0,0)-"/>
+         <table attributeName="str" table="OLED Test (0,0)"/>
       </attribs>
    </obj>
    <obj type="mux/mux 2" uuid="777491e645978e331fcbab6610f52c1aaa5ade0e" name="mux_2" x="1148" y="98">
@@ -945,8 +945,8 @@ if (bDispNums){
    <notes><![CDATA[]]></notes>
    <windowPos>
       <x>143</x>
-      <y>360</y>
+      <y>359</y>
       <width>1692</width>
-      <height>758</height>
+      <height>759</height>
    </windowPos>
 </patch-1.0>

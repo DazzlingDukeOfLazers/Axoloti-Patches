@@ -364,6 +364,7 @@ void OLEDWriteDisplayBuffer(uint8_t iDevice)
   #endif
 
     // (128 * 32)/8 == 4096/8 == 512
+
     for (uint16_t i=0; i<(OLED_SSD1306_LCDWIDTH*OLED_SSD1306_LCDHEIGHT/8); i+=I2C_DATA_BYTES_PER_XFER)
     {
         txbuf[0] = 0x40;
@@ -373,20 +374,27 @@ void OLEDWriteDisplayBuffer(uint8_t iDevice)
             txbuf[ix+1] = OLEDBuffer[iDevice][i+ix];
         }
 
+
         i2CWrite(OLED_I2C_ADDR, txbuf, I2C_DATA_BYTES_PER_XFER+1);
 
         delay(1);
     }
+
     //debugPulse(2,2);
 }
 
 void OLEDDisplay()
 {
     //debugPulse(3,3);
+
+    digitalWrite(PC13, HIGH);
     for( int i=0; i< NUM_OLED_DISPLAYS; i++)
     {
+
         SetOLEDChan(i);
+
         ConvertCartesianBufferToOLEDBuffer(i);
+
         //debugPulse(3,3);
         OLEDWriteDisplayBuffer(i);   // WIP, decreasing timing
                                 // 84 ms,
@@ -395,8 +403,10 @@ void OLEDDisplay()
                                 // 27-35 ms, doubled buffer to 64 bytes
                                 // 17-25 ms, removed 10 ms sleep
                                 //  9-21 ms, removed 1ms sleep, might cause issues with audio
+
         //debugPulse(4,4);
     }
+    digitalWrite(PC13, LOW);
     //debugPulse(4,4);
 }
 
@@ -1082,14 +1092,15 @@ void parseUARTByte(char cBuf){
 
             case 16:
                 if (cBuf == '}'){
+
                     sprintf(uartCommand.cBuff, "%+05.1f", uartCommand.f2b.f);
-
                     OLEDDisplayString(uartCommand.iDisplayNum, uartCommand.cBuff, 8, uartCommand.iLineNum, uartCommand.iOffset);
+                    OLEDDisplay();
 
-                    SetOLEDChan(uartCommand.iDisplayNum);
-                    ConvertCartesianBufferToOLEDBuffer(uartCommand.iDisplayNum);
 
-                    OLEDWriteDisplayBuffer(uartCommand.iDisplayNum);   // WIP, decreasing timing
+                    //ConvertCartesianBufferToOLEDBuffer(uartCommand.iDisplayNum);
+
+                    //OLEDWriteDisplayBuffer(uartCommand.iDisplayNum);   // WIP, decreasing timing
                 }
                 iState = 0;
                 break;

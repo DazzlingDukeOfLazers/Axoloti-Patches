@@ -33,6 +33,7 @@ void setup()
     //InitFontQuarterMuncher();
     // put your setup code here, to run once:
     pinMode(LED_BUILTIN, OUTPUT);
+    pinMode(PB0, OUTPUT);
 
     Serial1.begin(115200);
     //SoftWireI2CTest(SWire);``

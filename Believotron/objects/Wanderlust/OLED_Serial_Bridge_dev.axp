@@ -163,20 +163,21 @@ void loop(void) {
 	//writeFloat( fFoo     , 0, 0, 3, 8);
 	bOut = 1;
 
-	/*
-	if (inPrev[0] == in[0])  writeFloat( ConvertPolarToFloat(in[0]) , 0, 0, 3, 8);
-	if (inPrev[1] == in[1])  writeFloat( ConvertPolarToFloat(in[1]) , 1, 0, 3, 8);
-	if (inPrev[2] == in[2])  writeFloat( ConvertPolarToFloat(in[2]) , 2, 0, 3, 8);
-	if (inPrev[3] == in[3])  writeFloat( ConvertPolarToFloat(in[3]) , 3, 0, 3, 8);
+	int iDelay = 30;	
+	if (inPrev[0] == in[0]) { writeFloat( ConvertPolarToFloat(in[0]) , 0, 0, 3, 8); chThdSleepMilliseconds(iDelay); }
+	if (inPrev[1] == in[1]) { writeFloat( ConvertPolarToFloat(in[1]) , 1, 0, 3, 8); chThdSleepMilliseconds(iDelay); }
+	if (inPrev[2] == in[2]) { writeFloat( ConvertPolarToFloat(in[2]) , 2, 0, 3, 8); chThdSleepMilliseconds(iDelay); }
+	if (inPrev[3] == in[3]) { writeFloat( ConvertPolarToFloat(in[3]) , 3, 0, 3, 8); chThdSleepMilliseconds(iDelay); }
 
-	if (inPrev[4] == in[4])  writeFloat( ConvertPolarToFloat(in[4]) , 0, 1, 3, 8);
-	if (inPrev[5] == in[5])  writeFloat( ConvertPolarToFloat(in[5]) , 1, 1, 3, 8);
-	if (inPrev[6] == in[6])  writeFloat( ConvertPolarToFloat(in[6]) , 2, 1, 3, 8);
-	if (inPrev[7] == in[7])  writeFloat( ConvertPolarToFloat(in[7]) , 3, 1, 3, 8);
-	*/
+	if (inPrev[4] == in[4]) { writeFloat( ConvertPolarToFloat(in[4]) , 0, 1, 3, 8); chThdSleepMilliseconds(iDelay); }
+	if (inPrev[5] == in[5]) { writeFloat( ConvertPolarToFloat(in[5]) , 1, 1, 3, 8); chThdSleepMilliseconds(iDelay); }
+	if (inPrev[6] == in[6]) { writeFloat( ConvertPolarToFloat(in[6]) , 2, 1, 3, 8); chThdSleepMilliseconds(iDelay); }
+	if (inPrev[7] == in[7]) { writeFloat( ConvertPolarToFloat(in[7]) , 3, 1, 3, 8); chThdSleepMilliseconds(iDelay); }
+	
 
-	int iDelay = 80;
-	writeFloat( ConvertPolarToFloat(in[0]) , 0, 0, 3, 8); chThdSleepMilliseconds(iDelay);
+	
+	//writeFloat( ConvertPolarToFloat(in[0]) , 0, 0, 3, 8);
+	
 	//writeFloat( ConvertPolarToFloat(in[1]) , 1, 0, 3, 8); chThdSleepMilliseconds(iDelay);
 	//writeFloat( ConvertPolarToFloat(in[2]) , 2, 0, 3, 8); chThdSleepMilliseconds(iDelay);	
 	//writeFloat( ConvertPolarToFloat(in[3]) , 3, 0, 3, 8); chThdSleepMilliseconds(iDelay);
@@ -238,7 +239,7 @@ void loop(void) {
    </obj>
    <obj type="ctrl/dial b" uuid="862e7d7f29093cb1ce4aed72244d118ad4d46692" name="dial_1" x="378" y="56">
       <params>
-         <frac32.s.map name="value" value="15.199999999999982"/>
+         <frac32.s.map name="value" value="35.499999713897616"/>
       </params>
       <attribs/>
    </obj>
@@ -353,8 +354,8 @@ void loop(void) {
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>114</x>
-      <y>468</y>
+      <x>10</x>
+      <y>483</y>
       <width>1150</width>
       <height>708</height>
    </windowPos>

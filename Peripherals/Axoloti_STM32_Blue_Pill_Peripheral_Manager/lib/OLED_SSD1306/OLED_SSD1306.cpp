@@ -347,6 +347,7 @@ void OLEDWriteDisplayBuffer(uint8_t iDevice)
 {
   //debugPulse(1,1);
 
+
   OLED1306_command(OLED_SSD1306_COLUMNADDR);
   OLED1306_command(0);   // Column start address (0 = reset)
   OLED1306_command(OLED_SSD1306_LCDWIDTH-1); // Column end address (127 = reset)
@@ -377,36 +378,50 @@ void OLEDWriteDisplayBuffer(uint8_t iDevice)
 
         i2CWrite(OLED_I2C_ADDR, txbuf, I2C_DATA_BYTES_PER_XFER+1);
 
-        delay(1);
+        //delay(1);
     }
+
 
     //debugPulse(2,2);
 }
+
+void OLEDDisplay(uint8_t iDisplay){
+
+    SetOLEDChan(iDisplay);
+    ConvertCartesianBufferToOLEDBuffer(iDisplay);
+
+    OLEDWriteDisplayBuffer(iDisplay);   // WIP, decreasing timing
+
+}
+
+
 
 void OLEDDisplay()
 {
     //debugPulse(3,3);
 
-    digitalWrite(PC13, HIGH);
-    for( int i=0; i< NUM_OLED_DISPLAYS; i++)
-    {
 
-        SetOLEDChan(i);
+    for( int i=0; i< NUM_OLED_DISPLAYS; i++) {
 
-        ConvertCartesianBufferToOLEDBuffer(i);
+        OLEDDisplay(i);
 
-        //debugPulse(3,3);
-        OLEDWriteDisplayBuffer(i);   // WIP, decreasing timing
-                                // 84 ms,
-                                // 51 ms,    doubled buffer to 16 bytes
-                                // 31 ms,    doubled buffer to 32 bytes
-                                // 27-35 ms, doubled buffer to 64 bytes
-                                // 17-25 ms, removed 10 ms sleep
-                                //  9-21 ms, removed 1ms sleep, might cause issues with audio
 
-        //debugPulse(4,4);
+        // SetOLEDChan(i);
+        //
+        // ConvertCartesianBufferToOLEDBuffer(i);
+        //
+        // //debugPulse(3,3);
+        // OLEDWriteDisplayBuffer(i);   // WIP, decreasing timing
+        //                         // 84 ms,
+        //                         // 51 ms,    doubled buffer to 16 bytes
+        //                         // 31 ms,    doubled buffer to 32 bytes
+        //                         // 27-35 ms, doubled buffer to 64 bytes
+        //                         // 17-25 ms, removed 10 ms sleep
+        //                         //  9-21 ms, removed 1ms sleep, might cause issues with audio
+        //
+        // //debugPulse(4,4);
     }
-    digitalWrite(PC13, LOW);
+
     //debugPulse(4,4);
 }
 
@@ -806,7 +821,9 @@ void parseUARTByte(char cBuf){
         switch (iState){
             case 0:
                 clearUARTCommand();
-                if (cBuf == '{') iState = 1;
+                if (cBuf == '{'){
+                    iState = 1;
+                }
                 break;
 
             case 1:
@@ -1092,15 +1109,11 @@ void parseUARTByte(char cBuf){
 
             case 16:
                 if (cBuf == '}'){
-
                     sprintf(uartCommand.cBuff, "%+05.1f", uartCommand.f2b.f);
                     OLEDDisplayString(uartCommand.iDisplayNum, uartCommand.cBuff, 8, uartCommand.iLineNum, uartCommand.iOffset);
-                    OLEDDisplay();
-
-
-                    //ConvertCartesianBufferToOLEDBuffer(uartCommand.iDisplayNum);
-
-                    //OLEDWriteDisplayBuffer(uartCommand.iDisplayNum);   // WIP, decreasing timing
+                    digitalWrite(PC13, HIGH);
+                    OLEDDisplay(uartCommand.iDisplayNum);
+                    digitalWrite(PC13, LOW);
                 }
                 iState = 0;
                 break;

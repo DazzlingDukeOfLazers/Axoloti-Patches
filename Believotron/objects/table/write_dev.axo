@@ -1,0 +1,30 @@
+<objdefs appVersion="1.0.12">
+   <obj.normal id="write_dev" uuid="ec213ffd-4757-45e5-8388-fe839a306c7d">
+      <sDescription>write to table</sDescription>
+      <author>Johannes Taelman</author>
+      <license>BSD</license>
+      <helpPatch>table.axh</helpPatch>
+      <inlets>
+         <int32.positive name="a" description="index (integer, not fraction)"/>
+         <frac32 name="v" description="value"/>
+         <bool32.rising name="trig" description="trigger"/>
+      </inlets>
+      <outlets/>
+      <displays/>
+      <params/>
+      <attribs>
+         <objref name="table"/>
+      </attribs>
+      <code.declaration><![CDATA[   int ntrig;
+]]></code.declaration>
+      <code.init><![CDATA[   int ntrig = 0;
+]]></code.init>
+      <code.krate><![CDATA[   if ((inlet_trig>0) && !ntrig) {
+      ntrig=1;
+      if (inlet_a<attr_table.LENGTH)
+         attr_table.array[inlet_a]=__SSAT(inlet_v,28)>>attr_table.GAIN;
+   }
+   if (!(inlet_trig>0)) ntrig=0;
+]]></code.krate>
+   </obj.normal>
+</objdefs>

@@ -1,0 +1,85 @@
+<patch-1.0 appVersion="1.0.12">
+   <obj type="table/alloc_32b_dev" uuid="0a085544-f6f2-4ca8-a928-0539bec37ad5" name="foo" x="154" y="126">
+      <params/>
+      <attribs>
+         <combo attributeName="size" selection="2"/>
+         <text attributeName="init">
+            <sText><![CDATA[]]></sText>
+         </text>
+      </attribs>
+   </obj>
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_1" x="294" y="280">
+      <params>
+         <int32 name="value" value="2"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_2" x="630" y="336">
+      <params>
+         <int32 name="value" value="1"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="table/write" uuid="50b8c8807ba1fc700ed79381c9360a982e0c3fb9" name="write_1" x="462" y="392">
+      <params/>
+      <attribs>
+         <objref attributeName="table" obj="foo"/>
+      </attribs>
+   </obj>
+   <obj type="ctrl/dial p" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="dial_3" x="294" y="406">
+      <params>
+         <frac32.u.map name="value" value="41.5"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_2" x="896" y="434">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="table/read" uuid="65eb8d0f6a3344638de94c9882999b9af15510d0" name="read_1" x="714" y="448">
+      <params/>
+      <attribs>
+         <objref attributeName="table" obj="foo"/>
+      </attribs>
+   </obj>
+   <obj type="ctrl/button" uuid="ef3d13774349df85aa9bfecf30dbc91ab8488b3f" name="button_1" x="294" y="490">
+      <params>
+         <bool32.mom name="b" value="0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_1" x="896" y="518">
+      <params/>
+      <attribs/>
+   </obj>
+   <nets>
+      <net>
+         <source obj="read_1" outlet="o"/>
+         <dest obj="dial_2" inlet="in"/>
+         <dest obj="dial_1" inlet="in"/>
+      </net>
+      <net>
+         <source obj="dial_3" outlet="out"/>
+         <dest obj="write_1" inlet="v"/>
+      </net>
+      <net>
+         <source obj="button_1" outlet="o"/>
+         <dest obj="write_1" inlet="trig"/>
+      </net>
+      <net>
+         <source obj="i_1" outlet="out"/>
+         <dest obj="write_1" inlet="a"/>
+         <dest obj="read_1" inlet="a"/>
+      </net>
+   </nets>
+   <settings>
+      <subpatchmode>no</subpatchmode>
+   </settings>
+   <notes><![CDATA[]]></notes>
+   <windowPos>
+      <x>-966</x>
+      <y>362</y>
+      <width>972</width>
+      <height>1086</height>
+   </windowPos>
+</patch-1.0>

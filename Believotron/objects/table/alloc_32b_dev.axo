@@ -1,0 +1,61 @@
+<objdefs appVersion="1.0.12">
+   <obj.normal id="alloc_32b_dev" uuid="0a085544-f6f2-4ca8-a928-0539bec37ad5">
+      <sDescription>allocate 32bit table in RAM memory</sDescription>
+      <author>Johannes Taelman</author>
+      <license>BSD</license>
+      <helpPatch>table.axh</helpPatch>
+      <inlets/>
+      <outlets/>
+      <displays/>
+      <params/>
+      <attribs>
+         <combo name="size">
+            <MenuEntries>
+               <string>2</string>
+               <string>4</string>
+               <string>8</string>
+               <string>16</string>
+               <string>32</string>
+               <string>64</string>
+               <string>128</string>
+               <string>256</string>
+               <string>512</string>
+               <string>1024</string>
+               <string>2048</string>
+               <string>4096</string>
+               <string>8192</string>
+               <string>16384</string>
+            </MenuEntries>
+            <CEntries>
+               <string>1</string>
+               <string>2</string>
+               <string>3</string>
+               <string>4</string>
+               <string>5</string>
+               <string>6</string>
+               <string>7</string>
+               <string>8</string>
+               <string>9</string>
+               <string>10</string>
+               <string>11</string>
+               <string>12</string>
+               <string>13</string>
+               <string>14</string>
+            </CEntries>
+         </combo>
+         <text name="init"/>
+      </attribs>
+      <code.declaration><![CDATA[static const uint32_t LENGTHPOW = attr_size;
+static const uint32_t LENGTH = 1<<attr_size;
+static const uint32_t LENGTHMASK = (1<<attr_size)-1;
+static const uint32_t BITS = 32;
+static const uint32_t GAIN = 0;
+int32_t array[LENGTH];
+]]></code.declaration>
+      <code.init><![CDATA[{ 
+  int i;
+  for(i=0;i<LENGTH;i++) array[i]=0;
+}
+attr_init]]></code.init>
+   </obj.normal>
+</objdefs>

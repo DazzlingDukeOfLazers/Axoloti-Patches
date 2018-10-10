@@ -1,0 +1,189 @@
+<objdefs appVersion="1.0.12">
+   <obj.normal id="SerialDataLoopSlurpToTable" uuid="4287353f-73d1-4c7d-bbda-193cf143cec6">
+      <sDescription>Interface to Believotron Core PCB1005_KnobCore_2017-06-07</sDescription>
+      <author>Dazzling Duke of Lazers</author>
+      <license>MIT</license>
+      <helpPatch>script.axh</helpPatch>
+      <inlets>
+         <bool32 name="reverseKnobs_" description="Reverse Knobs"/>
+         <int32.positive name="ch"/>
+         <int32.positive name="offset"/>
+         <frac32.bipolar name="inVal"/>
+      </inlets>
+      <outlets>
+         <frac32 name="out1_" description="out1"/>
+         <int32.positive name="out2_" description="out2"/>
+         <int32.positive name="out3_" description="out3"/>
+         <frac32 name="knbT0_" description="knbT0"/>
+         <frac32 name="knbT1_" description="knbT1"/>
+         <frac32 name="knbT2_" description="knbT2"/>
+         <frac32 name="knbT3_" description="knbT3"/>
+         <frac32 name="knbT4_" description="knbT4"/>
+         <frac32 name="knbT5_" description="knbT5"/>
+         <frac32 name="knbT6_" description="knbT6"/>
+         <frac32 name="knbT7_" description="knbT7"/>
+         <frac32 name="knbB0_" description="knbB0"/>
+         <frac32 name="knbB1_" description="knbB1"/>
+         <frac32 name="knbB2_" description="knbB2"/>
+         <frac32 name="knbB3_" description="knbB3"/>
+         <frac32 name="knbB4_" description="knbB4"/>
+         <frac32 name="knbB5_" description="knbB5"/>
+         <frac32 name="knbB6_" description="knbB6"/>
+         <frac32 name="knbB7_"/>
+         <bool32 name="POR_" description="Power on reset"/>
+      </outlets>
+      <displays/>
+      <params/>
+      <attribs>
+         <text name="script"/>
+         <combo name="size">
+            <MenuEntries>
+               <string>2</string>
+               <string>4</string>
+               <string>8</string>
+               <string>16</string>
+               <string>32</string>
+               <string>64</string>
+               <string>128</string>
+               <string>256</string>
+               <string>512</string>
+               <string>1024</string>
+               <string>2048</string>
+               <string>4096</string>
+               <string>8192</string>
+               <string>16384</string>
+            </MenuEntries>
+            <CEntries>
+               <string>1</string>
+               <string>2</string>
+               <string>3</string>
+               <string>4</string>
+               <string>5</string>
+               <string>6</string>
+               <string>7</string>
+               <string>8</string>
+               <string>9</string>
+               <string>10</string>
+               <string>11</string>
+               <string>12</string>
+               <string>13</string>
+               <string>14</string>
+            </CEntries>
+         </combo>
+         <text name="init"/>
+         <objref name="table"/>
+      </attribs>
+      <code.declaration><![CDATA[// Table setup ----------------------------------------------------------------
+static const uint32_t LENGTHPOW = attr_size;
+static const uint32_t LENGTH = 1<<attr_size;
+static const uint32_t LENGTHMASK = (1<<attr_size)-1;
+static const uint32_t BITS = 32;
+static const uint32_t GAIN = 0;
+int32_t array[LENGTH];
+
+
+
+
+
+// Input / Output variables ---------------------------------------------------
+uint8_t u8Count;
+int32_t PORCount;
+
+int32_t SwapKnobRow;
+int32_t Page;
+int32_t LEDcolor;
+int32_t LEDmode;
+int32_t stepNum;
+int32_t stepIntensity,in2,reverseKnobs;
+int32_t out1,out2,out3;
+int32_t knb[2][8];
+
+
+// -- Turns object into a script, running the code in the "edit" button -------
+attr_script
+msg_t ThreadX2(){
+  setup();
+  while(!chThdShouldTerminate()){
+     loop();
+     chThdSleepMilliseconds(1);
+  }
+  chThdExit((msg_t)0);
+}
+static msg_t ThreadX(void *arg) {
+((attr_parent *)arg)->ThreadX2();
+}
+WORKING_AREA(waThreadX, 1024);
+Thread *Thd;]]></code.declaration>
+      <code.init><![CDATA[// Table setup
+{ 
+  int i;
+  for(i=0;i<LENGTH;i++) array[i]=0;
+}
+
+// runs the code in the text of "init" button
+attr_init
+
+
+
+
+// Input / Output init
+SwapKnobRow=0;
+reverseKnobs=0;
+stepNum=0;
+stepIntensity=0;
+in2=0;
+out1=0;
+out2=0;
+out3=0;
+u8Count=0;
+PORCount=0;
+
+
+for (int y=0; y<2; y++)
+{
+	for (int x=0; x<8; x++)
+	{
+		knb[y][x] = 0; 	
+	}
+}
+
+
+// Script setup
+Thd = chThdCreateStatic(waThreadX, sizeof(waThreadX),NORMALPRIO, ThreadX, (void *)this);]]></code.init>
+      <code.dispose><![CDATA[chThdTerminate(Thd);
+chThdWait(Thd);]]></code.dispose>
+      <code.krate><![CDATA[// Power-on Reset, A signal that goes high after X cycles
+// This is to help race conditions
+if (PORCount++ < 1000) {outlet_POR__ = 1;}
+else { outlet_POR__ = 0;}
+
+// Table storing  
+if (inlet_ch<attr_table.LENGTH)
+	attr_table.array[inlet_ch*128+inlet_offset]=__SSAT(inlet_inVal,28)>>attr_table.GAIN;
+   
+   
+
+
+// Inputs and outputs
+outlet_out1__ = this->out1;
+outlet_out2__ = this->out2;
+outlet_out3__ = this->out3;
+outlet_knbT0__ = this->knb[0][0];
+outlet_knbT1__ = this->knb[0][1];
+outlet_knbT2__ = this->knb[0][2];
+outlet_knbT3__ = this->knb[0][3];
+outlet_knbT4__ = this->knb[0][4];
+outlet_knbT5__ = this->knb[0][5];
+outlet_knbT6__ = this->knb[0][6];
+outlet_knbT7__ = this->knb[0][7];
+outlet_knbB0__ = this->knb[1][0];
+outlet_knbB1__ = this->knb[1][1];
+outlet_knbB2__ = this->knb[1][2];
+outlet_knbB3__ = this->knb[1][3];
+outlet_knbB4__ = this->knb[1][4];
+outlet_knbB5__ = this->knb[1][5];
+outlet_knbB6__ = this->knb[1][6];
+outlet_knbB7__ = this->knb[1][7];
+this->reverseKnobs  = inlet_reverseKnobs__;]]></code.krate>
+   </obj.normal>
+</objdefs>

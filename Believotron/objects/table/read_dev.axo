@@ -1,0 +1,21 @@
+<objdefs appVersion="1.0.12">
+   <obj.normal id="read_dev" uuid="8846f25e-0c5d-4265-9544-8e4f4f391e40">
+      <sDescription>read from table, nearest neighbour</sDescription>
+      <author>Johannes Taelman</author>
+      <license>BSD</license>
+      <helpPatch>table.axh</helpPatch>
+      <inlets>
+         <int32.positive name="ch" description="index"/>
+         <int32.positive name="offset"/>
+      </inlets>
+      <outlets>
+         <frac32 name="o" description="table[a]"/>
+      </outlets>
+      <displays/>
+      <params/>
+      <attribs>
+         <objref name="table"/>
+      </attribs>
+      <code.krate><![CDATA[outlet_o= attr_table.array[__USAT(inlet_ch*128+inlet_offset,attr_table.LENGTHPOW)]<<attr_table.GAIN;]]></code.krate>
+   </obj.normal>
+</objdefs>

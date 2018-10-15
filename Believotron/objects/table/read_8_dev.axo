@@ -1,0 +1,35 @@
+<objdefs appVersion="1.0.12">
+   <obj.normal id="read_8_dev" uuid="2b356a68-3936-4872-8f01-c39406bd0989">
+      <sDescription>read from table, nearest neighbour</sDescription>
+      <author>Johannes Taelman</author>
+      <license>BSD</license>
+      <helpPatch>table.axh</helpPatch>
+      <inlets>
+         <int32.positive name="ch" description="index"/>
+         <int32.positive name="offset"/>
+      </inlets>
+      <outlets>
+         <frac32.bipolar name="out0"/>
+         <frac32.bipolar name="out1"/>
+         <frac32.bipolar name="out2"/>
+         <frac32.bipolar name="out3"/>
+         <frac32.bipolar name="out4"/>
+         <frac32.positive name="out5"/>
+         <frac32.bipolar name="out6"/>
+         <frac32.bipolar name="out7"/>
+      </outlets>
+      <displays/>
+      <params/>
+      <attribs>
+         <objref name="table"/>
+      </attribs>
+      <code.krate><![CDATA[outlet_out0= attr_table.array[__USAT(inlet_ch*128+inlet_offset  ,attr_table.LENGTHPOW)]<<attr_table.GAIN;
+outlet_out1= attr_table.array[__USAT(inlet_ch*128+inlet_offset+1,attr_table.LENGTHPOW)]<<attr_table.GAIN;
+outlet_out2= attr_table.array[__USAT(inlet_ch*128+inlet_offset+2,attr_table.LENGTHPOW)]<<attr_table.GAIN;
+outlet_out3= attr_table.array[__USAT(inlet_ch*128+inlet_offset+3,attr_table.LENGTHPOW)]<<attr_table.GAIN;
+outlet_out4= attr_table.array[__USAT(inlet_ch*128+inlet_offset+4,attr_table.LENGTHPOW)]<<attr_table.GAIN;
+outlet_out5= attr_table.array[__USAT(inlet_ch*128+inlet_offset+5,attr_table.LENGTHPOW)]<<attr_table.GAIN;
+outlet_out6= attr_table.array[__USAT(inlet_ch*128+inlet_offset+6,attr_table.LENGTHPOW)]<<attr_table.GAIN;
+outlet_out7= attr_table.array[__USAT(inlet_ch*128+inlet_offset+7,attr_table.LENGTHPOW)]<<attr_table.GAIN;]]></code.krate>
+   </obj.normal>
+</objdefs>

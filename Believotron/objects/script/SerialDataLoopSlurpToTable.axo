@@ -8,7 +8,14 @@
          <bool32 name="reverseKnobs_" description="Reverse Knobs"/>
          <int32.positive name="ch"/>
          <int32.positive name="offset"/>
-         <frac32.bipolar name="inVal"/>
+         <frac32.bipolar name="inVal0"/>
+         <frac32.bipolar name="inVal1"/>
+         <frac32.bipolar name="inVal2"/>
+         <frac32.bipolar name="inVal3"/>
+         <frac32.bipolar name="inVal4"/>
+         <frac32.bipolar name="inVal5"/>
+         <frac32.bipolar name="inVal6"/>
+         <frac32.bipolar name="inVal7"/>
       </inlets>
       <outlets>
          <frac32 name="out1_" description="out1"/>
@@ -157,10 +164,21 @@ chThdWait(Thd);]]></code.dispose>
 if (PORCount++ < 1000) {outlet_POR__ = 1;}
 else { outlet_POR__ = 0;}
 
-// Table storing  
-if (inlet_ch<attr_table.LENGTH)
-	attr_table.array[inlet_ch*128+inlet_offset]=__SSAT(inlet_inVal,28)>>attr_table.GAIN;
-   
+// Table storing 
+// TBD update if-check for new CH + offset 
+if (inlet_ch<attr_table.LENGTH){	
+	attr_table.array[inlet_ch*128+inlet_offset  ]=__SSAT(inlet_inVal0,28)>>attr_table.GAIN;
+	attr_table.array[inlet_ch*128+inlet_offset+1]=__SSAT(inlet_inVal1,28)>>attr_table.GAIN;
+	attr_table.array[inlet_ch*128+inlet_offset+2]=__SSAT(inlet_inVal2,28)>>attr_table.GAIN;
+	attr_table.array[inlet_ch*128+inlet_offset+3]=__SSAT(inlet_inVal3,28)>>attr_table.GAIN;
+	attr_table.array[inlet_ch*128+inlet_offset+4]=__SSAT(inlet_inVal4,28)>>attr_table.GAIN;
+	attr_table.array[inlet_ch*128+inlet_offset+5]=__SSAT(inlet_inVal5,28)>>attr_table.GAIN;
+	attr_table.array[inlet_ch*128+inlet_offset+6]=__SSAT(inlet_inVal6,28)>>attr_table.GAIN;
+	attr_table.array[inlet_ch*128+inlet_offset+7]=__SSAT(inlet_inVal7,28)>>attr_table.GAIN;	
+}
+
+//if (inlet_ch<attr_table.LENGTH)
+//	attr_table.array[inlet_ch*128+inlet_offset]=__SSAT(inlet_inVal0,28)>>attr_table.GAIN;
    
 
 

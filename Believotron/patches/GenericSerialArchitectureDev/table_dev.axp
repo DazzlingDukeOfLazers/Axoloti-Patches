@@ -2,7 +2,7 @@
    <obj type="table/alloc_32b_dev" uuid="0a085544-f6f2-4ca8-a928-0539bec37ad5" name="foo" x="154" y="126">
       <params/>
       <attribs>
-         <combo attributeName="size" selection="2"/>
+         <combo attributeName="size" selection="8192"/>
          <text attributeName="init">
             <sText><![CDATA[]]></sText>
          </text>
@@ -10,7 +10,7 @@
    </obj>
    <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_1" x="294" y="280">
       <params>
-         <int32 name="value" value="2"/>
+         <int32 name="value" value="1"/>
       </params>
       <attribs/>
    </obj>
@@ -77,9 +77,9 @@
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>-966</x>
-      <y>362</y>
-      <width>972</width>
-      <height>1086</height>
+      <x>-8</x>
+      <y>-8</y>
+      <width>1516</width>
+      <height>1016</height>
    </windowPos>
 </patch-1.0>

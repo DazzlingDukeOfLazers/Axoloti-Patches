@@ -1,0 +1,41 @@
+<objdefs appVersion="1.0.12">
+   <obj.normal id="defaultUntilChange" uuid="5249eaab-0ecf-48cc-b650-b99ea7ce6102">
+      <sDescription>Pass through when s_h input is less or equal than zero or hold when positive.</sDescription>
+      <author>Johannes Taelman</author>
+      <license>BSD</license>
+      <helpPatch>samplehold.axh</helpPatch>
+      <inlets>
+         <frac32.bipolar name="in0"/>
+         <frac32 name="s_h" description="pass through when less or equal than zero or hold when positive"/>
+         <bool32 name="reset"/>
+      </inlets>
+      <outlets>
+         <frac32 name="out" description="output"/>
+      </outlets>
+      <displays/>
+      <params>
+         <frac32.s.map name="default0" noLabel="true">
+            <DefaultValue v="1.0"/>
+         </frac32.s.map>
+      </params>
+      <attribs/>
+      <code.declaration><![CDATA[int32_t inPrev;
+int32_t hold;]]></code.declaration>
+      <code.init><![CDATA[hold = 0;
+inPrev = 0;]]></code.init>
+      <code.krate><![CDATA[if (inlet_reset)
+{
+	hold   = param_default0;
+	inPrev = inlet_in0;
+}
+else
+{
+	if (inlet_in0 != inPrev){
+		hold   = inlet_in0;
+		inPrev = inlet_in0;
+	}	
+}
+
+outlet_out = hold;]]></code.krate>
+   </obj.normal>
+</objdefs>

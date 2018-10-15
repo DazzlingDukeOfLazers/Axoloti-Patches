@@ -1,113 +1,11 @@
 <patch-1.0 appVersion="1.0.12">
-   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_1" x="84" y="182">
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_1" x="266" y="154">
       <params>
          <int32 name="value" value="0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_1" x="924" y="182">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="mix/mix 2 g" uuid="221f038da51943034a75e442c90624fcebfe6112" name="mix_2" x="1694" y="238">
-      <params>
-         <frac32.u.map name="gain1" value="64.0"/>
-         <frac32.u.map name="gain2" value="64.0"/>
-      </params>
-      <attribs/>
-   </obj>
-   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_3" x="924" y="266">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="math/+" uuid="44553fdc8628c67ab535845ed1be304ad6c9553b" name="+_2" x="700" y="294">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_1" x="1540" y="294">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="audio/out stereo" uuid="a1ca7a567f535acc21055669829101d3ee7f0189" name="out_1" x="1904" y="322">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_4" x="924" y="350">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="math/+" uuid="44553fdc8628c67ab535845ed1be304ad6c9553b" name="+_4" x="700" y="364">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_2" x="1554" y="406">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="mix/mix 2 g" uuid="221f038da51943034a75e442c90624fcebfe6112" name="mix_3" x="1694" y="406">
-      <params>
-         <frac32.u.map name="gain1" value="64.0"/>
-         <frac32.u.map name="gain2" value="64.0"/>
-      </params>
-      <attribs/>
-   </obj>
-   <obj type="math/+" uuid="44553fdc8628c67ab535845ed1be304ad6c9553b" name="+_6" x="700" y="434">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_5" x="924" y="434">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="math/+" uuid="44553fdc8628c67ab535845ed1be304ad6c9553b" name="+_8" x="700" y="504">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_6" x="924" y="518">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="instruments/cpwitz-fmsynth-paraphonic" uuid="2c1367af-6a7a-4fc2-b946-a08010dabd0c" name="obj_6" x="1022" y="518">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="math/+" uuid="44553fdc8628c67ab535845ed1be304ad6c9553b" name="+_10" x="700" y="574">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_7" x="924" y="602">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_9" x="392" y="630">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="math/+" uuid="44553fdc8628c67ab535845ed1be304ad6c9553b" name="+_12" x="700" y="644">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="MIDI/Akai_MPK_Mini_MKII" uuid="3aa18a76-ac64-484b-91a2-e9251b9d3b6b" name="obj_7" x="210" y="672">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_10" x="924" y="686">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="math/+" uuid="44553fdc8628c67ab535845ed1be304ad6c9553b" name="+_14" x="700" y="714">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_8" x="392" y="728">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_11" x="924" y="770">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="script/SerialDataLoopSlurpToTable" uuid="4287353f-73d1-4c7d-bbda-193cf143cec6" name="foo" x="1652" y="770">
+   <obj type="script/SerialDataLoopSlurpToTable" uuid="4287353f-73d1-4c7d-bbda-193cf143cec6" name="foo" x="434" y="154">
       <params/>
       <attribs>
          <text attributeName="script">
@@ -190,7 +88,89 @@ void loop(void)
          <objref attributeName="table" obj="foo"/>
       </attribs>
    </obj>
-   <obj type="math/+" uuid="44553fdc8628c67ab535845ed1be304ad6c9553b" name="+_16" x="700" y="798">
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_1" x="924" y="182">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_2" x="266" y="210">
+      <params>
+         <int32 name="value" value="0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="mix/mix 2 g" uuid="221f038da51943034a75e442c90624fcebfe6112" name="mix_2" x="1694" y="238">
+      <params>
+         <frac32.u.map name="gain1" value="64.0"/>
+         <frac32.u.map name="gain2" value="64.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_3" x="924" y="266">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_1" x="1540" y="294">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="audio/out stereo" uuid="a1ca7a567f535acc21055669829101d3ee7f0189" name="out_1" x="1904" y="322">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="table/read_8_dev" uuid="2b356a68-3936-4872-8f01-c39406bd0989" name="read_8_dev_1" x="672" y="336">
+      <params/>
+      <attribs>
+         <objref attributeName="table" obj="foo"/>
+      </attribs>
+   </obj>
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_4" x="924" y="350">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_2" x="1554" y="406">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="mix/mix 2 g" uuid="221f038da51943034a75e442c90624fcebfe6112" name="mix_3" x="1694" y="406">
+      <params>
+         <frac32.u.map name="gain1" value="64.0"/>
+         <frac32.u.map name="gain2" value="64.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_5" x="924" y="434">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_6" x="924" y="518">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="instruments/cpwitz-fmsynth-paraphonic" uuid="2c1367af-6a7a-4fc2-b946-a08010dabd0c" name="obj_6" x="1022" y="518">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_7" x="924" y="602">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_9" x="392" y="630">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="MIDI/Akai_MPK_Mini_MKII" uuid="3aa18a76-ac64-484b-91a2-e9251b9d3b6b" name="obj_7" x="210" y="672">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_10" x="924" y="686">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_8" x="392" y="728">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_11" x="924" y="770">
       <params/>
       <attribs/>
    </obj>
@@ -267,7 +247,7 @@ void loop(void)
       <net>
          <source obj="obj_7" outlet="Knob_K1_B"/>
          <dest obj="dial_8" inlet="in"/>
-         <dest obj="+_2" inlet="in2"/>
+         <dest obj="foo" inlet="inVal0"/>
       </net>
       <net>
          <source obj="obj_7" outlet="Pad1"/>
@@ -285,20 +265,20 @@ void loop(void)
       </net>
       <net>
          <source obj="obj_7" outlet="Knob_K8_P"/>
-         <dest obj="+_16" inlet="in2"/>
+         <dest obj="foo" inlet="inVal7"/>
       </net>
       <net>
          <source obj="obj_6" outlet="otherLeft"/>
          <dest obj="vca_2" inlet="a"/>
       </net>
       <net>
-         <source obj="+_2" outlet="out"/>
+         <source obj="read_8_dev_1" outlet="out0"/>
          <dest obj="dial_1" inlet="in"/>
          <dest obj="obj_6" inlet="Attack"/>
       </net>
       <net>
          <source obj="obj_7" outlet="Knob_K2_B"/>
-         <dest obj="+_4" inlet="in2"/>
+         <dest obj="foo" inlet="inVal1"/>
       </net>
       <net>
          <source obj="obj_7" outlet="note"/>
@@ -306,56 +286,56 @@ void loop(void)
       </net>
       <net>
          <source obj="obj_7" outlet="Knob_K3_B"/>
-         <dest obj="+_6" inlet="in2"/>
+         <dest obj="foo" inlet="inVal2"/>
       </net>
       <net>
          <source obj="obj_7" outlet="Knob_K4_B"/>
-         <dest obj="+_8" inlet="in2"/>
+         <dest obj="foo" inlet="inVal3"/>
       </net>
       <net>
          <source obj="obj_7" outlet="Knob_K5_B"/>
-         <dest obj="+_10" inlet="in2"/>
+         <dest obj="foo" inlet="inVal4"/>
       </net>
       <net>
          <source obj="obj_7" outlet="Knob_K6_B"/>
-         <dest obj="+_12" inlet="in2"/>
+         <dest obj="foo" inlet="inVal5"/>
       </net>
       <net>
          <source obj="obj_7" outlet="Knob_K7_P"/>
-         <dest obj="+_14" inlet="in2"/>
+         <dest obj="foo" inlet="inVal6"/>
       </net>
       <net>
-         <source obj="+_4" outlet="out"/>
+         <source obj="read_8_dev_1" outlet="out1"/>
          <dest obj="dial_3" inlet="in"/>
          <dest obj="obj_6" inlet="Decay"/>
       </net>
       <net>
-         <source obj="+_6" outlet="out"/>
+         <source obj="read_8_dev_1" outlet="out2"/>
          <dest obj="dial_4" inlet="in"/>
          <dest obj="obj_6" inlet="Sustain"/>
       </net>
       <net>
-         <source obj="+_8" outlet="out"/>
+         <source obj="read_8_dev_1" outlet="out3"/>
          <dest obj="dial_5" inlet="in"/>
          <dest obj="obj_6" inlet="Release"/>
       </net>
       <net>
-         <source obj="+_10" outlet="out"/>
+         <source obj="read_8_dev_1" outlet="out4"/>
          <dest obj="dial_6" inlet="in"/>
          <dest obj="obj_6" inlet="LFO_Pitch"/>
       </net>
       <net>
-         <source obj="+_12" outlet="out"/>
+         <source obj="read_8_dev_1" outlet="out5"/>
          <dest obj="dial_7" inlet="in"/>
          <dest obj="obj_6" inlet="ModFreq"/>
       </net>
       <net>
-         <source obj="+_14" outlet="out"/>
+         <source obj="read_8_dev_1" outlet="out6"/>
          <dest obj="dial_10" inlet="in"/>
          <dest obj="obj_6" inlet="ModAmount"/>
       </net>
       <net>
-         <source obj="+_16" outlet="out"/>
+         <source obj="read_8_dev_1" outlet="out7"/>
          <dest obj="vca_1" inlet="v"/>
          <dest obj="vca_2" inlet="v"/>
          <dest obj="dial_11" inlet="in"/>
@@ -431,6 +411,16 @@ void loop(void)
       <net>
          <source obj="or_2" outlet="o"/>
          <dest obj="obj_5" inlet="trig"/>
+      </net>
+      <net>
+         <source obj="i_2" outlet="out"/>
+         <dest obj="foo" inlet="offset"/>
+         <dest obj="read_8_dev_1" inlet="offset"/>
+      </net>
+      <net>
+         <source obj="i_1" outlet="out"/>
+         <dest obj="foo" inlet="ch"/>
+         <dest obj="read_8_dev_1" inlet="ch"/>
       </net>
    </nets>
    <settings>

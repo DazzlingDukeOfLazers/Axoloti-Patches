@@ -5,6 +5,23 @@
       </params>
       <attribs/>
    </obj>
+   <obj type="logic/defaultUntilChange" uuid="5249eaab-0ecf-48cc-b650-b99ea7ce6102" name="defaultUntilChange_1" x="1358" y="98">
+      <params>
+         <frac32.s.map name="default0" value="0.0"/>
+         <frac32.s.map name="default1" value="0.0"/>
+         <frac32.s.map name="default2" value="0.0"/>
+         <frac32.s.map name="default3" value="0.0"/>
+         <frac32.s.map name="default4" value="0.0"/>
+         <frac32.s.map name="default5" value="0.0"/>
+         <frac32.s.map name="default6" value="0.0"/>
+         <frac32.s.map name="default7" value="33.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial_b_8" uuid="f84e11f7-29e2-40eb-b2ab-25065f551c31" name="dial_b_8_1" x="1582" y="98">
+      <params/>
+      <attribs/>
+   </obj>
    <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_1" x="1190" y="112">
       <params/>
       <attribs/>
@@ -118,17 +135,7 @@ void loop(void)
       </params>
       <attribs/>
    </obj>
-   <obj type="logic/defaultUntilChange" uuid="5249eaab-0ecf-48cc-b650-b99ea7ce6102" name="defaultUntilChange_1" x="1204" y="224">
-      <params>
-         <frac32.s.map name="default0" value="0.0"/>
-      </params>
-      <attribs/>
-   </obj>
-   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_2" x="1358" y="224">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="mix/mix 2 g" uuid="221f038da51943034a75e442c90624fcebfe6112" name="mix_2" x="1694" y="238">
+   <obj type="mix/mix 2 g" uuid="221f038da51943034a75e442c90624fcebfe6112" name="mix_2" x="2058" y="238">
       <params>
          <frac32.u.map name="gain1" value="64.0"/>
          <frac32.u.map name="gain2" value="64.0"/>
@@ -143,11 +150,11 @@ void loop(void)
       <params/>
       <attribs/>
    </obj>
-   <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_1" x="1540" y="294">
+   <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_1" x="1904" y="294">
       <params/>
       <attribs/>
    </obj>
-   <obj type="audio/out stereo" uuid="a1ca7a567f535acc21055669829101d3ee7f0189" name="out_1" x="1904" y="322">
+   <obj type="audio/out stereo" uuid="a1ca7a567f535acc21055669829101d3ee7f0189" name="out_1" x="2268" y="322">
       <params/>
       <attribs/>
    </obj>
@@ -161,11 +168,11 @@ void loop(void)
       <params/>
       <attribs/>
    </obj>
-   <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_2" x="1554" y="406">
+   <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_2" x="1918" y="406">
       <params/>
       <attribs/>
    </obj>
-   <obj type="mix/mix 2 g" uuid="221f038da51943034a75e442c90624fcebfe6112" name="mix_3" x="1694" y="406">
+   <obj type="mix/mix 2 g" uuid="221f038da51943034a75e442c90624fcebfe6112" name="mix_3" x="2058" y="406">
       <params>
          <frac32.u.map name="gain1" value="64.0"/>
          <frac32.u.map name="gain2" value="64.0"/>
@@ -308,7 +315,6 @@ void loop(void)
       <net>
          <source obj="read_8_dev_1" outlet="out0"/>
          <dest obj="dial_1" inlet="in"/>
-         <dest obj="obj_6" inlet="Attack"/>
          <dest obj="defaultUntilChange_1" inlet="in0"/>
       </net>
       <net>
@@ -342,38 +348,37 @@ void loop(void)
       <net>
          <source obj="read_8_dev_1" outlet="out1"/>
          <dest obj="dial_3" inlet="in"/>
-         <dest obj="obj_6" inlet="Decay"/>
+         <dest obj="defaultUntilChange_1" inlet="in1"/>
       </net>
       <net>
          <source obj="read_8_dev_1" outlet="out2"/>
          <dest obj="dial_4" inlet="in"/>
-         <dest obj="obj_6" inlet="Sustain"/>
+         <dest obj="defaultUntilChange_1" inlet="in2"/>
       </net>
       <net>
          <source obj="read_8_dev_1" outlet="out3"/>
          <dest obj="dial_5" inlet="in"/>
-         <dest obj="obj_6" inlet="Release"/>
+         <dest obj="defaultUntilChange_1" inlet="in3"/>
       </net>
       <net>
          <source obj="read_8_dev_1" outlet="out4"/>
          <dest obj="dial_6" inlet="in"/>
-         <dest obj="obj_6" inlet="LFO_Pitch"/>
+         <dest obj="defaultUntilChange_1" inlet="in4"/>
       </net>
       <net>
          <source obj="read_8_dev_1" outlet="out5"/>
          <dest obj="dial_7" inlet="in"/>
-         <dest obj="obj_6" inlet="ModFreq"/>
+         <dest obj="defaultUntilChange_1" inlet="in5"/>
       </net>
       <net>
          <source obj="read_8_dev_1" outlet="out6"/>
          <dest obj="dial_10" inlet="in"/>
-         <dest obj="obj_6" inlet="ModAmount"/>
+         <dest obj="defaultUntilChange_1" inlet="in6"/>
       </net>
       <net>
          <source obj="read_8_dev_1" outlet="out7"/>
-         <dest obj="vca_1" inlet="v"/>
-         <dest obj="vca_2" inlet="v"/>
          <dest obj="dial_11" inlet="in"/>
+         <dest obj="defaultUntilChange_1" inlet="in7"/>
       </net>
       <net>
          <source obj="mix_3" outlet="out"/>
@@ -464,16 +469,53 @@ void loop(void)
          <dest obj="or_3" inlet="i2"/>
       </net>
       <net>
-         <source obj="defaultUntilChange_1" outlet="out"/>
-         <dest obj="dial_2" inlet="in"/>
-      </net>
-      <net>
          <source obj="or_3" outlet="o"/>
          <dest obj="defaultUntilChange_1" inlet="reset"/>
       </net>
       <net>
          <source obj="button_1" outlet="o"/>
          <dest obj="or_3" inlet="i1"/>
+      </net>
+      <net>
+         <source obj="defaultUntilChange_1" outlet="out0"/>
+         <dest obj="dial_b_8_1" inlet="i0"/>
+         <dest obj="obj_6" inlet="Attack"/>
+      </net>
+      <net>
+         <source obj="defaultUntilChange_1" outlet="out1"/>
+         <dest obj="dial_b_8_1" inlet="i1"/>
+         <dest obj="obj_6" inlet="Decay"/>
+      </net>
+      <net>
+         <source obj="defaultUntilChange_1" outlet="out2"/>
+         <dest obj="dial_b_8_1" inlet="i2"/>
+         <dest obj="obj_6" inlet="Sustain"/>
+      </net>
+      <net>
+         <source obj="defaultUntilChange_1" outlet="out3"/>
+         <dest obj="dial_b_8_1" inlet="i3"/>
+         <dest obj="obj_6" inlet="Release"/>
+      </net>
+      <net>
+         <source obj="defaultUntilChange_1" outlet="out4"/>
+         <dest obj="dial_b_8_1" inlet="i4"/>
+         <dest obj="obj_6" inlet="LFO_Pitch"/>
+      </net>
+      <net>
+         <source obj="defaultUntilChange_1" outlet="out5"/>
+         <dest obj="dial_b_8_1" inlet="i5"/>
+         <dest obj="obj_6" inlet="ModFreq"/>
+      </net>
+      <net>
+         <source obj="defaultUntilChange_1" outlet="out6"/>
+         <dest obj="dial_b_8_1" inlet="i6"/>
+         <dest obj="obj_6" inlet="ModAmount"/>
+      </net>
+      <net>
+         <source obj="defaultUntilChange_1" outlet="out7"/>
+         <dest obj="dial_b_8_1" inlet="i7"/>
+         <dest obj="vca_1" inlet="v"/>
+         <dest obj="vca_2" inlet="v"/>
       </net>
    </nets>
    <settings>

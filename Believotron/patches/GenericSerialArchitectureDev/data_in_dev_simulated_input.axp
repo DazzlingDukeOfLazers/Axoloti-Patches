@@ -88,15 +88,6 @@ void loop(void)
          <objref attributeName="table" obj="foo"/>
       </attribs>
    </obj>
-   <obj type="env/adsr m" uuid="98bd39fb828c392b28126d259cb5175e6f6ea34b" name="adsr_1" x="1064" y="56">
-      <params>
-         <frac32.s.map name="a" value="0.0"/>
-         <frac32.s.map name="d" value="0.0"/>
-         <frac32.u.map name="s" value="0.0"/>
-         <frac32.s.map name="r" value="0.0"/>
-      </params>
-      <attribs/>
-   </obj>
    <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_4" x="518" y="70">
       <params>
          <int32 name="value" value="0"/>
@@ -111,6 +102,15 @@ void loop(void)
    </obj>
    <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_4" x="770" y="70">
       <params/>
+      <attribs/>
+   </obj>
+   <obj type="env/adsr m" uuid="98bd39fb828c392b28126d259cb5175e6f6ea34b" name="adsr_1" x="1386" y="70">
+      <params>
+         <frac32.s.map name="a" value="0.0"/>
+         <frac32.s.map name="d" value="0.0"/>
+         <frac32.u.map name="s" value="0.0"/>
+         <frac32.s.map name="r" value="0.0"/>
+      </params>
       <attribs/>
    </obj>
    <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_2" x="42" y="140">
@@ -164,14 +164,14 @@ void loop(void)
       <params/>
       <attribs/>
    </obj>
-   <obj type="osc/sine" uuid="6e094045cca76a9dbf7ebfa72e44e4700d2b3ba" name="sine_1" x="1050" y="350">
+   <obj type="math/+1" uuid="6b958b82fafa8d61216203d28f9f0e4cd27fa2a6" name="+1_2" x="56" y="364">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="osc/sine" uuid="6e094045cca76a9dbf7ebfa72e44e4700d2b3ba" name="sine_1" x="1372" y="364">
       <params>
          <frac32.s.map name="pitch" value="0.0"/>
       </params>
-      <attribs/>
-   </obj>
-   <obj type="math/+1" uuid="6b958b82fafa8d61216203d28f9f0e4cd27fa2a6" name="+1_2" x="56" y="364">
-      <params/>
       <attribs/>
    </obj>
    <obj type="math/+1" uuid="6b958b82fafa8d61216203d28f9f0e4cd27fa2a6" name="+1_3" x="56" y="406">
@@ -367,9 +367,9 @@ void loop(void)
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>-1926</x>
-      <y>362</y>
-      <width>972</width>
-      <height>1086</height>
+      <x>-4</x>
+      <y>2</y>
+      <width>1505</width>
+      <height>1002</height>
    </windowPos>
 </patch-1.0>

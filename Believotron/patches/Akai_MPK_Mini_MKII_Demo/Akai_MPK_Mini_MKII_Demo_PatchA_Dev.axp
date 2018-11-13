@@ -7,14 +7,16 @@
    </obj>
    <obj type="logic/defaultUntilChange" uuid="5249eaab-0ecf-48cc-b650-b99ea7ce6102" name="defaultUntilChange_1" x="1358" y="98">
       <params>
-         <frac32.s.map name="default0" value="0.0"/>
+         <frac32.s.map name="default0" value="1.0">
+            <presets/>
+         </frac32.s.map>
          <frac32.s.map name="default1" value="0.0"/>
          <frac32.s.map name="default2" value="0.0"/>
          <frac32.s.map name="default3" value="0.0"/>
          <frac32.s.map name="default4" value="0.0"/>
          <frac32.s.map name="default5" value="0.0"/>
          <frac32.s.map name="default6" value="0.0"/>
-         <frac32.s.map name="default7" value="33.0"/>
+         <frac32.s.map name="default7" value="64.0"/>
       </params>
       <attribs/>
    </obj>
@@ -523,9 +525,9 @@ void loop(void)
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>-1928</x>
-      <y>354</y>
-      <width>1936</width>
-      <height>1096</height>
+      <x>-8</x>
+      <y>-8</y>
+      <width>1516</width>
+      <height>1016</height>
    </windowPos>
 </patch-1.0>

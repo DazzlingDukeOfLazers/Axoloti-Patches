@@ -1,0 +1,54 @@
+<objdefs appVersion="1.0.12">
+   <obj.normal id="buffer8" uuid="2d04ee6f-21e4-442a-9df6-9cc2001cf016">
+      <sDescription>constant boolean, momentary control</sDescription>
+      <author>Johannes Taelman</author>
+      <license>BSD</license>
+      <helpPatch>ctrl.axh</helpPatch>
+      <inlets>
+         <bool32 name="i0"/>
+         <bool32 name="i1"/>
+         <bool32 name="i2"/>
+         <bool32 name="i3"/>
+         <bool32 name="i4"/>
+         <bool32 name="i5"/>
+         <bool32 name="i6"/>
+         <bool32 name="i7"/>
+         <bool32 name="en"/>
+      </inlets>
+      <outlets>
+         <bool32 name="o0" description="output"/>
+         <bool32 name="o1"/>
+         <bool32 name="o2"/>
+         <bool32 name="o3"/>
+         <bool32 name="o4"/>
+         <bool32 name="o5"/>
+         <bool32 name="o6"/>
+         <bool32 name="o7"/>
+      </outlets>
+      <displays/>
+      <params/>
+      <attribs/>
+      <code.krate><![CDATA[if (inlet_en)
+{
+	outlet_o0=inlet_i0;
+	outlet_o1=inlet_i1;
+	outlet_o2=inlet_i2;
+	outlet_o3=inlet_i3;
+	outlet_o4=inlet_i4;
+	outlet_o5=inlet_i5;
+	outlet_o6=inlet_i6;
+	outlet_o7=inlet_i7;
+}
+else
+{
+	outlet_o0=0;
+	outlet_o1=0;
+	outlet_o2=0;
+	outlet_o3=0;
+	outlet_o4=0;
+	outlet_o5=0;
+	outlet_o6=0;
+	outlet_o7=0;
+}]]></code.krate>
+   </obj.normal>
+</objdefs>

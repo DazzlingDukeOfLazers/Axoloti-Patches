@@ -1,0 +1,116 @@
+<patch-1.0 appVersion="1.0.12">
+   <obj type="ctrl/button8" uuid="ad510325-47cb-43ba-b602-44f14b2defa2" name="button8_1" x="14" y="14">
+      <params>
+         <bool32.mom name="b0" value="0"/>
+         <bool32.mom name="b1" value="0"/>
+         <bool32.mom name="b2" value="0"/>
+         <bool32.mom name="b3" value="0"/>
+         <bool32.mom name="b4" value="0"/>
+         <bool32.mom name="b5" value="0"/>
+         <bool32.mom name="b6" value="0"/>
+         <bool32.mom name="b7" value="0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="logic/selectChan16" uuid="4817e28e-6ae3-44e2-a76c-ea37b87d2a0d" name="selectChan16_1" x="98" y="14">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/i" uuid="5e35fd0c62d81e70017289250cf28edd26e19e4a" name="i_1" x="224" y="14">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/button8" uuid="ad510325-47cb-43ba-b602-44f14b2defa2" name="button8_2" x="14" y="294">
+      <params>
+         <bool32.mom name="b0" value="0"/>
+         <bool32.mom name="b1" value="0"/>
+         <bool32.mom name="b2" value="0"/>
+         <bool32.mom name="b3" value="0"/>
+         <bool32.mom name="b4" value="0"/>
+         <bool32.mom name="b5" value="0"/>
+         <bool32.mom name="b6" value="0"/>
+         <bool32.mom name="b7" value="0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <nets>
+      <net>
+         <source obj="button8_1" outlet="o0"/>
+         <dest obj="selectChan16_1" inlet="b00"/>
+      </net>
+      <net>
+         <source obj="button8_1" outlet="o1"/>
+         <dest obj="selectChan16_1" inlet="b01"/>
+      </net>
+      <net>
+         <source obj="button8_1" outlet="o2"/>
+         <dest obj="selectChan16_1" inlet="b02"/>
+      </net>
+      <net>
+         <source obj="button8_1" outlet="o3"/>
+         <dest obj="selectChan16_1" inlet="b03"/>
+      </net>
+      <net>
+         <source obj="button8_1" outlet="o4"/>
+         <dest obj="selectChan16_1" inlet="b04"/>
+      </net>
+      <net>
+         <source obj="button8_1" outlet="o5"/>
+         <dest obj="selectChan16_1" inlet="b05"/>
+      </net>
+      <net>
+         <source obj="button8_1" outlet="o6"/>
+         <dest obj="selectChan16_1" inlet="b06"/>
+      </net>
+      <net>
+         <source obj="button8_1" outlet="o7"/>
+         <dest obj="selectChan16_1" inlet="b07"/>
+      </net>
+      <net>
+         <source obj="button8_2" outlet="o0"/>
+         <dest obj="selectChan16_1" inlet="b08"/>
+      </net>
+      <net>
+         <source obj="button8_2" outlet="o1"/>
+         <dest obj="selectChan16_1" inlet="b09"/>
+      </net>
+      <net>
+         <source obj="button8_2" outlet="o2"/>
+         <dest obj="selectChan16_1" inlet="b10"/>
+      </net>
+      <net>
+         <source obj="button8_2" outlet="o3"/>
+         <dest obj="selectChan16_1" inlet="b11"/>
+      </net>
+      <net>
+         <source obj="button8_2" outlet="o4"/>
+         <dest obj="selectChan16_1" inlet="b12"/>
+      </net>
+      <net>
+         <source obj="button8_2" outlet="o5"/>
+         <dest obj="selectChan16_1" inlet="b13"/>
+      </net>
+      <net>
+         <source obj="button8_2" outlet="o6"/>
+         <dest obj="selectChan16_1" inlet="b14"/>
+      </net>
+      <net>
+         <source obj="button8_2" outlet="o7"/>
+         <dest obj="selectChan16_1" inlet="b15"/>
+      </net>
+      <net>
+         <source obj="selectChan16_1" outlet="out"/>
+         <dest obj="i_1" inlet="in"/>
+      </net>
+   </nets>
+   <settings>
+      <subpatchmode>no</subpatchmode>
+   </settings>
+   <notes><![CDATA[]]></notes>
+   <windowPos>
+      <x>1336</x>
+      <y>152</y>
+      <width>329</width>
+      <height>717</height>
+   </windowPos>
+</patch-1.0>

@@ -1,0 +1,93 @@
+<objdefs appVersion="1.0.10">
+   <obj.normal id="SDFiles" uuid="BELIEVOT-RON8-4116-82b0-711e0023a830">
+      <sDescription>script with 2 inputs and 2 outputs, running in a separate thread, you must define &quot;void setup(void){}&quot; and &quot;void loop(void)&quot;</sDescription>
+      <author>Johannes Taelman</author>
+      <license>BSD</license>
+      <helpPatch>script.axh</helpPatch>
+      <inlets>
+         <frac32 name="in1_" description="in1"/>
+         <frac32 name="in2_" description="in2"/>
+      </inlets>
+      <outlets>
+         <frac32 name="out1_" description="out1"/>
+         <int32.positive name="out2_" description="out2"/>
+         <int32.positive name="out3_" description="out3"/>
+         <charptr32 name="c0" description="string"/>
+         <charptr32 name="c1" description="string"/>
+         <charptr32 name="c2" description="string"/>
+         <charptr32 name="c3" description="string"/>
+         <charptr32 name="c4" description="string"/>
+         <charptr32 name="c5" description="string"/>
+         <charptr32 name="c6" description="string"/>
+         <charptr32 name="c7" description="string"/>
+         <charptr32 name="c8" description="string"/>
+         <charptr32 name="c9" description="string"/>
+         <charptr32 name="c10" description="string"/>
+         <charptr32 name="c11" description="string"/>
+      </outlets>
+      <displays>
+         <note.label name="display1"/>
+         <bool32 name="display2"/>
+      </displays>
+      <params/>
+      <attribs>
+         <text name="script"/>
+         <table name="str"/>
+      </attribs>
+      <code.declaration><![CDATA[int32_t in1,in2;
+int32_t out1,out2,out3;
+char c0[16], c1[16], c2[16], c3[16], c4[16], c5[16], c6[16], c7[16], c8[16], c9[16],c10[16], c11[16];
+attr_script
+msg_t ThreadX2(){
+  setup();
+  while(!chThdShouldTerminate()){
+     loop();
+     chThdSleepMilliseconds(1);
+  }
+  chThdExit((msg_t)0);
+}
+static msg_t ThreadX(void *arg) {
+((attr_parent *)arg)->ThreadX2();
+}
+WORKING_AREA(waThreadX, 1024);
+Thread *Thd;
+]]></code.declaration>
+      <code.init><![CDATA[in1=0;in2=0;out1=0;out2=0;out3=0;
+    strcpy(&c0[0],"attr_str");
+    strcpy(&c1[0],"attr_str");
+    strcpy(&c2[0],"attr_str");
+    strcpy(&c3[0],"attr_str");
+    strcpy(&c4[0],"attr_str");
+    strcpy(&c5[0],"attr_str");
+    strcpy(&c6[0],"attr_str");
+    strcpy(&c7[0],"attr_str");
+    strcpy(&c8[0],"attr_str");
+    strcpy(&c9[0],"attr_str");
+    strcpy(&c10[0],"attr_str");
+    strcpy(&c11[0],"attr_str");
+  Thd = chThdCreateStatic(waThreadX, sizeof(waThreadX),
+                    NORMALPRIO, ThreadX, (void *)this);
+]]></code.init>
+      <code.dispose><![CDATA[chThdTerminate(Thd);
+chThdWait(Thd);
+]]></code.dispose>
+      <code.krate><![CDATA[outlet_out1__ = this->out1;
+outlet_out2__ = this->out2;
+outlet_out3__ = this->out3;
+outlet_c0 = &c0[0];
+outlet_c1 = &c1[0];
+outlet_c2 = &c2[0];
+outlet_c3 = &c3[0];
+outlet_c4 = &c4[0];
+outlet_c5 = &c5[0];
+outlet_c6 = &c6[0];
+outlet_c7 = &c7[0];
+outlet_c8 = &c8[0];
+outlet_c9 = &c9[0];
+outlet_c10 = &c10[0];
+outlet_c11 = &c11[0];
+this->in1 = inlet_in1__;
+this->in2 = inlet_in2__;
+]]></code.krate>
+   </obj.normal>
+</objdefs>

@@ -1,0 +1,108 @@
+<patch-1.0 appVersion="1.0.12">
+   <obj type="ctrl/toggle" uuid="42b8134fa729d54bfc8d62d6ef3fa99498c1de99" name="toggle_1" x="210" y="28">
+      <params>
+         <bool32.tgl name="b" value="0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="disp/bool9" uuid="f0104102-9f94-4d1f-9b71-1c61972fdd2d" name="bool9_1" x="350" y="28">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/toggle" uuid="42b8134fa729d54bfc8d62d6ef3fa99498c1de99" name="toggle_2" x="210" y="84">
+      <params>
+         <bool32.tgl name="b" value="0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/toggle" uuid="42b8134fa729d54bfc8d62d6ef3fa99498c1de99" name="toggle_3" x="210" y="140">
+      <params>
+         <bool32.tgl name="b" value="0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/toggle" uuid="42b8134fa729d54bfc8d62d6ef3fa99498c1de99" name="toggle_4" x="210" y="196">
+      <params>
+         <bool32.tgl name="b" value="0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/toggle" uuid="42b8134fa729d54bfc8d62d6ef3fa99498c1de99" name="toggle_5" x="210" y="252">
+      <params>
+         <bool32.tgl name="b" value="0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/toggle" uuid="42b8134fa729d54bfc8d62d6ef3fa99498c1de99" name="toggle_6" x="210" y="308">
+      <params>
+         <bool32.tgl name="b" value="0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/toggle" uuid="42b8134fa729d54bfc8d62d6ef3fa99498c1de99" name="toggle_7" x="210" y="364">
+      <params>
+         <bool32.tgl name="b" value="0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/toggle" uuid="42b8134fa729d54bfc8d62d6ef3fa99498c1de99" name="toggle_8" x="210" y="420">
+      <params>
+         <bool32.tgl name="b" value="0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/toggle" uuid="42b8134fa729d54bfc8d62d6ef3fa99498c1de99" name="toggle_9" x="210" y="476">
+      <params>
+         <bool32.tgl name="b" value="0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <nets>
+      <net>
+         <source obj="toggle_1" outlet="o"/>
+         <dest obj="bool9_1" inlet="i0"/>
+      </net>
+      <net>
+         <source obj="toggle_2" outlet="o"/>
+         <dest obj="bool9_1" inlet="i1"/>
+      </net>
+      <net>
+         <source obj="toggle_3" outlet="o"/>
+         <dest obj="bool9_1" inlet="i2"/>
+      </net>
+      <net>
+         <source obj="toggle_4" outlet="o"/>
+         <dest obj="bool9_1" inlet="i3"/>
+      </net>
+      <net>
+         <source obj="toggle_5" outlet="o"/>
+         <dest obj="bool9_1" inlet="i4"/>
+      </net>
+      <net>
+         <source obj="toggle_6" outlet="o"/>
+         <dest obj="bool9_1" inlet="i5"/>
+      </net>
+      <net>
+         <source obj="toggle_7" outlet="o"/>
+         <dest obj="bool9_1" inlet="i6"/>
+      </net>
+      <net>
+         <source obj="toggle_8" outlet="o"/>
+         <dest obj="bool9_1" inlet="i7"/>
+      </net>
+      <net>
+         <source obj="toggle_9" outlet="o"/>
+         <dest obj="bool9_1" inlet="i8"/>
+      </net>
+   </nets>
+   <settings>
+      <subpatchmode>no</subpatchmode>
+   </settings>
+   <notes><![CDATA[]]></notes>
+   <windowPos>
+      <x>1106</x>
+      <y>261</y>
+      <width>950</width>
+      <height>692</height>
+   </windowPos>
+</patch-1.0>

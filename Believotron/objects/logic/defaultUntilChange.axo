@@ -1,0 +1,89 @@
+<objdefs appVersion="1.0.12">
+   <obj.normal id="defaultUntilChange" uuid="5249eaab-0ecf-48cc-b650-b99ea7ce6102">
+      <sDescription>Pass through when s_h input is less or equal than zero or hold when positive.</sDescription>
+      <author>Johannes Taelman</author>
+      <license>BSD</license>
+      <helpPatch>samplehold.axh</helpPatch>
+      <inlets>
+         <frac32.bipolar name="in0"/>
+         <frac32.bipolar name="in1"/>
+         <frac32.bipolar name="in2"/>
+         <frac32.bipolar name="in3"/>
+         <frac32.bipolar name="in4"/>
+         <frac32.bipolar name="in5"/>
+         <frac32.bipolar name="in6"/>
+         <frac32.bipolar name="in7"/>
+         <bool32 name="reset"/>
+         <frac32.bipolar name="s_h"/>
+      </inlets>
+      <outlets>
+         <frac32.bipolar name="out0"/>
+         <frac32.bipolar name="out1"/>
+         <frac32.bipolar name="out2"/>
+         <frac32.bipolar name="out3"/>
+         <frac32.bipolar name="out4"/>
+         <frac32.bipolar name="out5"/>
+         <frac32.bipolar name="out6"/>
+         <frac32.bipolar name="out7"/>
+      </outlets>
+      <displays/>
+      <params>
+         <frac32.s.map name="default0" noLabel="true">
+            <DefaultValue v="1.0"/>
+         </frac32.s.map>
+         <frac32.s.map name="default1"/>
+         <frac32.s.map name="default2"/>
+         <frac32.s.map name="default3"/>
+         <frac32.s.map name="default4"/>
+         <frac32.s.map name="default5"/>
+         <frac32.s.map name="default6"/>
+         <frac32.s.map name="default7"/>
+      </params>
+      <attribs/>
+      <code.declaration><![CDATA[int32_t inPrev[8];
+int32_t hold[8];]]></code.declaration>
+      <code.init><![CDATA[for (int i=0; i<8; i++){
+	hold  [i] = 0;
+	inPrev[i] = 0;	
+}]]></code.init>
+      <code.krate><![CDATA[if (inlet_reset)
+{
+	hold[0]   = param_default0;
+	hold[1]   = param_default1;
+	hold[2]   = param_default2;
+	hold[3]   = param_default3;
+	hold[4]   = param_default4;
+	hold[5]   = param_default5;
+	hold[6]   = param_default6;
+	hold[7]   = param_default7;
+		
+	inPrev[0] = inlet_in0;
+	inPrev[1] = inlet_in1;
+	inPrev[2] = inlet_in2;
+	inPrev[3] = inlet_in3;
+	inPrev[4] = inlet_in4;
+	inPrev[5] = inlet_in5;
+	inPrev[6] = inlet_in6;
+	inPrev[7] = inlet_in7;
+}
+else {
+	if (inlet_in0 != inPrev[0])  { hold[0] = inlet_in0;  inPrev[0] = inlet_in0;  }	
+	if (inlet_in1 != inPrev[1])  { hold[1] = inlet_in1;  inPrev[1] = inlet_in1;  }	
+	if (inlet_in2 != inPrev[2])  { hold[2] = inlet_in2;  inPrev[2] = inlet_in2;  }	
+	if (inlet_in3 != inPrev[3])  { hold[3] = inlet_in3;  inPrev[3] = inlet_in3;  }	
+	if (inlet_in4 != inPrev[4])  { hold[4] = inlet_in4;  inPrev[4] = inlet_in4;  }	
+	if (inlet_in5 != inPrev[5])  { hold[5] = inlet_in5;  inPrev[5] = inlet_in5;  }	
+	if (inlet_in6 != inPrev[6])  { hold[6] = inlet_in6;  inPrev[6] = inlet_in6;  }	
+	if (inlet_in7 != inPrev[7])  { hold[7] = inlet_in7;  inPrev[7] = inlet_in7;  }	
+}
+
+outlet_out0 = hold[0];
+outlet_out1 = hold[1];
+outlet_out2 = hold[2];
+outlet_out3 = hold[3];
+outlet_out4 = hold[4];
+outlet_out5 = hold[5];
+outlet_out6 = hold[6];
+outlet_out7 = hold[7];]]></code.krate>
+   </obj.normal>
+</objdefs>

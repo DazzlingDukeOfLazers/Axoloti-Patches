@@ -1,0 +1,39 @@
+<objdefs appVersion="1.0.12">
+   <obj.normal id="changeAfterSel" uuid="080d83c3-b79f-4eaf-9609-14c34f3ffbb9">
+      <sDescription>Generates a trigger pulse when current input value is different from previous value.</sDescription>
+      <author>Johannes Taelman</author>
+      <license>BSD</license>
+      <helpPatch>change.axh</helpPatch>
+      <inlets>
+         <frac32 name="in" description="in"/>
+         <bool32 name="sel" description="sel"/>
+      </inlets>
+      <outlets>
+         <bool32 name="trig" description="trigger pulse"/>
+      </outlets>
+      <displays/>
+      <params/>
+      <attribs/>
+      <code.declaration><![CDATA[int32_t selOnce;
+int ptrig;
+   int32_t pval;]]></code.declaration>
+      <code.init><![CDATA[ptrig = 0;
+pval = 0;
+selOnce=1;]]></code.init>
+      <code.krate><![CDATA[if ((pval != inlet_in)&(!ptrig)) 
+{ 
+  if (selOnce == 1 && inlet_sel == 1) { selOnce=0;}    
+  else if (inlet_sel && (selOnce == 0) )  
+  {    
+    outlet_trig = 1;
+    pval = inlet_in;
+    ptrig = 1;
+  }
+  if (inlet_sel == 0) { selOnce=1; }
+} else 
+{
+  ptrig = 0;
+  outlet_trig = 0;
+}]]></code.krate>
+   </obj.normal>
+</objdefs>

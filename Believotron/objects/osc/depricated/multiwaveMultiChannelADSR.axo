@@ -1,0 +1,509 @@
+<objdefs appVersion="1.0.12">
+   <obj.normal id="multiwaveMultiChannelADSR" uuid="fd1e767a-6919-4a06-be8c-a4899b3f0866">
+<sDescription>
+TBD update flavor text after it works
+Multi waveform oscilator: sine, triangle, saw, square
+each waveform (except sine) is able to change its shape (e.g. square = pwm).
+
+WIP strategy:
+
+    Debug:
+        Attack is overdriven
+        Each channel, once adjusted, triggers on all channels
+            I think every ADSR is being triggered
+        Save / Load seem to work
+
+
+    Refactor after verification:
+        Volume doesn't work. Try with static value before trying to integrate it.
+        Consider merging tSD with OscParams
+
+Herstory:
+Before time or recordkeeping existed:
+           Forked from Beat Rossmy.
+           Removed &gt;&gt;4 of inlet_wave
+           Removed phase reset
+2017-03-28 Merged in table8ch SD dev.axo
+
+</sDescription>
+      <author>Dazzling Duke of Lazers</author>
+      <license>BSD</license>
+      <inlets>
+         <frac32 name="attack" description="Attack"/>
+         <frac32 name="decay" description="Decay"/>
+         <frac32 name="sustain" description="Sustain"/>
+         <frac32 name="release" description="Release"/>
+         <frac32 name="volume" description="Volume"/>
+         <frac32 name="pitch" description="pitch"/>
+         <frac32.bipolar name="shape" description="wave shaper"/>
+         <frac32.bipolar name="amount" description="Shape amount"/>
+         <frac32 name="freqMod" description="phase increment"/>
+         <int32.positive name="wave" description="wave select"/>
+         <int32 name="page" description="Page select"/>
+         <bool32.rising name="gate0" description="Gate"/>
+         <bool32.rising name="gate1" description="Gate"/>
+         <bool32.rising name="gate2" description="Gate"/>
+         <bool32.rising name="gate3" description="Gate"/>
+         <bool32.rising name="gate4" description="Gate"/>
+         <bool32.rising name="gate5" description="Gate"/>
+         <bool32.rising name="gate6" description="Gate"/>
+         <bool32.rising name="gate7" description="Gate"/>
+         <bool32.rising name="trigSaveSD" description="Save to the SD Card"/>
+         <bool32.rising name="trigLoadSD" description="Load from the SD Card"/>
+      </inlets>
+      <outlets>
+         <frac32buffer name="out0"/>
+         <frac32buffer name="out1"/>
+         <frac32buffer name="out2"/>
+         <frac32buffer name="out3"/>
+         <frac32buffer name="out4"/>
+         <frac32buffer name="out5"/>
+         <frac32buffer name="out6"/>
+         <frac32buffer name="out7"/>
+      </outlets>
+      <displays/>
+      <params/>
+      <attribs>
+        <objref name="table"/>
+      </attribs>
+      <code.declaration>
+        <![CDATA[// Glue
+// Declaration Code ------------------------------------------------------------
+
+#define UNI2BIPOLAR(a) ((a -(1<<26) ) << 1)
+
+// Parameters of the individual oscillators
+    struct OscParams
+    {
+        uint32_t pitch;        // External input
+        uint32_t freqMod;      // External input, added to the instantanious freq
+        uint32_t freqInst;     // Class variable, instantanious frequency
+        uint32_t shape;        // shape  of the waveform
+        uint32_t amount;       // amount of the waveform
+        uint32_t shapeMount;   // extra glue variable
+        uint8_t  waveformNum;  // Integer selected waveform
+        uint32_t attack;       // Attack amount
+        uint32_t decay;        // Decay amount
+        uint32_t sustain;      // Sustain amount
+        uint32_t release;      // Release
+        uint32_t volume;       // Volume
+        int32_t  oscOut;       // Output oscillator value
+        int32_t  envelopePrev; // Size of the previous envelopePrev
+        int32_t  envelope;     // Envelope value
+        int32_t  envelopeStep; // Envelope step value
+        int32_t  envelopeOsc;  // The envelope that affects the oscillator
+        uint8_t  ntrig;        // ADSR state variable
+        uint8_t  stage;        // ADSR state variable
+        uint32_t phase;
+        int32_t  phasor;
+        int32_t  phaseCounter;
+    };
+
+    OscParams oscParams[16];
+
+// Osc select stuff
+    static uint8_t const sin = 0;
+    static uint8_t const tri = 1;
+    static uint8_t const saw = 2;
+    static uint8_t const pwm = 3;
+
+    int32_t a; // Wonderfully named temporary variables. should be separate, but worried about memory cost at scale
+    int32_t b;
+
+// ADSR Stuff
+    int8_t stage;
+    int32_t envelope_out;
+    int32_t env; // envelope
+
+// Gain stuff
+    //int32_t prev2;
+    //int32_t step2;
+
+// Table 8 stuff
+    struct Table8CH_SD
+    {
+        uint32_t prev[8];
+        // Stale value guard
+        uint8_t bActive;
+    };
+    #define NUM_VALS_PER_OSC 8
+    int iActiveChannel;
+    Table8CH_SD tSD[NUM_VALS_PER_OSC];
+
+// tableReadWriteIndexPage
+// Table Stuff
+	int ntrigSave, ntrigLoad;
+
+	// string/doubleIndex Stuff
+	char cFileName[64];
+	int fn_offset_1;
+	int fn_offset_2;
+
+
+]]></code.declaration>
+<code.init><![CDATA[// Glue
+// Init code ------------------------------------------------------------------
+
+// Oscilator Params
+    for (int i=0; i<16; i++) { oscParams[i].oscOut       = 0; }
+    for (int i=0; i<16; i++) { oscParams[i].phase        = 0; }
+    for (int i=0; i<16; i++) { oscParams[i].phasor       = 0; }
+    for (int i=0; i<16; i++) { oscParams[i].phaseCounter = 0; }
+
+// TBD, Yes these are terrible and should be localized below, but I'm not sure if the extra instantiations will scale well
+    a = 0;
+    b = 0;
+
+// Env init
+    envelope_out = 0;
+
+// Table 8
+    #define NUM_OSC_GROUPS 8
+    // Wipe tSD clean
+    for (int iOscGroup=0; iOscGroup<NUM_OSC_GROUPS; iOscGroup++)
+    {
+        for (int iChan=0; iChan< NUM_VALS_PER_OSC; iChan++)
+        {
+          tSD[iOscGroup].prev[iChan] = 0;
+        }
+        // Stale value guard
+        tSD[iOscGroup].bActive = false;
+    }
+    iActiveChannel=0;
+
+// tableReadWriteIndexPage
+	// Init tableReadWrite
+	ntrigSave=0;
+	ntrigLoad=0;
+
+// Init string/doubleIndex
+	//strcpy(&cFileName[0],"attr_prefix00-000attr_suffix");
+	strcpy(&cFileName[0],"beatBox_00-000.mod");
+	fn_offset_1   = strlen("beatBox_");
+	fn_offset_2   = fn_offset_1 + 3; // Added extra two digits and a dash
+
+
+]]></code.init>
+<code.krate><![CDATA[// Osc stuff
+// KRATE Code ------------------------------------------------------------------
+// TBD integrate table8CH_SD_dev
+
+// Table Save to SD
+    if ((inlet_trigSaveSD>0) && !ntrigSave)
+    {
+        ntrigSave=1;
+        // If saving or loading, recalculate the filename
+    	{
+    	   // Add the Page # to the filename string
+    	   int i = inlet_page; int i0 = i/10;
+    	   cFileName[fn_offset_1+1] = '0'+i-10*i0;
+    	   i = i0; i0 = i/10;
+    	   cFileName[fn_offset_1]   = '0'+i-10*i0;
+
+    	   // Add the Index # to the filename string
+    	   i = 0 ; i0 = i/10;
+    	   cFileName[fn_offset_2+2] = '0'+i-10*i0;
+    	   i = i0; i0 = i/10;
+    	   cFileName[fn_offset_2+1] = '0'+i-10*i0;
+    	   i = i0; i0 = i/10;
+    	   cFileName[fn_offset_2+0] = '0'+i-10*i0;
+    	}
+        FIL FileObject;
+        FRESULT err;
+        UINT bytes_written;
+        codec_clearbuffer();
+        err = f_open(&FileObject, cFileName, FA_WRITE | FA_CREATE_ALWAYS);
+        if (err != FR_OK) {report_fatfs_error(err, cFileName); return;}
+        int rem_sz = sizeof(*attr_table.array)*attr_table.LENGTH;
+        int offset = 0; // TBD Offset not connected
+        while (rem_sz>0) {
+          if (rem_sz>sizeof(fbuff)) {
+            memcpy((char *)fbuff,(char *)(&attr_table.array[0]) + offset, sizeof(fbuff));
+            err = f_write(&FileObject, fbuff, sizeof(fbuff),&bytes_written);
+            rem_sz -= sizeof(fbuff);
+            offset += sizeof(fbuff);
+          } else {
+            memcpy((char *)fbuff,(char *)(&attr_table.array[0]) + offset, rem_sz);
+            err = f_write(&FileObject, fbuff, rem_sz, &bytes_written);
+            rem_sz = 0;
+          }
+        }    if (err != FR_OK) report_fatfs_error(err,cFileName);
+        err = f_close(&FileObject);
+        if (err != FR_OK) report_fatfs_error(err,cFileName);
+    }
+    else if (!(inlet_trigSaveSD>0)) ntrigSave=0;
+
+// Table load from SD
+    if ((inlet_trigLoadSD>0) && !ntrigLoad)
+    {
+        ntrigLoad=1;
+        // If saving or loading, recalculate the filename
+    	{
+    	   // Add the Page # to the filename string
+    	   int i = inlet_page; int i0 = i/10;
+    	   cFileName[fn_offset_1+1] = '0'+i-10*i0;
+    	   i = i0; i0 = i/10;
+    	   cFileName[fn_offset_1]   = '0'+i-10*i0;
+
+    	   // Add the Index # to the filename string
+    	   i = 0; i0 = i/10;
+    	   cFileName[fn_offset_2+2] = '0'+i-10*i0;
+    	   i = i0; i0 = i/10;
+    	   cFileName[fn_offset_2+1] = '0'+i-10*i0;
+    	   i = i0; i0 = i/10;
+    	   cFileName[fn_offset_2+0] = '0'+i-10*i0;
+    	}
+        FIL FileObject;
+        FRESULT err;
+        UINT bytes_read;
+        codec_clearbuffer();
+        err = f_open(&FileObject, cFileName, FA_READ | FA_OPEN_EXISTING);
+        if (err != FR_OK) { report_fatfs_error(err,cFileName); return;}
+        int rem_sz = sizeof(*attr_table.array)*attr_table.LENGTH;
+        int offset = 0; // TBD offset not connected
+        while (rem_sz>0) {
+          if (rem_sz>sizeof(fbuff)) {
+            err = f_read(&FileObject, fbuff, sizeof(fbuff),&bytes_read);
+            if (bytes_read == 0) break;
+            memcpy((char *)(&attr_table.array[0]) + offset,(char *)fbuff,bytes_read);
+            rem_sz -= bytes_read;
+            offset += bytes_read;
+          } else {
+            err = f_read(&FileObject, fbuff, rem_sz,&bytes_read);
+            memcpy((char *)(&attr_table.array[0]) + offset,(char *)fbuff,bytes_read);
+            rem_sz = 0;
+          }
+        }    if (err != FR_OK) { report_fatfs_error(err,cFileName); return;};
+        err = f_close(&FileObject);
+        if (err != FR_OK) { report_fatfs_error(err,cFileName); return;};
+
+        for (int iOscGroup=0; iOscGroup<NUM_OSC_GROUPS; iOscGroup++)
+        {
+            tSD[iOscGroup].bActive = false;
+        }
+     }
+     else if (!(inlet_trigLoadSD>0)) ntrigLoad=0;
+
+     uint8_t gate[NUM_OSC_GROUPS];
+
+     // Load up the gate data
+     gate[0] = (inlet_gate0>0) ? 1:0;
+     gate[1] = (inlet_gate1>0) ? 1:0;
+     gate[2] = 0; //inlet_gate2; // TBD debug comment out
+     gate[3] = 0; //inlet_gate3;
+     gate[4] = 0; //inlet_gate4;
+     gate[5] = 0; //inlet_gate5;
+     gate[6] = 0; //inlet_gate6;
+     gate[7] = 0; //inlet_gate7;
+
+
+// Table stuff
+    int iPrevActive = iActiveChannel;
+
+    // Lowest gate high is the active channel
+    for (int i=0; i<NUM_OSC_GROUPS; i++){ if(gate[i]) { iActiveChannel = i; break; } }
+
+    //if      (inlet_gate0>0) { iActiveChannel = 0; }
+    //else if (inlet_gate1>0) { iActiveChannel = 1; }
+    //else if (inlet_gate2>0) { iActiveChannel = 2; }
+    //else if (inlet_gate3>0) { iActiveChannel = 3; }
+    //else if (inlet_gate4>0) { iActiveChannel = 4; }
+    //else if (inlet_gate5>0) { iActiveChannel = 5; }
+    //else if (inlet_gate6>0) { iActiveChannel = 6; }
+    //else if (inlet_gate7>0) { iActiveChannel = 7; }
+
+    for (int iOscGroup=0; iOscGroup<NUM_OSC_GROUPS; iOscGroup++)
+    {
+        uint32_t inVal[8];
+
+        // If this OscGroup is the target of the communal knobs
+        if (iOscGroup == iActiveChannel)
+        {
+            // pack into array
+            inVal[0] = inlet_attack;
+            inVal[1] = inlet_decay;
+            inVal[2] = inlet_sustain;
+            inVal[3] = inlet_release;
+            inVal[4] = inlet_volume;  // TBD Volume is not in use
+            inVal[5] = inlet_pitch;
+            inVal[6] = inlet_shape;
+            inVal[7] = inlet_amount;
+
+            // If the channel has just become active
+            if (iActiveChannel != iPrevActive)
+            {
+                tSD[iOscGroup].bActive = true;
+
+                // reset the previous state to the current input
+                for(int iChan=0; iChan < NUM_VALS_PER_OSC; iChan++)
+                {
+                    tSD[iOscGroup].prev[iChan] = inVal[iChan];
+                }
+            }
+            // The channel has already been active at least one loop
+            else if (tSD[iOscGroup].bActive)
+            {
+                 for(int iChan=0; iChan < NUM_VALS_PER_OSC; iChan++)
+                 {
+                     // Only triggers if knob is different after first loop // TBD should add a guardband macro
+                     if (inVal[iChan] != tSD[iOscGroup].prev[iChan])
+                     {
+                         tSD[iOscGroup].prev[iChan] = inVal[iChan]; // TBD I added this, but not tested. It worked before without. Not sure how/why?
+                         // iOscGroup << 3 == iOscGroup * 8, bc 8 channels
+                         attr_table.array[iChan + (iOscGroup << 3)] = __SSAT(inVal[iChan],28) >> attr_table.GAIN;
+                     }
+                 }
+            }
+        }// If active channel
+        else // not the active channel
+        {
+           // reset the active channel
+           tSD[iOscGroup].bActive = false;
+        }
+
+        // TBD-after verification- I think this chunk of code can go up into the loop and only execute when the value changes. Would have to get rid of the iChan loop.
+        // Map table data to local memory to calculate waveform shape
+        int iArrayOffset = iOscGroup << 3; // * 8
+        oscParams[iOscGroup].attack      = UNI2BIPOLAR( attr_table.array[__USAT(0+iArrayOffset,attr_table.LENGTHPOW)]<<attr_table.GAIN ) <<1;
+        oscParams[iOscGroup].decay       = UNI2BIPOLAR( attr_table.array[__USAT(1+iArrayOffset,attr_table.LENGTHPOW)]<<attr_table.GAIN ) <<1;
+        oscParams[iOscGroup].sustain     =              attr_table.array[__USAT(2+iArrayOffset,attr_table.LENGTHPOW)]<<attr_table.GAIN      ;
+        oscParams[iOscGroup].release     = UNI2BIPOLAR( attr_table.array[__USAT(3+iArrayOffset,attr_table.LENGTHPOW)]<<attr_table.GAIN ) <<1;
+        oscParams[iOscGroup].volume      =              attr_table.array[__USAT(4+iArrayOffset,attr_table.LENGTHPOW)]<<attr_table.GAIN      ; // TBD scaling unknown
+        oscParams[iOscGroup].pitch       =              attr_table.array[__USAT(5+iArrayOffset,attr_table.LENGTHPOW)]<<attr_table.GAIN      ;
+        oscParams[iOscGroup].amount      = UNI2BIPOLAR( attr_table.array[__USAT(6+iArrayOffset,attr_table.LENGTHPOW)]<<attr_table.GAIN )    ;
+        oscParams[iOscGroup].shape       = UNI2BIPOLAR( attr_table.array[__USAT(7+iArrayOffset,attr_table.LENGTHPOW)]<<attr_table.GAIN )    ;
+
+        oscParams[iOscGroup].shapeMount  = __USAT( ( ___SMMUL(oscParams[iOscGroup].amount, oscParams[iOscGroup].shape)<<1), 27 );
+        oscParams[iOscGroup].waveformNum = ((inlet_wave))%4;
+        MTOFEXTENDED(0xFA000000 + oscParams[iOscGroup].pitch, oscParams[iOscGroup].freqInst);
+        oscParams[iOscGroup].freqMod = inlet_freqMod; // tbd Move to Stale value
+    } // For each oscgroup
+
+// Process ADSR for each OSC channel
+    for (int iChan=0; iChan < NUM_OSC_GROUPS; iChan++)
+    {
+        // ADSR Stuff
+        // If the gate goes high, as long as the gate is held high: Stage 1 Attack goes until it runs out of fuel
+        // Stage 1
+        // Once the gate goes low, then sustain and release
+        if ( (gate[iChan]>0) && !oscParams[iChan].ntrig) { oscParams[iChan].stage = 1; oscParams[iChan].ntrig = 1;}
+        if (!(gate[iChan]>0) &&  oscParams[iChan].ntrig) { oscParams[iChan].stage = 0; oscParams[iChan].ntrig = 0;}
+
+        if (oscParams[iChan].stage == 0) // Release!
+        {
+           int32_t r1;
+           int32_t r2;
+           //MTOF(- param_r - inlet_release, r1);
+           //oscParams[iChan].release = UNI2BIPOLAR(inlet_rrelease)<<1;
+           MTOF(oscParams[iChan].release, r1);
+           r1 = 0x7FFFFFFF - (r1 >> 2);
+           envelope_out = ___SMMUL(envelope_out,r1)<<1;
+        }
+        else if (oscParams[iChan].stage == 1) // Attack!
+        {
+           int32_t thisAttack;
+           //oscParams[iChan].attack = UNI2BIPOLAR(inlet_attack)<<1;
+           MTOF( oscParams[iChan].attack,thisAttack);
+           thisAttack = thisAttack >> 2;
+           envelope_out = envelope_out + thisAttack;
+           if (envelope_out<0)               // If the attack has finished (overflow)
+           {
+              envelope_out =0x7FFFFFFF;
+              oscParams[iChan].stage = 2;
+           }
+        }
+        else if (oscParams[iChan].stage == 2) // Decay + Sustain :/
+        {
+            //oscParams[iChan].sustain = inlet_sustain;
+            int32_t s = __USAT(oscParams[iChan].sustain, 27);
+            int32_t d;
+
+            //oscParams[iChan].decay = UNI2BIPOLAR(inlet_decay)<<1;
+            MTOF(oscParams[iChan].decay, d);
+            d = 0x7FFFFFFF - (d >> 2);
+            envelope_out = (s<<4) + (___SMMUL(envelope_out - (s<<4),d)<<1);
+        }
+
+        oscParams[iChan].envelope     =  envelope_out>>4;
+        oscParams[iChan].envelopeStep = (oscParams[iChan].envelope - oscParams[iChan].envelopePrev)>>4;
+        oscParams[iChan].envelopeOsc  =  oscParams[iChan].envelopePrev;
+        oscParams[iChan].envelopePrev =  oscParams[iChan].envelope;
+
+        // Volume section doesn't work
+            //oscParams[iChan].volume = inlet_volume;
+            //step2 = (oscParams[iChan].volume - prev2)>>4;
+            //int32_t i2 = prev2;
+            //prev2 = oscParams[iChan].volume;
+    }
+
+
+]]></code.krate>
+<code.srate><![CDATA[/* reset phase if retriggered */
+// SRATE Code ------------------------------------------------------------------
+
+for (int iChan=0; iChan < NUM_OSC_GROUPS; iChan++)
+{
+    oscParams[iChan].phase += (oscParams[iChan].freqInst>>0) + oscParams[iChan].freqMod;
+	/* if new phasor value is smaller then last one -> increment phaseCounter */
+	a = oscParams[iChan].phase>>5;
+	/* first or second phase cycle */
+	if (a < oscParams[iChan].phasor)
+    {
+		oscParams[iChan].phaseCounter++;
+		if (oscParams[iChan].phaseCounter == 2) oscParams[iChan].phaseCounter = 0;
+	}
+	/* set new phasor value */
+	oscParams[iChan].phasor = a;
+
+
+    /* calculate waveforms based on phasor value */
+    switch (oscParams[iChan].waveformNum)
+    {
+    	case sin:
+    		/* phasor to sine */
+    		SINE2TINTERP(oscParams[iChan].phasor<<5,a) /* calculate sine wave via function */
+            oscParams[iChan].oscOut = (a>>4);
+    		break;
+
+    	case tri:
+    		/* phasor to triangle */
+    		b = (oscParams[iChan].phasor>0x07FFFFFF/4)? oscParams[iChan].phasor-0x07FFFFFF/4:oscParams[iChan].phasor+0x07FFFFFF/4*3; /* phase shift to correct wave startpoint*/
+    		a = (b-(1<<26))<<1; /* phasor to sawUp (bipolar) -> -a = sawDown (bipolar) */
+    		a = (a>0)? a:-a; /* merge sawUp and sawDown to triangle -> unipolar */
+    		a = (a-(1<<26))<<1; /* unipolar to bipolar */
+    		b = 0x07FFFFFF-(oscParams[iChan].shapeMount/10*8);
+    		a = (a>b || a<-b)? -a+((a>0)?2:-2)*b:a; /* param_shape threshold for wavefolding */
+    		oscParams[iChan].oscOut = a;
+    		break;
+
+    	case saw:
+    		/* phasor to saw */
+    		b = (oscParams[iChan].phasor>0x07FFFFFF/2)? oscParams[iChan].phasor-0x07FFFFFF/2:oscParams[iChan].phasor+0x07FFFFFF/2; /* phase shift to correct wave startpoint*/
+    		a = (b-(1<<26))<<1; /* phasor to sawUp (bipolar) */
+    		oscParams[iChan].oscOut = (oscParams[iChan].phaseCounter==1 && (oscParams[iChan].phasor>0x07FFFFFF/2-oscParams[iChan].shapeMount/2 && oscParams[iChan].phasor<0x07FFFFFF/2+oscParams[iChan].shapeMount/2))? -a:a;
+    		break;
+
+    	case pwm:
+    		/* phasor to pulse width */
+    		oscParams[iChan].oscOut = (oscParams[iChan].phasor>=0x07FFFFFF/2+oscParams[iChan].shapeMount/2)? -0x08000000:0x07FFFFFF; /* pulse width depending on shape value*/
+    		break;
+    }
+
+    int BinaryCanary = 128; // Used to detect sticky library synching. Change this, if it doesn't show up in the object, the object didn't load
+
+    oscParams[iChan].envelopeOsc += oscParams[iChan].envelopeStep;
+} // For each of the channels
+
+outlet_out0 =  ___SMMUL(oscParams[0].oscOut,oscParams[0].envelopeOsc)<<5; /*oscParams[0].envelopeOsc += oscParams[0].envelopeStep;*/ break; // TBD, missing i += step from multiwaveADSR; envelopeOsc += envelopeStep
+outlet_out1 =  ___SMMUL(oscParams[1].oscOut,oscParams[1].envelopeOsc)<<5; /*oscParams[1].envelopeOsc += oscParams[1].envelopeStep;*/ break;
+outlet_out2 =  ___SMMUL(oscParams[2].oscOut,oscParams[2].envelopeOsc)<<5; /*oscParams[2].envelopeOsc += oscParams[2].envelopeStep;*/ break;
+outlet_out3 =  ___SMMUL(oscParams[3].oscOut,oscParams[3].envelopeOsc)<<5; /*oscParams[3].envelopeOsc += oscParams[3].envelopeStep;*/ break;
+outlet_out4 =  ___SMMUL(oscParams[4].oscOut,oscParams[4].envelopeOsc)<<5; /*oscParams[4].envelopeOsc += oscParams[4].envelopeStep;*/ break;
+outlet_out5 =  ___SMMUL(oscParams[5].oscOut,oscParams[5].envelopeOsc)<<5; /*oscParams[5].envelopeOsc += oscParams[5].envelopeStep;*/ break;
+outlet_out6 =  ___SMMUL(oscParams[6].oscOut,oscParams[6].envelopeOsc)<<5; /*oscParams[6].envelopeOsc += oscParams[6].envelopeStep;*/ break;
+outlet_out7 =  ___SMMUL(oscParams[7].oscOut,oscParams[7].envelopeOsc)<<5; /*oscParams[7].envelopeOsc += oscParams[7].envelopeStep;*/ break;
+
+
+]]></code.srate>
+   </obj.normal>
+</objdefs>

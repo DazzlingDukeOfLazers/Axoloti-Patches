@@ -1,0 +1,450 @@
+<patch-1.0 appVersion="1.0.12">
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_2" x="448" y="70">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="MIDI/NovationLaunchPadMini_triggerout" uuid="df496784-d79a-4460-a89f-bae41614692b" name="NovationLaunchPadMini_triggerout_1" x="154" y="84">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_1" x="448" y="168">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/bool9" uuid="f0104102-9f94-4d1f-9b71-1c61972fdd2d" name="bool9_1" x="658" y="182">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/bool9" uuid="f0104102-9f94-4d1f-9b71-1c61972fdd2d" name="bool9_2" x="728" y="182">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/bool9" uuid="f0104102-9f94-4d1f-9b71-1c61972fdd2d" name="bool9_3" x="798" y="182">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/bool9" uuid="f0104102-9f94-4d1f-9b71-1c61972fdd2d" name="bool9_4" x="868" y="182">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/bool9" uuid="f0104102-9f94-4d1f-9b71-1c61972fdd2d" name="bool9_5" x="938" y="182">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/bool9" uuid="f0104102-9f94-4d1f-9b71-1c61972fdd2d" name="bool9_8" x="1008" y="182">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/bool9" uuid="f0104102-9f94-4d1f-9b71-1c61972fdd2d" name="bool9_6" x="1078" y="182">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/bool9" uuid="f0104102-9f94-4d1f-9b71-1c61972fdd2d" name="bool9_7" x="1148" y="182">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_2" x="448" y="238">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_4" x="448" y="308">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_5" x="448" y="406">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_1" x="1330" y="476">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="MIDI/Novation_LaunchpadMini_Toprow" uuid="36f2c1cf-79a2-457f-aee7-b6bbd5d1d0e6" name="Novation_LaunchpadMini_Toprow_1" x="910" y="490">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/i" uuid="5e35fd0c62d81e70017289250cf28edd26e19e4a" name="i_3" x="448" y="504">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/bool9" uuid="f0104102-9f94-4d1f-9b71-1c61972fdd2d" name="bool9_9" x="1162" y="532">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/i" uuid="5e35fd0c62d81e70017289250cf28edd26e19e4a" name="i_1" x="1330" y="574">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/i" uuid="5e35fd0c62d81e70017289250cf28edd26e19e4a" name="i_2" x="1330" y="644">
+      <params/>
+      <attribs/>
+   </obj>
+   <nets>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="A1"/>
+         <dest obj="bool9_1" inlet="i0"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="A2"/>
+         <dest obj="bool9_1" inlet="i1"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="A3"/>
+         <dest obj="bool9_1" inlet="i2"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="A4"/>
+         <dest obj="bool9_1" inlet="i3"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="A5"/>
+         <dest obj="bool9_1" inlet="i4"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="A6"/>
+         <dest obj="bool9_1" inlet="i5"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="A7"/>
+         <dest obj="bool9_1" inlet="i6"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="A8"/>
+         <dest obj="bool9_1" inlet="i7"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="A9"/>
+         <dest obj="bool9_1" inlet="i8"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="B1"/>
+         <dest obj="bool9_2" inlet="i0"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="B2"/>
+         <dest obj="bool9_2" inlet="i1"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="B3"/>
+         <dest obj="bool9_2" inlet="i2"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="B4"/>
+         <dest obj="bool9_2" inlet="i3"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="B5"/>
+         <dest obj="bool9_2" inlet="i4"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="B6"/>
+         <dest obj="bool9_2" inlet="i5"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="B7"/>
+         <dest obj="bool9_2" inlet="i6"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="B8"/>
+         <dest obj="bool9_2" inlet="i7"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="B9"/>
+         <dest obj="bool9_2" inlet="i8"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="C1"/>
+         <dest obj="bool9_3" inlet="i0"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="C2"/>
+         <dest obj="bool9_3" inlet="i1"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="C3"/>
+         <dest obj="bool9_3" inlet="i2"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="C4"/>
+         <dest obj="bool9_3" inlet="i3"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="C5"/>
+         <dest obj="bool9_3" inlet="i4"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="C6"/>
+         <dest obj="bool9_3" inlet="i5"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="C7"/>
+         <dest obj="bool9_3" inlet="i6"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="C8"/>
+         <dest obj="bool9_3" inlet="i7"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="C9"/>
+         <dest obj="bool9_3" inlet="i8"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="D1"/>
+         <dest obj="bool9_4" inlet="i0"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="D2"/>
+         <dest obj="bool9_4" inlet="i1"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="D3"/>
+         <dest obj="bool9_4" inlet="i2"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="D4"/>
+         <dest obj="bool9_4" inlet="i3"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="D5"/>
+         <dest obj="bool9_4" inlet="i4"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="D6"/>
+         <dest obj="bool9_4" inlet="i5"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="D7"/>
+         <dest obj="bool9_4" inlet="i6"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="D8"/>
+         <dest obj="bool9_4" inlet="i7"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="D9"/>
+         <dest obj="bool9_4" inlet="i8"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="E1"/>
+         <dest obj="bool9_5" inlet="i0"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="E2"/>
+         <dest obj="bool9_5" inlet="i1"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="E3"/>
+         <dest obj="bool9_5" inlet="i2"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="E4"/>
+         <dest obj="bool9_5" inlet="i3"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="E5"/>
+         <dest obj="bool9_5" inlet="i4"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="E6"/>
+         <dest obj="bool9_5" inlet="i5"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="E7"/>
+         <dest obj="bool9_5" inlet="i6"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="E8"/>
+         <dest obj="bool9_5" inlet="i7"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="E9"/>
+         <dest obj="bool9_5" inlet="i8"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="F1"/>
+         <dest obj="bool9_8" inlet="i0"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="F2"/>
+         <dest obj="bool9_8" inlet="i1"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="F3"/>
+         <dest obj="bool9_8" inlet="i2"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="F4"/>
+         <dest obj="bool9_8" inlet="i3"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="F5"/>
+         <dest obj="bool9_8" inlet="i4"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="F6"/>
+         <dest obj="bool9_8" inlet="i5"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="F7"/>
+         <dest obj="bool9_8" inlet="i6"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="F8"/>
+         <dest obj="bool9_8" inlet="i7"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="F9"/>
+         <dest obj="bool9_8" inlet="i8"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="G1"/>
+         <dest obj="bool9_6" inlet="i0"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="G2"/>
+         <dest obj="bool9_6" inlet="i1"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="G3"/>
+         <dest obj="bool9_6" inlet="i2"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="G4"/>
+         <dest obj="bool9_6" inlet="i3"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="G5"/>
+         <dest obj="bool9_6" inlet="i4"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="G6"/>
+         <dest obj="bool9_6" inlet="i5"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="G7"/>
+         <dest obj="bool9_6" inlet="i6"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="G8"/>
+         <dest obj="bool9_6" inlet="i7"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="G9"/>
+         <dest obj="bool9_6" inlet="i8"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="H1"/>
+         <dest obj="bool9_7" inlet="i0"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="H2"/>
+         <dest obj="bool9_7" inlet="i1"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="H3"/>
+         <dest obj="bool9_7" inlet="i2"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="H4"/>
+         <dest obj="bool9_7" inlet="i3"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="H5"/>
+         <dest obj="bool9_7" inlet="i4"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="H6"/>
+         <dest obj="bool9_7" inlet="i5"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="H7"/>
+         <dest obj="bool9_7" inlet="i6"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="H8"/>
+         <dest obj="bool9_7" inlet="i7"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="H9"/>
+         <dest obj="bool9_7" inlet="i8"/>
+      </net>
+      <net>
+         <source obj="Novation_LaunchpadMini_Toprow_1" outlet="top1"/>
+         <dest obj="bool9_9" inlet="i0"/>
+      </net>
+      <net>
+         <source obj="Novation_LaunchpadMini_Toprow_1" outlet="top2"/>
+         <dest obj="bool9_9" inlet="i1"/>
+      </net>
+      <net>
+         <source obj="Novation_LaunchpadMini_Toprow_1" outlet="top3"/>
+         <dest obj="bool9_9" inlet="i2"/>
+      </net>
+      <net>
+         <source obj="Novation_LaunchpadMini_Toprow_1" outlet="top5"/>
+         <dest obj="bool9_9" inlet="i4"/>
+      </net>
+      <net>
+         <source obj="Novation_LaunchpadMini_Toprow_1" outlet="top4"/>
+         <dest obj="bool9_9" inlet="i3"/>
+      </net>
+      <net>
+         <source obj="Novation_LaunchpadMini_Toprow_1" outlet="top6"/>
+         <dest obj="bool9_9" inlet="i5"/>
+      </net>
+      <net>
+         <source obj="Novation_LaunchpadMini_Toprow_1" outlet="top7"/>
+         <dest obj="bool9_9" inlet="i6"/>
+      </net>
+      <net>
+         <source obj="Novation_LaunchpadMini_Toprow_1" outlet="top8"/>
+         <dest obj="bool9_9" inlet="i7"/>
+      </net>
+      <net>
+         <source obj="Novation_LaunchpadMini_Toprow_1" outlet="value"/>
+         <dest obj="dial_1" inlet="in"/>
+      </net>
+      <net>
+         <source obj="Novation_LaunchpadMini_Toprow_1" outlet="cc"/>
+         <dest obj="i_1" inlet="in"/>
+      </net>
+      <net>
+         <source obj="Novation_LaunchpadMini_Toprow_1" outlet="channel"/>
+         <dest obj="i_2" inlet="in"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="note"/>
+         <dest obj="dial_2" inlet="in"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="gate"/>
+         <dest obj="bool_1" inlet="in"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="gate2"/>
+         <dest obj="bool_2" inlet="in"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="channel"/>
+         <dest obj="i_3" inlet="in"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="velocity"/>
+         <dest obj="dial_4" inlet="in"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="releaseVelocity"/>
+         <dest obj="dial_5" inlet="in"/>
+      </net>
+   </nets>
+   <settings>
+      <subpatchmode>no</subpatchmode>
+   </settings>
+   <notes><![CDATA[]]></notes>
+   <windowPos>
+      <x>0</x>
+      <y>0</y>
+      <width>1735</width>
+      <height>1152</height>
+   </windowPos>
+</patch-1.0>

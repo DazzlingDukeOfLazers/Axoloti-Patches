@@ -1,0 +1,28 @@
+<objdefs appVersion="1.0.12">
+   <obj.normal id="trigger_if_const" uuid="f3aa0d2b-9a8a-4906-b7c4-3153ba6fcd65">
+      <sDescription>logic AND with 2 inputs</sDescription>
+      <author>Johannes Taelman</author>
+      <license>BSD</license>
+      <helpPatch>logic.axh</helpPatch>
+      <inlets>
+         <bool32 name="i1" description="input 1"/>
+         <int32 name="in" description="CC#"/>
+      </inlets>
+      <outlets>
+         <bool32 name="o" description="output"/>
+      </outlets>
+      <displays/>
+      <params/>
+      <attribs>
+         <spinner name="value" MinValue="0" MaxValue="128" DefaultValue="0"/>
+      </attribs>
+      <code.krate><![CDATA[if (inlet_in == attr_value)
+{
+	outlet_o = (inlet_i1);	
+}
+else
+{
+	outlet_o = 0;
+}]]></code.krate>
+   </obj.normal>
+</objdefs>

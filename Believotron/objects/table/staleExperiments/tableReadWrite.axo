@@ -1,0 +1,136 @@
+<objdefs appVersion="1.0.12">
+   <obj.normal id="tableReadWrite" uuid="80bf0332-3574-4c01-beb7-098c3454b662">
+      <sDescription>write to table</sDescription>
+      <author>Johannes Taelman</author>
+      <license>BSD</license>
+      <helpPatch>table.axh</helpPatch>
+      <inlets>
+         <int32.positive name="activeChannel" description="Active Channel"/>
+         <int32.positive name="a" description="index (integer, not fraction)"/>
+         <frac32 name="v" description="value"/>
+         <bool32 name="enWr" description="Enable Writing"/>
+         <bool32.rising name="trigSave" description="Triggers saving to SD card"/>
+         <bool32.rising name="trigLoad" description="Triggers loading from the SD card"/>
+         <charptr32 name="filename" description="filename for SD card"/>
+         <int32 name="channelID" description="channelID"/>
+      </inlets>
+      <outlets>
+         <frac32 name="o" description="Table out"/>
+         <bool32 name="hot" description="Hot input"/>
+      </outlets>
+      <displays/>
+      <params/>
+      <attribs>
+         <objref name="table"/>
+      </attribs>
+      <depends>
+         <depend>fatfs</depend>
+      </depends>
+      <code.declaration><![CDATA[int ntrig, ptrig, pval, channelTrig;
+int pIndex;
+int ntrigSave, ntrigLoad;
+int outletVal;]]></code.declaration>
+      <code.init><![CDATA[ntrig = 0;
+ptrig = 0;
+pval = 0;
+pIndex=0;
+ntrigSave=0;
+ntrigLoad=0;
+channelTrig=0;
+outletVal=0;]]></code.init>
+      <code.krate><![CDATA[outlet_o= attr_table.array[__USAT(inlet_a,attr_table.LENGTHPOW)]<<attr_table.GAIN;
+
+if (inlet_channelID == inlet_activeChannel)
+{
+
+	if ((pval != inlet_v)&(!ptrig))
+	{			
+		
+		pval = inlet_v;
+		ptrig = 1;
+
+	  if (channelTrig == 0) // Trigger once
+	  {
+	  	channelTrig = 1;
+	  	outletVal = false;
+	  	// and do nothing else until the next time the inlet_v is moved
+	  	// throwing out any stale values until the knob moves
+	  }
+	  else
+	  {
+	    outletVal = true;
+	    if (inlet_a<attr_table.LENGTH)
+	    {
+	         attr_table.array[inlet_a]=__SSAT(inlet_v,28)>>attr_table.GAIN;
+	    }	    
+	  }
+
+	} else { ptrig = 0;	}
+
+}
+else
+{
+	channelTrig = 0;
+	outletVal = false;
+}
+outlet_hot = outletVal;
+
+if ((inlet_trigSave>0) && !ntrigSave)
+{
+    ntrigSave=1;
+    FIL FileObject;
+    FRESULT err;
+    UINT bytes_written;
+    codec_clearbuffer();
+    err = f_open(&FileObject, inlet_filename, FA_WRITE | FA_CREATE_ALWAYS);
+    if (err != FR_OK) {report_fatfs_error(err,inlet_filename); return;}
+    int rem_sz = sizeof(*attr_table.array)*attr_table.LENGTH;
+    int offset = 0;
+    while (rem_sz>0) {
+      if (rem_sz>sizeof(fbuff)) {
+        memcpy((char *)fbuff,(char *)(&attr_table.array[0]) + offset, sizeof(fbuff));
+        err = f_write(&FileObject, fbuff, sizeof(fbuff),&bytes_written);
+        rem_sz -= sizeof(fbuff);
+        offset += sizeof(fbuff);
+      } else {
+        memcpy((char *)fbuff,(char *)(&attr_table.array[0]) + offset, rem_sz);
+        err = f_write(&FileObject, fbuff, rem_sz, &bytes_written);
+        rem_sz = 0;
+      }
+    }    if (err != FR_OK) report_fatfs_error(err,inlet_filename);
+    err = f_close(&FileObject);
+    if (err != FR_OK) report_fatfs_error(err,inlet_filename);
+}
+else if (!(inlet_trigSave>0)) ntrigSave=0;
+
+// Table Save / Load
+if ((inlet_trigLoad>0) && !ntrigLoad)
+{
+    ntrigLoad=1;
+    FIL FileObject;
+    FRESULT err;
+    UINT bytes_read;
+    codec_clearbuffer();
+    err = f_open(&FileObject, inlet_filename, FA_READ | FA_OPEN_EXISTING);
+    if (err != FR_OK) { report_fatfs_error(err,inlet_filename); return;}
+    int rem_sz = sizeof(*attr_table.array)*attr_table.LENGTH;
+    int offset = 0;
+    while (rem_sz>0) {
+      if (rem_sz>sizeof(fbuff)) {
+        err = f_read(&FileObject, fbuff, sizeof(fbuff),&bytes_read);
+        if (bytes_read == 0) break;
+        memcpy((char *)(&attr_table.array[0]) + offset,(char *)fbuff,bytes_read);
+        rem_sz -= bytes_read;
+        offset += bytes_read;
+      } else {
+        err = f_read(&FileObject, fbuff, rem_sz,&bytes_read);
+        memcpy((char *)(&attr_table.array[0]) + offset,(char *)fbuff,bytes_read);
+        rem_sz = 0;
+      }
+    }    if (err != FR_OK) { report_fatfs_error(err,inlet_filename); return;};
+    err = f_close(&FileObject);
+    if (err != FR_OK) { report_fatfs_error(err,inlet_filename); return;};
+ }
+ else if (!(inlet_trigLoad>0)) ntrigLoad=0;]]></code.krate>
+   </obj.normal>
+</objdefs>

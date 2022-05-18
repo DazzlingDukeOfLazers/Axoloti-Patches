@@ -1,0 +1,136 @@
+<patch-1.0 appVersion="1.0.12">
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_1" x="70" y="14">
+      <params>
+         <int32 name="value" value="0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/dial b" uuid="862e7d7f29093cb1ce4aed72244d118ad4d46692" name="dial_1" x="280" y="70">
+      <params>
+         <frac32.s.map name="value" value="10.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="16_Step_SynthModel" uuid="56e1528a-09ba-44a4-854a-ee710c87e2f7" name="16_Step_SynthModel_1" x="392" y="70">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_7" x="602" y="70">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/dial b" uuid="862e7d7f29093cb1ce4aed72244d118ad4d46692" name="dial_2" x="280" y="168">
+      <params>
+         <frac32.s.map name="value" value="11.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_8" x="602" y="168">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/dial b" uuid="862e7d7f29093cb1ce4aed72244d118ad4d46692" name="dial_3" x="280" y="266">
+      <params>
+         <frac32.s.map name="value" value="12.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_9" x="602" y="266">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/dial b" uuid="862e7d7f29093cb1ce4aed72244d118ad4d46692" name="dial_4" x="280" y="364">
+      <params>
+         <frac32.s.map name="value" value="13.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_10" x="602" y="364">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/dial b" uuid="862e7d7f29093cb1ce4aed72244d118ad4d46692" name="dial_5" x="280" y="462">
+      <params>
+         <frac32.s.map name="value" value="14.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_11" x="602" y="462">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_12" x="602" y="560">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/dial b" uuid="862e7d7f29093cb1ce4aed72244d118ad4d46692" name="dial_6" x="280" y="574">
+      <params>
+         <frac32.s.map name="value" value="15.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <nets>
+      <net>
+         <source obj="dial_1" outlet="out"/>
+         <dest obj="16_Step_SynthModel_1" inlet="VolumeIn"/>
+      </net>
+      <net>
+         <source obj="dial_2" outlet="out"/>
+         <dest obj="16_Step_SynthModel_1" inlet="PitchIn"/>
+      </net>
+      <net>
+         <source obj="dial_3" outlet="out"/>
+         <dest obj="16_Step_SynthModel_1" inlet="AttackIn"/>
+      </net>
+      <net>
+         <source obj="dial_4" outlet="out"/>
+         <dest obj="16_Step_SynthModel_1" inlet="DecayIn"/>
+      </net>
+      <net>
+         <source obj="dial_5" outlet="out"/>
+         <dest obj="16_Step_SynthModel_1" inlet="SustainIn"/>
+      </net>
+      <net>
+         <source obj="dial_6" outlet="out"/>
+         <dest obj="16_Step_SynthModel_1" inlet="ReleaseIn"/>
+      </net>
+      <net>
+         <source obj="16_Step_SynthModel_1" outlet="VolumeOut"/>
+         <dest obj="dial_7" inlet="in"/>
+      </net>
+      <net>
+         <source obj="16_Step_SynthModel_1" outlet="PitchOut"/>
+         <dest obj="dial_8" inlet="in"/>
+      </net>
+      <net>
+         <source obj="16_Step_SynthModel_1" outlet="AttackOut"/>
+         <dest obj="dial_9" inlet="in"/>
+      </net>
+      <net>
+         <source obj="16_Step_SynthModel_1" outlet="DecayOut"/>
+         <dest obj="dial_10" inlet="in"/>
+      </net>
+      <net>
+         <source obj="16_Step_SynthModel_1" outlet="SustainOut"/>
+         <dest obj="dial_11" inlet="in"/>
+      </net>
+      <net>
+         <source obj="16_Step_SynthModel_1" outlet="ReleaseOut"/>
+         <dest obj="dial_12" inlet="in"/>
+      </net>
+      <net>
+         <source obj="i_1" outlet="out"/>
+         <dest obj="16_Step_SynthModel_1" inlet="inlet_1"/>
+      </net>
+   </nets>
+   <settings>
+      <subpatchmode>no</subpatchmode>
+   </settings>
+   <notes><![CDATA[]]></notes>
+   <windowPos>
+      <x>-1928</x>
+      <y>-91</y>
+      <width>1723</width>
+      <height>976</height>
+   </windowPos>
+</patch-1.0>

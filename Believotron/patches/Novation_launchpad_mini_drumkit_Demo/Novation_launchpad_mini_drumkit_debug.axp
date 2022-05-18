@@ -1,0 +1,618 @@
+<patch-1.0 appVersion="1.0.12">
+   <obj type="jls/logic/sample_hold_gate" uuid="62baf4ef-ffa2-4e08-a66b-00d6c610b56a" name="sample_hold_gate_1" x="1036" y="42">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_6" x="1204" y="42">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_5" x="1302" y="42">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="midi/out/note" uuid="a76ae870da278cbbce5501a57ce7bd0e0ea4215c" name="note_1" x="658" y="112">
+      <params/>
+      <attribs>
+         <combo attributeName="device" selection="usb host port 1"/>
+         <spinner attributeName="channel" value="1"/>
+      </attribs>
+   </obj>
+   <obj type="jls/logic/sample_hold_gate" uuid="62baf4ef-ffa2-4e08-a66b-00d6c610b56a" name="sample_hold_gate_2" x="1036" y="154">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_7" x="1204" y="154">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_8" x="1302" y="154">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="logic/or08" uuid="a03ff24a-fda1-4168-90b2-1fbc2513c0c9" name="obj_1" x="896" y="168">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="MIDI/NovationLaunchPadMini_triggerout" uuid="df496784-d79a-4460-a89f-bae41614692b" name="NovationLaunchPadMini_triggerout_1" x="238" y="210">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="logic/ValSpread2D_8x8" uuid="d739cc97-a80f-4680-934e-cb9db2854596" name="obj_3" x="532" y="224">
+      <params>
+         <frac32.s.map name="rowcolspreader:obj_1:base_freq" value="-63.0"/>
+         <frac32.u.map name="rowcolspreader:obj_1:stepsize" value="17.0"/>
+         <frac32.s.map name="rowcolspreader:obj_2:base_freq" value="-48.0"/>
+         <frac32.u.map name="rowcolspreader:obj_2:stepsize" value="3.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="disp/note" uuid="ce3190ad98b73b468f22221f555b01feee03226a" name="note_2" x="140" y="280">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="osc/brds/snare" uuid="6cfef612-0d2d-4dbf-9e01-ce8704bf86c9" name="snare_1" x="1106" y="294">
+      <params>
+         <frac32.s.map name="pitch" value="0.0"/>
+         <frac32.u.map name="timbre" value="64.0"/>
+         <frac32.u.map name="color" value="32.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="disp/i" uuid="5e35fd0c62d81e70017289250cf28edd26e19e4a" name="i_1" x="1274" y="294">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/dial b" uuid="862e7d7f29093cb1ce4aed72244d118ad4d46692" name="dial_3" x="28" y="336">
+      <params>
+         <frac32.s.map name="value" value="0.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="disp/i" uuid="5e35fd0c62d81e70017289250cf28edd26e19e4a" name="i_2" x="1274" y="364">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="math/Spread8" uuid="22f8683f-79a9-40e9-a93b-26810d71158c" name="obj_2" x="840" y="392">
+      <params>
+         <frac32.s.map name="base_freq" value="18.5"/>
+         <frac32.u.map name="stepsize" value="1.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/dial b" uuid="862e7d7f29093cb1ce4aed72244d118ad4d46692" name="dial_4" x="28" y="434">
+      <params>
+         <frac32.s.map name="value" value="-19.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/button" uuid="ef3d13774349df85aa9bfecf30dbc91ab8488b3f" name="button_1" x="28" y="518">
+      <params>
+         <bool32.mom name="b" value="0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="osc/brds/snare" uuid="6cfef612-0d2d-4dbf-9e01-ce8704bf86c9" name="snare_2" x="1106" y="518">
+      <params>
+         <frac32.s.map name="pitch" value="0.0"/>
+         <frac32.u.map name="timbre" value="64.0"/>
+         <frac32.u.map name="color" value="32.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="osc/brds/snare" uuid="6cfef612-0d2d-4dbf-9e01-ce8704bf86c9" name="snare_3" x="1106" y="728">
+      <params>
+         <frac32.s.map name="pitch" value="0.0"/>
+         <frac32.u.map name="timbre" value="64.0"/>
+         <frac32.u.map name="color" value="32.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="mix/mix 8 g" uuid="ca3c8ec626ad31e48d8374d5dd44962bf3bd7e6f" name="mix_1" x="1820" y="882">
+      <params>
+         <frac32.u.map name="gain1" value="64.0"/>
+         <frac32.u.map name="gain2" value="64.0"/>
+         <frac32.u.map name="gain3" value="64.0"/>
+         <frac32.u.map name="gain4" value="64.0"/>
+         <frac32.u.map name="gain5" value="64.0"/>
+         <frac32.u.map name="gain6" value="64.0"/>
+         <frac32.u.map name="gain7" value="64.0"/>
+         <frac32.u.map name="gain8" value="64.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="audio/out stereo" uuid="a1ca7a567f535acc21055669829101d3ee7f0189" name="out_1" x="1946" y="882">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="osc/brds/snare" uuid="6cfef612-0d2d-4dbf-9e01-ce8704bf86c9" name="snare_4" x="1106" y="938">
+      <params>
+         <frac32.s.map name="pitch" value="0.0"/>
+         <frac32.u.map name="timbre" value="64.0"/>
+         <frac32.u.map name="color" value="32.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="MIDI/Novation_LaunchpadMini_Toprow" uuid="36f2c1cf-79a2-457f-aee7-b6bbd5d1d0e6" name="Novation_LaunchpadMini_Toprow_1" x="0" y="1022">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="osc/brds/snare" uuid="6cfef612-0d2d-4dbf-9e01-ce8704bf86c9" name="snare_5" x="1106" y="1148">
+      <params>
+         <frac32.s.map name="pitch" value="0.0"/>
+         <frac32.u.map name="timbre" value="64.0"/>
+         <frac32.u.map name="color" value="32.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="osc/brds/snare" uuid="6cfef612-0d2d-4dbf-9e01-ce8704bf86c9" name="snare_6" x="1106" y="1358">
+      <params>
+         <frac32.s.map name="pitch" value="0.0"/>
+         <frac32.u.map name="timbre" value="64.0"/>
+         <frac32.u.map name="color" value="32.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="osc/brds/snare" uuid="6cfef612-0d2d-4dbf-9e01-ce8704bf86c9" name="snare_7" x="1106" y="1568">
+      <params>
+         <frac32.s.map name="pitch" value="0.0"/>
+         <frac32.u.map name="timbre" value="64.0"/>
+         <frac32.u.map name="color" value="32.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="osc/brds/snare" uuid="6cfef612-0d2d-4dbf-9e01-ce8704bf86c9" name="snare_8" x="1106" y="1778">
+      <params>
+         <frac32.s.map name="pitch" value="0.0"/>
+         <frac32.u.map name="timbre" value="64.0"/>
+         <frac32.u.map name="color" value="32.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <nets>
+      <net>
+         <source obj="mix_1" outlet="out"/>
+         <dest obj="out_1" inlet="left"/>
+         <dest obj="out_1" inlet="right"/>
+      </net>
+      <net>
+         <source obj="snare_2" outlet="wave"/>
+         <dest obj="mix_1" inlet="in2"/>
+      </net>
+      <net>
+         <source obj="snare_3" outlet="wave"/>
+         <dest obj="mix_1" inlet="in3"/>
+      </net>
+      <net>
+         <source obj="snare_4" outlet="wave"/>
+         <dest obj="mix_1" inlet="in4"/>
+      </net>
+      <net>
+         <source obj="snare_5" outlet="wave"/>
+         <dest obj="mix_1" inlet="in5"/>
+      </net>
+      <net>
+         <source obj="snare_1" outlet="wave"/>
+         <dest obj="mix_1" inlet="in1"/>
+      </net>
+      <net>
+         <source obj="snare_6" outlet="wave"/>
+         <dest obj="mix_1" inlet="in6"/>
+      </net>
+      <net>
+         <source obj="snare_7" outlet="wave"/>
+         <dest obj="mix_1" inlet="in7"/>
+      </net>
+      <net>
+         <source obj="snare_8" outlet="wave"/>
+         <dest obj="mix_1" inlet="in8"/>
+      </net>
+      <net>
+         <source obj="obj_3" outlet="horz"/>
+         <dest obj="snare_1" inlet="color"/>
+         <dest obj="snare_2" inlet="color"/>
+         <dest obj="snare_3" inlet="color"/>
+         <dest obj="snare_4" inlet="color"/>
+         <dest obj="snare_5" inlet="color"/>
+         <dest obj="snare_6" inlet="color"/>
+         <dest obj="snare_7" inlet="color"/>
+         <dest obj="snare_8" inlet="color"/>
+         <dest obj="dial_5" inlet="in"/>
+         <dest obj="sample_hold_gate_1" inlet="in"/>
+      </net>
+      <net>
+         <source obj="dial_3" outlet="out"/>
+         <dest obj="note_2" inlet="in"/>
+      </net>
+      <net>
+         <source obj="dial_4" outlet="out"/>
+         <dest obj="note_1" inlet="velo"/>
+      </net>
+      <net>
+         <source obj="obj_3" outlet="horzSel"/>
+         <dest obj="i_1" inlet="in"/>
+      </net>
+      <net>
+         <source obj="obj_3" outlet="vertSel"/>
+         <dest obj="i_2" inlet="in"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="note"/>
+         <dest obj="note_1" inlet="note"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="gate"/>
+         <dest obj="note_1" inlet="trig"/>
+      </net>
+      <net>
+         <source obj="sample_hold_gate_1" outlet="out"/>
+         <dest obj="dial_6" inlet="in"/>
+      </net>
+      <net>
+         <source obj="obj_3" outlet="vert"/>
+         <dest obj="dial_8" inlet="in"/>
+         <dest obj="sample_hold_gate_2" inlet="in"/>
+         <dest obj="snare_1" inlet="pitch"/>
+         <dest obj="snare_2" inlet="pitch"/>
+         <dest obj="snare_3" inlet="pitch"/>
+         <dest obj="snare_4" inlet="pitch"/>
+         <dest obj="snare_5" inlet="pitch"/>
+         <dest obj="snare_6" inlet="pitch"/>
+         <dest obj="snare_7" inlet="pitch"/>
+         <dest obj="snare_8" inlet="pitch"/>
+      </net>
+      <net>
+         <source obj="sample_hold_gate_2" outlet="out"/>
+         <dest obj="dial_7" inlet="in"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="A1"/>
+         <dest obj="obj_3" inlet="A0"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="A2"/>
+         <dest obj="obj_3" inlet="A1"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="A3"/>
+         <dest obj="obj_3" inlet="A2"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="A4"/>
+         <dest obj="obj_3" inlet="A3"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="A5"/>
+         <dest obj="obj_3" inlet="A4"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="A6"/>
+         <dest obj="obj_3" inlet="A5"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="A7"/>
+         <dest obj="obj_3" inlet="A6"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="A8"/>
+         <dest obj="obj_3" inlet="A7"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="B1"/>
+         <dest obj="obj_3" inlet="B0"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="B2"/>
+         <dest obj="obj_3" inlet="B1"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="B3"/>
+         <dest obj="obj_3" inlet="B2"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="B4"/>
+         <dest obj="obj_3" inlet="B3"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="B5"/>
+         <dest obj="obj_3" inlet="B4"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="B6"/>
+         <dest obj="obj_3" inlet="B5"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="B7"/>
+         <dest obj="obj_3" inlet="B6"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="B8"/>
+         <dest obj="obj_3" inlet="B7"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="C1"/>
+         <dest obj="obj_3" inlet="C0"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="C2"/>
+         <dest obj="obj_3" inlet="C1"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="C3"/>
+         <dest obj="obj_3" inlet="C2"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="C4"/>
+         <dest obj="obj_3" inlet="C3"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="C5"/>
+         <dest obj="obj_3" inlet="C4"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="C6"/>
+         <dest obj="obj_3" inlet="C5"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="C8"/>
+         <dest obj="obj_3" inlet="C7"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="D1"/>
+         <dest obj="obj_3" inlet="D0"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="D2"/>
+         <dest obj="obj_3" inlet="D1"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="D3"/>
+         <dest obj="obj_3" inlet="D2"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="D4"/>
+         <dest obj="obj_3" inlet="D3"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="D5"/>
+         <dest obj="obj_3" inlet="D4"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="D6"/>
+         <dest obj="obj_3" inlet="D5"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="D7"/>
+         <dest obj="obj_3" inlet="D6"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="D8"/>
+         <dest obj="obj_3" inlet="D7"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="E1"/>
+         <dest obj="obj_3" inlet="E0"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="E2"/>
+         <dest obj="obj_3" inlet="E1"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="E3"/>
+         <dest obj="obj_3" inlet="E2"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="E4"/>
+         <dest obj="obj_3" inlet="E3"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="E5"/>
+         <dest obj="obj_3" inlet="E4"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="E6"/>
+         <dest obj="obj_3" inlet="E5"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="E7"/>
+         <dest obj="obj_3" inlet="E6"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="E8"/>
+         <dest obj="obj_3" inlet="E7"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="F1"/>
+         <dest obj="obj_3" inlet="F0"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="F2"/>
+         <dest obj="obj_3" inlet="F1"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="F3"/>
+         <dest obj="obj_3" inlet="F2"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="F4"/>
+         <dest obj="obj_3" inlet="F3"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="F5"/>
+         <dest obj="obj_3" inlet="F4"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="F6"/>
+         <dest obj="obj_3" inlet="F5"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="F7"/>
+         <dest obj="obj_3" inlet="F6"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="F8"/>
+         <dest obj="obj_3" inlet="F7"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="G1"/>
+         <dest obj="obj_3" inlet="G0"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="G2"/>
+         <dest obj="obj_3" inlet="G1"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="G3"/>
+         <dest obj="obj_3" inlet="G2"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="G4"/>
+         <dest obj="obj_3" inlet="G3"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="G5"/>
+         <dest obj="obj_3" inlet="G4"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="G6"/>
+         <dest obj="obj_3" inlet="G5"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="G7"/>
+         <dest obj="obj_3" inlet="G6"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="G8"/>
+         <dest obj="obj_3" inlet="G7"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="H1"/>
+         <dest obj="obj_3" inlet="H0"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="H2"/>
+         <dest obj="obj_3" inlet="H1"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="H3"/>
+         <dest obj="obj_3" inlet="H2"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="H4"/>
+         <dest obj="obj_3" inlet="H3"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="H5"/>
+         <dest obj="obj_3" inlet="H4"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="H6"/>
+         <dest obj="obj_3" inlet="H5"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="H7"/>
+         <dest obj="obj_3" inlet="H6"/>
+      </net>
+      <net>
+         <source obj="NovationLaunchPadMini_triggerout_1" outlet="H8"/>
+         <dest obj="obj_3" inlet="H7"/>
+      </net>
+      <net>
+         <source obj="obj_3" outlet="H"/>
+         <dest obj="sample_hold_gate_1" inlet="trig"/>
+         <dest obj="snare_8" inlet="strike"/>
+         <dest obj="obj_1" inlet="i07"/>
+      </net>
+      <net>
+         <source obj="obj_3" outlet="A"/>
+         <dest obj="snare_1" inlet="strike"/>
+         <dest obj="obj_1" inlet="i00"/>
+      </net>
+      <net>
+         <source obj="obj_3" outlet="B"/>
+         <dest obj="snare_2" inlet="strike"/>
+         <dest obj="obj_1" inlet="i01"/>
+      </net>
+      <net>
+         <source obj="obj_3" outlet="C"/>
+         <dest obj="snare_3" inlet="strike"/>
+         <dest obj="obj_1" inlet="i02"/>
+      </net>
+      <net>
+         <source obj="obj_3" outlet="D"/>
+         <dest obj="snare_4" inlet="strike"/>
+         <dest obj="obj_1" inlet="i03"/>
+      </net>
+      <net>
+         <source obj="obj_3" outlet="E"/>
+         <dest obj="snare_5" inlet="strike"/>
+         <dest obj="obj_1" inlet="i04"/>
+      </net>
+      <net>
+         <source obj="obj_3" outlet="F"/>
+         <dest obj="snare_6" inlet="strike"/>
+         <dest obj="obj_1" inlet="i05"/>
+      </net>
+      <net>
+         <source obj="obj_3" outlet="G"/>
+         <dest obj="snare_7" inlet="strike"/>
+         <dest obj="obj_1" inlet="i06"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="or16"/>
+         <dest obj="sample_hold_gate_2" inlet="trig"/>
+      </net>
+      <net>
+         <source obj="Novation_LaunchpadMini_Toprow_1" outlet="top1"/>
+         <dest obj="obj_2" inlet="i0"/>
+      </net>
+      <net>
+         <source obj="Novation_LaunchpadMini_Toprow_1" outlet="top2"/>
+         <dest obj="obj_2" inlet="i1"/>
+      </net>
+      <net>
+         <source obj="Novation_LaunchpadMini_Toprow_1" outlet="top3"/>
+         <dest obj="obj_2" inlet="i2"/>
+      </net>
+      <net>
+         <source obj="Novation_LaunchpadMini_Toprow_1" outlet="top4"/>
+         <dest obj="obj_2" inlet="i3"/>
+      </net>
+      <net>
+         <source obj="Novation_LaunchpadMini_Toprow_1" outlet="top5"/>
+         <dest obj="obj_2" inlet="i4"/>
+      </net>
+      <net>
+         <source obj="Novation_LaunchpadMini_Toprow_1" outlet="top6"/>
+         <dest obj="obj_2" inlet="i5"/>
+      </net>
+      <net>
+         <source obj="Novation_LaunchpadMini_Toprow_1" outlet="top7"/>
+         <dest obj="obj_2" inlet="i6"/>
+      </net>
+      <net>
+         <source obj="Novation_LaunchpadMini_Toprow_1" outlet="top8"/>
+         <dest obj="obj_2" inlet="i7"/>
+      </net>
+      <net>
+         <source obj="obj_2" outlet="Val0"/>
+         <dest obj="snare_2" inlet="timbre"/>
+         <dest obj="snare_3" inlet="timbre"/>
+         <dest obj="snare_4" inlet="timbre"/>
+         <dest obj="snare_5" inlet="timbre"/>
+         <dest obj="snare_6" inlet="timbre"/>
+         <dest obj="snare_7" inlet="timbre"/>
+         <dest obj="snare_8" inlet="timbre"/>
+      </net>
+   </nets>
+   <settings>
+      <subpatchmode>no</subpatchmode>
+   </settings>
+   <notes><![CDATA[]]></notes>
+   <windowPos>
+      <x>101</x>
+      <y>79</y>
+      <width>1990</width>
+      <height>1014</height>
+   </windowPos>
+</patch-1.0>

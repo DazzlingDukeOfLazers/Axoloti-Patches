@@ -1,0 +1,102 @@
+<objdefs appVersion="1.0.12">
+   <obj.normal id="multiwave" uuid="f38f0682-77d4-48b7-97c2-0ba0436ea4d8">
+      <sDescription>multi waveform oscilator: sine, triangle, saw, square
+each waveform (except sine) is able to change its shape (e.g. square = pwm).
+
+Forked from Beat Rossmy.
+Removed &gt;&gt;4 of inlet_wave</sDescription>
+      <author>Daniel Lindmark</author>
+      <license>BSD</license>
+      <inlets>
+         <frac32.bipolar name="pitch"/>
+         <frac32buffer name="freq" description="phase increment"/>
+         <bool32.rising name="reset" description="reset phase"/>
+         <frac32.bipolar name="shape" description="wave shaper"/>
+         <int32.positive name="wave" description="wave select"/>
+         <frac32.bipolar name="amount" description="Shape amount"/>
+      </inlets>
+      <outlets>
+         <frac32buffer.bipolar name="out" description="output"/>
+      </outlets>
+      <displays/>
+      <params/>
+      <attribs/>
+      <code.declaration><![CDATA[static uint8_t const sin = 0;
+static uint8_t const tri = 1;
+static uint8_t const saw = 2;
+static uint8_t const pwm = 3;
+
+uint32_t phase;
+int32_t phasor;
+int32_t phaseCounter;
+uint32_t r;
+int32_t a;
+int32_t b;]]></code.declaration>
+      <code.init><![CDATA[phase = 0;
+phasor = 0;
+phaseCounter = 0;
+
+r = 1;
+a = 0;
+b = 0;]]></code.init>
+      <code.krate><![CDATA[uint32_t freq;
+#define UNI2BIPOLAR(a) ((a -(1<<26) ) << 1)
+MTOFEXTENDED(0xFA000000 + inlet_pitch,freq);
+
+int32_t shape;
+shape = __USAT( (___SMMUL(UNI2BIPOLAR(inlet_amount),UNI2BIPOLAR(inlet_shape))<<1), 27);
+
+int32_t waveform;
+waveform = ((inlet_wave))%4;]]></code.krate>
+      <code.srate><![CDATA[/* reset phase if retriggered */
+if (inlet_reset && r) {
+	phase = 0;
+	phaseCounter = 0;
+	r = 0;
+} else { 
+	if (!inlet_reset) r = 1;
+	phase += (freq>>0) + inlet_freq;
+	/* if new phasor value is smaller then last one -> increment phaseCounter */
+	a = phase>>5;
+	/* first or second phase cycle */
+	if (a < phasor) {
+		phaseCounter++;
+		if (phaseCounter == 2) phaseCounter = 0;
+	}
+	/* set new phasor value */
+	phasor = a;
+}
+
+/* calculate waveforms based on phasor value */
+switch (waveform) {
+	case sin:
+		/* phasor to sine */
+		SINE2TINTERP(phasor<<5,a) /* calculate sine wave via function */
+		outlet_out= (a>>4);
+		break;
+
+	case tri:
+		/* phasor to triangle */
+		b = (phasor>0x07FFFFFF/4)? phasor-0x07FFFFFF/4:phasor+0x07FFFFFF/4*3; /* phase shift to correct wave startpoint*/
+		a = (b-(1<<26))<<1; /* phasor to sawUp (bipolar) -> -a = sawDown (bipolar) */
+		a = (a>0)? a:-a; /* merge sawUp and sawDown to triangle -> unipolar */
+		a = (a-(1<<26))<<1; /* unipolar to bipolar */
+		b = 0x07FFFFFF-(shape/10*8);
+		a = (a>b || a<-b)? -a+((a>0)?2:-2)*b:a; /* param_shape threshold for wavefolding */
+		outlet_out = a;
+		break;
+
+	case saw:
+		/* phasor to saw */
+		b = (phasor>0x07FFFFFF/2)? phasor-0x07FFFFFF/2:phasor+0x07FFFFFF/2; /* phase shift to correct wave startpoint*/
+		a = (b-(1<<26))<<1; /* phasor to sawUp (bipolar) */
+		outlet_out = (phaseCounter==1 && (phasor>0x07FFFFFF/2-shape/2 && phasor<0x07FFFFFF/2+shape/2))? -a:a;
+		break;
+
+	case pwm:
+		/* phasor to pulse width */
+		outlet_out = (phasor>=0x07FFFFFF/2+shape/2)? -0x08000000:0x07FFFFFF; /* pulse width depending on shape value*/
+		break;
+}]]></code.srate>
+   </obj.normal>
+</objdefs>

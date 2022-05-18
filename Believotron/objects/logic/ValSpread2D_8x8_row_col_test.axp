@@ -1,0 +1,223 @@
+<patch-1.0 appVersion="1.0.12">
+   <obj type="ctrl/dial b" uuid="862e7d7f29093cb1ce4aed72244d118ad4d46692" name="dial_1" x="84" y="0">
+      <params>
+         <frac32.s.map name="value" value="0.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/dial b" uuid="862e7d7f29093cb1ce4aed72244d118ad4d46692" name="dial_2" x="168" y="0">
+      <params>
+         <frac32.s.map name="value" value="1.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_6" x="756" y="28">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_1" x="42" y="112">
+      <params>
+         <int32 name="value" value="7"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="logic/decode/int 8" uuid="a6b6e4b746767d6b652c503a1b683bc84b4f7d38" name="int_1" x="126" y="112">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="logic/ValSpread2D_8x8_row_col" uuid="b985a7a4-a05c-4646-ab09-bdb7348d3338" name="foocanoe" x="280" y="112">
+      <params>
+         <frac32.s.map name="obj_1:base_freq" value="0.0"/>
+         <frac32.u.map name="obj_1:stepsize" value="0.0"/>
+         <frac32.s.map name="obj_2:base_freq" value="0.0"/>
+         <frac32.u.map name="obj_2:stepsize" value="0.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_5" x="616" y="112">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/i" uuid="5e35fd0c62d81e70017289250cf28edd26e19e4a" name="i_4" x="756" y="126">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/bool9" uuid="f0104102-9f94-4d1f-9b71-1c61972fdd2d" name="bool9_1" x="476" y="168">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/i" uuid="5e35fd0c62d81e70017289250cf28edd26e19e4a" name="i_3" x="616" y="210">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/dial b" uuid="862e7d7f29093cb1ce4aed72244d118ad4d46692" name="dial_3" x="84" y="308">
+      <params>
+         <frac32.s.map name="value" value="0.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/dial b" uuid="862e7d7f29093cb1ce4aed72244d118ad4d46692" name="dial_4" x="168" y="308">
+      <params>
+         <frac32.s.map name="value" value="2.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_2" x="42" y="434">
+      <params>
+         <int32 name="value" value="7"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="logic/decode/int 8" uuid="a6b6e4b746767d6b652c503a1b683bc84b4f7d38" name="int_2" x="126" y="434">
+      <params/>
+      <attribs/>
+   </obj>
+   <nets>
+      <net>
+         <source obj="i_1" outlet="out"/>
+         <dest obj="int_1" inlet="i1"/>
+      </net>
+      <net>
+         <source obj="int_1" outlet="o0"/>
+         <dest obj="foocanoe" inlet="X0"/>
+      </net>
+      <net>
+         <source obj="int_1" outlet="o1"/>
+         <dest obj="foocanoe" inlet="X1"/>
+      </net>
+      <net>
+         <source obj="int_1" outlet="o2"/>
+         <dest obj="foocanoe" inlet="X2"/>
+      </net>
+      <net>
+         <source obj="int_1" outlet="o3"/>
+         <dest obj="foocanoe" inlet="X3"/>
+      </net>
+      <net>
+         <source obj="int_1" outlet="o4"/>
+         <dest obj="foocanoe" inlet="X4"/>
+      </net>
+      <net>
+         <source obj="int_1" outlet="o5"/>
+         <dest obj="foocanoe" inlet="X5"/>
+      </net>
+      <net>
+         <source obj="int_1" outlet="o6"/>
+         <dest obj="foocanoe" inlet="X6"/>
+      </net>
+      <net>
+         <source obj="int_1" outlet="o7"/>
+         <dest obj="foocanoe" inlet="X7"/>
+      </net>
+      <net>
+         <source obj="i_2" outlet="out"/>
+         <dest obj="int_2" inlet="i1"/>
+      </net>
+      <net>
+         <source obj="int_2" outlet="o0"/>
+         <dest obj="foocanoe" inlet="Y0"/>
+      </net>
+      <net>
+         <source obj="int_2" outlet="o1"/>
+         <dest obj="foocanoe" inlet="Y1"/>
+      </net>
+      <net>
+         <source obj="int_2" outlet="o2"/>
+         <dest obj="foocanoe" inlet="Y2"/>
+      </net>
+      <net>
+         <source obj="int_2" outlet="o3"/>
+         <dest obj="foocanoe" inlet="Y3"/>
+      </net>
+      <net>
+         <source obj="int_2" outlet="o4"/>
+         <dest obj="foocanoe" inlet="Y4"/>
+      </net>
+      <net>
+         <source obj="int_2" outlet="o5"/>
+         <dest obj="foocanoe" inlet="Y5"/>
+      </net>
+      <net>
+         <source obj="int_2" outlet="o6"/>
+         <dest obj="foocanoe" inlet="Y6"/>
+      </net>
+      <net>
+         <source obj="int_2" outlet="o7"/>
+         <dest obj="foocanoe" inlet="Y7"/>
+      </net>
+      <net>
+         <source obj="dial_1" outlet="out"/>
+         <dest obj="foocanoe" inlet="X_Base"/>
+      </net>
+      <net>
+         <source obj="dial_2" outlet="out"/>
+         <dest obj="foocanoe" inlet="X_Step"/>
+      </net>
+      <net>
+         <source obj="dial_4" outlet="out"/>
+         <dest obj="foocanoe" inlet="Y_Step"/>
+      </net>
+      <net>
+         <source obj="dial_3" outlet="out"/>
+         <dest obj="foocanoe" inlet="Y_Base"/>
+      </net>
+      <net>
+         <source obj="foocanoe" outlet="horz"/>
+         <dest obj="dial_5" inlet="in"/>
+      </net>
+      <net>
+         <source obj="foocanoe" outlet="vert"/>
+         <dest obj="dial_6" inlet="in"/>
+      </net>
+      <net>
+         <source obj="foocanoe" outlet="horzSel"/>
+         <dest obj="i_3" inlet="in"/>
+      </net>
+      <net>
+         <source obj="foocanoe" outlet="vertSel"/>
+         <dest obj="i_4" inlet="in"/>
+      </net>
+      <net>
+         <source obj="foocanoe" outlet="RowA"/>
+         <dest obj="bool9_1" inlet="i0"/>
+      </net>
+      <net>
+         <source obj="foocanoe" outlet="RowB"/>
+         <dest obj="bool9_1" inlet="i1"/>
+      </net>
+      <net>
+         <source obj="foocanoe" outlet="RowC"/>
+         <dest obj="bool9_1" inlet="i2"/>
+      </net>
+      <net>
+         <source obj="foocanoe" outlet="RowD"/>
+         <dest obj="bool9_1" inlet="i3"/>
+      </net>
+      <net>
+         <source obj="foocanoe" outlet="RowE"/>
+         <dest obj="bool9_1" inlet="i4"/>
+      </net>
+      <net>
+         <source obj="foocanoe" outlet="RowF"/>
+         <dest obj="bool9_1" inlet="i5"/>
+      </net>
+      <net>
+         <source obj="foocanoe" outlet="RowG"/>
+         <dest obj="bool9_1" inlet="i6"/>
+      </net>
+      <net>
+         <source obj="foocanoe" outlet="RowH"/>
+         <dest obj="bool9_1" inlet="i7"/>
+      </net>
+   </nets>
+   <settings>
+      <subpatchmode>no</subpatchmode>
+   </settings>
+   <notes><![CDATA[]]></notes>
+   <windowPos>
+      <x>648</x>
+      <y>154</y>
+      <width>1036</width>
+      <height>754</height>
+   </windowPos>
+</patch-1.0>

@@ -1,0 +1,275 @@
+<objdefs appVersion="1.0.12">
+   <obj.normal id="table8CH_SD_dev" uuid="aaba8316-2400-4f77-93e8-73957c28e82c">
+      <sDescription>writes and outputs 8 values to a table.
+Derived from
+robert schirmer under the &quot;who cares&quot; license, and relicensed under BSD
+
+Added stale value guard (for sharing one knob across multiple channels)
+Added Save / load from SD card</sDescription>
+      <author>Dazzling Duke of Lazers</author>
+      <license>BSD</license>
+      <inlets>
+         <frac32 name="v0"/>
+         <frac32 name="v1"/>
+         <frac32 name="v2"/>
+         <frac32 name="v3"/>
+         <frac32 name="v4"/>
+         <frac32 name="v5"/>
+         <frac32 name="v6"/>
+         <frac32 name="v7"/>
+         <int32 name="offset" description="sets an offset for writing to the table"/>
+         <int32 name="page" description="Page select"/>
+         <bool32.rising name="trigSaveSD" description="Save to the SD Card"/>
+         <bool32.rising name="trigLoadSD" description="Load from the SD Card"/>
+      </inlets>
+      <outlets>
+         <frac32 name="v0"/>
+         <frac32 name="v1"/>
+         <frac32 name="v2"/>
+         <frac32 name="v3"/>
+         <frac32 name="v4"/>
+         <frac32 name="v5"/>
+         <frac32 name="v6"/>
+         <frac32 name="v7"/>
+      </outlets>
+      <displays/>
+      <params/>
+      <attribs>
+         <objref name="table"/>
+         <combo name="ChannelID">
+            <MenuEntries>
+               <string>0</string>
+               <string>1</string>
+               <string>2</string>
+               <string>3</string>
+               <string>4</string>
+               <string>5</string>
+               <string>6</string>
+               <string>7</string>
+            </MenuEntries>
+            <CEntries>
+               <string>0</string>
+               <string>1</string>
+               <string>2</string>
+               <string>3</string>
+               <string>4</string>
+               <string>5</string>
+               <string>6</string>
+               <string>7</string>
+            </CEntries>
+         </combo>
+      </attribs>
+      <depends>
+         <depend>fatfs</depend>
+      </depends>
+      <code.declaration><![CDATA[
+// Declaration -----------------------------------------------------------------
+
+// Table 8 stuff
+    struct Table8CH_SD
+    {
+        uint32_t prev[8];
+        // Stale value guard
+        uint8_t bActive;
+    };
+    #define NUM_INPUT_CHANNELS 8
+    Table8CH_SD tSD[NUM_INPUT_CHANNELS];
+
+// tableReadWriteIndexPage
+// Table Stuff
+	int ntrigSave, ntrigLoad;
+
+	// string/doubleIndex Stuff
+	char cFileName[64];
+	int fn_offset_1;
+	int fn_offset_2;
+
+]]></code.declaration>
+  <code.init><![CDATA[
+// Init Code ------------------------------------------------------------------
+
+
+// Table 8
+    #define NUM_OSC_GROUPS 1
+    // Wipe tSD clean
+    for (int iOscGroup=0; iOscGroup<NUM_OSC_GROUPS; iOscGroup++)
+    {
+        for (int iChan=0; iChan< NUM_INPUT_CHANNELS; iChan++)
+        {
+          tSD[iOscGroup].prev[iChan] = 0;
+        }
+        // Stale value guard
+        tSD[iOscGroup].bActive = false;
+    }
+
+// tableReadWriteIndexPage
+	// Init tableReadWrite
+	ntrigSave=0;
+	ntrigLoad=0;
+
+// Init string/doubleIndex
+	//strcpy(&cFileName[0],"attr_prefix00-000attr_suffix");
+	strcpy(&cFileName[0],"beatBox_00-000.mod");
+	fn_offset_1    = strlen("beatBox_");
+	fn_offset_2   = fn_offset_1 + 3; // Added extra two digits and a dash
+
+
+]]></code.init>
+      <code.krate><![CDATA[// Table 8
+// KRATE ----------------------------------------------------------------------
+uint8_t iOscGroup = 0; // Oscillator group number
+
+iOscGroup = inlet_activeChannel;
+//if (inlet_activeChannel == attr_ChannelID)
+if (1)
+{
+    uint32_t inVal[8];
+    inVal[0] = inlet_v0;
+    inVal[1] = inlet_v1;
+    inVal[2] = inlet_v2;
+    inVal[3] = inlet_v3;
+    inVal[4] = inlet_v4;
+    inVal[5] = inlet_v5;
+    inVal[6] = inlet_v6;
+    inVal[7] = inlet_v7;
+
+	// If the channel is not active,
+	if (tSD[iOscGroup].bActive == false)
+	{
+		// activate the channel
+		tSD[iOscGroup].bActive = true;
+
+		// reset the previous state to the current input
+        for(int iChan=0; iChan < NUM_INPUT_CHANNELS; iChan++)
+        {
+            tSD[iOscGroup].prev[iChan] = inVal[iChan];
+        }
+	}
+	else
+	{
+        for(int iChan=0; iChan < NUM_INPUT_CHANNELS; iChan++)
+        {
+            // Only triggers if knob is different after first loop // TBD should add a guardband macro
+            if (inVal[iChan] != tSD[iOscGroup].prev[iChan])
+            {
+                // iOscGroup << 3 == iOscGroup * 8, bc 8 channels
+                attr_table.array[iChan + (iOscGroup << 3)] = __SSAT(inVal[iChan],28) >> attr_table.GAIN;
+            }
+        }
+	}
+}
+else // not the active channel
+{
+	// reset the active channel
+	tSD[iOscGroup].bActive = false;
+}
+
+// Table Save to SD
+if ((inlet_trigSaveSD>0) && !ntrigSave)
+{
+    ntrigSave=1;
+    // If saving or loading, recalculate the filename
+	{
+	   // Add the Page # to the filename string
+	   int i = inlet_page; int i0 = i/10;
+	   cFileName[fn_offset_1+1] = '0'+i-10*i0;
+	   i = i0; i0 = i/10;
+	   cFileName[fn_offset_1]   = '0'+i-10*i0;
+
+	   // Add the Index # to the filename string
+	   i = 0 ; i0 = i/10;
+	   cFileName[fn_offset_2+2] = '0'+i-10*i0;
+	   i = i0; i0 = i/10;
+	   cFileName[fn_offset_2+1] = '0'+i-10*i0;
+	   i = i0; i0 = i/10;
+	   cFileName[fn_offset_2+0] = '0'+i-10*i0;
+	}
+    FIL FileObject;
+    FRESULT err;
+    UINT bytes_written;
+    codec_clearbuffer();
+    err = f_open(&FileObject, cFileName, FA_WRITE | FA_CREATE_ALWAYS);
+    if (err != FR_OK) {report_fatfs_error(err, cFileName); return;}
+    int rem_sz = sizeof(*attr_table.array)*attr_table.LENGTH;
+    int offset = 0; // TBD Offset not connected
+    while (rem_sz>0) {
+      if (rem_sz>sizeof(fbuff)) {
+        memcpy((char *)fbuff,(char *)(&attr_table.array[0]) + offset, sizeof(fbuff));
+        err = f_write(&FileObject, fbuff, sizeof(fbuff),&bytes_written);
+        rem_sz -= sizeof(fbuff);
+        offset += sizeof(fbuff);
+      } else {
+        memcpy((char *)fbuff,(char *)(&attr_table.array[0]) + offset, rem_sz);
+        err = f_write(&FileObject, fbuff, rem_sz, &bytes_written);
+        rem_sz = 0;
+      }
+    }    if (err != FR_OK) report_fatfs_error(err,cFileName);
+    err = f_close(&FileObject);
+    if (err != FR_OK) report_fatfs_error(err,cFileName);
+}
+else if (!(inlet_trigSaveSD>0)) ntrigSave=0;
+
+// Table load from SD
+if ((inlet_trigLoadSD>0) && !ntrigLoad)
+{
+    ntrigLoad=1;
+    // If saving or loading, recalculate the filename
+	{
+	   // Add the Page # to the filename string
+	   int i = inlet_page; int i0 = i/10;
+	   cFileName[fn_offset_1+1] = '0'+i-10*i0;
+	   i = i0; i0 = i/10;
+	   cFileName[fn_offset_1]   = '0'+i-10*i0;
+
+	   // Add the Index # to the filename string
+	   i = 0; i0 = i/10;
+	   cFileName[fn_offset_2+2] = '0'+i-10*i0;
+	   i = i0; i0 = i/10;
+	   cFileName[fn_offset_2+1] = '0'+i-10*i0;
+	   i = i0; i0 = i/10;
+	   cFileName[fn_offset_2+0] = '0'+i-10*i0;
+	}
+    FIL FileObject;
+    FRESULT err;
+    UINT bytes_read;
+    codec_clearbuffer();
+    err = f_open(&FileObject, cFileName, FA_READ | FA_OPEN_EXISTING);
+    if (err != FR_OK) { report_fatfs_error(err,cFileName); return;}
+    int rem_sz = sizeof(*attr_table.array)*attr_table.LENGTH;
+    int offset = 0; // TBD offset not connected
+    while (rem_sz>0) {
+      if (rem_sz>sizeof(fbuff)) {
+        err = f_read(&FileObject, fbuff, sizeof(fbuff),&bytes_read);
+        if (bytes_read == 0) break;
+        memcpy((char *)(&attr_table.array[0]) + offset,(char *)fbuff,bytes_read);
+        rem_sz -= bytes_read;
+        offset += bytes_read;
+      } else {
+        err = f_read(&FileObject, fbuff, rem_sz,&bytes_read);
+        memcpy((char *)(&attr_table.array[0]) + offset,(char *)fbuff,bytes_read);
+        rem_sz = 0;
+      }
+    }    if (err != FR_OK) { report_fatfs_error(err,cFileName); return;};
+    err = f_close(&FileObject);
+    if (err != FR_OK) { report_fatfs_error(err,cFileName); return;};
+
+    for (int iOscGroup=0; iOscGroup<NUM_OSC_GROUPS; iOscGroup++)
+    {
+        tSD[iOscGroup].bActive = false;
+    }
+ }
+ else if (!(inlet_trigLoadSD>0)) ntrigLoad=0;
+
+// Output whatever is in the table array
+outlet_v0= attr_table.array[__USAT(0,attr_table.LENGTHPOW)]<<attr_table.GAIN;
+outlet_v1= attr_table.array[__USAT(1,attr_table.LENGTHPOW)]<<attr_table.GAIN;
+outlet_v2= attr_table.array[__USAT(2,attr_table.LENGTHPOW)]<<attr_table.GAIN;
+outlet_v3= attr_table.array[__USAT(3,attr_table.LENGTHPOW)]<<attr_table.GAIN;
+outlet_v4= attr_table.array[__USAT(4,attr_table.LENGTHPOW)]<<attr_table.GAIN;
+outlet_v5= attr_table.array[__USAT(5,attr_table.LENGTHPOW)]<<attr_table.GAIN;
+outlet_v6= attr_table.array[__USAT(6,attr_table.LENGTHPOW)]<<attr_table.GAIN;
+outlet_v7= attr_table.array[__USAT(7,attr_table.LENGTHPOW)]<<attr_table.GAIN;
+
+// </table 8>]]></code.krate>
+   </obj.normal>
+</objdefs>

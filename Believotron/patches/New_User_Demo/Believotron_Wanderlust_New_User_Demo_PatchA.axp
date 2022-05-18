@@ -1,0 +1,596 @@
+<patch-1.0 appVersion="1.0.12">
+   <obj type="conv/unipolar2bipolar" uuid="efc8ee28c508740c5edf7995eaaa07a6d6818e5e" name="unipolar2bipolar_2" x="1274" y="0">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="djrm/logic/counter2_init_start" uuid="d5936f238ab92e53ac93d5927c3b43ceef998dc1" name="counter2_init_start_2" x="1106" y="14">
+      <params>
+         <int32 name="maximum" value="64"/>
+         <int32 name="init" value="32"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="osc/tri" uuid="905879afa8256b0ca207557d656949e476ca6f16" name="tri_1" x="1554" y="70">
+      <params>
+         <frac32.s.map name="pitch" value="0.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_3" x="1708" y="70">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_1" x="1008" y="84">
+      <params>
+         <int32 name="value" value="1"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="env/adsr m" uuid="98bd39fb828c392b28126d259cb5175e6f6ea34b" name="adsr_1" x="2030" y="84">
+      <params>
+         <frac32.s.map name="a" value="-2.0"/>
+         <frac32.s.map name="d" value="-9.0"/>
+         <frac32.u.map name="s" value="8.0"/>
+         <frac32.s.map name="r" value="8.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="lfo/square" uuid="de6909eb64db13af5b43f979a4c130024b3a4793" name="square_2" x="1344" y="112">
+      <params>
+         <frac32.s.map name="pitch" value="6.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="logic/and 2" uuid="c67031682f552aa0a80b23377495c51ea28a8c9c" name="and_1" x="1456" y="112">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="patch/load i" uuid="b79124f5b7d1e8b39e187677ddab6260ce8c60a3" name="load_1" x="1204" y="154">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_4" x="1708" y="154">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="math/+" uuid="faedbea4612d9bd3644d6d3bf31946d848a70e19" name="+_3" x="1792" y="154">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="osc/square" uuid="aa9592566d3673fe64dcaede132e9ebd45d2202f" name="square_3" x="1554" y="168">
+      <params>
+         <frac32.s.map name="pitch" value="0.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="logic/toggle" uuid="f42f0d3aab552c17bc78b9e65f85dc24f977503d" name="toggle_1" x="1134" y="224">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_1" x="1246" y="224">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_5" x="1708" y="266">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_1" x="0" y="280">
+      <params/>
+      <attribs>
+         <table attributeName="str" table="Step-Seq Demo"/>
+      </attribs>
+   </obj>
+   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_5" x="196" y="280">
+      <params/>
+      <attribs>
+         <table attributeName="str" table="Knobs StepPitch"/>
+      </attribs>
+   </obj>
+   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_9" x="392" y="280">
+      <params/>
+      <attribs>
+         <table attributeName="str" table="J2.X Mod1"/>
+      </attribs>
+   </obj>
+   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_13" x="588" y="280">
+      <params/>
+      <attribs>
+         <table attributeName="str" table="J3.X Tempo Step"/>
+      </attribs>
+   </obj>
+   <obj type="Wanderlust/Wanderlust_core_V1" uuid="a6fe3c19-f6f9-4ff7-a2b2-2f46239c7aa3" name="obj_1" x="812" y="280">
+      <params>
+         <bool32.tgl name="Reverse Knobs" value="0"/>
+         <bool32.tgl name="Default_OLED_TXT" value="0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="mux/mux 8" uuid="de5167d9da39b04039376e8cc620ea2afc22e28a" name="mux_1" x="1596" y="294">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="osc/sine" uuid="6e094045cca76a9dbf7ebfa72e44e4700d2b3ba" name="sine_1" x="1904" y="294">
+      <params>
+         <frac32.s.map name="pitch" value="0.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_2" x="1218" y="308">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="audio/out stereo" uuid="a1ca7a567f535acc21055669829101d3ee7f0189" name="out_1" x="2506" y="322">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_1" x="2156" y="336">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="drj/audio/stereo_vol" uuid="awc88e561967f018927f535acc6a1829101d1054" name="stereo_vol_1" x="2380" y="336">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_2" x="0" y="350">
+      <params/>
+      <attribs>
+         <table attributeName="str" table="J1.X Pitch Step"/>
+      </attribs>
+   </obj>
+   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_6" x="196" y="350">
+      <params/>
+      <attribs>
+         <table attributeName="str" table="J1.X Attack"/>
+      </attribs>
+   </obj>
+   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_10" x="392" y="350">
+      <params/>
+      <attribs>
+         <table attributeName="str" table="J2.Y Mod2"/>
+      </attribs>
+   </obj>
+   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_14" x="588" y="350">
+      <params/>
+      <attribs>
+         <table attributeName="str" table="J3.Y Volume step"/>
+      </attribs>
+   </obj>
+   <obj type="math/+" uuid="44553fdc8628c67ab535845ed1be304ad6c9553b" name="+_1" x="1680" y="350">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_3" x="1218" y="378">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="math/+" uuid="44553fdc8628c67ab535845ed1be304ad6c9553b" name="+_2" x="1764" y="378">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="logic/counter" uuid="7a141ba82230e54e5f5cd12da5dbe5a74ba854a5" name="counter_1" x="1484" y="406">
+      <params>
+         <int32 name="maximum" value="8"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_2" x="2156" y="406">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_3" x="0" y="420">
+      <params/>
+      <attribs>
+         <table attributeName="str" table="J0.Y Pitch Bend"/>
+      </attribs>
+   </obj>
+   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_7" x="196" y="420">
+      <params/>
+      <attribs>
+         <table attributeName="str" table="J1.Y Decay"/>
+      </attribs>
+   </obj>
+   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_11" x="392" y="420">
+      <params/>
+      <attribs>
+         <table attributeName="str" table=""/>
+      </attribs>
+   </obj>
+   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_15" x="588" y="420">
+      <params/>
+      <attribs>
+         <table attributeName="str" table="J3.B Play/Pause"/>
+      </attribs>
+   </obj>
+   <obj type="osc/square" uuid="aa9592566d3673fe64dcaede132e9ebd45d2202f" name="square_1" x="1918" y="434">
+      <params>
+         <frac32.s.map name="pitch" value="0.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="math/+" uuid="44553fdc8628c67ab535845ed1be304ad6c9553b" name="+_4" x="2268" y="476">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_4" x="0" y="490">
+      <params/>
+      <attribs>
+         <table attributeName="str" table="J0.B Patch Sel"/>
+      </attribs>
+   </obj>
+   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_8" x="196" y="490">
+      <params/>
+      <attribs>
+         <table attributeName="str" table=""/>
+      </attribs>
+   </obj>
+   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_12" x="392" y="490">
+      <params/>
+      <attribs>
+         <table attributeName="str" table=""/>
+      </attribs>
+   </obj>
+   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_16" x="588" y="490">
+      <params/>
+      <attribs>
+         <table attributeName="str" table=""/>
+      </attribs>
+   </obj>
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_4" x="1092" y="490">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/dial p" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="dial_1" x="2142" y="504">
+      <params>
+         <frac32.u.map name="value" value="11.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="conv/unipolar2bipolar" uuid="efc8ee28c508740c5edf7995eaaa07a6d6818e5e" name="unipolar2bipolar_1" x="1820" y="532">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_3" x="1960" y="532">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="djrm/logic/counter2_init_start" uuid="d5936f238ab92e53ac93d5927c3b43ceef998dc1" name="counter2_init_start_1" x="1442" y="588">
+      <params>
+         <int32 name="maximum" value="64"/>
+         <int32 name="init" value="32"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_2" x="1876" y="588">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_9" x="994" y="630">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="djrm/logic/counter2_init_start" uuid="d5936f238ab92e53ac93d5927c3b43ceef998dc1" name="counter2_init_start_3" x="2002" y="644">
+      <params>
+         <int32 name="maximum" value="64"/>
+         <int32 name="init" value="32"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="conv/unipolar2bipolar" uuid="efc8ee28c508740c5edf7995eaaa07a6d6818e5e" name="unipolar2bipolar_3" x="2170" y="644">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/i" uuid="5e35fd0c62d81e70017289250cf28edd26e19e4a" name="i_2" x="1876" y="672">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_8" x="1722" y="714">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="logic/or 2" uuid="3805d3c84d30032a44fbdbe42d9a2988a1790a3e" name="or_1" x="1120" y="798">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="logic/toggle" uuid="f42f0d3aab552c17bc78b9e65f85dc24f977503d" name="toggle_2" x="1204" y="798">
+      <params/>
+      <attribs/>
+   </obj>
+   <nets>
+      <net>
+         <source obj="c_1" outlet="out"/>
+         <dest obj="obj_1" inlet="OLED A0"/>
+      </net>
+      <net>
+         <source obj="c_2" outlet="out"/>
+         <dest obj="obj_1" inlet="OLED A1"/>
+      </net>
+      <net>
+         <source obj="c_3" outlet="out"/>
+         <dest obj="obj_1" inlet="OLED A2"/>
+      </net>
+      <net>
+         <source obj="c_4" outlet="out"/>
+         <dest obj="obj_1" inlet="OLED A3"/>
+      </net>
+      <net>
+         <source obj="c_5" outlet="out"/>
+         <dest obj="obj_1" inlet="OLED B0"/>
+      </net>
+      <net>
+         <source obj="c_6" outlet="out"/>
+         <dest obj="obj_1" inlet="OLED B1"/>
+      </net>
+      <net>
+         <source obj="c_7" outlet="out"/>
+         <dest obj="obj_1" inlet="OLED B2"/>
+      </net>
+      <net>
+         <source obj="c_8" outlet="out"/>
+         <dest obj="obj_1" inlet="OLED B3"/>
+      </net>
+      <net>
+         <source obj="c_9" outlet="out"/>
+         <dest obj="obj_1" inlet="OLED C0"/>
+      </net>
+      <net>
+         <source obj="c_10" outlet="out"/>
+         <dest obj="obj_1" inlet="OLED C1"/>
+      </net>
+      <net>
+         <source obj="c_11" outlet="out"/>
+         <dest obj="obj_1" inlet="OLED C2"/>
+      </net>
+      <net>
+         <source obj="c_12" outlet="out"/>
+         <dest obj="obj_1" inlet="OLED C3"/>
+      </net>
+      <net>
+         <source obj="c_13" outlet="out"/>
+         <dest obj="obj_1" inlet="OLED D0"/>
+      </net>
+      <net>
+         <source obj="c_14" outlet="out"/>
+         <dest obj="obj_1" inlet="OLED D1"/>
+      </net>
+      <net>
+         <source obj="c_15" outlet="out"/>
+         <dest obj="obj_1" inlet="OLED D2"/>
+      </net>
+      <net>
+         <source obj="c_16" outlet="out"/>
+         <dest obj="obj_1" inlet="OLED D3"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="JOY0_BTN"/>
+         <dest obj="load_1" inlet="trig"/>
+      </net>
+      <net>
+         <source obj="i_1" outlet="out"/>
+         <dest obj="load_1" inlet="i"/>
+      </net>
+      <net>
+         <source obj="sine_1" outlet="wave"/>
+         <dest obj="vca_1" inlet="a"/>
+      </net>
+      <net>
+         <source obj="square_1" outlet="wave"/>
+         <dest obj="vca_2" inlet="a"/>
+      </net>
+      <net>
+         <source obj="vca_1" outlet="o"/>
+         <dest obj="stereo_vol_1" inlet="left"/>
+      </net>
+      <net>
+         <source obj="vca_2" outlet="o"/>
+         <dest obj="stereo_vol_1" inlet="right"/>
+      </net>
+      <net>
+         <source obj="square_2" outlet="wave"/>
+         <dest obj="and_1" inlet="i1"/>
+      </net>
+      <net>
+         <source obj="stereo_vol_1" outlet="left"/>
+         <dest obj="out_1" inlet="left"/>
+      </net>
+      <net>
+         <source obj="stereo_vol_1" outlet="right"/>
+         <dest obj="out_1" inlet="right"/>
+      </net>
+      <net>
+         <source obj="dial_1" outlet="out"/>
+         <dest obj="+_4" inlet="in1"/>
+      </net>
+      <net>
+         <source obj="adsr_1" outlet="env"/>
+         <dest obj="vca_1" inlet="v"/>
+         <dest obj="vca_2" inlet="v"/>
+      </net>
+      <net>
+         <source obj="toggle_1" outlet="o"/>
+         <dest obj="bool_1" inlet="in"/>
+      </net>
+      <net>
+         <source obj="counter_1" outlet="o"/>
+         <dest obj="mux_1" inlet="s"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="knob_top_0"/>
+         <dest obj="mux_1" inlet="i0"/>
+         <dest obj="dial_4" inlet="in"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="knob_top_1"/>
+         <dest obj="mux_1" inlet="i1"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="knob_top_2"/>
+         <dest obj="mux_1" inlet="i2"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="knob_top_3"/>
+         <dest obj="mux_1" inlet="i3"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="knob_top_4"/>
+         <dest obj="mux_1" inlet="i4"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="knob_top_5"/>
+         <dest obj="mux_1" inlet="i5"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="knob_top_6"/>
+         <dest obj="mux_1" inlet="i6"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="knob_top_7"/>
+         <dest obj="mux_1" inlet="i7"/>
+      </net>
+      <net>
+         <source obj="mux_1" outlet="o"/>
+         <dest obj="+_1" inlet="in1"/>
+         <dest obj="dial_5" inlet="in"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="JOY0_Y"/>
+         <dest obj="+_1" inlet="in2"/>
+      </net>
+      <net>
+         <source obj="+_1" outlet="out"/>
+         <dest obj="+_2" inlet="in1"/>
+      </net>
+      <net>
+         <source obj="+_2" outlet="out"/>
+         <dest obj="square_1" inlet="pitch"/>
+         <dest obj="sine_1" inlet="pitch"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="JOY0_LT"/>
+         <dest obj="counter2_init_start_1" inlet="dec"/>
+         <dest obj="bool_2" inlet="in"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="JOY0_RT"/>
+         <dest obj="counter2_init_start_1" inlet="inc"/>
+         <dest obj="bool_3" inlet="in"/>
+      </net>
+      <net>
+         <source obj="counter2_init_start_1" outlet="o"/>
+         <dest obj="i_2" inlet="in"/>
+         <dest obj="dial_2" inlet="in"/>
+         <dest obj="unipolar2bipolar_1" inlet="i"/>
+      </net>
+      <net>
+         <source obj="unipolar2bipolar_1" outlet="o"/>
+         <dest obj="dial_3" inlet="in"/>
+         <dest obj="+_2" inlet="in2"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="JOY1_X"/>
+         <dest obj="adsr_1" inlet="a"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="JOY1_Y"/>
+         <dest obj="adsr_1" inlet="d"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="JOY2_X"/>
+         <dest obj="tri_1" inlet="pitch"/>
+         <dest obj="dial_8" inlet="in"/>
+         <dest obj="vca_3" inlet="v"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="JOY2_Y"/>
+         <dest obj="square_3" inlet="pitch"/>
+         <dest obj="vca_4" inlet="v"/>
+      </net>
+      <net>
+         <source obj="square_3" outlet="wave"/>
+         <dest obj="vca_4" inlet="a"/>
+      </net>
+      <net>
+         <source obj="+_3" outlet="out"/>
+         <dest obj="sine_1" inlet="freq"/>
+      </net>
+      <net>
+         <source obj="vca_3" outlet="o"/>
+         <dest obj="+_3" inlet="in1"/>
+      </net>
+      <net>
+         <source obj="tri_1" outlet="wave"/>
+         <dest obj="vca_3" inlet="a"/>
+      </net>
+      <net>
+         <source obj="vca_4" outlet="o"/>
+         <dest obj="sine_1" inlet="phase"/>
+      </net>
+      <net>
+         <source obj="counter2_init_start_2" outlet="o"/>
+         <dest obj="unipolar2bipolar_2" inlet="i"/>
+      </net>
+      <net>
+         <source obj="unipolar2bipolar_2" outlet="o"/>
+         <dest obj="square_2" inlet="pitch"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="JOY3_LT"/>
+         <dest obj="counter2_init_start_2" inlet="dec"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="JOY3_RT"/>
+         <dest obj="counter2_init_start_2" inlet="inc"/>
+      </net>
+      <net>
+         <source obj="counter2_init_start_3" outlet="o"/>
+         <dest obj="unipolar2bipolar_3" inlet="i"/>
+      </net>
+      <net>
+         <source obj="+_4" outlet="out"/>
+         <dest obj="stereo_vol_1" inlet="volume"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="JOY3_DN"/>
+         <dest obj="counter2_init_start_3" inlet="dec"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="JOY3_UP"/>
+         <dest obj="counter2_init_start_3" inlet="inc"/>
+      </net>
+      <net>
+         <source obj="unipolar2bipolar_3" outlet="o"/>
+         <dest obj="+_4" inlet="in2"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="JOY3_BTN"/>
+         <dest obj="or_1" inlet="i2"/>
+      </net>
+      <net>
+         <source obj="toggle_2" outlet="o"/>
+         <dest obj="and_1" inlet="i2"/>
+      </net>
+      <net>
+         <source obj="and_1" outlet="o"/>
+         <dest obj="counter_1" inlet="trig"/>
+         <dest obj="adsr_1" inlet="gate"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="POR"/>
+         <dest obj="or_1" inlet="i1"/>
+      </net>
+      <net>
+         <source obj="or_1" outlet="o"/>
+         <dest obj="toggle_2" inlet="trig"/>
+      </net>
+   </nets>
+   <settings>
+      <subpatchmode>no</subpatchmode>
+   </settings>
+   <notes><![CDATA[]]></notes>
+   <windowPos>
+      <x>-8</x>
+      <y>-8</y>
+      <width>1514</width>
+      <height>1014</height>
+   </windowPos>
+</patch-1.0>

@@ -1,0 +1,320 @@
+<patch-1.0 appVersion="1.0.12">
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_1" x="1232" y="28">
+      <params>
+         <int32 name="value" value="2"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="patch/load i" uuid="b79124f5b7d1e8b39e187677ddab6260ce8c60a3" name="load_1" x="1316" y="28">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_2" x="1232" y="98">
+      <params>
+         <int32 name="value" value="3"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="patch/load i" uuid="b79124f5b7d1e8b39e187677ddab6260ce8c60a3" name="load_2" x="1316" y="98">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_3" x="1232" y="168">
+      <params>
+         <int32 name="value" value="4"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="patch/load i" uuid="b79124f5b7d1e8b39e187677ddab6260ce8c60a3" name="load_3" x="1316" y="168">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/bool" uuid="a0ee71d48208b71752cbb8c05e55145106ef3946" name="bool_1" x="1092" y="224">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_4" x="1232" y="238">
+      <params>
+         <int32 name="value" value="5"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="patch/load i" uuid="b79124f5b7d1e8b39e187677ddab6260ce8c60a3" name="load_4" x="1316" y="238">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_1" x="0" y="280">
+      <params/>
+      <attribs>
+         <table attributeName="str" table="Menu Patch"/>
+      </attribs>
+   </obj>
+   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_5" x="196" y="280">
+      <params/>
+      <attribs>
+         <table attributeName="str" table=""/>
+      </attribs>
+   </obj>
+   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_9" x="392" y="280">
+      <params/>
+      <attribs>
+         <table attributeName="str" table=""/>
+      </attribs>
+   </obj>
+   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_13" x="588" y="280">
+      <params/>
+      <attribs>
+         <table attributeName="str" table="J3U Doom Tuba"/>
+      </attribs>
+   </obj>
+   <obj type="Wanderlust/Wanderlust_core_V1" uuid="a6fe3c19-f6f9-4ff7-a2b2-2f46239c7aa3" name="cool" x="798" y="280">
+      <params>
+         <bool32.tgl name="Reverse Knobs" value="0"/>
+         <bool32.tgl name="Default_OLED_TXT" value="0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_5" x="1232" y="308">
+      <params>
+         <int32 name="value" value="6"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="patch/load i" uuid="b79124f5b7d1e8b39e187677ddab6260ce8c60a3" name="load_5" x="1316" y="308">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_2" x="0" y="350">
+      <params/>
+      <attribs>
+         <table attributeName="str" table="J0B Step-Seq"/>
+      </attribs>
+   </obj>
+   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_6" x="196" y="350">
+      <params/>
+      <attribs>
+         <table attributeName="str" table="J1B Drumlab"/>
+      </attribs>
+   </obj>
+   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_10" x="392" y="350">
+      <params/>
+      <attribs>
+         <table attributeName="str" table="J2B NoiseLab"/>
+      </attribs>
+   </obj>
+   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_14" x="588" y="350">
+      <params/>
+      <attribs>
+         <table attributeName="str" table="J3R Drip Bell"/>
+      </attribs>
+   </obj>
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_6" x="1232" y="378">
+      <params>
+         <int32 name="value" value="7"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="patch/load i" uuid="b79124f5b7d1e8b39e187677ddab6260ce8c60a3" name="load_6" x="1316" y="378">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_3" x="0" y="420">
+      <params/>
+      <attribs>
+         <table attributeName="str" table=""/>
+      </attribs>
+   </obj>
+   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_7" x="196" y="420">
+      <params/>
+      <attribs>
+         <table attributeName="str" table=""/>
+      </attribs>
+   </obj>
+   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_11" x="392" y="420">
+      <params/>
+      <attribs>
+         <table attributeName="str" table=""/>
+      </attribs>
+   </obj>
+   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_15" x="588" y="420">
+      <params/>
+      <attribs>
+         <table attributeName="str" table="J3D Ice Breath"/>
+      </attribs>
+   </obj>
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_7" x="1232" y="448">
+      <params>
+         <int32 name="value" value="8"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="patch/load i" uuid="b79124f5b7d1e8b39e187677ddab6260ce8c60a3" name="load_7" x="1316" y="448">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_4" x="0" y="490">
+      <params/>
+      <attribs>
+         <table attributeName="str" table=""/>
+      </attribs>
+   </obj>
+   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_8" x="196" y="490">
+      <params/>
+      <attribs>
+         <table attributeName="str" table=""/>
+      </attribs>
+   </obj>
+   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_12" x="392" y="490">
+      <params/>
+      <attribs>
+         <table attributeName="str" table=""/>
+      </attribs>
+   </obj>
+   <obj type="string/c" uuid="4aa90a90c435a742ddfa152d232883fc5b2f1b3" name="c_16" x="588" y="490">
+      <params/>
+      <attribs>
+         <table attributeName="str" table="J3L Rubber Keys"/>
+      </attribs>
+   </obj>
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_9" x="994" y="630">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_8" x="994" y="728">
+      <params/>
+      <attribs/>
+   </obj>
+   <nets>
+      <net>
+         <source obj="c_1" outlet="out"/>
+         <dest obj="cool" inlet="OLED A0"/>
+      </net>
+      <net>
+         <source obj="c_2" outlet="out"/>
+         <dest obj="cool" inlet="OLED A1"/>
+      </net>
+      <net>
+         <source obj="c_3" outlet="out"/>
+         <dest obj="cool" inlet="OLED A2"/>
+      </net>
+      <net>
+         <source obj="c_4" outlet="out"/>
+         <dest obj="cool" inlet="OLED A3"/>
+      </net>
+      <net>
+         <source obj="c_5" outlet="out"/>
+         <dest obj="cool" inlet="OLED B0"/>
+      </net>
+      <net>
+         <source obj="c_6" outlet="out"/>
+         <dest obj="cool" inlet="OLED B1"/>
+      </net>
+      <net>
+         <source obj="c_7" outlet="out"/>
+         <dest obj="cool" inlet="OLED B2"/>
+      </net>
+      <net>
+         <source obj="c_8" outlet="out"/>
+         <dest obj="cool" inlet="OLED B3"/>
+      </net>
+      <net>
+         <source obj="c_9" outlet="out"/>
+         <dest obj="cool" inlet="OLED C0"/>
+      </net>
+      <net>
+         <source obj="c_10" outlet="out"/>
+         <dest obj="cool" inlet="OLED C1"/>
+      </net>
+      <net>
+         <source obj="c_11" outlet="out"/>
+         <dest obj="cool" inlet="OLED C2"/>
+      </net>
+      <net>
+         <source obj="c_12" outlet="out"/>
+         <dest obj="cool" inlet="OLED C3"/>
+      </net>
+      <net>
+         <source obj="c_13" outlet="out"/>
+         <dest obj="cool" inlet="OLED D0"/>
+      </net>
+      <net>
+         <source obj="c_14" outlet="out"/>
+         <dest obj="cool" inlet="OLED D1"/>
+      </net>
+      <net>
+         <source obj="c_15" outlet="out"/>
+         <dest obj="cool" inlet="OLED D2"/>
+      </net>
+      <net>
+         <source obj="c_16" outlet="out"/>
+         <dest obj="cool" inlet="OLED D3"/>
+      </net>
+      <net>
+         <source obj="i_1" outlet="out"/>
+         <dest obj="load_1" inlet="i"/>
+      </net>
+      <net>
+         <source obj="i_2" outlet="out"/>
+         <dest obj="load_2" inlet="i"/>
+      </net>
+      <net>
+         <source obj="i_3" outlet="out"/>
+         <dest obj="load_3" inlet="i"/>
+      </net>
+      <net>
+         <source obj="i_4" outlet="out"/>
+         <dest obj="load_4" inlet="i"/>
+      </net>
+      <net>
+         <source obj="i_5" outlet="out"/>
+         <dest obj="load_5" inlet="i"/>
+      </net>
+      <net>
+         <source obj="i_6" outlet="out"/>
+         <dest obj="load_6" inlet="i"/>
+      </net>
+      <net>
+         <source obj="i_7" outlet="out"/>
+         <dest obj="load_7" inlet="i"/>
+      </net>
+      <net>
+         <source obj="cool" outlet="JOY3_UP"/>
+         <dest obj="load_4" inlet="trig"/>
+      </net>
+      <net>
+         <source obj="cool" outlet="JOY3_DN"/>
+         <dest obj="load_5" inlet="trig"/>
+      </net>
+      <net>
+         <source obj="cool" outlet="JOY3_RT"/>
+         <dest obj="load_6" inlet="trig"/>
+      </net>
+      <net>
+         <source obj="cool" outlet="JOY3_LT"/>
+         <dest obj="load_7" inlet="trig"/>
+      </net>
+      <net>
+         <source obj="cool" outlet="JOY0_BTN"/>
+         <dest obj="bool_1" inlet="in"/>
+         <dest obj="load_1" inlet="trig"/>
+      </net>
+      <net>
+         <source obj="cool" outlet="JOY1_BTN"/>
+         <dest obj="load_2" inlet="trig"/>
+      </net>
+      <net>
+         <source obj="cool" outlet="JOY2_BTN"/>
+         <dest obj="load_3" inlet="trig"/>
+      </net>
+   </nets>
+   <settings>
+      <subpatchmode>no</subpatchmode>
+   </settings>
+   <notes><![CDATA[]]></notes>
+   <windowPos>
+      <x>-8</x>
+      <y>-8</y>
+      <width>1514</width>
+      <height>1014</height>
+   </windowPos>
+</patch-1.0>

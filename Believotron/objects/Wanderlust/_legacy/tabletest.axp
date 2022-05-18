@@ -1,0 +1,425 @@
+<patch-1.0 appVersion="1.0.12">
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_1" x="70" y="14">
+      <params>
+         <int32 name="value" value="0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="drj/math/== const i" uuid="36ae23539d64bc2fb798a1b4a65cf9dda17a1952" name="==_1" x="266" y="14">
+      <params/>
+      <attribs>
+         <spinner attributeName="value" value="0"/>
+      </attribs>
+   </obj>
+   <obj type="logic/SynthModelDataFrame" uuid="34b535fd-fc6f-4034-850e-c76f4271a070" name="obj_1" x="406" y="14">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="mux/mux 8" uuid="de5167d9da39b04039376e8cc620ea2afc22e28a" name="mux_1" x="714" y="28">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_7" x="840" y="28">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/dial b" uuid="862e7d7f29093cb1ce4aed72244d118ad4d46692" name="dial_1" x="56" y="98">
+      <params>
+         <frac32.s.map name="value" value="1.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="drj/math/== const i" uuid="36ae23539d64bc2fb798a1b4a65cf9dda17a1952" name="==_2" x="266" y="140">
+      <params/>
+      <attribs>
+         <spinner attributeName="value" value="1"/>
+      </attribs>
+   </obj>
+   <obj type="logic/SynthModelDataFrame" uuid="34b535fd-fc6f-4034-850e-c76f4271a070" name="obj_2" x="406" y="140">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/dial b" uuid="862e7d7f29093cb1ce4aed72244d118ad4d46692" name="dial_2" x="56" y="182">
+      <params>
+         <frac32.s.map name="value" value="2.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="mux/mux 8" uuid="de5167d9da39b04039376e8cc620ea2afc22e28a" name="mux_2" x="714" y="182">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_8" x="840" y="182">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/dial b" uuid="862e7d7f29093cb1ce4aed72244d118ad4d46692" name="dial_3" x="56" y="266">
+      <params>
+         <frac32.s.map name="value" value="44.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="drj/math/== const i" uuid="36ae23539d64bc2fb798a1b4a65cf9dda17a1952" name="==_3" x="266" y="266">
+      <params/>
+      <attribs>
+         <spinner attributeName="value" value="2"/>
+      </attribs>
+   </obj>
+   <obj type="logic/SynthModelDataFrame" uuid="34b535fd-fc6f-4034-850e-c76f4271a070" name="obj_3" x="406" y="266">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="mux/mux 8" uuid="de5167d9da39b04039376e8cc620ea2afc22e28a" name="mux_3" x="714" y="336">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_9" x="840" y="336">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/dial b" uuid="862e7d7f29093cb1ce4aed72244d118ad4d46692" name="dial_4" x="56" y="350">
+      <params>
+         <frac32.s.map name="value" value="-40.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="drj/math/== const i" uuid="36ae23539d64bc2fb798a1b4a65cf9dda17a1952" name="==_4" x="266" y="392">
+      <params/>
+      <attribs>
+         <spinner attributeName="value" value="3"/>
+      </attribs>
+   </obj>
+   <obj type="logic/SynthModelDataFrame" uuid="34b535fd-fc6f-4034-850e-c76f4271a070" name="obj_4" x="406" y="392">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/dial b" uuid="862e7d7f29093cb1ce4aed72244d118ad4d46692" name="dial_5" x="56" y="434">
+      <params>
+         <frac32.s.map name="value" value="26.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="mux/mux 8" uuid="de5167d9da39b04039376e8cc620ea2afc22e28a" name="mux_4" x="714" y="490">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_10" x="840" y="490">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/dial b" uuid="862e7d7f29093cb1ce4aed72244d118ad4d46692" name="dial_6" x="56" y="518">
+      <params>
+         <frac32.s.map name="value" value="18.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="drj/math/== const i" uuid="36ae23539d64bc2fb798a1b4a65cf9dda17a1952" name="==_5" x="266" y="518">
+      <params/>
+      <attribs>
+         <spinner attributeName="value" value="4"/>
+      </attribs>
+   </obj>
+   <obj type="logic/SynthModelDataFrame" uuid="34b535fd-fc6f-4034-850e-c76f4271a070" name="obj_5" x="406" y="518">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="drj/math/== const i" uuid="36ae23539d64bc2fb798a1b4a65cf9dda17a1952" name="==_6" x="266" y="644">
+      <params/>
+      <attribs>
+         <spinner attributeName="value" value="5"/>
+      </attribs>
+   </obj>
+   <obj type="logic/SynthModelDataFrame" uuid="34b535fd-fc6f-4034-850e-c76f4271a070" name="obj_6" x="406" y="644">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="mux/mux 8" uuid="de5167d9da39b04039376e8cc620ea2afc22e28a" name="mux_5" x="714" y="644">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_11" x="840" y="644">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="mux/mux 8" uuid="de5167d9da39b04039376e8cc620ea2afc22e28a" name="mux_6" x="714" y="798">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_12" x="840" y="798">
+      <params/>
+      <attribs/>
+   </obj>
+   <nets>
+      <net>
+         <source obj="==_1" outlet="out"/>
+         <dest obj="obj_1" inlet="inlet_1"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="volumeOut"/>
+         <dest obj="mux_1" inlet="i0"/>
+      </net>
+      <net>
+         <source obj="mux_1" outlet="o"/>
+         <dest obj="dial_7" inlet="in"/>
+      </net>
+      <net>
+         <source obj="dial_1" outlet="out"/>
+         <dest obj="obj_1" inlet="volumeIn"/>
+         <dest obj="obj_2" inlet="volumeIn"/>
+         <dest obj="obj_3" inlet="volumeIn"/>
+         <dest obj="obj_4" inlet="volumeIn"/>
+         <dest obj="obj_5" inlet="volumeIn"/>
+         <dest obj="obj_6" inlet="volumeIn"/>
+      </net>
+      <net>
+         <source obj="==_2" outlet="out"/>
+         <dest obj="obj_2" inlet="inlet_1"/>
+      </net>
+      <net>
+         <source obj="==_3" outlet="out"/>
+         <dest obj="obj_3" inlet="inlet_1"/>
+      </net>
+      <net>
+         <source obj="==_4" outlet="out"/>
+         <dest obj="obj_4" inlet="inlet_1"/>
+      </net>
+      <net>
+         <source obj="==_5" outlet="out"/>
+         <dest obj="obj_5" inlet="inlet_1"/>
+      </net>
+      <net>
+         <source obj="==_6" outlet="out"/>
+         <dest obj="obj_6" inlet="inlet_1"/>
+      </net>
+      <net>
+         <source obj="obj_2" outlet="volumeOut"/>
+         <dest obj="mux_1" inlet="i1"/>
+      </net>
+      <net>
+         <source obj="obj_3" outlet="volumeOut"/>
+         <dest obj="mux_1" inlet="i2"/>
+      </net>
+      <net>
+         <source obj="obj_4" outlet="volumeOut"/>
+         <dest obj="mux_1" inlet="i3"/>
+      </net>
+      <net>
+         <source obj="obj_5" outlet="volumeOut"/>
+         <dest obj="mux_1" inlet="i4"/>
+      </net>
+      <net>
+         <source obj="obj_6" outlet="volumeOut"/>
+         <dest obj="mux_1" inlet="i5"/>
+      </net>
+      <net>
+         <source obj="mux_2" outlet="o"/>
+         <dest obj="dial_8" inlet="in"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="pitchOut"/>
+         <dest obj="mux_2" inlet="i0"/>
+      </net>
+      <net>
+         <source obj="obj_2" outlet="pitchOut"/>
+         <dest obj="mux_2" inlet="i1"/>
+      </net>
+      <net>
+         <source obj="obj_3" outlet="pitchOut"/>
+         <dest obj="mux_2" inlet="i2"/>
+      </net>
+      <net>
+         <source obj="obj_4" outlet="pitchOut"/>
+         <dest obj="mux_2" inlet="i3"/>
+      </net>
+      <net>
+         <source obj="obj_5" outlet="pitchOut"/>
+         <dest obj="mux_2" inlet="i4"/>
+      </net>
+      <net>
+         <source obj="obj_6" outlet="pitchOut"/>
+         <dest obj="mux_2" inlet="i5"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="attackOut"/>
+         <dest obj="mux_3" inlet="i0"/>
+      </net>
+      <net>
+         <source obj="obj_2" outlet="attackOut"/>
+         <dest obj="mux_3" inlet="i1"/>
+      </net>
+      <net>
+         <source obj="obj_5" outlet="attackOut"/>
+         <dest obj="mux_3" inlet="i4"/>
+      </net>
+      <net>
+         <source obj="obj_6" outlet="attackOut"/>
+         <dest obj="mux_3" inlet="i5"/>
+      </net>
+      <net>
+         <source obj="mux_3" outlet="o"/>
+         <dest obj="dial_9" inlet="in"/>
+      </net>
+      <net>
+         <source obj="mux_4" outlet="o"/>
+         <dest obj="dial_10" inlet="in"/>
+      </net>
+      <net>
+         <source obj="mux_5" outlet="o"/>
+         <dest obj="dial_11" inlet="in"/>
+      </net>
+      <net>
+         <source obj="mux_6" outlet="o"/>
+         <dest obj="dial_12" inlet="in"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="decayOut"/>
+         <dest obj="mux_4" inlet="i0"/>
+      </net>
+      <net>
+         <source obj="obj_2" outlet="decayOut"/>
+         <dest obj="mux_4" inlet="i1"/>
+      </net>
+      <net>
+         <source obj="obj_3" outlet="attackOut"/>
+         <dest obj="mux_3" inlet="i2"/>
+      </net>
+      <net>
+         <source obj="obj_4" outlet="attackOut"/>
+         <dest obj="mux_3" inlet="i3"/>
+      </net>
+      <net>
+         <source obj="obj_3" outlet="decayOut"/>
+         <dest obj="mux_4" inlet="i2"/>
+      </net>
+      <net>
+         <source obj="obj_4" outlet="decayOut"/>
+         <dest obj="mux_4" inlet="i3"/>
+      </net>
+      <net>
+         <source obj="obj_5" outlet="decayOut"/>
+         <dest obj="mux_4" inlet="i4"/>
+      </net>
+      <net>
+         <source obj="obj_6" outlet="decayOut"/>
+         <dest obj="mux_4" inlet="i5"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="sustainOut"/>
+         <dest obj="mux_5" inlet="i0"/>
+      </net>
+      <net>
+         <source obj="obj_2" outlet="sustainOut"/>
+         <dest obj="mux_5" inlet="i1"/>
+      </net>
+      <net>
+         <source obj="obj_3" outlet="sustainOut"/>
+         <dest obj="mux_5" inlet="i2"/>
+      </net>
+      <net>
+         <source obj="obj_4" outlet="sustainOut"/>
+         <dest obj="mux_5" inlet="i3"/>
+      </net>
+      <net>
+         <source obj="obj_5" outlet="sustainOut"/>
+         <dest obj="mux_5" inlet="i4"/>
+      </net>
+      <net>
+         <source obj="obj_6" outlet="sustainOut"/>
+         <dest obj="mux_5" inlet="i5"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="releaseOut"/>
+         <dest obj="mux_6" inlet="i0"/>
+      </net>
+      <net>
+         <source obj="obj_2" outlet="releaseOut"/>
+         <dest obj="mux_6" inlet="i1"/>
+      </net>
+      <net>
+         <source obj="obj_3" outlet="releaseOut"/>
+         <dest obj="mux_6" inlet="i2"/>
+      </net>
+      <net>
+         <source obj="obj_4" outlet="releaseOut"/>
+         <dest obj="mux_6" inlet="i3"/>
+      </net>
+      <net>
+         <source obj="obj_5" outlet="releaseOut"/>
+         <dest obj="mux_6" inlet="i4"/>
+      </net>
+      <net>
+         <source obj="obj_6" outlet="releaseOut"/>
+         <dest obj="mux_6" inlet="i5"/>
+      </net>
+      <net>
+         <source obj="i_1" outlet="out"/>
+         <dest obj="==_1" inlet="in"/>
+         <dest obj="==_2" inlet="in"/>
+         <dest obj="==_3" inlet="in"/>
+         <dest obj="==_4" inlet="in"/>
+         <dest obj="==_5" inlet="in"/>
+         <dest obj="==_6" inlet="in"/>
+         <dest obj="mux_1" inlet="s"/>
+         <dest obj="mux_2" inlet="s"/>
+         <dest obj="mux_3" inlet="s"/>
+         <dest obj="mux_4" inlet="s"/>
+         <dest obj="mux_5" inlet="s"/>
+         <dest obj="mux_6" inlet="s"/>
+      </net>
+      <net>
+         <source obj="dial_2" outlet="out"/>
+         <dest obj="obj_2" inlet="pitchIn"/>
+         <dest obj="obj_3" inlet="pitchIn"/>
+         <dest obj="obj_4" inlet="pitchIn"/>
+         <dest obj="obj_5" inlet="pitchIn"/>
+         <dest obj="obj_6" inlet="pitchIn"/>
+         <dest obj="obj_1" inlet="pitchIn"/>
+      </net>
+      <net>
+         <source obj="dial_3" outlet="out"/>
+         <dest obj="obj_1" inlet="attackIn"/>
+         <dest obj="obj_2" inlet="attackIn"/>
+         <dest obj="obj_3" inlet="attackIn"/>
+         <dest obj="obj_4" inlet="attackIn"/>
+         <dest obj="obj_5" inlet="attackIn"/>
+         <dest obj="obj_6" inlet="attackIn"/>
+      </net>
+      <net>
+         <source obj="dial_4" outlet="out"/>
+         <dest obj="obj_1" inlet="decayIn"/>
+         <dest obj="obj_2" inlet="decayIn"/>
+         <dest obj="obj_3" inlet="decayIn"/>
+         <dest obj="obj_4" inlet="decayIn"/>
+         <dest obj="obj_5" inlet="decayIn"/>
+         <dest obj="obj_6" inlet="decayIn"/>
+      </net>
+      <net>
+         <source obj="dial_5" outlet="out"/>
+         <dest obj="obj_1" inlet="sustainIn"/>
+         <dest obj="obj_2" inlet="sustainIn"/>
+         <dest obj="obj_3" inlet="sustainIn"/>
+         <dest obj="obj_4" inlet="sustainIn"/>
+         <dest obj="obj_6" inlet="sustainIn"/>
+         <dest obj="obj_5" inlet="sustainIn"/>
+      </net>
+      <net>
+         <source obj="dial_6" outlet="out"/>
+         <dest obj="obj_5" inlet="releaseIn"/>
+         <dest obj="obj_6" inlet="releaseIn"/>
+         <dest obj="obj_4" inlet="releaseIn"/>
+         <dest obj="obj_3" inlet="releaseIn"/>
+         <dest obj="obj_2" inlet="releaseIn"/>
+         <dest obj="obj_1" inlet="releaseIn"/>
+      </net>
+   </nets>
+   <settings>
+      <subpatchmode>no</subpatchmode>
+   </settings>
+   <notes><![CDATA[]]></notes>
+   <windowPos>
+      <x>-1928</x>
+      <y>-91</y>
+      <width>1723</width>
+      <height>976</height>
+   </windowPos>
+</patch-1.0>

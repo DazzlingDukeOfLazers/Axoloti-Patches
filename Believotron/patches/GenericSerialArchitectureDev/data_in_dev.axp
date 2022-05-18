@@ -1,0 +1,277 @@
+<patch-1.0 appVersion="1.0.12">
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_1" x="42" y="56">
+      <params>
+         <int32 name="value" value="1"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="script/SerialDataLoopSlurpToTable" uuid="4287353f-73d1-4c7d-bbda-193cf143cec6" name="foo" x="224" y="56">
+      <params/>
+      <attribs>
+         <text attributeName="script">
+            <sText><![CDATA[int cnt = 1;
+bool gate = 1;
+uint8_t *rxbuf;
+uint8_t *txbuf;
+systime_t tmo = MS2ST(4);
+
+
+// TBD, figure out cross platform solution to relative directories
+/*
+#include "C:\\Users\\danie\\Documents\\WIP\\Believotron\\Believotron-Github\\Axoloti-Patches\\Believotron\\objects\\script\\knobs.c"
+#include "C:\\Users\\danie\\Documents\\WIP\\Believotron\\Believotron-Github\\Axoloti-Patches\\Believotron\\objects\\script\\led.c"
+#include "C:\\Users\\danie\\Documents\\WIP\\Believotron\\Believotron-Github\\Axoloti-Patches\\Believotron\\objects\\script\\padcaps.c"
+*/
+
+
+
+
+
+
+
+
+
+// <SPI stuff - knobs, mostly>
+// Turns all the SPI chip selects off
+void SPI_CS_ALL_OFF()
+{
+	// Disable Chip Select
+	palWritePad(GPIOC,5,1);	// LED
+	palWritePad(GPIOB,7,1);  // Knob, Top Row
+	palWritePad(GPIOB,6,1);	// Knob, Bottom Row
+	
+}
+// </SPI stuff>
+
+
+// Default Voodoo to make serial communication working; Rabbithole of shared memory
+void LinkTxRxBuffers(void)
+{
+	static uint8_t _txbuf[8] __attribute__ ((section (".sram2")));
+	static uint8_t _rxbuf[8] __attribute__ ((section (".sram2")));
+	txbuf = _txbuf;
+	rxbuf = _rxbuf;
+}
+
+
+
+void setup(void) {
+	chThdSleepMilliseconds(1000); 
+	LinkTxRxBuffers();
+
+
+	
+	out1 = 0xABBA;
+	
+	rxbuf[0] = 0;	
+	txbuf[0] = 0; // CAP1188_PRODID;
+
+	out2 = 0xBEEF;
+	out3 = 0xABBA;
+	
+}
+
+void loop(void)
+{	
+	
+	out1 =123456789;
+	//knbB0 = 123456789;
+
+	chThdSleepMilliseconds(1); 	
+}
+]]></sText>
+         </text>
+         <combo attributeName="size" selection="8192"/>
+         <text attributeName="init">
+            <sText><![CDATA[]]></sText>
+         </text>
+         <objref attributeName="table" obj="foo"/>
+      </attribs>
+   </obj>
+   <obj type="env/adsr m" uuid="98bd39fb828c392b28126d259cb5175e6f6ea34b" name="adsr_1" x="1064" y="56">
+      <params>
+         <frac32.s.map name="a" value="0.0"/>
+         <frac32.s.map name="d" value="0.0"/>
+         <frac32.u.map name="s" value="0.0"/>
+         <frac32.s.map name="r" value="0.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_4" x="518" y="70">
+      <params>
+         <int32 name="value" value="1"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="table/read_dev" uuid="8846f25e-0c5d-4265-9544-8e4f4f391e40" name="read_dev_1" x="616" y="70">
+      <params/>
+      <attribs>
+         <objref attributeName="table" obj="foo"/>
+      </attribs>
+   </obj>
+   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_4" x="770" y="70">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_2" x="42" y="140">
+      <params>
+         <int32 name="value" value="1"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_5" x="518" y="154">
+      <params>
+         <int32 name="value" value="1"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_5" x="770" y="154">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="mix/mix 2 g" uuid="221f038da51943034a75e442c90624fcebfe6112" name="mix_1" x="1694" y="238">
+      <params>
+         <frac32.u.map name="gain1" value="32.0"/>
+         <frac32.u.map name="gain2" value="32.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_1" x="1540" y="294">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="audio/out stereo" uuid="a1ca7a567f535acc21055669829101d3ee7f0189" name="out_1" x="1904" y="322">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="osc/sine" uuid="6e094045cca76a9dbf7ebfa72e44e4700d2b3ba" name="sine_1" x="1050" y="350">
+      <params>
+         <frac32.s.map name="pitch" value="0.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_2" x="1554" y="406">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="mix/mix 2 g" uuid="221f038da51943034a75e442c90624fcebfe6112" name="mix_2" x="1694" y="406">
+      <params>
+         <frac32.u.map name="gain1" value="32.0"/>
+         <frac32.u.map name="gain2" value="32.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="i_3" x="462" y="560">
+      <params>
+         <int32 name="value" value="1"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="table/write_dev" uuid="ec213ffd-4757-45e5-8388-fe839a306c7d" name="write_dev_1" x="294" y="588">
+      <params/>
+      <attribs>
+         <objref attributeName="table" obj="foo"/>
+      </attribs>
+   </obj>
+   <obj type="ctrl/dial p" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="dial_3" x="126" y="630">
+      <params>
+         <frac32.u.map name="value" value="13.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial p" uuid="44fd18b562e434b3230441681132dbeabb15cdc5" name="dial_2" x="728" y="658">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="table/read" uuid="65eb8d0f6a3344638de94c9882999b9af15510d0" name="read_1" x="546" y="672">
+      <params/>
+      <attribs>
+         <objref attributeName="table" obj="foo"/>
+      </attribs>
+   </obj>
+   <obj type="ctrl/button" uuid="ef3d13774349df85aa9bfecf30dbc91ab8488b3f" name="button_1" x="126" y="714">
+      <params>
+         <bool32.mom name="b" value="0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="dial_1" x="728" y="742">
+      <params/>
+      <attribs/>
+   </obj>
+   <nets>
+      <net>
+         <source obj="adsr_1" outlet="env"/>
+         <dest obj="vca_1" inlet="v"/>
+         <dest obj="vca_2" inlet="v"/>
+      </net>
+      <net>
+         <source obj="mix_2" outlet="out"/>
+         <dest obj="out_1" inlet="right"/>
+      </net>
+      <net>
+         <source obj="mix_1" outlet="out"/>
+         <dest obj="out_1" inlet="left"/>
+      </net>
+      <net>
+         <source obj="vca_1" outlet="o"/>
+         <dest obj="mix_1" inlet="in1"/>
+      </net>
+      <net>
+         <source obj="vca_2" outlet="o"/>
+         <dest obj="mix_2" inlet="in1"/>
+      </net>
+      <net>
+         <source obj="sine_1" outlet="wave"/>
+         <dest obj="vca_1" inlet="a"/>
+         <dest obj="vca_2" inlet="a"/>
+      </net>
+      <net>
+         <source obj="read_1" outlet="o"/>
+         <dest obj="dial_2" inlet="in"/>
+         <dest obj="dial_1" inlet="in"/>
+      </net>
+      <net>
+         <source obj="i_2" outlet="out"/>
+         <dest obj="write_dev_1" inlet="a"/>
+         <dest obj="foo" inlet="offset"/>
+         <dest obj="read_1" inlet="a"/>
+      </net>
+      <net>
+         <source obj="dial_3" outlet="out"/>
+         <dest obj="write_dev_1" inlet="v"/>
+         <dest obj="foo" inlet="inVal"/>
+      </net>
+      <net>
+         <source obj="button_1" outlet="o"/>
+         <dest obj="write_dev_1" inlet="trig"/>
+      </net>
+      <net>
+         <source obj="i_1" outlet="out"/>
+         <dest obj="foo" inlet="ch"/>
+      </net>
+      <net>
+         <source obj="i_4" outlet="out"/>
+         <dest obj="read_dev_1" inlet="ch"/>
+      </net>
+      <net>
+         <source obj="i_5" outlet="out"/>
+         <dest obj="read_dev_1" inlet="offset"/>
+      </net>
+      <net>
+         <source obj="read_dev_1" outlet="o"/>
+         <dest obj="dial_4" inlet="in"/>
+         <dest obj="dial_5" inlet="in"/>
+      </net>
+   </nets>
+   <settings>
+      <subpatchmode>no</subpatchmode>
+   </settings>
+   <notes><![CDATA[]]></notes>
+   <windowPos>
+      <x>-1926</x>
+      <y>362</y>
+      <width>972</width>
+      <height>1086</height>
+   </windowPos>
+</patch-1.0>
